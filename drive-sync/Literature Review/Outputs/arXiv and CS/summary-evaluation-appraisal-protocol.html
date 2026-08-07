@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reference Protocol: Scientific, Clinical, Scholarly, and AI/ML Summary, Evaluation, and Appraisal</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --ink: #17202a;
+      --muted: #526173;
+      --line: #d9e0ea;
+      --accent: #1d4f91;
+      --accent2: #7a3e06;
+      --good: #0f6b3b;
+      --warn: #8a5a00;
+      --bad: #8a1f1f;
+      --codebg: #0e1726;
+      --codefg: #edf4ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: linear-gradient(135deg, #10243d, #1d4f91);
+      color: white;
+      padding: 2.2rem 1.25rem 2rem;
+      border-bottom: 5px solid #d2e2f5;
+    }
+    header .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { margin: 0 0 .6rem; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.15; }
+    .subtitle { max-width: 920px; font-size: 1.05rem; color: #dce9f8; margin: 0; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    nav.toc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0 1.25rem;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .06);
+    }
+    nav.toc a { color: var(--accent); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+    .toc-grid { columns: 2; column-gap: 2rem; padding-left: 1.25rem; }
+    section, article.card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .05);
+    }
+    h2 { color: #0f315f; margin: .2rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: .45rem; }
+    h3 { color: #173f72; margin-top: 1.25rem; }
+    h4 { margin: 1rem 0 .35rem; color: #24364b; }
+    .meta-grid, .rating-grid, .takeaway-grid, .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .75rem;
+    }
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .8rem;
+      background: #fbfcff;
+    }
+    .label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .value { font-weight: 650; margin-top: .2rem; }
+    .verdict {
+      border-left: 5px solid var(--accent);
+      background: #eef5ff;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: .6rem 0 1rem;
+    }
+    .warning {
+      border-left: 5px solid var(--warn);
+      background: #fff8e8;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    .badnote {
+      border-left: 5px solid var(--bad);
+      background: #fff1f1;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    .goodnote {
+      border-left: 5px solid var(--good);
+      background: #edf8f2;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    table { width: 100%; border-collapse: collapse; margin: .75rem 0; font-size: .96rem; }
+    th, td { border: 1px solid var(--line); padding: .55rem .65rem; vertical-align: top; }
+    th { background: #eef3f9; text-align: left; color: #1e395c; }
+    .rating-grid .mini-card { min-height: 92px; }
+    .score { font-size: 1.35rem; font-weight: 800; color: var(--accent); }
+    pre {
+      margin: .75rem 0 1.1rem;
+      padding: 1rem;
+      background: var(--codebg);
+      color: var(--codefg);
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #1b2e49;
+      font-size: .88rem;
+      line-height: 1.45;
+      white-space: pre;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .section-summary { border-left: 4px solid #cbd8e8; padding-left: .95rem; margin: .9rem 0 1.2rem; }
+    .section-summary h3 { margin: 0 0 .4rem; }
+    .section-summary p { margin: .4rem 0; }
+    .tag {
+      display: inline-block;
+      border: 1px solid #c9d7e8;
+      background: #f2f6fb;
+      color: #27496d;
+      padding: .15rem .45rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin: .12rem .2rem .12rem 0;
+    }
+    .small { color: var(--muted); font-size: .92rem; }
+    ul.tight li, ol.tight li { margin-bottom: .35rem; }
+    .checklist li { margin-bottom: .45rem; }
+    footer { max-width: 1100px; margin: 0 auto 2rem; color: var(--muted); padding: 0 1.25rem; font-size: .9rem; }
+    @media print {
+      body { background: white; }
+      section, article.card, nav.toc { box-shadow: none; break-inside: avoid; }
+      pre { white-space: pre-wrap; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Summary, Evaluation, and Appraisal Protocol</h1>
+    <p class="subtitle">Reusable reference-file standard for scientific, clinical, scholarly, and AI/ML research or practice-related summaries, evaluations, and appraisals.</p>
+  </div>
+</header>
+<main>
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ol class="toc-grid">
+      <li><a href="#metadata">Protocol metadata</a></li>
+      <li><a href="#onepage">One-page protocol synthesis</a></li>
+      <li><a href="#workflow">End-to-end workflow</a></li>
+      <li><a href="#source-intake">Source intake and grounding</a></li>
+      <li><a href="#section-condensation">Section condensation rules</a></li>
+      <li><a href="#figures-tables">Figure, table, and exhibit breakdowns</a></li>
+      <li><a href="#evaluation">Evaluation and appraisal rubric</a></li>
+      <li><a href="#domain-modules">Domain-specific appraisal modules</a></li>
+      <li><a href="#html-spec">Reference HTML output specification</a></li>
+      <li><a href="#templates">Reusable prompts and templates</a></li>
+      <li><a href="#qa">Quality-control checklist</a></li>
+    </ol>
+  </nav>
+
+  <section id="metadata">
+    <h2>Protocol metadata</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><div class="label">Protocol name</div><div class="value">Summary, Evaluation, and Appraisal Reference HTML Protocol</div></div>
+      <div class="mini-card"><div class="label">Primary use</div><div class="value">Scientific, clinical, scholarly, and AI/ML source evaluation</div></div>
+      <div class="mini-card"><div class="label">Output format</div><div class="value">Single-file reference HTML</div></div>
+      <div class="mini-card"><div class="label">Default depth</div><div class="value">Section-by-section synthesis + visual extraction + appraisal</div></div>
+      <div class="mini-card"><div class="label">Default tone</div><div class="value">Concise, technical, evidence-oriented, non-promotional</div></div>
+      <div class="mini-card"><div class="label">Best fit</div><div class="value">Papers, preprints, guidelines, protocols, benchmarks, clinical reviews, technical reports</div></div>
+    </div>
+    <p class="small">Scope: this protocol defines the expected structure, reasoning discipline, extraction granularity, and appraisal standards for future reference HTML files. It is not a substitute for primary-source reading, clinical judgment, regulatory review, or local policy.</p>
+  </section>
+
+  <section id="onepage">
+    <h2>One-page protocol synthesis</h2>
+    <div class="verdict">
+      <strong>Core standard:</strong> each reference HTML file should make the source easier to retain, search, critique, and reuse. The file should not merely summarize. It should separate <strong>what the source says</strong>, <strong>how the source supports it</strong>, <strong>what the visuals and tables contain</strong>, <strong>how credible the work is</strong>, and <strong>what should be done with it next</strong>.
+    </div>
+    <p>The reference file should follow a stable layout: metadata, one-page synthesis, section condensation, figure/table breakdowns, evaluation and appraisal, implementation or practice takeaways, and quality caveats. This layout supports rapid reading now and later reuse in notes, RAG systems, protocols, teaching files, and research triage.</p>
+    <p>The default compression rule is strict: condense each source section into no more than two paragraphs, while preserving all load-bearing claims, methods, measurements, limitations, and conclusions. Visuals, tables, algorithms, workflows, and diagrams should be decomposed into separate structured text or code blocks because they often contain the most reusable information.</p>
+    <div>
+      <span class="tag">Section condensation</span>
+      <span class="tag">Visual decomposition</span>
+      <span class="tag">Evidence grounding</span>
+      <span class="tag">Clinical caution</span>
+      <span class="tag">AI/ML appraisal</span>
+      <span class="tag">Implementation takeaways</span>
+      <span class="tag">Reusable HTML</span>
+    </div>
+  </section>
+
+  <section id="workflow">
+    <h2>End-to-end workflow</h2>
+    <div class="section-summary">
+      <h3>1. Identify the source and classify the artifact</h3>
+      <p>Determine whether the source is a preprint, peer-reviewed article, clinical guideline, regulatory document, benchmark paper, technical report, protocol, narrative review, systematic review, dataset paper, software paper, or practice document. The source type controls the appraisal lens: a benchmark paper should be judged differently than a clinical guideline or pharmacokinetic study.</p>
+      <p>Extract bibliographic metadata first: title, authors, year/date, venue or repository, version, DOI/arXiv/PubMed identifier when available, topic area, and source URL. If the source is a preprint, explicitly label it as such. If the source is a living guideline or current practice document, verify currency where feasible.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>2. Read for structure before summarizing content</h3>
+      <p>Map the document before writing: abstract, introduction/background, methods, results, figures, tables, discussion, limitations, conclusion, appendices, and supplementary materials. For non-IMRaD documents, map the actual headings rather than forcing the source into a generic structure.</p>
+      <p>Identify the load-bearing sections: methods, experimental setup, validation plan, inclusion/exclusion criteria, statistical analysis, benchmark design, clinical recommendations, safety constraints, and limitations. These should receive more attention than background or promotional framing.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3. Separate summary from appraisal</h3>
+      <p>Summary should report what the source claims without premature judgment. Appraisal should then evaluate whether those claims are well supported. This prevents the final file from blending author claims, assistant interpretation, and independent critique into one ambiguous narrative.</p>
+      <p>Use explicit labels: “Core thesis,” “What the authors did,” “What the results show,” “What the source does not establish,” “Major limitations,” and “Bottom-line appraisal.” When the source is weak, say so directly without overstating certainty.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>4. Preserve reusable structure</h3>
+      <p>Every reference file should be useful months later without reopening the source. Preserve identifiers, study population, intervention/exposure/model, comparator/baseline, outcome/metric, dataset, protocol, statistics, major caveats, figure contents, table contents, and implementation implications.</p>
+      <p>Prefer structured blocks over prose for workflows, algorithms, benchmark setups, clinical pathways, schema definitions, drug regimens, eligibility criteria, and figure decompositions. This makes the file easier to search, convert, index, or reuse in a retrieval system.</p>
+    </div>
+  </section>
+
+  <section id="source-intake">
+    <h2>Source intake and grounding</h2>
+    <h3>Minimum source metadata</h3>
+    <table>
+      <thead>
+        <tr><th>Field</th><th>Required content</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Title</td><td>Exact title when available</td><td>Do not silently shorten titles in the metadata card.</td></tr>
+        <tr><td>Authors / organization</td><td>Listed authors, group authors, agency, society, or sponsor</td><td>For guidelines, include issuing body and endorsement status.</td></tr>
+        <tr><td>Source type</td><td>Preprint, journal article, guideline, review, benchmark, technical report, policy, protocol, label, dataset</td><td>Source type determines the appraisal rubric.</td></tr>
+        <tr><td>Date and version</td><td>Publication date, submitted date, update date, version number</td><td>Critical for preprints, guidelines, software, and fast-moving AI/ML topics.</td></tr>
+        <tr><td>Identifier</td><td>DOI, PMID, PMCID, arXiv ID, URL, registry ID, guideline ID</td><td>Include stable identifiers whenever possible.</td></tr>
+        <tr><td>Study or document design</td><td>RCT, cohort, case-control, modeling study, benchmark, systematic review, consensus guideline, software architecture</td><td>Do not infer stronger design than the document supports.</td></tr>
+        <tr><td>Scope warning</td><td>What this reference does and does not validate</td><td>Useful for clinical and AI safety files.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Grounding hierarchy</h3>
+    <pre><code>GROUNDING PRIORITY
+
+1. User-provided source or uploaded file
+   - Treat as the primary object for summary.
+   - Do not replace it with outside commentary unless asked.
+
+2. Source metadata pages
+   - Use to verify title, authors, date, version, abstract, DOI, PMID, arXiv ID, or errata.
+
+3. Primary full text, PDF, supplementary appendix, trial registry, code repository, dataset card
+   - Use when appraisal depends on methods, figures, appendices, or implementation details.
+
+4. Guidelines, labels, society statements, or regulatory sources
+   - Use for clinical or practice claims that could affect care.
+
+5. Secondary commentary
+   - Use only when the task asks for reception, controversy, user sentiment, implementation experience, or broader context.</code></pre>
+
+    <div class="warning">
+      <strong>Currency rule:</strong> for clinical practice, guidelines, drug information, regulatory status, pricing, software, benchmarks, AI model capabilities, and current events, verify recency when possible. A source can be accurately summarized and still be outdated for practice.
+    </div>
+  </section>
+
+  <section id="section-condensation">
+    <h2>Section condensation rules</h2>
+    <div class="verdict">
+      <strong>Default compression rule:</strong> every source section receives a maximum of two paragraphs unless the user explicitly requests greater depth. Each paragraph should be dense enough to preserve the section’s function, claims, methods, results, and caveats without becoming a paraphrased wall of text.
+    </div>
+
+    <h3>Section-by-section method</h3>
+    <table>
+      <thead>
+        <tr><th>Section type</th><th>What to preserve</th><th>What to avoid</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Abstract</td><td>Problem, method, main result, claimed implication</td><td>Repeating author framing without later verification</td></tr>
+        <tr><td>Introduction / Background</td><td>Why the work exists, gap claimed by authors, clinical/scientific context</td><td>Overweighting background as evidence</td></tr>
+        <tr><td>Methods</td><td>Design, population/data, inclusion/exclusion, model, intervention, comparator, endpoints, statistics, validation</td><td>Vague statements such as “standard methods were used”</td></tr>
+        <tr><td>Results</td><td>Primary outcomes, effect sizes, uncertainty, tables, subgroup results, benchmark deltas, ablations</td><td>Only reporting directionality without magnitude</td></tr>
+        <tr><td>Discussion</td><td>Authors’ interpretation, implications, limitations acknowledged</td><td>Accepting speculation as established fact</td></tr>
+        <tr><td>Limitations</td><td>Internal, external, statistical, operational, regulatory, safety, and generalizability limits</td><td>Hiding limitations in an appraisal paragraph only</td></tr>
+        <tr><td>Conclusion</td><td>Final claim and justified next step</td><td>Letting conclusion inflate weak evidence</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Preferred section block format</h3>
+    <pre><code>&lt;div class="section-summary"&gt;
+  &lt;h3&gt;Section heading from source&lt;/h3&gt;
+  &lt;p&gt;Paragraph 1: what this section says and why it matters.&lt;/p&gt;
+  &lt;p&gt;Paragraph 2: key details, constraints, results, or limitations.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+    <h3>Compression discipline</h3>
+    <ul class="tight">
+      <li><strong>Do not flatten structure:</strong> preserve headings, named methods, numbered frameworks, study arms, metrics, and timepoints.</li>
+      <li><strong>Do not bury caveats:</strong> limitations belong near the claims they weaken and again in the appraisal section.</li>
+      <li><strong>Preserve magnitude:</strong> include effect sizes, rates, sample sizes, confidence intervals, p values, calibration, accuracy, latency, or benchmark scores when central.</li>
+      <li><strong>Separate author claim from inference:</strong> phrase uncertain conclusions as “the authors argue,” “the study suggests,” or “this supports but does not prove.”</li>
+      <li><strong>Use plain labels:</strong> “Not tested,” “Not reported,” “Unclear,” and “Out of scope” are better than vague prose.</li>
+    </ul>
+  </section>
+
+  <section id="figures-tables">
+    <h2>Figure, table, and exhibit breakdowns</h2>
+    <p>Figures, tables, algorithms, workflows, equations, and appendices often contain the most reusable information. They should be broken into separate text/code blocks, preserving hierarchy, labels, flows, groups, metrics, and interpretation.</p>
+
+    <h3>Figure decomposition template</h3>
+    <pre><code>FIGURE N — Descriptive title
+
+PURPOSE:
+  What the figure is trying to show.
+
+STRUCTURE:
+  Panel A:
+    - Inputs:
+    - Process:
+    - Outputs:
+    - Key labels:
+
+  Panel B:
+    - Groups or conditions:
+    - Axes or variables:
+    - Main pattern:
+
+NUMERIC / VISUAL DETAILS:
+  - Sample sizes:
+  - Metrics:
+  - Thresholds:
+  - Direction and magnitude of effects:
+  - Error bars / uncertainty:
+
+INTERPRETATION:
+  What the figure supports.
+
+LIMITATIONS:
+  What the figure does not show, or what cannot be inferred from it.</code></pre>
+
+    <h3>Table decomposition template</h3>
+    <pre><code>TABLE N — Descriptive title
+
+ROWS:
+  - What each row represents.
+
+COLUMNS:
+  - What each column measures.
+
+KEY VALUES:
+  - Most important values, ranges, or comparisons.
+
+PATTERN:
+  - What increases, decreases, dominates, or fails.
+
+APPRAISAL:
+  - Are denominators clear?
+  - Are uncertainty intervals shown?
+  - Are comparisons appropriate?
+  - Are missing data handled?
+  - Are subgroup results underpowered?</code></pre>
+
+    <h3>Algorithm / workflow decomposition template</h3>
+    <pre><code>WORKFLOW / ALGORITHM STRUCTURE
+
+INPUTS:
+  - Required data elements
+  - Optional data elements
+  - Exclusions or unsupported cases
+
+PROCESS:
+  Step 1:
+    - Operation
+    - Decision rule
+    - Failure mode
+
+  Step 2:
+    - Operation
+    - Decision rule
+    - Failure mode
+
+OUTPUTS:
+  - Recommendation / prediction / classification / artifact
+  - Confidence or uncertainty
+  - Required human review
+
+GOVERNANCE / SAFETY:
+  - Boundary checks
+  - Escalation conditions
+  - Audit trail
+  - Versioning
+  - Monitoring triggers</code></pre>
+
+    <h3>Visual appraisal questions</h3>
+    <ul class="tight">
+      <li>Does the figure report the denominator, sample size, uncertainty, and scale?</li>
+      <li>Are axis labels, units, time windows, and thresholds clear?</li>
+      <li>Does the visual support the claim made in the text, or is it mainly conceptual?</li>
+      <li>Could the same pattern be explained by confounding, selection bias, leakage, cherry-picking, or calibration failure?</li>
+      <li>For AI/ML figures, does the figure separate training, validation, test, external validation, ablation, and deployment?</li>
+      <li>For clinical figures, does the figure distinguish surrogate outcomes from patient-centered outcomes?</li>
+    </ul>
+  </section>
+
+  <section id="evaluation">
+    <h2>Evaluation and appraisal rubric</h2>
+    <div class="verdict">
+      <strong>Appraisal standard:</strong> the final verdict should answer three questions: <em>Is the source worth reading?</em> <em>How much should we trust it?</em> <em>What practical use, if any, should it have?</em>
+    </div>
+
+    <h3>Core appraisal dimensions</h3>
+    <div class="rating-grid">
+      <div class="mini-card"><div class="label">Relevance</div><div class="score">0–10</div><div class="small">Fit to the user’s clinical, research, AI/ML, workflow, or implementation interests.</div></div>
+      <div class="mini-card"><div class="label">Novelty</div><div class="score">0–10</div><div class="small">How much the work adds beyond known methods, guidelines, or prior systems.</div></div>
+      <div class="mini-card"><div class="label">Method strength</div><div class="score">0–10</div><div class="small">Appropriateness of design, controls, statistics, validation, and comparison groups.</div></div>
+      <div class="mini-card"><div class="label">Evidence strength</div><div class="score">0–10</div><div class="small">How directly the data support the claims and whether uncertainty is reported.</div></div>
+      <div class="mini-card"><div class="label">External validity</div><div class="score">0–10</div><div class="small">Generalizability across sites, populations, datasets, tasks, or practice environments.</div></div>
+      <div class="mini-card"><div class="label">Implementation value</div><div class="score">0–10</div><div class="small">Whether the work gives enough detail to change a workflow, build a tool, or inform practice.</div></div>
+    </div>
+
+    <h3>Standard verdict labels</h3>
+    <table>
+      <thead>
+        <tr><th>Verdict</th><th>Meaning</th><th>Typical next action</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Read first</strong></td><td>High relevance and high expected utility; likely to influence design, practice, or interpretation.</td><td>Read full text, preserve figures/tables, extract implementation details.</td></tr>
+        <tr><td><strong>Read soon</strong></td><td>Relevant and useful, but not immediately central or not mature enough to prioritize first.</td><td>Read after first-tier sources; add to notes or RAG corpus.</td></tr>
+        <tr><td><strong>Skim deeply</strong></td><td>Contains one or two useful ideas, datasets, warnings, or methods, but full paper may not be essential.</td><td>Extract key figure/table/method and move on.</td></tr>
+        <tr><td><strong>Skim</strong></td><td>Peripheral or mostly incremental.</td><td>Capture citation and one-line takeaway.</td></tr>
+        <tr><td><strong>Do not prioritize</strong></td><td>Low relevance, weak methods, redundant contribution, or poor fit.</td><td>Skip unless needed for completeness.</td></tr>
+        <tr><td><strong>Do not use for practice</strong></td><td>May be interesting but not adequate for clinical, operational, regulatory, or safety-sensitive decisions.</td><td>Use only as background or hypothesis generation.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Evidence-strength anchors</h3>
+    <table>
+      <thead>
+        <tr><th>Score band</th><th>Clinical / scientific source</th><th>AI/ML / systems source</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>9–10</td><td>Prospective, well-controlled, adequately powered, externally validated, clinically meaningful outcomes, transparent limitations.</td><td>Strong baselines, ablations, external tasks, reproducible implementation, leakage checks, robust error analysis.</td></tr>
+        <tr><td>7–8</td><td>Good design with some limitations; outcomes and uncertainty reasonably reported; generalizability plausible but not fully established.</td><td>Convincing benchmark or system evaluation; limitations present but not fatal; implementation mostly clear.</td></tr>
+        <tr><td>5–6</td><td>Useful but limited by observational design, surrogate endpoints, small sample, incomplete adjustment, or narrow population.</td><td>Promising architecture or experiment with limited datasets, weak baselines, missing ablations, or partial reproducibility.</td></tr>
+        <tr><td>3–4</td><td>Hypothesis-generating only; serious confounding, underpowering, incomplete reporting, or unclear endpoints.</td><td>Conceptual or demo-level; limited evaluation; unclear if gains are real or generalizable.</td></tr>
+        <tr><td>0–2</td><td>Unsupported claims, major methodological defects, unsafe overreach, or non-actionable evidence.</td><td>Marketing-like, unverified, irreproducible, contaminated benchmark, or claims not supported by results.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Red flags</h3>
+    <ul class="tight">
+      <li><strong>Claim inflation:</strong> abstract or conclusion overstates what the data actually establish.</li>
+      <li><strong>Missing denominator:</strong> rates are reported without sample size, eligibility, missingness, or denominators.</li>
+      <li><strong>Surrogate substitution:</strong> surrogate endpoints are presented as if they prove patient-centered benefit.</li>
+      <li><strong>Benchmark leakage:</strong> test data may overlap with training, tuning, prompt development, or example selection.</li>
+      <li><strong>Weak comparator:</strong> the source compares against outdated, poorly tuned, or irrelevant baselines.</li>
+      <li><strong>No failure analysis:</strong> errors, harms, negative results, override cases, or subgroup failures are not examined.</li>
+      <li><strong>No implementation path:</strong> strong claims but no schema, code, protocol, operational steps, or validation plan.</li>
+      <li><strong>Regulatory/practice ambiguity:</strong> clinical or safety-relevant claims without discussion of oversight, monitoring, liability, or local constraints.</li>
+    </ul>
+  </section>
+
+  <section id="domain-modules">
+    <h2>Domain-specific appraisal modules</h2>
+    <p>Use the core structure for every file, then add the relevant module below. Do not force every paper through every module.</p>
+
+    <div class="domain-grid">
+      <div class="mini-card">
+        <div class="label">Clinical trials</div>
+        <div class="value">PICO + validity + patient-centered outcomes</div>
+        <p>Extract population, intervention, comparator, outcomes, duration, randomization, blinding, attrition, adverse events, effect size, NNT/NNH when possible, and external validity.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Pharmacotherapy</div>
+        <div class="value">Dose, PK/PD, safety, monitoring</div>
+        <p>Preserve dose, route, renal/hepatic adjustment, exposure metrics, MIC/target attainment when relevant, interactions, contraindications, monitoring, and guideline/label alignment.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Guidelines</div>
+        <div class="value">Recommendation strength + applicability</div>
+        <p>Extract recommendation wording, evidence grade, population, exclusions, implementation notes, controversies, and differences from prior guidance.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Systematic reviews</div>
+        <div class="value">Search, selection, heterogeneity, certainty</div>
+        <p>Extract search dates, databases, inclusion/exclusion, risk of bias, heterogeneity, publication bias, GRADE certainty, pooled estimates, and clinical applicability.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">AI/ML benchmarks</div>
+        <div class="value">Task, data, baselines, leakage, reproducibility</div>
+        <p>Extract datasets, splits, metrics, baselines, prompts, tool use, contamination risk, ablations, compute, reproducibility, error modes, and deployment relevance.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Agent / RAG systems</div>
+        <div class="value">Evidence path + state + verification</div>
+        <p>Extract tools, retrieval corpus, context policy, state management, verifier design, citation rules, trace logging, fallback behavior, and failure analysis.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Parser / extraction papers</div>
+        <div class="value">Input heterogeneity + schema fidelity</div>
+        <p>Extract supported formats, layout handling, table/figure extraction, citation preservation, schema, evaluation fixtures, error taxonomy, and downstream use cases.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Practice workflows</div>
+        <div class="value">Operational feasibility + risk controls</div>
+        <p>Extract trigger, actors, handoffs, required data, decision points, escalation, downtime, documentation, audit trail, and measurable outcomes.</p>
+      </div>
+    </div>
+
+    <h3>Clinical appraisal add-on</h3>
+    <pre><code>CLINICAL APPRAISAL ADD-ON
+
+PICO:
+  Population:
+  Intervention / exposure:
+  Comparator:
+  Outcomes:
+  Time horizon:
+
+VALIDITY:
+  Study design:
+  Bias risks:
+  Confounding controls:
+  Missing data:
+  Statistical methods:
+  Subgroups:
+
+PRACTICE TRANSLATION:
+  Patient-centered benefit:
+  Safety signal:
+  Monitoring needs:
+  Contraindications / exclusions:
+  Guideline alignment:
+  Local implementation barriers:
+
+BOTTOM LINE:
+  Use in practice now? yes / no / maybe
+  Strength of recommendation:
+  Conditions required before use:</code></pre>
+
+    <h3>AI/ML appraisal add-on</h3>
+    <pre><code>AI/ML APPRAISAL ADD-ON
+
+TASK:
+  What task is the system evaluated on?
+  Is the task representative of real use?
+
+DATA:
+  Datasets:
+  Splits:
+  Leakage / contamination controls:
+  External validation:
+
+METHOD:
+  Model / architecture:
+  Retrieval / tools / agents:
+  Training or prompting:
+  Baselines:
+  Ablations:
+
+METRICS:
+  Primary metric:
+  Secondary metrics:
+  Calibration / uncertainty:
+  Latency / cost:
+  Human evaluation:
+
+FAILURES:
+  Error taxonomy:
+  Robustness:
+  Safety:
+  Generalization:
+
+BOTTOM LINE:
+  Is this mainly conceptual, benchmark-useful, build-useful, or deployment-useful?</code></pre>
+  </section>
+
+  <section id="html-spec">
+    <h2>Reference HTML output specification</h2>
+    <h3>Required layout</h3>
+    <table>
+      <thead>
+        <tr><th>Section</th><th>Purpose</th><th>Default content</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Header</td><td>Immediate identity</td><td>Title and subtitle that state the source and reference scope.</td></tr>
+        <tr><td>Table of contents</td><td>Fast navigation</td><td>Anchors for metadata, synthesis, sections, visuals, appraisal, takeaways.</td></tr>
+        <tr><td>Metadata</td><td>Source traceability</td><td>Title, authors, source, date, type, exemplar/domain, scope warning.</td></tr>
+        <tr><td>One-page synthesis</td><td>Compressed understanding</td><td>Core thesis, value, limitations, tags.</td></tr>
+        <tr><td>Section condensation</td><td>Faithful summary</td><td>No more than two paragraphs per source section by default.</td></tr>
+        <tr><td>Figures / tables / exhibits</td><td>Preserve visual evidence</td><td>Separate structured blocks for each figure, table, workflow, or algorithm.</td></tr>
+        <tr><td>Evaluation and appraisal</td><td>Independent judgment</td><td>Verdict, strengths, limitations, ratings, bottom line.</td></tr>
+        <tr><td>Implementation / practice takeaways</td><td>Actionability</td><td>What to build, monitor, change, read next, or avoid.</td></tr>
+        <tr><td>Footer</td><td>Scope and provenance</td><td>Source evaluated and generation note.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Style standards</h3>
+    <ul class="tight">
+      <li>Use a single-file HTML document with embedded CSS.</li>
+      <li>Use card-based sections with clear borders, readable spacing, and print-friendly CSS.</li>
+      <li>Use metadata grids for quick facts and rating grids for appraisal.</li>
+      <li>Use dark code blocks for structured figure/table/workflow extraction.</li>
+      <li>Use colored callouts sparingly: blue for verdict/core thesis, amber for caution, red for major concern, green for strong practical takeaway.</li>
+      <li>Make the document readable without external fonts, JavaScript, remote images, or external CSS.</li>
+      <li>Prefer semantic HTML: header, main, nav, section, table, footer.</li>
+    </ul>
+
+    <h3>Default CSS component vocabulary</h3>
+    <pre><code>CORE COMPONENTS
+
+header / .wrap       Document title and subtitle
+nav.toc              Table of contents
+section              Major content card
+.meta-grid           Metadata card layout
+.rating-grid         Appraisal card layout
+.takeaway-grid       Implementation card layout
+.mini-card           Small reusable card
+.verdict             Main thesis or final verdict callout
+.warning             Important caveat
+.badnote             Serious limitation or unsafe inference
+.goodnote            Strong recommendation or high-value takeaway
+.section-summary     Section-by-section condensation block
+.tag                 Topic tags
+pre &gt; code           Structured visual/table/workflow decomposition</code></pre>
+  </section>
+
+  <section id="templates">
+    <h2>Reusable prompts and templates</h2>
+    <h3>Standard prompt</h3>
+    <pre><code>[SOURCE URL OR UPLOADED FILE]
+
+Create a single-file reference HTML file using my Summary, Evaluation, and Appraisal protocol.
+
+Requirements:
+- Extract source metadata.
+- Provide a one-page synthesis.
+- Condense each section into no more than two paragraphs.
+- Break down all figures, tables, algorithms, workflows, and important visuals in separate structured text/code blocks.
+- Preserve clinically, scientifically, or technically important details: population, methods, metrics, outcomes, limitations, safety issues, implementation constraints, and uncertainty.
+- Separate summary from appraisal.
+- Include an evaluation and appraisal with strengths, limitations, ratings, bottom-line verdict, and implementation/practice takeaways.
+- Output as a polished single-file reference HTML file.</code></pre>
+
+    <h3>Clinical-practice prompt</h3>
+    <pre><code>[GUIDELINE / ARTICLE / LABEL / CASE-RELEVANT SOURCE]
+
+Create a reference HTML file using the Summary, Evaluation, and Appraisal protocol, with a clinical-practice lens.
+
+Add:
+- PICO or clinical question.
+- Recommendation strength and evidence quality when available.
+- Patient population and exclusions.
+- Dosing, monitoring, contraindications, interactions, renal/hepatic considerations when relevant.
+- Safety signals and implementation constraints.
+- What this should and should not change in practice.
+- Explicit warning if evidence is insufficient for clinical action.</code></pre>
+
+    <h3>AI/ML research prompt</h3>
+    <pre><code>[PAPER / PREPRINT / TECHNICAL REPORT]
+
+Create a reference HTML file using the Summary, Evaluation, and Appraisal protocol, with an AI/ML systems lens.
+
+Add:
+- Task definition and why it matters.
+- Dataset, split, contamination/leakage risk, baselines, metrics, ablations, compute, and reproducibility.
+- Agent/RAG/tool/state/verifier architecture if present.
+- Figure and table decomposition focused on experimental design and results.
+- Error analysis and generalization limits.
+- Build-useful takeaways and what not to overclaim.</code></pre>
+
+    <h3>Batch triage prompt</h3>
+    <pre><code>[LIST OF PAPERS / ABSTRACTS / LINKS]
+
+Triage these sources for my interests in clinical pharmacy, AI/ML, RAG, parser design, agent harnesses, deterministic evaluation, scientific curation, and practical workflow implementation.
+
+For each source:
+- Give title, source type, one-line thesis, relevance score, evidence maturity, and priority.
+- Flag sources that deserve full reference HTML files.
+- Explain briefly why each top item is worth reading.
+- Do not over-rank papers that are only loosely relevant or purely conceptual.</code></pre>
+  </section>
+
+  <section id="qa">
+    <h2>Quality-control checklist</h2>
+    <div class="goodnote">
+      <strong>Pass condition:</strong> the finished file should allow a reader to understand the source’s claim, evidence, visual content, weaknesses, and practical relevance without reopening the original document immediately.
+    </div>
+
+    <h3>Pre-output checks</h3>
+    <ul class="checklist">
+      <li><strong>Metadata complete:</strong> title, source type, date/version, authors/organization, and source identifier are included when available.</li>
+      <li><strong>Scope clear:</strong> the file states whether the source is a preprint, conceptual proposal, validated study, guideline, benchmark, or practice document.</li>
+      <li><strong>Sections preserved:</strong> each original section is represented, or omissions are explicitly noted.</li>
+      <li><strong>Two-paragraph limit followed:</strong> section summaries are concise unless the user asked for greater detail.</li>
+      <li><strong>Visuals decomposed:</strong> figures, tables, algorithms, and workflows have separate structured blocks.</li>
+      <li><strong>Magnitude preserved:</strong> key sample sizes, metrics, effect sizes, uncertainty, benchmark deltas, and thresholds are included when central.</li>
+      <li><strong>Claims separated from appraisal:</strong> author claims are not presented as independently established unless evidence supports them.</li>
+      <li><strong>Limitations explicit:</strong> methodological, statistical, clinical, operational, and generalization limits are not hidden.</li>
+      <li><strong>Actionability stated:</strong> the file says how to use the source: read first, read soon, skim, implement, monitor, avoid, or treat as background.</li>
+      <li><strong>HTML self-contained:</strong> no external dependencies, readable styling, working anchors, and print-friendly behavior.</li>
+    </ul>
+
+    <h3>Failure modes to prevent</h3>
+    <div class="badnote">
+      Avoid producing a polished-looking file that is only a superficial abstract expansion. The reference file must preserve methods, visuals, quantitative results, limitations, and appraisal. Aesthetic quality should support evidence quality, not conceal weak extraction.
+    </div>
+
+    <h3>Minimal final appraisal block</h3>
+    <pre><code>FINAL APPRAISAL BLOCK
+
+Verdict:
+  Read first / Read soon / Skim deeply / Skim / Do not prioritize / Do not use for practice
+
+Best use:
+  What the source is most useful for.
+
+Do not use for:
+  What the source does not establish.
+
+Main strengths:
+  - Strength 1
+  - Strength 2
+  - Strength 3
+
+Main limitations:
+  - Limitation 1
+  - Limitation 2
+  - Limitation 3
+
+Implementation / practice takeaways:
+  - Actionable takeaway 1
+  - Actionable takeaway 2
+  - Monitoring or validation needed
+
+Confidence in appraisal:
+  High / moderate / low, with reason.</code></pre>
+  </section>
+</main>
+<footer>
+  Protocol generated as a reusable single-file reference HTML standard for future scientific, clinical, scholarly, and AI/ML summary, evaluation, and appraisal outputs.
+</footer>
+</body>
+</html>

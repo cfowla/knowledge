@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MBD-Check Clinical Appraisal Reference</title>
+<style>
+:root{
+  --bg:#f6f8fb; --card:#ffffff; --ink:#17202a; --muted:#566579; --line:#d8e0ea;
+  --accent:#173f72; --accent2:#1d4f91; --good:#0f6b3b; --warn:#8a5a00; --bad:#8a1f1f;
+  --softblue:#eef5ff; --softgreen:#eefaf3; --softwarn:#fff7e6; --softbad:#fff0f0;
+  --codebg:#0e1726; --codefg:#edf4ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#10243d,#1d4f91);color:#fff;padding:2.2rem 1.25rem;border-bottom:5px solid #d2e2f5}
+.wrap{max-width:1120px;margin:0 auto;padding:1.25rem}
+header .wrap{padding:0 1.25rem}
+h1{font-size:clamp(1.55rem,3vw,2.45rem);line-height:1.15;margin:.2rem 0 .7rem;font-weight:800}
+.subtitle{font-size:1rem;max-width:980px;opacity:.95;margin:0}
+.tagrow{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+.tag{display:inline-block;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.22rem .6rem;font-size:.82rem;background:rgba(255,255,255,.12)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;margin:1rem 0 1.25rem;box-shadow:0 1px 4px rgba(16,36,61,.06)}
+nav.toc h2{margin:.1rem 0 .6rem;font-size:1rem;color:var(--accent)}
+nav.toc ol{margin:.2rem 0 0;padding-left:1.2rem;columns:2;column-gap:2rem}
+nav.toc li{break-inside:avoid;margin:.25rem 0}
+a{color:var(--accent2);text-decoration:none}a:hover{text-decoration:underline}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.05rem 1.2rem;margin:1rem 0;box-shadow:0 1px 4px rgba(16,36,61,.045)}
+h2{color:#0f315f;margin:.1rem 0 .85rem;font-size:1.35rem}
+h3{color:#173f72;margin:1rem 0 .45rem;font-size:1.05rem}
+h4{margin:.9rem 0 .35rem;color:#24364b}
+p{margin:.55rem 0}
+ul,ol{margin:.45rem 0 .65rem;padding-left:1.35rem}li{margin:.25rem 0}
+table{width:100%;border-collapse:collapse;margin:.7rem 0;font-size:.92rem;display:block;overflow-x:auto;border:1px solid var(--line)}
+th,td{border:1px solid var(--line);padding:.52rem .62rem;vertical-align:top}th{background:#eef3f9;text-align:left;color:#1e395c;font-weight:700}
+.meta-grid,.rating-grid,.takeaway-grid,.mini-grid{display:grid;gap:.75rem}.meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rating-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.takeaway-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.mini-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mini-card{border:1px solid var(--line);border-radius:12px;padding:.75rem;background:#fbfdff}.mini-card h3,.mini-card h4{margin-top:0}.mini-card p:last-child{margin-bottom:0}
+.verdict,.warning,.badnote,.goodnote{border-radius:12px;padding:.9rem 1rem;margin:.75rem 0;border-left:6px solid}.verdict{background:var(--softblue);border-left-color:var(--accent2)}.warning{background:var(--softwarn);border-left-color:var(--warn)}.badnote{background:var(--softbad);border-left-color:var(--bad)}.goodnote{background:var(--softgreen);border-left-color:var(--good)}
+.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800}.score{font-size:1.4rem;font-weight:800;color:var(--accent)}.muted{color:var(--muted)}
+pre{margin:.65rem 0 1rem;padding:.95rem;background:var(--codebg);color:var(--codefg);border-radius:12px;overflow-x:auto;border:1px solid #1b2e49;font-size:.88rem;line-height:1.45;white-space:pre-wrap}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}.section-summary{border-top:1px solid var(--line);padding-top:.7rem;margin-top:.7rem}.section-summary:first-of-type{border-top:0;padding-top:0}.pill{display:inline-block;border-radius:999px;padding:.18rem .52rem;background:#eef3f9;border:1px solid #d7e0eb;font-size:.82rem;margin:.1rem .15rem .1rem 0}.nowrap{white-space:nowrap}.small{font-size:.88rem}.foot{font-size:.9rem;color:var(--muted)}
+@media (max-width:850px){nav.toc ol{columns:1}.meta-grid,.rating-grid,.takeaway-grid,.mini-grid{grid-template-columns:1fr}.wrap{padding:.85rem}section{padding:.9rem}}
+@media print{body{background:#fff}header{background:#fff;color:#000;border-bottom:2px solid #000}section,nav.toc{box-shadow:none;break-inside:avoid}a{color:#000;text-decoration:underline}.tag{border-color:#777;background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker" style="color:#dcecff">Clinical-practice appraisal reference</div>
+    <h1>MBD-Check: interpretable ML decision support for preoperative prediction of mild bleeding disorders</h1>
+    <p class="subtitle">Structured appraisal of a prospective diagnostic prediction study in <em>The Lancet Digital Health</em>, focused on clinical validity, implementation boundaries, and whether the tool should change preoperative referral practice.</p>
+    <div class="tagrow">
+      <span class="tag">Diagnostic prediction</span><span class="tag">Mild bleeding disorders</span><span class="tag">Preoperative evaluation</span><span class="tag">External validation</span><span class="tag">Clinical AI/ML</span><span class="tag">Reference HTML</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#pico">PICO and clinical question</a></li>
+    <li><a href="#manifest">Coverage manifest</a></li>
+    <li><a href="#section-summaries">Section-by-section condensation</a></li>
+    <li><a href="#evidence-tables">Figures and tables</a></li>
+    <li><a href="#diagnostic-validity">Diagnostic validity and clinical translation</a></li>
+    <li><a href="#practice">Practice implications</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#qa">QA and provenance</a></li>
+  </ol>
+</nav>
+
+<section id="metadata">
+  <h2>1. Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><h3>Exact title</h3><p>Development, validation, and user-centric evaluation of an interpretable machine learning decision support tool for the preoperative prediction of mild bleeding disorders (MBD-Check): a prospective diagnostic prediction study</p></div>
+    <div class="mini-card"><h3>Authors</h3><p>Henning Nilius; Jonas Kaufmann; Marcel Adler; Fabrizio Minervini; Anna Wieland Greguare-Sander; Lorenzo Alberio; Bernhard Gerber; Dino Kröll; Sajitha Veerakatty; Alexander Kashev; Sigve Haug; Thomas C Sauter; Andreas Koster; Gabor Erdoes; Janna Hastings; Jerrold H Levy; Christos Nakas; Michael Nagler.</p></div>
+    <div class="mini-card"><h3>Source</h3><p><em>The Lancet Digital Health</em>. Published online 2026. DOI: 10.1016/j.landig.2026.101019.</p></div>
+    <div class="mini-card"><h3>Source type and design</h3><p>Journal article; prospective diagnostic prediction/model-development study with an independent prospective external validation cohort and user-centric usability survey.</p></div>
+    <div class="mini-card"><h3>Funding and conflicts</h3><p>Funded by the Swiss National Science Foundation. Reported conflicts include unrelated research support/lecture fees for Michael Nagler and advisory-board participation for Jerrold H Levy; other authors reported no conflicts.</p></div>
+    <div class="mini-card"><h3>Scope warning</h3><p>This appraisal summarizes and critiques the uploaded article. It does not validate the web application, the appendix, code, local laboratory calibration, regulatory status, or any institutional deployment pathway.</p></div>
+  </div>
+</section>
+
+<section id="synthesis">
+  <h2>2. One-page synthesis</h2>
+  <div class="verdict"><strong>Bottom line:</strong> MBD-Check is a promising, externally validated screening adjunct for adults already referred or suspected to have a mild bleeding disorder before surgery. It is not evidence enough to independently clear an unselected surgical patient, replace hematology consultation when clinical concern remains high, or implement without local validation and governance.</div>
+  <div class="takeaway-grid">
+    <div class="mini-card"><h3>Core thesis</h3><p>The authors developed an interpretable machine-learning model to predict mild bleeding disorders using a streamlined bleeding history plus aPTT, platelet function analysis with epinephrine-collagen cartridge, and sex.</p></div>
+    <div class="mini-card"><h3>Most useful result</h3><p>In the external validation cohort of 217 Swiss adults referred for suspected mild bleeding disorder, MBD-Check achieved AUROC 0.85, sensitivity 90.2%, specificity 54.3%, PPV 68%, and NPV 84% at a 47% threshold.</p></div>
+    <div class="mini-card"><h3>Clinical meaning</h3><p>The model favors sensitivity over specificity. A positive result mainly supports hematology referral; a negative result reduces likelihood but does not eliminate mild bleeding disorder when history, procedure risk, or confounders remain concerning.</p></div>
+  </div>
+  <div class="warning"><strong>Practice caution:</strong> The validation population was not an unselected preoperative population. The authors explicitly limit intended use to patients with suspected mild bleeding disorders. Broad routine surgical screening would likely produce many false positives and could still miss clinically relevant cases.</div>
+</section>
+
+<section id="pico">
+  <h2>3. PICO and clinical question</h2>
+  <table>
+    <tr><th>Element</th><th>Appraisal content</th></tr>
+    <tr><td>Clinical question</td><td>Among adults undergoing preoperative evaluation with suspected mild bleeding disorder, can MBD-Check improve referral decisions compared with existing screening tools or routine coagulation tests?</td></tr>
+    <tr><td>Population</td><td>Adults aged 18 years or older referred to specialized hematology outpatient clinics in Switzerland for suspected mild bleeding disorder. Training cohort: 555 consecutive patients at Inselspital, Bern University Hospital. External validation cohort: 217 consecutive patients at Cantonal Hospital Lucerne.</td></tr>
+    <tr><td>Index test / intervention</td><td>MBD-Check: radial-kernel support vector machine using simplified bleeding-history elements, platelet function analysis with epinephrine-collagen cartridge (PFA-EPI), aPTT, family history, and sex. Clinical cutoff: classification probability 47% or greater favors hematology referral.</td></tr>
+    <tr><td>Comparators</td><td>Existing tools and tests evaluated in the external cohort: ISTH-BAT, PFA-EPI, international normalized ratio, and aPTT. The paper also frames routine PT/INR and aPTT as inadequate standalone screening approaches.</td></tr>
+    <tr><td>Outcomes</td><td>Diagnostic performance against expert-panel final diagnosis of mild bleeding disorder: AUROC, area under precision-recall curve, sensitivity, specificity, PPV, NPV, and usability measures.</td></tr>
+    <tr><td>Clinical endpoint gap</td><td>No prospective impact evaluation measured perioperative bleeding, transfusion, surgical delays, referrals avoided, patient harms from false negatives, cost, or workflow burden after real-world deployment.</td></tr>
+  </table>
+  <div class="mini-grid">
+    <div class="mini-card"><h3>Recommendation strength</h3><p><strong>Conditional / pilot-only.</strong> Evidence supports consideration as a structured adjunct for referral triage in the studied population, but not as a standalone rule to cancel or avoid hematology workup.</p></div>
+    <div class="mini-card"><h3>Evidence quality</h3><p><strong>Moderate for diagnostic discrimination in referred Swiss adults; low for direct practice change.</strong> Strengths include prospective data, independent validation, and uncertainty estimates. Limits include dated cohorts, narrow geography, absence of outcome impact, and dependence on local laboratory assays.</p></div>
+  </div>
+</section>
+
+<section id="manifest">
+  <h2>4. Source coverage manifest</h2>
+<pre><code>SOURCE COVERAGE MANIFEST
+source_id: PIIS2589750026000427.pdf
+exact_title: Development, validation, and user-centric evaluation of an interpretable machine learning decision support tool for the preoperative prediction of mild bleeding disorders (MBD-Check): a prospective diagnostic prediction study
+source_type: Lancet Digital Health journal article; diagnostic prediction / clinical AI model development, validation, implementation, and usability study
+date_or_version: Published online 2026; corrected-proof PDF metadata; DOI 10.1016/j.landig.2026.101019
+sections_or_headings: Summary; Introduction; Methods; Study design and participants; Sample size calculation; Model development; External validation; Implementation and usability; Role of the funding source; Results; Discussion; Contributors; Declaration of interests; Data sharing; Acknowledgments; References
+figures: Figure 1 patient flow; Figure 2 ROC and precision-recall curves; Figure 3 feature-importance plot; Figure 4 proposed decision-support workflow
+tables: Table 1 patient characteristics; Table 2 performance metrics
+algorithms_or_workflows: MBD-Check model-development pipeline; external-validation workflow; proposed 47% referral threshold workflow
+appendices_or_supplements: Appendix referenced for methods, diagnostic definitions, sample size, feature engineering, additional plots, and sensitivity analyses; appendix not included in the uploaded file and not independently appraised
+visual_strategy:
+  structured_blocks: Figures 1-4; Tables 1-2; MBD-Check decision workflow
+  embedded_crops_or_screenshots: none; main numeric content was recoverable from article text and figure captions
+  omitted_with_reason: appendix visuals and detailed GitHub/web-app content omitted because not supplied in the uploaded PDF and not validated here
+coverage_decision: all main-text figures, tables, and workflows reconciled with structured extraction blocks
+omissions: online appendix, raw datasets, live web application, GitHub repository, and local deployment environment not audited</code></pre>
+</section>
+
+<section id="section-summaries">
+  <h2>5. Section-by-section condensation</h2>
+  <div class="section-summary"><h3>Summary / abstract</h3><p>The paper addresses preoperative detection of mild bleeding disorders, which are common inherited bleeding conditions that can present unexpectedly during surgery. The authors aimed to build, externally validate, and implement an interpretable ML-based decision support tool using data reasonably available during pre-anesthesia evaluation.</p><p>The final model used aPTT, PFA-EPI, sex, and streamlined bleeding-history items. In external validation, sensitivity was 90.2%, specificity 54.3%, AUROC 0.85, and median System Usability Scale score was 82.5, indicating high usability among surveyed surgeons, anesthesiologists, and hematologists.</p></div>
+  <div class="section-summary"><h3>Introduction</h3><p>The introduction frames a real clinical gap: routine coagulation parameters such as PT/INR and aPTT do not reliably identify mild bleeding disorders, while the ISTH-BAT is too complex for routine preoperative use by non-hematologists. The authors position ML as a way to combine bleeding-history signals with selected laboratory inputs while retaining usability and explainability.</p><p>The rationale is clinically plausible, but the need is not the same as proof that an ML triage tool improves outcomes. The introduction correctly names barriers to AI adoption: unclear need, bias, weak external validation, lack of transparency, and poor workflow fit.</p></div>
+  <div class="section-summary"><h3>Methods: study design and participants</h3><p>The work combines two independent prospective cross-sectional cohorts from Swiss tertiary centers. The development cohort included consecutive adults referred for suspected mild bleeding disorder to Inselspital, Bern University Hospital from Jan 1, 2012 to March 31, 2017. The external validation cohort included 217 adults at Cantonal Hospital Lucerne from Jan 1, 2011 to Sept 30, 2013.</p><p>Eligibility required age 18 years or older and referral for suspected bleeding disorder. Diagnostic investigations followed current guidelines as reported by the authors, with final diagnosis established by an expert panel. This target-population match is a strength, but the study does not address unselected preoperative patients or pediatric populations.</p></div>
+  <div class="section-summary"><h3>Methods: model development</h3><p>The training cohort was split 80/20 into model-development and internal-validation datasets. Candidate predictors were first constrained by stakeholder focus groups to variables feasible for pre-anesthesia evaluation, then selected with the Boruta feature selection algorithm. Preprocessing used bagged-tree imputation fit only on the training predictors, followed by centering/scaling and Yeo-Johnson transformation.</p><p>Seventeen supervised algorithms were screened with five-times repeated ten-fold cross-validation using AUROC. The final model was a radial-kernel support vector machine selected after hyperparameter tuning and internal validation. The selected 47% threshold came from a cost-based approach that weighted false negatives 25% more costly than false positives.</p></div>
+  <div class="section-summary"><h3>Methods: external validation</h3><p>External validation used the independent Lucerne cohort, with performance assessed by sensitivity, specificity, PPV, NPV, AUROC, and precision-recall metrics. Comparator performance was also evaluated for ISTH-BAT, INR, aPTT, and PFA-EPI.</p><p>The external validation is a central strength because it uses a separate site and prospective cohort. Remaining limits include shared national practice context, older data, absent ethnicity data, and incomplete information in the main text regarding calibration and net clinical benefit.</p></div>
+  <div class="section-summary"><h3>Methods: implementation and usability</h3><p>The final model was implemented as an R-Shiny web application with a Shapley-value explanation plot for individual predictions. Usability testing used an online survey platform with four case vignettes and the System Usability Scale.</p><p>Participants were recruited by purposive convenience sampling through professional networks. This is appropriate for early usability assessment but weaker than representative workflow testing in live preoperative clinics.</p></div>
+  <div class="section-summary"><h3>Results</h3><p>The development cohort included 555 patients; 288 (52%) were diagnosed with mild bleeding disorders, most commonly platelet function disorders (118/288, 41%) and von Willebrand factor disorders (50/288, 17%). The external validation cohort included 217 patients. The final selected features included PFA-EPI, aPTT, sex, family history, and simplified ISTH-BAT bleeding-history domains.</p><p>External validation showed AUROC 0.85, area under precision-recall curve 0.89, sensitivity 90.2%, specificity 54.3%, PPV 68%, and NPV 84%. Comparator AUROCs were lower: ISTH-BAT 0.79, PFA-EPI 0.73, aPTT 0.63, and INR 0.49. The usability survey included 86 respondents; median completion/interpretation time was 72 seconds and median SUS score was 82.5.</p></div>
+  <div class="section-summary"><h3>Discussion and limitations</h3><p>The authors conclude that MBD-Check could support preoperative referral decisions for suspected mild bleeding disorders and propose using the 47% threshold to decide whether hematology referral should be considered. They emphasize sensitivity and accept limited specificity as a deliberate screening tradeoff.</p><p>The main limitations are material for practice: both cohorts are old; sample size is small for ML relative to modern clinical AI standards; populations are Swiss and relatively homogeneous; ethnicity data were not collected; the tool was not developed for unselected surgical patients; and the study did not measure clinical outcomes after deployment. These limitations keep the tool in the validation/pilot category rather than a definitive practice-changing intervention.</p></div>
+</section>
+
+<section id="evidence-tables">
+  <h2>6. Figures, tables, and workflow extraction</h2>
+  <h3>Figure 1 — Patient flow diagram</h3>
+<pre><code>Purpose: Show cohort construction and model-development split.
+Structure: Two separate prospective cohorts.
+Training cohort: 555 consecutive referred adults; reasons for referral were bleeding tendency 453, abnormal coagulation test 35, family history 42, reassessment 8, unclear 17. Split into 445 training and 110 internal validation patients.
+External validation: 217 consecutive referred adults; reasons were bleeding tendency 170, abnormal coagulation test 11, family history 24, reassessment 12.
+Interpretation: The cohorts match the intended use case of referred/suspected mild bleeding disorder, not universal preoperative screening.
+Limit: Referral setting enriches disease prevalence and affects PPV/NPV.</code></pre>
+  <h3>Table 1 — Patient characteristics</h3>
+  <table>
+    <tr><th>Characteristic</th><th>Training cohort (n=555)</th><th>External validation cohort (n=217)</th><th>Appraisal note</th></tr>
+    <tr><td>Sex</td><td>371 female (67%); 184 male (33%)</td><td>151 female (70%); 66 male (30%)</td><td>Female predominance is expected in referred bleeding-history cohorts but affects transportability.</td></tr>
+    <tr><td>Age</td><td>Median 43.7 years (IQR 29.3-61.7)</td><td>Median 39.4 years (IQR 27.7-56.5)</td><td>Adult cohort; pediatrics not studied.</td></tr>
+    <tr><td>Family history of bleeding</td><td>74/540 (14%)</td><td>85/217 (39%)</td><td>Large difference suggests referral-pattern or ascertainment differences.</td></tr>
+    <tr><td>ISTH-BAT</td><td>Median 3 (IQR 2-5); 15 missing</td><td>Median 3 (IQR 1-6); none missing</td><td>Similar central score despite different family-history frequency.</td></tr>
+    <tr><td>aPTT ratio</td><td>Median 0.9 (IQR 0.8-1.0); 6 missing</td><td>Median 0.8 (IQR 0.8-0.9); 1 missing</td><td>Model depends on normalized aPTT; local assay comparability matters.</td></tr>
+    <tr><td>PFA-EPI</td><td>Median 147 s (IQR 121-181); 82 missing</td><td>Median 161 s (IQR 116-178); 4 missing</td><td>Important predictor; missingness was much higher in training than validation.</td></tr>
+    <tr><td>vWF antigen</td><td>Median 103% (IQR 76-134.5); 72 missing</td><td>Median 90% (IQR 69-115.8); 11 missing</td><td>Not a final predictor but clinically relevant in downstream diagnosis.</td></tr>
+  </table>
+  <h3>Table 2 — MBD-Check performance</h3>
+  <table>
+    <tr><th>Metric</th><th>Internal validation (n=110)</th><th>External validation (n=217)</th><th>Clinical interpretation</th></tr>
+    <tr><td>AUROC</td><td>0.77 (95% CI 0.68-0.85)</td><td>0.85 (95% CI 0.80-0.90)</td><td>Good discrimination; external performance exceeded internal performance.</td></tr>
+    <tr><td>Area under precision-recall curve</td><td>0.80 (95% CI 0.68-0.88)</td><td>0.89 (95% CI 0.83-0.93)</td><td>Useful in high-prevalence referred cohorts; not transferable to lower-prevalence general surgical settings.</td></tr>
+    <tr><td>Sensitivity</td><td>0.75 (95% CI 0.62-0.86)</td><td>0.90 (95% CI 0.83-0.95)</td><td>Supports screening use, but false negatives remain clinically important.</td></tr>
+    <tr><td>Specificity</td><td>0.66 (95% CI 0.51-0.78)</td><td>0.54 (95% CI 0.44-0.64)</td><td>Many patients without mild bleeding disorder would still be referred.</td></tr>
+    <tr><td>PPV</td><td>0.70 (95% CI 0.57-0.83)</td><td>0.68 (95% CI 0.60-0.75)</td><td>Positive result supports further evaluation, not diagnosis.</td></tr>
+    <tr><td>NPV</td><td>0.71 (95% CI 0.57-0.83)</td><td>0.84 (95% CI 0.73-0.92)</td><td>Negative result lowers likelihood but is not a definitive rule-out in high-concern cases.</td></tr>
+  </table>
+  <h3>Figure 2 — Performance curves versus available tests</h3>
+<pre><code>Purpose: Compare ROC and precision-recall performance in the external validation cohort.
+ROC AUROC: MBD-Check 0.85 (95% CI 0.80-0.90); ISTH-BAT 0.79 (0.76-0.83); PFA-EPI 0.73 (0.66-0.79); INR 0.49 (0.42-0.56); aPTT reported in text as 0.63 (0.56-0.71).
+Precision-recall AUC: MBD-Check 0.89 (0.83-0.93); ISTH-BAT 0.86 (0.80-0.90); PFA-EPI 0.75 (0.64-0.82); INR 0.49 (0.40-0.58).
+Main pattern: MBD-Check outperforms tested comparators, especially INR and aPTT alone.
+Limit: Curve performance does not show calibration, decision-curve net benefit, or patient outcome impact.</code></pre>
+  <h3>Figure 3 — Interpretable ML feature importance</h3>
+<pre><code>Purpose: Show relative contribution of final model features using permutation-based feature importance.
+Highest features: simplified ISTH-BAT surgery importance 1.32 (95% CI 1.30-1.44); PFA-EPI 1.21 (1.19-1.32); simplified ISTH-BAT epistaxis 1.18 (1.16-1.22).
+Other included features: menorrhagia, tooth extraction, cutaneous bleedings, minor wounds, postpartum hemorrhage, family history, aPTT, and sex.
+Interpretation: The model is driven by bleeding-history domains plus PFA-EPI more than routine coagulation parameters.
+Limit: Importance describes model behavior, not causal biology; feature effects can be confounded by referral and diagnostic workflows.</code></pre>
+  <h3>Figure 4 — Proposed decision-support algorithm</h3>
+<pre><code>Inputs: Adult preoperative patient with suspected mild bleeding disorder.
+Decision rule: Use MBD-Check only if suspicion is present.
+Output threshold: classification probability below 47% means mild bleeding disorder is less likely; further evaluation might not be required depending on clinical judgment. Classification probability 47% or higher supports hematology referral for further investigation.
+Failure modes: false negative could proceed to surgery without adequate hemostatic planning; false positive could increase unnecessary referral and testing.
+Governance need: boundary checks, clinician override, documentation, assay harmonization, periodic recalibration, and monitoring of missed bleeding events.</code></pre>
+</section>
+
+<section id="diagnostic-validity">
+  <h2>7. Diagnostic validity and clinical translation</h2>
+  <div class="mini-grid">
+    <div class="mini-card"><h3>Internal validity</h3><p>Reasonable for a diagnostic prediction study. Consecutive prospective cohorts, expert-panel diagnosis, separation of training/internal/external data, training-only preprocessing, uncertainty estimates, and sensitivity analyses support validity. Weak points are sample size relative to ML complexity, missing PFA data in training, and incomplete main-text access to all diagnostic-definition details.</p></div>
+    <div class="mini-card"><h3>External validity</h3><p>Constrained. External validation was at a second Swiss center, but both cohorts were old, geographically narrow, adult-only, and limited to referred/suspected patients. Ethnicity data were unavailable. General surgical pretest probability would be lower than in these cohorts, changing PPV/NPV.</p></div>
+    <div class="mini-card"><h3>Calibration and thresholding</h3><p>The 47% threshold was selected to penalize false negatives more than false positives. This matches screening logic. The article does not provide enough main-text calibration, decision-curve, or site-level threshold-transportability evidence to treat the cutoff as universally portable.</p></div>
+    <div class="mini-card"><h3>Outcome evidence</h3><p>Not established. The study predicts diagnostic classification, not perioperative bleeding, transfusion, procedural delay, hospital length of stay, cost, patient anxiety, or hematology workload after deployment.</p></div>
+  </div>
+  <div class="badnote"><strong>Clinical risk translation:</strong> External-validation sensitivity of 90.2% implies roughly 1 in 10 patients with mild bleeding disorder could be classified below threshold. With NPV 84% in this enriched referred cohort, a negative result is insufficient as a sole clearance criterion when procedure risk or bleeding history is high.</div>
+</section>
+
+<section id="practice">
+  <h2>8. Practice implications</h2>
+  <h3>What should change now</h3>
+  <ul>
+    <li><strong>For knowledge management:</strong> Preserve this as a high-value diagnostic prediction paper for preoperative bleeding-disorder triage and clinical AI implementation design.</li>
+    <li><strong>For clinical workflow design:</strong> Consider MBD-Check as a candidate adjunct for a local pilot in adults with suspected mild bleeding disorder, especially where referral volume is high and hematology access is constrained.</li>
+    <li><strong>For education:</strong> The study reinforces that routine PT/INR and aPTT alone are poor screening tools for mild bleeding disorders; structured bleeding history remains central.</li>
+  </ul>
+  <h3>What should not change yet</h3>
+  <ul>
+    <li>Do not use MBD-Check as a standalone rule-out for surgery.</li>
+    <li>Do not apply it to unselected surgical populations, pediatrics, active bleeding, emergency surgery, or patients with obvious acquired coagulopathy without separate validation.</li>
+    <li>Do not interpret a positive result as a diagnosis; it supports further evaluation.</li>
+    <li>Do not treat the 47% threshold as locally validated without checking assay calibration, referral prevalence, case mix, and clinical consequences.</li>
+  </ul>
+  <h3>Dosing, monitoring, contraindications, interactions, renal/hepatic considerations</h3>
+  <table>
+    <tr><th>Clinical-practice field</th><th>Relevance to this paper</th><th>Implementation implication</th></tr>
+    <tr><td>Dosing</td><td>No medication intervention is tested.</td><td>No dose changes follow directly from this article.</td></tr>
+    <tr><td>Monitoring</td><td>Model deployment would require monitoring of referral outcomes, missed mild bleeding disorders, perioperative bleeding events, turnaround time, and clinician overrides.</td><td>Create a local dashboard before live use; define sentinel-event review for any negative-screen patient with subsequent bleeding.</td></tr>
+    <tr><td>Contraindications / exclusions</td><td>Not framed as contraindications, but studied population excludes patients younger than 18 and does not represent universal surgical screening.</td><td>Set hard boundaries in the tool: adult, suspected mild bleeding disorder, non-emergent preoperative context, and required input availability.</td></tr>
+    <tr><td>Medication interactions</td><td>The paper includes current medications as candidate features but does not provide medication-specific interaction rules in the main text.</td><td>Local implementation should require medication review for antiplatelets, anticoagulants, NSAIDs, SSRIs/SNRIs, supplements, or recent hemostatic therapy that could alter bleeding history or PFA results.</td></tr>
+    <tr><td>Renal/hepatic considerations</td><td>The model is not a renal/hepatic dosing tool and does not establish performance in advanced renal disease, liver disease, thrombocytopenia, or acquired coagulopathies.</td><td>Use clinical judgment and hematology/anesthesia input when systemic disease could explain bleeding risk or abnormal tests.</td></tr>
+  </table>
+  <h3>Implementation constraints and safety controls</h3>
+  <div class="takeaway-grid">
+    <div class="mini-card"><h3>Laboratory harmonization</h3><p>PFA-EPI and aPTT are assay- and institution-sensitive. Local validation needs local reference intervals, preanalytic rules, medication restrictions, and handling of missing values.</p></div>
+    <div class="mini-card"><h3>Clinical governance</h3><p>Deployment should include ownership by hematology/anesthesia, version control, audit trail, clinician override, periodic performance review, and a defined process for incident review.</p></div>
+    <div class="mini-card"><h3>Workflow fit</h3><p>The usability result is encouraging, but live workflow testing should measure whether the tool changes referral patterns, documentation, surgical delays, and patient outcomes.</p></div>
+  </div>
+</section>
+
+<section id="appraisal">
+  <h2>9. Evaluation and appraisal</h2>
+  <div class="verdict"><strong>Verdict:</strong> Read first for clinicians and informatics teams interested in preoperative bleeding-disorder triage or interpretable diagnostic ML. Use for concept, methods, and pilot design; do not use as definitive practice-changing evidence.</div>
+  <div class="rating-grid">
+    <div class="mini-card"><div class="kicker">Relevance</div><div class="score">8.5 / 10</div><p><strong>Rationale:</strong> Directly relevant to perioperative screening, hematology referral triage, and clinical AI implementation.</p><p><strong>Evidence basis:</strong> Adult suspected-MBD cohorts, clinical referral use case, comparator tests, and usability assessment.</p><p><strong>Limiting factor:</strong> Narrow specialty setting.</p><p><strong>Raise/lower:</strong> Higher with outcome-impact trial; lower if local practice lacks PFA-EPI or hematology follow-up capacity.</p></div>
+    <div class="mini-card"><div class="kicker">Novelty</div><div class="score">8.0 / 10</div><p><strong>Rationale:</strong> Meaningful integration of bleeding history, lab data, explainability, external validation, and web implementation.</p><p><strong>Evidence basis:</strong> Authors found little prior ML work designed for acute/preoperative MBD decision support.</p><p><strong>Limiting factor:</strong> Uses established ML methods and standard diagnostic metrics.</p><p><strong>Raise/lower:</strong> Higher with multicountry deployment evidence; lower if code/app are not reproducible or maintained.</p></div>
+    <div class="mini-card"><div class="kicker">Method strength</div><div class="score">7.5 / 10</div><p><strong>Rationale:</strong> Prospective cohorts, clear split strategy, external validation, training-only preprocessing, and uncertainty reporting are strong.</p><p><strong>Evidence basis:</strong> Consecutive cohorts; 17 algorithms screened; final SVM validated externally.</p><p><strong>Limiting factor:</strong> Relatively small ML sample, older cohorts, incomplete main-text calibration detail, and appendix not audited.</p><p><strong>Raise/lower:</strong> Higher with transparent calibration/decision-curve reporting and full reproducibility audit.</p></div>
+    <div class="mini-card"><div class="kicker">Evidence strength</div><div class="score">7.0 / 10</div><p><strong>Rationale:</strong> Diagnostic discrimination is well supported, but clinical utility and safety are not proven.</p><p><strong>Evidence basis:</strong> External AUROC 0.85, sensitivity 90.2%, specificity 54.3%, CIs reported.</p><p><strong>Limiting factor:</strong> Surrogate endpoint: expert-panel diagnosis rather than patient-centered perioperative outcomes.</p><p><strong>Raise/lower:</strong> Higher with prospective impact trial; lower if local recalibration shows degraded NPV or sensitivity.</p></div>
+    <div class="mini-card"><div class="kicker">External validity</div><div class="score">5.5 / 10</div><p><strong>Rationale:</strong> Validation at a second site helps, but transportability remains the main weakness.</p><p><strong>Evidence basis:</strong> Both cohorts from Switzerland; adult referred/suspected population; no ethnicity data; dated enrollment.</p><p><strong>Limiting factor:</strong> Unselected surgical patients and diverse populations were not tested.</p><p><strong>Raise/lower:</strong> Higher with contemporary multicenter validation across countries and laboratories; lower in low-prevalence screening contexts.</p></div>
+    <div class="mini-card"><div class="kicker">Implementation value</div><div class="score">7.0 / 10</div><p><strong>Rationale:</strong> The tool is implemented, interpretable, and quick to use in vignette testing.</p><p><strong>Evidence basis:</strong> R-Shiny web app, Shapley explanations, 86-clinician usability survey, median completion 72 seconds, SUS 82.5.</p><p><strong>Limiting factor:</strong> No live deployment outcomes, EHR integration test, local assay validation, or monitoring plan in the main paper.</p><p><strong>Raise/lower:</strong> Higher with real-world implementation study; lower if governance, access, or laboratory dependencies are unresolved.</p></div>
+  </div>
+  <h3>Strengths</h3>
+  <ul><li>Clinically focused target problem with clear workflow rationale.</li><li>Prospective data collection and independent external validation.</li><li>Feature set constrained by stakeholder feasibility rather than pure model convenience.</li><li>Comparison with existing screening tools and routine tests.</li><li>Interpretability and usability were treated as part of implementation, not an afterthought.</li></ul>
+  <h3>Limitations</h3>
+  <ul><li>Diagnostic prediction, not outcome-impact evidence.</li><li>Limited specificity creates referral burden if implemented broadly.</li><li>Validation cohort is geographically and temporally narrow.</li><li>Not validated in unselected preoperative patients, pediatrics, diverse populations, or varied laboratory environments.</li><li>Appendix, code, live web app, and raw data were not audited in this artifact.</li></ul>
+  <h3>Confidence in appraisal</h3>
+  <p><strong>Moderate-high for judging the article’s diagnostic-prediction evidence; moderate for practice translation.</strong> The main text provides enough detail to appraise discrimination, population, and intended use. Confidence is lower for implementation safety because the uploaded file does not include appendix-level details, raw data, live deployment evaluation, or local validation results.</p>
+</section>
+
+<section id="qa">
+  <h2>10. QA and provenance</h2>
+  <table>
+    <tr><th>QA item</th><th>Status</th></tr>
+    <tr><td>Exact source title represented</td><td>Pass</td></tr>
+    <tr><td>Main sections summarized</td><td>Pass</td></tr>
+    <tr><td>Main figures/tables/workflows reconciled</td><td>Pass: Figures 1-4, Tables 1-2, and proposed threshold workflow included as structured blocks</td></tr>
+    <tr><td>Clinical-practice add-ons</td><td>Pass: PICO, evidence quality, recommendation strength, population/exclusions, safety, monitoring, implementation constraints, and practice-change boundaries included</td></tr>
+    <tr><td>Internal file-search citations/tool markers in HTML</td><td>None</td></tr>
+    <tr><td>Known omissions</td><td>Online appendix, GitHub code, live web app, datasets, and institutional implementation environment were not audited</td></tr>
+  </table>
+  <p class="foot"><strong>Evaluated file:</strong> PIIS2589750026000427.pdf. <strong>Source identifier:</strong> DOI 10.1016/j.landig.2026.101019. <strong>Generation date:</strong> 2026-07-02. <strong>Caveat:</strong> This reference supports source appraisal and local implementation planning; it does not replace primary-source reading, hematology/anesthesia judgment, institutional validation, or policy review.</p>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ComplianceGate — Reference Appraisal</title>
+<style>
+:root{
+  --bg:#f6f8fb; --card:#ffffff; --ink:#16202a; --muted:#5c6a7a; --line:#d9e1ea;
+  --accent:#174a7c; --accent2:#2e6aa3; --good:#0f6b3b; --warn:#8a5a00; --bad:#8a1f1f;
+  --soft-blue:#eef5ff; --soft-green:#edf8f1; --soft-warn:#fff7e6; --soft-red:#fff0f0;
+  --codebg:#0e1726; --codefg:#eef5ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#10243d,#1d4f91);color:#fff;padding:2.2rem 1.25rem 2rem;border-bottom:5px solid #d2e2f5}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.1rem}
+header .wrap{padding:0 1.1rem}
+h1{margin:.2rem 0 .6rem;font-size:clamp(1.7rem,3vw,2.7rem);line-height:1.1;font-weight:800;letter-spacing:-.02em}
+.subtitle{font-size:1.03rem;max-width:920px;color:#eaf2ff;margin:.35rem 0 0}
+.statusline{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.1rem}
+.tag{display:inline-block;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.14);padding:.25rem .55rem;border-radius:999px;font-size:.86rem;color:#fff}
+main{max-width:1180px;margin:1.15rem auto 2.2rem;padding:0 1.1rem}
+section,.toc,.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.1rem 1.25rem;margin:1rem 0;box-shadow:0 1px 4px rgba(16,36,61,.05)}
+h2{margin:.1rem 0 .8rem;color:#0f315f;font-size:1.35rem}
+h3{margin:1rem 0 .45rem;color:#173f72;font-size:1.08rem}
+h4{margin:.85rem 0 .35rem;color:#24364b;font-size:1rem}
+p{margin:.55rem 0}
+ul,ol{margin:.5rem 0 .75rem;padding-left:1.3rem} li{margin:.25rem 0}
+a{color:var(--accent)}
+.toc ul{columns:2;list-style:none;padding-left:0;margin:.4rem 0}.toc li{break-inside:avoid;margin:.25rem 0}.toc a{text-decoration:none;color:var(--accent)}
+.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:.75rem 0}
+.mini-card{border:1px solid var(--line);border-radius:12px;background:#fbfdff;padding:.75rem}.mini-card b{display:block;color:#20344d;margin-bottom:.2rem}.mini-card span{color:var(--muted)}
+.verdict{border-left:6px solid var(--accent);background:var(--soft-blue);padding:.9rem 1rem;border-radius:12px;margin:.75rem 0}
+.goodnote{border-left:6px solid var(--good);background:var(--soft-green);padding:.85rem 1rem;border-radius:12px;margin:.75rem 0}
+.warning{border-left:6px solid var(--warn);background:var(--soft-warn);padding:.85rem 1rem;border-radius:12px;margin:.75rem 0}
+.badnote{border-left:6px solid var(--bad);background:var(--soft-red);padding:.85rem 1rem;border-radius:12px;margin:.75rem 0}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.92rem;border:1px solid var(--line);display:block;overflow-x:auto}thead,tbody{width:100%}th,td{border:1px solid var(--line);padding:.52rem .6rem;vertical-align:top}th{background:#eef3f9;text-align:left;color:#1e395c;font-weight:700}tbody tr:nth-child(even){background:#fbfdff}
+.score{font-weight:800;color:#0f315f;white-space:nowrap}
+pre{margin:.65rem 0 1rem;padding:.9rem 1rem;background:var(--codebg);color:var(--codefg);border-radius:12px;overflow-x:auto;border:1px solid #1b2e49;font-size:.88rem;line-height:1.45;white-space:pre-wrap}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}.small{font-size:.9rem;color:var(--muted)}
+.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#eef3f9;border:1px solid #d7e0eb;border-radius:5px;padding:.05rem .25rem}
+.figure-block{border:1px solid var(--line);border-radius:12px;padding:.85rem;margin:.7rem 0;background:#fbfdff}.figure-block h4{margin-top:0}.label{font-weight:800;color:#0f315f}
+footer{max-width:1180px;margin:1rem auto 2rem;padding:0 1.1rem;color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.meta-grid,.rating-grid,.takeaway-grid{grid-template-columns:1fr}.toc ul{columns:1}main,.wrap,footer{padding:0 .8rem}section,.toc,.card{padding:1rem}.statusline{gap:.4rem}}
+@media print{body{background:white}header{background:#fff;color:#000;border-bottom:2px solid #000}.tag{border-color:#777;color:#000;background:#fff}section,.toc,.card{box-shadow:none;break-inside:avoid}a{color:inherit}pre{white-space:pre-wrap;color:#000;background:#f2f2f2;border-color:#bbb}.toc{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>ComplianceGate: Classifier-Gated Multi-Tier LLM Routing for Inference in Regulated Industries</h1>
+    <p class="subtitle">Reference HTML appraisal using the Summary, Evaluation, and Appraisal protocol. Focus: AI/ML systems, regulated-industry workflow design, routing architecture, deterministic governance, reproducibility, and implementation risk.</p>
+    <div class="statusline">
+      <span class="tag">arXiv:2606.31163v2</span>
+      <span class="tag">AI/ML systems</span>
+      <span class="tag">LLM serving</span>
+      <span class="tag">PII-aware routing</span>
+      <span class="tag">Preprint appraisal</span>
+    </div>
+  </div>
+</header>
+<main>
+<nav class="toc" id="toc">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">1. Metadata</a></li>
+    <li><a href="#synthesis">2. One-page synthesis</a></li>
+    <li><a href="#manifest">3. Coverage manifest</a></li>
+    <li><a href="#section-summary">4. Section-by-section condensation</a></li>
+    <li><a href="#visuals">5. Figures, tables, and workflows</a></li>
+    <li><a href="#aiml-appraisal">6. AI/ML appraisal</a></li>
+    <li><a href="#ratings">7. Ratings</a></li>
+    <li><a href="#takeaways">8. Implementation takeaways</a></li>
+    <li><a href="#provenance">9. Provenance and QA</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+  <h2>1. Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><b>Exact title</b><span>ComplianceGate: Classifier-Gated Multi-Tier LLM Routing for Inference in Regulated Industries</span></div>
+    <div class="mini-card"><b>Author</b><span>Abhishek Dey, Independent AI Researcher, India; ORCID 0009-0006-5427-7058</span></div>
+    <div class="mini-card"><b>Source / identifier</b><span>arXiv:2606.31163v2 [cs.LG], dated 1 July 2026; 8-page PDF</span></div>
+    <div class="mini-card"><b>Source type</b><span>Preprint / technical architecture paper with controlled serving benchmark</span></div>
+    <div class="mini-card"><b>Design</b><span>Proposed classifier-gated routing architecture plus benchmark of 600 queries on Amazon Bedrock in us-east-2</span></div>
+    <div class="mini-card"><b>Primary domain</b><span>LLM serving, data-residency routing, model-tier selection, inference latency/cost</span></div>
+  </div>
+  <div class="warning"><b>Scope warning.</b> This paper is useful as an architecture concept and benchmark sketch. It does not by itself validate legal compliance, clinical deployment readiness, production security, PII recall under adversarial or multilingual workloads, or response quality after routing to smaller models.</div>
+</section>
+
+<section id="synthesis">
+  <h2>2. One-page synthesis</h2>
+  <div class="verdict"><b>Verdict: Skim deeply / read soon if building regulated LLM infrastructure.</b> The central design pattern—pre-inference classification of complexity and sensitivity before any decoder call—is practical and worth preserving. The empirical evidence is much weaker than the production-ready framing: the benchmark is small, workload details are thin, classifier validation is underreported, and the paper contains cost-savings inconsistencies.</div>
+  <h3>Core thesis</h3>
+  <p>The paper argues that regulated LLM systems should not send every query to one large model or rely on internal MoE routing. Instead, a separate encoder classifier should run before decoder inference, assign each query to a complexity tier and PII/non-PII sensitivity class, then route the query to a small, medium, or large dense model in either local or cross-region infrastructure. The claimed value is simultaneous compliance-by-design, lower latency, lower cost, independent tier scaling, and better failure isolation.</p>
+  <h3>What the paper reports</h3>
+  <p>The proposed classifier is a 134M-parameter BERT-like encoder trained from scratch on 2 billion tokens and fine-tuned on 50,000 domain examples for six labels: simple/medium/complex crossed with PII/non-PII. The system uses an 80% confidence threshold; predictions below threshold fall back to <span class="kbd">complex_pii</span>, routing to the most restrictive local large-model tier. In a 600-query Amazon Bedrock benchmark, the paper reports faster simple and medium query latency, higher generation throughput for small/medium dense models, and cost reductions relative to routing all queries through Qwen3-Coder-480B-A35B.</p>
+  <h3>Most useful idea</h3>
+  <p>The useful, reusable idea is architectural separation of <em>routing judgment</em> from <em>generation</em>: a cheap, auditable, deterministic-enough classifier can enforce routing constraints before sensitive text reaches a generative endpoint. That pattern transfers to clinical-pharmacy AI assistants, enterprise RAG, PHI/PII boundary checks, tenant-aware deployments, and model-tier cost controls.</p>
+  <h3>Main caution</h3>
+  <p>The paper repeatedly uses strong language such as “eliminating residency violations by design” and “production-ready alternative,” but the evidence does not fully support those claims. PII recall is reported as near-perfect without a confusion matrix, dataset description, adversarial testing, multilingual evaluation, or external validation. The quality impact of routing simple/medium queries to smaller models is not measured. Cost claims are internally inconsistent across the cost model, figures, and conclusion.</p>
+</section>
+
+<section id="manifest">
+  <h2>3. Coverage manifest and inclusion gate</h2>
+  <table>
+    <tbody>
+      <tr><th>Source ID</th><td>arXiv:2606.31163v2</td></tr>
+      <tr><th>Exact title</th><td>ComplianceGate: Classifier-Gated Multi-Tier LLM Routing for Inference in Regulated Industries</td></tr>
+      <tr><th>Sections/headings</th><td>Abstract; 1 Introduction; 2 Architecture with 2.1–2.6; 3 Related Work; 4 Cost Model; 5 Discussion with 5.1–5.5; 6 Comparison; 7 Experiments and Results with 7.1–7.5; 8 Conclusion; References; Appendix-1; Appendix-2.</td></tr>
+      <tr><th>Figures</th><td>Figures 1–11 accounted for as structured blocks. No embedded crops; captions and page visuals were sufficient for reference extraction.</td></tr>
+      <tr><th>Tables</th><td>Comparison table in Section 6; Tables 1–4 in Section 7; Appendix Tables A1–A2. Cost-model scenarios are extracted as a structured calculation table.</td></tr>
+      <tr><th>Workflows/algorithms</th><td>Classifier-gated request flow; six-label classification logic; confidence fallback; deployment topology.</td></tr>
+      <tr><th>Appendices</th><td>Appendix-1 system architecture and Appendix-2 benchmark metrics included because they affect reproducibility and appraisal.</td></tr>
+      <tr><th>Omissions</th><td>No substantive source section, figure, table, or appendix omitted. Code repository and Hugging Face model card are mentioned as author-provided provenance but were not independently evaluated.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="section-summary">
+  <h2>4. Section-by-section condensation</h2>
+
+  <div class="section-summary">
+    <h3>Abstract</h3>
+    <p>The abstract frames regulated-industry LLM deployment as a three-way conflict among compliance, cost, and capability. The author argues that single large-model deployments waste GPU capacity and cannot enforce data residency per query, while MoE routing occurs inside the model after data has already reached the endpoint.</p>
+    <p>The claimed solution is a pre-inference encoder classifier that evaluates complexity and PII sensitivity, then routes to the proper model size and geography. Reported results include 39% latency reduction, 33–52% cost savings depending on query distribution, 122–200 tokens/s for routed simple tiers versus 50–64 tokens/s baseline, 99.2% classifier accuracy, near-perfect PII recall, and 7 ms classifier overhead.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>1. Introduction</h3>
+    <p>The introduction contrasts classifier-gated routing against FrugalGPT, RouteLLM, Hybrid LLM, and MoE approaches. The stated gap is that prior routers may reduce cost but do not jointly classify PII sensitivity, select among more than two model tiers, and enforce geographic routing before generation.</p>
+    <p>The architecture is positioned around four benefits: compliance/security, performance, cost efficiency, and resiliency. The strongest conceptual point is that the routing decision occurs before any decoder computation, creating a boundary at which data residency policy can be enforced. The weak point is that the introduction treats regulatory compliance as mostly equivalent to pre-inference PII detection plus endpoint geography, which is narrower than real compliance programs.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>2. Architecture</h3>
+    <p>The system has two components: a GPU-hosted encoder classifier for sub-10 ms inference and a CPU routing layer that interprets classifier output, applies a confidence threshold, chooses the model tier and geography, then forwards the original query. The classifier is a 12-layer, 768-hidden, 12-head transformer encoder with about 134M parameters, pre-trained on 2 billion tokens and fine-tuned on 50,000 domain examples for six labels.</p>
+    <p>The six labels are the cross-product of three complexity tiers and two sensitivity classes. PII controls geography; complexity controls model tier. The default confidence threshold is 80%; low-confidence classifications fall back to <span class="kbd">complex_pii</span>. Model tiers are dense decoders behind externalized endpoints; deployment is described as containerized and infrastructure-as-code replicable across jurisdictions.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>3. Related Work</h3>
+    <p>The related-work section summarizes FrugalGPT as a cascade, RouteLLM as preference-trained binary routing, AutoMix as output mixing after generation, Hybrid LLM as local/cloud two-target routing, and MoE as token-level expert routing inside one model. The paper’s claimed novelty is combining multi-tier model selection, PII sensitivity detection, geographic enforcement, and a cost model in one pre-inference decision layer.</p>
+    <p>The comparison is plausible at the architecture level, but it does not fully analyze overlapping safety routers, DLP gateways, policy engines, enterprise prompt firewalls, cloud-provider region controls, or PHI/PII redaction systems. As a result, novelty is strongest for the combined framing, not necessarily for each component.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>4. Cost Model</h3>
+    <p>The cost model defines single-model cost as <span class="kbd">N × C_large</span> and multi-tier cost as classifier cost plus a weighted sum of tier-specific inference costs. The author treats classifier cost as negligible because the classifier adds under 7 ms and less than $0.00001/query, then derives fractional savings as <span class="kbd">S = 1 − Σ(pᵢ × rᵢ)</span>, where <span class="kbd">rᵢ</span> is tier cost relative to the large model.</p>
+    <p>The paper uses cost ratios r₁=0.15, r₂=0.26, and r₃=1.0. Under equal thirds this formula yields 52% savings; under 60/25/15 it yields 69.5%; under 70/20/10 it yields 74%. However, later figures and the conclusion report 33% savings at equal distribution and 52% under a 60/25/15 skew. That discrepancy materially weakens confidence in the cost evidence unless it is explained by different token pricing, output lengths, or actual Bedrock bill calculations.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>5. Discussion</h3>
+    <p>The paper states that classifier-gated routing works best when traffic is skewed toward simple queries, data residency must be enforced per query, tiers can scale independently, and different model sizes/providers can serve different tiers. It acknowledges that MoE can be preferable when queries do not separate cleanly, a single quality level is required, or the goal is training efficiency rather than serving-cost reduction.</p>
+    <p>The discussion directly recognizes the key compliance risk: a PII query misclassified as non-PII could be routed out of jurisdiction. The proposed mitigation is an 80% confidence fallback, with a higher threshold for zero-tolerance environments. Future work includes finer labels, multilingual PII detection, adaptive thresholds, classifiers under 10M parameters, and post-inference quality verification.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>6. Comparison</h3>
+    <p>The comparison table argues that MoE routes per token/layer inside the model, requires all experts resident in memory, cannot enforce per-query geography, has single-cluster failure domains, and scales the whole cluster. Classifier-gated routing routes once per query before inference, sends simple queries to approximately 4 GB small models, adds 7 ms overhead, supports geographic enforcement, isolates tiers, and scales per tier.</p>
+    <p>This is the paper’s most convincing architectural argument. It is still partially benchmark-dependent: memory and cost claims rely on model/provider specifics, and Bedrock abstracts the actual serving stack. The paper also assumes that “equivalent answers” can be produced by small models for simple queries, but it does not report answer-quality evaluation.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>7. Experiments and Results</h3>
+    <p>The experiment uses 600 queries on Amazon Bedrock in us-east-2 at temperature 0.3, top-k 10, and top-p 0.9. The query set includes 200 simple banking/regulatory lookups with 100-token outputs, 200 medium comparative-analysis prompts with 200-token outputs, and 200 complex architectural-design prompts with 400-token outputs. The baseline sends all queries to Qwen3-Coder-480B-A35B; gated routing sends simple queries to Nova Lite or Gemma 3 4B, medium queries to Gemma 3 27B or Ministral 14B, and complex queries to Qwen3-480B.</p>
+    <p>Reported P50 latency improves from about 1850 ms to 490–840 ms for simple prompts and from about 3750 ms to 1140–2250 ms for medium prompts; complex prompts are similar because both paths use the same model. Dense small/medium models achieve 87–200 tokens/s compared with roughly 50–69 tokens/s for the Qwen baseline. Tail latency and max/min variance are much lower for small/medium gated models, but the gated complex Qwen row has a worse P99/max than the baseline complex row in Appendix Table A1.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>8. Conclusion</h3>
+    <p>The conclusion restates the architecture as a production-ready alternative to single-model and MoE deployments, emphasizing pre-inference data-residency routing, independent tier scaling, upgrades by component, and auditability. It reports 39% latency reduction, 2–4× simple-query latency improvement, 1.7–3.3× medium-query improvement, 122–200 tokens/s simple/medium throughput, and 33–52% cost savings.</p>
+    <p>The defensible conclusion is narrower: classifier-gated routing is a credible pattern for cost-aware and compliance-aware LLM orchestration. The stronger claim that it “eliminates” residency violations or is production-ready needs external validation, clearer PII evaluation, quality metrics, legal/security review, and more transparent cost accounting.</p>
+  </div>
+</section>
+
+<section id="visuals">
+  <h2>5. Figures, tables, and workflows</h2>
+  <h3>5.1 Figure and workflow extraction</h3>
+
+  <div class="figure-block"><h4>Figure 1 — System Architecture: Classifier-Gated Routing</h4><p><span class="label">Purpose:</span> Shows a prompt entering an app/API router, being classified by an encoder classifier, and routed to small, medium, or large foundation models.</p><p><span class="label">Interpretation:</span> The central governance move is pre-decoder routing. The router is a policy/selection point rather than a generator.</p><p><span class="label">Limit:</span> The diagram does not show logging, encryption, tenant controls, auditing, retry policy, de-identification, or tool/RAG paths.</p></div>
+
+  <div class="figure-block"><h4>Figure 2 — Classification Labels and Routing Logic</h4><p><span class="label">Purpose:</span> Defines a two-axis routing scheme: complexity (simple, moderate, complex) and sensitivity (PII, non-PII).</p><p><span class="label">Decision rule:</span> Complexity selects small/medium/large model tier; PII selects local versus cross-region geography.</p><p><span class="label">Limit:</span> Binary PII is too coarse for many real governance settings: PHI, secrets, PCI, minors, credentials, jurisdiction-specific identifiers, and contractual confidentiality may need distinct labels.</p></div>
+
+  <div class="figure-block"><h4>Figure 3 — Confidence-Based Fallback Flow</h4><p><span class="label">Purpose:</span> Shows fallback when classifier confidence is below 80%.</p><p><span class="label">Decision rule:</span> If confidence ≥80%, use predicted label; if confidence &lt;80%, route to <span class="kbd">complex_pii</span>, the most restrictive local large-model route.</p><p><span class="label">Limit:</span> Confidence calibration is not reported. A high softmax confidence can still be wrong under distribution shift or adversarial phrasing.</p></div>
+
+  <div class="figure-block"><h4>Figure 4 — Deployment Architecture</h4><p><span class="label">Purpose:</span> Shows containerized classifier and routing components deployed through infrastructure-as-code, with replication across jurisdictions.</p><p><span class="label">Implementation value:</span> The deployment concept is useful for local/cross-region endpoint routing and independent model-tier updates.</p><p><span class="label">Limit:</span> Operational details are thin: no SLO/SLA targets, autoscaling policy, observability schema, canary strategy, secret handling, DLP integration, or incident response workflow.</p></div>
+
+  <div class="figure-block"><h4>Figure 5 — Cumulative Latency Distribution</h4><p><span class="label">Reported pattern:</span> Gated routing reaches the 50% completion mark at about 2100 ms; the single-model/MoE baseline reaches it at about 4300 ms.</p><p><span class="label">Interpretation:</span> The latency benefit mainly comes from simple and medium queries using smaller dense models.</p><p><span class="label">Limit:</span> No confidence intervals or repeated-run variability are reported.</p></div>
+
+  <div class="figure-block"><h4>Figure 6 — Per-Query Latency Sorted Ascending</h4><p><span class="label">Reported pattern:</span> Baseline latency has a long tail with some queries above 20,000 ms, while gated routing remains below about 7000 ms for 80% of queries. Divergence after query 400 corresponds to complex-tier traffic where both systems use Qwen3-480B.</p><p><span class="label">Interpretation:</span> Right-sizing removes much of the tail for simple/medium workloads.</p><p><span class="label">Limit:</span> The benchmark setup does not fully define concurrency, warm/cold starts, retry behavior, or provider-side queueing.</p></div>
+
+  <div class="figure-block"><h4>Figure 7 — Cost per Query, Equal Distribution</h4><p><span class="label">Reported pattern:</span> Under 33/33/33 simple/medium/complex traffic, the figure states 33% savings by routing simple and medium queries to smaller models; complex queries use the same model in both configurations.</p><p><span class="label">Appraisal:</span> This conflicts with the Cost Model section, where the same equal distribution and stated ratios yield 52% savings.</p></div>
+
+  <div class="figure-block"><h4>Figure 8 — Cost per Query, Skewed Distribution</h4><p><span class="label">Reported pattern:</span> Under a 60/25/15 skew, gated routing sends simple queries to compact models using about 4–28 GB and 6–8× lower per-query cost; the figure states 52% savings.</p><p><span class="label">Appraisal:</span> This conflicts with the Cost Model section’s 69.5% savings for the 60/25/15 distribution.</p></div>
+
+  <div class="figure-block"><h4>Figure 9 — Latency Distribution by Tier</h4><p><span class="label">Reported pattern:</span> MoE/baseline boxes are wider with long whiskers; gated small and medium tiers are compressed, indicating more predictable latency. The text states a simple query can range from 635 ms to 21,900 ms under the baseline.</p><p><span class="label">Interpretation:</span> Predictability may matter more than median latency for SLA-bound systems.</p></div>
+
+  <div class="figure-block"><h4>Figure 10 — Time to First Byte CDF</h4><p><span class="label">Reported pattern:</span> Gated routing delivers first tokens faster for simple and medium queries because smaller models have less pre-generation overhead.</p><p><span class="label">Limit:</span> TTFB numeric percentiles are not provided in a table.</p></div>
+
+  <div class="figure-block"><h4>Figure 11 — Generation Throughput Sorted</h4><p><span class="label">Reported pattern:</span> Gated routing averages 119 tokens/s versus 59 tokens/s for the MoE/single-model baseline, about 2× faster overall.</p><p><span class="label">Interpretation:</span> Throughput gains are driven by small and medium dense decoders; complex traffic remains similar.</p></div>
+
+  <h3>5.2 Cost model extraction</h3>
+  <pre><code>C_single = N × C_large
+C_multi = C_classifier + N × Σ(pᵢ × Cᵢ)
+Simplified: C_multi ≈ N × Σ(pᵢ × Cᵢ)
+Savings: S = 1 − Σ(pᵢ × rᵢ), where rᵢ = Cᵢ / C_large
+Stated ratios: r₁ = 0.15, r₂ = 0.26, r₃ = 1.0</code></pre>
+  <table>
+    <thead><tr><th>Distribution</th><th>Paper’s cost-model calculation</th><th>Other reported value</th><th>Appraisal</th></tr></thead>
+    <tbody>
+      <tr><td>33/33/33 simple/medium/complex</td><td>52% savings</td><td>Figure 7 and conclusion: 33% savings</td><td>Internal inconsistency; needs reconciliation.</td></tr>
+      <tr><td>60/25/15</td><td>69.5% savings</td><td>Figure 8 and conclusion: 52% savings</td><td>Internal inconsistency; likely actual-token-cost versus ratio-model mismatch, but not explained.</td></tr>
+      <tr><td>70/20/10</td><td>74% savings</td><td>Comparison table reports $0.000339 and 53% savings for a 70/20/10 split</td><td>Inconsistent with the formula and $0.000727 large-model cost.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.3 Main experiment tables</h3>
+  <table>
+    <caption><b>Table 1 — Latency comparison, P50</b></caption>
+    <thead><tr><th>Tier</th><th>Baseline Qwen3 480B</th><th>Gated right-sized model</th><th>Reported improvement</th></tr></thead>
+    <tbody>
+      <tr><td>Simple</td><td>~1850 ms</td><td>~490–840 ms</td><td>2–4× faster</td></tr>
+      <tr><td>Medium</td><td>~3750 ms</td><td>~1140–2250 ms</td><td>1.7–3.3× faster</td></tr>
+      <tr><td>Complex</td><td>~6780 ms</td><td>~6850–7350 ms</td><td>Same model, roughly similar</td></tr>
+    </tbody>
+  </table>
+  <table>
+    <caption><b>Table 2 — Inference throughput</b></caption>
+    <thead><tr><th>Tier</th><th>Baseline Qwen3 480B</th><th>Gated right-sized model</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>Simple</td><td>50–55 tok/s</td><td>122–200 tok/s</td><td>2–4× faster</td></tr>
+      <tr><td>Medium</td><td>56–59 tok/s</td><td>87–175 tok/s</td><td>1.5–3× faster</td></tr>
+      <tr><td>Complex</td><td>64–69 tok/s</td><td>62–64 tok/s</td><td>Same model, similar</td></tr>
+    </tbody>
+  </table>
+  <table>
+    <caption><b>Table 3 — Latency variance, max/min</b></caption>
+    <thead><tr><th>Model</th><th>Tier</th><th>Max/min ratio</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>Qwen3 480B</td><td>Simple</td><td>34.5×</td><td>Highly unpredictable</td></tr>
+      <tr><td>Qwen3 480B</td><td>Medium</td><td>20.8×</td><td>Unpredictable</td></tr>
+      <tr><td>Qwen3 480B</td><td>Complex</td><td>13.4×</td><td>Unpredictable</td></tr>
+      <tr><td>Nova Lite</td><td>Simple</td><td>2.0×</td><td>Highly consistent</td></tr>
+      <tr><td>Gemma 4B</td><td>Simple</td><td>1.7×</td><td>Highly consistent</td></tr>
+      <tr><td>Gemma 27B</td><td>Medium</td><td>1.2×</td><td>Near constant</td></tr>
+      <tr><td>Ministral 14B</td><td>Medium</td><td>1.1×</td><td>Near constant</td></tr>
+    </tbody>
+  </table>
+  <table>
+    <caption><b>Table 4 — Latency comparison, P95/P50</b></caption>
+    <thead><tr><th>Model</th><th>Tier</th><th>P95/P50 ratio</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>Qwen3 480B</td><td>Simple</td><td>7.3×</td><td>Highly unpredictable</td></tr>
+      <tr><td>Qwen3 480B</td><td>Medium</td><td>5.1×</td><td>Unpredictable</td></tr>
+      <tr><td>Qwen3 480B</td><td>Complex</td><td>2.9×</td><td>Moderate variance</td></tr>
+      <tr><td>Nova Lite</td><td>Simple</td><td>1.2×</td><td>Highly consistent</td></tr>
+      <tr><td>Gemma 4B</td><td>Simple</td><td>1.1×</td><td>Highly consistent</td></tr>
+      <tr><td>Gemma 27B</td><td>Medium</td><td>1.1×</td><td>Highly consistent</td></tr>
+      <tr><td>Ministral 14B</td><td>Medium</td><td>1.03×</td><td>Near-constant latency</td></tr>
+      <tr><td>Qwen3 480B</td><td>Complex</td><td>3.1×</td><td>Moderate variance</td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.4 Appendix metrics</h3>
+  <table>
+    <caption><b>Appendix Table A1 — Full latency distribution</b></caption>
+    <thead><tr><th>Config/model</th><th>Tier</th><th>P50</th><th>P95</th><th>P99</th><th>Min</th><th>Max</th><th>Mean</th></tr></thead>
+    <tbody>
+      <tr><td>Baseline — Qwen3 480B</td><td>Simple</td><td>1733 ms</td><td>14506 ms</td><td>21205 ms</td><td>635 ms</td><td>21205 ms</td><td>3728 ms</td></tr>
+      <tr><td>Baseline — Qwen3 480B</td><td>Medium</td><td>3380 ms</td><td>15300 ms</td><td>23797 ms</td><td>1288 ms</td><td>23797 ms</td><td>5310 ms</td></tr>
+      <tr><td>Baseline — Qwen3 480B</td><td>Complex</td><td>7380 ms</td><td>19769 ms</td><td>29027 ms</td><td>2200 ms</td><td>29027 ms</td><td>8971 ms</td></tr>
+      <tr><td>Gated — Nova Lite</td><td>Simple</td><td>841 ms</td><td>1037 ms</td><td>1157 ms</td><td>582 ms</td><td>1157 ms</td><td>833 ms</td></tr>
+      <tr><td>Gated — Gemma 4B</td><td>Simple</td><td>492 ms</td><td>540 ms</td><td>608 ms</td><td>357 ms</td><td>608 ms</td><td>488 ms</td></tr>
+      <tr><td>Gated — Gemma 27B</td><td>Medium</td><td>2254 ms</td><td>2541 ms</td><td>2583 ms</td><td>2138 ms</td><td>2583 ms</td><td>2290 ms</td></tr>
+      <tr><td>Gated — Ministral 14B</td><td>Medium</td><td>1141 ms</td><td>1184 ms</td><td>1200 ms</td><td>1101 ms</td><td>1200 ms</td><td>1144 ms</td></tr>
+      <tr><td>Gated — Qwen3 480B</td><td>Complex</td><td>6845 ms</td><td>22174 ms</td><td>46445 ms</td><td>2618 ms</td><td>46445 ms</td><td>8837 ms</td></tr>
+    </tbody>
+  </table>
+  <div class="warning"><b>Appendix A1 appraisal.</b> Small and medium gated models are clearly faster and more predictable. However, the gated complex Qwen row has worse P95, P99, min, and max than the baseline complex row, despite using the same model family. That suggests provider-side variance, run conditions, or sampling differences should be described before making strong SLA claims.</div>
+  <table>
+    <caption><b>Appendix Table A2 — Token economics</b></caption>
+    <thead><tr><th>Config/model</th><th>Tier</th><th>Queries</th><th>Input tokens</th><th>Output tokens</th><th>Avg input</th><th>Avg output</th><th>Tok/s</th></tr></thead>
+    <tbody>
+      <tr><td>Baseline — Qwen3 480B</td><td>Simple</td><td>200</td><td>2,840</td><td>19,701</td><td>14.2</td><td>98.5</td><td>52.4</td></tr>
+      <tr><td>Baseline — Qwen3 480B</td><td>Medium</td><td>200</td><td>4,488</td><td>40,000</td><td>22.4</td><td>200.0</td><td>57.3</td></tr>
+      <tr><td>Baseline — Qwen3 480B</td><td>Complex</td><td>200</td><td>6,504</td><td>80,000</td><td>32.5</td><td>400.0</td><td>66.9</td></tr>
+      <tr><td>Gated — Nova Lite</td><td>Simple</td><td>100</td><td>600</td><td>10,000</td><td>6.0</td><td>100.0</td><td>112.3</td></tr>
+      <tr><td>Gated — Gemma 4B</td><td>Simple</td><td>100</td><td>1,496</td><td>9,766</td><td>15.0</td><td>97.7</td><td>200.3</td></tr>
+      <tr><td>Gated — Gemma 27B</td><td>Medium</td><td>100</td><td>2,312</td><td>20,000</td><td>23.1</td><td>200.0</td><td>87.6</td></tr>
+      <tr><td>Gated — Ministral 14B</td><td>Medium</td><td>100</td><td>1,760</td><td>20,000</td><td>17.6</td><td>200.0</td><td>174.9</td></tr>
+      <tr><td>Gated — Qwen3 480B</td><td>Complex</td><td>200</td><td>6,504</td><td>80,000</td><td>32.5</td><td>400.0</td><td>63.2</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="aiml-appraisal">
+  <h2>6. AI/ML systems appraisal</h2>
+  <table>
+    <tbody>
+      <tr><th>Task definition</th><td>Classify each incoming query by complexity and PII sensitivity, then route to the appropriate model size and geographic endpoint before LLM inference.</td></tr>
+      <tr><th>Data</th><td>Classifier pre-training: 2 billion English tokens; fine-tuning: 50,000 domain-specific examples. Benchmark: 600 queries split evenly across simple, medium, and complex tiers. The dataset composition, labeling protocol, class balance, held-out split, and adversarial cases are not described in enough detail.</td></tr>
+      <tr><th>Method</th><td>134M-parameter bidirectional encoder classifier; six-label output; confidence threshold default 80%; fallback to <span class="kbd">complex_pii</span>. Model endpoints are externalized; tiers are dense decoders selected by complexity.</td></tr>
+      <tr><th>Baselines</th><td>Primary baseline routes all queries to Qwen3-Coder-480B-A35B. Related work is discussed conceptually, but there is no direct empirical comparison with RouteLLM, Hybrid LLM, FrugalGPT, DLP + routing policies, redaction-first pipelines, or cloud-native region controls.</td></tr>
+      <tr><th>Metrics</th><td>Classifier accuracy, PII recall, routing overhead, latency percentiles, max/min variance, P95/P50, tokens/s, cost per query, and modeled monthly cost. Missing: answer quality, user/task success, hallucination rate, compliance audit rate, false-negative PII examples, calibration curves, and confidence/error tradeoff.</td></tr>
+      <tr><th>Reproducibility</th><td>The paper reports a released classifier and deployment templates, but this appraisal did not independently verify those artifacts. Benchmark query set, scripts, raw logs, and pricing calculations are not included in the PDF.</td></tr>
+      <tr><th>Failure analysis</th><td>Identified failure mode: PII false negative causing cross-region routing. Other important failure modes are underdeveloped: prompt injection to evade PII detection, multilingual identifiers, entity ambiguity, secrets/API keys, long prompts beyond 128 tokens, RAG/tool-call leakage, logs/telemetry crossing regions, and poor small-model answers.</td></tr>
+      <tr><th>Generalization</th><td>Promising for financial services, healthcare, legal, and enterprise support workloads if traffic is skewed and labels are stable. Weak evidence for multilingual, adversarial, clinical PHI, cross-provider, high-concurrency, or regulated production environments.</td></tr>
+    </tbody>
+  </table>
+  <div class="badnote"><b>Evidence cap.</b> Evidence strength is capped because the paper does not provide external validation, full classifier evaluation, uncertainty estimates, raw benchmark data, answer-quality testing, or a compliance audit framework.</div>
+</section>
+
+<section id="ratings">
+  <h2>7. Evaluation and appraisal ratings</h2>
+  <div class="rating-grid">
+    <div class="mini-card"><b>Relevance <span class="score">8/10</span></b><span>Strong fit for LLM serving, regulated AI workflow, routing, and governance-aware architecture. Lower direct fit for clinical pharmacy unless adapted to PHI-aware clinical AI systems.</span></div>
+    <div class="mini-card"><b>Novelty <span class="score">6/10</span></b><span>The combination of complexity tiering plus PII-aware geographic routing is useful, but the components overlap with existing routers, DLP gateways, and enterprise policy layers.</span></div>
+    <div class="mini-card"><b>Method strength <span class="score">5/10</span></b><span>The architecture is clear and the benchmark has useful latency/cost metrics, but classifier data, validation design, calibration, query construction, and reproducibility details are insufficient.</span></div>
+    <div class="mini-card"><b>Evidence strength <span class="score">4/10</span></b><span>The reported results support a plausible speed/cost advantage for simple and medium queries, but do not validate compliance, output quality, or the strongest production-readiness claims.</span></div>
+    <div class="mini-card"><b>External validity <span class="score">4/10</span></b><span>Single-region Bedrock testing and English/domain-specific classifier training limit generalization. Real deployments need multilingual, adversarial, high-concurrency, and jurisdiction-specific validation.</span></div>
+    <div class="mini-card"><b>Implementation value <span class="score">7/10</span></b><span>The routing pattern is implementable and reusable, especially as a policy-first front door for LLM/RAG services. Value would rise with raw code verification, schema definitions, monitoring guidance, and deployment runbooks.</span></div>
+  </div>
+
+  <h3>What would raise the score</h3>
+  <ul>
+    <li>Public benchmark queries, raw latency logs, pricing calculation worksheet, and runnable evaluation scripts.</li>
+    <li>Confusion matrix, precision/recall/F1 by all six labels, PII false-negative examples, calibration curves, threshold sensitivity, and external test sets.</li>
+    <li>Quality evaluation comparing routed small/medium outputs against the large model with human or task-specific grading.</li>
+    <li>Multilingual and adversarial PII/PHI tests, long-prompt tests beyond 128 tokens, and prompt-injection evasion tests.</li>
+    <li>Compliance architecture details: logging boundaries, encryption, audit trail, retention, tool/RAG geography, endpoint failover, and legal/regulatory mapping.</li>
+  </ul>
+
+  <h3>What would lower the score</h3>
+  <ul>
+    <li>If the released classifier or code does not reproduce the reported latency, recall, or routing behavior.</li>
+    <li>If small/medium routed models produce materially worse answers on realistic regulated-domain tasks.</li>
+    <li>If PII recall falls under adversarial, multilingual, or out-of-domain conditions.</li>
+    <li>If cost savings shrink after accounting for replicated regional infrastructure, monitoring, GPU classifier hosting, autoscaling headroom, and compliance overhead.</li>
+  </ul>
+
+  <div class="verdict"><b>Bottom line.</b> Use this as a design pattern and checklist input for regulated LLM routing. Do not use it as final evidence that classifier-gated routing is legally compliant, production safe, or cost-saving in your environment without independent validation.</div>
+</section>
+
+<section id="takeaways">
+  <h2>8. Implementation and practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><b>Build-useful pattern</b><span>Place a small classifier/policy engine before every generative endpoint. Emit route label, confidence, rationale code, jurisdiction, model tier, and audit metadata before inference.</span></div>
+    <div class="mini-card"><b>Governance rule</b><span>Default uncertain, sensitive, long, or malformed prompts to the restrictive local route. Treat threshold selection as a monitored safety-control parameter, not a one-time tuning constant.</span></div>
+    <div class="mini-card"><b>Evaluation harness</b><span>Test routing and answer quality jointly. A cheaper route is only acceptable if it preserves task quality, safety, and compliance constraints for the routed class.</span></div>
+    <div class="mini-card"><b>Clinical/PHI adaptation</b><span>For healthcare use, replace binary PII with PHI/PII/secrets/operational-risk labels and validate against HIPAA-adjacent workflows, local policy, logs, and RAG/tool boundaries.</span></div>
+    <div class="mini-card"><b>Monitoring</b><span>Track false-negative sensitive data, fallback rate, per-label drift, per-tier latency, quality regressions, endpoint geography, and route overrides. Use canaries when updating the classifier.</span></div>
+    <div class="mini-card"><b>Do not overclaim</b><span>Pre-inference routing reduces one class of residency risk. It does not alone solve prompt logging, retrieval corpus location, tool outputs, vendor telemetry, legal basis, consent, retention, or breach response.</span></div>
+  </div>
+
+  <h3>Recommended next action</h3>
+  <p>Skim the full paper for the architecture diagrams and Appendix A metrics, then extract the routing/fallback pattern into a local design note. Before adopting it, create an independent benchmark using realistic prompts from the target environment, with separate labels for complexity, sensitivity, answer quality, and allowed geography.</p>
+</section>
+
+<section id="provenance">
+  <h2>9. Provenance and QA</h2>
+  <table>
+    <tbody>
+      <tr><th>Evaluated source</th><td>Uploaded PDF: 2606.31163v2.pdf</td></tr>
+      <tr><th>Source identifier</th><td>arXiv:2606.31163v2 [cs.LG], dated 1 July 2026</td></tr>
+      <tr><th>Generation date</th><td>3 July 2026</td></tr>
+      <tr><th>Visual strategy</th><td>Structured extraction for all figures, tables, workflows, and appendix tables; no remote images, scripts, fonts, or external CSS.</td></tr>
+      <tr><th>QA status</th><td>Title/source ID checked; all major sections represented; Figures 1–11 accounted for; Tables 1–4 and Appendix A1–A2 accounted for; internal cost inconsistency flagged; no clinical-practice claims made.</td></tr>
+      <tr><th>Caveat</th><td>This is source-level appraisal, not an independent reproduction of the benchmark, code, classifier, cloud pricing, Hugging Face model, or GitHub repository.</td></tr>
+    </tbody>
+  </table>
+</section>
+</main>
+<footer>
+  Reference artifact generated from the provided PDF using an AI/ML systems appraisal lens. No external resources were embedded.
+</footer>
+</body>
+</html>

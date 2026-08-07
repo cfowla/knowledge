@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA — Large language model-assisted referral triage automation in a tertiary hospital</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--ink:#17212b;--muted:#586779;--line:#d7e0ea;--navy:#163a5f;--blue:#215f9b;--pale:#edf5ff;--good:#0f6943;--goodbg:#eaf7f0;--warn:#7a5300;--warnbg:#fff7df;--bad:#8a2730;--badbg:#fff0f1;--code:#101b2a;--codeink:#edf4ff;--shadow:0 2px 10px rgba(21,48,79,.07)}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58} a{color:var(--blue)}
+header{background:linear-gradient(135deg,#102c4a,#215f9b);color:white;padding:3.2rem 1.25rem 2.7rem;border-bottom:6px solid #bdd5ee} header .inner,.wrap{max-width:1120px;margin:auto} header h1{font-size:clamp(2rem,4.5vw,3.35rem);line-height:1.08;margin:.35rem 0 .9rem;letter-spacing:-.025em} header p{max-width:900px;margin:.35rem 0;color:#e7f1fb} .kicker{font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#cfe3f7}
+.wrap{padding:1.35rem 1rem 4rem} nav.toc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1rem 1.25rem;margin:0 0 1.35rem;box-shadow:var(--shadow)} nav.toc ul{columns:2;gap:2rem;margin:.5rem 0;padding-left:1.2rem} nav.toc li{break-inside:avoid;margin:.22rem 0}
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.35rem 1.45rem;margin:1rem 0;box-shadow:var(--shadow)} h2{font-size:1.45rem;color:var(--navy);margin:0 0 .85rem;border-bottom:1px solid var(--line);padding-bottom:.55rem} h3{font-size:1.12rem;color:#1a4c7c;margin:1.25rem 0 .45rem} h4{font-size:1rem;margin:1rem 0 .35rem;color:#253b51} p{margin:.55rem 0 .85rem} .muted{color:var(--muted)}
+.meta-grid,.rating-grid,.takeaway-grid,.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.75rem} .mini-card{border:1px solid var(--line);border-radius:12px;padding:.85rem;background:#fbfdff} .mini-card strong{display:block;color:var(--navy);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem} .metric{text-align:center;border:1px solid #cbd9e8;background:#f8fbff;border-radius:13px;padding:1rem} .metric .value{font-size:2rem;font-weight:800;color:var(--navy);line-height:1.1} .metric .label{font-size:.85rem;color:var(--muted);margin-top:.2rem}
+.verdict,.warning,.badnote,.goodnote{border-radius:12px;padding:.9rem 1rem;margin:.85rem 0;border-left:5px solid} .verdict{background:var(--pale);border-color:var(--blue)} .goodnote{background:var(--goodbg);border-color:var(--good)} .warning{background:var(--warnbg);border-color:#c38b13} .badnote{background:var(--badbg);border-color:var(--bad)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.75rem 0} .tag{display:inline-block;border:1px solid #cbd9e8;background:#f3f7fb;color:#28445f;border-radius:999px;padding:.2rem .6rem;font-size:.78rem}
+.section-summary{border-left:4px solid #b7cee5;padding-left:1rem;margin:1rem 0} .section-summary h3{margin-top:0} .source-label{font-size:.77rem;text-transform:uppercase;letter-spacing:.06em;color:#6b7887;font-weight:700}
+.flow{display:flex;align-items:stretch;gap:.45rem;overflow-x:auto;padding:.5rem 0 .8rem} .flow .node{min-width:150px;flex:1;border:1px solid #bfcddd;border-radius:12px;padding:.75rem;background:#f8fbff} .flow .node strong{display:block;color:var(--navy);margin-bottom:.25rem} .flow .arrow{display:flex;align-items:center;font-size:1.5rem;color:#6e879f;padding:0 .1rem} .two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:.8rem} .figure-block{border:1px solid var(--line);border-radius:13px;padding:1rem;background:#fbfdff;margin:.8rem 0} .figure-block .fig-title{font-weight:800;color:var(--navy);margin-bottom:.45rem} pre{background:var(--code);color:var(--codeink);padding:1rem;border-radius:12px;overflow:auto;white-space:pre-wrap;font-size:.88rem;line-height:1.47} code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:.75rem 0 1rem;font-size:.91rem} th,td{border:1px solid var(--line);padding:.48rem .55rem;vertical-align:top} thead th{background:#eaf1f8;color:#1c3d5d;text-align:left} tbody th{background:#f7f9fc;text-align:left} td.num,.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap} .table-wrap{overflow-x:auto} caption{text-align:left;font-weight:800;color:var(--navy);padding:.3rem 0 .5rem} details{border:1px solid var(--line);border-radius:12px;padding:.75rem .85rem;background:#fbfdff;margin:.7rem 0} summary{font-weight:800;color:var(--navy);cursor:pointer}
+.rating{border:1px solid var(--line);border-radius:12px;padding:.9rem;background:#fbfdff} .rating .score{font-size:1.75rem;font-weight:800;color:var(--navy)} .rating h3{margin:0;color:var(--navy)} .rating dl{margin:.5rem 0 0} .rating dt{font-weight:750;color:#334b63;font-size:.82rem;margin-top:.45rem} .rating dd{margin:.1rem 0 0;color:#33404c} .small{font-size:.86rem} .foot{font-size:.82rem;color:var(--muted)}
+@media(max-width:700px){nav.toc ul{columns:1} section{padding:1.1rem} .flow{display:block} .flow .arrow{transform:rotate(90deg);justify-content:center;height:25px}}
+@media print{body{background:white;font-size:10pt} header{background:white;color:black;border-bottom:2px solid #333;padding:1rem 0} header p,.kicker{color:#333} .wrap{padding:0} section,nav.toc{box-shadow:none;break-inside:avoid} details{display:block} summary{list-style:none} a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<header><div class="inner"><div class="kicker">Summary · Evaluation · Appraisal</div><h1>Large language model-assisted referral triage automation in a tertiary hospital</h1><p>Structured reference and independent appraisal of an Article in Press retrospective evaluation of a roster-aware, on-premises Qwen-2.5-32B system for department–subspecialty referral assignment.</p></div></header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents"><strong>Contents</strong><ul>
+<li><a href="#metadata">Source metadata</a></li><li><a href="#synthesis">One-page synthesis</a></li><li><a href="#source-map">Source map and coverage</a></li><li><a href="#sections">Section condensation</a></li><li><a href="#visuals">Figures and workflows</a></li><li><a href="#tables">Tables and quantitative evidence</a></li><li><a href="#aiml">AI/ML systems appraisal</a></li><li><a href="#appraisal">Evaluation and appraisal</a></li><li><a href="#takeaways">Implementation takeaways</a></li><li><a href="#provenance">Provenance</a></li>
+</ul></nav>
+
+<section id="metadata"><h2>Source metadata</h2><div class="meta-grid">
+<div class="mini-card"><strong>Exact title</strong>Large language model-assisted referral triage automation in a tertiary hospital</div>
+<div class="mini-card"><strong>Authors</strong>Byeongjae Kang; Minjun Son; Wonoh Jeong; Seo Yeong Jeong; Young Joo Kim; Hye-Eun Park; Hyun Kyung Lee; Myung Jin Chung; Taeyoung Kim; Kwangmo Yang</div>
+<div class="mini-card"><strong>Journal / status</strong><em>npj Digital Medicine</em>; Article in Press, unedited accepted manuscript</div>
+<div class="mini-card"><strong>Dates</strong>Received 27 March 2026; accepted 21 July 2026</div>
+<div class="mini-card"><strong>Identifier</strong>DOI: 10.1038/s41746-026-03067-6</div>
+<div class="mini-card"><strong>Design</strong>Retrospective, single-center, held-out classification evaluation with post-hoc adjudication</div>
+<div class="mini-card"><strong>Setting</strong>Samsung Medical Center, tertiary hospital, South Korea; referrals from January–December 2023</div>
+<div class="mini-card"><strong>Model / deployment</strong>Qwen-2.5-32B; on-premises; external network disabled; temperature 0; two NVIDIA RTX A5000 GPUs</div>
+</div><div class="warning"><strong>Scope warning.</strong> The study evaluates retrospective assignment accuracy in one institution. It does not establish autonomous safety, prospective workflow benefit, reduced processing time, cost-effectiveness, or generalizability to other hospitals, languages, referral ontologies, or clinician rosters.</div></section>
+
+<section id="synthesis"><h2>One-page synthesis</h2>
+<div class="verdict"><strong>Verdict: Read first — build-useful, not deployment-validating.</strong> The paper is directly relevant to clinical NLP, private on-premises LLM deployment, constrained prompting, workflow automation, and human adjudication. Its operational architecture is useful; its evidence remains retrospective and institution-specific.</div>
+<div class="metric-grid">
+<div class="metric"><div class="value">6,624</div><div class="label">referrals used for prompt tuning and evaluation</div></div>
+<div class="metric"><div class="value">680</div><div class="label">held-out test referrals</div></div>
+<div class="metric"><div class="value">75.4%</div><div class="label">strict historical-label accuracy<br>95% CI 72.2–78.7</div></div>
+<div class="metric"><div class="value">84.7%</div><div class="label">post-hoc adjudicated accuracy<br>95% CI 81.9–87.4</div></div>
+</div>
+<p><strong>Core thesis.</strong> A locally deployed, open-source LLM can use a frozen snapshot of the current physician roster plus expert-authored clinical routing rules to assign one department–subspecialty destination from unstructured referral letters. The evaluated configuration was prompt-based rather than fine-tuned and returned a constrained JSON object for downstream workflow integration.</p>
+<p><strong>What the evidence shows.</strong> Strict concordance with historical coordinator assignments was moderate-to-high, and post-hoc review accepted additional nonmatching predictions as clinically reasonable. Performance was materially lower for subspecialties with fewer than five test examples. Remaining errors clustered at clinically adjacent boundaries—especially cardiothoracic surgery versus pulmonology and neurosurgery versus neurology—rather than being uniformly random. Six of 104 post-adjudication discordant referrals contained insufficient narrative detail for a unique assignment.</p>
+<p><strong>What matters most.</strong> The roster-as-context design is the paper’s strongest implementation idea because it separates dynamic operational availability from model weights. The study also exposes a genuine evaluation problem: a single historical destination is an imperfect reference when several adjacent services could reasonably manage the referral.</p>
+<p><strong>Main constraint.</strong> The paper does not compare against alternative models, simpler baselines, or prospective human workflow performance. Post-hoc adjudication is clinically sensible but subjective; blinding, interrater reliability, adjudicator disagreement, and prespecified equivalence criteria are not reported. Data, code, supplementary analyses, latency, cost, calibration, abstention behavior, and safety-monitoring procedures are not available in the supplied manuscript.</p>
+<div class="tags"><span class="tag">clinical NLP</span><span class="tag">referral triage</span><span class="tag">on-premises LLM</span><span class="tag">roster injection</span><span class="tag">human-in-the-loop</span><span class="tag">constrained JSON</span><span class="tag">workflow AI</span><span class="tag">single-label evaluation</span></div>
+</section>
+
+<section id="source-map"><h2>Source map and coverage</h2>
+<div class="two-col"><div class="mini-card"><strong>Main sections covered</strong>Abstract; Introduction; Results—triage performance and discordant assignment patterns; Discussion; Methods—data preparation, system implementation, prompt design, performance evaluation, implementation details; data/code availability; funding and conflicts.</div>
+<div class="mini-card"><strong>Main-text visual coverage</strong>Figures 1–3 and Tables 1–2 are all represented below as structured blocks or reconstructed tables. No main-text figure, table, or workflow is omitted.</div></div>
+<div class="warning"><strong>Unavailable supplementary material.</strong> Supplementary Figure S1 and Supplementary Tables S1–S5 are cited but are not present in the supplied 29-page PDF. This prevents independent review of the prompt-tuning curves, full subspecialty results, directional confusion tables, low-information examples, and tuning-set profile.</div>
+<p class="foot">Visual representation method: faithful structured reconstruction. Adapted image crops were not embedded because the Article in Press file is distributed under a CC BY-NC-ND license.</p>
+</section>
+
+<section id="sections"><h2>Section condensation</h2>
+<div class="section-summary"><div class="source-label">Abstract · page 4</div><h3>Problem, intervention, and headline result</h3><p>The manuscript frames manual tertiary-hospital referral triage as resource-intensive and inconsistent. It evaluates an on-premises Qwen-2.5-32B model using roster-embedded prompting on 6,624 electronic referral letters. In the 680-referral hold-out set, strict accuracy against historical coordinator assignments was 75.4%, increasing to 84.7% after post-hoc expert review of discordant cases.</p><p>The abstract claims that the system can complement human referral workflows and reduce administrative burden. The reported study, however, measures classification agreement rather than administrative time, burden, safety, cost, or prospective operational outcomes.</p></div>
+<div class="section-summary"><div class="source-label">Introduction · pages 5–6</div><h3>Rationale and claimed gap</h3><p>The introduction contrasts manual review of unstructured narratives with prior rule-based, conventional NLP, and machine-learning approaches. The authors argue that detailed subspecialty triage requires contextual interpretation and adaptation to changing clinician availability, which static rules or retrained classifiers may handle poorly.</p><p>The proposed contribution is a real-world, privacy-preserving alternative to cloud-API and synthetic-ground-truth evaluations: an open-source model hosted inside the hospital, evaluated against actual operational assignments, and constrained by a point-in-time clinician roster.</p></div>
+<div class="section-summary"><div class="source-label">Results · pages 8–9</div><h3>Triage performance</h3><p>Prompt tuning was cumulative: Prompt 1 contained persona and instruction hierarchy; Prompt 2 added primary specialty criteria; Prompt 3 added subspecialty differential logic. The manuscript states that concordance increased from Prompt 1 to Prompt 3 in the most frequently referred group, but the numerical tuning results are confined to unavailable Supplementary Figure S1.</p><p>On the hold-out set, Prompt 3 achieved 75.4% strict accuracy and 84.7% post-hoc adjudicated accuracy. The long-tail subgroup had markedly worse performance: 61.0% strict and 74.4% adjudicated for 82 referrals from subspecialties with fewer than five cases, versus 77.4% and 86.1% for 598 referrals from more frequent subspecialties.</p></div>
+<div class="section-summary"><div class="source-label">Results · pages 8–9</div><h3>Discordant assignment patterns</h3><p>After adjudication, 104 cases remained discordant. Fifty (48.1%) preserved the historical department but differed at the subspecialty level; 54 (51.9%) crossed departments. Errors concentrated at adjacent clinical boundaries, with cardiothoracic surgery → pulmonology described as the most common cross-department direction and pulmonology overrepresented among predictions.</p><p>Within-department errors were common in cardiology, pulmonology, and gastroenterology. Six of 104 discordant cases (5.8%) contained brief, nonspecific referral narratives without enough context to support one unique destination. The cited case-level and confusion details are in unavailable Supplementary Tables S2–S4.</p></div>
+<div class="section-summary"><div class="source-label">Discussion · pages 9–14</div><h3>Authors’ interpretation</h3><p>The authors argue that strict single-label concordance underestimates clinical validity because real referral scopes overlap and the operational record captures only one finalized destination. They interpret the 9.3-percentage-point increase after adjudication as evidence that many mismatches were acceptable rather than clinically wrong.</p><p>They also interpret the error topology as a preference for diagnostic over interventional services when procedural intent is absent. The proposed system is explicitly positioned as human-in-the-loop decision support, not an autonomous replacement.</p></div>
+<div class="section-summary"><div class="source-label">Discussion · pages 12–14</div><h3>Limitations and conclusion</h3><p>The manuscript acknowledges lower performance in rare subspecialties, single-center and institution-specific data, evaluation of only one model and one deterministic configuration, and the absence of prospective operational outcomes. External validation, model comparisons, decoding studies, processing-time measurement, and long-term cost analysis are deferred to future work.</p><p>The conclusion describes the roster-aware architecture as practical, scalable, and privacy-preserving. “Scalable” is an implementation claim rather than an empirically tested outcome: the study does not report throughput, latency, infrastructure utilization, maintenance workload, or multi-site deployment.</p></div>
+<div class="section-summary"><div class="source-label">Methods · pages 14–16</div><h3>Study design and data preparation</h3><p>The IRB-approved study initially collected 12,246 referrals from 2023. It excluded 5,057 Partners Portal referrals to preserve standardized formatting and 565 referrals assigned to unavailable subspecialties. The remaining 6,624 HIRA referrals were split 90:10 into a 5,944-referral prompt-tuning set and a 680-referral hold-out set, stratified by historical department assignment and calendar quarter.</p><p>The split preserves broad clinical and temporal distributions but is not a forward temporal validation. The exclusion of portal referrals narrows format variability and may improve internal consistency at the cost of external realism.</p></div>
+<div class="section-summary"><div class="source-label">Methods · pages 18–19</div><h3>System implementation</h3><p>Qwen-2.5-32B ran in the hospital’s secure infrastructure with external network access disabled. The system prompt contained a frozen point-in-time snapshot of active departments and subspecialties plus optional descriptive tags; the user prompt contained the de-identified referral narrative.</p><p>The evaluated system returned one structured JSON object containing the predicted department and subspecialty. Although the architecture is intended to adapt by replacing the roster snapshot, the roster was frozen during evaluation to avoid performance drift.</p></div>
+<div class="section-summary"><div class="source-label">Methods · pages 19–21</div><h3>Prompt design</h3><p>No model weights were updated. The final prompt combined: a referral-coordinator persona and instruction hierarchy; primary criteria based on diagnosis, anatomy, pathology, and symptoms; expert-authored differentials for adjacent subspecialties; and roster/output constraints. Rules included pediatric routing, procedural keywords favoring surgery, thyroid medical-versus-surgical distinctions, and central-versus-peripheral dizziness routing.</p><p>This is best understood as a hybrid LLM-plus-rule architecture embedded in natural-language instructions. Its behavior depends on prompt maintenance, ontology quality, and institutional rule ownership even though it avoids model retraining.</p></div>
+<div class="section-summary"><div class="source-label">Methods · pages 21–23</div><h3>Performance evaluation</h3><p>The primary metric was exact assignment accuracy against historical coordinator labels. Every mismatch underwent post-hoc review by referral coordinators; predictions judged clinically equivalent or acceptable were reclassified as correct. Remaining cases were analyzed at department and department–subspecialty levels, with a qualitative review for low-information referrals.</p><p>The adjudication strategy addresses label ambiguity but introduces a second subjective reference standard. The manuscript does not report prespecified acceptance criteria, number of reviewers per case, blinding to the historical label or model output, consensus procedures, or interrater reliability.</p></div>
+<div class="section-summary"><div class="source-label">Methods and disclosures · pages 23–24</div><h3>Implementation, availability, funding, and conflicts</h3><p>Inference and evaluation used Python 3.10.12, pandas, and scikit-learn on two NVIDIA RTX A5000 GPUs. The referral-level dataset is restricted for privacy and ethical reasons. Deployment and integration code are not public because of institutional security and proprietary infrastructure constraints, though qualified researchers may request access.</p><p>The work was funded by Korean government technology and health R&amp;D programs. The authors declared no competing financial or non-financial interests.</p></div>
+</section>
+
+<section id="visuals"><h2>Figures, workflows, and evaluation pipeline</h2>
+<div class="figure-block"><div class="fig-title">Figure 1 — Conventional Referral Triage Process Workflow and LLM-based Referral Triage Process</div><div class="two-col"><div><h4>Panel a: conventional workflow</h4><div class="flow"><div class="node"><strong>External referral</strong>Patient information, diagnosis, request details, preferred department</div><div class="arrow">→</div><div class="node"><strong>Referral coordinator</strong>Manual interpretation of unstructured narrative</div><div class="arrow">→</div><div class="node"><strong>Roster check</strong>Current physician, department, subspecialty availability</div><div class="arrow">→</div><div class="node"><strong>Assignment</strong>One department and specialty</div></div></div><div><h4>Panel b: proposed workflow</h4><div class="flow"><div class="node"><strong>User prompt</strong>De-identified referral narrative</div><div class="arrow">+</div><div class="node"><strong>System prompt</strong>Roster snapshot and routing instructions</div><div class="arrow">→</div><div class="node"><strong>On-premises LLM</strong>Constrained inference</div><div class="arrow">→</div><div class="node"><strong>Assignment</strong>Department and subspecialty JSON</div></div></div></div><p><strong>Main pattern:</strong> The design substitutes model-assisted interpretation for the coordinator’s first-pass assignment while preserving current roster context as an explicit input. <strong>Limit:</strong> Figure 1 depicts the conceptual workflow; the study does not prospectively compare time, workload, queueing, or error escalation between the two paths.</p></div>
+<div class="figure-block"><div class="fig-title">Figure 2 — Data Preprocessing Flowchart</div><div class="flow"><div class="node"><strong>Collected</strong>12,246 referrals<br>January–December 2023</div><div class="arrow">→</div><div class="node"><strong>Exclude</strong>Partners Portal: 5,057<br>Unavailable subspecialties: 565</div><div class="arrow">→</div><div class="node"><strong>Analytic set</strong>6,624 standardized HIRA referrals</div><div class="arrow">→</div><div class="node"><strong>Stratified split</strong>By historical assignment and quarter</div><div class="arrow">→</div><div class="node"><strong>Prompt tuning</strong>5,944 (90%)</div><div class="arrow">+</div><div class="node"><strong>Hold-out test</strong>680 (10%)</div></div><p><strong>Interpretation:</strong> The flowchart makes the format restriction explicit. <strong>Label inconsistency:</strong> the figure calls the 680-referral subset a “Validation Set,” whereas the text consistently calls it a hold-out test set.</p></div>
+<div class="figure-block"><div class="fig-title">Figure 3 — On-Premises LLM-Based Triage System and Prompting Strategy</div><pre><code>SYSTEM PROMPT
+  Role: expert referral assignment at a Korean tertiary hospital
+  Decision hierarchy: prioritize diagnosis and anatomical site
+  Primary judgment: anatomy + pathology + symptoms
+  Differential logic: expert-authored routing across adjacent services
+  Operational constraint: choose only from the supplied active roster
+  Output rule: one valid JSON object, Korean text, no commentary
+
+ROSTER SNAPSHOT
+  physician → department → subspecialty → optional descriptive tag
+  frozen for the evaluation period
+
+USER PROMPT
+  de-identified patient/referral information
+  diagnosis + request details + preferred department
+
+INFERENCE
+  on-premises Qwen-2.5-32B, external network disabled
+
+OUTPUT
+  {"Department": "...", "Subspecialty": "..."}</code></pre><p><strong>Purpose:</strong> Figure 3 exposes the system’s hybrid nature: clinical rules and the roster are supplied as prompt-time context, while the model performs narrative interpretation and label selection. <strong>Failure modes:</strong> prompt-rule omissions, roster/ontology mismatch, ambiguous referral text, preference for diagnostic over procedural services, invalid JSON, and long-tail subspecialty uncertainty. The paper reports the latter three conceptually but does not provide operational monitoring thresholds or fallback rules.</p></div>
+<div class="figure-block"><div class="fig-title">Evaluation and human-review workflow — reconstructed from Methods</div><div class="flow"><div class="node"><strong>Model prediction</strong>One department–subspecialty label</div><div class="arrow">→</div><div class="node"><strong>Strict comparison</strong>Exact match against historical assignment</div><div class="arrow">→</div><div class="node"><strong>Mismatch review</strong>Referral coordinators judge equivalence or acceptability</div><div class="arrow">→</div><div class="node"><strong>Adjudicated result</strong>Accepted mismatch becomes correct; inappropriate mismatch remains discordant</div><div class="arrow">→</div><div class="node"><strong>Error analysis</strong>Department, subspecialty pair, directional confusion, low-information review</div></div><p><strong>Governance gap:</strong> The manuscript supports human oversight as a principle, but it does not specify production escalation criteria, abstention, turnaround targets, audit sampling, drift monitoring, retraining or prompt-version controls, incident response, or override logging.</p></div>
+</section>
+
+<section id="tables"><h2>Tables and quantitative evidence</h2>
+<div class="table-wrap"><table><caption>Table 1 — Performance of the On-premises LLM-Based Triage System</caption><thead><tr><th>Category</th><th class="num">Cases</th><th class="num">Strict historical-label accuracy, % (95% CI)</th><th class="num">Post-hoc adjudicated accuracy, % (95% CI)</th></tr></thead><tbody><tr><th>Overall</th><td class="num">680</td><td class="num">75.4 (72.2–78.7)</td><td class="num">84.7 (81.9–87.4)</td></tr><tr><th>Infrequently referred subspecialties (&lt;5 cases)</th><td class="num">82</td><td class="num">61.0 (50.0–72.0)</td><td class="num">74.4 (64.6–84.1)</td></tr><tr><th>Frequently referred subspecialties (≥5 cases)</th><td class="num">598</td><td class="num">77.4 (74.1–80.8)</td><td class="num">86.1 (83.3–88.8)</td></tr></tbody></table></div>
+<div class="two-col"><div class="goodnote"><strong>Supported pattern.</strong> Post-hoc adjudication increases the accepted accuracy estimate by 9.3 percentage points. The long-tail subgroup remains materially weaker after adjudication, with wide confidence intervals.</div><div class="warning"><strong>Appraisal.</strong> Accuracy alone does not expose class-specific precision, recall, calibration, top-k acceptability, abstention coverage, or severity-weighted errors. The full subspecialty table is supplementary and unavailable.</div></div>
+<details open><summary>Table 2 — Medical Referral Data Profile for Validation (full reconstruction)</summary><p class="small">Overall n=680; age under 18: 38 (5.6%); male: 316 (46.5%). The 82 department–subspecialty rows below sum to 680.</p><div class="table-wrap"><table><thead><tr><th>Department</th><th>Subspecialty / operational label</th><th class="num">N</th></tr></thead><tbody><tr><th scope="rowgroup" rowspan="1">Allergy &amp; Clinical Immunology</th><td>Allergic Diseases</td><td class="num">3</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Anesthesiology &amp; Pain Medicine</th><td>Pain Management</td><td class="num">1</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Breast Surgery</th><td>Breast</td><td class="num">47</td></tr>
+<tr><th scope="rowgroup" rowspan="7">Cardiology</th><td>Arrhythmia</td><td class="num">17</td></tr>
+<tr><td>Coronary Artery Disease</td><td class="num">22</td></tr>
+<tr><td>Heart Failure</td><td class="num">2</td></tr>
+<tr><td>Hypertension</td><td class="num">2</td></tr>
+<tr><td>Imaging Abnormalities</td><td class="num">2</td></tr>
+<tr><td>Valvular Disease</td><td class="num">2</td></tr>
+<tr><td>Vascular Disorders</td><td class="num">2</td></tr>
+<tr><th scope="rowgroup" rowspan="2">Cardiothoracic Surgery</th><td>Adult Cardiac Surgery</td><td class="num">2</td></tr>
+<tr><td>Adult Thoracic Surgery</td><td class="num">13</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Colorectal Surgery</th><td>Colorectal &amp; Small Bowel Disorders</td><td class="num">11</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Dermatology</th><td>Skin Disease</td><td class="num">10</td></tr>
+<tr><th scope="rowgroup" rowspan="2">Endocrinology &amp; Metabolism</th><td>Diabetes &amp; Endocrinology</td><td class="num">6</td></tr>
+<tr><td>Thyroid</td><td class="num">12</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Family Medicine</th><td>Chronic Disease &amp; Health Management</td><td class="num">2</td></tr>
+<tr><th scope="rowgroup" rowspan="4">Gastroenterology</th><td>Liver</td><td class="num">17</td></tr>
+<tr><td>Small &amp; Large Bowel Disorders</td><td class="num">11</td></tr>
+<tr><td>Stomach &amp; Esophagus</td><td class="num">39</td></tr>
+<tr><td>Pancreas &amp; Biliary Tract</td><td class="num">27</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Gastrointestinal Surgery</th><td>Stomach</td><td class="num">7</td></tr>
+<tr><th scope="rowgroup" rowspan="5">Hematologic oncology</th><td>Breast</td><td class="num">1</td></tr>
+<tr><td>Gastrointestinal Oncology</td><td class="num">1</td></tr>
+<tr><td>Hematology</td><td class="num">3</td></tr>
+<tr><td>Lung &amp; Head &amp; Neck Oncology</td><td class="num">5</td></tr>
+<tr><td>Lymphoma</td><td class="num">8</td></tr>
+<tr><th scope="rowgroup" rowspan="2">Hepatobiliary &amp; Pancreatic Surgery</th><td>Kidney &amp; Pancreas Transplantation</td><td class="num">1</td></tr>
+<tr><td>Pancreas &amp; Biliary Tract</td><td class="num">10</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Infectious Diseases</th><td>Infectious Diseases</td><td class="num">4</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Nephrology</th><td>Kidney</td><td class="num">9</td></tr>
+<tr><th scope="rowgroup" rowspan="5">Neurology</th><td>Dementia</td><td class="num">5</td></tr>
+<tr><td>Epilepsy</td><td class="num">7</td></tr>
+<tr><td>Parkinson’s Disease</td><td class="num">9</td></tr>
+<tr><td>Peripheral Nerve Disorders</td><td class="num">6</td></tr>
+<tr><td>Stroke</td><td class="num">15</td></tr>
+<tr><th scope="rowgroup" rowspan="3">Neurosurgery</th><td>Brain Tumor</td><td class="num">12</td></tr>
+<tr><td>Cerebrovascular Disorders</td><td class="num">20</td></tr>
+<tr><td>Spine Disorders</td><td class="num">7</td></tr>
+<tr><th scope="rowgroup" rowspan="3">Obstetrics &amp; Gynecology</th><td>Gynecologic Endocrinology</td><td class="num">6</td></tr>
+<tr><td>Gynecologic Oncology</td><td class="num">28</td></tr>
+<tr><td>Obstetrics</td><td class="num">3</td></tr>
+<tr><th scope="rowgroup" rowspan="5">Ophthalmology</th><td>Cataract, Cornea &amp; Sclera</td><td class="num">4</td></tr>
+<tr><td>Glaucoma &amp; Cataract</td><td class="num">4</td></tr>
+<tr><td>Ocular Tumors &amp; Oculoplastic Surgery</td><td class="num">5</td></tr>
+<tr><td>Retina</td><td class="num">19</td></tr>
+<tr><td>Strabismus</td><td class="num">2</td></tr>
+<tr><th scope="rowgroup" rowspan="8">Orthopedic Surgery</th><td>Child Psychiatry / Pediatrics</td><td class="num">2</td></tr>
+<tr><td>Foot Disorders</td><td class="num">4</td></tr>
+<tr><td>Hand Disorders</td><td class="num">1</td></tr>
+<tr><td>Hip Disorders</td><td class="num">5</td></tr>
+<tr><td>Knee Joint Disorders</td><td class="num">8</td></tr>
+<tr><td>Malignant Tumors</td><td class="num">2</td></tr>
+<tr><td>Shoulder Disorders</td><td class="num">5</td></tr>
+<tr><td>Spine Disorders</td><td class="num">4</td></tr>
+<tr><th scope="rowgroup" rowspan="3">Otolaryngology</th><td>Ear Disorders</td><td class="num">13</td></tr>
+<tr><td>Head &amp; Neck Disorders</td><td class="num">13</td></tr>
+<tr><td>Nasal Disorders</td><td class="num">14</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Pediatric Surgery</th><td>Pediatric Surgery</td><td class="num">1</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Pediatrics (Cardiology)</th><td>Pediatric Cardiology</td><td class="num">5</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Pediatrics (Endocrinology)</th><td>Pediatric Endocrinology</td><td class="num">3</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Pediatrics (Gastroenterology)</th><td>Pediatric Gastroenterology</td><td class="num">4</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Pediatrics (Hematologic oncology)</th><td>Pediatric Oncology</td><td class="num">1</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Pediatrics (Infectious Diseases)</th><td>Pediatric Infectious Diseases</td><td class="num">1</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Pediatrics (Nephrology)</th><td>Pediatric Nephrology</td><td class="num">1</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Pediatrics (Neurology)</th><td>Pediatric Neurology</td><td class="num">2</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Pediatrics (Pulmonology)</th><td>Pediatric Pulmonology &amp; Allergy</td><td class="num">5</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Plastic Surgery</th><td>Adult Plastic Surgery</td><td class="num">2</td></tr>
+<tr><th scope="rowgroup" rowspan="2">Psychiatry</th><td>Adult Psychiatry</td><td class="num">4</td></tr>
+<tr><td>Child Psychiatry / Pediatrics</td><td class="num">1</td></tr>
+<tr><th scope="rowgroup" rowspan="2">Pulmonology</th><td>Lung &amp; Esophageal Cancer</td><td class="num">26</td></tr>
+<tr><td>Pulmonary Diseases</td><td class="num">17</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Radiation Oncology</th><td>Radiation &amp; Proton Therapy</td><td class="num">5</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Rehabilitation Medicine</th><td>Lymphedema &amp; Foot Rehabilitation</td><td class="num">2</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Rheumatology</th><td>Rheumatic Diseases</td><td class="num">6</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Thyroid Surgery</th><td>Thyroid &amp; Adrenal</td><td class="num">13</td></tr>
+<tr><th scope="rowgroup" rowspan="5">Urology</th><td>Malie Infertility &amp; Andrology</td><td class="num">2</td></tr>
+<tr><td>Pediatric Urology</td><td class="num">3</td></tr>
+<tr><td>Urolithiasis</td><td class="num">1</td></tr>
+<tr><td>Urologic Disorders</td><td class="num">8</td></tr>
+<tr><td>Urologic Oncology</td><td class="num">37</td></tr>
+<tr><th scope="rowgroup" rowspan="1">Vascular Surgery</th><td>Vascular Diseases</td><td class="num">8</td></tr></tbody></table></div><p class="foot">Source terminology is preserved. The Article in Press table contains apparent label/typographical anomalies, including “Orthopedic Surgery — Child Psychiatry / Pediatrics” and “Malie Infertility &amp; Andrology”; these were not silently corrected.</p></details>
+<div class="warning"><strong>Distribution implication.</strong> The test set is highly long-tailed: the largest cells include Breast Surgery—Breast (47), Gastroenterology—Stomach &amp; Esophagus (39), Urology—Urologic Oncology (37), and Gynecologic Oncology (28), while many labels have only one to four cases. Overall accuracy is therefore dominated by common labels and cannot by itself establish reliable performance across the full roster.</div>
+</section>
+
+<section id="aiml"><h2>AI/ML systems appraisal</h2>
+<div class="meta-grid">
+<div class="mini-card"><strong>Task</strong>Single-label classification of unstructured referral narratives into one operational department–subspecialty destination constrained by an active roster.</div>
+<div class="mini-card"><strong>Data</strong>6,624 standardized HIRA referrals from one Korean tertiary hospital and one calendar year; 5,944 prompt-tuning and 680 hold-out examples.</div>
+<div class="mini-card"><strong>Method</strong>Qwen-2.5-32B, no weight fine-tuning, temperature 0, on-premises deployment, expert-authored instruction hierarchy and differential rules, frozen roster context.</div>
+<div class="mini-card"><strong>Primary metrics</strong>Strict exact-match accuracy and post-hoc adjudicated accuracy with 95% confidence intervals; subgroup by label frequency; qualitative and directional error analysis.</div>
+<div class="mini-card"><strong>Baselines</strong>Historical coordinator labels are the reference standard. No rule-only, conventional ML, smaller model, alternative LLM, cloud model, or human prospective comparator is reported.</div>
+<div class="mini-card"><strong>Reproducibility</strong>Core model and prompt concepts are described, but referral data, code, exact executable prompt artifact, supplements, and deployment scripts are unavailable in the supplied source.</div>
+<div class="mini-card"><strong>Failure analysis</strong>Clinically adjacent misrouting, diagnostic-over-interventional preference, within-department confusion, long-tail weakness, and low-information referrals.</div>
+<div class="mini-card"><strong>Deployment evidence</strong>Local inference feasibility is demonstrated. Latency, throughput, availability, uptime, cost, energy use, maintenance burden, override rate, downstream harm, and operational savings are not tested.</div>
+</div>
+<h3>Data leakage and tuning boundaries</h3><p>The manuscript reports a held-out 10% test set and prompt development on the remaining 90%, which is an appropriate basic separation. It does not report a locked prompt-development protocol, number of tuning iterations, analyst exposure to test outcomes, or whether any test-set inspection informed later prompt changes. No evidence of leakage is reported, but the available methods are insufficient to audit the boundary fully.</p>
+<h3>Reference-standard validity</h3><p>Historical assignments are operationally authentic but not necessarily a unique clinical truth. Post-hoc adjudication directly addresses this limitation, yet it may also inflate performance if acceptance criteria are permissive or reviewers are influenced by the original and predicted labels. A stronger design would use multiple blinded specialist reviewers, prespecified acceptability categories, interrater reliability, and a three-way outcome: correct, acceptable alternative, and unsafe/inappropriate.</p>
+<h3>Safety and human factors</h3><p>The authors appropriately recommend a human-in-the-loop role. The paper does not define which cases should bypass automation, what confidence or information threshold should trigger manual review, how roster mismatches are detected, how invalid output is handled, or whether automation changes coordinator vigilance. These are deployment-critical questions rather than minor implementation details.</p>
+</section>
+
+<section id="appraisal"><h2>Evaluation and appraisal</h2>
+<div class="rating-grid">
+<div class="rating"><h3>Relevance</h3><div class="score">9/10</div><dl><dt>Rationale</dt><dd>Strong fit for clinical NLP, private inference, workflow automation, constrained outputs, and human oversight.</dd><dt>Evidence basis</dt><dd>Real referral narratives, on-premises deployment, roster-aware prompt architecture, operational labels.</dd><dt>Principal limit</dt><dd>Referral-center workflow rather than medication or bedside CDS.</dd><dt>Would raise/lower</dt><dd>Prospective workflow data would raise; a purely synthetic dataset would lower substantially.</dd></dl></div>
+<div class="rating"><h3>Novelty</h3><div class="score">7/10</div><dl><dt>Rationale</dt><dd>The model is not novel, but roster injection and real-world operational adjudication are useful contributions.</dd><dt>Evidence basis</dt><dd>Dynamic administrative context is separated from model weights; actual referrals and assignments are used.</dd><dt>Principal limit</dt><dd>The approach is sophisticated prompt engineering rather than a new learning or evaluation method.</dd><dt>Would raise/lower</dt><dd>Generalizable ontology-aware or abstaining triage methods would raise; a simple static prompt without roster constraints would lower.</dd></dl></div>
+<div class="rating"><h3>Method strength</h3><div class="score">6/10</div><dl><dt>Rationale</dt><dd>Held-out testing, stratification, uncertainty intervals, subgroup analysis, and error review are solid; comparator and adjudication design are limited.</dd><dt>Evidence basis</dt><dd>680-case hold-out set, frequency subgroup, department and pair-level error analysis.</dd><dt>Principal limit</dt><dd>Single model, no external comparator, no blinded multi-reviewer adjudication, unavailable supplements.</dd><dt>Would raise/lower</dt><dd>External sites, prespecified adjudication, model/rule baselines, and locked analysis would raise; test-set-informed prompt changes would lower.</dd></dl></div>
+<div class="rating"><h3>Evidence strength</h3><div class="score">6/10</div><dl><dt>Rationale</dt><dd>The data support feasibility and retrospective agreement, not operational benefit or safety.</dd><dt>Evidence basis</dt><dd>Reported denominators, confidence intervals, long-tail subgroup, structured error patterns.</dd><dt>Principal limit</dt><dd>Surrogate endpoint, subjective post-hoc acceptance, no prospective outcomes, no safety severity analysis.</dd><dt>Would raise/lower</dt><dd>Prospective time, error, override, and patient-flow outcomes would raise; missing denominators or unreported uncertainty would lower.</dd></dl></div>
+<div class="rating"><h3>External validity</h3><div class="score">3/10</div><dl><dt>Rationale</dt><dd>Generalization is untested across institutions, languages, referral formats, rosters, and clinical ontologies.</dd><dt>Evidence basis</dt><dd>One South Korean tertiary center, one year, standardized HIRA format, site-specific prompt rules.</dd><dt>Principal limit</dt><dd>No external or temporal validation.</dd><dt>Would raise/lower</dt><dd>Multi-center, multilingual, prospective validation would raise; further exclusions of heterogeneous formats would lower.</dd></dl></div>
+<div class="rating"><h3>Implementation value</h3><div class="score">7/10</div><dl><dt>Rationale</dt><dd>The architecture, roster boundary, deterministic configuration, hardware, and JSON contract are concrete enough to inform a prototype.</dd><dt>Evidence basis</dt><dd>Figure 3 and Methods specify prompt blocks, local hosting, frozen roster, output shape, and compute environment.</dd><dt>Principal limit</dt><dd>No code, data, latency, cost, monitoring, fallback, or production integration evidence.</dd><dt>Would raise/lower</dt><dd>Executable prompt/configuration, audit logs, prospective metrics, and cost model would raise; opaque commercial API dependence would lower.</dd></dl></div>
+</div>
+<div class="badnote"><strong>Do not overclaim:</strong> 84.7% adjudicated accuracy is not equivalent to 84.7% autonomous safety, clinician replacement, or end-to-end referral correctness. The metric concerns whether one proposed destination was considered acceptable after review, not whether the patient reached the optimal service without delay or harm.</div>
+<div class="goodnote"><strong>Best use:</strong> architecture and evaluation-pattern reference for a pilot in which the model proposes a roster-valid destination, exposes ambiguity, and routes uncertain or high-risk cases to human review.</div>
+<p><strong>Confidence in appraisal: moderate.</strong> Main-text methods and headline results are sufficiently clear, but the missing supplement, nonpublic code/data, unedited status, and limited adjudication detail constrain deeper verification.</p>
+</section>
+
+<section id="takeaways"><h2>Implementation and practice takeaways</h2>
+<div class="takeaway-grid">
+<div class="mini-card"><strong>1. Treat the roster as versioned content</strong>Store a timestamped roster snapshot with each inference. Validate department–subspecialty combinations before model use and preserve the exact roster version in the audit record.</div>
+<div class="mini-card"><strong>2. Separate structural and clinical validity</strong>First validate JSON and roster membership; then evaluate whether the clinical destination is acceptable. A syntactically valid label can still be clinically inappropriate.</div>
+<div class="mini-card"><strong>3. Add abstention</strong>The source forces exactly one label. A safer implementation should support “insufficient information,” “multiple acceptable destinations,” and “manual review required.”</div>
+<div class="mini-card"><strong>4. Use hierarchical outputs</strong>Evaluate department correctness separately from subspecialty correctness and retain acceptable-alternative labels. This aligns better with overlapping clinical scope than exact strings alone.</div>
+<div class="mini-card"><strong>5. Protect the long tail</strong>Rare services need targeted test sets, minimum-case thresholds, error-severity review, and possibly deterministic routing rules rather than reliance on aggregate accuracy.</div>
+<div class="mini-card"><strong>6. Predefine adjudication</strong>Use blinded independent reviewers, explicit equivalence criteria, disagreement resolution, and interrater reliability. Preserve “acceptable alternative” separately from exact correctness.</div>
+<div class="mini-card"><strong>7. Measure workflow outcomes</strong>Track coordinator time, queue time, acceptance/override rate, downstream rerouting, delay, unsafe assignment, availability, latency, and total infrastructure cost.</div>
+<div class="mini-card"><strong>8. Version prompts as clinical content</strong>Prompt rules function as a clinical routing policy. They require ownership, review dates, change control, validation fixtures, rollback, and drift monitoring.</div>
+</div>
+<h3>Minimum prospective pilot design</h3><pre><code>Shadow mode only
+  → frozen/versioned roster and prompt
+  → model proposes department + subspecialty + abstention reason
+  → coordinator remains final decision-maker
+  → log exact match / acceptable alternative / unsafe / insufficient information
+  → stratify by service frequency and error severity
+  → measure time, overrides, rerouting, latency, downtime, and costs
+  → predefined stop rules for unsafe cross-department errors
+  → independent blinded adjudication of a sampled set</code></pre>
+</section>
+
+<section id="provenance"><h2>Provenance and limitations of this reference</h2>
+<p><strong>Evaluated source:</strong> Kang B, Son M, Jeong W, et al. <em>Large language model-assisted referral triage automation in a tertiary hospital.</em> npj Digital Medicine. Article in Press. DOI 10.1038/s41746-026-03067-6.</p>
+<p><strong>Evaluated file:</strong> s41746-026-03067-6_reference.pdf; 29 pages; unedited accepted manuscript; source SHA-256 58c20767bf9f5de054ec6591095a8ff67930a3de71ffbcaf5b45fb108447e3fb.</p>
+<p><strong>Generation date:</strong> 6 August 2026 (America/New_York). <strong>Method:</strong> Summary, Evaluation, and Appraisal protocol; AI/ML systems and practice-workflow modules. No external verification was added.</p>
+<h3>Source consistency notes</h3><ul><li>The abstract reports 5.9% of referrals lacked sufficient information, while the Results report 6/104 (5.8%); this reference uses the denominator-backed Results value.</li><li>Figure 2 labels the 680-referral split “Validation Set,” while the text calls it a hold-out test set.</li><li>The abstract describes real-time clinician availability, while the evaluated roster was frozen during the test phase.</li><li>Table 2 contains apparent label/typographical anomalies that may be corrected in the final edited article.</li></ul>
+<p class="foot">This reference supports source understanding and appraisal. It does not replace primary-source review, local governance, privacy/security assessment, prospective validation, or clinical judgment.</p>
+</section>
+</main>
+</body></html>

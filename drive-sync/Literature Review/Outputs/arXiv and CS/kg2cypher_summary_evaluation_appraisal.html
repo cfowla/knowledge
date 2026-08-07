@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KG2Cypher - Summary, Evaluation, and Appraisal</title>
+<style>
+:root {
+  --bg:#f7f8fb; --card:#ffffff; --ink:#17202a; --muted:#526173; --line:#d9e0ea;
+  --accent:#1d4f91; --accent2:#0f315f; --good:#0f6b3b; --warn:#8a5a00; --bad:#8a1f1f;
+  --codebg:#0e1726; --codefg:#edf4ff; --soft:#eef5ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}
+.wrap{max-width:1120px;margin:0 auto;padding:1.25rem}
+header{background:linear-gradient(135deg,#10243d,#1d4f91);color:white;border-bottom:5px solid #d2e2f5}
+header .wrap{padding:2.2rem 1.25rem 2rem}
+h1{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.08;margin:.25rem 0 .5rem;font-weight:800;letter-spacing:-.03em}
+.subtitle{font-size:1.05rem;max-width:900px;color:#e7f0fb;margin:.25rem 0 1rem}
+.tagrow{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.8rem}
+.tag{display:inline-block;background:#e9f2ff;color:#173f72;border:1px solid #cfe0f3;border-radius:999px;padding:.2rem .55rem;font-size:.82rem;font-weight:650}
+header .tag{background:rgba(255,255,255,.13);color:#fff;border-color:rgba(255,255,255,.32)}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.25rem;margin:1rem 0 1.25rem;box-shadow:0 1px 4px rgba(16,36,61,.06)}
+nav.toc ol{columns:2;gap:2rem;margin:.2rem 0;padding-left:1.25rem}
+nav.toc a{text-decoration:none;color:var(--accent2);font-weight:650}
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.2rem 1.25rem;margin:1rem 0;box-shadow:0 1px 5px rgba(16,36,61,.05)}
+h2{margin:.1rem 0 .8rem;color:#0f315f;font-size:1.45rem}
+h3{margin:1.05rem 0 .4rem;color:#173f72}
+h4{margin:.85rem 0 .35rem;color:#24364b}
+p{margin:.55rem 0}
+a{color:var(--accent)}
+.meta-grid,.rating-grid,.takeaway-grid,.manifest-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:.75rem;margin:.75rem 0}
+.mini-card{border:1px solid var(--line);border-radius:12px;background:#fbfdff;padding:.85rem;min-height:72px}
+.label{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:#526173;font-weight:800;margin-bottom:.2rem}
+.value{font-weight:750;color:#17202a}
+.score{font-size:1.65rem;font-weight:850;color:#0f315f;line-height:1}
+.small{font-size:.92rem;color:#526173}
+.verdict,.warning,.badnote,.goodnote{border-radius:12px;padding:.9rem 1rem;margin:.8rem 0;border-left:5px solid var(--accent);background:#eef5ff}
+.warning{border-left-color:var(--warn);background:#fff7e8}
+.badnote{border-left-color:var(--bad);background:#fff0f0}
+.goodnote{border-left-color:var(--good);background:#eefaf2}
+.section-summary{border-top:1px solid var(--line);padding-top:.75rem;margin-top:.75rem}
+.section-summary:first-child{border-top:0;padding-top:0}
+pre{margin:.75rem 0 1rem;padding:1rem;background:var(--codebg);color:var(--codefg);border-radius:12px;overflow-x:auto;border:1px solid #1b2e49;font-size:.88rem;line-height:1.45;white-space:pre-wrap}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.94rem;border:1px solid var(--line);display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:.55rem .65rem;vertical-align:top}
+th{background:#eef3f9;text-align:left;color:#1e395c}
+ul{margin:.4rem 0 .7rem;padding-left:1.25rem}
+li{margin:.28rem 0}
+.kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#cfe0f3}
+.footer{color:#526173;font-size:.92rem}
+@media (max-width:760px){nav.toc ol{columns:1}.wrap{padding:.8rem}section{padding:1rem}}
+@media print{body{background:white}section,nav.toc,.mini-card{box-shadow:none}header{background:#fff;color:#000;border-bottom:2px solid #000}header .subtitle, header .tag{color:#000}.tag{border-color:#999;background:#fff;color:#000}a{color:inherit}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">Summary / Evaluation / Appraisal Reference</div>
+    <h1>KG2Cypher: Data-Centric Pipeline for Building Enterprise Text-to-Cypher Systems</h1>
+    <p class="subtitle">Condensed technical reference for an arXiv preprint on KG-grounded data construction, candidate-aware SFT, and class-conditioned serving for private enterprise Text-to-Cypher systems.</p>
+    <div class="tagrow">
+      <span class="tag">arXiv:2606.27742v1</span><span class="tag">Text-to-Cypher</span><span class="tag">Enterprise KG</span><span class="tag">Candidate-aware SFT</span><span class="tag">LoRA</span><span class="tag">Korean enterprise queries</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#coverage">Coverage manifest</a></li>
+    <li><a href="#sections">Section condensation</a></li>
+    <li><a href="#visuals">Figures and tables</a></li>
+    <li><a href="#workflow">Workflow extraction</a></li>
+    <li><a href="#aiml">AI/ML appraisal add-on</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#takeaways">Implementation takeaways</a></li>
+    <li><a href="#qa">QA and provenance</a></li>
+  </ol>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card "><div class="label">Title</div><div class="value">KG2Cypher: Data-Centric Pipeline for Building Enterprise Text-to-Cypher Systems</div></div>
+    <div class="mini-card "><div class="label">Authors</div><div class="value">Minjun Choi, Yerin Kim, Junghyuk Seo, Sujin Mo, Hyemin Lee, Youngjoong Ko</div></div>
+    <div class="mini-card "><div class="label">Source type</div><div class="value">arXiv preprint; AI/ML systems and enterprise structured-query generation paper</div></div>
+    <div class="mini-card "><div class="label">Date / version</div><div class="value">26 Jun 2026; v1</div></div>
+    <div class="mini-card "><div class="label">Identifier</div><div class="value">arXiv:2606.27742v1; DOI: 10.48550/arXiv.2606.27742</div></div>
+    <div class="mini-card "><div class="label">Domain</div><div class="value">Enterprise knowledge graphs, Korean text-to-Cypher, KGQA, LoRA SFT, retrieval-aware prompting</div></div>
+    <div class="mini-card "><div class="label">Design</div><div class="value">Data-centric pipeline plus internal benchmark evaluation across proprietary enterprise KG domains</div></div>
+    <div class="mini-card "><div class="label">Primary models/tools</div><div class="value">gpt-oss-120B, Llama-3.1-8B-Instruct, LoRA, KLUE-BERT-base, Memgraph, vLLM</div></div>
+  </div>
+  <div class="warning"><strong>Scope warning:</strong> This reference summarizes and appraises a proprietary enterprise AI/ML system paper. It supports design and evaluation thinking for KG-to-query systems, but it does not validate the reported system outside the authors’ private Korean enterprise KGs, schemas, entity APIs, and deployment constraints.</div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="verdict"><strong>Core thesis:</strong> For private enterprise KGs, the most reliable path to Text-to-Cypher training data is to build executable Cypher from observed graph facts first, then use LLMs for language diversification and judging, and serve a LoRA-tuned generator with class-conditioned schema prompting plus entity candidates.</div>
+  <div class="takeaway-grid">
+    <div class="mini-card "><div class="label">Why it matters</div><p>Prompt-only LLMs can produce syntactically valid Cypher while returning the wrong graph results. The paper makes execution-result F1, not execution rate alone, the central user-facing metric.</p></div>
+    <div class="mini-card "><div class="label">Most reusable idea</div><p>Use the KG itself as a supervision source: sample real relation patterns, fetch subgraphs, deterministically construct gold Cypher, and only then generate natural-language variants.</p></div>
+    <div class="mini-card "><div class="label">Most important result</div><p>In the final 11-class setting, the system reports 95.2% exact match, 99.9% execution rate, and 0.964 execution-result F1.</p></div>
+    <div class="mini-card "><div class="label">Key limitation</div><p>The KG, schemas, APIs, generated data, checkpoints, and real identifiers are proprietary. The result is operationally suggestive but not independently reproducible.</p></div>
+  </div>
+  <h3>High-yield interpretation</h3>
+  <p>KG2Cypher is best read as an enterprise structured-query construction pattern rather than a general public benchmark. The valuable pattern is the staged constraint stack: graph-derived symbolic targets, LLM language diversification with deterministic semantic checks, calibrated LLM/human validation, candidate-aware SFT, and class-conditioned serving when relation retrieval is unreliable.</p>
+  <p>The strongest evidence is internal consistency across diagnostics: prompt-only execution is high but answer quality is poor; relation retrieval is the bottleneck; SFT improves execution-result F1; and class-conditioned schema prompting avoids low-recall relation retrieval. The weakest point is external validity: all decisive assets are private, the setting is Korean enterprise search, and only one generator backbone is evaluated.</p>
+</section>
+
+<section id="coverage">
+  <h2>Coverage manifest</h2>
+  <div class="manifest-grid">
+    <div class="mini-card "><div class="label">Source ID</div><div class="value">arXiv:2606.27742v1</div></div>
+    <div class="mini-card "><div class="label">Source type</div><div class="value">Preprint / AI-ML systems paper</div></div>
+    <div class="mini-card "><div class="label">Sections covered</div><div class="value">Abstract; Introduction; Related Work; Methodology 3.1-3.10; Experiments 4.1-4.5; Conclusion; Limitations; Ethical Considerations; Appendices A-I</div></div>
+    <div class="mini-card "><div class="label">Figures covered</div><div class="value">Figure 1, Figure 2</div></div>
+    <div class="mini-card "><div class="label">Tables covered</div><div class="value">Tables 1-10</div></div>
+    <div class="mini-card "><div class="label">Workflows covered</div><div class="value">KG-grounded data construction; LLM language diversification; judge/human validation; candidate-aware SFT; class-conditioned serving</div></div>
+    <div class="mini-card "><div class="label">Appendix decision</div><div class="value">Included, because appendix material affects calibration, reproducibility, training setup, failure analysis, and implementation interpretation.</div></div>
+    <div class="mini-card "><div class="label">Known omissions</div><div class="value">References are not individually summarized; no external reproduction or source-code inspection; no hidden proprietary data, schemas, identifiers, APIs, or checkpoints available.</div></div>
+  </div>
+</section>
+
+<section id="sections">
+  <h2>Section condensation</h2>
+  <div class="section-summary"><h3>Abstract</h3><p>KG2Cypher addresses the cost of building natural-language interfaces for private enterprise knowledge graphs. The core move is data-centric: construct executable Cypher from observed graph facts first, then use LLMs to generate the corresponding natural-language question, validate the pair, and convert it into candidate-aware supervised fine-tuning data.</p><p>The reported evaluation is in Korean enterprise settings where short search-style queries, schema paraphrases, URI binding, and literal sub-fields make grounding difficult. LoRA SFT improves execution-result F1 from 0.806 to 0.950 for broadcast-program queries and from 0.70 to 0.92 for company queries; the final 11-class class-conditioned system reports 95.2% exact match, 99.9% execution rate, and 0.964 execution-result F1.</p></div>
+  <div class="section-summary"><h3>1. Introduction</h3><p>The paper frames enterprise KGs as useful but inaccessible to non-expert users because graph users usually do not know the available node types, relation types, Cypher syntax, or internal entity IDs. Text-to-Cypher is presented as a constrained structured-query problem requiring valid schema relations, graph patterns, entity URI binding, literal sub-field selection, and execution against a live graph database.</p><p>The authors argue that manual text-Cypher annotation does not scale across enterprise domains, and prompt-only LLM use can produce syntactically executable but semantically wrong Cypher. Their central hypothesis is that an enterprise can reuse its own KG as the supervision source: sample real relation patterns, fetch subgraphs, deterministically build executable Cypher targets, and reserve LLMs for language-side generation and judging.</p></div>
+  <div class="section-summary"><h3>2. Related Work</h3><p>The related-work section situates KG2Cypher within structured query generation, especially text-to-SQL, KGQA logical-form generation, schema linking, constrained decoding, and LLM prompting. It also positions Cypher as an industrial property-graph query language with emerging public Text-to-Cypher resources.</p><p>The paper distinguishes KG2Cypher from public benchmarks and synthetic Cypher resources by focusing on private enterprise KGs whose identifiers, schemas, entity APIs, generated data, and evaluation artifacts cannot be released. The contribution is therefore less a public benchmark and more a production-oriented data construction, training, and serving pattern for private graph search.</p></div>
+  <div class="section-summary"><h3>3.1 Task Formulation</h3><p>The generation task is formalized as y = fθ(q, R, E), where a model receives a natural-language question, relation candidates, and entity candidates, then emits executable Cypher. The relation candidates carry subject class, object class, predicate identifier, and linguistic hints; entity candidates carry an internal URI, display name, and class label.</p><p>This formulation intentionally aligns supervised training with deployment. The model should select among provided schema and entity candidates rather than invent private identifiers or unsupported schema elements from free text alone.</p></div>
+  <div class="section-summary"><h3>3.2 System Overview</h3><p>The system separates symbolic construction from language generation. KG2Cypher builds Cypher targets using deterministic code over graph values and uses LLMs for paraphrasing, compressed query generation, and validation rather than asking the LLM to invent graph structure.</p><p>The workflow has three main arcs: KG-grounded data construction, candidate-aware SFT, and class-conditioned serving. This is the paper’s main design principle: constrain the LLM with graph-derived targets and inference-like candidates so errors shift from schema hallucination toward measurable candidate selection and generation quality.</p></div>
+  <div class="section-summary"><h3>3.3 Predicate Collection and Filtering</h3><p>Instead of relying only on static schema files, KG2Cypher inspects graph instances to collect subject-predicate-object patterns that actually appear in the KG. For broadcast programs, examples include relations such as broadcast_by, genre, and number_of_episodes, with object type recorded as entity or literal.</p><p>Rule-based filtering removes non-searchable or metadata-like fields such as geocoordinates, media URLs, social-media IDs, and system fields. Relation identifiers with equivalent query semantics are merged to reduce redundant or misleading supervision.</p></div>
+  <div class="section-summary"><h3>3.4 Skeleton Sampling and Subgraph Fetching</h3><p>Filtered relations are sampled into query skeletons with a 40/30/20/10 distribution for one-, two-, three-, and four-relation structures. Candidate skeletons are validated against Memgraph through a LIMIT 1 query before data generation proceeds.</p><p>For each valid skeleton, the pipeline samples up to 50 matching subgraphs. This cap is an anti-bias mechanism: it prevents frequent graph patterns from dominating the generated dataset while still grounding each example in real entity URIs, literal values, and relation attributes.</p></div>
+  <div class="section-summary"><h3>3.5 Canonical Cypher Construction</h3><p>KG2Cypher deterministically constructs Cgold from each fetched subgraph. Entity nodes are bound by unique graph identifiers in WHERE clauses, and literals are mapped to schema-specific attributes with comparison operators in {=, &gt;, &lt;, &gt;=, &lt;=}.</p><p>The same symbolic conditions are also rendered as an analyzed intermediate form and a template-derived naive natural-language statement. These synchronized representations keep the later LLM rewriting step anchored to the verified graph structure and literal constraints.</p></div>
+  <div class="section-summary"><h3>3.6 LLM-Based Language Diversification</h3><p>The LLM receives Cgold, analyzed and naive language forms, ontology constraints, and target-language synonym maps. The symbolic Cypher target remains fixed; the LLM rewrites only the language side, reducing the risk of unsupported graph structures or changed literal semantics.</p><p>The paper reports three language-output types: one term-preserving question, five paraphrases, and compressed search-style queries for shallow skeletons with up to three joins. Numeric and date relations receive deterministic checks to verify that units and comparison words still match the Cypher condition.</p></div>
+  <div class="section-summary"><h3>3.7 LLM Judge and Human Validation</h3><p>A gpt-oss-120B judge scores generated pairs on a 0/1/2 scale across faithfulness to Cgold, target-language fluency, and completeness of schema constraints. Passing examples enter the training set; imperfect rows are routed to a human validation interface for keep/edit decisions.</p><p>The scoring guide is calibrated on 200 human-annotated samples with MAE, adjacent agreement, and deduction catch rate rather than a single metric. The authors revise the guide using human disagreement comments and report that faithfulness MAE drops from 0.314 to 0.251 after three iterations.</p></div>
+  <div class="section-summary"><h3>3.8 Candidate-Aware SFT Construction</h3><p>Validated text-Cypher pairs are converted into instruction-style examples containing the question, candidate relations, entity candidates, and gold Cypher output. Candidate relation records include classes, predicate identifiers, and linguistic hints; candidate entity records include URI, display name, class, and retrieval distractors.</p><p>This is an important implementation detail: the training input mirrors the inference-time prompt. The model learns to tolerate realistic retrieval noise and select necessary relations and entity URIs instead of relying on clean oracle-only inputs.</p></div>
+  <div class="section-summary"><h3>3.9 Class-Conditioned Schema Prompting</h3><p>The paper rejects relation-first retrieval for its enterprise setting because the available relation API has low recall and missing gold relations are usually unrecoverable by the generator. Entity retrieval is considered reliable enough to supply URI candidates, so the system uses a domain classifier to choose the graph class and then inserts the full class schema into the prompt.</p><p>The domain classifier is KLUE-BERT-base trained for 11-way single-label classification. This shifts the retrieval burden from relation-level ranking to class routing plus entity disambiguation and keeps the prompt bounded by the selected class schema.</p></div>
+  <div class="section-summary"><h3>3.10 Training and Serving</h3><p>The generator is Llama-3.1-8B-Instruct adapted with LoRA. The final adapter trains about 41M parameters, around 0.52% of the base model, with prompt tokens masked so the loss applies only to the assistant-side Cypher response.</p><p>At inference, the service classifies the domain, loads the class schema, runs NER, retrieves entity candidates, builds a candidate-aware prompt, and generates Cypher through vLLM. The backbone stays loaded; NER uses the base model without LoRA, and Cypher generation attaches the LoRA adapter at request time to avoid separate large-model endpoints.</p></div>
+  <div class="section-summary"><h3>4.1 Data and Metrics</h3><p>The evaluation uses internal Korean enterprise KG domains. The final class-conditioned setting spans 11 graph classes with 20,745 training, 2,590 development, and 2,621 test examples; the paper also reports broadcast and company diagnostics for prompt-only behavior, retrieval, SFT, and transfer.</p><p>Metrics are exact match, execution rate, and execution-result F1. The authors emphasize execution-result F1 because executable Cypher can still return wrong answer sets, making execution validity alone a misleading deployment metric.</p></div>
+  <div class="section-summary"><h3>4.2 LLM Judge Calibration</h3><p>The initial judge prompt passes fluency and completeness but fails faithfulness calibration, with faithfulness MAE 0.314 against human labels. This matters because the judge is used as a quality gate for synthetic training data.</p><p>After automatic scoring-guide revision using human disagreement comments, the guide grows from 270 to 325 lines and stabilizes. Faithfulness MAE falls to 0.251, below the stated 0.27 target, allowing high-confidence examples to be accepted and lower-confidence cases to be sent to human validation.</p></div>
+  <div class="section-summary"><h3>4.3 Prompt-Only Diagnostics</h3><p>Prompt-only gpt-oss-120B diagnostics show that runnable Cypher is not enough. Rules-only and few-shot prompts achieve near-zero execution-result F1 despite 100% execution, and adding the full broadcast schema improves F1 only to 0.0655.</p><p>Even an oracle prompt with gold relation and entity candidates reaches only 47.7% exact match and 0.7139 F1. The recurring failure modes are hallucinated private entity URIs, plausible but wrong relation choices, and incorrect literal sub-fields such as value_number versus date-related fields.</p></div>
+  <div class="section-summary"><h3>4.4 Retrieval Diagnostics</h3><p>Entity retrieval performs much better than relation retrieval in the reported service APIs. Entity recall reaches 67.5% at k=1, 87.5% at k=5, and 95.0% at k=20 on searchable entity mentions.</p><p>The deployed relation API reaches only 40.6% recall@20, and query rewriting raises it only to 49.8%. This is the empirical basis for class-conditioned schema prompting: if relation retrieval omits the gold relation, generation usually cannot recover.</p></div>
+  <div class="section-summary"><h3>4.5 LoRA SFT and Class-Conditioned Results</h3><p>LoRA SFT substantially improves generation quality over prompt-only baselines with gold candidates. Broadcast execution-result F1 rises from 0.806 to 0.950; company F1 rises from 0.70 to 0.92; a broadcast-trained adapter transfers partly to company with OOD F1 0.79 but remains below in-domain SFT.</p><p>The final 11-class setting uses a KLUE-BERT-base classifier with reported 99.66% accuracy and supplies the predicted class schema to the generator. It reports 95.2% exact match, 99.9% execution rate, and 0.964 execution-result F1, supporting the class-conditioned design inside this proprietary environment.</p></div>
+  <div class="section-summary"><h3>5. Conclusion</h3><p>The paper concludes that KG2Cypher can turn observed enterprise graph facts into executable training targets, use LLMs only for language and validation, and train a candidate-aware LoRA generator for production-style prompts.</p><p>The main practical conclusion is that KG-grounded SFT plus class-conditioned schema prompting can overcome the observed prompt-only and relation-retrieval bottlenecks. This is a credible design pattern, but not a directly reproducible result because the core KG, APIs, data, and checkpoints are private.</p></div>
+  <div class="section-summary"><h3>6. Limitations</h3><p>The largest limitation is opacity: the KG, entity APIs, generated data, and model checkpoints are proprietary, so the paper reports aggregate statistics and anonymized examples rather than releaseable artifacts. The pipeline also cannot create supervision for relations, entities, or values missing from the KG.</p><p>The current instantiation is Korean and includes language-specific question prompts, judge calibration data, and domain classification modules. Deployment still depends on domain classification, NER, entity retrieval, and entity disambiguation; outside entities and homonyms remain difficult. Only Llama-3.1-8B-Instruct is evaluated as the generator backbone.</p></div>
+  <div class="section-summary"><h3>Ethical Considerations</h3><p>The system is intended for authorized enterprise KG search and analytics. Because internal KGs may contain proprietary or sensitive business information, the authors state that generated data, execution logs, and model outputs require organizational access control and data-governance policies.</p><p>Human validation is positioned as a semantic-drift control. The paper anonymizes examples and translates Korean text for readability, but the operational safety case would still require local governance for schema access, log retention, model output auditing, and permission boundaries.</p></div>
+  <div class="section-summary"><h3>Appendices A-I</h3><p>The appendices supply details that materially affect interpretation: judge-metric validation, an execution-result F1 example, prompt-only failure modes, class labels, oracle prompting by relation count, SFT diagnostics under candidate noise, training hyperparameters, data-construction examples, and a candidate-aware SFT instance.</p><p>The appendix material strengthens implementation usefulness because it exposes why the authors chose multiple judge metrics, why query complexity matters, how distractor candidates affect SFT, and what information appears in a training/serving prompt. It does not remove the reproducibility limitation because real schemas, entities, data, and code remain unavailable.</p></div>
+</section>
+
+<section id="visuals">
+  <h2>Figures and tables</h2>
+  <p>All main-text figures/tables are included. Appendix tables are included because they materially affect evaluation, calibration, training, and implementation interpretation.</p>
+  <h3>FIGURE 1 - KG2Cypher workflow overview</h3><div class="small">Figure; location: Page 3</div><pre><code>Purpose: Show the end-to-end architecture from graph-grounded data construction to training and inference.
+Structure/panels: Left panel covers predicate collection/filtering, skeleton sampling/subgraph fetching, canonical Cypher construction, LLM language diversification, and LLM/human validation. Upper-right panel shows candidate-aware SFT with question, candidate relations/entities, Llama-3.1-8B-Instruct, and LoRA adapter. Lower-right panel shows class-conditioned serving with user question, domain classifier, class schema, NER, entity API, candidate-aware prompt, LoRA generation, and Memgraph execution.
+Numeric details: No performance numbers; the figure is a workflow diagram.
+Main pattern: The LLM is constrained to language generation, judging, and Cypher generation over supplied candidates; graph facts and class schemas provide the symbolic grounding.
+Interpretation: The figure supports the paper&#x27;s central design claim that production text-to-Cypher should align data construction, training, and serving prompts.
+Limits: It is conceptual and does not show latency, error rates at each stage, or governance controls.</code></pre>
+  <h3>FIGURE 2 - LLM judge calibration</h3><div class="small">Figure; location: Page 5</div><pre><code>Purpose: Track scoring-guide expansion and faithfulness MAE during judge calibration.
+Structure/panels: Left plot shows scoring guide length over prompt iterations; right plot shows faithfulness MAE against the target threshold.
+Numeric details: Guide length increases 270 -&gt; 295 -&gt; 325 -&gt; 325 lines. Faithfulness MAE changes 0.314 -&gt; 0.277 -&gt; 0.304 -&gt; 0.251; target is &lt;=0.27.
+Main pattern: Calibration initially fails faithfulness, fluctuates during revision, and passes after the third iteration.
+Interpretation: The result supports use of a calibrated LLM judge as a partial quality gate, not as an unvalidated evaluator.
+Limits: Calibration uses 200 human-annotated samples, but sample selection, inter-annotator reliability, and downstream error impact are not fully reported.</code></pre>
+  <h3>TABLE 1 - Illustrative Korean text-to-Cypher examples</h3><div class="small">Table; location: Page 1</div><pre><code>Rows: Broadcast query and company query.
+Columns/content: Korean input text with English translation, required grounding, and anonymized Cypher output.
+Key values: Broadcast example requires Go Youn-jung URI, JTBC URI, and episode-count literal 24. Company example requires salary &gt;= 40,000,000 KRW, KOSPI URI, and legal-form URI.
+Pattern: User text must be mapped to internal URIs, schema relations, literal values, and executable graph patterns.
+Appraisal: Strongly motivates the task; examples are anonymized, so they illustrate constraints but cannot verify exact schema fidelity.</code></pre>
+  <h3>TABLE 2 - Broadcast prompt-only diagnostics</h3><div class="small">Table; location: Page 6</div><pre><code>Rows: Rules only; rules + few-shot; rules + few-shot + schema; oracle gold candidates.
+Columns: Exact match, execution rate, execution-result F1.
+Key values: Rules-only EM 0.0, execution 100.0, F1 0.0024. Few-shot EM 0.5, execution 100.0, F1 0.0049. Few-shot + schema EM 4.2, execution 99.7, F1 0.0655. Oracle gold candidates EM 47.7, execution 99.7, F1 0.7139.
+Pattern: Prompt-only models can execute but return wrong answers; gold candidates help substantially but do not solve generation.
+Appraisal: This is one of the strongest empirical justifications for SFT and candidate-aware prompting. Denominators and uncertainty intervals are not reported in the table.</code></pre>
+  <h3>TABLE 3 - Retrieval diagnostics</h3><div class="small">Table; location: Page 6</div><pre><code>Rows: Entity API retrieval, deployed relation API, and relation API plus query rewriting.
+Columns: Retrieval component, k, recall.
+Key values: Entity recall reaches 67.5% @1, 87.5% @5, and 95.0% @20. Relation recall reaches 18.8% @1, 36.0% @5, 39.8% @10, and 40.6% @20; query rewriting raises relation recall@20 to 49.8%.
+Pattern: Entity retrieval is usable; relation retrieval is a bottleneck.
+Appraisal: Directly supports class-conditioned schema prompting, although the retrieval test set, latency, and candidate-count tradeoffs are not fully described.</code></pre>
+  <h3>TABLE 4 - Main generation results</h3><div class="small">Table; location: Page 6</div><pre><code>Rows: Broadcast prompt + gold, broadcast LoRA SFT, company prompt + gold, company LoRA SFT, company LoRA OOD, and 11-class LoRA + class schema.
+Columns: Domain, system, exact match, execution rate, execution-result F1.
+Key values: Broadcast F1 0.806 -&gt; 0.950 with LoRA SFT. Company F1 0.70 -&gt; 0.92 with in-domain LoRA SFT. Company LoRA OOD F1 0.79. Final 11-class system: 95.2% EM, 99.9% execution, 0.964 F1.
+Pattern: In-domain SFT improves both grounding and execution-result quality; cross-domain transfer is partial; class-conditioned serving performs best in the final setup.
+Appraisal: Central results are strong but proprietary; no public data, no confidence intervals, and no independent benchmark comparison are available.</code></pre>
+  <h3>TABLE 5 - Initial baseline evaluator performance</h3><div class="small">Appendix table; location: Page 8</div><pre><code>Rows: Faithfulness base, fluency base, completeness base.
+Columns: MAE, adjacent agreement, deduction catch rate, pass status.
+Key values: Faithfulness MAE 0.314, adjacent agreement 1.000, catch 0.60, pass No. Fluency MAE 0.216, adjacent agreement 0.995, catch 0.54, pass Yes. Completeness MAE 0.000, adjacent agreement 1.000, pass Yes.
+Pattern: A judge can look acceptable on adjacency while failing faithfulness by MAE and catch criteria.
+Appraisal: Useful methodological appendix; reinforces not relying on one judge metric.</code></pre>
+  <h3>TABLE 6 - Oracle prompting by query complexity</h3><div class="small">Appendix table; location: Page 9</div><pre><code>Rows: Relation count 1, 2, 3, and 4.
+Columns: Failure rate and average F1.
+Key values: 1 relation: 19% failure, 0.8221 F1. 2 relations: 39% failure, 0.6544 F1. 3 relations: 42% failure, 0.6818 F1. 4 relations: 73% failure, 0.2667 F1.
+Pattern: Prompt-only generation degrades as more relations must be composed, with the sharpest failure at four relations.
+Appraisal: Supports structured training and retrieval-aware prompts; sample sizes by relation count are not shown.</code></pre>
+  <h3>TABLE 7 - Broadcast candidate-aware SFT diagnostics</h3><div class="small">Appendix table; location: Page 9</div><pre><code>Rows: Oracle CLS, Oracle No-CLS, Noise CLS, Noise No-CLS.
+Columns: Candidate condition, schema format, exact match, execution, F1.
+Key values: Oracle CLS F1 0.9499; Oracle No-CLS F1 0.9509; Noise CLS F1 0.9138; Noise No-CLS F1 0.9082.
+Pattern: Candidate-aware SFT remains robust under distractors, but retrieval-like noise reduces F1.
+Appraisal: Important ablation because it tests the candidate-noise assumption. It is limited to broadcast-domain diagnostics.</code></pre>
+  <h3>TABLE 8 - LoRA training configuration</h3><div class="small">Appendix table; location: Page 9</div><pre><code>Rows: Hyperparameters.
+Columns: Hyperparameter and value.
+Key values: Base model Llama-3.1-8B-Instruct; trainable parameters 41M/8B (0.52%); max sequence length 4096; LoRA rank 16; alpha 32; dropout 0.05; learning rate 2e-4; micro-batch size 1; gradient accumulation 8; 8 NVIDIA A100 GPUs; bf16 mixed precision.
+Pattern: Standard adapter-tuning setup with loss masked to assistant-side Cypher output.
+Appraisal: Sufficient for broad replication of tuning strategy but not replication of data, prompts, APIs, or schemas.</code></pre>
+  <h3>TABLE 9 - Data construction example before SFT</h3><div class="small">Appendix table; location: Page 11</div><pre><code>Rows: Fetched values, gold Cypher, analyzed form, naive statement, LLM question outputs, validation input.
+Columns/content: Each row shows how one grounded broadcast-program record becomes synchronized symbolic and language representations.
+Key values: Example combines a person, channel, and episode-count value 24; the gold Cypher target is fixed before LLM rewriting.
+Pattern: The table demonstrates the core anti-hallucination mechanism: language variants are generated after the symbolic query has been grounded in graph facts.
+Appraisal: Useful implementation detail, but anonymization hides schema-specific challenges and exact code paths.</code></pre>
+  <h3>TABLE 10 - Candidate-aware SFT instance</h3><div class="small">Appendix table; location: Page 11</div><pre><code>Rows: Instruction, input, output.
+Columns/content: The input includes a question, candidate relations with domain/class/predicate/hints, candidate entities with IDs/names/classes, and distractors; the output is the gold Cypher.
+Key values: Example includes relations for cast member, broadcaster, and number of episodes, along with anonymized person/channel URIs and a value_number condition of 24.
+Pattern: Training and inference share the same candidate-aware format.
+Appraisal: One of the most implementation-useful artifacts in the paper, but only a single anonymized example is shown.</code></pre>
+</section>
+
+<section id="workflow">
+  <h2>Workflow / algorithm extraction</h2>
+  <pre><code>WORKFLOW - KG2Cypher data construction and serving
+
+Inputs:
+  - Existing enterprise knowledge graph with observed subject-predicate-object patterns.
+  - Entity and literal graph values; class schemas; target-language synonym maps.
+  - Entity retrieval API; domain classifier; generator backbone and LoRA adapter.
+
+Process / decision rules:
+  1. Inspect graph instances to collect active SPO patterns and filter metadata/non-searchable attributes.
+  2. Sample one- to four-relation query skeletons with 40/30/20/10 distribution.
+  3. Validate skeletons against Memgraph with LIMIT 1 and sample up to 50 matching subgraphs.
+  4. Deterministically construct canonical Cypher from real graph IDs, relations, literals, and comparison operators.
+  5. Generate language variants with LLMs while keeping the Cypher target fixed.
+  6. Apply deterministic checks for numeric/date unit and comparison consistency.
+  7. Use calibrated LLM judge plus human validation to accept, review, or edit pairs.
+  8. Convert accepted pairs into candidate-aware SFT examples with relation/entity candidates and retrieval distractors.
+  9. Serve by classifying the domain, inserting the full class schema, retrieving entity candidates, generating Cypher with LoRA, and executing on Memgraph.
+
+Outputs:
+  - Validated Text-Cypher pairs.
+  - Candidate-aware LoRA SFT dataset.
+  - Production-style Text-to-Cypher generation pipeline.
+
+Failure modes:
+  - Missing KG facts cannot generate supervision.
+  - Low-recall relation retrieval can omit needed schema items.
+  - Entity homonyms and outside entities can produce URI-binding errors.
+  - Literal sub-field errors can produce executable but semantically wrong Cypher.
+  - Domain classifier errors can insert the wrong class schema.
+
+Human review:
+  - Needed for judge calibration, semantic-drift correction, and low-confidence generated pairs.
+
+Governance:
+  - Requires access controls for private KGs, generated data, execution logs, prompts, and outputs.
+  - Needs schema-version tracking, retrieval monitoring, judge drift checks, and audit trails for generated queries.</code></pre>
+</section>
+
+<section id="aiml">
+  <h2>AI/ML appraisal add-on</h2>
+  <div class="meta-grid">
+    <div class="mini-card "><div class="label">Task</div><p>Natural-language-to-Cypher generation over private enterprise property graphs with URI binding, schema relation selection, literal handling, and execution against Memgraph.</p></div>
+    <div class="mini-card "><div class="label">Data</div><p>Internal Korean enterprise KG domains; final 11-class setting uses 20,745 train, 2,590 dev, and 2,621 test examples. Public data are not released.</p></div>
+    <div class="mini-card "><div class="label">Method</div><p>Graph-first target construction, LLM language diversification, calibrated LLM judge plus human validation, candidate-aware LoRA SFT, and class-conditioned serving.</p></div>
+    <div class="mini-card "><div class="label">Baselines</div><p>Prompt-only gpt-oss-120B under rules, few-shot, schema, and oracle candidate conditions; in-domain and out-of-domain LoRA comparisons.</p></div>
+    <div class="mini-card "><div class="label">Metrics</div><p>Exact match, execution rate, execution-result F1, retrieval recall@k, classifier accuracy, judge MAE/adjacent agreement/catch rate.</p></div>
+    <div class="mini-card "><div class="label">Leakage / contamination</div><p>Not fully assessable from the paper. The pipeline uses generated data from the same proprietary KGs being evaluated, so split construction and overlap controls are important but not deeply detailed.</p></div>
+    <div class="mini-card "><div class="label">Ablations</div><p>Prompt-only variants, relation/entity retrieval diagnostics, query-complexity breakdown, candidate noise and schema-format diagnostics, OOD transfer from broadcast to company.</p></div>
+    <div class="mini-card "><div class="label">Reproducibility</div><p>Training hyperparameters and examples are given, but core data, schemas, APIs, prompts, checkpoints, code, and identifiers are unavailable.</p></div>
+  </div>
+  <div class="warning"><strong>Do not overclaim:</strong> The final 0.964 execution-result F1 supports this specific internal pipeline and evaluation setting. It does not prove general Text-to-Cypher performance on arbitrary graph databases, languages, schemas, or entity APIs.</div>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="verdict"><strong>Verdict: Read first</strong> for enterprise KG/RAG query-system design, candidate-aware SFT, and deterministic data-generation patterns. Use as a design reference and evaluation warning, not as externally validated evidence that the exact performance will transfer.</div>
+  <div class="rating-grid">
+    <div class="mini-card">
+      <div class="label">Relevance</div><div class="score">9.0</div>
+      <p><strong>Rationale:</strong> Strong fit for enterprise RAG/KGQA, parser design, deterministic data generation, candidate-aware prompting, and LLM workflow implementation.</p>
+      <p><strong>Evidence basis:</strong> Evidence basis: end-to-end KG-to-Cypher construction, SFT, retrieval diagnostics, and serving pipeline are central to applied AI/ML workflow interests.</p>
+      <p><strong>Would raise/lower:</strong> Raise/lower: would rise with open implementation artifacts and latency/governance details; would fall if the target workflow does not involve private KGs or structured queries.</p>
+    </div>
+    <div class="mini-card">
+      <div class="label">Novelty</div><div class="score">8.0</div>
+      <p><strong>Rationale:</strong> The contribution is a pragmatic synthesis of KG-grounded target construction, LLM-only language diversification, calibrated judging, candidate-aware SFT, and class-conditioned schema prompting.</p>
+      <p><strong>Evidence basis:</strong> Evidence basis: the paper differentiates itself from public Text-to-Cypher benchmarks by addressing private enterprise schema/URI/API constraints.</p>
+      <p><strong>Would raise/lower:</strong> Raise/lower: would rise with clearer comparison to Auto-Cypher/SynthCypher-style generation pipelines; would fall if prior systems already implement the same graph-first construction pattern.</p>
+    </div>
+    <div class="mini-card">
+      <div class="label">Method strength</div><div class="score">7.0</div>
+      <p><strong>Rationale:</strong> The design includes useful diagnostics, ablations, retrieval measurements, judge calibration, and a production-like serving path, but relies on private data and aggregate reporting.</p>
+      <p><strong>Evidence basis:</strong> Evidence basis: Tables 2-8 and Figure 2 cover prompt-only failures, retrieval bottlenecks, main generation results, judge validation, complexity, SFT noise, and training configuration.</p>
+      <p><strong>Would raise/lower:</strong> Raise/lower: would rise with released code/data or independent benchmark replication; would fall if train/test leakage, classifier leakage, or entity-candidate oracle effects were later identified.</p>
+    </div>
+    <div class="mini-card">
+      <div class="label">Evidence strength</div><div class="score">7.0</div>
+      <p><strong>Rationale:</strong> The reported performance deltas are large and coherent across diagnostics, but uncertainty intervals, public baselines, and external validation are absent.</p>
+      <p><strong>Evidence basis:</strong> Evidence basis: LoRA SFT improves broadcast F1 from 0.806 to 0.950 and company F1 from 0.70 to 0.92; final 11-class F1 is 0.964.</p>
+      <p><strong>Would raise/lower:</strong> Raise/lower: would rise with confidence intervals, task denominators by class, blinded external tests, and public benchmark comparison; would fall with narrower test coverage or heavy overlap between generated train/test distributions.</p>
+    </div>
+    <div class="mini-card">
+      <div class="label">External validity</div><div class="score">5.5</div>
+      <p><strong>Rationale:</strong> Generalization is plausible at the design-pattern level but not proven across languages, enterprises, graph schemas, entity APIs, or base models.</p>
+      <p><strong>Evidence basis:</strong> Evidence basis: the authors state symbolic stages are language-agnostic, but Korean prompts, judge data, and classifier are language-specific; only Llama-3.1-8B-Instruct is evaluated.</p>
+      <p><strong>Would raise/lower:</strong> Raise/lower: would rise with non-Korean enterprise deployments, multiple graph backends, multiple base models, and public schema variants; would fall if class schemas are much larger than prompt budgets in other domains.</p>
+    </div>
+    <div class="mini-card">
+      <div class="label">Implementation value</div><div class="score">8.0</div>
+      <p><strong>Rationale:</strong> The paper provides a concrete build pattern with enough detail to influence internal KG query systems, although not enough to reproduce the exact system.</p>
+      <p><strong>Evidence basis:</strong> Evidence basis: Figure 1, Appendix H, Appendix I, Table 8, and the retrieval/class-conditioning diagnostics describe actionable pipeline components.</p>
+      <p><strong>Would raise/lower:</strong> Raise/lower: would rise with code, prompt templates, validation UI design, latency/cost data, monitoring triggers, and schema-versioning protocols; would fall for teams without a mature KG and reliable entity API.</p>
+    </div>
+  </div>
+  <h3>Main strengths</h3>
+  <ul><li><strong>Graph-first grounding:</strong> constructs Cypher targets from observed KG facts before language generation.</li><li><strong>Metric discipline:</strong> shows why execution rate alone is inadequate and prioritizes execution-result F1.</li><li><strong>Retrieval realism:</strong> measures entity and relation recall separately and designs serving around observed relation-retrieval failure.</li><li><strong>Training-serving alignment:</strong> candidate-aware SFT includes relation/entity candidates and distractors that resemble inference-time prompts.</li><li><strong>Judge calibration:</strong> validates LLM judge behavior against human labels with multiple metrics rather than trusting the judge by default.</li></ul>
+  <h3>Main limitations</h3>
+  <ul><li><strong>Proprietary opacity:</strong> data, schemas, entity APIs, prompts, code, checkpoints, and identifiers are unavailable.</li><li><strong>External validity:</strong> evaluation is Korean enterprise-specific, and language-facing components require adaptation elsewhere.</li><li><strong>Limited model coverage:</strong> generator experiments center on Llama-3.1-8B-Instruct with LoRA.</li><li><strong>Incomplete operational reporting:</strong> latency, cost, monitoring, schema versioning, human-review burden, and security controls are not quantified in depth.</li><li><strong>Potential split/coverage questions:</strong> generated data from the same KG ecosystem require careful split and leakage controls; the paper does not fully expose these mechanics.</li></ul>
+  <h3>Bottom line</h3>
+  <p>KG2Cypher is a high-value design reference for teams building private graph query systems. The most transferable lesson is not the reported exact-match score; it is the pipeline discipline of turning real graph facts into executable targets, keeping LLMs away from unsupported symbolic construction, aligning SFT with inference-time candidates, and evaluating answer-set correctness rather than executable syntax alone.</p>
+  <p><strong>Confidence in appraisal:</strong> Moderate. The paper is internally coherent and provides enough methodological detail to inform design, but core artifacts are proprietary and independent reproduction is not possible from the public preprint.</p>
+</section>
+
+<section id="takeaways">
+  <h2>Implementation / practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card "><div class="label">Build</div><p>For private KGs, start with graph-derived Cypher targets: sample observed relations, execute skeletons, fetch real subgraphs, and construct canonical queries deterministically.</p></div>
+    <div class="mini-card "><div class="label">Train</div><p>Make SFT examples candidate-aware. Include candidate relations, entity candidates, and realistic distractors so training resembles serving.</p></div>
+    <div class="mini-card "><div class="label">Serve</div><p>Measure relation and entity retrieval separately. If relation recall is low, consider class-conditioned full-schema prompting instead of relation-first retrieval.</p></div>
+    <div class="mini-card "><div class="label">Evaluate</div><p>Report execution-result F1 or answer-set agreement. Execution rate can look excellent while generated queries return wrong results.</p></div>
+    <div class="mini-card "><div class="label">Validate</div><p>Calibrate LLM judges against human labels using multiple metrics. Route low-confidence or drift-prone examples to human review.</p></div>
+    <div class="mini-card "><div class="label">Govern</div><p>Version schemas, prompts, entity APIs, and LoRA adapters. Log generated Cypher, execution results, review decisions, and schema changes under enterprise access controls.</p></div>
+  </div>
+  <h3>What to read next or adapt</h3>
+  <ul>
+    <li>Compare against public Text2Cypher, Auto-Cypher/SynthCypher, and execution-grounded Text-to-Cypher benchmarking to separate private-enterprise constraints from general Text-to-Cypher progress.</li>
+    <li>For implementation, extract Appendix H/I as templates for internal fixtures: canonical query construction record, analyzed form, naive language form, generated question variants, validation metadata, and candidate-aware instruction examples.</li>
+    <li>For a RAG/agent harness, adapt the retrieval diagnostics pattern: separately measure entity recall, relation recall, prompt inclusion of gold candidates, execution validity, and answer-set correctness.</li>
+  </ul>
+</section>
+
+<section id="qa">
+  <h2>QA and provenance</h2>
+  <div class="goodnote"><strong>Semantic QA pass:</strong> Source title and identifier match the uploaded PDF; all main figures and tables are accounted for; appendix tables A-I are included where relevant; quantitative results and key limitations are preserved; appraisal is separated from source summary; no internal citation syntax is embedded in the artifact.</div>
+  <div class="footer">
+    <p><strong>Source evaluated:</strong> KG2Cypher: Data-Centric Pipeline for Building Enterprise Text-to-Cypher Systems. arXiv:2606.27742v1. DOI: 10.48550/arXiv.2606.27742. Uploaded PDF: 2606.27742v1.pdf.</p>
+    <p><strong>Generation note:</strong> Created as a single-file HTML reference using the Summary/Evaluation/Appraisal protocol. Generated on 2026-06-29.</p>
+  </div>
+</section>
+</main>
+</body>
+</html>

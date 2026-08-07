@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA — SKILL-USE: Can LLMs Actually Use Skills in Agentic Harnesses?</title>
+<style>
+:root {
+  --bg:#f4f7fb; --card:#ffffff; --ink:#172033; --muted:#596579;
+  --line:#dbe3ee; --accent:#2457a6; --accent2:#7b3fb2;
+  --good:#146c43; --warn:#8b5b00; --bad:#9b2c2c; --code:#111b2b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.58 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:linear-gradient(135deg,#11243d,#2457a6 60%,#533287);color:#fff;padding:3.2rem 1.2rem 2.6rem}
+.wrap{max-width:1120px;margin:auto}
+header h1{font-size:clamp(2rem,4.3vw,3.35rem);line-height:1.08;margin:0 0 .9rem}
+header p{max-width:900px;margin:.4rem 0;color:#eaf1fb}
+.badges{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.1rem}
+.badge,.tag{display:inline-block;border-radius:999px;padding:.26rem .62rem;font-size:.82rem;font-weight:700}
+.badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25)}
+main{padding:1.2rem}
+nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 7px rgba(17,36,61,.05);margin:1rem 0;padding:1.2rem 1.35rem}
+nav.toc ul{columns:2;gap:2rem;padding-left:1.2rem}
+nav.toc li{margin:.28rem 0}
+a{color:var(--accent)}
+h2{color:#173f72;margin-top:.2rem;border-bottom:1px solid var(--line);padding-bottom:.45rem}
+h3{color:#2d4772;margin-top:1.25rem}
+h4{margin-bottom:.25rem}
+p{margin:.65rem 0}
+.meta-grid,.rating-grid,.takeaway-grid,.three-grid{display:grid;gap:.8rem}
+.meta-grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.rating-grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.takeaway-grid{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.three-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.mini-card{border:1px solid var(--line);border-radius:12px;padding:.85rem;background:#fbfcff}
+.mini-card strong{display:block;color:#24446e;margin-bottom:.2rem}
+.verdict,.warning,.goodnote,.badnote{border-radius:12px;padding:1rem 1.05rem;margin:.8rem 0}
+.verdict{background:#edf4ff;border-left:5px solid var(--accent)}
+.goodnote{background:#ecf8f1;border-left:5px solid var(--good)}
+.warning{background:#fff6df;border-left:5px solid var(--warn)}
+.badnote{background:#fff0f0;border-left:5px solid var(--bad)}
+.tag{background:#e9eef7;color:#29466f;margin:.12rem}
+table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.93rem}
+th,td{border:1px solid var(--line);padding:.55rem .62rem;vertical-align:top}
+th{background:#edf2f8;text-align:left}
+pre{background:var(--code);color:#eef4ff;padding:1rem;border-radius:12px;overflow:auto;white-space:pre-wrap}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.score{font-size:1.8rem;font-weight:800;color:var(--accent)}
+.small{font-size:.88rem;color:var(--muted)}
+.figure-block,.table-block,.workflow-block{border:1px solid var(--line);border-radius:13px;padding:1rem;margin:.8rem 0;background:#fcfdff}
+.figure-block h3,.table-block h3,.workflow-block h3{margin-top:0}
+.kv{display:grid;grid-template-columns:145px 1fr;gap:.25rem .8rem}
+.kv div:nth-child(odd){font-weight:700;color:#395273}
+footer{color:var(--muted);font-size:.88rem;padding:1.5rem 0 2.5rem}
+@media(max-width:700px){nav.toc ul{columns:1}.kv{grid-template-columns:1fr}}
+@media print{body{background:#fff}nav.toc,section{box-shadow:none;break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+  <div class="small" style="color:#dfe9fa">Summary • Evaluation • Appraisal</div>
+  <h1>SKILL-USE: Can LLMs Actually Use Skills in Agentic Harnesses?</h1>
+  <p>A source-grounded reference and critical appraisal of the SKILL-USE benchmark for autonomous skill retrieval, procedural compliance, and boundary adherence in LLM agent harnesses.</p>
+  <div class="badges">
+    <span class="badge">AI/ML benchmark preprint</span>
+    <span class="badge">arXiv:2608.04828v1</span>
+    <span class="badge">5 August 2026</span>
+    <span class="badge">29 pages</span>
+  </div>
+</div>
+</header>
+
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+<h2>Contents</h2>
+<ul>
+<li><a href="#metadata">Metadata</a></li>
+<li><a href="#synthesis">One-page synthesis</a></li>
+<li><a href="#coverage">Coverage manifest</a></li>
+<li><a href="#sections">Section condensation</a></li>
+<li><a href="#framework">Benchmark framework</a></li>
+<li><a href="#results">Main results</a></li>
+<li><a href="#visuals">Figures, tables, workflows</a></li>
+<li><a href="#appraisal">Evaluation and appraisal</a></li>
+<li><a href="#implementation">Implementation takeaways</a></li>
+<li><a href="#limitations">Extraction limitations</a></li>
+<li><a href="#provenance">Provenance</a></li>
+</ul>
+</nav>
+
+<section id="metadata">
+<h2>Metadata</h2>
+<div class="meta-grid">
+<div class="mini-card"><strong>Exact title</strong>SKILL-USE: Can LLMs Actually Use Skills in Agentic Harnesses?</div>
+<div class="mini-card"><strong>Authors</strong>Jinyi Han; Yuanjian Xu; Ying Liao; Xinyi Wang; Zishang Jiang; Zixiang Di; Fanyang Lu; Zhichao Hu; Yanghua Xiao</div>
+<div class="mini-card"><strong>Affiliations</strong>East China Normal University; Hong Kong University of Science and Technology; Fudan University; Tencent Hunyuan</div>
+<div class="mini-card"><strong>Source type</strong>arXiv preprint; AI agent benchmark and evaluation paper</div>
+<div class="mini-card"><strong>Date/version</strong>arXiv v1, 5 August 2026</div>
+<div class="mini-card"><strong>Identifier</strong>arXiv:2608.04828v1</div>
+<div class="mini-card"><strong>Code/repository</strong>JinyiHan99/Skill-Use-Bench (reported by the paper)</div>
+<div class="mini-card"><strong>Design</strong>Executable benchmark construction plus comparative evaluation of eight LLMs under two agent harnesses</div>
+</div>
+<div class="warning"><strong>Scope warning.</strong> This paper evaluates benchmarked skill use inside controlled Docker sandboxes. It does not certify real-world agent safety, deployment readiness, or reliability in clinical, enterprise, or other high-stakes environments.</div>
+</section>
+
+<section id="synthesis">
+<h2>One-page synthesis</h2>
+<div class="verdict"><strong>Verdict: Read first.</strong> This is directly relevant to skill-based agent design, harness evaluation, reliable tool use, and the design of project-level SKILL.md workflows. Its most important contribution is not a new model but a process-level decomposition of skill use into recognition, execution, and restraint.</div>
+
+<h3>Core thesis</h3>
+<p>Providing an agent with a skill library does not establish that the agent can use those skills reliably. The paper argues that skill use must be evaluated as a staged process: the agent must recognize that a skill applies and retrieve it under progressive disclosure; then it must follow the prescribed procedure; and it must avoid explicitly forbidden actions. SKILL-USE operationalizes those stages as <strong>Trigger</strong>, <strong>Compliance</strong>, and <strong>Boundary</strong>.</p>
+
+<h3>What the study did</h3>
+<p>The authors curated 79 real skills and paired them with 177 executable tasks across nine domains. Each task runs in an isolated Docker environment, exposes only skill metadata initially, logs the execution trajectory, and is scored with a hidden multi-item rubric. Eight LLMs were tested under Claude Code and Codex harnesses. The benchmark separates skill-use scoring from ordinary task-completion scoring and gates execution credit on successful skill retrieval.</p>
+
+<h3>Most important results</h3>
+<div class="three-grid">
+<div class="mini-card"><strong>Best overall configuration</strong><span class="score">0.613</span><br>GPT-5.5 under Claude Code, on the paper's gated Skill-Use metric.</div>
+<div class="mini-card"><strong>Trigger is not enough</strong>Even among traces that retrieved the target skill, the best conditional Compliance was only 0.638.</div>
+<div class="mini-card"><strong>Harness dependence</strong>Scores and rankings changed across Claude Code and Codex; skill use behaved as a model–harness property rather than a model-only capability.</div>
+</div>
+
+<h3>Interpretive bottom line</h3>
+<p>The benchmark supports three practical conclusions. First, progressive disclosure introduces a recognition bottleneck that is distinct from procedure following. Second, partial or incorrect skill use can reduce task completion relative to giving the model no skill library. Third, reliable in-scope execution does not guarantee appropriate restraint on out-of-scope tasks. A production system therefore needs explicit instrumentation for skill selection, skill retrieval, procedure adherence, and non-applicability—not merely final-answer evaluation.</p>
+
+<div>
+<span class="tag">agent skills</span><span class="tag">progressive disclosure</span><span class="tag">harness effects</span><span class="tag">trajectory evaluation</span><span class="tag">instruction compliance</span><span class="tag">boundary adherence</span><span class="tag">benchmark design</span>
+</div>
+</section>
+
+<section id="coverage">
+<h2>Source coverage manifest</h2>
+<pre><code>SOURCE COVERAGE MANIFEST
+source_id: arXiv:2608.04828v1
+exact_title: SKILL-USE: Can LLMs Actually Use Skills in Agentic Harnesses?
+source_type: AI/ML benchmark preprint
+date_or_version: 2026-08-05, v1
+sections_or_headings:
+  Abstract; Introduction; Related Work; SKILL-USE Benchmark;
+  Experiments; Conclusion; References; Appendices A–G
+figures:
+  Main text Figures 1–6
+  Appendix Figures 7–20
+tables:
+  Main text Table 1
+  Appendix Tables 2–10
+algorithms_or_workflows:
+  Progressive-disclosure evaluation protocol
+  Three-stage benchmark construction pipeline
+  Trigger/Compliance/Boundary/SU scoring definitions
+  Adversarial review and rubric-judge workflows
+appendices_or_supplements:
+  Benchmark comparison; construction details; human audit;
+  runtime setup; additional analyses; prompts; ethical statement
+visual_strategy:
+  structured_blocks:
+    all main-text figures and Table 1;
+    methodologically important appendix tables and figures
+  embedded_crops_or_screenshots:
+    none; parsed text was adequate for faithful structured summaries
+  omitted_with_reason:
+    full-size reproductions of prompt-template images (Figures 12–20)
+    omitted as images because the paper text already describes their role
+coverage_decision:
+  complete narrative coverage of all main sections;
+  detailed main-visual reconciliation;
+  selective appendix condensation emphasizing validity and reproducibility
+omissions:
+  no independent code execution or external reproduction;
+  no web-based verification of repository contents or post-v1 changes
+</code></pre>
+</section>
+
+<section id="sections">
+<h2>Section-by-section condensation</h2>
+
+<div class="section-summary">
+<h3>Abstract</h3>
+<p>The paper identifies a gap in existing skill benchmarks: most evaluate the quality of a skill artifact or its effect on task success, but not whether an agent autonomously recognizes a relevant skill, retrieves its full procedure, and follows it. SKILL-USE is introduced to evaluate this full process under progressive disclosure.</p>
+<p>The benchmark contains 79 skills and 177 tasks in nine domains. Across eight LLMs and two harnesses, the best SU score is 0.613. The abstract's central claim is that reliable skill use remains unsolved and is conditioned by the agent harness.</p>
+</div>
+
+<div class="section-summary">
+<h3>1. Introduction</h3>
+<p>The introduction frames skills as structured documents specifying applicability, procedure, permitted tools, and restrictions. Progressive disclosure means only a name, short description, and path are initially visible; the model must decide to retrieve the full document. Existing instruction-following benchmarks expose constraints directly, while existing skill benchmarks often preload the skill or score only outcomes.</p>
+<p>The authors define three evaluation facets—Trigger, Compliance, and Boundary—and describe a three-stage construction pipeline: skill/task construction, trajectory-rubric construction, and end-to-end validation. Contributions include the benchmark, its construction methodology, and a cross-model/cross-harness empirical analysis.</p>
+</div>
+
+<div class="section-summary">
+<h3>2. Related Work</h3>
+<p>The paper distinguishes SKILL-USE from SkillsBench, SkillLearnBench, skill-library research, SLBench, and general instruction-following benchmarks. The key distinction is the combination of progressive disclosure, open-environment execution, trajectory scoring, autonomous retrieval, procedural adherence, and explicit boundary scoring.</p>
+<p>It also treats harness design as a first-class experimental variable, citing prior evidence that harnesses can account for substantial performance variance and reverse model rankings.</p>
+</div>
+
+<div class="section-summary">
+<h3>3. SKILL-USE Benchmark</h3>
+<p>An instance is defined as a skill, user task, executable sandbox, and scoring rubric. The model receives the task, environment, and skill metadata, but not the full procedure. Its output includes both the execution trajectory and final artifact state. Trigger is a binary retrieval indicator; Compliance and Boundary are weighted rubric scores; SU gates the weighted execution score on Trigger and uses α=0.7 for Compliance.</p>
+<p>The benchmark contains 1,314 rubric items, averaging 7.4 per task. The authors use skill-exclusive requirements—requirements not inferable from the prompt or generic good practice—as the attribution basis. Construction includes masked-skill screening, cross-family adversarial review, deterministic verifiers where possible, scope-restricted LLM judging otherwise, and end-to-end executability/consistency/reliability checks.</p>
+</div>
+
+<div class="section-summary">
+<h3>4. Experiments</h3>
+<p>Eight models from seven families were evaluated in Claude Code and Codex. Every run occurred in an isolated Docker sandbox. Metrics included Trigger, Compliance, Boundary, gated SU, and conditional metrics restricted to triggered traces. GPT-5.4 at temperature 0 judged rubric items that were not deterministic.</p>
+<p>The experiments examine overall performance, category differences, native versus preloaded skill injection, library-size scaling, out-of-scope restraint, the relationship between SU and task completion, cross-harness behavior, judge robustness, and sensitivity to the SU weighting parameter.</p>
+</div>
+
+<div class="section-summary">
+<h3>5. Conclusion</h3>
+<p>The conclusion reiterates that no tested configuration achieved reliable skill use across all three dimensions. Retrieval under progressive disclosure is highlighted as a principal gap, while out-of-scope restraint remains distinct from successful in-scope execution.</p>
+<p>The authors release the benchmark and construction pipeline as infrastructure for training and evaluating agents that use skills more reliably.</p>
+</div>
+
+<div class="section-summary">
+<h3>Appendices A–G</h3>
+<p>The appendices provide benchmark comparisons, the four-phase skill-selection funnel, task and rubric design rules, human quality audit, runtime and trace-validation details, cross-harness and injection analyses, library scaling, out-of-scope behavior, robustness and weight sensitivity, review/judge prompt templates, and an ethical statement.</p>
+<p>These appendices materially strengthen methodological transparency. They also expose important limits: LLM judges remain noisy, the benchmark relies on author-created tasks/rubrics, and the tested environments and harnesses are finite samples of the broader agent ecosystem.</p>
+</div>
+</section>
+
+<section id="framework">
+<h2>Benchmark framework</h2>
+<div class="workflow-block">
+<h3>Progressive-disclosure evaluation workflow</h3>
+<div class="kv">
+<div>Inputs</div><div>User task, sandbox, skill name, short description, and file path.</div>
+<div>Hidden initially</div><div>The full skill procedure and the scoring rubric.</div>
+<div>Agent decision</div><div>Determine whether the skill is applicable and retrieve it.</div>
+<div>Execution</div><div>Use tools, read/edit files, and produce a terminal artifact.</div>
+<div>Recorded evidence</div><div>Full trajectory plus final artifact state.</div>
+<div>Scoring</div><div>Trigger, Compliance, Boundary, and independent task-outcome items.</div>
+<div>Failure modes</div><div>No retrieval; shallow retrieval without compliance; prohibited shortcuts; correct procedure with poor outcome; good outcome without skill use.</div>
+</div>
+</div>
+
+<div class="workflow-block">
+<h3>Metric definitions</h3>
+<pre><code>Trigger:
+g(y; s) = 1 when the target skill is retrieved in the trajectory; otherwise 0.
+
+Compliance:
+C(y) = weighted fraction of required skill procedures satisfied.
+
+Boundary:
+B(y) = weighted fraction of prohibited behaviors successfully avoided.
+
+Skill-Use:
+SU(y) = g(y; s) × [0.7 × C(y) + 0.3 × B(y)]</code></pre>
+<p>The trigger gate prevents an agent from receiving skill-use credit for behavior that happens to resemble the skill without actually retrieving it. Task outcome is measured separately, avoiding conflation between “used the skill correctly” and “completed the task.”</p>
+</div>
+
+<div class="workflow-block">
+<h3>Three-stage benchmark construction pipeline</h3>
+<ol>
+<li><strong>Skill and task construction:</strong> curate real skills, screen for skill-exclusive and observable requirements, and build executable in-scope tasks using real assets.</li>
+<li><strong>Rubric construction:</strong> define evaluability gates, Compliance/Boundary items, and independent task-outcome items; prefer deterministic checks.</li>
+<li><strong>End-to-end validation:</strong> verify executability, cross-component traceability, and rubric reliability through replay and adversarial review.</li>
+</ol>
+</div>
+</section>
+
+<section id="results">
+<h2>Main results</h2>
+<h3>Table 1 — Main model and harness results</h3>
+<div class="table-block">
+<table>
+<thead><tr><th>Harness</th><th>Model</th><th>Trigger</th><th>Compliance</th><th>Boundary</th><th>SU</th><th>Compliance†</th><th>Boundary†</th></tr></thead>
+<tbody>
+<tr><td>Claude Code</td><td>GPT-5.5</td><td>0.972</td><td>0.611</td><td>0.718</td><td><strong>0.613</strong></td><td>0.625</td><td>0.723</td></tr>
+<tr><td>Claude Code</td><td>Claude Opus 4.7</td><td>0.966</td><td>0.609</td><td>0.712</td><td>0.599</td><td>0.606</td><td>0.709</td></tr>
+<tr><td>Claude Code</td><td>Claude Opus 4.8</td><td>0.940</td><td>0.625</td><td>0.704</td><td>0.597</td><td><strong>0.638</strong></td><td>0.710</td></tr>
+<tr><td>Codex</td><td>Claude Opus 4.8</td><td>0.881</td><td>0.599</td><td>0.715</td><td><strong>0.559</strong></td><td>0.626</td><td>0.721</td></tr>
+<tr><td>Codex</td><td>Claude Opus 4.7</td><td>0.836</td><td>0.604</td><td>0.705</td><td>0.535</td><td>0.626</td><td>0.724</td></tr>
+<tr><td>Codex</td><td>GPT-5.5</td><td>0.966</td><td>0.486</td><td>0.700</td><td>0.503</td><td>0.490</td><td>0.709</td></tr>
+</tbody>
+</table>
+<p class="small">Selected leading rows are shown for compactness; the paper's Table 1 reports all eight models under both harnesses. † denotes metrics restricted to traces that triggered the target skill.</p>
+</div>
+
+<div class="three-grid">
+<div class="mini-card"><strong>Distinct bottlenecks</strong>Some models showed low Trigger but reasonable conditional Compliance; others triggered often but executed shallowly. Recognition and execution are empirically separable.</div>
+<div class="mini-card"><strong>Boundary easier than procedure</strong>Boundary exceeded Compliance in nearly every model–harness configuration and most task categories.</div>
+<div class="mini-card"><strong>Harness shifts rankings</strong>Claude Code favored some high-trigger configurations, while Codex improved weaker triggers but widened differences in conditional execution.</div>
+</div>
+
+<h3>Injection mode</h3>
+<p>Preloading the full skill consistently improved Trigger and therefore SU, especially for models with weak native retrieval. When analysis was restricted to cases that triggered under both modes, execution scores remained near the diagonal, indicating that preloading primarily solved recognition rather than procedure-following.</p>
+
+<h3>Skill-library scaling</h3>
+<p>The largest degradation occurred when moving from one skill to a ten-skill library. Additional growth to 20 or 30 skills caused comparatively little further decline. Most failures were no-skill outcomes rather than selection of a wrong distractor, suggesting an entry or recognition cost rather than escalating confusion among many skills.</p>
+
+<h3>Out-of-scope restraint</h3>
+<p>Within-scope SU and out-of-scope avoidance were negatively rank-correlated in the reported analysis. Models that used skills strongly in applicable tasks could still over-trigger them for topically related but procedurally irrelevant tasks. This is a major safety and workflow-design concern.</p>
+
+<h3>Task completion</h3>
+<p>Paired task-completion gain shifted from negative to positive at approximately SU=0.5. Below this point, partial skill use often harmed performance relative to a no-library baseline; above it, the skill acted as a useful scaffold. This is one of the paper's most operationally important findings.</p>
+
+<h3>Robustness and sensitivity</h3>
+<p>Repeated LLM-judge scoring preserved the broad leaderboard but showed moderate item-level noise, concentrated in mid-range traces. Compliance was the most stable continuous component. Model rankings were stable for compliance weights α from 0.5 to 0.75, so the default α=0.7 was not the primary driver of conclusions.</p>
+</section>
+
+<section id="visuals">
+<h2>Figures, tables, and workflow reconciliation</h2>
+
+<div class="figure-block">
+<h3>Figure 1 — Benchmark composition and coverage</h3>
+<div class="kv">
+<div>Purpose</div><div>Summarizes domain distribution, skill/task counts, rubric composition, and task difficulty.</div>
+<div>Key values</div><div>79 skills; 177 tasks; nine categories; 1,314 rubric items; 7.4 items per rubric; approximately 4.8 skill-exclusive requirements per task.</div>
+<div>Main pattern</div><div>No single domain dominates; tasks contain multiple independent procedure requirements.</div>
+<div>Appraisal</div><div>Useful breadth evidence, but category breadth is not equivalent to ecological or deployment validity.</div>
+<div>Representation</div><div>Structured block.</div>
+</div>
+</div>
+
+<div class="figure-block">
+<h3>Figure 2 — Data construction pipeline</h3>
+<div class="kv">
+<div>Purpose</div><div>Shows the three-stage flow from skill curation and task design through rubric construction and end-to-end validation.</div>
+<div>Key values</div><div>105,586 initial candidate skills narrowed to 79 released entries.</div>
+<div>Main pattern</div><div>Quality controls are iterative and include masked-skill screening, adversarial review, and replay-based validation.</div>
+<div>Limits</div><div>The process is extensive but still partly model-mediated and author-designed.</div>
+<div>Representation</div><div>Structured workflow block.</div>
+</div>
+</div>
+
+<div class="figure-block">
+<h3>Figure 3 — Compliance and Boundary by category</h3>
+<div class="kv">
+<div>Main pattern</div><div>Concrete file, database, and data-science procedures scored higher on Compliance than open-ended business-analysis and software-architecture tasks.</div>
+<div>Exception</div><div>Security &amp; Compliance was the only category where Compliance exceeded Boundary.</div>
+<div>Interpretation</div><div>Models more reliably follow explicit tool/format operations than open-ended procedural plans.</div>
+<div>Representation</div><div>Structured block.</div>
+</div>
+</div>
+
+<div class="figure-block">
+<h3>Figures 4–5 — Native versus preloaded skills</h3>
+<div class="kv">
+<div>Purpose</div><div>Separates recognition effects from execution effects.</div>
+<div>Main pattern</div><div>Preloading increases Trigger; conditional execution changes little once both modes retrieve the skill.</div>
+<div>Interpretation</div><div>The native progressive-disclosure penalty is primarily a skill-selection/retrieval penalty.</div>
+<div>Representation</div><div>Combined structured block.</div>
+</div>
+</div>
+
+<div class="figure-block">
+<h3>Figure 6 — Library size, applicability, and task-completion effects</h3>
+<div class="kv">
+<div>Panels</div><div>Library-size selection outcomes; within-scope versus out-of-scope behavior; paired task-completion gain by SU bin.</div>
+<div>Main pattern</div><div>Most scaling failures are no-skill calls; strong in-scope use does not imply restraint; task-completion benefit becomes positive only with sufficiently high SU.</div>
+<div>Importance</div><div>Directly informs production skill-library design and monitoring.</div>
+<div>Representation</div><div>Structured block.</div>
+</div>
+</div>
+
+<div class="table-block">
+<h3>Appendix Table 2 — Benchmark positioning</h3>
+<p>SKILL-USE is presented as the only compared benchmark combining an open environment, trajectory/process scoring, progressive-disclosure skill documents, and separate Trigger, Compliance, and Boundary dimensions. This positioning is persuasive within the comparison set, though it remains dependent on how benchmark features were categorized.</p>
+</div>
+
+<div class="table-block">
+<h3>Appendix Tables 3–5 — Selection funnel and rubric governance</h3>
+<p>The selection funnel applies repository-quality filters, fetch quotas, rule-density/style scoring, and masked-skill evaluation. Rubric governance restricts LLM judges to one binary item at a time, item-specific evidence, and adjudication. Guideline rules are tied to concrete prior failures, including absolute-path leakage, reference artifacts visible at runtime, narration-matching regexes, and catastrophic backtracking.</p>
+</div>
+
+<div class="table-block">
+<h3>Appendix Tables 6–10 — Harness agreement, weighting, out-of-scope cases, and judge stability</h3>
+<p>Cross-harness task-level correlations were stronger for leading models and weaker for several middle-tier open models. Weight sensitivity did not materially change the rankings across α=0.5–0.75. Out-of-scope errors concentrated in a small set of ambiguous tasks. Repeated-score reliability was moderate rather than high, with ICC(2,1) reported as 0.530 for SU, 0.604 for Compliance, 0.471 for Boundary, and 0.478 for task completion.</p>
+</div>
+
+<div class="figure-block">
+<h3>Appendix Figures 7–11 — Audit interface and secondary analyses</h3>
+<p>Figure 7 illustrates the human-verification console and item-level provenance. Figures 8–11 visualize the Compliance–Boundary gap, sham triggers, skill-level preloading gains, ranking stability, and judge noise. These are methodologically important and have been summarized structurally.</p>
+</div>
+
+<div class="figure-block">
+<h3>Appendix Figures 12–20 — Frozen guidelines and prompt templates</h3>
+<p>These figures reproduce the English guidelines and prompts for skill selection, task construction, rubric design, adversarial review, aggregation, and LLM judging. They are not embedded here because their role is captured in the workflow and appendix summaries, and the PDF's small image text is not needed to support the appraisal conclusions.</p>
+</div>
+</section>
+
+<section id="appraisal">
+<h2>Evaluation and appraisal</h2>
+
+<div class="rating-grid">
+<div class="mini-card"><strong>Relevance</strong><div class="score">10/10</div><p>Directly addresses skill invocation, progressive disclosure, harness effects, and reliable procedural execution.</p><p class="small"><b>Evidence basis:</b> benchmark target and experiments. <b>Limiting factor:</b> not tailored to clinical or CDS workflows. <b>Would rise:</b> already at ceiling for agent-skill research.</p></div>
+
+<div class="mini-card"><strong>Novelty</strong><div class="score">8/10</div><p>The Trigger–Compliance–Boundary decomposition and gated process-level evaluation provide a useful distinction from outcome-only skill benchmarks.</p><p class="small"><b>Limiting factor:</b> components overlap with retrieval, instruction-following, and SOP-adherence ideas. <b>Would rise:</b> stronger theoretical validation or broader independent adoption.</p></div>
+
+<div class="mini-card"><strong>Method strength</strong><div class="score">8/10</div><p>Executable tasks, isolated sandboxes, trajectory rubrics, masked-skill checks, adversarial review, human audit, and multiple ablations form a strong benchmark methodology.</p><p class="small"><b>Limiting factor:</b> author-created tasks/rubrics and partial dependence on LLM judges. <b>Would rise:</b> independent reproduction and preregistered benchmark governance.</p></div>
+
+<div class="mini-card"><strong>Evidence strength</strong><div class="score">7/10</div><p>The empirical claims are supported by broad benchmark runs and targeted analyses, with quantitative reporting and robustness checks.</p><p class="small"><b>Limiting factor:</b> benchmark-only evidence, moderate judge reliability, and no external deployment study. <b>Would rise:</b> repeated independent evaluations and real-world trace validation.</p></div>
+
+<div class="mini-card"><strong>External validity</strong><div class="score">6/10</div><p>Nine domains and two harnesses provide useful diversity, but the tasks, skills, model versions, and harness implementations remain a limited sample.</p><p class="small"><b>Limiting factor:</b> controlled Docker tasks may not reflect long-running, multi-user, permissioned, or high-stakes systems. <b>Would rise:</b> more harnesses, organizations, live workflows, and longitudinal evaluation.</p></div>
+
+<div class="mini-card"><strong>Implementation value</strong><div class="score">9/10</div><p>The paper offers immediately reusable evaluation concepts, task-construction controls, rubric architecture, and monitoring metrics.</p><p class="small"><b>Limiting factor:</b> operational adoption still requires local task and verifier engineering. <b>Would rise:</b> stable reference implementation and standardized trace schema.</p></div>
+</div>
+
+<h3>Main strengths</h3>
+<ul>
+<li>Defines skill use as a process rather than inferring it from final task success.</li>
+<li>Separates recognition, required execution, and prohibited behavior.</li>
+<li>Uses trajectory evidence and final artifact state rather than self-reported intent.</li>
+<li>Explicitly tests harness dependence rather than treating model capability as invariant.</li>
+<li>Includes masked-skill screening to reduce credit for generic engineering practice.</li>
+<li>Provides unusually detailed construction, validation, and judge-governance appendices.</li>
+</ul>
+
+<h3>Main limitations</h3>
+<ul>
+<li>The paper is a v1 preprint and the results have not yet been independently replicated in the supplied source.</li>
+<li>Benchmark creators also design the tasks, rubrics, and many verifier choices, creating potential construct and authoring bias.</li>
+<li>LLM-judge reliability is moderate, particularly for Boundary and task-completion items.</li>
+<li>Only two harnesses are tested; conclusions about harness dependence are convincing but not exhaustive.</li>
+<li>Models and harnesses are version-sensitive, so the numeric leaderboard may age rapidly.</li>
+<li>Task domains are broad, but ecological validity for enterprise governance, clinical CDS, and other high-stakes workflows is not established.</li>
+<li>The benchmark measures whether skills are used as written, not whether the skills themselves encode correct, safe, or current procedures.</li>
+</ul>
+
+<div class="badnote"><strong>Do not overclaim.</strong> A high SU score would show reliable use of the benchmark's supplied procedures. It would not establish that the procedures are correct, that the agent is generally safe, or that it will remain reliable after model, tool, policy, or harness updates.</div>
+
+<h3>Confidence in appraisal</h3>
+<p><strong>Moderate to high.</strong> The primary PDF provides detailed methods, quantitative results, appendices, and limitations sufficient for a strong internal appraisal. Confidence is below “high” because this assessment did not independently run the released benchmark, inspect the current repository, or verify post-v1 corrections.</p>
+</section>
+
+<section id="implementation">
+<h2>Implementation and project takeaways</h2>
+
+<div class="takeaway-grid">
+<div class="mini-card"><strong>1. Treat skill use as a staged contract</strong>Log and score applicability decision, retrieval, procedure steps, prohibited actions, and final outcome separately. A single pass/fail result hides the dominant failure mode.</div>
+<div class="mini-card"><strong>2. Preserve progressive disclosure tests</strong>Preloading every skill may improve benchmark performance but removes the key test of autonomous recognition. Evaluate both native and preloaded modes.</div>
+<div class="mini-card"><strong>3. Build skill-exclusive tests</strong>Only score behaviors that arise from the skill rather than the task prompt or generic best practice. Use masked-skill baselines to identify non-exclusive requirements.</div>
+<div class="mini-card"><strong>4. Separate structural and semantic verification</strong>Use deterministic checks for tool calls, paths, file state, ordering, and prohibited commands; reserve LLM judging for requirements that cannot be expressed reliably.</div>
+<div class="mini-card"><strong>5. Add out-of-scope negative tasks</strong>A skill system should be evaluated both for entering the correct skill and for refusing topically related but procedurally irrelevant skills.</div>
+<div class="mini-card"><strong>6. Evaluate the model–harness pair</strong>Do not publish or rely on “model skill-use” scores without naming the harness, context policy, turn limits, tool schema, and injection mode.</div>
+<div class="mini-card"><strong>7. Detect sham triggers</strong>Track retrieved-skill traces with very low Compliance. Retrieval rate alone can look strong while masking shallow or abandoned execution.</div>
+<div class="mini-card"><strong>8. Require minimum execution quality before deployment value</strong>The paper's task-completion analysis suggests partial skill use can be worse than no skill. Consider fallback to a no-skill path or human escalation when procedural confidence is low.</div>
+</div>
+
+<h3>Suggested adaptation for the Literature Review project</h3>
+<pre><code>Per-macro evaluation dimensions
+
+Trigger
+  Did the assistant recognize the explicit macro and retrieve every governing source?
+
+Compliance
+  Did it follow source precedence, workflow order, output contract,
+  validation requirements, and required artifact format?
+
+Boundary
+  Did it avoid forbidden external sources, unsupported invention,
+  premature appraisal, invalid file formats, and skipped validation?
+
+Outcome
+  Was the requested atom set / appraisal / CDS component actually produced?
+
+Recommended reporting
+  macro_triggered: bool
+  governing_sources_opened: [...]
+  required_steps_completed: [...]
+  prohibited_actions_detected: [...]
+  validation_status: pass | incomplete | fail
+  artifact_status: produced | partial | absent
+</code></pre>
+<p>This project-specific mapping is an <strong>implementation inference</strong> based on the paper's framework, not a result reported by the authors.</p>
+</section>
+
+<section id="limitations">
+<h2>Extraction and appraisal limitations</h2>
+<ul>
+<li>The appraisal is based only on the uploaded v1 PDF and previously validated atom extraction.</li>
+<li>No external web verification was performed; repository status, model naming, errata, and subsequent versions were not checked.</li>
+<li>The HTML reconstructs figures and tables as structured summaries rather than embedding source images.</li>
+<li>Selected rows from the main leaderboard are displayed for readability; all model-level patterns were reviewed from the source table.</li>
+<li>Prompt-template figures are summarized by function rather than transcribed in full.</li>
+</ul>
+</section>
+
+<section id="provenance">
+<h2>Provenance</h2>
+<div class="meta-grid">
+<div class="mini-card"><strong>Evaluated file</strong>2608.04828.pdf</div>
+<div class="mini-card"><strong>Source identifier</strong>arXiv:2608.04828v1</div>
+<div class="mini-card"><strong>Source date</strong>5 August 2026</div>
+<div class="mini-card"><strong>Generation date</strong>2026-08-06</div>
+<div class="mini-card"><strong>Protocol</strong>Summary, Evaluation, and Appraisal protocol v4 compact (project governing source)</div>
+<div class="mini-card"><strong>Grounding</strong>Uploaded PDF plus validated LiteratureAtom extraction generated from the same file</div>
+</div>
+<p class="small">This artifact is a structured reference and critical appraisal. It does not replace reading the primary paper or independently reproducing the benchmark.</p>
+</section>
+
+<footer>
+Generated as a self-contained HTML reference artifact. No external fonts, scripts, stylesheets, or remote images are required.
+</footer>
+</main>
+</body>
+</html>

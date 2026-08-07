@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference Appraisal - mamabench and mamaretrieval</title>
+<style>
+:root {
+  --bg:#f6f8fb; --card:#ffffff; --ink:#18212f; --muted:#526173; --line:#d9e1ec;
+  --accent:#1b4f8f; --accent2:#14375f; --good:#0e6245; --warn:#8a5a00; --bad:#8a1f1f;
+  --soft:#eef5ff; --goodsoft:#ecf8f2; --warnsoft:#fff6e0; --badsoft:#fff0f0; --code:#101827;
+}
+* { box-sizing:border-box; }
+body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background:var(--bg); color:var(--ink); line-height:1.55; }
+header { background:linear-gradient(135deg,#0e2038,#1b4f8f); color:#fff; padding:2.2rem 1.25rem; border-bottom:5px solid #d4e3f5; }
+.wrap { max-width:1180px; margin:0 auto; padding:0 1.25rem; }
+header .wrap { padding:0; }
+h1 { margin:.2rem 0 .6rem; font-size:clamp(1.65rem,3.6vw,3rem); line-height:1.08; letter-spacing:-.02em; }
+.subtitle { color:#dceaff; max-width:980px; font-size:1.05rem; }
+.badges { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:1rem; }
+.badge { display:inline-flex; align-items:center; border:1px solid rgba(255,255,255,.35); background:rgba(255,255,255,.12); color:#fff; border-radius:999px; padding:.25rem .6rem; font-size:.84rem; }
+main { padding:1.25rem 0 2.5rem; }
+section, nav.toc, article.section-summary, .callout, .manifest, .score-card, .mini-card { background:var(--card); border:1px solid var(--line); border-radius:14px; box-shadow:0 1px 4px rgba(20,45,80,.05); }
+section { margin:1rem 0; padding:1.1rem 1.25rem; }
+h2 { margin:.15rem 0 .8rem; color:#113b69; font-size:1.35rem; }
+h3 { margin:.25rem 0 .5rem; color:#173f72; font-size:1.05rem; }
+p { margin:.55rem 0; }
+a { color:var(--accent); }
+nav.toc { padding:1rem 1.25rem; margin:1rem 0; }
+nav.toc ol { margin:.4rem 0 0; columns:2; padding-left:1.2rem; }
+nav.toc li { break-inside:avoid; margin:.2rem 0; }
+.meta-grid, .rating-grid, .takeaway-grid, .mini-grid { display:grid; gap:.75rem; }
+.meta-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.rating-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.takeaway-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.mini-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.meta-item, .mini-card { padding:.75rem; background:#fbfcfe; border:1px solid var(--line); border-radius:12px; }
+.meta-key { color:var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; font-weight:700; }
+.meta-val { margin-top:.18rem; font-weight:600; }
+.callout { padding:1rem 1.15rem; margin:.9rem 0; }
+.verdict { border-left:6px solid var(--accent); background:var(--soft); }
+.goodnote { border-left:6px solid var(--good); background:var(--goodsoft); }
+.warning { border-left:6px solid var(--warn); background:var(--warnsoft); }
+.badnote { border-left:6px solid var(--bad); background:var(--badsoft); }
+.tag { display:inline-block; margin:.15rem .25rem .15rem 0; padding:.18rem .5rem; border-radius:999px; background:#eef3f9; color:#27415d; border:1px solid #d8e3ef; font-size:.82rem; }
+.section-summary { padding:1rem 1.05rem; margin:.75rem 0; }
+table { width:100%; border-collapse:collapse; margin:.8rem 0; font-size:.92rem; }
+th,td { border:1px solid var(--line); padding:.55rem .65rem; vertical-align:top; }
+th { background:#eef3f9; color:#1e395c; text-align:left; }
+.score-card { padding:.95rem; }
+.score-head { display:flex; align-items:center; justify-content:space-between; gap:.75rem; border-bottom:1px solid var(--line); padding-bottom:.45rem; margin-bottom:.5rem; }
+.score-head h3 { margin:0; }
+.score { font-weight:800; color:#fff; background:var(--accent); border-radius:999px; padding:.22rem .55rem; white-space:nowrap; }
+pre { background:var(--code); color:#edf4ff; padding:1rem; border-radius:12px; overflow-x:auto; line-height:1.45; border:1px solid #243149; font-size:.88rem; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+ul,ol { padding-left:1.25rem; }
+li { margin:.28rem 0; }
+.footer { color:var(--muted); font-size:.9rem; }
+@media (max-width:900px) { .meta-grid,.rating-grid,.takeaway-grid,.mini-grid { grid-template-columns:1fr; } nav.toc ol { columns:1; } }
+@media print { body { background:#fff; } header { background:#fff; color:#000; border-bottom:2px solid #000; } .subtitle,.badge { color:#000; } section,nav.toc,article.section-summary,.callout,.manifest,.score-card,.mini-card { box-shadow:none; } a { color:#000; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="badge">Reference HTML appraisal</div>
+    <h1>mamabench and mamaretrieval: Benchmarks for Evaluating Medical Retrieval-Augmented Generation in Maternal, Neonatal, and Reproductive Health</h1>
+    <p class="subtitle">Summary, evaluation, and implementation appraisal of a benchmark/dataset preprint for maternal-health QA and chunk-level RAG retrieval evaluation.</p>
+    <div class="badges">
+      <span class="badge">arXiv:2606.29467v2</span>
+      <span class="badge">Benchmark / dataset paper</span>
+      <span class="badge">Medical RAG</span>
+      <span class="badge">Maternal health</span>
+      <span class="badge">LLM-as-judge</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#coverage">Coverage manifest</a></li>
+    <li><a href="#source-map">Source map</a></li>
+    <li><a href="#sections">Section-by-section condensation</a></li>
+    <li><a href="#visuals">Tables, workflows, and appendix extraction</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#implementation">Implementation takeaways</a></li>
+    <li><a href="#qa">Semantic QA and provenance</a></li>
+  </ol>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="meta-grid">
+    <div class='meta-item'><div class='meta-key'>Exact title</div><div class='meta-val'>mamabench and mamaretrieval: Benchmarks for Evaluating Medical Retrieval-Augmented Generation in Maternal, Neonatal, and Reproductive Health</div></div>
+    <div class='meta-item'><div class='meta-key'>Author</div><div class='meta-val'>Ren Yi, École Polytechnique Fédérale de Lausanne</div></div>
+    <div class='meta-item'><div class='meta-key'>Source type</div><div class='meta-val'>Preprint; benchmark/dataset construction paper; AI/ML evaluation resource</div></div>
+    <div class='meta-item'><div class='meta-key'>Version/date</div><div class='meta-val'>arXiv v2; 2 Jul 2026; PDF metadata creation 3 Jul 2026</div></div>
+    <div class='meta-item'><div class='meta-key'>Identifier</div><div class='meta-val'>arXiv:2606.29467v2; DOI: 10.48550/arXiv.2606.29467</div></div>
+    <div class='meta-item'><div class='meta-key'>License / release note</div><div class='meta-val'>PDF metadata lists CC BY 4.0; datasets/code are linked by the paper, with per-source dataset licensing caveats</div></div>
+    <div class='meta-item'><div class='meta-key'>Domain</div><div class='meta-val'>Maternal, neonatal, child, and sexual/reproductive health; Zanzibar nurse-midwife deployment context</div></div>
+    <div class='meta-item'><div class='meta-key'>Primary contribution</div><div class='meta-val'>mamabench QA benchmark plus mamaretrieval chunk-level graded relevance benchmark</div></div>
+    <div class='meta-item'><div class='meta-key'>Scope warning</div><div class='meta-val'>Useful for RAG evaluation design and benchmark reuse; not evidence that any clinical answer system is safe or practice-ready</div></div>
+  </div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="callout verdict">
+    <strong>Verdict: Read first for clinical RAG evaluation design; do not use for clinical practice validation.</strong>
+    <p>This is a high-utility benchmark construction paper if the goal is to build or critique clinical RAG retrieval evaluation. Its most reusable parts are the graded chunk-relevance rubric, the pooling-completeness audit, explicit metric guidance, and the appendix prompt for relevance judging. Its main weakness is label authority: the key labels are LLM-generated and checked mainly against other models, not against midwives or clinicians at scale.</p>
+  </div>
+  <div class="takeaway-grid">
+    <div class="mini-card"><h3>Core thesis</h3><p>Maternal-health RAG needs domain-specific QA and chunk-level retrieval benchmarks, because broad medical QA sets and end-to-end RAG benchmarks do not test whether the right guideline passages are retrieved.</p></div>
+    <div class="mini-card"><h3>Main value</h3><p>Provides concrete benchmark artifacts: 25,949 QA items, 3,185 clinical retrieval queries, 63,650 corpus chunks, 230,964 graded relevance labels, and disclosed construction code/datasets.</p></div>
+    <div class="mini-card"><h3>Main caution</h3><p>The benchmark is not a clinician gold standard. The most important judgments—scope boundaries and query-chunk relevance—are made by LLMs with limited validation.</p></div>
+  </div>
+  <p>
+    <span class="tag">RAG evaluation</span><span class="tag">chunk-level retrieval</span><span class="tag">graded relevance</span><span class="tag">medical benchmarks</span><span class="tag">LLM-as-judge</span><span class="tag">scientific curation</span><span class="tag">clinical AI safety</span>
+  </p>
+</section>
+
+<section id="coverage">
+  <h2>Coverage manifest</h2>
+  <pre><code>SOURCE COVERAGE MANIFEST
+source_id: arXiv:2606.29467v2
+exact_title: mamabench and mamaretrieval: Benchmarks for Evaluating Medical Retrieval-Augmented Generation in Maternal, Neonatal, and Reproductive Health
+source_type: AI/ML benchmark and dataset construction preprint
+date_or_version: v2; 2 Jul 2026; 13 pages
+sections_or_headings: Abstract; 1 Introduction; 2 mamabench; 2.1 Source assembly; 2.2 Defining scope; 2.3 Judge calibration; 3 mamaretrieval; 3.1 Corpus; 3.2 Queries; 3.3 Rubric; 3.4 Pooling; 3.5 Judge reliability; 4 Limitations; 5 Conclusion; References; Appendix A
+figures: none identified in main text
+tables: Table 1, Table 2, Table 3
+algorithms_or_workflows: mamabench source-filtering workflow; mamaretrieval query-generation workflow; graded relevance scoring formula; pooling protocol; metric guidance; relevance-judge prompt
+appendices_or_supplements: Appendix A relevance-judge prompt included as methodologically central
+visual_strategy:
+  structured_blocks: all tables and workflows reconstructed as structured text/table blocks
+  embedded_crops_or_screenshots: none; parsed text and rendered page verification were adequate
+  omitted_with_reason: references not individually abstracted; no figures to omit
+coverage_decision: include all main-text tables, all core workflows, and Appendix A; summarize references only through cited methodological dependencies</code></pre>
+</section>
+
+<section id="source-map">
+  <h2>Source map</h2>
+  <table>
+    <thead><tr><th>Part</th><th>Function in the paper</th><th>Load-bearing details</th></tr></thead>
+    <tbody>
+      <tr><td>Abstract / Introduction</td><td>Defines benchmark gap and two-resource contribution.</td><td>25,949 QA items; 3,185 retrieval queries; 63,650 chunks; graded 0-6 relevance labels.</td></tr>
+      <tr><td>Section 2</td><td>Documents mamabench construction.</td><td>Seven source families; three scoring tracks; scope classifier; HealthBench calibration side-file.</td></tr>
+      <tr><td>Section 3</td><td>Documents mamaretrieval construction.</td><td>Versioned corpus coupling; query generation; D1-D4 rubric; six-retriever pooling; judge checks; metric recommendations.</td></tr>
+      <tr><td>Section 4</td><td>Collects limitations.</td><td>No large-scale clinician gold standard; clean single-chunk queries; pooled labels; English-only and setting-specific scope.</td></tr>
+      <tr><td>Appendix A</td><td>Reproduces the production relevance-judge prompt.</td><td>Defines scoring behavior, output schema, and worked examples; central to reproducibility and auditability.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="sections">
+  <h2>Section-by-section condensation</h2>
+  <article class='section-summary'><h3>Abstract and Introduction</h3><p>The paper introduces two benchmark resources for maternal, neonatal, child, and reproductive-health RAG evaluation: mamabench, a 25,949-item scope-filtered QA benchmark, and mamaretrieval, a 3,185-query chunk-level relevance benchmark over 63,650 guideline chunks. The authors frame the gap as both domain-specific and granularity-specific: existing medical QA benchmarks are broad, licensing-exam-centered, or chat-centered, while existing medical retrieval benchmarks usually score end-to-end answers or full documents rather than the short guideline chunks injected into RAG prompts.</p><p>The central thesis is benchmark construction rather than model performance. The paper argues for assembling expert-authored materials rather than writing new questions, grading passage relevance rather than binarizing it, and explicitly reporting label limitations. The companion deployed-system paper uses these benchmarks, but this paper mainly documents provenance, construction, and validation checks.</p></article><article class='section-summary'><h3>2. mamabench: A Scope-Filtered QA Benchmark</h3><p>mamabench contains 25,949 items from seven expert-authored or expert-curated sources, organized into three tracks: 23,241 multiple-choice items, 369 short-answer items, and 2,339 rubric-graded HealthBench items. The sources include MedMCQA, MedQA-USMLE, AfriMed-QA, Kenya Clinical Vignettes, a small Women’s Health Benchmark set, and three HealthBench subsets. AfriMed-QA multiple-choice items were filtered only when scoring could not represent the answer, such as multiple correct options or duplicate correct-answer text under different letters.</p><p>Scope classification uses Qwen3.6-27B-FP8 at temperature 0 to label primary clinical concept as maternal, neonatal, child health, sexual/reproductive health, or none. The paper reports 98.1% agreement with a larger Qwen3.5-397B model on 4,988 HealthBench oss_eval items and 86.8% agreement with prior Kenya vignette labels, with disagreements mainly from stricter exclusion of incidental female/pregnant demographics. For rubric-graded scoring, the authors do not create new physician labels; they re-scope HealthBench’s 6,853 physician-labeled calibration triples into the domain so users can vet an LLM judge before scoring open-ended items.</p></article><article class='section-summary'><h3>3. mamaretrieval: A Chunk-Level Relevance Benchmark</h3><p>mamaretrieval evaluates whether a retriever finds clinically useful guideline chunks, not whether a generated answer is good. It uses a v0.2.0 corpus of 63,650 section-aware chunks from 87 documents, including WHO, NICE, MSF, Hesperian, FIGO/EmONC, Tanzania/Zanzibar Ministry of Health guidance, and obstetric/midwifery references. Chunk IDs are content-derived, so labels remain valid when embeddings change but not when chunk text changes.</p><p>Queries were LLM-generated from sampled chunks because no search logs or query bank were available. Tier-weighted sampling selected 4,540 chunks; an answerability gate kept 3,185 and generated one clinical question per kept chunk. Each query has a known-relevant seed chunk, but this construction creates an acknowledged anchor-text effect: query wording tends to resemble the source chunk and may advantage dense embedding retrievers over lexical retrieval.</p></article><article class='section-summary'><h3>3.3 Graded relevance rubric</h3><p>Each query-chunk pair receives a score computed as D1 × (D2 + D3 + D4), producing a 0-6 grade. D1 is a topical gate requiring the same clinical problem and timing context; D2 measures meaningful clinical content; D3 measures actionable guidance; D4 measures density relative to the specific query. The structural rule is that actionable guidance implies meaningful clinical content. The production relevance judge is Qwen3.5-397B-A17B-FP8 at temperature 0, with the full prompt reproduced in Appendix A.</p><p>This rubric is the most reusable methodological contribution. It distinguishes a chunk that merely mentions a topic from one that gives exact dose, route, threshold, monitoring interval, or procedure. The Table 2 example on iron/folic acid alternatives shows scores of 6, 4, 2, and 0 across on-topic chunks, demonstrating why binary relevance would saturate.</p></article><article class='section-summary'><h3>3.4 Pooling and label completeness</h3><p>Full all-query/all-chunk judging would require more than 200 million pair judgments, so the benchmark uses IR pooling. The first pool used top-10 results from BM25, MedCPT, and Octen-Embedding-8B, yielding 78,571 judged pairs. A 100-query audit against a wider pool found lenient recall near 0.49, meaning the initial pool missed roughly half of relevant chunks known across judging rounds.</p><p>The released v0.2.0 pool therefore uses the top-20 union from six retrievers—BM25, MedCPT, Octen-Embedding-8B, voyage-4-large, Lateon, and Gecko—spanning lexical, biomedical bi-encoder, general dense, frontier API dense, late-interaction, and on-device dense paradigms. This yields 230,964 graded labels. The audit suggests near-saturation at the top of the ranking, but unpooled chunks are still treated as not relevant, so recall and precision are less trustworthy than hit rate and MRR.</p></article><article class='section-summary'><h3>3.5 Judge reliability and metric guidance</h3><p>The paper checks the production relevance judge against Claude Opus 4.7 on a 62-pair pilot: 59/62 agreement at lenient relevance (score ≥3) and 53/62 at strict relevance (score ≥5). It also reports a stratified manual spot-check of reasoning traces, including difficult drug-name collisions across clinical contexts. These are model/model and reasoning-plausibility checks, not clinician gold-standard validation.</p><p>Metric guidance is explicit. Hit Rate@k and MRR are recommended as more robust to residual pool incompleteness. nDCG@k is moderately sensitive because missing graded labels affect both credit and ideal ranking. Precision@k and Recall@k are most exposed because relevant-but-unjudged chunks are counted as misses and recall denominators are undercounted.</p></article><article class='section-summary'><h3>4. Limitations</h3><p>The authors openly state the main validity constraints: no large-scale midwife or clinician gold standard, English-only scope, single-chunk clean LLM-generated queries, pooled relevance labels, and domain transfer limits. HealthBench physician labels help calibrate rubric judges for mamabench, but those physicians are not midwifery specialists and those labels do not validate mamaretrieval relevance judgments.</p><p>The largest practical limitations are external validity and label authority. The benchmark is useful for relative retriever comparison and for building a reusable RAG evaluation harness, but it does not establish clinical safety, answer correctness in real workflows, noisy-query robustness, multi-hop retrieval competence, or generalization to non-Zanzibar settings without further validation.</p></article><article class='section-summary'><h3>5. Conclusion</h3><p>The paper releases two open benchmark resources intended to fill a maternal-health RAG evaluation gap. The strongest forward path identified by the authors is adding noisy real-world queries, multi-passage synthesis tasks, and validation against midwives rather than only other models.</p></article><article class='section-summary'><h3>Appendix A. Relevance-Judge Prompt</h3><p>Appendix A reproduces the production relevance-judging prompt, including definitions for D1 topic, D2 meaningful clinical content, D3 actionable guidance, D4 density, the D3→D2 structural rule, JSON-only output schema, and four worked examples. This appendix is methodologically central because it defines the label-generation procedure and makes the LLM-as-judge behavior auditable.</p><p>The prompt is implementation-useful: it can be adapted as a deterministic evaluation scaffold for other clinical RAG corpora, especially where chunk relevance needs to distinguish topicality, specificity, and density. The limitation is that the prompt itself does not substitute for clinical adjudication or inter-rater reliability.</p></article>
+</section>
+
+<section id="visuals">
+  <h2>Tables, workflows, and appendix extraction</h2>
+
+  <article class="section-summary">
+    <h3>Table 1 — The seven sources of mamabench, by track</h3>
+    <table>
+      <thead><tr><th>Track</th><th>Source</th><th>Items</th><th>Yield</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3">Multiple-choice</td><td>MedMCQA (OBGYN &amp; paediatrics)</td><td>18,508</td><td>Already scoped</td></tr>
+        <tr><td>MedQA-USMLE</td><td>4,199</td><td>29.2%</td></tr>
+        <tr><td>AfriMed-QA</td><td>534</td><td>Already scoped</td></tr>
+        <tr><td rowspan="3">Short-answer</td><td>Kenya Clinical Vignettes</td><td>312</td><td>61.5%</td></tr>
+        <tr><td>AfriMed-QA (short-answer)</td><td>37</td><td>Already scoped</td></tr>
+        <tr><td>Women’s Health Benchmark</td><td>20</td><td>Already scoped</td></tr>
+        <tr><td rowspan="3">Rubric-graded</td><td>HealthBench (oss_eval)</td><td>1,209</td><td>24.2%</td></tr>
+        <tr><td>HealthBench (consensus)</td><td>872</td><td>23.8%</td></tr>
+        <tr><td>HealthBench (hard)</td><td>258</td><td>25.9%</td></tr>
+        <tr><td><strong>Total</strong></td><td></td><td><strong>25,949</strong></td><td></td></tr>
+      </tbody>
+    </table>
+    <p><strong>Interpretation:</strong> Table 1 establishes benchmark scale and source composition. The QA benchmark is dominated by multiple-choice material, while the more deployment-like short-answer portion is comparatively small. The yield column is important because it shows how much general-source content survives the maternal/neonatal/child/SRH scope filter.</p>
+  </article>
+
+  <article class="section-summary">
+    <h3>Table 2 — Graded rubric example on iron and folic acid alternatives</h3>
+    <table>
+      <thead><tr><th>Chunk type</th><th>D1 topic</th><th>D2 meaningful</th><th>D3 actionable</th><th>D4 density</th><th>Score</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>MSF exact alternative formulation</td><td>1</td><td>2</td><td>2</td><td>2</td><td><strong>6</strong></td><td>Complete, specific, and focused answer.</td></tr>
+        <tr><td>WHO PCPNC broader dosing section</td><td>1</td><td>2</td><td>1</td><td>1</td><td><strong>4</strong></td><td>Useful but less specific and mixed with supply/storage advice.</td></tr>
+        <tr><td>WHO PCPNC adherence counseling note</td><td>1</td><td>1</td><td>1</td><td>0</td><td><strong>2</strong></td><td>On topic but does not state alternative dose.</td></tr>
+        <tr><td>WHO ANC resource/cost commentary</td><td>1</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td><td>Topical but not clinically meaningful for the query.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Interpretation:</strong> This table is the clearest demonstration that binary relevance is too coarse for clinical RAG. A retriever that finds a precise dose should score differently from one that finds counseling or cost text.</p>
+  </article>
+
+  <article class="section-summary">
+    <h3>Table 3 — Six retrievers used for the released label pool</h3>
+    <table>
+      <thead><tr><th>Retriever</th><th>Paradigm</th><th>Role in pooling</th></tr></thead>
+      <tbody>
+        <tr><td>BM25</td><td>Lexical sparse retrieval</td><td>Protects against dense-only pool bias and captures exact term matches.</td></tr>
+        <tr><td>MedCPT</td><td>Biomedical bi-encoder</td><td>Represents domain-specific dense biomedical retrieval.</td></tr>
+        <tr><td>Octen-Embedding-8B</td><td>General-purpose dense</td><td>Represents large general dense embeddings.</td></tr>
+        <tr><td>voyage-4-large</td><td>Frontier API dense</td><td>Adds high-performing proprietary dense retrieval coverage.</td></tr>
+        <tr><td>Lateon</td><td>Late-interaction retrieval</td><td>Adds ColBERT-style token-level interaction behavior.</td></tr>
+        <tr><td>Gecko</td><td>On-device dense</td><td>Matches the deployed-system constraint class.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Interpretation:</strong> The label pool is deliberately multi-paradigm. This matters because pooling with one retriever family can falsely label relevant chunks missed by that family as non-relevant.</p>
+  </article>
+
+  <article class="section-summary">
+    <h3>Workflow — mamabench construction</h3>
+    <pre><code>Inputs: seven expert-authored or expert-curated QA sources
+Normalize: convert to canonical schema and assign track
+Filter: apply maternal / neonatal / child health / SRH scope rules where sources are not already scoped
+Quality control: drop items that cannot be scored without changing meaning
+Calibration: package re-scoped HealthBench physician-labeled triples for judge vetting
+Outputs: multiple-choice, short-answer, rubric-graded benchmark tracks plus calibration side-file
+Failure modes: scope leakage, overbroad demographic inclusion, duplicated or unscorable MCQ answers, HealthBench prompt overlap in calibration/consensus scoring</code></pre>
+  </article>
+
+  <article class="section-summary">
+    <h3>Workflow — mamaretrieval construction</h3>
+    <pre><code>Corpus: 63,650 section-aware chunks from 87 maternal-health documents
+Sampling: tier-weighted selection of 4,540 chunks
+Question generation: answerability gate keeps 3,185 chunks and writes one clinical query per kept chunk
+Anchor: generated query points back to its seed chunk
+Pool: union of top-20 retrieved chunks from six diverse retrievers
+Judge: Qwen3.5-397B-A17B-FP8 applies D1-D4 rubric at temperature 0
+Labels: 230,964 graded query-chunk relevance judgments
+Metric guidance: lead with Hit Rate@k and MRR; interpret nDCG, Precision, and Recall with pooling caveats</code></pre>
+  </article>
+
+  <article class="section-summary">
+    <h3>Rubric — graded clinical relevance score</h3>
+    <pre><code>score = D1 × (D2 + D3 + D4), range 0-6
+
+D1 topic gate: 0/1; same clinical problem and timing/context required
+D2 meaningful clinical content: 0/1/2; from no clinical content to rich substantive content
+D3 actionable guidance: 0/1/2; from no action to exact dose/route/frequency/threshold/procedure
+D4 density relative to query: 0/1/2; from buried useful content to focused answer
+Structural rule: if D3 &gt; 0, then D2 &gt; 0
+Lenient relevance cut: score ≥ 3
+Strict relevance cut: score ≥ 5</code></pre>
+  </article>
+
+  <article class="section-summary">
+    <h3>Appendix A — Relevance-judge prompt</h3>
+    <p><strong>Included because methodologically central.</strong> The appendix reproduces the full system prompt and user template used to judge query-chunk pairs. It defines D1-D4, gives rejection rules for metadata/TOC/rubrics/resource text, requires reasoning before JSON, and constrains final output to a four-field JSON object.</p>
+    <p><strong>Reusable design lesson:</strong> For deterministic clinical RAG evaluation, force the judge to distinguish topicality, clinical content, actionable specificity, and density. Keep reasoning traces for audit, but keep scored outputs machine-readable.</p>
+  </article>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="callout goodnote">
+    <strong>Best use:</strong> benchmark design, RAG retrieval evaluation, corpus-level scientific curation, relevance-rubric adaptation, and metric-selection rationale.
+    <br><strong>Do not use for:</strong> direct clinical practice decisions, safety validation of a maternal-health assistant, or proof that an LLM judge can replace clinician review.
+  </div>
+  <div class="rating-grid">
+    
+    <article class='score-card'>
+      <div class='score-head'><h3>Relevance</h3><span class='score'>8.5 / 10</span></div>
+      <p><strong>Rationale:</strong> Highly relevant to clinical RAG evaluation, retrieval benchmark design, scientific curation, and practical AI/ML workflow implementation.</p>
+      <p><strong>Evidence basis:</strong> Domain-specific chunk-level retrieval benchmark, graded relevance rubric, pooling audit, released datasets/code, and judge prompt.</p>
+      <p><strong>Principal limiting factor:</strong> Clinical pharmacy relevance is indirect because the domain is maternal/neonatal/reproductive health and Zanzibar midwifery rather than hospital pharmacy.</p>
+      <p><strong>Would raise/lower:</strong> Would rise with pharmacy-relevant retrieval cases or medication-safety-specific queries; would fall if datasets/code were unavailable or unusable.</p>
+    </article>
+    
+    <article class='score-card'>
+      <div class='score-head'><h3>Novelty</h3><span class='score'>8 / 10</span></div>
+      <p><strong>Rationale:</strong> The chunk-level maternal-health retrieval benchmark and graded clinical relevance rubric add meaningful value beyond broad medical QA sets and end-to-end RAG benchmarks.</p>
+      <p><strong>Evidence basis:</strong> Paper claims no prior public chunk-level maternal-health guideline retrieval benchmark and provides 3,185 queries over 63,650 chunks with graded labels.</p>
+      <p><strong>Principal limiting factor:</strong> Novelty is strongest for domain/resource construction; the underlying ideas—TREC-style pooling, LLM relevance judging, graded relevance—are not new.</p>
+      <p><strong>Would raise/lower:</strong> Would rise with real user-query logs and clinician adjudication; would fall if a comparable public benchmark already covers this exact setting and granularity.</p>
+    </article>
+    
+    <article class='score-card'>
+      <div class='score-head'><h3>Method strength</h3><span class='score'>7 / 10</span></div>
+      <p><strong>Rationale:</strong> Construction is systematic, version-aware, and transparent, with explicit scope rules, pooling expansion, judge prompt disclosure, and metric guidance.</p>
+      <p><strong>Evidence basis:</strong> Reports source normalization, scope-model agreement, prior-label parity, query sampling/gating, pooling audit, six-retriever top-20 union, and judge agreement checks.</p>
+      <p><strong>Principal limiting factor:</strong> The core labels are still produced by LLMs, not clinicians; query generation is single-chunk and benchmark scores are not externally validated against real deployment logs.</p>
+      <p><strong>Would raise/lower:</strong> Would rise with independent clinician labels, inter-rater reliability, noisy-query test sets, and multi-passage tasks; would fall with undisclosed prompts, unreleased code, or unreconciled pooling gaps.</p>
+    </article>
+    
+    <article class='score-card'>
+      <div class='score-head'><h3>Evidence strength</h3><span class='score'>6 / 10</span></div>
+      <p><strong>Rationale:</strong> The evidence supports the benchmark-construction claims but only partially supports label validity or downstream clinical usefulness.</p>
+      <p><strong>Evidence basis:</strong> Includes quantitative checks: 25,949 QA items, 6,853 calibration triples, 3,185 queries, 230,964 labels, 98.1% scope agreement, 86.8% Kenya-label agreement, 59/62 and 53/62 judge agreement at lenient/strict cuts, and audit-driven pool expansion.</p>
+      <p><strong>Principal limiting factor:</strong> Agreement with another model is weaker than clinician adjudication, and the judge-reliability pilot is small.</p>
+      <p><strong>Would raise/lower:</strong> Would rise with midwife/clinician gold-standard review and larger stratified validation; would fall if manual spot-checks found systematic clinical mislabeling.</p>
+    </article>
+    
+    <article class='score-card'>
+      <div class='score-head'><h3>External validity</h3><span class='score'>4.5 / 10</span></div>
+      <p><strong>Rationale:</strong> Generalizability is intentionally narrow: English-only maternal/neonatal/child/reproductive health in a Zanzibar nurse-midwife setting.</p>
+      <p><strong>Evidence basis:</strong> Corpus sources and scope are domain-specific, and the authors disclose transfer limits, clean single-chunk queries, and anchor-text bias.</p>
+      <p><strong>Principal limiting factor:</strong> No real search logs, non-English/noisy query evaluation, multi-site validation, or specialty transfer evaluation are reported.</p>
+      <p><strong>Would raise/lower:</strong> Would rise with multilingual/noisy queries, real midwife query logs, broader sites, and cross-domain validation; would fall if corpus licensing or local-guideline assumptions prevent reuse.</p>
+    </article>
+    
+    <article class='score-card'>
+      <div class='score-head'><h3>Implementation value</h3><span class='score'>8 / 10</span></div>
+      <p><strong>Rationale:</strong> High value as a template for building a clinical RAG evaluation harness and graded retrieval-labeling protocol.</p>
+      <p><strong>Evidence basis:</strong> Datasets, construction code, chunk IDs, prompt, score formula, pooling strategy, and metric recommendations are described or released.</p>
+      <p><strong>Principal limiting factor:</strong> Implementation value is for evaluation infrastructure, not direct clinical practice or medication decision support.</p>
+      <p><strong>Would raise/lower:</strong> Would rise with packaged scripts for full metric computation, clinician adjudication tools, and example dashboards; would fall if release artifacts diverge from the described v0.2.0/v0.3.0 corpus coupling.</p>
+    </article>
+    
+  </div>
+
+  <div class="mini-grid" style="margin-top:1rem;">
+    <div class="mini-card">
+      <h3>Main strengths</h3>
+      <ul>
+        <li>Clear benchmark gap and domain-specific scope.</li>
+        <li>Transparent construction workflow and version coupling.</li>
+        <li>Graded relevance rubric directly addresses clinical passage usefulness.</li>
+        <li>Pooling audit changed the released label set rather than being merely reported.</li>
+        <li>Appendix prompt improves reproducibility and auditability.</li>
+      </ul>
+    </div>
+    <div class="mini-card">
+      <h3>Main limitations</h3>
+      <ul>
+        <li>No large-scale clinician or midwife gold-standard adjudication.</li>
+        <li>LLM-generated clean single-chunk queries may inflate dense retriever performance.</li>
+        <li>Pooled labels still count unpooled relevant chunks as non-relevant.</li>
+        <li>English-only, domain-specific, and setting-specific.</li>
+        <li>Companion system performance is intentionally not reported in this paper.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="implementation">
+  <h2>Implementation and practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card">
+      <h3>For your RAG evaluation harness</h3>
+      <p>Borrow the D1-D4 relevance rubric structure. It is more actionable than binary relevance because it separates topic match, clinical usefulness, actionability, and density.</p>
+    </div>
+    <div class="mini-card">
+      <h3>For scientific curation</h3>
+      <p>Version the corpus, chunk IDs, queries, labels, judge prompt, and scoring schema together. This paper’s content-derived chunk-ID discussion is especially useful for avoiding silent benchmark drift.</p>
+    </div>
+    <div class="mini-card">
+      <h3>For metric reporting</h3>
+      <p>Lead with metrics less damaged by pooled-label incompleteness, especially Hit Rate@k and MRR. Treat recall and precision as relative and caveated unless labels are near-exhaustive.</p>
+    </div>
+    <div class="mini-card">
+      <h3>For clinical AI safety</h3>
+      <p>Do not equate retriever performance with clinical answer safety. A retriever can find the right chunk while the generator misinterprets, omits contraindications, or fails to handle local policy.</p>
+    </div>
+    <div class="mini-card">
+      <h3>For pharmacy adaptation</h3>
+      <p>The same rubric can be adapted to drug-information retrieval: D3 can require dose, route, renal/hepatic adjustment, monitoring threshold, contraindication, or interaction actionability.</p>
+    </div>
+    <div class="mini-card">
+      <h3>Next validation step</h3>
+      <p>A strong follow-up would add clinician-labeled samples, noisy real user queries, multi-chunk synthesis cases, and a medication-safety subset with explicit harm-sensitive labels.</p>
+    </div>
+  </div>
+
+  <div class="callout warning">
+    <strong>Clinical-practice bottom line:</strong> This paper should not change clinical practice directly. It is an evaluation-infrastructure paper. Use it to design retrieval tests, not to justify maternal-health recommendations or medication decisions.
+  </div>
+</section>
+
+<section id="qa">
+  <h2>Semantic QA and provenance</h2>
+  <table>
+    <thead><tr><th>Check</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Exact source title and identifier captured</td><td>Pass</td></tr>
+      <tr><td>Sections mapped and summarized</td><td>Pass</td></tr>
+      <tr><td>Main-text tables reconciled</td><td>Pass: Tables 1-3 included as structured blocks</td></tr>
+      <tr><td>Figures reconciled</td><td>Pass: no figures identified</td></tr>
+      <tr><td>Appendix reviewed for methodological relevance</td><td>Pass: Appendix A included in summary and extraction</td></tr>
+      <tr><td>Claims separated from appraisal</td><td>Pass</td></tr>
+      <tr><td>Ratings include rationale, evidence basis, limiting factor, and raise/lower conditions</td><td>Pass</td></tr>
+      <tr><td>Clinical/practice caveat included</td><td>Pass</td></tr>
+    </tbody>
+  </table>
+  <p class="footer"><strong>Provenance:</strong> Generated from uploaded PDF <code>2606.29467v2.pdf</code>. Source identifier: arXiv:2606.29467v2; DOI: 10.48550/arXiv.2606.29467. Generated 2026-07-04. This reference file summarizes and appraises the source; it does not replace reading the original paper or validating the released datasets/code.</p>
+</section>
+</main>
+</body>
+</html>

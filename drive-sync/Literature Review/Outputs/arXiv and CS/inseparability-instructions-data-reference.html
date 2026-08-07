@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reference HTML - On the Inseparability of Instructions and Data in Shared-Embedding Sequence Models</title>
+<style>
+:root{
+  --bg:#f7f8fb;--card:#ffffff;--ink:#17202a;--muted:#526173;--line:#d9e0ea;
+  --accent:#1d4f91;--accent2:#0f315f;--good:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;
+  --codebg:#0e1726;--codefg:#edf4ff;--soft:#eef5ff;--greenbg:#edf8f1;--amberbg:#fff6df;--redbg:#fff0f0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+.wrap{max-width:1120px;margin:0 auto;padding:1.25rem}
+header{background:linear-gradient(135deg,#10243d,#1d4f91);color:#fff;border-bottom:5px solid #d2e2f5}
+header .wrap{padding:2.2rem 1.25rem 2rem}
+h1{font-size:clamp(1.55rem,3vw,2.55rem);line-height:1.12;margin:.25rem 0 .65rem;font-weight:800}
+.subtitle{font-size:1.02rem;max-width:900px;color:#e8f2ff;margin:.25rem 0}
+.header-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+.tag{display:inline-block;border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:.25rem .55rem;font-size:.82rem;font-weight:650}
+main{max-width:1120px;margin:0 auto;padding:1.25rem}
+section,.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:1rem 0;padding:1rem 1.25rem;box-shadow:0 1px 4px rgba(16,36,61,.06)}
+h2{color:#0f315f;margin:.1rem 0 .75rem;font-size:1.35rem}
+h3{color:#173f72;margin:1.1rem 0 .45rem;font-size:1.08rem}
+h4{margin:.8rem 0 .35rem;color:#24364b}
+p{margin:.55rem 0}
+a{color:var(--accent)}
+.toc ul{columns:2;list-style:none;padding:0;margin:0}
+.toc li{break-inside:avoid;margin:.28rem 0}
+.toc a{text-decoration:none;color:#173f72;font-weight:650}
+.toc a:hover{text-decoration:underline}
+.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:.75rem;margin:.75rem 0}
+.mini-card{border:1px solid var(--line);border-radius:12px;background:#fbfcfe;padding:.75rem}
+.label{font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:800}
+.value{font-weight:650;color:#182a3d}
+.score{font-size:1.65rem;font-weight:800;color:#0f315f;line-height:1.05;margin:.1rem 0}
+.small{font-size:.9rem;color:var(--muted)}
+.verdict,.warning,.badnote,.goodnote{border-radius:12px;padding:.9rem 1rem;margin:.75rem 0;border:1px solid var(--line)}
+.verdict{background:var(--soft);border-left:5px solid var(--accent)}
+.warning{background:var(--amberbg);border-left:5px solid var(--warn)}
+.badnote{background:var(--redbg);border-left:5px solid var(--bad)}
+.goodnote{background:var(--greenbg);border-left:5px solid var(--good)}
+.section-summary{border-top:1px solid var(--line);padding-top:.75rem;margin-top:.75rem}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.94rem;display:table}
+th,td{border:1px solid var(--line);padding:.55rem .65rem;vertical-align:top}
+th{background:#eef3f9;text-align:left;color:#1e395c}
+pre{margin:.75rem 0 1rem;padding:1rem;background:var(--codebg);color:var(--codefg);border-radius:12px;overflow-x:auto;border:1px solid #1b2e49;font-size:.88rem;line-height:1.45;white-space:pre-wrap}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+.kv{display:grid;grid-template-columns:190px 1fr;gap:.5rem .75rem;margin:.75rem 0}
+.kv div{border-bottom:1px solid #eef1f5;padding:.18rem 0}
+.kv .k{font-weight:800;color:#34465b}
+.tight li{margin:.25rem 0}
+.footer-note{font-size:.85rem;color:var(--muted)}
+@media (max-width:760px){.toc ul{columns:1}.kv{grid-template-columns:1fr}main,.wrap{padding:.85rem}section,.toc{padding:.9rem}table{display:block;overflow-x:auto}}
+@media print{body{background:white}header{background:#fff;color:#000;border-bottom:2px solid #999}.subtitle,.tag{color:#000}section,.toc,.mini-card{box-shadow:none}a{color:inherit}pre{white-space:pre-wrap}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="label" style="color:#cfe3ff">Summary / Evaluation / Appraisal Reference</div>
+    <h1>On the Inseparability of Instructions and Data in Shared-Embedding Sequence Models</h1>
+    <p class="subtitle">Condensed technical reference for a June 2026 arXiv preprint arguing that perfect prompt-injection prevention cannot be guaranteed inside shared-embedding transformer pipelines without enforced control-data separation.</p>
+    <div class="header-tags">
+      <span class="tag">AI security</span><span class="tag">Prompt injection</span><span class="tag">LLM agents</span><span class="tag">Formal argument</span><span class="tag">RAG/tool safety</span><span class="tag">Reference HTML</span>
+    </div>
+  </div>
+</header>
+<main>
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#coverage">Coverage manifest</a></li>
+    <li><a href="#sections">Section condensation</a></li>
+    <li><a href="#formal-results">Formal result inventory</a></li>
+    <li><a href="#visuals">Figures, tables, exhibits</a></li>
+    <li><a href="#aiml-appraisal">AI/ML systems appraisal</a></li>
+    <li><a href="#evaluation">Evaluation and appraisal</a></li>
+    <li><a href="#takeaways">Implementation takeaways</a></li>
+    <li><a href="#qa">QA and provenance</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><div class="label">Title</div><div class="value">On the Inseparability of Instructions and Data in Shared-Embedding Sequence Models</div></div>
+    <div class="mini-card"><div class="label">Authors</div><div class="value">Dewank Pant; Shruti Lohani; Avijit Kumar</div></div>
+    <div class="mini-card"><div class="label">Source type</div><div class="value">arXiv preprint; theoretical AI security paper with limited empirical grounding</div></div>
+    <div class="mini-card"><div class="label">Date/version</div><div class="value">June 2026; arXiv v1 dated 25 Jun 2026</div></div>
+    <div class="mini-card"><div class="label">Identifier</div><div class="value">arXiv:2606.27567v1; DOI: 10.48550/arXiv.2606.27567</div></div>
+    <div class="mini-card"><div class="label">Domain</div><div class="value">Prompt injection, LLM safety, shared representations, agent/tool governance</div></div>
+    <div class="mini-card"><div class="label">Design</div><div class="value">Formal framework and impossibility-style theorem, plus vocabulary-overlap, MMD, behavioral, and abliteration-motivation measurements</div></div>
+    <div class="mini-card"><div class="label">Scope warning</div><div class="value">Use for architectural risk framing and design constraints. Do not treat as peer-reviewed proof that every deployed defense is ineffective or that mitigation is futile.</div></div>
+  </div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="verdict"><strong>Core thesis:</strong> The paper argues that because current prompted transformer systems process trusted instructions and untrusted content through a shared embedding/attention pipeline, perfect prompt-injection prevention cannot be guaranteed by filters, alignment, or other mechanisms that operate only inside that shared pipeline. The proposed remedy is architectural separation of control and data channels, not simply stronger in-pipeline classifiers.</div>
+  <div class="takeaway-grid">
+    <div class="mini-card"><div class="label">What is valuable</div><p>It names a useful security target, <strong>Semantic-Faithful Control</strong>, and connects prompt injection to noninterference and code-data confusion. This is a strong framing for RAG systems, agents, tool authorization, memory writes, and policy routing.</p></div>
+    <div class="mini-card"><div class="label">What is not established</div><p>The paper does not prove that all practical defenses fail equally, nor does it provide a deployable separation architecture. Some empirical evidence is narrow, and the theorem depends on semantic-equivalence, provenance, control-path, and genericity assumptions.</p></div>
+    <div class="mini-card"><div class="label">Best practical use</div><p>Use it to justify privilege separation, external policy enforcement, hard tool gates, typed channels, sandboxed execution, and blast-radius control in LLM application design.</p></div>
+    <div class="mini-card"><div class="label">Bottom line</div><p><strong>Read soon / skim deeply.</strong> The framing is highly relevant to agent and RAG security, but the formal argument should be read critically rather than accepted as a settled impossibility result.</p></div>
+  </div>
+</section>
+
+<section id="coverage">
+  <h2>Coverage manifest</h2>
+  <pre><code>SOURCE COVERAGE MANIFEST
+source_id: arXiv:2606.27567v1 / DOI 10.48550/arXiv.2606.27567
+title: On the Inseparability of Instructions and Data in Shared-Embedding Sequence Models
+source_type: arXiv preprint; theoretical AI security / prompt-injection paper
+date_or_version: June 2026; v1 dated 25 Jun 2026
+sections: Abstract; 1 Introduction; 2 Formal Framework; 3 Threat Model and Scope; 4 The Inseparability Theorem; 5 Positional and Segment Encoding Insufficiency; 6 Von Neumann Isomorphism; 7 Empirical Grounding; 8 Connection to Existing Results; 9 Discussion; 10 Conclusion; References
+figures: Figure 1, MMD between instruction-origin and user-origin hidden-state distributions by layer
+tables: Table 1 vocabulary overlap; Table 2 MMD values by layer with bootstrap 95% CIs; unnumbered Von Neumann analogy table
+algorithms_or_workflows: Formal proof chain; Prompted Action Model; Semantic-Faithful Control property; architecture escape conditions
+appendices_or_supplements: None in uploaded PDF
+coverage_decision: All main-text sections, all named tables, the sole figure, the analogy exhibit, and the central formal results are included.
+omissions: Full references are not reproduced; they are summarized only where needed for appraisal. Formal proofs are condensed, not copied verbatim.</code></pre>
+</section>
+
+<section id="sections">
+  <h2>Section condensation</h2>
+  <div class="section-summary">
+    <h3>Abstract</h3>
+    <p>The abstract frames prompt injection as a structural problem rather than a defect that can be fully patched by better training, filtering, or guardrails. The authors define <strong>Prompted Action Models</strong>, where outputs include not only generated tokens but also control-authoritative actions such as refusal, tool authorization, policy routing, and memory writes. They then define <strong>Semantic-Faithful Control</strong> as the requirement that those control outputs depend on the semantic content of untrusted input, not on semantically irrelevant representational variation.</p>
+    <p>The claimed analysis has three pieces: provenance-recovery impossibility under overlapping shared representations, control-path exposure through shared attention/value aggregation, and a finite-coverage invariance gap over large semantic-equivalence classes. The implication is architectural: complete protection requires enforced control separation rather than only better in-pipeline classification or alignment.</p>
+  </div>
+  <div class="section-summary">
+    <h3>1. Introduction</h3>
+    <p>The introduction reviews prompt injection as an LLM-integrated application vulnerability in which adversarial user data is processed alongside system instructions and causes the model to follow attacker instructions. It lists defenses such as instruction tuning, RLHF, guardrail classifiers, perplexity filtering, sandwich defenses, XML tagging, representation engineering, and circuit breakers, then argues that recent jailbreak and adversarial-suffix results show persistent fragility.</p>
+    <p>The central analogy is to Von Neumann code-data confusion: code and data share memory in classical computers; instructions and untrusted data share embedding/attention pathways in transformers. The paper's main contribution is a formal claim that shared-embedding architectures without immutable provenance enforcement cannot guarantee perfect Semantic-Faithful Control.</p>
+  </div>
+  <div class="section-summary">
+    <h3>2. Formal Framework</h3>
+    <p>The authors define a Prompted Action Model as M = (Σ, d, E, f, A), where a finite vocabulary is embedded into a shared d-dimensional space, and the model maps embedding sequences to distributions over externally observable actions. Prompted input is a concatenation x = (s || u), where s is a trusted instruction prefix and u is untrusted content; each token has provenance, but the shared embedding axiom states that once tokens are embedded, trusted and untrusted vectors inhabit the same representational space without immutable type tags.</p>
+    <p>Semantic-Faithful Control is defined as invariance of the projected control-authoritative output ΠctrlY(s||u) across semantically equivalent untrusted inputs u and u'. The paper deliberately allows control to depend on the semantic request, such as refusing harmful content, but forbids dependence on semantically irrelevant encoding changes such as obfuscation, base64, homoglyphs, or vacuous adversarial suffixes.</p>
+  </div>
+  <div class="section-summary">
+    <h3>3. Threat Model and Scope</h3>
+    <p>The theorem applies to architectures with shared-space processing, no immutable provenance enforcement, and control-authoritative outputs computed from the shared pipeline. This explicitly includes systems where refusal, tool authorization, routing, and memory-write decisions depend on control-relevant hidden states generated by the same attention/residual computation that processes untrusted input.</p>
+    <p>The theorem excludes architectures that enforce separation by construction: disjoint trusted/untrusted encoders, typed attention or hard segment masks that structurally forbid control-path contamination, and external policy engines that decide tool authorization or memory writes outside the transformer. The attack classes modeled include indirect prompt injection, unauthorized tool invocation, injected memory/policy writes, and universal adversarial suffixes.</p>
+  </div>
+  <div class="section-summary">
+    <h3>4. The Inseparability Theorem</h3>
+    <p>The proof chain starts with genericity assumptions: untrusted value perturbations can affect control-relevant hidden states, downstream readout is locally nonconstant on those perturbations, and contextual representations of trusted and untrusted content are not completely disjoint. Lemma 1 establishes overlap in raw embeddings because natural language instruction tokens and user-data tokens share vocabulary. Lemma 2 states that semantically equivalent but token-distinct inputs generally produce distinct embedding sequences.</p>
+    <p>Theorem 3 expresses Bayes-optimal provenance-recovery error as one half of 1 minus the total variation distance between trusted and untrusted representation distributions; perfect recovery requires disjoint supports. Theorem 4 states that if control-relevant nodes attend with nonzero mass to untrusted positions, untrusted content enters control-relevant computation. Lemma 5 adds that finite training, alignment, or adversarial hardening cannot certify invariance over infinite or combinatorially vast semantic-equivalence classes unless architecture enforces it. Theorem 6 combines these pieces to claim no solely in-pipeline mechanism can guarantee perfect SFC.</p>
+  </div>
+  <div class="section-summary">
+    <h3>5. Positional and Segment Encoding Insufficiency</h3>
+    <p>The paper rejects the objection that positional encodings, segment embeddings, delimiters, or special tokens solve the problem. Positional encodings identify location, not immutable provenance, and they do not by themselves prevent untrusted values from entering control-relevant computation. Soft delimiters such as [INST], &lt;&lt;SYS&gt;&gt;, or XML-like tags are ordinary tokens in the shared vocabulary and can be forged in untrusted content.</p>
+    <p>The authors distinguish these soft markers from immutable provenance channels. An architecture that attaches non-user-writable provenance tags, preserves them through layers, and prevents attention from erasing or forging them would escape the theorem. ASIDE is cited as an early example of instruction/data separation through architectural token transformation.</p>
+  </div>
+  <div class="section-summary">
+    <h3>6. The Von Neumann Isomorphism</h3>
+    <p>The paper maps classical code-data confusion to prompt injection: shared memory corresponds to shared embedding space; machine instructions correspond to system-prompt tokens; user data in memory corresponds to user embeddings; buffer overflows correspond to prompt-injection attacks. Guardrail classifiers and perplexity filters are compared to stack canaries and ASLR: useful mitigations that raise attack cost but do not eliminate the underlying architectural class.</p>
+    <p>The analogy is explanatory rather than part of the proof. The authors use it to argue that mature prompt-injection defense will require layered controls, including architectural separation, runtime mitigations, sandboxing/privilege controls, and perhaps future representational paradigms analogous to memory-safe languages.</p>
+  </div>
+  <div class="section-summary">
+    <h3>7. Empirical Grounding</h3>
+    <p>The empirical section supplies four forms of grounding. M1 measures vocabulary overlap between instruction corpora and user-data corpora across Mistral-7B, Llama-3.1, and Qwen-2.5 tokenizers. M2 measures hidden-state distribution separation with MMD across layers of Llama 3.1 8B Instruct, using 300 sequences per corpus and bootstrap 95% confidence intervals. M3 tests five prompt-injection techniques against two models under a financial-services refusal prompt and observes no compliance but measurable output-structure changes. M4 discusses abliteration as qualitative support that refusal is encoded in shared representational directions rather than hard-separated safety circuitry.</p>
+    <p>The strongest empirical support is Table 1 and Table 2/Figure 1, which show vocabulary overlap and non-disjoint hidden-state distributions. The weakest support is M3/M4: M3 explicitly does not demonstrate direct Πctrl refusal flips in that experiment, and M4 is treated by the authors as motivation rather than formal evidence because much of the reporting is community/blog-level.</p>
+  </div>
+  <div class="section-summary">
+    <h3>8. Connection to Existing Results</h3>
+    <p>The paper connects its thesis to representation-level safety work, adversarial robustness findings, prompt-injection formalization, instruction-data separation benchmarks, noninterference, and OWASP LLM Top 10 framing. It positions SFC as a transformer-specific analogue of noninterference: untrusted data should not influence privileged control flow except through authorized semantic channels.</p>
+    <p>The most practically important connection is to instruction-data separation work and ASIDE. Those sources make the paper's recommendation more concrete: architectural separation is not merely a philosophical endpoint; it is already an active design direction, although not yet a standard deployment pattern.</p>
+  </div>
+  <div class="section-summary">
+    <h3>9. Discussion</h3>
+    <p>The discussion narrows the claim: useful models need not ignore user input, and defense-in-depth remains valuable. The paper's claim is only that shared-embedding systems cannot provide perfect prevention through mechanisms that operate entirely inside the shared representational pipeline.</p>
+    <p>For deployed systems, the authors recommend treating prompt injection like buffer overflow risk: assume occurrence, limit privileges, sandbox tools, use layered mitigations, and avoid trusting any single guardrail as a complete solution.</p>
+  </div>
+  <div class="section-summary">
+    <h3>10. Conclusion</h3>
+    <p>The conclusion restates the three-part proof: shared representations prevent perfect provenance recovery, shared attention exposes control paths to untrusted content, and finite alignment cannot guarantee invariance over all encodings in a semantic-equivalence class. The claimed result is that prompt injection remains irreducible in shared-embedding architectures without enforced control-data separation.</p>
+    <p>The proposed path forward is an engineering program: structural separation of instruction and data channels, runtime mitigations, and eventually representational paradigms that eliminate shared-embedding confusion by construction.</p>
+  </div>
+</section>
+
+<section id="formal-results">
+  <h2>Formal result inventory</h2>
+  <table>
+    <thead><tr><th>Item</th><th>What it says</th><th>Why it matters</th><th>Appraisal</th></tr></thead>
+    <tbody>
+      <tr><td>Definition 1: Prompted Action Model</td><td>M = (Σ, d, E, f, A), where E is a shared embedding function and A includes token generation plus control-authoritative actions.</td><td>Moves the security target beyond text output into tool authorization, policy routing, and memory writes.</td><td>Useful abstraction for agent/RAG systems, though simplified relative to production systems with external components.</td></tr>
+      <tr><td>Definition 3: Semantic-Faithful Control</td><td>If u and u' are semantically equivalent, ΠctrlY(s||u) should equal ΠctrlY(s||u').</td><td>Names a precise version of “encoding should not alter privileged behavior.”</td><td>Strong framing, but operationalizing semantic equivalence is hard and application-specific.</td></tr>
+      <tr><td>Lemma 1: Representational collision</td><td>Instruction and data vocabularies overlap, so raw embeddings overlap for shared tokens.</td><td>Supports the claim that embedding alone cannot encode immutable provenance.</td><td>Convincing at token level; less decisive for contextual states.</td></tr>
+      <tr><td>Theorem 3: Provenance-recovery impossibility</td><td>Bayes error = 1/2(1 - TV(PZ|trusted, PZ|untrusted)); perfect recovery requires disjoint distributions.</td><td>Formalizes why perfect provenance classification from shared representations is unavailable when supports overlap.</td><td>Mathematically standard, but downstream security conclusion depends on whether SFC must require provenance recovery.</td></tr>
+      <tr><td>Theorem 4: Control-path exposure</td><td>If control-relevant nodes attend with nonzero mass to untrusted positions, untrusted content enters control computation.</td><td>Captures the core risk in useful models: outputs must depend on user input, including control-adjacent computations.</td><td>Highly relevant to transformers, but mitigation can also occur outside the model.</td></tr>
+      <tr><td>Lemma 5: Finite-coverage invariance gap</td><td>Finite alignment examples cannot certify invariance over infinite or vast semantic-equivalence classes without architectural enforcement.</td><td>Explains why prompt-injection defenses break under novel encodings and suffixes.</td><td>Compelling as a robustness argument; less precise as a full impossibility proof unless architecture and input class are specified tightly.</td></tr>
+      <tr><td>Theorem 6: Impossibility of perfect SFC</td><td>Given exposed control paths, imperfect provenance recovery, and finite in-pipeline invariance, no solely shared-pipeline mechanism can guarantee perfect SFC.</td><td>Central thesis: perfect prompt-injection prevention requires enforced separation, not just better guardrails.</td><td>Important but should be read critically; the bridge from non-disjoint representations to guaranteed SFC failure is the key burden.</td></tr>
+      <tr><td>Proposition 10: Positional/segment insufficiency</td><td>Position and soft markers encode location or forgeable delimiters, not immutable provenance.</td><td>Directly applicable to common prompt-engineering defenses.</td><td>Practically persuasive; supports typed channels and external policy gates.</td></tr>
+    </tbody>
+  </table>
+  <pre><code>CORE PROOF CHAIN
+1. Trusted instructions and untrusted content share token embeddings and a representational pipeline.
+2. Shared representations do not preserve immutable provenance; perfect provenance recovery requires disjoint distributions.
+3. Useful control-relevant nodes attend to user content, so untrusted content enters the control computation.
+4. Semantic equivalence classes are too large for finite training/hardening to certify all harmless encodings.
+5. Therefore, perfect control invariance cannot be guaranteed by mechanisms that operate solely inside the shared pipeline.
+6. Architectural escape hatch: hard separation, typed attention/masks, immutable provenance, or external policy engines.</code></pre>
+</section>
+
+<section id="visuals">
+  <h2>Figures, tables, exhibits</h2>
+  <h3>Table 1 - Vocabulary overlap between instruction and user-data corpora</h3>
+  <table>
+    <thead><tr><th>Tokenizer</th><th>|VI|</th><th>|VD|</th><th>ρtype</th><th>ρmass</th><th>ρcov</th></tr></thead>
+    <tbody>
+      <tr><td>Mistral-7B (32K)</td><td>23,898</td><td>22,476</td><td>0.736</td><td>0.547</td><td>0.823</td></tr>
+      <tr><td>Llama-3.1 (128K)</td><td>52,238</td><td>50,378</td><td>0.502</td><td>0.517</td><td>0.657</td></tr>
+      <tr><td>Qwen-2.5 (152K)</td><td>54,104</td><td>49,249</td><td>0.474</td><td>0.519</td><td>0.615</td></tr>
+    </tbody>
+  </table>
+  <pre><code>TABLE 1 — Vocabulary overlap
+Purpose: Empirically support Lemma 1 by showing that instruction-vocabulary tokens are available in ordinary user-data corpora.
+Rows: Three tokenizers: Mistral-7B, Llama-3.1, Qwen-2.5.
+Columns: |VI| instruction-vocabulary size; |VD| user-data-vocabulary size; ρtype Jaccard/type overlap; ρmass probability-mass overlap; ρcov instruction-token coverage by user data.
+Key values: ρcov ranges 0.615 to 0.823; ρmass is ~0.52-0.55 across all three.
+Pattern: Larger-vocabulary tokenizers have lower type overlap but still substantial instruction coverage.
+Interpretation: Raw token channels cannot provide provenance separation; many instruction-like tokens are also user-data tokens.
+Limitations: Token overlap is necessary support for the argument but does not alone prove control-path failure or behavioral prompt-injection success.</code></pre>
+
+  <h3>Table 2 and Figure 1 - Representation-level overlap by layer</h3>
+  <table>
+    <thead><tr><th>Layer</th><th>MMD</th><th>95% CI</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>0.606</td><td>[0.572, 0.640]</td></tr>
+      <tr><td>8</td><td>0.908</td><td>[0.860, 0.953]</td></tr>
+      <tr><td>16</td><td>0.885</td><td>[0.846, 0.925]</td></tr>
+      <tr><td>24</td><td>0.805</td><td>[0.772, 0.839]</td></tr>
+      <tr><td>31</td><td>0.755</td><td>[0.725, 0.789]</td></tr>
+    </tbody>
+  </table>
+  
+<svg class="chart" viewBox="0 0 760 300" role="img" aria-label="MMD between instruction-origin and user-origin hidden-state distributions by layer in Llama 3.1 8B Instruct">
+  <style>.chart{width:100%;max-width:860px;display:block;margin:.5rem auto;background:#fff;border:1px solid #d9e0ea;border-radius:10px}.grid{stroke:#e4e9f1;stroke-width:1}.axis{stroke:#2c3d50;stroke-width:1.3}.line{fill:none;stroke:#285f9d;stroke-width:2.4}.pt{fill:#285f9d;stroke:white;stroke-width:1.2}.err{stroke:#285f9d;stroke-width:1.5}.axislabel{font:12px system-ui, sans-serif;fill:#2c3d50}.charttitle{font:14px system-ui, sans-serif;font-weight:700;fill:#17202a}</style>
+  <text x="380.0" y="17" text-anchor="middle" class="charttitle">Representation overlap by layer: lower MMD = more indistinguishable</text>
+  <line x1="72" y1="221.2" x2="732" y2="221.2" class="grid"/><text x="60" y="225.2" text-anchor="end" class="axislabel">0.60</text><line x1="72" y1="167.5" x2="732" y2="167.5" class="grid"/><text x="60" y="171.5" text-anchor="end" class="axislabel">0.70</text><line x1="72" y1="113.9" x2="732" y2="113.9" class="grid"/><text x="60" y="117.9" text-anchor="end" class="axislabel">0.80</text><line x1="72" y1="60.2" x2="732" y2="60.2" class="grid"/><text x="60" y="64.2" text-anchor="end" class="axislabel">0.90</text><line x1="72" y1="33.4" x2="732" y2="33.4" class="grid"/><text x="60" y="37.4" text-anchor="end" class="axislabel">0.95</text>
+  <line x1="72.0" y1="28" x2="72.0" y2="248" class="grid"/><text x="72.0" y="272" text-anchor="middle" class="axislabel">0</text><line x1="242.3" y1="28" x2="242.3" y2="248" class="grid"/><text x="242.3" y="272" text-anchor="middle" class="axislabel">8</text><line x1="412.6" y1="28" x2="412.6" y2="248" class="grid"/><text x="412.6" y="272" text-anchor="middle" class="axislabel">16</text><line x1="583.0" y1="28" x2="583.0" y2="248" class="grid"/><text x="583.0" y="272" text-anchor="middle" class="axislabel">24</text><line x1="732.0" y1="28" x2="732.0" y2="248" class="grid"/><text x="732.0" y="272" text-anchor="middle" class="axislabel">31</text>
+  <line x1="72" y1="28" x2="72" y2="248" class="axis"/>
+  <line x1="72" y1="248" x2="732" y2="248" class="axis"/>
+  <polyline points="72.0,218.0 242.3,55.9 412.6,68.2 583.0,111.2 732.0,138.0" class="line"/>
+  <line x1="72.0" y1="199.7" x2="72.0" y2="236.2" class="err"/><line x1="67.0" y1="199.7" x2="77.0" y2="199.7" class="err"/><line x1="67.0" y1="236.2" x2="77.0" y2="236.2" class="err"/><circle cx="72.0" cy="218.0" r="4.2" class="pt"/><line x1="242.3" y1="31.8" x2="242.3" y2="81.7" class="err"/><line x1="237.3" y1="31.8" x2="247.3" y2="31.8" class="err"/><line x1="237.3" y1="81.7" x2="247.3" y2="81.7" class="err"/><circle cx="242.3" cy="55.9" r="4.2" class="pt"/><line x1="412.6" y1="46.8" x2="412.6" y2="89.2" class="err"/><line x1="407.6" y1="46.8" x2="417.6" y2="46.8" class="err"/><line x1="407.6" y1="89.2" x2="417.6" y2="89.2" class="err"/><circle cx="412.6" cy="68.2" r="4.2" class="pt"/><line x1="583.0" y1="92.9" x2="583.0" y2="128.9" class="err"/><line x1="578.0" y1="92.9" x2="588.0" y2="92.9" class="err"/><line x1="578.0" y1="128.9" x2="588.0" y2="128.9" class="err"/><circle cx="583.0" cy="111.2" r="4.2" class="pt"/><line x1="732.0" y1="119.8" x2="732.0" y2="154.1" class="err"/><line x1="727.0" y1="119.8" x2="737.0" y2="119.8" class="err"/><line x1="727.0" y1="154.1" x2="737.0" y2="154.1" class="err"/><circle cx="732.0" cy="138.0" r="4.2" class="pt"/>
+  <text x="380.0" y="288" text-anchor="middle" class="axislabel">Layer index</text>
+  <text x="18" y="150.0" transform="rotate(-90 18 150.0)" text-anchor="middle" class="axislabel">MMD (instruction vs user)</text>
+</svg>
+
+  <pre><code>FIGURE 1 — MMD between instruction-origin and user-origin hidden-state distributions by layer
+Purpose: Ground Assumption 3 by showing hidden-state distributions do not become fully separated.
+Structure/panels: Single line plot with error bars; x-axis layer index; y-axis MMD; lower MMD means more indistinguishable.
+Variables/axes/groups: Llama 3.1 8B Instruct; layers 0, 8, 16, 24, 31; instruction-origin vs user-origin hidden states.
+Numeric details: N = 300 sequences per corpus; bootstrap B = 1,000; MMD peaks at layer 8 (0.908 [0.860, 0.953]) and declines by layer 31 (0.755 [0.725, 0.789]).
+Main pattern: The model partially separates instruction and user representations in middle layers but retains overlap at every measured layer.
+Interpretation: Supports non-disjoint contextual representations, especially near later control-relevant layers.
+Limits: Single model, one measurement design, mean-pooled hidden states, and no direct causal link from MMD magnitude to a specific exploit threshold.</code></pre>
+
+  <h3>Exhibit - Von Neumann analogy</h3>
+  <table>
+    <thead><tr><th>Von Neumann architecture</th><th>Transformer / LLM architecture</th></tr></thead>
+    <tbody>
+      <tr><td>Shared memory for code and data</td><td>Shared embedding space for instructions and data</td></tr>
+      <tr><td>Program counter</td><td>Attention mechanism</td></tr>
+      <tr><td>Machine instruction</td><td>System-prompt token</td></tr>
+      <tr><td>User data in memory</td><td>User input embedding</td></tr>
+      <tr><td>Buffer overflow exploit</td><td>Prompt-injection attack</td></tr>
+      <tr><td>Stack canary / ASLR</td><td>Guardrail classifier / perplexity filter</td></tr>
+      <tr><td>NX bit / W xor X</td><td>Architectural separation</td></tr>
+      <tr><td>Memory-safe languages</td><td>Future semantically safe representational paradigms</td></tr>
+    </tbody>
+  </table>
+  <pre><code>EXHIBIT — Structural analogy
+Purpose: Explain why the authors view prompt injection as an architectural confusion between control and data.
+Interpretation: The analogy is useful for security intuition and defense-in-depth planning.
+Limits: The analogy is not proof; transformers do not execute embeddings as machine instructions in the same literal way CPUs execute memory bytes.</code></pre>
+
+  <h3>Exhibit - Architecture escape conditions</h3>
+  <pre><code>ARCHITECTURES OUTSIDE THE THEOREM'S SCOPE
+1. Disjoint trusted/untrusted encoders:
+   - Trusted instructions and untrusted content use separate representation pipelines.
+   - Interaction occurs only through constrained interfaces.
+2. Typed attention or hard segment masks:
+   - Untrusted positions are structurally forbidden from entering control-relevant trusted computation.
+   - Tags or masks are immutable and non-user-writable.
+3. External policy engines:
+   - Tool authorization, routing, and memory writes are decided outside the transformer.
+   - Shared hidden states can advise but not directly authorize privileged actions.
+Implementation implication: Ordinary delimiters, XML tags, prompt wording, and soft segment tokens are not sufficient. The relevant distinction is enforceability, not notation.</code></pre>
+</section>
+
+<section id="aiml-appraisal">
+  <h2>AI/ML systems appraisal add-on</h2>
+  <div class="kv">
+    <div class="k">Task</div><div>Formalize and evaluate a structural prompt-injection risk in shared-embedding LLM architectures, especially for control-authoritative outputs in agents and RAG systems.</div>
+    <div class="k">Data</div><div>M1 uses public system-prompt repositories and 50,000 UltraChat-200K user turns; M2 uses N = 300 sequences per corpus from Llama 3.1 8B Instruct hidden states; M3 tests two instruction models against five prompt-injection techniques.</div>
+    <div class="k">Method</div><div>Formal proof chain using representational overlap, total variation/Bayes-error identity, attention control-path exposure, and finite-coverage invariance gap; empirical measurements provide plausibility rather than exhaustive validation.</div>
+    <div class="k">Metrics</div><div>Vocabulary Jaccard/type overlap, probability-mass overlap, instruction coverage, MMD with bootstrap 95% CIs, qualitative behavioral output changes, and literature-derived adversarial examples.</div>
+    <div class="k">Failures / limits</div><div>No direct refusal flips in M3; no broad multi-model MMD study; no proof checked by peer review; no deployable separation design; key semantic-equivalence relation remains application-dependent.</div>
+    <div class="k">Bottom line</div><div>Conceptual and architecture-useful, not deployment-complete. Use it to harden design requirements for agents, RAG, tool calls, and persistent memory.</div>
+  </div>
+</section>
+
+<section id="evaluation">
+  <h2>Evaluation and appraisal</h2>
+  <div class="verdict"><strong>Verdict: Read soon / skim deeply.</strong> The paper is highly relevant for LLM application security, especially RAG and agent harnesses, but the strongest practical value is architectural framing rather than a settled peer-reviewed theorem.</div>
+  <div class="rating-grid">
+    <div class="mini-card"><div class="label">Relevance</div><div class="score">8.5</div><div class="small"><strong>Rationale:</strong> Directly applies to prompt injection, RAG, agent tools, memory writes, and policy routing. <strong>Evidence basis:</strong> formalizes control-authoritative outputs, not just generated text. <strong>Would raise:</strong> examples mapped to production agent designs. <strong>Would lower:</strong> if deployed systems already used external hard policy gates.</div></div>
+    <div class="mini-card"><div class="label">Novelty</div><div class="score">7.5</div><div class="small"><strong>Rationale:</strong> The SFC framing and impossibility-style architecture argument are useful additions beyond ordinary jailbreak benchmarking. <strong>Evidence basis:</strong> combines noninterference, shared representations, and finite invariance coverage. <strong>Would raise:</strong> peer-reviewed formalization and tighter theorem conditions. <strong>Would lower:</strong> if equivalent impossibility results already exist in prior prompt-injection formal work.</div></div>
+    <div class="mini-card"><div class="label">Method strength</div><div class="score">5.5</div><div class="small"><strong>Rationale:</strong> Formal components are plausible, but the main impossibility claim depends on assumptions and interpretive bridges. <strong>Evidence basis:</strong> Bayes-error identity and attention exposure are solid; semantic-equivalence and control-propagation claims need careful scrutiny. <strong>Would raise:</strong> formal proof review or mechanistic causal validation. <strong>Would lower:</strong> counterexamples using enforceable in-pipeline typing or alternative architectures.</div></div>
+    <div class="mini-card"><div class="label">Evidence strength</div><div class="score">5.5</div><div class="small"><strong>Rationale:</strong> Empirical support is directionally useful but limited. <strong>Evidence basis:</strong> M1/M2 support overlap; M3 did not show refusal flips; M4 is motivational. <strong>Would raise:</strong> multi-model causal experiments and direct control-output failures under controlled semantic equivalence. <strong>Would lower:</strong> evidence of robust separation in standard shared architectures.</div></div>
+    <div class="mini-card"><div class="label">External validity</div><div class="score">6.5</div><div class="small"><strong>Rationale:</strong> The architecture class covers many current LLM deployments, but the theorem explicitly excludes separated or externally governed systems. <strong>Evidence basis:</strong> shared transformer pipelines are common; hard tool gates are outside scope. <strong>Would raise:</strong> analysis across model families and agent frameworks. <strong>Would lower:</strong> if most real deployments move control decisions outside model hidden states.</div></div>
+    <div class="mini-card"><div class="label">Implementation value</div><div class="score">7.0</div><div class="small"><strong>Rationale:</strong> Strong for design requirements and risk communication, weaker for concrete implementation. <strong>Evidence basis:</strong> clear escape conditions: disjoint encoders, typed attention/masks, external policy engines. <strong>Would raise:</strong> reference architecture, code, test harness, or checklist. <strong>Would lower:</strong> if treated only as a conceptual analogy without design changes.</div></div>
+  </div>
+  <h3>Main strengths</h3>
+  <ul class="tight">
+    <li>Defines the relevant protected surface as control-authoritative behavior, which is more useful for agents than output-only jailbreak framing.</li>
+    <li>Separates “user input can affect behavior semantically” from “encoding tricks can affect privileged behavior,” which is the right security distinction.</li>
+    <li>Provides concrete architectural escape hatches rather than merely arguing for better filtering.</li>
+    <li>Preserves a defense-in-depth message and does not claim mitigations are useless.</li>
+  </ul>
+  <h3>Main limitations</h3>
+  <ul class="tight">
+    <li>The strongest claim is an impossibility result, but the proof depends on assumptions whose necessity and sufficiency deserve peer review.</li>
+    <li>Semantic equivalence is difficult to define operationally; different applications may legitimately treat encodings and presentation as security-relevant.</li>
+    <li>M3 shows output changes but not direct strict-SFC refusal flips in the authors' own experiment.</li>
+    <li>The empirical section is narrow: one MMD model, limited hidden-state sampling, and no broad external validation.</li>
+    <li>The Von Neumann analogy is useful but could encourage overclaiming if read as literal equivalence.</li>
+  </ul>
+  <div class="badnote"><strong>Do not overclaim:</strong> This source supports the view that prompt injection is structurally difficult to eliminate in shared-pipeline systems. It does not establish that guardrails, RLHF, detectors, prompt wrappers, or monitoring have no value. It also does not prove that every architecture labeled “transformer” is equally vulnerable under every deployment boundary.</div>
+</section>
+
+<section id="takeaways">
+  <h2>Implementation / practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><div class="label">Build</div><p>Move tool authorization, memory writes, irreversible actions, and sensitive routing into external deterministic policy layers. Treat the model as an advisor, not the final authority, for privileged actions.</p></div>
+    <div class="mini-card"><div class="label">Design</div><p>Separate trusted instructions, retrieved untrusted documents, user requests, system policy, and tool schemas as typed data structures before model invocation. Avoid relying on text delimiters as security boundaries.</p></div>
+    <div class="mini-card"><div class="label">Monitor</div><p>Log provenance, retrieved snippets, policy decisions, tool-call candidates, denials, overrides, and model rationales separately. Use audit trails that survive model-context rewriting.</p></div>
+    <div class="mini-card"><div class="label">Test</div><p>Create adversarial fixtures with semantic-preserving encodings: base64, homoglyphs, nested instructions in retrieved text, fake delimiters, role-play overrides, multi-turn decompositions, and vacuous suffixes.</p></div>
+    <div class="mini-card"><div class="label">Avoid</div><p>Do not advertise prompt templates, XML tags, “ignore instructions in retrieved content,” or post-hoc detectors as complete prompt-injection prevention.</p></div>
+    <div class="mini-card"><div class="label">Read next</div><p>Prioritize ASIDE/instruction-data separation work, formal prompt-injection benchmark papers, representation-level refusal work, and practical agent sandboxing / tool-policy architectures.</p></div>
+  </div>
+  <pre><code>MINIMAL AGENT SAFETY TRANSLATION
+- The LLM may propose a tool call.
+- A typed, external policy engine decides whether the call is allowed.
+- The policy engine reads structured provenance, user permissions, tool scope, action risk, and retrieved-source trust.
+- Retrieved text never directly grants permissions.
+- Memory writes require schema validation, provenance labeling, TTL/versioning, and human-review triggers for high-risk categories.
+- All denials and overrides are logged outside the model context.</code></pre>
+</section>
+
+<section id="qa">
+  <h2>QA and provenance</h2>
+  <h3>Semantic QA checklist</h3>
+  <ul class="tight">
+    <li>Source title, arXiv ID, authors, date/version, and source type included.</li>
+    <li>All main sections represented in section condensation.</li>
+    <li>All named main-text visuals accounted for: Table 1, Table 2, Figure 1; unnumbered Von Neumann analogy included as exhibit.</li>
+    <li>Central formal definitions, theorem chain, scope exclusions, and limitations preserved.</li>
+    <li>Claims separated from appraisal; empirical limits and overclaim risks explicitly marked.</li>
+    <li>No internal chat citations, external scripts, remote images, or external CSS included.</li>
+  </ul>
+  <h3>Provenance</h3>
+  <p class="footer-note">Source evaluated: uploaded PDF <em>2606.27567v1.pdf</em>, metadata DOI 10.48550/arXiv.2606.27567, arXiv:2606.27567v1. Artifact generated 2026-06-29. This reference condenses and appraises the source; it does not replace reading the paper or validating the theorem independently.</p>
+</section>
+</main>
+</body>
+</html>

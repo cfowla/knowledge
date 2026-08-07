@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference Appraisal - SkillCoach</title>
+<style>
+:root {
+  --bg:#f5f7fb; --card:#ffffff; --ink:#142033; --muted:#526173; --line:#d9e2ef;
+  --accent:#1d4f91; --accent2:#0f315f; --good:#0f6b3b; --warn:#8a5a00; --bad:#8a1f1f;
+  --soft:#eef5ff; --codebg:#0e1726; --codefg:#edf4ff;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.55; }
+header { background:linear-gradient(135deg,#10243d,#1d4f91); color:#fff; padding:2.1rem 1.25rem; border-bottom:5px solid #d2e2f5; }
+.wrap { max-width:1160px; margin:0 auto; padding:0 1.1rem; }
+header .wrap { padding:0 1.1rem; }
+h1 { margin:0 0 .7rem; font-size:clamp(1.7rem,3.5vw,3rem); line-height:1.1; max-width:980px; }
+.subtitle { margin:.35rem 0 0; font-size:1.02rem; opacity:.92; max-width:940px; }
+nav.toc, section { background:var(--card); border:1px solid var(--line); border-radius:16px; box-shadow:0 1px 5px rgba(16,36,61,.06); margin:1rem 0; padding:1.15rem 1.25rem; }
+nav.toc ul { columns:2; gap:2rem; margin:.35rem 0 0; padding-left:1.2rem; }
+nav.toc a { color:var(--accent2); text-decoration:none; }
+nav.toc a:hover { text-decoration:underline; }
+h2 { color:var(--accent2); margin:0 0 .75rem; font-size:1.35rem; }
+h3 { color:#173f72; margin:1.05rem 0 .45rem; font-size:1.05rem; }
+h4 { margin:.9rem 0 .35rem; color:#24364b; }
+p { margin:.55rem 0; }
+ul, ol { margin:.45rem 0 .7rem; padding-left:1.35rem; }
+li { margin:.24rem 0; }
+.meta-grid, .takeaway-grid, .mini-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(235px,1fr)); gap:.7rem; margin:.8rem 0; }
+.mini-card { border:1px solid var(--line); border-radius:12px; padding:.85rem; background:#fbfdff; }
+.mini-card strong { display:block; color:#1e395c; margin-bottom:.2rem; }
+.verdict { border-left:6px solid var(--accent); background:#eef5ff; padding:1rem; border-radius:12px; margin:.8rem 0; }
+.goodnote { border-left:6px solid var(--good); background:#effaf3; padding:.9rem 1rem; border-radius:12px; margin:.75rem 0; }
+.warning { border-left:6px solid var(--warn); background:#fff8e7; padding:.9rem 1rem; border-radius:12px; margin:.75rem 0; }
+.badnote { border-left:6px solid var(--bad); background:#fff0f0; padding:.9rem 1rem; border-radius:12px; margin:.75rem 0; }
+.tag { display:inline-block; border:1px solid #c9d6e8; background:#f2f6fc; color:#1e395c; border-radius:999px; padding:.18rem .55rem; margin:.12rem .16rem .12rem 0; font-size:.86rem; }
+table { width:100%; border-collapse:collapse; margin:.75rem 0 1rem; font-size:.92rem; }
+th, td { border:1px solid var(--line); padding:.55rem .65rem; vertical-align:top; }
+th { background:#eef3f9; text-align:left; color:#1e395c; }
+tbody tr:nth-child(even) td { background:#fbfdff; }
+.table-scroll { overflow-x:auto; }
+pre { background:var(--codebg); color:var(--codefg); padding:1rem; border-radius:12px; overflow-x:auto; border:1px solid #1b2e49; white-space:pre-wrap; font-size:.9rem; }
+code { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.kv { display:grid; grid-template-columns:180px 1fr; gap:.35rem .8rem; }
+.kv div:nth-child(odd) { color:#38506d; font-weight:700; }
+.section-summary { border-top:1px solid var(--line); padding-top:.8rem; margin-top:.8rem; }
+.rating-call { font-weight:700; color:#173f72; }
+footer { color:var(--muted); font-size:.9rem; padding:1rem 0 2rem; }
+@media (max-width:720px) { nav.toc ul { columns:1; } .kv { grid-template-columns:1fr; } th, td { font-size:.86rem; } }
+@media print { body { background:#fff; } nav.toc, section { box-shadow:none; break-inside:avoid; } header { color:#000; background:#fff; border-bottom:2px solid #000; } a { color:inherit; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use</h1>
+    <p class="subtitle">Reference appraisal of an arXiv AI/ML systems paper on skill-grounded process rubrics, distractor-aware agent evaluation, and rubric-filtered supervised fine-tuning.</p>
+    <p class="subtitle"><span class="tag">AI/ML systems</span><span class="tag">agent evaluation</span><span class="tag">process supervision</span><span class="tag">skill libraries</span><span class="tag">rubric evolution</span></p>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#source-map">Source map and coverage</a></li>
+    <li><a href="#section-summary">Section-by-section condensation</a></li>
+    <li><a href="#figures">Figures, tables, and workflows</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#implementation">Implementation takeaways</a></li>
+    <li><a href="#qa">Semantic QA and provenance</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="kv">
+    <div>Title</div><div>SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use</div><div>Authors</div><div>Jiayin Zhu; Kelong Mao; Yudong Guo; Dengbo He; Sulong Xu; Simiu Gu; Yutao Yue</div><div>Affiliations</div><div>HKUST(GZ); JD.COM</div><div>Source type</div><div>arXiv preprint / AI agent evaluation and training systems paper</div><div>Identifier</div><div>arXiv:2607.01874v1 [cs.AI]</div><div>Date / version</div><div>2 Jul 2026, version 1</div><div>Design</div><div>Method proposal plus benchmark-style evaluation on selected skill-dependent tasks, rubric-quality audit, distractor stress test, and offline supervised fine-tuning ablations</div><div>Lens</div><div>AI/ML systems; agent evaluation; process supervision; skill-library reliability</div><div>Scope warning</div><div>This reference appraises the paper as a source for agent-evaluation and workflow design. It does not validate SkillCoach for production deployment, regulatory use, or safety-critical automation.</div>
+  </div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="verdict"><strong>Verdict: Read soon.</strong> The paper is directly useful for designing agent-evaluation harnesses and skill-library governance, but its empirical claims should be treated as benchmark-level and pre-deployment rather than validated production evidence.</div>
+  <p><strong>Core thesis.</strong> Final verifier success is too coarse for agents that use reusable skills. A trajectory can pass an external checker while selecting a distractor skill, skipping required SOP steps, using skills in the wrong order, or omitting final checks. SkillCoach frames reliable skill-use as four trajectory-level abilities: skill selection, skill following, skill composition, and skill-grounded reflection.</p>
+  <p><strong>Method in one sentence.</strong> For each skill-dependent task, SkillCoach derives an initial task-specific rubric from gold skills and oracle materials, judges real rollouts using observable evidence, applies validation-gated local patches, and then uses the best evolved rubric for trajectory diagnosis and rubric-filtered supervised fine-tuning.</p>
+  <p><strong>Main empirical story.</strong> Selected tasks show much larger gold-skill gains than the original SkillsBench pool. Evolved rubrics improve gold-keypoint coverage from 71.56 to 83.70 and filtering consistency from 82.00 to 96.00. Under Gold + Distractors, strong agents retain high final accuracy but show process degradation, especially skill-selection failures. Rubric-filtered SFT improves Qwen3.5-4B from 8.0 to 24.0 final accuracy and Qwen3.5-9B from 14.0 to 32.0, while outcome-only SFT is weaker.</p>
+  <div class="warning"><strong>Main caution.</strong> The evaluation is selected, benchmark-based, and judge-assisted. The paper reports limited statistical uncertainty, no long-term deployment feedback, and no on-policy RL results. Treat the framework as a strong design pattern, not as established proof that self-evolving rubrics are safe or robust in production.</div>
+  <div class="mini-grid">
+    <div class="mini-card"><strong>Best use</strong>Designing process-level agent evaluation, skill-library audits, rubric-gated training data filters, and trajectory QA dashboards.</div>
+    <div class="mini-card"><strong>Do not use for</strong>Claims that the framework is production-validated, regulatorily adequate, or superior across non-skill agent tasks.</div>
+    <div class="mini-card"><strong>Key reusable idea</strong>Keep external verifier success separate from observable process quality, then use the process rubric to filter demonstrations.</div>
+  </div>
+</section>
+
+<section id="source-map">
+  <h2>Source map and coverage</h2>
+  <pre><code>SOURCE COVERAGE MANIFEST
+source_id: arXiv:2607.01874v1
+exact_title: SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use
+source_type: arXiv preprint; AI/ML agent evaluation and training systems
+sections_or_headings: Abstract; 1 Introduction; 2 Related Work; 3 Method with 3.1-3.5; 4 Experiments with 4.1-4.4; 5 Conclusion; 6 Limitations; References; Appendices A-D
+figures: 4 main-text figures, all represented below as structured blocks
+tables: 5 tables, all represented below as structured or HTML tables
+algorithms_or_workflows: overall SkillCoach pipeline; self-evolving rubric loop; rubric scoring formulas; training filter; appendix prompt/evaluation components
+appendices_or_supplements: A task inventory; B process score aggregation; C SFT details; D implementation and prompt templates
+coverage_decision: include all main-text figures/tables and reproducibility-relevant appendix content
+omissions: full 23-item bibliography and full verbatim prompt templates omitted from this artifact; the appendix prompt functions and gate rules are summarized because the exact prompt bodies are lengthy and largely template boilerplate.</code></pre>
+  <div class="goodnote"><strong>Coverage decision.</strong> All four figures and all five tables are represented. The main workflows and appendix implementation details are summarized because they are central to reproducibility and implementation.</div>
+</section>
+
+<section id="section-summary">
+  <h2>Section-by-section condensation</h2>
+  <div class="section-summary">
+    <h3>Abstract</h3>
+    <p>The abstract positions skills as a reusable operational layer for LLM agents, covering SOPs, domain rules, tool workflows, scripts, and validation routines. It argues that realistic skill repositories create overlapping-skill failure modes that final verifier success cannot diagnose.</p>
+    <p>SkillCoach is introduced as a self-evolving rubric framework that evaluates trajectories across skill selection, skill following, skill composition, and skill-grounded reflection while keeping the external verifier separate. The authors claim improved evaluator quality, exposure of hidden process failures, and better supervision than outcome-only filtering.</p>
+  </div>
+  <div class="section-summary">
+    <h3>1. Introduction</h3>
+    <p>The introduction identifies a deployment gap: prior work often assumes that once a useful skill exists or is retrieved, an agent can use it correctly. The authors argue that enterprise skill libraries break this assumption because agents can select wrong skills, miss required steps, compose workflows incorrectly, or skip skill-specified validation.</p>
+    <p>The contribution is a process-level formulation of agentic skill-use plus a self-evolving rubric pipeline. The paper emphasizes two deployment realities: skill-dependent tasks, where gold skills materially improve performance, and distractor-augmented repositories that resemble shared enterprise libraries with overlapping procedures.</p>
+  </div>
+  <div class="section-summary">
+    <h3>2. Related Work</h3>
+    <p>The paper distinguishes its target from work on skill benchmarks, skill generation, retrieval, refinement, lifecycle management, and agent trajectory evaluation. It acknowledges closely related directions such as SkillsBench, SkillLearnBench, SkillFlow, Agent-as-a-Judge, AgentProcessBench, ToolPRMBench, AdaRubric, Autorubric, and Counterfactual Trace Auditing.</p>
+    <p>The claimed gap is specific: existing approaches do not explicitly ground process rubrics in concrete skill-library structure, including gold skills, distractors, key steps, cross-skill dependencies, and skill-grounded reflection criteria.</p>
+  </div>
+  <div class="section-summary">
+    <h3>3. Method</h3>
+    <p>SkillCoach operates over tasks represented as instruction, target output/final state, executable environment, external verifier, and skill library. The library is the union of gold skills and distractors. Tasks are accepted as skill-dependent only when no-skill success is at most 0.30, gold-skill improvement is at least 0.40, and key-step coverage is at least 0.70.</p>
+    <p>The process score decomposes into selection, following, composition, and reflection. Selection is a set-level F1 over selected skills and gold skills, with negative abstention when no gold skill applies. Following scores weighted key-step completion with an evidence multiplier. Composition scores ordered dependencies and artifact handoffs. Reflection scores explicit visible checks before submission.</p>
+  </div>
+  <div class="section-summary">
+    <h3>3.4-3.5 Self-evolving rubrics and training</h3>
+    <p>The self-evolving rubric pipeline builds R0 from task instructions, candidate skills, gold/distractor skills, verifier information, and representative rollouts. A rollout agent executes in the real environment; an evidence extractor records skill reads, gold/distractor signals, tool calls, file edits, script executions, artifacts, and validation attempts. Positive judgments for following, composition, and reflection require visible evidence.</p>
+    <p>Rubric evolution uses calibration rollouts to propose local patches and hidden validation rollouts to accept or reject them. Accepted patches must pass hard gates, improve soft quality, show material improvement beyond judge confidence, and avoid structural violations. Training then retains trajectories only when they pass the external verifier and reach a rubric meta score of at least 0.95.</p>
+  </div>
+  <div class="section-summary">
+    <h3>4. Experiments</h3>
+    <p>The experiments address rubric quality, process-level diagnosis under skill libraries, rubric-filtered training, and distractor-boundary scaling. Rubric quality is evaluated on 50 paired test instances from 10 held-out task families using a human-gold process reference and an independent Gemini 3.1 Pro judge instructed to ignore verifier outcomes.</p>
+    <p>Agent evaluation shows that gold skills improve final accuracy, but distractors degrade process reliability. The SFT experiment shows that Rbest-filtered trajectories outperform outcome-only trajectories for small Qwen3.5 models. The distractor-boundary analysis isolates skill selection as candidate libraries scale to tens of thousands of skill files.</p>
+  </div>
+  <div class="section-summary">
+    <h3>5. Conclusion</h3>
+    <p>The conclusion restates SkillCoach as a way to measure and train reliable skill-use by separating process quality from external verifier success. The authors argue that evolved skill-grounded rubrics both reveal hidden failures and select better SFT demonstrations.</p>
+  </div>
+  <div class="section-summary">
+    <h3>6. Limitations</h3>
+    <p>The authors acknowledge two main limitations: selected benchmark-derived skill-dependent tasks remain smaller than production repositories, and the training study is offline SFT rather than on-policy RL or deployment feedback.</p>
+    <p>Additional appraisal limitations include limited reported statistical uncertainty, dependence on LLM-based judges, unclear artifact/code availability in the paper text, and possible sensitivity to task-selection and model-choice decisions.</p>
+  </div>
+</section>
+
+<section id="figures">
+  <h2>Figures, tables, workflows, and appendix evidence</h2>
+  <h3>Main-text figures</h3>
+  <pre><code>FIGURE 1 - Motivating example of agentic skill-use diagnosis
+Purpose: Show why final success is insufficient for skill-using agents.
+Structure/panels: Two trajectories in a flood-analysis task both reach the same final answer; one uses/follows/checks the gold skill and the other self-explores through wrong middle steps.
+Variables/groups: Gold skills, distractor skills, environment data, verifier, oracle solve, outcome-only evaluation, and self-evolving Rbest rubric.
+Numeric details: Example threshold includes flood threshold 8.0 ft and final output station id/flood days 04124000,5.
+Main pattern: Outcome-only evaluation treats both trajectories as acceptable, but SkillCoach distinguishes reusable skill-use from accidental success.
+Interpretation: The figure justifies process supervision and trajectory-level diagnosis.
+Limits: Illustrative example; not empirical evidence by itself.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 2 - Overall framework of SkillCoach
+Purpose: Define the system-level pipeline.
+Structure/panels: Stage 1 environment and task setup; Stage 2 SkillCoach core; Stage 3 downstream uses.
+Variables/groups: 18 training tasks, 10 testing tasks, gold skills, distractors, data, verifier, process dimensions, initial rubric, real rollouts, judge evidence, arbitration/validation, best rubric.
+Main pattern: The framework transforms real rollouts into evolved rubrics, then uses those rubrics for trajectory diagnosis and rubric-filtered training.
+Interpretation: The verifier remains external to the process rubric, which is important for separating outcome from process.
+Limits: The figure abstracts away operational cost, judge reliability, and human-reference construction.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 3 - The Self-Evolving Rubric Framework
+Purpose: Detail the rubric evolution loop.
+Structure/panels: Initial rubric; rollout split into calibration and validation rollouts; judge stage with LLM, evidence extraction, and current rubric; arbitration stage with hard gate and soft objective; accepted versions R0, R1, R2, ... Rbest.
+Process: Candidate patches are proposed from calibration evidence only; validation rollouts decide acceptance; best rubric is selected by validation performance.
+Main pattern: Local patching plus validation gating is used to prevent destructive self-editing.
+Interpretation: This is the methodological core of the paper.
+Limits: The figure does not quantify judge variance, patch failure modes, or annotation burden.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 4 - Distractor-boundary analysis under growing and semantically overlapping skill libraries
+Purpose: Stress-test skill selection as candidate skill libraries scale.
+Panel A: Library-scale degradation and collapse; degradation occurs at small candidate expansions for several models, while collapse occurs much later for some models and not by 50k distractors for GPT-5.5 and Opus 4.7.
+Panel B: Distractor-type sensitivity; high-similarity distractors are worse than same-domain or random unrelated distractors. Examples: GPT-5.5 selection F1 drops 0.84 to 0.59 from random unrelated to high-similarity; Opus 4.7 drops 0.87 to 0.71; DeepSeek V4 Flash drops 0.70 to 0.46.
+Panel C: Boundary decision vs. exact skill selection; models can abstain well on non-trigger requests while still failing exact gold-present selection.
+Main pattern: Skill selection degrades before complete collapse; near-neighbor skills are especially harmful.
+Interpretation: Realistic skill libraries need retrieval/ranking/candidate-filtering, not just better skill instructions.
+Limits: Selection is isolated from full task execution, so the stress test does not measure downstream recovery or end-to-end task success.
+Representation: Structured block.</code></pre>
+
+  <h3>Tables</h3>
+  <h4>Table 1 - Skill-dependency statistics</h4>
+  <div class="table-scroll"><table class=""><thead><tr><th>Task set</th><th>No-skill success pno</th><th>Gold-skill success pgold</th><th>Gain</th></tr></thead><tbody><tr><td>SkillsBench tasks</td><td>33.8%</td><td>47.2%</td><td>+13.4 pp</td></tr><tr><td>Selected training tasks</td><td>19.6%</td><td>74.8%</td><td>+55.2 pp</td></tr><tr><td>Selected test tasks</td><td>16.8%</td><td>67.6%</td><td>+50.8 pp</td></tr></tbody></table></div>
+  <p><strong>Interpretation.</strong> The selected tasks show much larger gains from gold skills than the broader SkillsBench pool, supporting the paper's focus on skill-use rather than generic problem solving. This also means the task-selection filter can inflate apparent value for skill-focused methods.</p>
+
+  <h4>Table 2 - Human-gold validation of rubrics before and after self-evolution</h4>
+  <div class="table-scroll"><table class=""><thead><tr><th>Metric</th><th>R0</th><th>Rbest</th><th>Change</th></tr></thead><tbody><tr><td>Gold-keypoint coverage</td><td>71.56</td><td>83.70</td><td>+12.14 pp</td></tr><tr><td>Usability score</td><td>81.53</td><td>94.33</td><td>+12.80 points</td></tr><tr><td>Hallucination rate</td><td>2.00</td><td>0.00</td><td>-2.00 pp</td></tr><tr><td>Filtering consistency</td><td>82.00</td><td>96.00</td><td>+14.00 pp</td></tr></tbody></table></div>
+  <p><strong>Interpretation.</strong> Rbest improves coverage, usability, hallucination rate, and filtering consistency. Because the validation is judge-assisted and macro-averaged, the table supports evaluator plausibility more than definitive human-validity proof.</p>
+
+  <h4>Table 3 - Overall performance under skill-library settings</h4>
+  <div class="table-scroll"><table class=""><thead><tr><th>Model</th><th>Skill library</th><th>Final</th><th>Selection</th><th>Following</th><th>Order</th><th>Reflection</th></tr></thead><tbody><tr><td>DeepSeek-V4-Flash</td><td>No Skills</td><td>10.0</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>DeepSeek-V4-Flash</td><td>Gold Skills</td><td>32.0</td><td>88.0</td><td>40.1</td><td>68.9</td><td>72.0</td></tr><tr><td>DeepSeek-V4-Flash</td><td>Gold + Distractors</td><td>26.0</td><td>66.0</td><td>39.6</td><td>62.1</td><td>86.0</td></tr><tr><td>Opus-4.7</td><td>No Skills</td><td>18.0</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Opus-4.7</td><td>Gold Skills</td><td>88.0</td><td>100.0</td><td>86.5</td><td>100.0</td><td>90.0</td></tr><tr><td>Opus-4.7</td><td>Gold + Distractors</td><td>80.0</td><td>90.0</td><td>77.2</td><td>89.7</td><td>90.0</td></tr><tr><td>GPT-5.5</td><td>No Skills</td><td>24.0</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>GPT-5.5</td><td>Gold Skills</td><td>80.0</td><td>100.0</td><td>80.0</td><td>96.6</td><td>100.0</td></tr><tr><td>GPT-5.5</td><td>Gold + Distractors</td><td>76.0</td><td>96.0</td><td>71.8</td><td>93.1</td><td>84.0</td></tr><tr><td>Gemini-3.1-Pro</td><td>No Skills</td><td>16.0</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Gemini-3.1-Pro</td><td>Gold Skills</td><td>72.0</td><td>98.0</td><td>72.6</td><td>82.8</td><td>90.0</td></tr><tr><td>Gemini-3.1-Pro</td><td>Gold + Distractors</td><td>70.0</td><td>78.0</td><td>82.7</td><td>89.7</td><td>70.0</td></tr><tr><td>Kimi-K2.6</td><td>No Skills</td><td>16.0</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Kimi-K2.6</td><td>Gold Skills</td><td>66.0</td><td>92.0</td><td>84.2</td><td>93.1</td><td>88.0</td></tr><tr><td>Kimi-K2.6</td><td>Gold + Distractors</td><td>54.0</td><td>86.0</td><td>72.7</td><td>86.2</td><td>86.0</td></tr><tr><td>Qwen3.5-4B</td><td>No Skills</td><td>0.0</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Qwen3.5-4B</td><td>Gold Skills</td><td>8.0</td><td>80.0</td><td>39.5</td><td>44.8</td><td>64.0</td></tr><tr><td>Qwen3.5-4B</td><td>Gold + Distractors</td><td>8.0</td><td>44.0</td><td>36.7</td><td>41.4</td><td>38.0</td></tr><tr><td>Qwen3.5-9B</td><td>No Skills</td><td>2.0</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Qwen3.5-9B</td><td>Gold Skills</td><td>18.0</td><td>92.0</td><td>47.2</td><td>48.3</td><td>76.0</td></tr><tr><td>Qwen3.5-9B</td><td>Gold + Distractors</td><td>14.0</td><td>44.0</td><td>44.5</td><td>34.5</td><td>34.0</td></tr></tbody></table></div>
+  <p><strong>Interpretation.</strong> Gold skills improve final accuracy, but adding distractors often reduces process metrics and sometimes final accuracy. GPT-5.5 and Opus-4.7 remain high-performing in final accuracy under distractors, while Qwen variants show large selection and reflection weaknesses.</p>
+
+  <h4>Table 4 - Rubric-filtered SFT ablation under Gold + Distractors</h4>
+  <div class="table-scroll"><table class=""><thead><tr><th>Training / model setting</th><th>Qwen3.5-4B final accuracy</th><th>Qwen3.5-9B final accuracy</th></tr></thead><tbody><tr><td>Base Qwen3.5</td><td>8.0</td><td>14.0</td></tr><tr><td>Outcome-only SFT</td><td>6.0</td><td>18.0</td></tr><tr><td>DeepSeek-V4-Flash (284B reference, not trained)</td><td>26.0</td><td></td></tr><tr><td>Full SFT with R0</td><td>16.0</td><td>28.0</td></tr><tr><td>Full SFT with Rbest</td><td>24.0</td><td>32.0</td></tr><tr><td>Ablation: without composition order</td><td>18.0</td><td>26.0</td></tr><tr><td>Ablation: without reflection</td><td>24.0</td><td>28.0</td></tr><tr><td>Ablation: without key-step following</td><td>10.0</td><td>16.0</td></tr></tbody></table></div>
+  <p><strong>Interpretation.</strong> Rbest-filtered SFT beats R0-filtered and outcome-only SFT in both Qwen sizes. Removing key-step following has the largest negative effect, implying that faithful skill execution is the most valuable filtering signal among the tested ablations.</p>
+
+  <h4>Table 5 - SkillCoach task inventory</h4>
+  <div class="table-scroll"><table class=""><thead><tr><th>Split</th><th>Category</th><th>Task</th><th>Gold skills</th><th>Distractors</th><th>Instances</th></tr></thead><tbody><tr><td>Training</td><td>Software Engineering</td><td>software-dependency-audit</td><td>3</td><td>5</td><td>3</td></tr><tr><td>Training</td><td>Software Engineering</td><td>fix-security-bug</td><td>1</td><td>5</td><td>1</td></tr><tr><td>Training</td><td>Software Engineering</td><td>fix-erlang-ssh-cve</td><td>6</td><td>5</td><td>1</td></tr><tr><td>Training</td><td>Productivity Tools</td><td>offer-letter-generator</td><td>1</td><td>5</td><td>5</td></tr><tr><td>Training</td><td>Productivity Tools</td><td>court-form-filling</td><td>1</td><td>5</td><td>1</td></tr><tr><td>Training</td><td>Environmental & Scientific Analysis</td><td>earthquake-plate-calculation</td><td>1</td><td>5</td><td>1</td></tr><tr><td>Training</td><td>Environmental & Scientific Analysis</td><td>flood-risk-analysis</td><td>3</td><td>5</td><td>1</td></tr><tr><td>Training</td><td>Environmental & Scientific Analysis</td><td>lake-warming-attribution</td><td>4</td><td>5</td><td>1</td></tr><tr><td>Training</td><td>Business & Financial Analytics</td><td>weighted-gdp-calc</td><td>1</td><td>5</td><td>5</td></tr><tr><td>Training</td><td>Business & Financial Analytics</td><td>sales-pivot-analysis</td><td>2</td><td>5</td><td>6</td></tr><tr><td>Training</td><td>Business & Financial Analytics</td><td>sec-financial-report</td><td>2</td><td>5</td><td>5</td></tr><tr><td>Training</td><td>Business & Financial Analytics</td><td>invoice-fraud-detection</td><td>3</td><td>5</td><td>4</td></tr><tr><td>Training</td><td>Scientific Computing</td><td>lab-unit-harmonization</td><td>1</td><td>5</td><td>3</td></tr><tr><td>Training</td><td>Scientific Computing</td><td>mars-clouds-clustering</td><td>3</td><td>5</td><td>1</td></tr><tr><td>Training</td><td>Scientific Computing</td><td>protein-expression-analysis</td><td>1</td><td>5</td><td>5</td></tr><tr><td>Training</td><td>Optimization & Operations</td><td>grid-dispatch-operator</td><td>3</td><td>5</td><td>1</td></tr><tr><td>Training</td><td>Optimization & Operations</td><td>powerlifting-coef-calc</td><td>3</td><td>5</td><td>5</td></tr><tr><td>Training</td><td>Content & Creative</td><td>mario-coin-counting</td><td>3</td><td>5</td><td>1</td></tr><tr><td>Training total</td><td></td><td>18 task families</td><td>42</td><td>90</td><td>50</td></tr><tr><td>Test</td><td>Software Engineering</td><td>nlp-paper-reproduction</td><td>2</td><td>5</td><td>3</td></tr><tr><td>Test</td><td>Software Engineering</td><td>dependency-vulnerability-check</td><td>3</td><td>5</td><td>5</td></tr><tr><td>Test</td><td>Information Retrieval</td><td>enterprise-information-search</td><td>1</td><td>5</td><td>6</td></tr><tr><td>Test</td><td>Data & Analytics</td><td>financial-analysis</td><td>2</td><td>5</td><td>6</td></tr><tr><td>Test</td><td>Data & Analytics</td><td>dbscan-parameter-tuning</td><td>3</td><td>5</td><td>5</td></tr><tr><td>Test</td><td>Data & Analytics</td><td>stock-data-visualization</td><td>1</td><td>5</td><td>5</td></tr><tr><td>Test</td><td>Content & Creative</td><td>anthropic-poster-design</td><td>1</td><td>5</td><td>5</td></tr><tr><td>Test</td><td>Content & Creative</td><td>chinese-poem-generator</td><td>1</td><td>5</td><td>5</td></tr><tr><td>Test</td><td>Content & Creative</td><td>video-object-counting</td><td>3</td><td>5</td><td>5</td></tr><tr><td>Test</td><td>Utilities & Other</td><td>temperature-simulation</td><td>3</td><td>5</td><td>5</td></tr><tr><td>Test total</td><td></td><td>10 task families</td><td>20</td><td>50</td><td>50</td></tr></tbody></table></div>
+  <p><strong>Interpretation.</strong> The inventory is broad across enterprise-style domains but still totals only 100 instances across 28 task families. It is useful for method demonstration, not enough to establish broad production generality.</p>
+
+  <h3>Core workflow and scoring formulas</h3>
+  <pre><code>SkillCoach execution loop
+1. Select skill-dependent task packages using pno <= 0.30, pgold - pno >= 0.40, and key-step coverage >= 0.70.
+2. Expose gold skills plus distractors to the agent in an executable environment.
+3. Collect observable trajectories: skill reads/invocations, tool calls, file edits, scripts, artifacts, final outputs, and validation attempts.
+4. Score process dimensions: selection, following, composition, reflection.
+5. Keep the external verifier as a separate post-hoc outcome signal.
+6. Evolve rubrics through calibration-based local patches and held-out validation gates.
+7. Use Rbest for diagnosis and for filtering verifier-passing trajectories before SFT.</code></pre>
+  <pre><code>Scoring structure
+skill_selection: set-level F1 over selected skills and gold skills; negative abstention when no gold skill applies.
+skill_following: weighted key-step completion multiplied by evidence support; unsupported claims do not receive completion credit.
+skill_composition: weighted dependency/order/handoff score over required skill or subprocess precedence pairs.
+result_reflection: weighted visible pre-submission checks over expected output/schema/task constraints.
+aggregate Smeta: default weights selection 0.40, following 0.30, composition 0.20, reflection 0.10, renormalized when a dimension is not applicable.
+external verifier sver: separate result in {0,1,not executable}; not part of the process meta score.</code></pre>
+
+  <h3>Appendix and reproducibility-relevant components</h3>
+  <pre><code>Appendix A - Task inventory
+Includes 18 training task families and 10 held-out test task families. Each task uses gold skills, two cross-task distractors, and three semantically near but inapplicable distractors.
+
+Appendix B - Process-score aggregation
+Defines Smeta and sver separately. This is important because a verifier-passing trajectory can still have poor skill-use behavior.
+
+Appendix C - Rubric-filtered SFT details
+Full-parameter SFT for Qwen3.5-4B and Qwen3.5-9B using LLaMA-Factory; 5 epochs; learning rate 5e-6; cosine schedule; warmup 0.1; per-device batch size 1; bf16; DeepSpeed ZeRO-2; checkpoint selected by lowest validation loss.
+
+Appendix D - Implementation details and prompt templates
+Prompt components cover key-step extraction, R0 generation, skill-selection evidence boundaries, skill-following judging, composition-order judging, result-reflection judging, and rubric-patch arbitration. Non-prompt components include hard verifier, validation gate, and score aggregation.</code></pre>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="verdict"><strong>Bottom line.</strong> SkillCoach is a high-value framework paper for agent-evaluation design. Its strongest contribution is the explicit separation of skill-grounded process quality from final verifier success. Its weakest point is validation maturity: the paper does not yet show robust production deployment, open reproducibility, or statistical uncertainty sufficient for strong external validity claims.</div>
+  <div class="table-scroll"><table class="ratings"><thead><tr><th>Dimension</th><th>Score</th><th>Rationale</th><th>Evidence basis</th><th>Principal limiting factor</th><th>What would raise/lower the score</th></tr></thead><tbody><tr><td>Relevance</td><td>8.5/10</td><td>Strong fit for agent harnesses, deterministic evaluation, process supervision, and reusable skill libraries.</td><td>The method directly targets skill selection/following/composition/reflection under distractors and produces deployable rubric artifacts.</td><td>Limited to agent skill-use settings; less relevant to general LLM evaluation without tool/skill workflows.</td><td>Higher with direct comparison to production agent traces; lower if the reader only needs general benchmark scores.</td></tr><tr><td>Novelty</td><td>7.5/10</td><td>The paper combines skill-grounded process rubrics, validation-gated rubric evolution, and rubric-filtered SFT in a coherent framework.</td><td>Related work exists on agent-as-judge, process reward models, adaptive rubrics, and skill evolution; the distinctive move is grounding process evaluation in concrete skill-library structure.</td><td>Incremental overlap with rubric generation and process-supervision literature is substantial.</td><td>Higher with stronger proof that self-evolution beats simpler prompt/rubric editing; lower if prior unpublished systems already use similar rubric gates.</td></tr><tr><td>Method strength</td><td>6.5/10</td><td>The design has useful controls and ablations, but relies on selected tasks, LLM judges, and limited public reproducibility detail.</td><td>Task filtering uses explicit thresholds; distractors are injected; R0 vs Rbest and outcome-only SFT comparisons are reported; appendix gives gate and prompt details.</td><td>No reported statistical uncertainty, no clear code/data release in the paper, and evaluator quality depends partly on another LLM judge.</td><td>Higher with open artifacts, blinded human evaluation, confidence intervals, and independent replication; lower if task selection or judge choice drives the gains.</td></tr><tr><td>Evidence strength</td><td>6.0/10</td><td>Results are directionally consistent but not definitive enough to treat SkillCoach as validated infrastructure.</td><td>Rbest improves coverage/usability/filtering consistency and improves Qwen SFT accuracy over baselines; distractor boundary analysis reveals plausible failure modes.</td><td>Absolute SFT performance remains low, gains are small in some settings, and final accuracy lacks statistical testing.</td><td>Higher with larger task pools, per-task variance, effect sizes with uncertainty, and real-world deployment metrics; lower if gains fail under non-benchmark workloads.</td></tr><tr><td>External validity</td><td>5.5/10</td><td>The paper deliberately simulates enterprise repositories, but experiments remain benchmark-based and selected.</td><td>The task set spans software, business analytics, scientific analysis, productivity tools, and creative/multimodal work; distractor libraries reach 35,554 to 50k skill files.</td><td>Real enterprise skills, access controls, policy compliance, tool failures, latency, and long-term drift are not evaluated.</td><td>Higher with multi-organization traces and production skill repositories; lower if benchmark tasks are unrepresentative of real SOP-heavy workflows.</td></tr><tr><td>Implementation value</td><td>8.0/10</td><td>The framework is highly build-useful as a design pattern for agent evaluation pipelines.</td><td>It specifies dimensions, score formulas, gating logic, calibration/validation split, prompt templates, hard-verifier separation, and SFT filtering thresholds.</td><td>Operational burden is nontrivial: maintaining gold skills, distractors, rollouts, evidence extraction, validation gates, and human-gold references requires infrastructure.</td><td>Higher with code, schemas, and examples; lower where teams cannot collect trajectory evidence or maintain skill-grounded rubrics.</td></tr></tbody></table></div>
+  <h3>Main strengths</h3>
+  <ul>
+    <li><strong>Correct target.</strong> The paper addresses a real failure mode in tool/skill agents: final outcome checks hide wrong-skill selection, skipped SOP steps, and brittle self-repair.</li>
+    <li><strong>Useful decomposition.</strong> Selection, following, composition, and reflection map well to operational failure categories that can be logged and audited.</li>
+    <li><strong>Verifier separation.</strong> Keeping external verifier success separate from process scoring avoids turning accidental success into a positive demonstration.</li>
+    <li><strong>Implementation detail.</strong> The appendix provides enough architecture and prompt structure to guide a prototype without treating the text as a black-box method.</li>
+    <li><strong>Relevant distractor analysis.</strong> The library-scaling and semantic-neighbor tests are closer to real enterprise repositories than gold-only skill settings.</li>
+  </ul>
+  <h3>Main limitations and red flags</h3>
+  <ul>
+    <li><strong>Selected-task evidence.</strong> The task-dependency filter enriches for settings where skills matter, which is appropriate for the research question but limits generalizability.</li>
+    <li><strong>Judge-assisted validation.</strong> Rubric quality is evaluated by an independent LLM judge against human-gold references. That is useful, but it is not equivalent to large-scale blinded human adjudication.</li>
+    <li><strong>Limited uncertainty reporting.</strong> Tables report point estimates without confidence intervals, per-task variance, or significance testing.</li>
+    <li><strong>Deployment gap.</strong> No long-term production monitoring, compliance auditing, latency/cost analysis, drift handling, or on-policy RL study is reported.</li>
+    <li><strong>Reproducibility gap.</strong> The paper gives prompts and gate logic, but the appraised text does not provide enough executable artifacts to independently reproduce all numbers.</li>
+  </ul>
+  <h3>Confidence in appraisal</h3>
+  <p><strong>Moderate.</strong> The source is internally coherent and reports multiple convergent experiments, but the empirical strength is capped by benchmark selection, LLM-judge dependence, missing statistical uncertainty, and incomplete deployment validation.</p>
+</section>
+
+<section id="implementation">
+  <h2>Implementation and practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><strong>Build-useful takeaway</strong>For any SOP/skill repository, log explicit evidence for skill read/invocation, key-step execution, artifact handoff, and final validation rather than recording only final success.</div>
+    <div class="mini-card"><strong>Training-data rule</strong>Do not use all verifier-passing traces as positive SFT demonstrations. Require process-quality gates and reject accidental success.</div>
+    <div class="mini-card"><strong>Rubric design rule</strong>Separate hard verifiers from rubric judges. A verifier can confirm output validity, but the rubric should check how the agent got there.</div>
+    <div class="mini-card"><strong>Skill-library governance</strong>Track distractor pressure. Similar but inapplicable skills are more dangerous than obviously unrelated skills.</div>
+    <div class="mini-card"><strong>Evaluation dashboard</strong>Report final accuracy alongside selection, following, composition, and reflection scores. A single pass rate is not enough.</div>
+    <div class="mini-card"><strong>Operational caveat</strong>Self-evolving rubrics require validation gates, held-out traces, and destructive-change checks. Ungated self-editing can amplify evaluator drift.</div>
+  </div>
+  <h3>How to reuse this in an agent/RAG evaluation stack</h3>
+  <ol>
+    <li>Define a skill as an operational unit with trigger conditions, required steps, expected artifacts, and validation checks.</li>
+    <li>Create a gold/distractor map for each evaluation task, including near-neighbor skills that should not be selected.</li>
+    <li>Require observable trace evidence for every claimed key step: file reads, tool calls, script runs, artifact writes, and check results.</li>
+    <li>Score outcome and process separately; only outcome-plus-process traces should enter training data.</li>
+    <li>Add validation-gated rubric patching only after a stable baseline rubric exists and after a held-out trace set is available.</li>
+  </ol>
+  <h3>What not to overclaim</h3>
+  <ul>
+    <li>Do not claim self-evolved rubrics are automatically unbiased or safe.</li>
+    <li>Do not claim final task success proves reusable skill-use.</li>
+    <li>Do not assume performance under a 5-distractor setting transfers to a large production skill repository.</li>
+    <li>Do not replace human process-reference construction with LLM judging alone when the workflow is safety-, policy-, or compliance-sensitive.</li>
+  </ul>
+</section>
+
+<section id="qa">
+  <h2>Semantic QA and provenance</h2>
+  <div class="kv">
+    <div>QA status</div><div>Passed: metadata present; source map present; all main figures and tables accounted for; appendix implementation content summarized; ratings include rationale, evidence basis, limiting factor, and score movement conditions; artifact is self-contained HTML.</div>
+    <div>Generated</div><div>2026-07-03</div>
+    <div>Evaluated file</div><div>2607.01874v1.pdf</div>
+    <div>Primary source identifier</div><div>arXiv:2607.01874v1 [cs.AI], 2 Jul 2026</div>
+    <div>Caveat</div><div>This is a structured appraisal of the uploaded preprint. Numerical claims are source-reported and were not independently reproduced.</div>
+  </div>
+</section>
+<footer>
+  <p>Single-file reference HTML generated from the uploaded PDF using the integrated summary, evaluation, and appraisal protocol. No external scripts, fonts, or remote assets are required.</p>
+</footer>
+</main>
+</body>
+</html>

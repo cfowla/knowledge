@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Integration of smart infusion pumps with electronic medical records improves safety and staff productivity at a large academic healthcare system — clinical practice appraisal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --bg:#f7f8fb; --card:#ffffff; --ink:#17202a; --muted:#526173; --line:#d9e0ea;
+  --accent:#1d4f91; --accent2:#0f315f; --good:#0f6b3b; --warn:#8a5a00; --bad:#8a1f1f;
+  --codebg:#0e1726; --codefg:#edf4ff; --soft:#eef5ff;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height:1.55;
+  background:var(--bg);
+  color:var(--ink);
+}
+header {
+  background:linear-gradient(135deg,#10243d,#1d4f91);
+  color:#fff;
+  padding:2rem 1.25rem 1.8rem;
+  border-bottom:5px solid #d2e2f5;
+}
+.wrap { max-width:1120px; margin:0 auto; padding:1.25rem; }
+header .wrap { padding:0; }
+h1 { margin:0; font-size:clamp(1.6rem,3vw,2.65rem); line-height:1.12; }
+.subtitle { margin:.7rem 0 0; color:#dceaff; font-size:1.05rem; max-width:920px; }
+section, nav.toc, .card {
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:1rem 1.25rem;
+  margin:1rem 0;
+  box-shadow:0 1px 4px rgba(16,36,61,.06);
+}
+h2 { color:var(--accent2); margin:0 0 .8rem; font-size:1.35rem; }
+h3 { color:#173f72; margin:1.05rem 0 .45rem; }
+h4 { color:#24364b; margin:.9rem 0 .35rem; }
+p { margin:.55rem 0; }
+a { color:var(--accent); }
+ul, ol { padding-left:1.25rem; margin:.5rem 0; }
+li { margin:.22rem 0; }
+table { width:100%; border-collapse:collapse; margin:.75rem 0; font-size:.93rem; }
+th, td { border:1px solid var(--line); padding:.55rem .65rem; vertical-align:top; }
+th { background:#eef3f9; text-align:left; color:#1e395c; }
+pre {
+  background:var(--codebg); color:var(--codefg); border-radius:12px; padding:1rem;
+  overflow-x:auto; border:1px solid #1b2e49; font-size:.88rem; line-height:1.45;
+}
+code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace; }
+.meta-grid, .rating-grid, .takeaway-grid, .two-col, .three-col {
+  display:grid; gap:.75rem;
+}
+.meta-grid { grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+.rating-grid { grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); }
+.takeaway-grid, .three-col { grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+.two-col { grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); }
+.mini-card {
+  background:#fbfdff; border:1px solid var(--line); border-radius:12px; padding:.85rem;
+  box-shadow:none;
+}
+.mini-card h3, .mini-card h4 { margin-top:0; }
+.verdict { border-left:6px solid var(--accent); background:#eef5ff; }
+.warning { border-left:6px solid var(--warn); background:#fff7e6; }
+.badnote { border-left:6px solid var(--bad); background:#fff0f0; }
+.goodnote { border-left:6px solid var(--good); background:#eefaf3; }
+.tag {
+  display:inline-block; border:1px solid #cbd7e6; background:#eef3f9; color:#26384e;
+  border-radius:999px; padding:.15rem .55rem; margin:.12rem .15rem .12rem 0; font-size:.84rem;
+}
+.small { color:var(--muted); font-size:.9rem; }
+.kicker { color:#cde0f7; text-transform:uppercase; letter-spacing:.08em; font-size:.76rem; font-weight:700; margin-bottom:.35rem; }
+.source-map td:first-child { width:28%; font-weight:650; color:#1e395c; }
+.score { font-weight:800; color:#0f315f; }
+@media print {
+  body { background:#fff; }
+  header { background:#fff; color:#000; border-bottom:2px solid #000; }
+  header .subtitle,.kicker { color:#000; }
+  section, nav.toc, .card { box-shadow:none; break-inside:avoid; }
+  a { color:#000; }
+  pre { white-space:pre-wrap; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">Clinical practice appraisal · reference HTML</div>
+    <h1>Integration of smart infusion pumps with electronic medical records improves safety and staff productivity at a large academic healthcare system</h1>
+    <p class="subtitle">Protocol-based appraisal with PICO, practice translation, implementation constraints, safety signals, and explicit limits on clinical action.</p>
+  </div>
+</header>
+
+<main class="wrap">
+<nav class="toc" id="toc">
+<h2>Contents</h2>
+<ol>
+  <li><a href="#metadata">Source metadata</a></li>
+  <li><a href="#synthesis">One-page synthesis</a></li>
+  <li><a href="#pico">PICO and clinical question</a></li>
+  <li><a href="#recommendation">Recommendation strength and evidence quality</a></li>
+  <li><a href="#coverage">Coverage manifest</a></li>
+  <li><a href="#condensed">Section-by-section condensation</a></li>
+  <li><a href="#visuals">Figures and tables</a></li>
+  <li><a href="#practice">Clinical-practice translation</a></li>
+  <li><a href="#implementation">Implementation constraints and monitoring</a></li>
+  <li><a href="#appraisal">Evaluation and appraisal</a></li>
+  <li><a href="#change">What should and should not change</a></li>
+  <li><a href="#qa">QA and provenance</a></li>
+</ol>
+</nav>
+
+<section id="metadata">
+<h2>1. Source metadata</h2>
+<div class="meta-grid">
+  <div class="mini-card"><h3>Exact title</h3><p>Integration of smart infusion pumps with electronic medical records improves safety and staff productivity at a large academic healthcare system</p></div>
+  <div class="mini-card"><h3>Authors</h3><p>Hina Afaq; Sebastian Colunga; Lejia Hu; Xuan Zhang; Sibyl Munson; Juanita Norton; Paula Townley; Jacqueline Meyer; LaShawn Carpenter; Timothy Hoh; Kuhan Perampaladas; Brendan Schuler; Rebekah Silberhorn; Aftab Alam.</p></div>
+  <div class="mini-card"><h3>Source / identifier</h3><p><em>American Journal of Health-System Pharmacy</em> accepted manuscript. DOI: <a href="https://doi.org/10.1093/ajhp/zxag187">10.1093/ajhp/zxag187</a>.</p></div>
+  <div class="mini-card"><h3>Source type</h3><p>Retrospective observational quality-improvement initiative using deidentified smart pump data.</p></div>
+  <div class="mini-card"><h3>Setting</h3><p>Six University of Texas Medical Branch hospitals; 1,031-bed health system; critical care and acute care smart-pump drug library profiles.</p></div>
+  <div class="mini-card"><h3>Device / system context</h3><p>Spectrum IQ large-volume infusion pumps with smart pump–electronic medical record integration beginning October 1, 2022.</p></div>
+  <div class="mini-card"><h3>Study period</h3><p>January 21, 2021 through August 21, 2024. Pre-integration: January 21, 2021 to September 30, 2022. Post-integration: October 1, 2022 to August 21, 2024.</p></div>
+  <div class="mini-card"><h3>Funding / conflicts</h3><p>Baxter International funded the project. Several authors were Baxter employees or employees of Boston Strategic Partners, Inc., which was funded by Baxter for this project.</p></div>
+</div>
+<div class="mini-card warning">
+  <h3>Scope warning</h3>
+  <p>This source supports operational understanding of smart-pump interoperability, alert burden, DERS use, autoprogramming adoption, and workflow metrics. It does not directly establish reductions in medication-administration errors, adverse drug events, morbidity, mortality, or drug-specific clinical outcomes. Evidence is insufficient for patient-level clinical action.</p>
+</div>
+</section>
+
+<section id="synthesis">
+<h2>2. One-page synthesis</h2>
+<div class="mini-card verdict">
+  <h3>Core thesis</h3>
+  <p>Smart pump–EMR integration and autoprogramming were associated with fewer pump-generated safety alerts and faster pump-level workflow steps in a large academic health system. The strongest practical value is not proof of improved patient outcomes; it is the operational signal that bidirectional integration, DERS governance, drug-library optimization, and autoprogramming compliance can be tracked and improved with pump analytics.</p>
+</div>
+<div class="takeaway-grid">
+  <div class="mini-card goodnote">
+    <h3>Most useful result</h3>
+    <p>Across 1,333,056 included infusions, hard limit, soft limit, and single-step rate change alert rates decreased by 50.3%, 30.4%, and 38.1%, respectively, after integration. Autoprogramming required fewer pump-database steps than manual programming and had shorter median time to infusion initiation.</p>
+  </div>
+  <div class="mini-card warning">
+    <h3>Most important limitation</h3>
+    <p>All outcomes were pump-generated surrogate outcomes. The analysis lacked patient identifiers, verified medication-error adjudication, adverse drug event outcomes, clinical harm outcomes, and a contemporaneous non-integrated control group.</p>
+  </div>
+  <div class="mini-card badnote">
+    <h3>Practice risk if overused</h3>
+    <p>Alert reduction can be misread as safety improvement. Fewer alerts can reflect better programming, but also drug-library changes, bypass behavior, lower alert sensitivity, workflow selection, or unmeasured secular changes. This study cannot justify reducing independent safety checks, narrowing monitoring, or treating a specific vendor platform as clinically superior.</p>
+  </div>
+</div>
+<p>
+<span class="tag">Medication safety</span>
+<span class="tag">Smart pumps</span>
+<span class="tag">DERS</span>
+<span class="tag">Autoprogramming</span>
+<span class="tag">EMR interoperability</span>
+<span class="tag">Operational QI</span>
+<span class="tag">Surrogate outcomes</span>
+</p>
+</section>
+
+<section id="pico">
+<h2>3. PICO and clinical question</h2>
+<table>
+<thead><tr><th>Element</th><th>Content</th><th>Practice interpretation</th></tr></thead>
+<tbody>
+<tr><td>Population</td><td>Positive-dose infusions with pump run codes in critical care or acute care drug library profiles across six UTMB hospitals. The final analytic cohort included 1,333,056 unique infusions.</td><td>Best fit is adult-ish acute/critical care medication-administration workflow in a health system with mature smart-pump infrastructure. It is not directly generalizable to excluded areas.</td></tr>
+<tr><td>Intervention</td><td>Smart pump–EMR integration beginning October 1, 2022 and autoprogramming for medications qualified for autoprogramming.</td><td>Represents bidirectional interoperability and pump parameters prepopulated from the EMR, not a drug or bedside clinical treatment.</td></tr>
+<tr><td>Comparator</td><td>Pre-integration period; manual programming after integration; DERS manual programming; basic mode.</td><td>Comparisons are observational and susceptible to time trends, drug-library changes, workflow changes, and user-selection effects.</td></tr>
+<tr><td>Outcomes</td><td>Hard limit, soft limit, and SSRC alerts per 10,000 infusions; pullbacks, overrides, good catches; DERS and autoprogramming compliance; programming steps; time to initiate infusion; alert-resolution time.</td><td>These are meaningful operational safety and burden signals, but not direct patient-centered outcomes.</td></tr>
+</tbody>
+</table>
+<div class="mini-card">
+<h3>Clinical / operational question</h3>
+<p>In a large acute-care health system using smart infusion pumps, does EMR interoperability and autoprogramming reduce pump-generated safety alerts and improve medication-administration workflow compared with non-integrated or manual programming workflows?</p>
+</div>
+</section>
+
+<section id="recommendation">
+<h2>4. Recommendation strength and evidence quality</h2>
+<div class="two-col">
+  <div class="mini-card goodnote">
+    <h3>Operational recommendation</h3>
+    <p><strong>Conditional operational support.</strong> For health systems with compatible pumps, EMR infrastructure, BCMA/CPOE workflows, and interdisciplinary governance, smart pump–EMR integration and active autoprogramming optimization are reasonable medication-safety and productivity initiatives.</p>
+  </div>
+  <div class="mini-card badnote">
+    <h3>Clinical-action warning</h3>
+    <p><strong>Do not use this paper alone for clinical action.</strong> Evidence is insufficient to claim reduced ADEs, reduced mortality, reduced medication-error harm, superiority of one pump vendor, or safety of relaxing existing high-alert medication safeguards.</p>
+  </div>
+</div>
+<table>
+<thead><tr><th>Question</th><th>Rating</th><th>Rationale</th></tr></thead>
+<tbody>
+<tr><td>Evidence quality for reduced alert burden</td><td>Low-to-moderate</td><td>Very large sample and consistent reductions support an operational signal, but the design is retrospective pre/post QI without external control, clustering adjustment, patient-level linkage, or interrupted time-series modeling.</td></tr>
+<tr><td>Evidence quality for improved staff productivity</td><td>Low-to-moderate</td><td>Steps and timestamps were captured directly from pump data, but off-pump tasks such as barcode scanning, patient verification, documentation burden, room setup, troubleshooting, and EMR interactions were not captured.</td></tr>
+<tr><td>Evidence quality for patient safety / harm reduction</td><td>Very low</td><td>Patient identifiers and clinical outcomes were absent. Good catches are inferred from pump behavior rather than adjudicated medication-error prevention or harm avoidance.</td></tr>
+<tr><td>Strength for practice change</td><td>Conditional, implementation-dependent</td><td>Supports building or improving an interoperability program with monitoring, not changing drug therapy, patient monitoring, or medication-use policy without local validation.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="coverage">
+<h2>5. Coverage manifest</h2>
+<table class="source-map">
+<tbody>
+<tr><td>source_id</td><td>zxag187.pdf; DOI 10.1093/ajhp/zxag187</td></tr>
+<tr><td>exact_title</td><td>Integration of smart infusion pumps with electronic medical records improves safety and staff productivity at a large academic healthcare system</td></tr>
+<tr><td>source_type</td><td>Accepted manuscript; retrospective observational QI initiative; clinical informatics / medication safety / health-system pharmacy practice.</td></tr>
+<tr><td>sections/headings</td><td>Abstract with purpose, methods, results, conclusion; introduction/background; methods; results; discussion; limitations; conclusion; acknowledgments; data availability; disclosures; references; key points.</td></tr>
+<tr><td>main-text tables</td><td>Table 1 definitions; Table 2 infusion attrition; Table 3 steps and time to initiate infusions by programming type; Table 4 mean time to resolve alert pullbacks.</td></tr>
+<tr><td>main-text figures</td><td>Figure 1 alert burden pre/post by alert type and care area; Figure 2 alert burden over time; Figure 3 alert counts by programming type; Figure 4 autoprogramming compliance over time.</td></tr>
+<tr><td>algorithms/workflows</td><td>No explicit algorithm. Operational workflow implied: CPOE/EMR order → autoprogramming or manual pump programming → DERS/basic mode → alerts → override or pullback/reprogramming → pump run/rerun.</td></tr>
+<tr><td>appendices/supplements</td><td>Article references eTables/eFigures, but the uploaded PDF contains no supplement. Supplementary details are therefore marked not available in this appraisal.</td></tr>
+<tr><td>visual strategy</td><td>Structured blocks for all main-text figures and tables. Embedded crops not needed because numeric content and interpretations are recoverable from parsed figure captions, alt text, tables, and text.</td></tr>
+<tr><td>coverage decision</td><td>All main-text sections, figures, and tables included. eTables/eFigures are noted but not reconstructed because they are not contained in the provided PDF.</td></tr>
+<tr><td>omissions</td><td>No main-text figures or tables omitted. Supplemental eTables/eFigures omitted because they were not available in the uploaded source file.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="condensed">
+<h2>6. Section-by-section condensation</h2>
+
+<div class="mini-card">
+<h3>Abstract</h3>
+<p>The authors evaluated whether smart pump–EMR interoperability affected pump safety alerts, programming compliance, and staff productivity at a large academic health system. They used retrospective, deidentified Spectrum IQ pump data from January 2021 through August 2024 across six hospitals, comparing pre-integration and post-integration periods around an October 1, 2022 integration start date.</p>
+<p>The headline findings were lower hard limit, soft limit, and SSRC alert rates after integration; fewer pump-database steps with autoprogramming; shorter alert-resolution times; high DERS compliance after integration; and moderate autoprogramming compliance. The abstract’s conclusion is operational: integration and autoprogramming were associated with fewer safety alerts and more efficient pump programming, with ongoing drug-library optimization and staff training needed.</p>
+</div>
+
+<div class="mini-card">
+<h3>Introduction / background</h3>
+<p>The background frames IV medication administration as a high-risk process where dose, rate, time, and medication errors can lead to preventable harm, especially for high-alert medications. The paper places smart pumps, drug libraries, DERS limits, hard/soft alerts, and interoperability within a medication-safety strategy supported by ISMP and ASHP guidance.</p>
+<p>The authors argue that interoperability is under-characterized in real-world settings, particularly for productivity, compliance, alarm resolution, high-alert/REMS medications, and large multi-hospital datasets. This rationale is credible, but background estimates of IV error burden should not be treated as direct evidence that this intervention reduced patient harm in this dataset.</p>
+</div>
+
+<div class="mini-card">
+<h3>Methods</h3>
+<p>This was a retrospective, observational QI initiative using deidentified smart pump data from six hospitals within the UTMB system. Infusions were eligible if delivered through critical care or acute care drug library profiles from January 21, 2021 to August 21, 2024, had positive dose values, had drug information, and had pump run data. Smart pump–EMR integration began October 1, 2022, creating pre- and post-integration periods.</p>
+<p>Key exclusions included out-of-scope care areas such as anesthesiology, neonatal care, oncology, ambulatory care, pediatrics, and labor/delivery; infusions with multiple care areas; missing drug name; unclear basic mode use; and infusions with more than 24 hours from first system event to first pump run event. Outcomes included alert counts standardized per 10,000 infusions, pullbacks, overrides, good catches, DERS compliance, autoprogramming compliance, programming steps, time to initiate infusion, and alert-resolution time. Analyses were descriptive with chi-square tests, t tests, or Wilcoxon rank-sum tests; SSRC pullback times were Winsorized at the 95th percentile.</p>
+</div>
+
+<div class="mini-card">
+<h3>Results: infusion characteristics and safety</h3>
+<p>Of 1,773,782 infusion records, 1,333,056 unique infusions met final criteria. There were 343,347 pre-integration infusions and 989,709 post-integration infusions; 706,435 were in critical care drug groups and 626,621 were in acute care drug groups. The authors reported 556,785 total alerts: 14,981 hard limit alerts, 301,113 soft limit alerts, and 240,691 SSRC alerts.</p>
+<p>After integration, alert rates per 10,000 infusions decreased by 50.3% for hard limit alerts, 30.4% for soft limit alerts, and 38.1% for SSRC alerts. Reductions were reported across high-alert/REMS medications, top alert-frequency medications, and both critical and acute care drug groups. Hard limit alerts were followed by reprogramming in nearly all cases, while soft limit and SSRC alerts were most commonly overridden.</p>
+</div>
+
+<div class="mini-card">
+<h3>Results: compliance and productivity</h3>
+<p>DERS compliance was already high before integration and increased from 94.1% to 96.1% after integration. Compliance exceeded 99.9% for high-alert/REMS medications and the top 20 medications by alert frequency. Autoprogramming compliance after integration was 53.4% overall and 68.3% for high-alert/REMS medications, with modestly higher rates in critical care than acute care and during night shift than day shift.</p>
+<p>Autoprogramming was associated with fewer pump-database steps than manual programming: 1.6 mean steps versus 3.3 for manual programming. Median time to initiate infusions was 4 seconds with autoprogramming, 10 seconds with manual programming, 9 seconds with manual DERS, and 17 seconds with basic mode. Mean time to resolve pullback alerts per 10,000 infusions decreased after integration for both soft limit and SSRC alerts.</p>
+</div>
+
+<div class="mini-card">
+<h3>Discussion</h3>
+<p>The authors interpret the findings as evidence that smart pump–EMR integration and autoprogramming can reduce alert burden, reduce programming burden, and improve workflow efficiency. They emphasize high-alert medication relevance and suggest that fewer programming errors and reduced alert fatigue could reduce cognitive burden on clinicians.</p>
+<p>The discussion appropriately notes that benefits depend on clinician compliance, consistent DERS and autoprogramming use, drug-library parameters, ongoing education, reliable integration, and pump-data monitoring. The most important operational finding is that autoprogramming compliance remained incomplete, meaning the realized benefit was constrained by adoption and workflow barriers.</p>
+</div>
+
+<div class="mini-card">
+<h3>Limitations and conclusion</h3>
+<p>The authors identify several limitations: good catches were inferred from pump behavior; off-pump actions such as patient or medication scanning were not captured; patient outcomes were not linked; care area libraries were not access restricted; drug-library updates occurred during the observation period; no standard autoprogramming compliance benchmark exists; and autoprogramming comparisons were limited to qualified medications.</p>
+<p>The conclusion is reasonable if kept operational: pump analytics can support continued QI, and interoperability/autoprogramming were associated with reduced alert burden and more efficient workflows. The conclusion should not be extended to patient-centered clinical benefit, medication-error rate reduction, or vendor-specific superiority without additional evidence.</p>
+</div>
+</section>
+
+<section id="visuals">
+<h2>7. Figures and tables</h2>
+
+<h3>Table extraction</h3>
+<pre><code>TABLE 1 — Definitions of key terms and outcomes
+Purpose: Defines autoprogramming, basic mode, DERS, compliance, good catch, hard/soft limits, override, pullback, SSRC, steps, initiation time, and alert-resolution time.
+Key points:
+- Autoprogramming = automatic population of infusion parameters into the pump from the EMR.
+- Basic mode = manual pump programming that bypasses the drug library and DERS.
+- DERS compliance = nonuse of basic mode during pump programming.
+- Autoprogramming compliance = use of autoprogramming among qualified medications.
+- Good catch = hard limit alerts followed by reprogramming plus soft limit and SSRC pullbacks.
+Appraisal:
+- Definitions are operationally useful.
+- Good catch is an inferred safety construct, not a clinically adjudicated harm-prevention endpoint.
+Representation: structured block.</code></pre>
+
+<pre><code>TABLE 2 — Infusion attrition
+Purpose: Shows how 1,773,782 infusion records became 1,333,056 analyzable unique infusions.
+Key attrition values:
+- All infusion records: 1,773,782.
+- Critical/acute care integrated profiles: 1,400,329.
+- Missing drug name removed: 1,394,930.
+- Positive dose and pump run code: 1,333,836.
+- Time to initiate infusion &gt;24 hours removed: 1,333,071.
+- Unclear basic mode use removed: 1,333,056 final infusions.
+Appraisal:
+- Large final denominator strengthens operational precision.
+- Exclusions narrow generalizability to integrated acute/critical care drug-library workflows.
+Representation: structured block.</code></pre>
+
+<pre><code>TABLE 3 — Number of steps and time to initiate infusions by programming type
+Rows and key values:
+- Autoprogramming: 1.6 mean steps; median initiation time 4 seconds (IQR 3–13).
+- Manual programming overall: 3.3 mean steps; median 10 seconds (IQR 4–84).
+- Manual DERS: 3.2 mean steps; median 9 seconds (IQR 4–78).
+- Basic mode: 4.0 mean steps; median 17 seconds (IQR 7–271).
+Pattern:
+- Autoprogramming had fewer recorded pump-database steps and shorter pump-level initiation time.
+Appraisal:
+- EMR interactions, barcode scanning, troubleshooting, room setup, and cognitive workload were not fully captured.
+Representation: structured block.</code></pre>
+
+<pre><code>TABLE 4 — Mean time to resolve alert pullbacks
+Values reported as mean seconds per 10,000 infusions:
+- All infusions, soft limits: 9.29 before → 4.99 after.
+- All infusions, SSRC: 221.70 before → 99.70 after.
+- Critical care, soft limits: 10.05 before → 6.94 after.
+- Critical care, SSRC: 253.46 before → 136.81 after.
+- Acute care, soft limits: 7.26 before → 3.32 after.
+- Acute care, SSRC: 137.17 before → 67.89 after.
+Pattern:
+- Post-integration pullback resolution times decreased, especially for SSRC alerts.
+Appraisal:
+- Time metric is useful for workflow burden but not equivalent to total nursing workload.
+Representation: structured block.</code></pre>
+
+<h3>Figure extraction</h3>
+<pre><code>FIGURE 1 — Alert burden per 10,000 infusions before and after integration
+Structure: Three bar charts for hard limit, soft limit, and SSRC alerts; each compares overall, critical care, and acute care.
+Numeric details:
+- Hard limit alerts: overall 179 → 89 (−50.3%); critical care 187 → 103 (−45.0%); acute care 158 → 77 (about −51%).
+- Soft limit alerts: overall 2,913 → 2,030 (−30.4%); critical care 3,133 → 2,551 (−18.6%); acute care 2,294 → 1,550 (−32.4%).
+- SSRC alerts: overall 2,517 → 1,559 (−38.1%); critical care 2,802 → 1,968 (−29.8%); acute care 1,760 → 1,208 (−31.4%).
+Interpretation:
+- Alert burden decreased across alert types and care areas after integration.
+Limits:
+- Pre/post design cannot separate integration effect from time trends, drug-library edits, staff training, or workflow selection.
+Representation: structured block.</code></pre>
+
+<pre><code>FIGURE 2 — Alert burden over time
+Structure: Three line graphs by half-year for hard limit, soft limit, and SSRC alerts; critical care and acute care tracked separately. Integration marked in 2022 H2.
+Main pattern:
+- All alert categories decreased after integration and remained lower than pre-integration peaks through most observed post-integration intervals.
+- 2024 H2 is partial and ends August 21, 2024.
+Interpretation:
+- Temporal pattern supports a plausible integration-associated reduction.
+Limits:
+- No interrupted time-series model, seasonality adjustment, or control units are reported.
+Representation: structured block.</code></pre>
+
+<pre><code>FIGURE 3 — Alert counts by programming type
+Structure: Horizontal stacked bars for hard limit, soft limit, and SSRC alerts per 10,000 infusions by programming type.
+Numeric details:
+- Hard limits: pre manual DERS 168.6 and basic mode 10.7; post autoprogramming 24.0, manual DERS 57.6, basic mode 7.7.
+- Soft limits: pre manual DERS 2,917.1 and basic mode 0.3; post autoprogramming 522.6, manual DERS 1,507.4, basic mode 0.2.
+- SSRC: pre manual DERS 2,354.9 and basic mode 162.2; post autoprogramming 583.6, manual DERS 873.1, basic mode 101.9.
+Interpretation:
+- Post-integration alert burden shifted toward lower autoprogramming-associated alert rates.
+Limits:
+- Basic mode has fewer soft-limit alerts because drug-library checking is bypassed; that should not be interpreted as safer.
+Representation: structured block.</code></pre>
+
+<pre><code>FIGURE 4 — Autoprogramming compliance over time
+Structure: Line graph of compliance from 2022 H1 through 2024 H2 for critical care and acute care drug-library profiles.
+Numeric details:
+- 2022 H1: 0% because integration had not started.
+- Critical care: 51.2% in 2022 H2; 60.0% in 2023 H1; 54.6% in 2023 H2; 53.2% in 2024 H1; 60.3% in 2024 H2.
+- Acute care: 50.3% in 2022 H2; 58.7% in 2023 H1; 49.8% in 2023 H2; 46.9% in 2024 H1; 56.0% in 2024 H2.
+Interpretation:
+- Compliance stayed in the approximate 47%–60% range, with critical care consistently higher than acute care.
+Limits:
+- Adoption remained incomplete; this is the main implementation constraint in the article.
+Representation: structured block.</code></pre>
+
+<h3>Referenced but unavailable supplemental content</h3>
+<p>The article references eTables and eFigures for HAM/REMS medications, top 20 medications, detailed alert actions, compliance subgroups, and alarm codes. These are important for local build comparison, but they were not present in the uploaded PDF. The appraisal therefore does not reconstruct those details.</p>
+</section>
+
+<section id="practice">
+<h2>8. Clinical-practice translation</h2>
+
+<div class="three-col">
+  <div class="mini-card">
+    <h3>Population / exclusions</h3>
+    <p>Applies best to adult acute and critical care drug-library workflows. The paper excluded anesthesiology, neonatal, oncology, ambulatory care, pediatrics, labor/delivery, infusions with multiple care areas, missing drug names, nonpositive dose values, absent pump run code, unclear basic mode, and initiation intervals longer than 24 hours.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Dosing / renal / hepatic relevance</h3>
+    <p>No patient-level dosing, renal adjustment, hepatic adjustment, PK/PD, or drug-specific efficacy question was studied. Dose/rate/concentration limits exist inside the drug library, but this paper does not validate specific drug limits or patient-specific dose-adjustment logic.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Contraindications / interactions</h3>
+    <p>No drug contraindication or interaction data are evaluated. Operational failure modes include nonqualified medications, excluded care areas, downtime, network failure, room setup issues, urgent infusions without finalized EMR orders, bypass of DERS via basic mode, and staff nonadherence to autoprogramming.</p>
+  </div>
+</div>
+
+<div class="mini-card warning">
+<h3>Safety signals and caveats</h3>
+<ul>
+  <li>Soft limit and SSRC alert overrides remained highly frequent. High override rates should trigger alert-quality review rather than simple acceptance of existing limits.</li>
+  <li>DERS generated more soft limit alerts than basic mode because DERS actually checks limits. Basic mode’s lower alert count is not a safety advantage.</li>
+  <li>Fewer good catches after integration can reflect fewer programming deviations, but also reduced alert generation or altered workflow. It is not direct proof that fewer near-misses occurred.</li>
+  <li>Autoprogramming compliance was only 53.4% overall, so a large share of qualified infusions still used manual programming after integration.</li>
+</ul>
+</div>
+
+<div class="mini-card">
+<h3>Monitoring targets for a pharmacy-led smart-pump governance program</h3>
+<ul>
+  <li>DERS compliance overall, by unit, by drug library, by shift, by weekday/weekend, and by high-alert medication class.</li>
+  <li>Autoprogramming compliance among qualified medications, especially high-alert/REMS medications and top alert-frequency medications.</li>
+  <li>Hard limit alert frequency and hard-limit reprogramming rate.</li>
+  <li>Soft limit and SSRC override rates, pullback rates, time to resolution, and repeated alerts.</li>
+  <li>Basic mode use, especially for high-alert medications.</li>
+  <li>Alert rates per 10,000 infusions after each drug-library update.</li>
+  <li>Outlier units, drugs, concentrations, routes, order sentences, and workflow steps associated with noncompliance.</li>
+</ul>
+</div>
+</section>
+
+<section id="implementation">
+<h2>9. Implementation constraints and monitoring</h2>
+<div class="takeaway-grid">
+  <div class="mini-card">
+    <h3>Infrastructure</h3>
+    <p>Requires compatible smart pumps, EMR integration, CPOE, barcode medication administration workflow, reliable wireless connectivity, pump-server infrastructure, cybersecurity review, device maintenance, and downtime procedures.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Governance</h3>
+    <p>Requires pharmacy, nursing, informatics, biomed, IT, medication safety, and operations governance for drug-library build, testing, change control, formulary maintenance, alert thresholds, audit reports, and feedback loops.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Training</h3>
+    <p>Requires initial and recurring education focused on when autoprogramming is expected, when manual programming is acceptable, how to respond to alerts, and when to report library or connectivity problems.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Local validation</h3>
+    <p>Local baseline DERS use, alert frequency, override patterns, high-alert medication lists, drug-library architecture, unit workflows, and EMR order sentences should be measured before using this paper’s numbers as benchmarks.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Drug-library optimization</h3>
+    <p>High override rates should trigger review for nuisance alerts, limits misaligned with current practice, wrong concentrations, ambiguous order sentences, care-area misclassification, and missing standardization.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Equity of workflow burden</h3>
+    <p>Compliance differed by care area and shift. Governance should avoid assuming a single training intervention fits all units; acute care, ICU, ED, procedural, and specialty areas need separate workflow mapping.</p>
+  </div>
+</div>
+
+<h3>Implied operational workflow</h3>
+<pre><code>WORKFLOW — Smart pump interoperability safety loop
+Inputs:
+- Verified medication order in EMR/CPOE.
+- Patient and medication identification workflow.
+- Drug library entry with dose/rate/concentration limits.
+- Pump, network, and server connectivity.
+
+Process:
+1. Clinician initiates infusion setup.
+2. If medication qualifies and workflow permits, EMR parameters populate pump by autoprogramming.
+3. If autoprogramming is not used, clinician manually programs via DERS or basic mode.
+4. DERS applies hard limits, soft limits, and SSRC constraints.
+5. Alert response is either override, pullback/reprogramming, or hard stop requiring correction.
+6. Pump run/rerun creates timestamped data for CQI analytics.
+
+Outputs:
+- Infusion initiation.
+- Pump-generated alert and compliance data.
+- Operational measures for QI and drug-library governance.
+
+Failure modes:
+- Basic mode bypass, unqualified medication, nonstandard order build, network failure, urgency without finalized EMR order, wrong care-area library, nuisance alerts, high override behavior, incomplete training, and low autoprogramming compliance.
+
+Governance:
+- Continuous dashboard monitoring, root-cause review, controlled drug-library updates, interdisciplinary oversight, training refreshers, and local validation of alert thresholds.</code></pre>
+</section>
+
+<section id="appraisal">
+<h2>10. Evaluation and appraisal</h2>
+<div class="mini-card verdict">
+<h3>Verdict</h3>
+<p><strong>Read first</strong> for medication-safety, infusion-pump governance, pharmacy informatics, and smart-pump interoperability work. <strong>Do not use for direct clinical practice changes</strong> in drug therapy, patient monitoring, or high-alert medication safeguards.</p>
+</div>
+
+<div class="rating-grid">
+  <div class="mini-card">
+    <h3>Relevance: <span class="score">9/10</span></h3>
+    <p><strong>Rationale:</strong> Highly relevant to hospital medication safety, pump-library governance, pharmacy informatics, and nursing workflow.</p>
+    <p><strong>Evidence basis:</strong> Multi-hospital dataset, DERS/autoprogramming compliance, alert analysis, high-alert/REMS subgroups, and workflow timing metrics.</p>
+    <p><strong>Limit / raise-lower:</strong> Would rise with patient-linked outcomes and local implementation toolkit; would fall for settings without smart-pump interoperability plans.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Novelty: <span class="score">7/10</span></h3>
+    <p><strong>Rationale:</strong> Adds scale and operational granularity more than a new conceptual intervention.</p>
+    <p><strong>Evidence basis:</strong> Over 1.3 million included infusions across six hospitals and analysis of compliance, alerts, good catches, and programming burden.</p>
+    <p><strong>Limit / raise-lower:</strong> Would rise with linked patient outcomes or a standardized implementation framework; would fall if supplement details show limited additional granularity.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Method strength: <span class="score">5/10</span></h3>
+    <p><strong>Rationale:</strong> The dataset is large and directly captured from pumps, but the design is retrospective pre/post QI with no control group and limited adjustment.</p>
+    <p><strong>Evidence basis:</strong> Descriptive comparisons, standardized rates per 10,000 infusions, and basic statistical tests.</p>
+    <p><strong>Limit / raise-lower:</strong> Would rise with interrupted time-series analysis, unit-level clustering, control sites, prespecified endpoints, and patient-level linkage.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Evidence strength: <span class="score">5/10</span></h3>
+    <p><strong>Rationale:</strong> Evidence is convincing for pump-generated surrogate metrics but weak for clinical safety outcomes.</p>
+    <p><strong>Evidence basis:</strong> Consistent reductions in hard, soft, and SSRC alerts and shorter pump-level workflow times.</p>
+    <p><strong>Limit / raise-lower:</strong> Capped because adverse drug events, medication-administration errors, and harms were not adjudicated.</p>
+  </div>
+  <div class="mini-card">
+    <h3>External validity: <span class="score">5/10</span></h3>
+    <p><strong>Rationale:</strong> Six hospitals improve breadth, but the evidence remains one health system, one pump platform, selected drug-library profiles, and excluded specialty care areas.</p>
+    <p><strong>Evidence basis:</strong> Critical and acute care profiles across a 1,031-bed health system.</p>
+    <p><strong>Limit / raise-lower:</strong> Would rise with multi-vendor, multi-health-system validation including pediatrics, oncology, procedural areas, and community hospitals.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Implementation value: <span class="score">8/10</span></h3>
+    <p><strong>Rationale:</strong> Strongly useful for designing dashboards and QI priorities around DERS compliance, autoprogramming adoption, alert burden, pullbacks, and overrides.</p>
+    <p><strong>Evidence basis:</strong> Detailed definitions, operational metrics, care-area and shift comparisons, and figure/table data.</p>
+    <p><strong>Limit / raise-lower:</strong> Would rise with shareable data dictionaries, report templates, drug-specific supplemental detail, and workflow-change playbooks.</p>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="mini-card goodnote">
+    <h3>Main strengths</h3>
+    <ul>
+      <li>Large real-world infusion dataset.</li>
+      <li>Clear operational definitions for DERS, autoprogramming, alerts, overrides, pullbacks, and good catches.</li>
+      <li>Relevant subgroup analyses for high-alert/REMS medications, top alert-frequency medications, care areas, and shift timing.</li>
+      <li>Directly actionable QI metrics for pharmacy-nursing-informatics governance.</li>
+    </ul>
+  </div>
+  <div class="mini-card badnote">
+    <h3>Main limitations</h3>
+    <ul>
+      <li>No patient outcomes or verified clinical harm endpoints.</li>
+      <li>No external control group or robust time-series modeling.</li>
+      <li>Potential confounding from drug-library updates, training, staffing, workflow changes, and secular trends.</li>
+      <li>Autoprogramming only available for qualified medications.</li>
+      <li>Vendor funding and employee involvement warrant careful interpretation.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="mini-card">
+<h3>Confidence in appraisal</h3>
+<p><strong>Moderate.</strong> The main text provides enough information to appraise operational findings and limitations. Confidence is reduced by missing supplemental eTables/eFigures, proprietary source data, lack of patient-level outcomes, and inability to independently verify drug-specific alert patterns from the uploaded PDF.</p>
+</div>
+</section>
+
+<section id="change">
+<h2>11. What should and should not change in practice</h2>
+<div class="two-col">
+  <div class="mini-card goodnote">
+    <h3>Reasonable changes or priorities</h3>
+    <ul>
+      <li>Use this article to support an institutional smart-pump interoperability and autoprogramming optimization roadmap.</li>
+      <li>Prioritize DERS compliance monitoring, especially basic mode use on high-alert medications.</li>
+      <li>Build dashboards for hard/soft/SSRC alerts per 10,000 infusions, override rates, pullback rates, and alert-resolution time.</li>
+      <li>Review high-frequency alert medications for nuisance limits, dose-unit mismatches, concentration build problems, and order-sentence mismatch.</li>
+      <li>Use shift and care-area variation to target training and workflow redesign.</li>
+      <li>Include pharmacy in drug-library governance, medication safety review, and quarterly pump-data review.</li>
+    </ul>
+  </div>
+  <div class="mini-card badnote">
+    <h3>Changes not justified by this article alone</h3>
+    <ul>
+      <li>Do not claim proven reductions in ADEs, mortality, ICU transfer, rescue events, or patient harm.</li>
+      <li>Do not reduce independent double checks or high-alert medication safeguards solely because alerts decreased.</li>
+      <li>Do not infer that basic mode is safer because it produces fewer soft-limit alerts.</li>
+      <li>Do not generalize results to pediatrics, oncology, anesthesia, ambulatory infusion, neonatal care, or labor/delivery.</li>
+      <li>Do not use the findings as a vendor-selection proof without comparative procurement data.</li>
+      <li>Do not treat p values as evidence of clinical importance; very large denominator sizes make statistical significance easier to achieve.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="mini-card warning">
+<h3>Bottom line</h3>
+<p>This is a strong operational QI paper for smart-pump governance and a weak clinical-outcomes paper. Use it to improve local pump analytics, DERS compliance, autoprogramming adoption, and drug-library review. Do not use it as proof that integration alone reduces patient harm.</p>
+</div>
+</section>
+
+<section id="qa">
+<h2>12. QA and provenance</h2>
+<table>
+<tbody>
+<tr><th>Artifact type</th><td>Self-contained single-file HTML with embedded CSS; no external fonts, scripts, remote images, or internal chat citation syntax.</td></tr>
+<tr><th>Source file evaluated</th><td>zxag187.pdf</td></tr>
+<tr><th>Primary source identifier</th><td>DOI: <a href="https://doi.org/10.1093/ajhp/zxag187">10.1093/ajhp/zxag187</a></td></tr>
+<tr><th>Guidance context checked</th><td>ISMP smart infusion pump optimization guidance and ASHP smart pump usage/governance guidance were used only as context for practice translation; the appraisal remains anchored to the uploaded article.</td></tr>
+<tr><th>Generation date</th><td>2026-07-02</td></tr>
+<tr><th>Known omissions</th><td>Supplemental eTables/eFigures referenced by the paper were not present in the uploaded PDF and were not reconstructed.</td></tr>
+</tbody>
+</table>
+<p class="small">This reference file supports source understanding and local QI planning. It does not replace primary-source reading, clinical judgment, regulatory review, nursing/pharmacy policy review, biomedical engineering review, or local medication-safety governance.</p>
+</section>
+
+</main>
+</body>
+</html>

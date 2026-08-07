@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reference Appraisal: Semantic Early-Stopping for Iterative LLM Agent Loops</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --ink: #17202a;
+      --muted: #526173;
+      --line: #d9e0ea;
+      --accent: #1d4f91;
+      --accent2: #7a3e06;
+      --good: #0f6b3b;
+      --warn: #8a5a00;
+      --bad: #8a1f1f;
+      --codebg: #0e1726;
+      --codefg: #edf4ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: linear-gradient(135deg, #10243d, #1d4f91);
+      color: white;
+      padding: 2.2rem 1.25rem 2rem;
+      border-bottom: 5px solid #d2e2f5;
+    }
+    header .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { margin: 0 0 .6rem; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.15; }
+    .subtitle { max-width: 920px; font-size: 1.05rem; color: #dce9f8; margin: 0; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    nav.toc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0 1.25rem;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .06);
+    }
+    nav.toc a { color: var(--accent); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+    .toc-grid { columns: 2; column-gap: 2rem; padding-left: 1.25rem; }
+    section, article.card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .05);
+    }
+    h2 { color: #0f315f; margin: .2rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: .45rem; }
+    h3 { color: #173f72; margin-top: 1.25rem; }
+    h4 { margin: 1rem 0 .35rem; color: #24364b; }
+    .meta-grid, .rating-grid, .takeaway-grid, .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .75rem;
+    }
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .8rem;
+      background: #fbfcff;
+    }
+    .label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .value { font-weight: 650; margin-top: .2rem; }
+    .verdict {
+      border-left: 5px solid var(--accent);
+      background: #eef5ff;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: .6rem 0 1rem;
+    }
+    .warning {
+      border-left: 5px solid var(--warn);
+      background: #fff8e8;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    .badnote {
+      border-left: 5px solid var(--bad);
+      background: #fff1f1;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    .goodnote {
+      border-left: 5px solid var(--good);
+      background: #edf8f2;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    table { width: 100%; border-collapse: collapse; margin: .75rem 0; font-size: .96rem; }
+    th, td { border: 1px solid var(--line); padding: .55rem .65rem; vertical-align: top; }
+    th { background: #eef3f9; text-align: left; color: #1e395c; }
+    .rating-grid .mini-card { min-height: 92px; }
+    .score { font-size: 1.35rem; font-weight: 800; color: var(--accent); }
+    pre {
+      margin: .75rem 0 1.1rem;
+      padding: 1rem;
+      background: var(--codebg);
+      color: var(--codefg);
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #1b2e49;
+      font-size: .88rem;
+      line-height: 1.45;
+      white-space: pre;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .section-summary { border-left: 4px solid #cbd8e8; padding-left: .95rem; margin: .9rem 0 1.2rem; }
+    .section-summary h3 { margin: 0 0 .4rem; }
+    .section-summary p { margin: .4rem 0; }
+    .tag {
+      display: inline-block;
+      border: 1px solid #c9d7e8;
+      background: #f2f6fb;
+      color: #27496d;
+      padding: .15rem .45rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin: .12rem .2rem .12rem 0;
+    }
+    .small { color: var(--muted); font-size: .92rem; }
+    ul.tight li, ol.tight li { margin-bottom: .35rem; }
+    .checklist li { margin-bottom: .45rem; }
+    footer { max-width: 1100px; margin: 0 auto 2rem; color: var(--muted); padding: 0 1.25rem; font-size: .9rem; }
+    @media print {
+      body { background: white; }
+      section, article.card, nav.toc { box-shadow: none; break-inside: avoid; }
+      pre { white-space: pre-wrap; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Semantic Early-Stopping for Iterative LLM Agent Loops</h1>
+    <p class="subtitle">Summary, evaluation, and appraisal of a judge-efficient study of when to halt Writer→Critic LLM agent loops.</p>
+  </div>
+</header>
+<main>
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ol class="toc-grid">
+      <li><a href="#metadata">Source metadata</a></li>
+      <li><a href="#synthesis">One-page synthesis</a></li>
+      <li><a href="#section-condensation">Section-by-section condensation</a></li>
+      <li><a href="#figures-tables">Figures, tables, algorithms, and exhibits</a></li>
+      <li><a href="#evaluation">Evaluation and appraisal</a></li>
+      <li><a href="#implementation">Implementation takeaways</a></li>
+      <li><a href="#qa">Quality-control notes</a></li>
+    </ol>
+  </nav>
+
+  <section id="metadata">
+    <h2>Source metadata</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><div class="label">Title</div><div class="value">Semantic Early-Stopping for Iterative LLM Agent Loops: A Judge-Efficient Study of When to Halt</div></div>
+      <div class="mini-card"><div class="label">Author / project</div><div class="value">Sahil Shrivastava; Semantic Halting Problem (SHP) Project</div></div>
+      <div class="mini-card"><div class="label">Source type</div><div class="value">arXiv preprint / AI agent systems benchmark study</div></div>
+      <div class="mini-card"><div class="label">Identifier</div><div class="value">arXiv:2606.27009v1</div></div>
+      <div class="mini-card"><div class="label">Date</div><div class="value">25 June 2026</div></div>
+      <div class="mini-card"><div class="label">Length</div><div class="value">7-page conference-style PDF</div></div>
+      <div class="mini-card"><div class="label">Domain</div><div class="value">LLM agents, RAG evaluation, early stopping, semantic convergence, evaluation cost modeling</div></div>
+      <div class="mini-card"><div class="label">Code / reproducibility</div><div class="value">Paper reports an open implementation, released harness, released dataset builder, cached runs, seeds, commit hashes, and theory checks.</div></div>
+    </div>
+    <p class="small">Scope warning: this is a preprint-level systems/evaluation paper. The empirical claims are based on a 60-question frozen HotpotQA test split with an LLM judge, not broad multi-domain deployment evidence.</p>
+  </section>
+
+  <section id="synthesis">
+    <h2>One-page synthesis</h2>
+    <div class="verdict">
+      <strong>Core thesis:</strong> fixed <code>max_iterations</code> is a crude syntactic kill-switch for iterative Writer→Critic LLM loops. The paper proposes semantic early stopping: halt when successive drafts stop changing in embedding space, optionally gated by quality signals. The strongest practical finding is not that the full quality-gated system wins, but that the judge-free semantic stopper can save tokens at near-parity quality while the judge-heavy variant is cost-dominated.
+    </div>
+
+    <p>The system maps each draft to a local sentence embedding and computes cosine distance from the prior draft. If the distance remains below a threshold ε for a patience window k, the loop is considered semantically stable. A halt cascade can also consider critic approval, information-score gain, and an unconditional failsafe. The paper deliberately walks back an earlier overclaim that the Writer→Critic update is a Banach contraction; it proves only deterministic termination, well-definedness, and halt-priority consistency, while treating semantic non-expansiveness as an empirical conjecture.</p>
+
+    <p>The evaluation design is the most reusable part. The authors generate a full trajectory once, cache drafts, embeddings, and judge calls, then replay every stopping policy over identical trajectories. This creates paired comparisons between policies and separates operational tokens spent by a policy from evaluation tokens spent only to measure final quality. In the frozen HotpotQA test split, <code>entropy_only</code> stopped at 3.92 rounds and saved 38% operational tokens versus fixed six-round iteration with ΔIS = −0.004 and p = 0.81. Full SHP was counterproductive because judging every round increased operational token use by 129% without quality benefit.</p>
+
+    <div>
+      <span class="tag">Agent loops</span>
+      <span class="tag">Semantic early stopping</span>
+      <span class="tag">RAG evaluation</span>
+      <span class="tag">Judge-cost accounting</span>
+      <span class="tag">Trajectory replay</span>
+      <span class="tag">HotpotQA</span>
+      <span class="tag">Machine-checked termination</span>
+      <span class="tag">Preprint</span>
+    </div>
+  </section>
+
+  <section id="section-condensation">
+    <h2>Section-by-section condensation</h2>
+
+    <div class="section-summary">
+      <h3>Abstract</h3>
+      <p>The paper studies early stopping for multi-agent LLM loops, using a Writer→Critic RAG loop as the concrete setting. Instead of stopping after a fixed iteration count, SHP halts when consecutive drafts stop changing semantically, measured by cosine distance between embeddings with a patience window, and when measured answer quality stops improving.</p>
+      <p>The main contributions are an intentionally limited theoretical foundation, a judge-efficient replay evaluation method, and an empirical HotpotQA study. On 60 test questions, a judge-free semantic stopper reduced operational tokens by 38% relative to max-iteration stopping at parity quality; the full quality-gated variant was more expensive because per-round judging dominated cost. An oracle that picks the best round shows a large quality gap, shifting the open problem from “when to stop cheaply” to “which round is best.”</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>I. Introduction</h3>
+      <p>The introduction frames fixed iteration caps as semantically blind. Easy inputs may converge early but continue consuming tokens, while hard inputs may be truncated before completion. The proposed replacement is a content-aware halting rule that detects when output meaning has stabilized, rather than relying on the loop counter.</p>
+      <p>The paper emphasizes an important correction: an earlier version overclaimed a Banach contraction guarantee for the Writer→Critic update. The revised paper abandons unsupported contraction mathematics and limits formal claims to termination and implementation consistency. This frank correction materially improves credibility, even though the remaining theoretical result is modest.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>II. Background and Related Work</h3>
+      <p>SHP borrows the general early-stopping intuition from validation-loss plateauing and adaptive computation, but relocates the monitored quantity to semantic distance between natural-language drafts. It is positioned against work on embedding-space convergence, fixed points, uncertainty quantification, orchestration topology, and RAG evaluation.</p>
+      <p>The section also notes that RAGAS-style metrics are themselves LLM-produced and noisy. This motivates using a stronger judge on the frozen split and using non-inferiority testing rather than assuming equality when quality scores are close.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>III. Problem Formulation</h3>
+      <p>A scenario is defined as a question q, retrieved contexts C, and ground-truth answer g. The loop emits drafts x<sub>1</sub>, x<sub>2</sub>, …; each draft is embedded by a frozen local sentence-embedding model into a 384-dimensional L2-normalized vector. The per-round semantic distance is <code>d<sub>t</sub> = 1 − cos(e<sub>t</sub>, e<sub>t−1</sub>)</code>, bounded between 0 and 2.</p>
+      <p>Quality is expressed as an Information Score, a weighted combination of four RAG evaluation metrics in [0,1]. The halt operator maps the current round state, distance history, Information Score history, and critic feedback to either <code>continue</code> or one of four halt reasons: critic, entropy, no_gain, or failsafe.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>IV. Method</h3>
+      <p>Both the Writer and Critic are conditioned on retrieved contexts. This corrects an earlier invalid design where the Writer answered from parametric memory while the judge scored faithfulness to context. The method uses two signals: a cheap local semantic-distance signal and an LLM-judged quality signal, with Information Score weights derived by entropy weighting, Analytic Hierarchy Process with a consistency check, constrained least squares, or a uniform baseline.</p>
+      <p>The halt cascade is a shared pure function reused by the live loop, post-hoc reason derivation, and offline replay. The priority order is critic approval, semantic entropy convergence, no gain in Information Score, and unconditional failsafe. The worked example shows a real trajectory where semantic distance falls below ε = 0.06 for two consecutive rounds at round 4, stopping two rounds earlier than the six-round baseline.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>V. Theoretical Analysis</h3>
+      <p>The paper proves termination for any input, weights, signal configuration, and even adversarial draft sequence because the failsafe fires unconditionally at <code>T<sub>max</sub></code>. It also proves well-definedness: Information Score remains in [0,1] when metric weights lie on the simplex and metrics lie in [0,1], while cosine distance is finite and bounded, with a conservative zero-norm fallback.</p>
+      <p>Halt-priority consistency follows from using the same halt function for live decisions and post-hoc reason assignment. Semantic non-expansiveness is explicitly labeled as an empirical conjecture, measured by monotonicity rate, regression slope, bootstrap confidence intervals, and one-sided Wilcoxon testing rather than asserted as a theorem.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>VI. Judge-Efficient Evaluation Protocol</h3>
+      <p>The evaluation protocol generates each question’s full Writer→Critic trajectory once to depth <code>T<sub>max</sub></code>, caches drafts and embeddings, then replays stopping policies over the same trajectory. This makes policy comparison paired: differences in rounds, tokens, or quality are attributable to stopping policy rather than generation stochasticity.</p>
+      <p>The method caches each distinct LLM-judge call by draft hash and separates operational tokens from evaluation tokens. Operational tokens include Writer and Critic every round plus judge calls only when a policy actually uses the judge to decide. Evaluation tokens used only to measure final quality are excluded from policy cost. This distinction is central to the paper’s conclusion that full quality-gated SHP is dominated by judge cost.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>VII. Experimental Setup</h3>
+      <p>The benchmark is HotpotQA in distractor mode, using validation examples streamed from HuggingFace. The builder filters to hard multi-hop questions, forms contexts from gold supporting paragraphs plus distractors, and deterministically assigns development/test split by hashing example identifiers. This yields roughly 80 scenarios: 20 development and 60 test.</p>
+      <p>The Writer/Critic agents and RAGAS judge use an 8B instruction model served through an OpenAI-compatible endpoint. Embeddings are local. The evaluated policies include full SHP, judge-free <code>entropy_only</code>, <code>critic_only</code>, fixed budgets k ∈ {1,3,6}, random stop, and <code>oracle_is</code>, which stops at the round with maximum measured Information Score and functions as an upper bound rather than a deployable policy.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>VIII. Results</h3>
+      <p>Development results show <code>entropy_only</code> stopping at 4.05 rounds with 7,068 operational tokens, saving 37% versus the six-round baseline with final IS 0.661 versus 0.651. Full SHP stopped earlier but spent 27,130 operational tokens, 140% above baseline, because judge calls dominated. The oracle achieved IS 0.782 but was far more expensive.</p>
+      <p>The frozen 60-question test split confirms the efficiency result: <code>entropy_only</code> stopped at 3.92 rounds, saved 38% tokens, and had ΔIS = −0.004 with p = 0.81. <code>fixed_k3</code> saved 53% with ΔIS +0.001. <code>fixed_k1</code> unexpectedly achieved the highest practical quality and largest savings, implying that HotpotQA often does not reward iterative revision. The oracle reached ΔIS +0.115, showing that a better round exists but current online signals do not locate it.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>IX. Discussion</h3>
+      <p>The discussion separates the solved efficiency problem from the open quality problem. Cheap semantic stopping can save tokens while preserving measured quality, but identifying the best quality round remains unsolved. The oracle gap supplies a concrete target for learned best-round predictors or richer online signals.</p>
+      <p>The authors appropriately caution that HotpotQA short-answer questions may under-exercise iterative improvement. It is plausible that a single grounded draft is often sufficient, which helps explain why one-round output performs unusually well. Long-form generation and tasks where drafts accrete content are the needed next tests.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>X. Limitations</h3>
+      <p>The main internal limitation is reliance on a noisy LLM judge. Even with 60 paired test questions, variance is large enough that strict TOST non-inferiority is not formally certified for some parity-quality policies despite tiny point-estimate differences. A stronger or human-validated judge is needed for robustness.</p>
+      <p>The main external-validity limitation is benchmark narrowness. HotpotQA is short-form, and the system is evaluated on one dataset with an 8B judge and modest compute. The non-inferiority margin δ is a modeling choice; a second dataset, long-form tasks, and richer human or deterministic evaluation would be required before generalizing the findings to production agent loops.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>XI. Conclusion and Future Work</h3>
+      <p>The paper concludes that content-aware halting is a better default than blind iteration caps, but the evidence favors the judge-free semantic stopper rather than the full quality-gated cascade. The durable contribution is a guaranteed-terminating low-cost stopper plus a paired replay evaluation protocol that makes cost-quality tradeoffs measurable.</p>
+      <p>Future work should test long-form benchmarks, train best-round predictors that approach oracle behavior, and evaluate on a second dataset for external validity. The most interesting unresolved problem is not stopping when drafts have converged, but detecting which intermediate answer is best before knowing final judged quality.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Appendix A — Per-paper related-work comparison</h3>
+      <p>The appendix compares SHP with five related works: Alpay Algebra V, collaborative entropy, AdaptOrch, NetraAI, and phase-scheduled multi-agent systems. It classifies each by shared mathematical structure, architecture, and problem overlap, then states what the related work does better and what SHP contributes.</p>
+      <p>The synthesis identifies SHP’s differentiators as quality-gated halting, judge-efficient paired evaluation with cost separation, and engineering honesty. The most relevant comparison is probably not the fixed-point theory alone, but the cost-accounting distinction that reveals when a judge-based signal destroys the savings it was meant to create.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Appendix B — Reproducibility</h3>
+      <p>The paper states that every run stores seeds, git commit hash, and fully resolved configuration. Theoretical claims can be checked with <code>python -m shp.theory_checks</code>, and the dataset builder, harness, statistics, and figure-generation scripts are released.</p>
+      <p>This is better than typical lightweight agent preprints, although true reproducibility still depends on availability of the model endpoint, judge implementation, exact cached trajectories, and any provider-specific behavior.</p>
+    </div>
+  </section>
+
+  <section id="figures-tables">
+    <h2>Figures, tables, algorithms, and exhibits</h2>
+
+    <h3>Figure 1 — SHP architecture</h3>
+    <pre><code>FIGURE 1 — SHP architecture
+
+PURPOSE:
+  Shows the Writer→Critic loop and the halting signals used by SHP.
+
+STRUCTURE:
+  Input:
+    - Question q
+    - Retrieved contexts C
+
+  Writer LLM:
+    - Produces draft x_t from q, C, and prior feedback.
+    - Both Writer and Critic are RAG-grounded.
+
+  Parallel signals from x_t:
+    - Embed → d_t: local embedding distance signal, free of API token cost.
+    - Judge → IS_t: RAGAS-derived Information Score, consumes API tokens.
+
+  Halt H:
+    - Consumes distance history, Information Score history, and critic verdict.
+    - If halt: return final answer.
+    - If continue: Critic LLM produces feedback for the next Writer round.
+
+INTERPRETATION:
+  The architecture cleanly separates cheap local semantic convergence from expensive quality measurement.
+
+LIMITATION:
+  The diagram is conceptual; it does not show judge noise, token accounting, or failure cases where semantic convergence occurs around a wrong answer.</code></pre>
+
+    <h3>Figure 2 — Priority-ordered halt cascade</h3>
+    <pre><code>FIGURE 2 — Priority-ordered halt cascade
+
+PURPOSE:
+  Shows the fixed decision order used to halt or continue.
+
+CASCADE:
+  1. Critic APPROVED?
+       yes → halt reason = critic
+       no  → check entropy condition
+
+  2. d_t &lt; ε for k consecutive rounds?
+       yes → halt reason = entropy
+       no  → check quality gain
+
+  3. ΔIS ≤ 0?
+       yes → halt reason = no_gain
+       no  → check failsafe
+
+  4. t ≥ T_max?
+       yes → halt reason = failsafe
+       no  → continue → Critic
+
+KEY DESIGN DETAIL:
+  The failsafe is unconditional and never ablated. This guarantees termination in at most T_max rounds.
+
+APPRAISAL:
+  The priority cascade is implementation-useful because it makes halting reason deterministic and auditable. The downside is that priority order can hide later signals; for example, semantic convergence may halt before quality-gain logic is consulted.</code></pre>
+
+    <h3>Listing 1 — Shared halt decision</h3>
+    <pre><code>LISTING 1 — Single shared halt decision, simplified
+
+function shp_should_halt(t, dist_hist, is_hist, feedback, cfg):
+    if dist_hist is empty:
+        return CONTINUE
+
+    if cfg.critic and feedback starts with "APPROVED":
+        return HALT("critic")
+
+    if cfg.entropy and len(dist_hist) ≥ cfg.k
+       and all(last cfg.k distances &lt; cfg.eps):
+        return HALT("entropy")
+
+    if cfg.is_gain and t ≥ cfg.warmup
+       and is_hist[-1] - is_hist[-2] ≤ 0:
+        return HALT("no_gain")
+
+    if t ≥ cfg.max_rounds:
+        return HALT("failsafe")
+
+    return CONTINUE
+
+IMPLEMENTATION VALUE:
+  One pure function is reused for live halting, offline replay, and post-hoc reason derivation.
+
+FAILURE MODE CONTROL:
+  The unconditional max-rounds check prevents nontermination even when all semantic or judge signals fail.</code></pre>
+
+    <h3>Algorithm 1 — SHP loop for one scenario</h3>
+    <pre><code>ALGORITHM 1 — SHP loop for one scenario
+
+INPUTS:
+  - Question q
+  - Retrieved contexts C
+  - Ground truth answer g for judging
+  - Writer, Critic, local embedder φ, Judge
+  - T_max and halt configuration
+
+PROCESS:
+  1. Initialize previous embedding as empty, distance history D = [], score history S = [].
+  2. For t = 1 to T_max:
+       a. Writer produces draft x_t from q, C, and feedback.
+       b. Embed x_t; if previous embedding exists, append cosine distance to D.
+       c. Judge x_t against q, C, g; append Information Score to S.
+       d. Apply shared halt function.
+       e. If halt fires, break.
+       f. Otherwise Critic produces feedback; store current embedding.
+  3. Return final x_t and halt_reason.
+
+APPRAISAL:
+  The algorithm is explicit enough to implement, but full production use would need robust handling of malformed judge outputs, retriever failure, critic drift, context truncation, and model/provider nondeterminism.</code></pre>
+
+    <h3>Table I — Worked trajectory</h3>
+    <table>
+      <thead><tr><th>Round</th><th>Words</th><th>d<sub>t</sub></th><th>IS<sub>t</sub></th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>16</td><td>—</td><td>0.54</td><td>continue</td></tr>
+        <tr><td>2</td><td>82</td><td>0.144</td><td>0.62</td><td>continue; large change</td></tr>
+        <tr><td>3</td><td>110</td><td>0.027</td><td>0.64</td><td>continue; first sub-ε round</td></tr>
+        <tr><td>4</td><td>162</td><td><strong>0.007</strong></td><td>0.62</td><td><strong>HALT</strong>; entropy, k=2</td></tr>
+        <tr><td>5</td><td>177</td><td>0.003</td><td>0.66</td><td>wasted under baseline</td></tr>
+        <tr><td>6</td><td>—</td><td>—</td><td>—</td><td>wasted under baseline</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Interpretation: the example supports the efficiency story but also exposes a caveat: round 5 had a higher Information Score than the halt round, which foreshadows the best-round identification problem.</p>
+
+    <h3>Table II — Development-split results</h3>
+    <table>
+      <thead><tr><th>Policy</th><th>Rounds</th><th>Operational tokens</th><th>Token saving vs baseline</th><th>Final IS</th></tr></thead>
+      <tbody>
+        <tr><td>fixed_k6 baseline</td><td>6.0</td><td>11,281</td><td>—</td><td>0.651</td></tr>
+        <tr><td>entropy_only</td><td>4.05</td><td>7,068</td><td>−37%</td><td>0.661</td></tr>
+        <tr><td>critic_only</td><td>6.0</td><td>11,281</td><td>0%</td><td>0.651</td></tr>
+        <tr><td>fixed_k3</td><td>3.0</td><td>5,217</td><td>−54%</td><td>0.629</td></tr>
+        <tr><td>fixed_k1</td><td>1.0</td><td>1,548</td><td>−86%</td><td>0.661</td></tr>
+        <tr><td>shp full</td><td>2.6</td><td>27,130</td><td>+140%</td><td>0.636</td></tr>
+        <tr><td>oracle_is</td><td>3.1</td><td>33,007</td><td>+193%</td><td>0.782</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Interpretation: judge-free stopping and fixed budgets are cheap; full SHP and oracle policies are expensive because they invoke the judge every round.</p>
+
+    <h3>Figure 3 — Efficiency–quality Pareto</h3>
+    <pre><code>FIGURE 3 — Efficiency–quality Pareto, development split
+
+AXES:
+  x-axis: mean rounds; lower is cheaper.
+  y-axis: mean final Information Score; higher is better.
+  Desired corner: top-left.
+
+PATTERN:
+  - oracle_is sits far above practical policies, showing substantial unrealized quality headroom.
+  - full shp is dominated: it is expensive and not higher quality.
+  - entropy_only sits near the baseline quality region with fewer rounds.
+  - fixed_k1 is surprisingly strong on this benchmark.
+
+APPRAISAL:
+  The figure supports the main practical conclusion that expensive judge-gating is not justified here. It also warns that HotpotQA may not reward iterative improvement.</code></pre>
+
+    <h3>Figure 4 — Operational token savings versus baseline</h3>
+    <pre><code>FIGURE 4 — Operational token savings versus max_iterations baseline, development split
+
+SIGN CONVENTION:
+  Positive side of chart: cheaper than baseline.
+  Negative side / red: more expensive than baseline.
+
+KEY PATTERN:
+  Cheaper:
+    - entropy_only
+    - fixed_k3
+    - fixed_k1
+    - random_stop variants
+
+  More expensive:
+    - full shp
+    - oracle_is
+
+INTERPRETATION:
+  The chart visually isolates the central engineering lesson: quality judging is not free, and a policy can stop earlier while still costing more if it consults an LLM judge every round.</code></pre>
+
+    <h3>Table III — Frozen test-split results</h3>
+    <table>
+      <thead><tr><th>Policy</th><th>Rounds</th><th>Tokens vs baseline</th><th>ΔIS</th><th>p</th><th>TOST non-inferior?</th></tr></thead>
+      <tbody>
+        <tr><td>fixed_k6 baseline</td><td>6.0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>entropy_only</td><td>3.92</td><td>−38%</td><td>−0.004</td><td>0.81</td><td>no†</td></tr>
+        <tr><td>critic_only</td><td>6.0</td><td>0%</td><td>0.000</td><td>—</td><td>—</td></tr>
+        <tr><td>fixed_k3</td><td>3.0</td><td>−53%</td><td>+0.001</td><td>0.97</td><td>no†</td></tr>
+        <tr><td>fixed_k1</td><td>1.0</td><td>−86%</td><td>+0.030</td><td>0.17</td><td>yes</td></tr>
+        <tr><td>shp full</td><td>2.40</td><td>+129%</td><td>−0.004</td><td>0.78</td><td>no</td></tr>
+        <tr><td>oracle_is</td><td>2.73</td><td>+170%</td><td>+0.115</td><td>3e−11</td><td>yes</td></tr>
+      </tbody>
+    </table>
+    <p class="small">†The authors report point estimates at parity but note that judge noise widens intervals enough that strict non-inferiority is not formally certified.</p>
+
+    <h3>Figure 5 — Mean semantic distance versus round</h3>
+    <pre><code>FIGURE 5 — Mean semantic distance d_t versus round, test split
+
+PURPOSE:
+  Characterizes the empirical semantic non-expansiveness conjecture.
+
+DETAILS:
+  - Test split N = 60.
+  - 300 per-round semantic distances.
+  - Mean distance: 0.040.
+  - Median distance: 0.022.
+  - Maximum distance: 0.39.
+  - 80% of distances fall below ε = 0.06.
+  - One-sided Wilcoxon on d_t - d_{t-1}: p = 1.3 × 10^-3.
+  - Mean OLS slope: −0.009.
+  - Only ~5% of trajectories are strictly monotone.
+
+INTERPRETATION:
+  Distances decrease on average but are noisy. This justifies a patience window rather than halting after one low-distance step.
+
+LIMITATION:
+  Average non-expansiveness is not a guarantee. The formal safety property still comes from the unconditional failsafe, not from semantic convergence.</code></pre>
+
+    <h3>Table IV — Related-work comparison</h3>
+    <table>
+      <thead><tr><th>Work</th><th>Shared math</th><th>Architecture overlap</th><th>Problem overlap</th><th>Overall relevance</th></tr></thead>
+      <tbody>
+        <tr><td>Alpay Algebra V</td><td>fixed-point</td><td>none</td><td>convergence</td><td>High</td></tr>
+        <tr><td>Collaborative Entropy</td><td>information theory</td><td>multi-LLM</td><td>when-to-stop</td><td>High</td></tr>
+        <tr><td>AdaptOrch</td><td>termination</td><td>LangGraph</td><td>coordination</td><td>Medium</td></tr>
+        <tr><td>NetraAI</td><td>contraction</td><td>loop + LLM</td><td>convergence-halt</td><td>High</td></tr>
+        <tr><td>PSMAS</td><td>sweep convergence</td><td>LangGraph</td><td>token efficiency</td><td>Medium</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Interpretation: this table is useful for positioning, but several cited works are themselves recent or preprint-level. It should not be treated as settled literature mapping.</p>
+  </section>
+
+  <section id="evaluation">
+    <h2>Evaluation and appraisal</h2>
+    <div class="verdict">
+      <strong>Verdict: Read first for agent-harness evaluation design; read soon for early-stopping implementation.</strong> The paper is unusually useful for your interests because the evaluation protocol, cost accounting, replay design, and explicit correction of overclaimed theory are directly transferable to parser/RAG/agent-harness work. The empirical generalization is narrower than the framing.
+    </div>
+
+    <h3>Rating grid</h3>
+    <div class="rating-grid">
+      <div class="mini-card"><div class="label">Relevance</div><div class="score">9 / 10</div><div class="small">Strong fit for deterministic agent harnesses, RAG evaluation, cost-aware loops, and protocolized appraisal.</div></div>
+      <div class="mini-card"><div class="label">Novelty</div><div class="score">7 / 10</div><div class="small">Semantic stopping is intuitive, but paired replay + operational/evaluation token separation is a valuable contribution.</div></div>
+      <div class="mini-card"><div class="label">Method strength</div><div class="score">7 / 10</div><div class="small">Paired replay and cached judging are sound; single dataset and LLM judge weaken external validity.</div></div>
+      <div class="mini-card"><div class="label">Evidence strength</div><div class="score">6.5 / 10</div><div class="small">Clear test-split numbers, but quality claims depend on noisy proxy judging and HotpotQA’s short-answer structure.</div></div>
+      <div class="mini-card"><div class="label">External validity</div><div class="score">5 / 10</div><div class="small">Findings may not transfer to long-form writing, clinical workflows, code repair, tool-use agents, or multi-step task completion.</div></div>
+      <div class="mini-card"><div class="label">Implementation value</div><div class="score">8.5 / 10</div><div class="small">Halt function, token accounting, replay protocol, and reproducibility posture are directly buildable.</div></div>
+    </div>
+
+    <h3>Main strengths</h3>
+    <ul class="tight">
+      <li><strong>Honest theory boundary:</strong> the paper removes unsupported contraction claims and keeps only termination and consistency guarantees.</li>
+      <li><strong>Reusable evaluation harness:</strong> full-trajectory generation with offline policy replay is a strong pattern for evaluating stopping policies without generation-noise confounding.</li>
+      <li><strong>Cost model discipline:</strong> separating operational tokens from evaluation tokens prevents LLM-judge measurement cost from being hidden.</li>
+      <li><strong>Engineering corrections are disclosed:</strong> the paper reports prior invalidities such as ungrounded Writer behavior and duplicated stop logic, which improves trust.</li>
+      <li><strong>Clear negative result:</strong> the full judge-gated variant is shown to be counterproductive, which is more useful than overstated success.</li>
+    </ul>
+
+    <h3>Main limitations</h3>
+    <ul class="tight">
+      <li><strong>Single benchmark:</strong> HotpotQA short-answer QA is not enough to validate iterative halting broadly.</li>
+      <li><strong>LLM judge dependence:</strong> Information Score is a proxy with enough variance to weaken non-inferiority certification.</li>
+      <li><strong>Iteration may be under-exercised:</strong> the fact that one-round output performs best suggests the task may not require revision.</li>
+      <li><strong>Small development split:</strong> N = 20 development examples is modest for threshold tuning.</li>
+      <li><strong>No broad failure taxonomy:</strong> the paper identifies the oracle gap but does not deeply characterize when semantic convergence is wrong, premature, or misleading.</li>
+      <li><strong>Deployment details remain incomplete:</strong> production integration would need drift monitoring, retriever failure checks, judge calibration, timeout handling, audit logs, and task-specific thresholds.</li>
+    </ul>
+
+    <h3>Claim-level appraisal</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Support</th><th>Appraisal</th></tr></thead>
+      <tbody>
+        <tr><td>Semantic early stopping can save operational tokens.</td><td>Strong within test setting: entropy_only saves 38% vs fixed_k6 with ΔIS −0.004.</td><td>Credible for similar short-form RAG QA loops.</td></tr>
+        <tr><td>Full quality-gated SHP is counterproductive.</td><td>Strong within reported cost model: +129% tokens with no quality gain.</td><td>Important negative result; likely generalizes when judge calls are expensive.</td></tr>
+        <tr><td>Termination is guaranteed.</td><td>Trivial but valid due to unconditional failsafe.</td><td>Correct, but not a semantic-convergence guarantee.</td></tr>
+        <tr><td>Semantic distance decreases on average.</td><td>Supported empirically by test-split distance analysis, but not monotone per trajectory.</td><td>Useful signal, not a proof of convergence.</td></tr>
+        <tr><td>Best-round identification is the central open problem.</td><td>Supported by oracle gap of +0.115 IS over practical policies.</td><td>Probably the most interesting research takeaway.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Bottom-line appraisal</h3>
+    <div class="goodnote">
+      Best use: adapt the replay/caching/token-accounting protocol for your own RAG, parser, and agent-loop experiments. Treat <code>entropy_only</code> as a plausible low-cost baseline for iterative agents, not as a universal stopping solution.
+    </div>
+    <div class="warning">
+      Do not use this as evidence that semantic convergence reliably preserves quality in all agent systems. The paper validates a narrow HotpotQA setting with proxy judging and explicitly leaves long-form and second-dataset validation for future work.
+    </div>
+  </section>
+
+  <section id="implementation">
+    <h2>Implementation and practice takeaways</h2>
+    <div class="takeaway-grid">
+      <div class="mini-card"><div class="label">Build first</div><div class="value">Replay harness</div><p>Generate full trajectories once, then replay candidate halt policies over identical drafts. This removes generation stochasticity from policy comparison.</p></div>
+      <div class="mini-card"><div class="label">Track separately</div><div class="value">Operational vs evaluation cost</div><p>Charge a policy only for tokens it would spend at runtime. Keep evaluator/judge tokens separate unless the policy uses the judge online.</p></div>
+      <div class="mini-card"><div class="label">Baseline strongly</div><div class="value">fixed_k1, fixed_k3, fixed_kmax</div><p>Include one-round and simple fixed-budget baselines. This paper’s strongest practical policy was unexpectedly fixed_k1, which prevents overcrediting complex loops.</p></div>
+      <div class="mini-card"><div class="label">Prefer cheap signals</div><div class="value">Local embeddings first</div><p>Use local semantic distance as a low-cost convergence signal. Only add judge calls when their marginal value exceeds their operational cost.</p></div>
+      <div class="mini-card"><div class="label">Guardrails</div><div class="value">Unconditional failsafe</div><p>Never ablate the max-round failsafe. Semantic or quality signals can fail silently; termination should not depend on them.</p></div>
+      <div class="mini-card"><div class="label">Research target</div><div class="value">Best-round predictor</div><p>The oracle gap suggests a learned or rule-based predictor of the best intermediate answer may matter more than earlier stopping alone.</p></div>
+    </div>
+
+    <h3>Recommended adaptation for a RAG/parser/curation harness</h3>
+    <pre><code>AGENT-HARNESS ADAPTATION
+
+For each document or question:
+  1. Generate a full trajectory to T_max:
+       - draft/extract/critique/revise cycles
+       - local embeddings for each artifact
+       - deterministic structural checks when available
+       - optional LLM judge only for measurement or selected policies
+
+  2. Store each round:
+       - artifact text / JSON / markdown
+       - embedding vector hash or distance values
+       - token counts by actor
+       - validator outputs
+       - critic notes
+       - halt reason if a policy would stop
+
+  3. Replay policies offline:
+       - fixed_k1, fixed_k3, fixed_kmax
+       - semantic_distance_patience
+       - deterministic_schema_validity_stop
+       - no_new_fields_or_claims_stop
+       - judge_quality_stop
+       - oracle_best_valid_artifact
+
+  4. Report separately:
+       - operational cost
+       - evaluation cost
+       - final validity
+       - evidence preservation
+       - hallucinated fields
+       - schema conformance
+       - best-round gap
+
+MONITORING:
+  - Premature semantic convergence around wrong outputs
+  - Hidden quality loss masked by noisy judges
+  - Extra judge calls that erase token savings
+  - Tasks where fixed_k1 beats iterative workflows
+  - Cases where the best artifact occurs before the last round</code></pre>
+
+    <h3>What to avoid</h3>
+    <ul class="tight">
+      <li>Do not build a judge-heavy stopping loop until a replay study shows the judge changes decisions enough to justify its cost.</li>
+      <li>Do not claim semantic convergence means correctness; it only means low measured change between drafts.</li>
+      <li>Do not compare stopping policies by re-running stochastic generations separately for each policy.</li>
+      <li>Do not omit one-round and simple fixed-budget baselines.</li>
+      <li>Do not report evaluator cost as if it were runtime cost unless the policy actually uses the evaluator online.</li>
+    </ul>
+  </section>
+
+  <section id="qa">
+    <h2>Quality-control notes</h2>
+    <div class="goodnote">
+      <strong>Pass condition:</strong> this source is worth preserving because it contributes a practical evaluation harness pattern, not just an early-stopping heuristic.
+    </div>
+
+    <h3>Confidence in this appraisal</h3>
+    <p><strong>Moderate-high for summarizing the paper and evaluating internal logic.</strong> The paper is short, structured, and explicit about methods, metrics, and limitations. Confidence is lower for external validity because the reported evidence uses one short-form QA benchmark and a proxy LLM judge.</p>
+
+    <h3>Residual questions before adopting SHP broadly</h3>
+    <ul class="checklist">
+      <li>Does semantic-distance stopping remain safe on long-form synthesis, clinical summarization, code repair, browser agents, and document extraction?</li>
+      <li>How often does low semantic distance occur around a confidently wrong or incomplete answer?</li>
+      <li>Can deterministic validators replace or reduce LLM judging for parser/RAG workflows?</li>
+      <li>How sensitive are ε and k across models, embedding models, domains, and prompt templates?</li>
+      <li>Can a lightweight best-round predictor close part of the oracle gap without per-round LLM judging?</li>
+    </ul>
+  </section>
+</main>
+<footer>
+  Source evaluated: Sahil Shrivastava, <em>Semantic Early-Stopping for Iterative LLM Agent Loops: A Judge-Efficient Study of When to Halt</em>, arXiv:2606.27009v1, 25 June 2026. Generated as a single-file Summary/Evaluation/Appraisal reference HTML using the established card-based protocol style.
+</footer>
+</body>
+</html>

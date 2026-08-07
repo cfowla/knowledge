@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Can LLMs Judge Better Than They Generate? — Summary, Evaluation, and Appraisal</title>
+<style>
+:root{
+  --bg:#f7f8fb;--card:#ffffff;--ink:#17202a;--muted:#526173;--line:#d9e0ea;
+  --accent:#1d4f91;--accent2:#173f72;--good:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;
+  --codebg:#0e1726;--codefg:#edf4ff;--soft:#eef5ff;--soft2:#f2f6fb;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}a{color:var(--accent)}.wrap{max-width:1180px;margin:0 auto;padding:1.25rem}header.hero{margin:0 0 1rem;background:linear-gradient(135deg,#10243d,#1d4f91);color:#fff;border-bottom:5px solid #d2e2f5}.hero .wrap{padding:2rem 1.25rem 1.8rem}.kicker{letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;font-weight:750;opacity:.9}.hero h1{margin:.35rem 0 .5rem;font-size:clamp(1.7rem,3vw,2.75rem);line-height:1.08}.subtitle{max-width:900px;font-size:1.05rem;opacity:.95}.tags{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.9rem}.tag{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);border-radius:999px;padding:.22rem .55rem;font-size:.82rem;font-weight:650}.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.25rem;margin:1rem 0 1.25rem;box-shadow:0 1px 4px rgba(16,36,61,.06)}.toc h2{margin:.1rem 0 .5rem;color:#0f315f}.toc ol{columns:2;margin:.25rem 0 0;padding-left:1.25rem}.toc li{break-inside:avoid;margin:.25rem 0}section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.05rem 1.25rem;margin:1rem 0;box-shadow:0 1px 4px rgba(16,36,61,.05)}h2{color:#0f315f;margin:.1rem 0 .75rem;font-size:1.35rem}h3{color:#173f72;margin:1.1rem 0 .45rem}h4{color:#24364b;margin:.8rem 0 .3rem}.meta-grid,.takeaway-grid,.rating-grid,.synthesis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.75rem}.mini-card{border:1px solid var(--line);border-radius:12px;background:#fbfdff;padding:.85rem}.mini-card .label{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:800}.mini-card .value{font-weight:750;margin-top:.25rem}.mini-card .score{font-size:1.8rem;color:var(--accent2);font-weight:850;line-height:1}.small{font-size:.9rem;color:var(--muted)}.verdict,.warning,.goodnote,.badnote{border-radius:12px;padding:.9rem 1rem;margin:.75rem 0;border-left:5px solid var(--accent);background:var(--soft)}.warning{border-left-color:var(--warn);background:#fff7e8}.goodnote{border-left-color:var(--good);background:#eefaf2}.badnote{border-left-color:var(--bad);background:#fff0f0}.section-summary{border-top:1px solid var(--line);padding-top:.85rem;margin-top:.85rem}.section-summary:first-of-type{border-top:none}table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.92rem;border:1px solid var(--line);display:block;overflow-x:auto}th,td{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}th{background:#eef3f9;color:#1e395c}.compact th,.compact td{padding:.35rem .45rem;font-size:.86rem}.num{text-align:right;font-variant-numeric:tabular-nums}pre{margin:.75rem 0 1.05rem;padding:1rem;background:var(--codebg);color:var(--codefg);border-radius:12px;overflow-x:auto;border:1px solid #1b2e49;font-size:.86rem;line-height:1.45;white-space:pre-wrap}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}.pillrow{display:flex;gap:.4rem;flex-wrap:wrap}.pill{border:1px solid var(--line);background:#eef3f9;border-radius:999px;padding:.2rem .55rem;font-size:.82rem;font-weight:700;color:#1e395c}.bar{height:.55rem;background:#e6edf6;border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;background:var(--accent)}.callout-title{font-weight:850;color:#0f315f}.foot{font-size:.88rem;color:var(--muted)}@media (max-width:760px){.toc ol{columns:1}.two-col{grid-template-columns:1fr}.wrap{padding:.8rem}section{padding:.9rem}.hero .wrap{padding:1.5rem .9rem}}@media print{body{background:#fff}.wrap{max-width:100%;padding:.5rem}section,.toc{box-shadow:none;break-inside:avoid}.hero{background:#fff!important;color:#000;border-bottom:2px solid #000}.tag{border-color:#999;color:#000;background:#fff}a{color:inherit}pre{white-space:pre-wrap}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Reference HTML • Summary / Evaluation / Appraisal</div>
+    <h1>Can LLMs Judge Better Than They Generate?</h1>
+    <div class="subtitle">Evaluating task asymmetry, mechanistic interpretability, and transferability for in-context QA — arXiv:2606.28050v1.</div>
+    <div class="tags">
+      <span class="tag">LLM-as-a-Judge</span><span class="tag">Self-evaluation</span><span class="tag">In-context QA</span><span class="tag">Mechanistic analysis</span><span class="tag">LoRA transfer</span><span class="tag">AI/ML evaluation</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#manifest">Coverage manifest</a></li>
+    <li><a href="#aiml">AI/ML appraisal add-on</a></li>
+    <li><a href="#sections">Section condensation</a></li>
+    <li><a href="#figures">Figures and workflows</a></li>
+    <li><a href="#tables">Tables</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#takeaways">Implementation takeaways</a></li>
+    <li><a href="#provenance">Provenance</a></li>
+  </ol>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><div class="label">Title</div><div class="value">Can LLMs Judge Better Than They Generate? Evaluating Task Asymmetry, Mechanistic Interpretability and Transferability for In-Context QA</div></div>
+    <div class="mini-card"><div class="label">Author</div><div class="value">Sambaran Bandyopadhyay, Adobe Research</div></div>
+    <div class="mini-card"><div class="label">Source type</div><div class="value">AI/ML preprint; empirical benchmark + interpretability + fine-tuning transfer study</div></div>
+    <div class="mini-card"><div class="label">Version / date</div><div class="value">arXiv:2606.28050v1; submitted 26 Jun 2026</div></div>
+    <div class="mini-card"><div class="label">Identifier</div><div class="value">DOI: 10.48550/arXiv.2606.28050<br>Source: https://arxiv.org/abs/2606.28050v1</div></div>
+    <div class="mini-card"><div class="label">Scope warning</div><div class="value">This evaluates binary, factual, in-context QA self-evaluation. It does not establish behavior for long-form, subjective, clinical, regulatory, or human-preference evaluation.</div></div>
+  </div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="verdict"><span class="callout-title">Core thesis:</span> In controlled in-context QA, an LLM’s self-evaluation is not reliably easier than answer generation. The paper reports that generation accuracy exceeds self-evaluation accuracy on three of four benchmarks for both tested models, with MuSiQue as the main exception where higher-hop generation appears harder than verifying a presented candidate.</div>
+  <div class="synthesis-grid">
+    <div class="mini-card"><div class="label">What is tested</div><div class="value">For each instance, the model first generates an answer from context and question, then judges whether its own answer is correct. An oracle LLM scores generated answers against gold answers so generation accuracy (GA) and evaluation accuracy (EA) are comparable.</div></div>
+    <div class="mini-card"><div class="label">Key results</div><div class="value">Llama-3.1-8B-Instruct: Δ = EA − GA is −3.4 on SQuAD 2.0, −1.0 on DROP, −14.2 on HotpotQA, and +3.6 on MuSiQue. GPT-4o-mini: −1.2, −5.8, −2.0, and +4.0 respectively.</div></div>
+    <div class="mini-card"><div class="label">Mechanistic claim</div><div class="value">The evaluator allocates 3–5x less last-token attention to context than the generator and only ~0.3–0.5% to the candidate answer, suggesting shallow, candidate-anchored verification rather than full context rereading.</div></div>
+    <div class="mini-card"><div class="label">Fine-tuning finding</div><div class="value">LoRA generation fine-tuning tends to create over-acceptance / acquiescence; LoRA evaluation fine-tuning degrades generation and can make the evaluator overly conservative. Joint fine-tuning redistributes but does not eliminate the asymmetry.</div></div>
+  </div>
+  <div class="warning"><strong>Main caution:</strong> The paper is useful for LLM evaluation design, but the conclusions are bounded by fixed zero-shot prompts, short-answer English QA, oracle-LLM scoring, one open model for internals, and no direct study of real clinical, legal, or subjective evaluation settings.</div>
+</section>
+
+<section id="manifest">
+  <h2>Coverage manifest</h2>
+  <pre><code>SOURCE COVERAGE MANIFEST
+source_id: arXiv:2606.28050v1
+title: Can LLMs Judge Better Than They Generate? Evaluating Task Asymmetry, Mechanistic Interpretability and Transferability for In-Context QA
+source_type: AI/ML preprint; in-context QA benchmark and interpretability study
+date_or_version: 26 Jun 2026, v1
+sections: Abstract; 1 Introduction; 2 Related Work; 3 Methodology; 4 Experimental Setup; 5 Results and Discussion; 6 Conclusion; Limitations; Ethical Considerations; References; Appendices A-E
+figures: Figure 1 core task-asymmetry pipeline; Figure 2 last-token attention fractions; Figure 3 answer-mention concentration
+tables: Tables 1-14, including oracle agreement, GA/EA, EP/ER/EF1, hop stratification, LoRA, dataset usage, attention decompositions, ablations, and 2WikiMultiHopQA extension
+algorithms_or_workflows: sequential generation/evaluation pipeline; oracle scoring; hard-negative generation; LoRA-Gen/Eval/Both training; C-MASK and C-SWAP ablations
+appendices_or_supplements: A reproducibility; B dataset usage; C extended attention/ablation analyses; D detailed LoRA transfer; E case studies
+coverage_decision: Include all main-text figures/tables and all appendix tables because they materially affect interpretation, reproducibility, and failure analysis.
+omissions: References are not individually summarized; no external code repository or independent replication was available in the uploaded source.</code></pre>
+</section>
+
+<section id="aiml">
+  <h2>AI/ML appraisal add-on</h2>
+  <div class="two-col">
+    <div class="mini-card"><div class="label">Task</div><p>Binary factual self-evaluation of a model’s own in-context QA generations, compared with generation accuracy on the same instances.</p></div>
+    <div class="mini-card"><div class="label">Data</div><p>SQuAD 2.0 answerable questions, DROP number-type answers, HotpotQA non-yes/no questions, and answerable MuSiQue. Main task asymmetry uses 500 validation instances per dataset; LoRA uses 5,000 training instances per dataset.</p></div>
+    <div class="mini-card"><div class="label">Method</div><p>Zero-shot prompts at temperature 0. Models: Llama-3.1-8B-Instruct and GPT-4o-mini as evaluated systems; GPT-4o as oracle; GPT-5.4 is reported by the author as a super-oracle in reliability checks. Mechanistic analysis uses Llama attention weights only.</p></div>
+    <div class="mini-card"><div class="label">Metrics</div><p>Generation Accuracy (GA), Evaluation Accuracy (EA), Δ = EA − GA, evaluation precision/recall/F1 with Correct as the positive class, span-level attention fractions, LoRA transfer deltas, and ablation rejection / masking metrics.</p></div>
+    <div class="mini-card"><div class="label">Failures analyzed</div><p>Over-acceptance, over-conservatism, false positives, false negatives, context de-attention, low answer-slot attention, poor paragraph selectivity, weak answer-mention lookup during evaluation, and LoRA-induced acquiescence.</p></div>
+    <div class="mini-card"><div class="label">Bottom line</div><p>Benchmark-useful and design-useful for evaluator harnesses, RAG QA verification, agent self-checking, and calibration tests. Not deployment-sufficient for high-stakes factual verification without independent validation.</p></div>
+  </div>
+</section>
+
+<section id="sections">
+  <h2>Section condensation</h2>
+  <div class="section-summary"><h3>Abstract</h3><p>The abstract frames a direct challenge to a common assumption behind LLM-as-a-Judge and self-reflection systems: that evaluation is easier than generation. The study restricts both tasks to in-context QA, making the passage the sole information source, and each model judges the answer it generated, reducing the open-domain confound where parametric knowledge could help evaluation without helping free recall.</p><p>Across SQuAD 2.0, DROP, HotpotQA, and MuSiQue, plus Llama-3.1-8B-Instruct and GPT-4o-mini, self-evaluation is not consistently easier. The authors report generation accuracy above self-evaluation accuracy on three of four benchmarks, attention evidence that evaluation attends far less to context and barely attends to the candidate answer, and LoRA evidence that task-specific fine-tuning induces new biases rather than solving the asymmetry.</p></div>
+  <div class="section-summary"><h3>1. Introduction</h3><p>The introduction argues that LLM-based evaluation is now infrastructure: it supports leaderboards, automatic benchmarking, production quality assessment, self-correction loops, and reward-modeling pipelines. The paper identifies an under-tested premise across these uses: that a model can judge correctness at least as reliably, and often more easily, than it can generate the answer.</p><p>Prior work has found weak or negative generation-judgment relationships, but the author argues those studies often occur in open-domain QA where memorized facts confound the comparison. This paper narrows the setting to factual QA with explicit context and gold answers, so the gap is interpreted as synthesis difficulty versus self-verification difficulty rather than differential memory retrieval.</p></div>
+  <div class="section-summary"><h3>2. Related Work</h3><p>The related work ties the question to LLM-as-a-Judge systems, self-reflection/self-correction, RLHF reward models, self-preference, and prior generation-evaluation asymmetry findings. The cited asymmetry literature includes work showing LLMs may evaluate generated answers worse than they produce them, struggle to discriminate self-generated candidates, and show weak generation-judgment correlations across tasks.</p><p>The paper positions its contribution as a controlled in-context complement: it adds mechanistic interpretability via attention inspection and transfer analysis via LoRA. The interpretability framing draws from transformer circuit and late-layer representation work, while the LoRA framing tests whether generation and evaluation share task-relevant parametric structure.</p></div>
+  <div class="section-summary"><h3>3. Methodology</h3><p>The core design uses each benchmark instance as a triple (context c, question q, gold answer a*). The model first performs generation Tgen: (c, q) → a. The same generated answer is then used in self-evaluation Teval: (c, q, a) → y, where y is Correct or Incorrect. A separate oracle L* scores the generated answer against gold answer a*, producing y*, which defines both whether generation succeeded and whether the model’s evaluation judgment was correct.</p><p>Mechanistic analysis extracts last-token attention from Llama-3.1-8B-Instruct, averaging all heads over layers 24-31 and measuring attention mass on context, question, and candidate answer spans. Transfer analysis trains three LoRA adapters: LoRA-Gen on gold-answer generation, LoRA-Eval on binary evaluation with hard negatives, and LoRA-Both on a balanced union. Hard negatives are generated by prompting without context to elicit plausible hallucinations, with answer rotation used as fallback.</p></div>
+  <div class="section-summary"><h3>4. Experimental Setup</h3><p>The datasets span extractive QA (SQuAD 2.0 answerable questions), numerical reasoning (DROP number-type answers), two-hop distractor QA (HotpotQA non-yes/no), and 2-4 hop multistep QA (MuSiQue answerable validation split). Each main evaluation samples 500 validation instances per dataset, and the same samples are reused across conditions for comparability.</p><p>The evaluated models are Llama-3.1-8B-Instruct and GPT-4o-mini; GPT-4o is used as oracle throughout. Metrics include GA, EA, Δ = EA − GA, and evaluation precision/recall/F1. Abstentions are excluded from metric computation. LoRA uses rank 16, α = 32 on q/k/v/o projections, 3 epochs, effective batch size 16, learning rate 2e-4, and bfloat16 on 4x A100-SXM4-80GB GPUs.</p></div>
+  <div class="section-summary"><h3>5.1 R1: Is the oracle LLM reliable?</h3><p>The paper validates GPT-4o oracle judgments on 200 sampled Llama outputs, 50 per dataset, by comparing to a reported stronger super-oracle. Overall agreement is 92%, with SQuAD 2.0 highest at 98%, DROP at 92%, HotpotQA at 88%, and MuSiQue at 90%. GPT-4o re-call consistency is reported as 99.5%.</p><p>This supports using GPT-4o for short factual answer scoring, but it is not equivalent to a human adjudication study or proof that all borderline paraphrase/numeric cases are handled correctly. The 184 jointly verified samples become the basis for attention analysis, improving interpretability reliability but reducing sample size for that component.</p></div>
+  <div class="section-summary"><h3>5.2 R2: Is self-evaluation easier than generation?</h3><p>The main answer is negative in most settings. For both evaluated models, Δ is below zero on SQuAD 2.0, DROP, and HotpotQA and above zero only on MuSiQue. Llama’s largest negative gap is HotpotQA at −14.2 points, while GPT-4o-mini’s largest negative gap is DROP at −5.8 points.</p><p>Precision/recall patterns reveal different evaluator biases. Llama shows EP &gt; ER across datasets, consistent with a conservative tendency to over-predict Incorrect. GPT-4o-mini shows the opposite on three of four datasets, especially MuSiQue, suggesting over-acceptance. The stronger model is not automatically the better-calibrated self-evaluator.</p></div>
+  <div class="section-summary"><h3>5.3 R3: Reasoning complexity and the gap</h3><p>MuSiQue’s hop annotations reveal that the positive Δ is concentrated where generation becomes harder. For Llama, Δ shifts from −1.1 at 2 hops to +10.7 at 3 hops and +7.7 at 4 hops; GPT-4o-mini remains positive across hop counts.</p><p>The authors interpret this through a candidate-answer-insulation hypothesis: when a candidate answer is already present, evaluation may avoid reconstructing the full reasoning chain. This is plausible but not fully established, because the later attention analyses do not isolate a MuSiQue-specific mechanism.</p></div>
+  <div class="section-summary"><h3>5.4 R4: Internal mechanisms behind the gap</h3><p>The attention analysis reports that generation allocates substantially more last-token attention to context than evaluation does. Across the jointly verified Llama samples, Tgen sends 11.3-20.7% of last-token attention to context, while Teval sends only 1.4-5.4%. Candidate-answer attention during evaluation is only 0.3-0.5%.</p><p>The paper interprets this as structural context de-attention during evaluation. This explains the negative gaps most directly for SQuAD 2.0, DROP, and HotpotQA: the generator uses context to synthesize an answer, but the evaluator does not re-read enough context to verify it. MuSiQue remains an exception, supporting the idea that behavior depends on both evaluation mechanism and generation difficulty.</p></div>
+  <div class="section-summary"><h3>5.5 R5: Cross-task transfer under LoRA fine-tuning</h3><p>LoRA-Gen flips Δ to nonnegative across datasets but largely by inducing acquiescence: evaluator recall approaches 100% on several datasets because the model predicts Correct for nearly everything. LoRA-Both shows a similar over-accepting pattern under joint training. LoRA-Eval produces the opposite failure mode, reducing generation accuracy and often making the model overly conservative.</p><p>The transfer results argue against a simple “more evaluation training fixes self-evaluation” interpretation. Generation and evaluation share enough representation that training one affects the other, but the transfer is poorly calibrated. Per-dataset LoRA-Both is the best-calibrated regime for SQuAD 2.0, DROP, and HotpotQA, but MuSiQue’s positive gap persists, and base generation accuracy is not fully recovered on harder datasets.</p></div>
+  <div class="section-summary"><h3>6. Conclusion</h3><p>The conclusion states that self-evaluation is not uniformly easier than generation in in-context factual QA. The authors attribute the gap partly to attention-routing differences at inference time: evaluation attends much less to context and scarcely to the candidate answer at the first-token decision point.</p><p>The practical conclusion is that self-assessment pipelines should measure the direction and magnitude of their own GA-EA gap and monitor acquiescence, especially after generation fine-tuning. The stronger claim that evaluation failures are structurally rooted in attention-routing is supported for the studied setting but should be treated as bounded by the paper’s design.</p></div>
+  <div class="section-summary"><h3>Limitations and ethics</h3><p>The limitations are material: only Llama internals are available; only first-token attention is analyzed; prompts are fixed and zero-shot; benchmarks are English-only; tasks use binary factual correctness rather than subjective or long-form quality; and MuSiQue’s positive gap is not mechanistically explained by the same attention analysis.</p><p>The ethics section notes that the work uses publicly available models and existing QA benchmarks, collects no new human data, and is descriptive. The larger safety implication is indirect: the study cautions against over-reliance on self-evaluation in pipelines where evaluator errors could propagate into trusted automation.</p></div>
+  <div class="section-summary"><h3>Appendices A-E</h3><p>Appendix A supplies reproducibility details for attention extraction and LoRA training. Appendix B justifies the sample sizes and dataset balancing. Appendix C extends the mechanistic analysis with paragraph-level selectivity, answer-mention concentration, C-MASK/C-SWAP ablations, and a 2WikiMultiHopQA extension. Appendix D decomposes LoRA transfer failures by dataset.</p><p>Appendix E gives case studies for true positive, true negative, false positive, and false negative outcomes. These examples are useful because they show concrete failure modes: surface-grounded wrong answers can be accepted as correct, while concise but factually complete answers can be over-penalized for missing descriptive detail.</p></div>
+</section>
+
+<section id="figures">
+  <h2>Figures, workflows, and algorithmic structures</h2>
+<pre><code>FIGURE 1 — Core task-asymmetry pipeline
+Purpose: Show the sequential design used to compare generation and self-evaluation on the same instance.
+Structure/panels: Input (c, q, a*) is passed to generator L for Tgen: (c, q) -&gt; a. The generated answer a is scored by oracle L* against gold a*, producing y*. The same model L then evaluates (c, q, a) -&gt; y. GA is P(y* = Correct); EA is P(y = y*); Delta = EA - GA.
+Variables/axes/groups: c = context, q = question, a* = gold answer, a = generated answer, y* = oracle correctness, y = model self-judgment.
+Numeric details: Conceptual figure; no sample size or uncertainty shown.
+Main pattern: The pipeline makes evaluation a self-evaluation task rather than evaluation of another model&#x27;s answer.
+Interpretation: Directly supports the paper&#x27;s central comparison by holding instances and candidate answers fixed.
+Limits: Oracle quality and prompt format become load-bearing; the figure does not address prompt sensitivity or human adjudication.</code></pre>
+<pre><code>WORKFLOW — Hard-negative generation for LoRA-Eval
+Inputs: Context-question-gold triples and base model L.
+Process / decision rules: Query L without the context to elicit plausible hallucinated answers; attempt up to five hallucinations per record; keep the first answer judged non-matching by oracle L*; filter refusal-style outputs; if no usable hard negative appears, use answer rotation from another instance.
+Outputs: Evaluation training examples of (c, q, a) -&gt; y* with plausible incorrect candidates.
+Failure modes: Negatives may still differ from real deployment errors; oracle errors can contaminate labels; answer rotation may create trivially wrong negatives.
+Human review: Not reported.
+Governance: Reproducibility details are supplied, but no public artifact/code verification is described in the uploaded paper.</code></pre>
+<pre><code>FIGURE 2 — Mean last-token attention fraction to context and candidate answer
+Purpose: Compare how much decision-point attention generation versus evaluation allocates to context and candidate answer.
+Structure/panels: Bar plot by dataset (SQuAD 2.0, DROP, HotpotQA, MuSiQue) with gen: context c, eval: context c, and eval: answer a.
+Variables/axes/groups: y-axis = attention fraction at last-token decision; attention averaged across final eight Llama layers and all heads over 184 jointly verified samples.
+Numeric details: Tgen context attention is 11.3-20.7%; Teval context attention is 1.4-5.4%; Teval candidate-answer attention is 0.3-0.5%.
+Main pattern: Evaluation de-attends to context by approximately 3-5x relative to generation and barely attends to the answer it is judging.
+Interpretation: Supports the claim that self-evaluation often fails to re-read the evidence needed to verify candidate correctness.
+Limits: Attention is not a complete causal explanation; only Llama internals and first-token attention are analyzed; MuSiQue&#x27;s positive gap is not explained by this figure alone.</code></pre>
+<pre><code>FIGURE 3 — Answer-mention concentration: needle-in-haystack lookup
+Purpose: Test whether generation or evaluation focuses attention on context tokens that mention the candidate answer.
+Structure/panels: Bar plot by dataset comparing Tgen and Teval per-token attention ratio on answer-mention versus non-mention context tokens.
+Variables/axes/groups: Ratio &gt; 1 indicates preferential attention to answer mentions.
+Numeric details: Tgen ratios: SQuAD 13.03, DROP 5.05, HotpotQA 17.24, MuSiQue 22.66. Teval ratios: SQuAD 1.35, DROP 1.03, HotpotQA 1.86, MuSiQue 2.12.
+Main pattern: Generation performs sharp answer-locating lookup; evaluation is near-uniform.
+Interpretation: Complements Figure 2 by showing that generation, not evaluation, concentrates on answer-bearing context tokens.
+Limits: Mention matching is a heuristic; it may undercount paraphrases and overcount lexical coincidences.</code></pre>
+<pre><code>WORKFLOW — C-MASK and C-SWAP causal ablations
+Inputs: Evaluation prompts (c, q, a) and baseline oracle labels.
+Process / decision rules: C-MASK replaces candidate a with [REDACTED] while retaining original oracle verdict. C-SWAP replaces a with another instance&#x27;s gold answer; the new candidate is almost always incorrect, so the reference label becomes Incorrect.
+Outputs: EA under candidate removal, flip rate from baseline, and rejection rate for swapped wrong candidates.
+Failure modes: C-SWAP may create trivially implausible candidates; C-MASK changes prompt distribution; first-token logit comparison is a proxy for full generation.
+Interpretation: The two probes suggest candidate-anchored shallow verification: the candidate slot matters, but the model can reject obviously wrong swapped answers.</code></pre>
+</section>
+
+<section id="tables">
+  <h2>Table extraction and key quantitative evidence</h2>
+  <h3>Table 1 — Oracle agreement</h3>
+  <table class="compact"><thead><tr><th>Dataset</th><th class="num">N</th><th class="num">Agree %</th><th class="num">FP</th><th class="num">FN</th></tr></thead><tbody>
+    <tr><td>SQuAD 2.0</td><td class="num">50</td><td class="num">98.0</td><td class="num">1</td><td class="num">0</td></tr>
+    <tr><td>DROP</td><td class="num">50</td><td class="num">92.0</td><td class="num">2</td><td class="num">2</td></tr>
+    <tr><td>HotpotQA</td><td class="num">50</td><td class="num">88.0</td><td class="num">3</td><td class="num">3</td></tr>
+    <tr><td>MuSiQue</td><td class="num">50</td><td class="num">90.0</td><td class="num">5</td><td class="num">0</td></tr>
+    <tr><th>Overall</th><th class="num">200</th><th class="num">92.0</th><th class="num">11</th><th class="num">5</th></tr>
+  </tbody></table>
+  <p class="small"><strong>Pattern:</strong> Oracle agreement is high enough for a short-answer QA study but imperfect, especially on HotpotQA and MuSiQue. GPT-4o intra-model consistency is reported as 99.5%.</p>
+
+  <h3>Table 2 — GA, EA, and Δ by model and dataset</h3>
+  <table class="compact"><thead><tr><th>Model</th><th>SQuAD GA</th><th>SQuAD EA</th><th>SQuAD Δ</th><th>DROP GA</th><th>DROP EA</th><th>DROP Δ</th><th>Hotpot GA</th><th>Hotpot EA</th><th>Hotpot Δ</th><th>MuSiQue GA</th><th>MuSiQue EA</th><th>MuSiQue Δ</th></tr></thead><tbody>
+    <tr><td>Llama-3.1-8B-Instruct</td><td>95.6</td><td>92.2</td><td>−3.4</td><td>63.4</td><td>62.4</td><td>−1.0</td><td>83.2</td><td>69.0</td><td>−14.2</td><td>55.6</td><td>59.2</td><td>+3.6</td></tr>
+    <tr><td>GPT-4o-mini</td><td>97.8</td><td>96.6</td><td>−1.2</td><td>79.6</td><td>73.8</td><td>−5.8</td><td>88.0</td><td>86.0</td><td>−2.0</td><td>64.8</td><td>68.8</td><td>+4.0</td></tr>
+  </tbody></table>
+  <p class="small"><strong>Pattern:</strong> The core empirical finding: self-evaluation does not dominate generation; MuSiQue is the exception.</p>
+
+  <h3>Table 3 — Evaluation precision, recall, and F1</h3>
+  <table class="compact"><thead><tr><th>Model</th><th>SQuAD EP/ER/EF1</th><th>DROP EP/ER/EF1</th><th>HotpotQA EP/ER/EF1</th><th>MuSiQue EP/ER/EF1</th></tr></thead><tbody>
+    <tr><td>Llama-3.1-8B-Instruct</td><td>97.0 / 94.8 / 95.9</td><td>74.5 / 61.8 / 67.6</td><td>87.4 / 73.3 / 79.7</td><td>67.5 / 51.4 / 58.4</td></tr>
+    <tr><td>GPT-4o-mini</td><td>98.0 / 98.6 / 98.3</td><td>81.9 / 86.2 / 84.0</td><td>90.9 / 93.4 / 92.2</td><td>70.8 / 88.3 / 78.6</td></tr>
+  </tbody></table>
+  <p class="small"><strong>Pattern:</strong> Llama is conservative (precision greater than recall); GPT-4o-mini is more over-accepting on most datasets.</p>
+
+  <h3>Table 4 — MuSiQue gap stratified by hop count</h3>
+  <table class="compact"><thead><tr><th>Model</th><th>Hops</th><th class="num">Samples</th><th class="num">GA</th><th class="num">EA</th><th class="num">Δ</th></tr></thead><tbody>
+    <tr><td rowspan="3">Llama-3.1-8B</td><td>2-hop</td><td class="num">282</td><td class="num">57.8</td><td class="num">56.7</td><td class="num">−1.1</td></tr>
+    <tr><td>3-hop</td><td class="num">140</td><td class="num">55.0</td><td class="num">65.7</td><td class="num">+10.7</td></tr>
+    <tr><td>4-hop</td><td class="num">78</td><td class="num">48.7</td><td class="num">56.4</td><td class="num">+7.7</td></tr>
+    <tr><td rowspan="3">GPT-4o-mini</td><td>2-hop</td><td class="num">282</td><td class="num">67.4</td><td class="num">72.0</td><td class="num">+4.6</td></tr>
+    <tr><td>3-hop</td><td class="num">140</td><td class="num">66.4</td><td class="num">68.6</td><td class="num">+2.1</td></tr>
+    <tr><td>4-hop</td><td class="num">78</td><td class="num">52.6</td><td class="num">57.7</td><td class="num">+5.1</td></tr>
+  </tbody></table>
+
+  <h3>Table 5 — GA, EA, and Δ under LoRA fine-tuning</h3>
+  <table class="compact"><thead><tr><th>Checkpoint</th><th>SQuAD GA/EA/Δ</th><th>DROP GA/EA/Δ</th><th>HotpotQA GA/EA/Δ</th><th>MuSiQue GA/EA/Δ</th></tr></thead><tbody>
+    <tr><td>Base</td><td>95.6 / 92.2 / −3.4</td><td>63.4 / 62.4 / −1.0</td><td>83.2 / 69.0 / −14.2</td><td>55.6 / 59.2 / +3.6</td></tr>
+    <tr><td>LoRA-Gen (joint)</td><td>94.0 / 94.6 / +0.6</td><td>61.2 / 62.0 / +0.8</td><td>84.0 / 84.4 / +0.4</td><td>49.0 / 56.8 / +7.8</td></tr>
+    <tr><td>LoRA-Gen (per-ds)</td><td>92.4 / 93.2 / +0.8</td><td>64.0 / 65.2 / +1.2</td><td>83.4 / 84.2 / +0.8</td><td>48.4 / 53.1 / +4.7</td></tr>
+    <tr><td>LoRA-Eval (joint)</td><td>94.4 / 78.4 / −16.0</td><td>46.6 / 57.8 / +11.2</td><td>76.6 / 63.6 / −13.0</td><td>38.0 / 60.8 / +22.8</td></tr>
+    <tr><td>LoRA-Eval (per-ds)</td><td>90.6 / 88.4 / −2.2</td><td>41.4 / 61.2 / +19.8</td><td>77.2 / 47.5 / −29.7</td><td>36.8 / 59.6 / +22.8</td></tr>
+    <tr><td>LoRA-Both (joint)</td><td>92.8 / 93.2 / +0.4</td><td>58.8 / 61.4 / +2.6</td><td>82.4 / 83.0 / +0.6</td><td>49.4 / 58.4 / +9.0</td></tr>
+    <tr><td>LoRA-Both (per-ds)</td><td>92.2 / 92.0 / −0.2</td><td>62.5 / 61.7 / −0.8</td><td>83.2 / 83.2 / 0.0</td><td>44.3 / 53.5 / +9.2</td></tr>
+  </tbody></table>
+  <p class="small"><strong>Pattern:</strong> LoRA does not cleanly transfer capability. Generation training raises EA mainly by over-acceptance; evaluation training damages generation; balanced per-dataset training is more calibrated but not fully restorative.</p>
+
+  <h3>Table 6 — EP, ER, EF1 by checkpoint</h3>
+  <table class="compact"><thead><tr><th>Checkpoint</th><th>SQuAD EP/ER/EF1</th><th>DROP EP/ER/EF1</th><th>HotpotQA EP/ER/EF1</th><th>MuSiQue EP/ER/EF1</th></tr></thead><tbody>
+    <tr><td>Base</td><td>97.0 / 94.8 / 95.9</td><td>74.5 / 61.8 / 67.6</td><td>87.4 / 73.3 / 79.7</td><td>67.5 / 51.4 / 58.4</td></tr>
+    <tr><td>LoRA-Gen (joint)</td><td>94.9 / 99.6 / 97.2</td><td>62.5 / 94.8 / 75.3</td><td>84.3 / 100.0 / 91.5</td><td>56.3 / 100.0 / 72.0</td></tr>
+    <tr><td>LoRA-Eval (joint)</td><td>95.3 / 81.1 / 87.6</td><td>57.9 / 34.8 / 43.4</td><td>81.5 / 67.9 / 74.1</td><td>54.0 / 58.8 / 56.3</td></tr>
+    <tr><td>LoRA-Both (joint)</td><td>93.4 / 99.8 / 96.5</td><td>60.7 / 97.3 / 74.8</td><td>83.3 / 99.3 / 90.6</td><td>57.5 / 99.2 / 72.8</td></tr>
+  </tbody></table>
+
+  <h3>Tables 7-8 — Average gains and dataset usage</h3>
+  <table class="compact"><thead><tr><th>Checkpoint</th><th class="num">ΔGA avg</th><th class="num">ΔEA avg</th></tr></thead><tbody><tr><td>LoRA-Gen (joint)</td><td class="num">−2.4</td><td class="num">+3.7</td></tr><tr><td>LoRA-Eval (joint)</td><td class="num">−10.6</td><td class="num">−5.6</td></tr><tr><td>LoRA-Both (joint)</td><td class="num">−3.6</td><td class="num">+3.3</td></tr></tbody></table>
+  <table class="compact"><thead><tr><th>Dataset</th><th>Type</th><th class="num">Train</th><th class="num">Val filtered</th><th class="num">LoRA train</th><th class="num">Task-asym / eval</th><th class="num">Attention verified</th></tr></thead><tbody>
+    <tr><td>SQuAD 2.0</td><td>Extractive</td><td class="num">130,319</td><td class="num">5,928</td><td class="num">5,000</td><td class="num">500</td><td class="num">49</td></tr>
+    <tr><td>DROP</td><td>Numerical</td><td class="num">77,409</td><td class="num">5,889</td><td class="num">5,000</td><td class="num">500</td><td class="num">46</td></tr>
+    <tr><td>HotpotQA</td><td>2-hop</td><td class="num">90,447</td><td class="num">6,947</td><td class="num">5,000</td><td class="num">500</td><td class="num">44</td></tr>
+    <tr><td>MuSiQue</td><td>2-4-hop</td><td class="num">19,938</td><td class="num">2,417</td><td class="num">5,000</td><td class="num">500</td><td class="num">45</td></tr>
+  </tbody></table>
+
+  <h3>Tables 9-10 — Extended attention selectivity</h3>
+  <table class="compact"><thead><tr><th>Dataset</th><th>Task</th><th class="num">n</th><th class="num">Supporting share</th><th class="num">Supporting/distractor ratio</th></tr></thead><tbody>
+    <tr><td>HotpotQA</td><td>Tgen</td><td class="num">44</td><td class="num">0.410</td><td class="num">4.59</td></tr><tr><td>HotpotQA</td><td>Teval</td><td class="num">44</td><td class="num">0.188</td><td class="num">1.38</td></tr>
+    <tr><td>MuSiQue</td><td>Tgen</td><td class="num">45</td><td class="num">0.306</td><td class="num">3.58</td></tr><tr><td>MuSiQue</td><td>Teval</td><td class="num">45</td><td class="num">0.155</td><td class="num">1.21</td></tr>
+  </tbody></table>
+  <table class="compact"><thead><tr><th>Dataset</th><th>Tgen mention/non-mention</th><th>Teval mention/non-mention</th></tr></thead><tbody><tr><td>SQuAD 2.0</td><td>13.03</td><td>1.35</td></tr><tr><td>DROP</td><td>5.05</td><td>1.03</td></tr><tr><td>HotpotQA</td><td>17.24</td><td>1.86</td></tr><tr><td>MuSiQue</td><td>22.66</td><td>2.12</td></tr></tbody></table>
+  <p class="small"><strong>Pattern:</strong> Generation selectively attends to supporting paragraphs and answer-mention tokens; evaluation largely loses that selectivity.</p>
+
+  <h3>Tables 11-12 — Candidate-slot causal ablations</h3>
+  <table class="compact"><thead><tr><th>Dataset</th><th class="num">n</th><th class="num">EA base</th><th class="num">EA C-MASK</th><th class="num">Δ</th><th class="num">flip</th></tr></thead><tbody><tr><td>SQuAD 2.0</td><td class="num">500</td><td class="num">92.2</td><td class="num">68.8</td><td class="num">−23.4</td><td class="num">31.0</td></tr><tr><td>DROP</td><td class="num">500</td><td class="num">62.4</td><td class="num">56.6</td><td class="num">−5.8</td><td class="num">38.6</td></tr><tr><td>HotpotQA</td><td class="num">500</td><td class="num">69.0</td><td class="num">49.4</td><td class="num">−19.6</td><td class="num">37.2</td></tr><tr><td>MuSiQue</td><td class="num">500</td><td class="num">59.2</td><td class="num">50.0</td><td class="num">−9.2</td><td class="num">36.4</td></tr></tbody></table>
+  <table class="compact"><thead><tr><th>Dataset</th><th class="num">n</th><th class="num">Rej.%</th><th>Rej.% when base=Correct</th></tr></thead><tbody><tr><td>SQuAD 2.0</td><td class="num">500</td><td class="num">99.0</td><td>98.9 (n=467)</td></tr><tr><td>DROP</td><td class="num">492</td><td class="num">95.7</td><td>95.4 (n=259)</td></tr><tr><td>HotpotQA</td><td class="num">500</td><td class="num">99.6</td><td>99.4 (n=349)</td></tr><tr><td>MuSiQue</td><td class="num">499</td><td class="num">99.8</td><td>100.0 (n=211)</td></tr></tbody></table>
+  <p class="small"><strong>Pattern:</strong> C-MASK shows the candidate slot matters; C-SWAP shows the model can reject obviously wrong candidates. Together, this supports candidate-anchored shallow verification rather than pure rubber-stamping.</p>
+
+  <h3>Tables 13-14 — 2WikiMultiHopQA extension</h3>
+  <table class="compact"><thead><tr><th>Subset</th><th class="num">n</th><th class="num">GA</th><th class="num">EA</th><th class="num">Δ</th></tr></thead><tbody><tr><td>Overall</td><td class="num">495</td><td class="num">67.9</td><td class="num">56.8</td><td class="num">−11.1</td></tr><tr><td>bridge-comparison</td><td class="num">111</td><td class="num">70.3</td><td class="num">45.0</td><td class="num">−25.2</td></tr><tr><td>comparison</td><td class="num">118</td><td class="num">77.1</td><td class="num">60.2</td><td class="num">−16.9</td></tr><tr><td>compositional</td><td class="num">215</td><td class="num">70.7</td><td class="num">62.3</td><td class="num">−8.4</td></tr><tr><td>inference</td><td class="num">51</td><td class="num">29.4</td><td class="num">51.0</td><td class="num">+21.6</td></tr></tbody></table>
+  <table class="compact"><thead><tr><th>Subset</th><th class="num">Tgen→c</th><th class="num">Teval→c</th><th class="num">Teval→a</th><th class="num">Δctx</th></tr></thead><tbody><tr><td>Overall</td><td class="num">15.6</td><td class="num">3.8</td><td class="num">0.33</td><td class="num">−11.8</td></tr><tr><td>bridge-comparison</td><td class="num">13.9</td><td class="num">3.9</td><td class="num">0.31</td><td class="num">−10.0</td></tr><tr><td>comparison</td><td class="num">11.8</td><td class="num">3.3</td><td class="num">0.43</td><td class="num">−8.5</td></tr><tr><td>compositional</td><td class="num">17.9</td><td class="num">4.0</td><td class="num">0.32</td><td class="num">−13.9</td></tr><tr><td>inference</td><td class="num">18.3</td><td class="num">4.1</td><td class="num">0.21</td><td class="num">−14.2</td></tr></tbody></table>
+  <p class="small"><strong>Pattern:</strong> 2WikiMultiHopQA reproduces the context de-attention signature and shows that positive Δ can emerge when generation accuracy collapses, as in the inference subset.</p>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="verdict"><strong>Verdict: Read first.</strong> This paper is highly relevant to LLM evaluation harnesses, RAG verification, agent self-checking, deterministic evaluation, and scientific curation workflows because it directly tests whether self-evaluation should be trusted as an easier substitute for generation.</div>
+  <div class="rating-grid">
+    <div class="mini-card"><div class="label">Relevance</div><div class="score">9/10</div><p><strong>Rationale:</strong> Direct fit for LLM judge design, self-evaluation, RAG QA verification, and agent harness safety checks.</p><p class="small"><strong>Evidence basis:</strong> The task is exactly self-evaluation in factual QA; metrics include GA, EA, Δ, calibration-like EP/ER, and ablations. <strong>Raise/lower:</strong> Would rise with direct RAG/agent deployment tests; would fall for users focused only on generation benchmarks.</p></div>
+    <div class="mini-card"><div class="label">Novelty</div><div class="score">8/10</div><p><strong>Rationale:</strong> The controlled in-context design plus attention and LoRA transfer analyses add useful structure beyond prior open-domain asymmetry findings.</p><p class="small"><strong>Evidence basis:</strong> Four QA datasets, two models, mechanistic analysis, and adapter transfer experiments. <strong>Raise/lower:</strong> Would rise with public code and broader model families; would lower if prior work already covered similar controlled in-context settings.</p></div>
+    <div class="mini-card"><div class="label">Method strength</div><div class="score">7/10</div><p><strong>Rationale:</strong> The experimental design is coherent and controlled, but depends on oracle LLM labels, fixed prompts, and one accessible model for internals.</p><p class="small"><strong>Evidence basis:</strong> Same instances reused across tasks, oracle reliability checked, LoRA details reported, ablations included. <strong>Raise/lower:</strong> Would rise with human adjudication, prompt sensitivity, confidence intervals, open code, and more models; lower if oracle/model contamination is shown.</p></div>
+    <div class="mini-card"><div class="label">Evidence strength</div><div class="score">7/10</div><p><strong>Rationale:</strong> The main pattern is consistent across multiple datasets and models, but several mechanistic claims are stronger than the evidence can fully prove.</p><p class="small"><strong>Evidence basis:</strong> Tables 2-14 triangulate behavioral, attention, LoRA, and ablation results. <strong>Raise/lower:</strong> Would rise with causal circuit interventions and replication; lower if prompt variants reverse the gap.</p></div>
+    <div class="mini-card"><div class="label">External validity</div><div class="score">5/10</div><p><strong>Rationale:</strong> Generalization is limited to English short-answer QA with explicit contexts and binary correctness.</p><p class="small"><strong>Evidence basis:</strong> Authors explicitly exclude subjective, long-form, cross-lingual, and non-QA tasks. <strong>Raise/lower:</strong> Would rise with long-form factuality, citation-grounded RAG, clinical QA, and human preference tasks; lower for non-English or subjective evaluation.</p></div>
+    <div class="mini-card"><div class="label">Implementation value</div><div class="score">8/10</div><p><strong>Rationale:</strong> The paper yields directly actionable evaluator QA tests: GA/EA gap measurement, EP/ER monitoring, candidate-swap/mask probes, and acquiescence checks after fine-tuning.</p><p class="small"><strong>Evidence basis:</strong> The paper supplies concrete metrics and failure modes that can be ported to harness design. <strong>Raise/lower:</strong> Would rise with packaged scripts and thresholds; lower if teams cannot access model internals or oracle scoring.</p></div>
+  </div>
+  <div class="goodnote"><strong>Main strengths:</strong> controlled in-context setup; same-instance comparison; multiple task types; explicit Δ metric; precision/recall decomposition; attention-based hypothesis; LoRA transfer stress test; candidate-slot ablations; case-level failure examples.</div>
+  <div class="badnote"><strong>Main limitations:</strong> no human oracle panel; no prompt-sensitivity analysis; no long-form or subjective evaluation; Llama-only internals; first-token attention is a partial proxy; code/repository not established in the uploaded source; MuSiQue mechanism remains partly unresolved.</div>
+  <div class="warning"><strong>Do not overclaim:</strong> The paper does not show that all LLM judges are unreliable, that attention alone explains evaluation failure, or that self-evaluation is never useful. It shows that self-evaluation cannot be assumed easier than generation in a controlled factual QA setting and needs calibration/failure testing.</div>
+</section>
+
+<section id="takeaways">
+  <h2>Implementation and practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><div class="label">Build</div><p>Add a GA-vs-EA evaluation lane to QA/RAG/agent harnesses: generate answer, externally score answer, ask the same model to judge it, then compute Δ and EP/ER/F1.</p></div>
+    <div class="mini-card"><div class="label">Monitor</div><p>Track over-acceptance and over-conservatism separately. A high EA can be misleading if recall approaches 100% because the evaluator says Correct to nearly everything.</p></div>
+    <div class="mini-card"><div class="label">Stress test</div><p>Use C-SWAP-style wrong candidates and C-MASK-style candidate removal to determine whether the evaluator is checking the evidence or merely reacting to candidate plausibility.</p></div>
+    <div class="mini-card"><div class="label">Fine-tuning caution</div><p>Do not assume generation SFT improves evaluation. After any generator tuning, re-measure evaluator recall, false positives, and acceptance rate.</p></div>
+    <div class="mini-card"><div class="label">RAG relevance</div><p>For retrieval-grounded QA, require independent evidence checking or a separate verifier path rather than letting the answer generator judge itself from the same prompt state.</p></div>
+    <div class="mini-card"><div class="label">High-stakes use</div><p>For clinical, legal, regulatory, or medication-related workflows, treat same-model self-evaluation as insufficient. Use external validation, deterministic checks, citation-level verification, and human review.</p></div>
+  </div>
+  <h3>Suggested reusable harness checks</h3>
+  <pre><code>1. Compute GA and EA on the same sampled QA set.
+2. Report Delta = EA - GA by dataset, task type, and reasoning depth.
+3. Decompose evaluator behavior into precision, recall, F1, false positives, and false negatives.
+4. Add C-SWAP negatives to test rejection of wrong but plausible candidates.
+5. Add C-MASK or candidate-removal probes to test candidate-slot dependence.
+6. Re-run the full battery after generator fine-tuning, evaluator fine-tuning, or prompt changes.
+7. Do not accept aggregate evaluator accuracy without acceptance-rate and class-balance diagnostics.</code></pre>
+</section>
+
+<section id="provenance">
+  <h2>Footer and provenance</h2>
+  <p><strong>Source evaluated:</strong> Uploaded PDF, <em>Can LLMs Judge Better Than They Generate? Evaluating Task Asymmetry, Mechanistic Interpretability and Transferability for In-Context QA</em>, arXiv:2606.28050v1, DOI 10.48550/arXiv.2606.28050.</p>
+  <p><strong>Generated:</strong> 2026-06-29. <strong>Method:</strong> Single-file reference HTML using the Summary, Evaluation, and Appraisal protocol. The artifact separates source claims from independent appraisal and preserves the major quantitative tables, figures, workflows, limitations, and implementation implications.</p>
+  <p class="foot">This reference file supports reading, triage, and implementation planning. It does not replace primary-source review or independent replication.</p>
+</section>
+</main>
+</body>
+</html>

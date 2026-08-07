@@ -1,0 +1,2376 @@
+{
+  "source_metadata": {
+    "title": "Evaluation Pitfalls and Sparsity Limitations in LLM-based Confidence Estimates for Classification",
+    "authors": [
+      "Elena Merdjanovska",
+      "Omar Zaidan",
+      "Andreas Rücklé"
+    ],
+    "identifier": "arXiv:2608.04899v1",
+    "date": "2026-08-05",
+    "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+    "source_file": "2608.04899.pdf",
+    "input_document_sha256": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff"
+  },
+  "atom_counts_by_type": {
+    "study_objective": 1,
+    "method": 6,
+    "population_description": 1,
+    "quantitative_result": 11,
+    "author_conclusion": 1,
+    "qualitative_result": 2,
+    "limitation": 5,
+    "funding_disclosure": 1
+  },
+  "atoms": [
+    {
+      "atom_id": "8096ac18-15e6-4dde-997c-ca3da39fc247",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The study evaluated sparsity in LLM confidence estimates for classification, its effect on threshold-based evaluation, and a token-probability-weighted verbalization method intended to reduce sparsity.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "We study sparsity as a distinct and critical challenge... propose verbalization logprobs.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "confidence estimation",
+        "selective classification",
+        "sparsity"
+      ]
+    },
+    {
+      "atom_id": "1890500e-8f15-4052-bb34-f14eefbbf4f5",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "method",
+      "canonical_statement": "The evaluation compared vanilla verbalization, top-2 verbalization, consistency sampling, verbalization sampling, and token logprobs as confidence-estimation approaches for prompted LLM classifiers.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "introduction",
+        "page": "2",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Table 1: Overview of the five confidence estimation methods studied in this work.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "methods",
+        "confidence estimation"
+      ]
+    },
+    {
+      "atom_id": "ba128884-e961-4d45-b8ac-3aeb24c0d1a9",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "population_description",
+      "canonical_statement": "The experiments used the full SST-2 test split (872 examples), the full SST-5 test split (2,210 examples), 6,000 randomly sampled Yahoo! Answers test examples, and 8,604 sampled Amazon ESCI examples.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "From SST-2 and SST-5 we use their full standard test splits... sample 6,000... sample 8,604 examples.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": {
+        "label": "Four classification datasets totaling 17,686 evaluated examples",
+        "sample_size": 17686,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "datasets",
+        "sample size"
+      ]
+    },
+    {
+      "atom_id": "1b279690-088c-47c2-bdcd-ab74b63e622e",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "method",
+      "canonical_statement": "Qwen3-32B and Claude 3.7 Sonnet were evaluated, with additional experiments enabling reasoning and an alternative verbalized confidence range of 0–9.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "We observe the same behavior using Claude 3.7 Sonnet, and both models with or without reasoning enabled... alternative confidence range (0–9).",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "models",
+        "robustness checks"
+      ]
+    },
+    {
+      "atom_id": "5ade71e9-2a4c-4f90-aa7e-d054d3571d6c",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "method",
+      "canonical_statement": "Consistency sampling generated four class-label responses at temperature 1.0 and used the modal-label frequency as confidence.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "We sample 4 responses ... at temperature 1.0.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "consistency sampling",
+        "sampling"
+      ]
+    },
+    {
+      "atom_id": "68ab766c-1676-43cc-b971-1597979a9243",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "method",
+      "canonical_statement": "Verbalization sampling generated four verbalized-confidence responses at temperature 1.0 and used their mean as the confidence estimate.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Confidence is the mean of the sampled verbalized values. We use the same sampling parameters (4 responses, temperature 1.0).",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "verbalization sampling",
+        "sampling"
+      ]
+    },
+    {
+      "atom_id": "c2608b57-25dd-42dc-98b9-fd4217b0b945",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "method",
+      "canonical_statement": "AUARC was evaluated under both linear (trapezoidal) and stepwise interpolation to determine how interpolation interacts with sparse confidence values.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Table 2 shows the impact of using stepwise rather than linear interpolation when calculating AUARC.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "AUARC",
+        "interpolation"
+      ]
+    },
+    {
+      "atom_id": "f7e90230-7dcd-4e42-80c6-23006ec969a3",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On SST-2 with Qwen3-32B, vanilla verbalization produced only eight unique confidence values, and more than half of predictions had confidence exactly 95%.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "figure",
+        "page": "2",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 1a",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "only eight unique values ... with over half being exactly 95%",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": {
+        "label": "SST-2 test split evaluated with Qwen3-32B",
+        "sample_size": 872,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Vanilla verbalization",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Number of unique confidence values",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Count of distinct verbalized confidence scores",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "unique confidence values",
+        "estimate": "8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "Eight unique values: 0.6, 0.65, 0.7, 0.75, 0.85, 0.9, 0.95, 0.98."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "sparsity",
+        "SST-2"
+      ]
+    },
+    {
+      "atom_id": "52db337c-1796-4bb2-92ce-199e1e26ccce",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across the four datasets, 45% to 93% of verbalization-based confidence estimates were concentrated in the five most frequent confidence values.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "45–93% of confidences are concentrated in the five most common confidence values",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": {
+        "label": "Four classification datasets",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Verbalization-based confidence estimation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Top-5 confidence-value concentration",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Percentage of predictions assigned one of the five most frequent confidence values",
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "range percentage points",
+        "estimate": "45",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "Reported range was 45% to 93%."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "sparsity",
+        "top-5 concentration"
+      ]
+    },
+    {
+      "atom_id": "aafe76a0-7c65-47ee-bfa7-94ecbd42b07c",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-32B, consistency sampling AUARC decreased from 0.808 with linear interpolation to 0.683 with stepwise interpolation, changing its average rank from first to fifth.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Consistency sampling 0.808 1→5 0.683 100",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": {
+        "label": "Four-dataset average with Qwen3-32B",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Linear interpolation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Stepwise interpolation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Consistency sampling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "AUARC",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Area under the accuracy-rejection curve",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "AUARC under stepwise interpolation",
+        "estimate": "0.683",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Linear interpolation",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.808",
+            "unit": "AUARC"
+          },
+          {
+            "arm_label": "Stepwise interpolation",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.683",
+            "unit": "AUARC"
+          }
+        ],
+        "original_result_text": "Linear AUARC 0.808; stepwise AUARC 0.683; rank 1 to 5."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "AUARC",
+        "rank reversal"
+      ]
+    },
+    {
+      "atom_id": "536f4216-352d-4829-8ad7-9b2ec32f3dba",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-32B, verbalization-based methods lost 0.7 to 4.5 AUARC points when stepwise rather than linear interpolation was used, whereas token logprobs was unchanged.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "verbalization approaches score 0.7–4.5 AUARC points lower with stepwise interpolation... token logprobs ... remains unchanged.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": {
+        "label": "Four-dataset average with Qwen3-32B",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Linear interpolation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Stepwise interpolation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Change in AUARC",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "AUARC percentage-point decrease",
+        "estimate": "0.7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "Reported range: 0.7 to 4.5 points."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "interpolation bias",
+        "AUARC"
+      ]
+    },
+    {
+      "atom_id": "a94f807d-3af2-4be9-baa1-2fef3c2aa4db",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors recommend stepwise interpolation rather than linear interpolation for AUARC and similar threshold-based evaluations of sparse confidence scores.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "We therefore advocate for using stepwise interpolation rather than linear interpolation when reporting such metrics.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "recommendation",
+        "evaluation standard"
+      ]
+    },
+    {
+      "atom_id": "af415e29-3848-415d-9394-235c7a52ac9b",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "method",
+      "canonical_statement": "Verbalization logprobs computes an expected confidence from token probabilities over the tens and units digits of a verbalized percentage, treating the two digit positions as independent.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "we compute confidence as the expected value over possible digits at each position... treat them as independent as an approximation",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "verbalization logprobs",
+        "expected value"
+      ]
+    },
+    {
+      "atom_id": "4e934b5f-dad2-4346-8434-f94b1e38b9fb",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Averaged across four datasets with Qwen3-32B, verbalization logprobs achieved AUARC 0.736 versus 0.713 for vanilla verbalization, a 2.3-point improvement.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Verbalization-logprobs 0.670 0.234 0.736 1 1.7× ... Vanilla verb. ... 0.713",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": {
+        "label": "Four-dataset average with Qwen3-32B",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Verbalization logprobs",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Vanilla verbalization",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "AUARC",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Stepwise area under the accuracy-rejection curve",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "AUARC",
+        "estimate": "0.736",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Verbalization logprobs",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.736",
+            "unit": "AUARC"
+          },
+          {
+            "arm_label": "Vanilla verbalization",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.713",
+            "unit": "AUARC"
+          }
+        ],
+        "original_result_text": "Verbalization logprobs 0.736 vs vanilla verbalization 0.713."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "verbalization logprobs",
+        "performance"
+      ]
+    },
+    {
+      "atom_id": "f23601d5-0126-467c-9ad3-d2a4bdb1c312",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Averaged across four datasets with Qwen3-32B, verbalization logprobs reduced top-5 confidence concentration from 92% with vanilla verbalization to 1%.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Vanilla verb. ... %t5 92 ... Verbalization-logprobs ... %t5 1",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": {
+        "label": "Four-dataset average with Qwen3-32B",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Verbalization logprobs",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Vanilla verbalization",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Top-5 confidence-value concentration",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "percentage",
+        "estimate": "1",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Verbalization logprobs",
+            "event_count": null,
+            "sample_size": null,
+            "value": "1",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Vanilla verbalization",
+            "event_count": null,
+            "sample_size": null,
+            "value": "92",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "Verbalization logprobs 1%; vanilla verbalization 92%."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "sparsity reduction",
+        "top-5 concentration"
+      ]
+    },
+    {
+      "atom_id": "14d18419-a602-4c8a-9f66-6556bee061ff",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Verbalization logprobs achieved AUARC 0.736 at 1.7× baseline token cost, while verbalization sampling achieved AUARC 0.734 at 6.8× cost.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Verbalization sampling ... 0.734 ... 6.8× ... Verbalization-logprobs ... 0.736 ... 1.7×",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": {
+        "label": "Four-dataset average with Qwen3-32B",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Verbalization logprobs",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Verbalization sampling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Relative inference cost",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Total input and output tokens relative to class-label-only prediction",
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "relative cost multiplier",
+        "estimate": "1.7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Verbalization logprobs",
+            "event_count": null,
+            "sample_size": null,
+            "value": "1.7",
+            "unit": "× baseline cost"
+          },
+          {
+            "arm_label": "Verbalization sampling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "6.8",
+            "unit": "× baseline cost"
+          }
+        ],
+        "original_result_text": "AUARC 0.736 at 1.7× vs AUARC 0.734 at 6.8×."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "cost",
+        "efficiency"
+      ]
+    },
+    {
+      "atom_id": "25ee1197-52af-4a04-91f2-022eee935c4e",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Spearman correlation between vanilla verbalization and verbalization logprobs averaged 0.89 across the four datasets.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "We find that ρ averages 0.89 across the four datasets.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": {
+        "label": "Four classification datasets",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Vanilla verbalization",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Verbalization logprobs",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Rank correlation of confidence scores",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Spearman rho",
+        "estimate": "0.89",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "correlation",
+        "confidence scores"
+      ]
+    },
+    {
+      "atom_id": "e2096e41-8b98-471d-9068-40cd3493aa4a",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Verbalization logprobs produced 630 to 2,227 unique confidence values across datasets, compared with 8 to 12 for vanilla verbalization.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Vanilla ... 8, 11, 11, 12; Logprobs ... 630, 1,466, 2,227, 1,869.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": {
+        "label": "Four classification datasets",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Verbalization logprobs",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Vanilla verbalization",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Number of unique confidence values",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "minimum unique confidence values",
+        "estimate": "630",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "Verbalization logprobs range 630–2,227; vanilla range 8–12."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "resolution",
+        "unique values"
+      ]
+    },
+    {
+      "atom_id": "11bec5fa-59a4-4373-ad91-362bb57a1e3d",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On SST-2, achieving at least 98% accuracy required rejecting 39.7% of predictions with vanilla verbalization but only 28.1% with verbalization logprobs, retaining 11.6 percentage points more data.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "one need only reject 28.1% ... salvaging a full 11.6% of the data (39.7% - 28.1%).",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": {
+        "label": "SST-2 test split evaluated with Qwen3-32B",
+        "sample_size": 872,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Verbalization logprobs",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Vanilla verbalization",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Rejection rate required for at least 98% accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "rejection percentage",
+        "estimate": "28.1",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Verbalization logprobs",
+            "event_count": null,
+            "sample_size": null,
+            "value": "28.1",
+            "unit": "% rejected"
+          },
+          {
+            "arm_label": "Vanilla verbalization",
+            "event_count": null,
+            "sample_size": null,
+            "value": "39.7",
+            "unit": "% rejected"
+          }
+        ],
+        "original_result_text": "Vanilla verbalization 39.7%; verbalization logprobs 28.1%; difference 11.6 percentage points."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "selective prediction",
+        "thresholding"
+      ]
+    },
+    {
+      "atom_id": "92225c67-ba17-4c2b-a571-bd0e76b8783b",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Claude 3.7 Sonnet, consistency sampling AUARC decreased from 0.814 under linear interpolation to 0.703 under stepwise interpolation, with rank changing from first to fourth.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Consistency Sampling 0.814 1→4 0.703 100",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": {
+        "label": "Four-dataset average with Claude 3.7 Sonnet",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Linear interpolation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Stepwise interpolation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Consistency sampling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "AUARC",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "AUARC under stepwise interpolation",
+        "estimate": "0.703",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Linear interpolation",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.814",
+            "unit": "AUARC"
+          },
+          {
+            "arm_label": "Stepwise interpolation",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.703",
+            "unit": "AUARC"
+          }
+        ],
+        "original_result_text": "Linear 0.814; stepwise 0.703; rank 1 to 4."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Claude",
+        "generalization"
+      ]
+    },
+    {
+      "atom_id": "65c8a5ab-6e51-40ae-9de3-a231bcd169a2",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "High sparsity in verbalization-based confidence estimates persisted when reasoning mode was enabled for both Qwen3-32B and Claude 3.7 Sonnet.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Sparsity patterns persist even with reasoning, confirming that the phenomenon is not limited to direct prediction settings.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "reasoning",
+        "robustness"
+      ]
+    },
+    {
+      "atom_id": "3d4263e7-5ee2-4736-8ba5-62cad474d71f",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Using an alternative confidence range of 0–9 did not remove sparsity or linear-interpolation inflation and generally increased top-5 value concentration.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "The narrower range 0–9 increases concentration substantially... linear interpolation continues to inflate AUARC scores.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "confidence range",
+        "robustness"
+      ]
+    },
+    {
+      "atom_id": "f5c66e04-3a31-415b-9429-1434e8542b29",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "limitation",
+      "canonical_statement": "Verbalization logprobs assumes that each confidence digit is tokenized as a single token, so adaptation may be required for tokenizers with different segmentation.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "The approach assumes that each digit is consistently tokenized as a single token... may require adaptation for tokenizers that utilize different schemes.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "tokenization",
+        "limitation"
+      ]
+    },
+    {
+      "atom_id": "30f23d3f-1977-4555-b3ce-ff1fccf3f53d",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "limitation",
+      "canonical_statement": "The method approximates the two digit positions as independent because standard API logprobs expose probabilities only for the generated token path.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Strictly speaking, this expectation should use conditional probabilities... we treat them as independent as an approximation.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "approximation",
+        "limitation"
+      ]
+    },
+    {
+      "atom_id": "4dacf5a5-29b8-409c-8c20-20f627a67754",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "limitation",
+      "canonical_statement": "Sampling-based comparisons fixed the number of samples at four, although the optimal sample count may vary by model and task.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "we fix the number of samples at four... but the optimal number may vary across models and tasks.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "sampling",
+        "limitation"
+      ]
+    },
+    {
+      "atom_id": "fa1466e1-cbe9-4b45-8b2d-3bbef33c3fe9",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "limitation",
+      "canonical_statement": "The study focused on AUARC; analogous interpolation effects on other threshold-based metrics such as AUPRC were not empirically investigated.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "similar considerations apply to other threshold-based metrics such as AUPRC, which we leave for future investigation.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "metric scope",
+        "limitation"
+      ]
+    },
+    {
+      "atom_id": "25e53166-36e3-469d-9202-a296bd1c7be9",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "limitation",
+      "canonical_statement": "Verbalization logprobs requires token-probability access and does not solve sparsity for APIs that expose only generated text.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "requires access to token probabilities; we do not provide a solution ... where logprobs are unavailable.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "API access",
+        "limitation"
+      ]
+    },
+    {
+      "atom_id": "71d44095-3a8d-4bc6-baa9-11e10eaab465",
+      "publication_id": "7f7b0b41-bce0-5806-840a-baf06cd4c62f",
+      "atom_kind": "funding_disclosure",
+      "canonical_statement": "Elena Merdjanovska was partially funded by the German Research Foundation under the Science of Intelligence excellence project.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "other",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Elena Merdjanovska was partially funded by the Deutsche Forschungsgemeinschaft...",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-gpt-5.6-thinking",
+        "extracted_at": "2026-08-07T01:17:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Thinking",
+        "model_version": null,
+        "prompt_version": "project-atom-macro-v1",
+        "input_document_hash": "dd5135fc575e60a2cba07a8792f6fdf258f32423b7ab8a954e79cbd848ac21ff",
+        "extraction_run_id": "2608.04899-atom-20260806T2117-0400",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-07T01:17:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "funding"
+      ]
+    }
+  ],
+  "validation_report": [
+    {
+      "index": 1,
+      "atom_id": "8096ac18-15e6-4dde-997c-ca3da39fc247",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 2,
+      "atom_id": "1890500e-8f15-4052-bb34-f14eefbbf4f5",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 3,
+      "atom_id": "ba128884-e961-4d45-b8ac-3aeb24c0d1a9",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 4,
+      "atom_id": "1b279690-088c-47c2-bdcd-ab74b63e622e",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 5,
+      "atom_id": "5ade71e9-2a4c-4f90-aa7e-d054d3571d6c",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 6,
+      "atom_id": "68ab766c-1676-43cc-b971-1597979a9243",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 7,
+      "atom_id": "c2608b57-25dd-42dc-98b9-fd4217b0b945",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 8,
+      "atom_id": "f7e90230-7dcd-4e42-80c6-23006ec969a3",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 9,
+      "atom_id": "52db337c-1796-4bb2-92ce-199e1e26ccce",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 10,
+      "atom_id": "aafe76a0-7c65-47ee-bfa7-94ecbd42b07c",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 11,
+      "atom_id": "536f4216-352d-4829-8ad7-9b2ec32f3dba",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 12,
+      "atom_id": "a94f807d-3af2-4be9-baa1-2fef3c2aa4db",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 13,
+      "atom_id": "af415e29-3848-415d-9394-235c7a52ac9b",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 14,
+      "atom_id": "4e934b5f-dad2-4346-8434-f94b1e38b9fb",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 15,
+      "atom_id": "f23601d5-0126-467c-9ad3-d2a4bdb1c312",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 16,
+      "atom_id": "14d18419-a602-4c8a-9f66-6556bee061ff",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 17,
+      "atom_id": "25ee1197-52af-4a04-91f2-022eee935c4e",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 18,
+      "atom_id": "e2096e41-8b98-471d-9068-40cd3493aa4a",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 19,
+      "atom_id": "11bec5fa-59a4-4373-ad91-362bb57a1e3d",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 20,
+      "atom_id": "92225c67-ba17-4c2b-a571-bd0e76b8783b",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 21,
+      "atom_id": "65c8a5ab-6e51-40ae-9de3-a231bcd169a2",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 22,
+      "atom_id": "3d4263e7-5ee2-4736-8ba5-62cad474d71f",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 23,
+      "atom_id": "f5c66e04-3a31-415b-9429-1434e8542b29",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 24,
+      "atom_id": "30f23d3f-1977-4555-b3ce-ff1fccf3f53d",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 25,
+      "atom_id": "4dacf5a5-29b8-409c-8c20-20f627a67754",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 26,
+      "atom_id": "fa1466e1-cbe9-4b45-8b2d-3bbef33c3fe9",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 27,
+      "atom_id": "25e53166-36e3-469d-9202-a296bd1c7be9",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "index": 28,
+      "atom_id": "71d44095-3a8d-4bc6-baa9-11e10eaab465",
+      "structural_valid": true,
+      "sufficiency_valid": true,
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "extraction_limitations": [
+    "Atoms were extracted from the paper text and rendered figures available in the uploaded PDF; no external code repository or supplementary files were inspected.",
+    "Reported ranges are encoded using the estimate field plus original_result_text because the MVP quantitative schema has no dedicated min/max range field outside interval estimates.",
+    "All atoms remain needs_review because no human verification step was performed.",
+    "No conflict-of-interest or data-availability atom was created because the accessible paper text did not provide a distinct statement for those categories."
+  ]
+}

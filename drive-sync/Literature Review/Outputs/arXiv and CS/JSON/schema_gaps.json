@@ -1,0 +1,42 @@
+[
+  {
+    "gap": "No study-level publication metadata object",
+    "impact": "Title, authors, identifier, date, design, and source type must be stored outside LiteratureAtom even though the pipeline requires source metadata.",
+    "suggested_extension": "Add a PublicationRecord model or atom-bundle envelope keyed by publication_id."
+  },
+  {
+    "gap": "No native multi-arm or multi-metric result grouping",
+    "impact": "One table row can report agreement, emergent recall, no-verdict count, and p-value; representing these requires multiple atoms or overloading one QuantitativeResult.",
+    "suggested_extension": "Add result_group_id and metric-specific outcome/result objects."
+  },
+  {
+    "gap": "No explicit comparator estimate separate from the focal estimate",
+    "impact": "QuantitativeResult.estimate can hold only one scalar, while arms carry values without semantic designation of the contrast.",
+    "suggested_extension": "Add contrast type, reference arm, absolute/relative effect, and direction."
+  },
+  {
+    "gap": "No denominator-specific metric semantics",
+    "impact": "Agreement, recall, no-verdict rate, and severe under-triage counts use different denominators and interpretation, but the schema relies on free-text effect_measure and unit.",
+    "suggested_extension": "Add MetricDefinition with numerator, denominator, metric family, and preferred direction."
+  },
+  {
+    "gap": "No representation for analytic status",
+    "impact": "The paper distinguishes primary prespecified, secondary uncorrected, descriptive, underpowered, confounded, and package-level findings; tags are insufficiently typed.",
+    "suggested_extension": "Add analysis_role, multiplicity_status, causal_identification_status, and evidential_status enums."
+  },
+  {
+    "gap": "No structured risk-of-bias or appraisal field",
+    "impact": "Reference coupling, contamination, simulator confounding, missing checkpoints, and clinical non-validity cannot be attached as typed appraisal without misclassifying them as reported limitations.",
+    "suggested_extension": "Keep appraisal separate in an AppraisalFinding model linked to atom_ids."
+  },
+  {
+    "gap": "No data-lineage entity",
+    "impact": "Corpus lineage, repair history, provider snapshots, model checkpoints, and evaluation-harness versions are central to this paper but cannot be normalized.",
+    "suggested_extension": "Add ArtifactProvenance/DataLineage models and references from atoms."
+  },
+  {
+    "gap": "No support for absent or unavailable supplement status",
+    "impact": "Claims that depend on an unavailable supplement cannot be marked as partially verifiable in the atom itself.",
+    "suggested_extension": "Add source_access_status and verification_scope fields."
+  }
+]

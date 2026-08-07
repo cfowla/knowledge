@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HarnessX - Summary, Evaluation, and Appraisal Reference</title>
+<style>
+:root {
+  --bg:#f6f8fb; --card:#ffffff; --ink:#17202a; --muted:#516174; --line:#d9e2ee;
+  --accent:#1b4f8f; --accent2:#0f6b50; --warn:#8a5a00; --bad:#8a1f1f; --soft:#eef5ff;
+  --codebg:#0e1726; --codefg:#eef5ff;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#10243d,#1d4f91);color:white;padding:2.2rem 1.2rem;border-bottom:5px solid #d2e2f5}
+.wrap{max-width:1180px;margin:0 auto;padding:1.25rem}
+h1{margin:0 0 .35rem;font-size:clamp(1.7rem,3.2vw,3rem);line-height:1.1}
+.subtitle{font-size:1.05rem;opacity:.9;max-width:900px} .source-note{font-size:.92rem;opacity:.82;margin-top:.6rem}
+section,.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem;margin:1rem 0;box-shadow:0 1px 4px rgba(16,36,61,.05)}
+h2{color:#0f315f;margin:.2rem 0 .85rem} h3{color:#173f72;margin:1rem 0 .45rem} h4{color:#2d4058;margin:.8rem 0 .35rem}
+a{color:var(--accent)} .toc ul{columns:2;gap:2rem;padding-left:1.2rem} .toc li{margin:.2rem 0}
+.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:.75rem}
+.mini-card{border:1px solid var(--line);border-radius:12px;padding:.8rem;background:#fbfdff}
+.mini-card b{display:block;color:#173f72;margin-bottom:.2rem}
+.verdict{border-left:6px solid var(--accent2);background:#eefaf4;padding:.85rem 1rem;border-radius:12px;margin:.75rem 0}
+.warning{border-left:6px solid var(--warn);background:#fff7e7;padding:.85rem 1rem;border-radius:12px;margin:.75rem 0}
+.badnote{border-left:6px solid var(--bad);background:#fff1f1;padding:.85rem 1rem;border-radius:12px;margin:.75rem 0}
+.goodnote{border-left:6px solid var(--accent2);background:#effaf5;padding:.85rem 1rem;border-radius:12px;margin:.75rem 0}
+.tag{display:inline-block;background:#e8f0fb;color:#12385f;border:1px solid #cbdcf1;border-radius:999px;padding:.12rem .5rem;margin:.1rem .15rem;font-size:.84rem}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.93rem;overflow-x:auto;display:block} thead,tbody,tr{width:100%}
+th,td{border:1px solid var(--line);padding:.5rem .6rem;vertical-align:top} th{background:#eef3f9;color:#1e395c;text-align:left} .score{font-weight:800;text-align:center;font-size:1.05rem}
+pre{margin:.75rem 0 1rem;padding:1rem;background:var(--codebg);color:var(--codefg);border-radius:12px;overflow-x:auto;line-height:1.45;font-size:.88rem;white-space:pre-wrap}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+.section-summary{border-left:4px solid #d7e6f8;padding-left:.8rem;margin:.9rem 0}
+.compact-list li{margin:.3rem 0} .small{font-size:.9rem;color:var(--muted)} .nowrap{white-space:nowrap}
+@media(max-width:720px){.toc ul{columns:1} .wrap{padding:.7rem} section,.toc{padding:.85rem} table{font-size:.85rem}}
+@media print{body{background:white} section,.toc{box-shadow:none;break-inside:avoid} header{background:#10243d!important} a{color:inherit}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>HarnessX: A Composable, Adaptive, and Evolvable Agent Harness Foundry</h1>
+    <div class="subtitle">Summary, evaluation, and appraisal reference for an AI/ML systems preprint on composable agent harnesses, trace-driven harness evolution, and harness-model co-evolution.</div>
+    <div class="source-note">Source: arXiv:2606.14249v2 [cs.AI], version dated 2 July 2026. Artifact generated 2026-07-03.</div>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" id="toc"><h2>Contents</h2><ul>
+<li><a href="#metadata">Metadata</a></li><li><a href="#synthesis">One-page synthesis</a></li><li><a href="#manifest">Coverage manifest</a></li><li><a href="#sections">Section-by-section condensation</a></li><li><a href="#visuals">Figures, tables, workflows</a></li><li><a href="#appraisal">Evaluation and appraisal</a></li><li><a href="#aiml">AI/ML systems appraisal</a></li><li><a href="#takeaways">Implementation takeaways</a></li><li><a href="#qa">QA and provenance</a></li>
+</ul></nav>
+
+<section id="metadata">
+<h2>Metadata</h2>
+<div class="meta-grid">
+  <div class="mini-card"><b>Exact title</b>HarnessX: A Composable, Adaptive, and Evolvable Agent Harness Foundry</div>
+  <div class="mini-card"><b>Authors / group</b>Darwin Agent Team. Core contributors listed: Tingyang Chen, Shuo Lu, Kang Zhao, Weicheng Meng, Kun Shao, Jian Luan. Additional contributors: Hanlin Teng, Tianhao Li, Chao Li, Xule Liu, Jian Liang, Zhizhong Zhang, Yuan Xie, Heng Qu.</div>
+  <div class="mini-card"><b>Source type</b>AI/ML systems preprint; agent-harness architecture and benchmark evaluation paper.</div>
+  <div class="mini-card"><b>Identifier / version</b>arXiv:2606.14249v2 [cs.AI], dated 2 July 2026.</div>
+  <div class="mini-card"><b>Design</b>System proposal plus multi-benchmark empirical evaluation across five benchmarks, three task-agent families, and up to 15 evolution rounds.</div>
+  <div class="mini-card"><b>Primary domain</b>Agent systems, harness engineering, tool use, self-evolving agents, reinforcement learning from trajectories, software/evaluation infrastructure.</div>
+</div>
+<div class="warning"><strong>Scope warning.</strong> This is a preprint with self-reported experiments on the same task sets used for evolution. The authors state the complete codebase will be open-sourced in a future release. Treat the architecture, failure taxonomy, and logging/gating ideas as useful design material; do not treat the reported benchmark gains as independently established until code, traces, and held-out replication are available.</div>
+<p><span class="tag">agent harnesses</span> <span class="tag">AI/ML systems</span> <span class="tag">self-evolving agents</span> <span class="tag">trace-driven evaluation</span> <span class="tag">GRPO</span> <span class="tag">benchmark appraisal</span> <span class="tag">implementation design</span></p>
+</section>
+
+<section id="synthesis">
+<h2>One-page synthesis</h2>
+<div class="verdict"><strong>Verdict: Skim deeply.</strong> The paper is highly relevant for agent-harness design and evaluation workflows, but the empirical claims are not yet strong enough to use as benchmark evidence. Best use: extract the typed-harness abstraction, AEGIS loop, manifest/gating design, variant-isolation lesson, and failure-mode taxonomy.</div>
+<h3>Core thesis</h3>
+<p>The paper argues that agent performance depends not only on the foundation model but also on the runtime harness: prompts, tools, memory, control flow, tracing, and verifier interfaces. HarnessX treats this harness as a typed, first-class, composable object that can be evolved from execution traces and later coupled to model training.</p>
+<p>The central proposal has three layers. First, harness components are implemented as typed processors attached to lifecycle hooks. Second, AEGIS uses a trace-driven multi-stage loop - Digester, Planner, Evolver, Critic, plus deterministic gating - to propose and accept harness edits. Third, co-evolution turns trajectories into both harness updates and GRPO-style model-training signal.</p>
+<h3>Headline results as reported</h3>
+<p>Across five benchmarks - GAIA, ALFWorld, WebShop, τ3-Bench, and SWE-bench Verified - the authors report an average absolute gain of +14.5% across 15 model-benchmark configurations, with gains up to +44.0%. Gains are largest for weaker task agents, especially Qwen3.5-9B on ALFWorld (+44.0%) and GAIA (+17.1%). Co-evolution adds an average +4.7% over harness-only evolution on GAIA and WebShop.</p>
+<p>The most important empirical caution is that all main reported gains are measured on the same task sets used for evolution, not held-out evaluation. The authors acknowledge this directly. They also report instability under a single global harness on heterogeneous GAIA tasks, where GPT-5.4 peaks at 73.8% and degrades to 49.5%; variant isolation recovers a non-degrading 87.4% final score in an ablation.</p>
+<h3>High-value idea</h3>
+<p>The strongest contribution is not the claimed performance gain; it is the engineering pattern: rich trace logging, falsifiable change manifests, typed edit surfaces, deterministic gates, explicit regression checks, and variant isolation. Those are immediately reusable design concepts for agent-evaluation pipelines, even if the specific results remain unverified.</p>
+<h3>Main limitation</h3>
+<p>The evidence is benchmark-only, self-reported, and partially unreproducible at the time of the paper because the complete codebase is not yet released. The evaluation reuses the adaptation tasks, uses selected benchmark subsets, relies on closed or future model identifiers, and gives limited statistical uncertainty. This sharply limits external validity.</p>
+</section>
+
+<section id="manifest">
+<h2>Coverage manifest and inclusion decision</h2>
+<pre><code>SOURCE COVERAGE MANIFEST
+source_id: arXiv:2606.14249v2
+exact_title: HarnessX: A Composable, Adaptive, and Evolvable Agent Harness Foundry
+source_type: AI/ML systems preprint / agent-harness architecture and benchmark evaluation
+date_or_version: v2, 2 July 2026
+sections_or_headings:
+  main: Abstract; 1 Introduction; 2 Related Work; 3 Harness Composition; 4 Harness Adaptation; 5 Harness-Model Co-Evolution; 6 Experiments; 7 Discussion; 8 Conclusion; References; Contributions
+  appendix: A Experimental Setup; B Prompts and Harness Defaults; C Anatomy of an Evolution Step; D Additional Results; E Reproducibility and Artifacts
+figures:
+  main: Figures 1-6
+  appendix: Figures 7-12
+tables:
+  main: Tables 1-7
+  appendix: Tables 8-9
+algorithms_or_workflows:
+  Algorithm 1; AEGIS loop; co-evolution loop; change-manifest schema; per-run artifact layout
+visual_strategy:
+  structured_blocks: all main figures, all main tables, Algorithm 1, Tables 8-9, Figures 7-12, run-directory layout
+  embedded_crops_or_screenshots: none; parsed visual content and captions were sufficient for a text reconstruction
+  omitted_with_reason: no main-text figure/table/workflow omitted; appendix prose examples are summarized rather than reproduced verbatim
+coverage_decision: include all main text sections and all main visual/table/workflow items; include appendix elements that affect reproducibility, prompts, manifest schema, failure-cluster interpretation, or artifact auditability
+omissions: full prompt files and raw YAML examples are condensed; references are not re-listed in full because the appraisal depends on the paper's claims and methods rather than bibliographic enumeration</code></pre>
+</section>
+
+<section id="sections">
+<h2>Section-by-section condensation</h2>
+<div class="section-summary"><h3>Abstract</h3><p>The abstract frames harnesses as the runtime interface through which a model observes, reasons, and acts. It claims current harnesses are hand-crafted, static, and poorly connected to model training, then introduces HarnessX as a foundry for composable, adaptive, and evolvable agent harnesses.</p><p>The reported empirical claim is an average +14.5% gain across five benchmarks, with gains up to +44.0%. The abstract also claims trajectories can support both harness updates and model fine-tuning, positioning harness evolution as complementary to model scaling.</p></div>
+<div class="section-summary"><h3>1. Introduction</h3><p>The introduction defines the problem: agent behavior depends on the surrounding harness, but harnesses are usually static, entangled, and not improved from execution traces. The authors argue that prompts, tool wrappers, retry policies, memory, and control flow should be editable as a typed object rather than copied across projects as bespoke scaffolding.</p><p>They present four contributions: typed harness composition, AEGIS trace-driven adaptation, harness-model co-evolution, and empirical validation. The most specific results reported are average +14.5% gain across 15 configurations and an inverse-scaling pattern where weaker agents gain more from evolved harnesses.</p></div>
+<div class="section-summary"><h3>2. Related Work</h3><p>The related-work section separates primitive libraries, orchestrators, product harnesses, prompt optimization, workflow optimization, and explicit harness-evolution systems. It argues that existing frameworks make harness writing easier but do not expose the harness itself as a typed substitutable entity or optimize it in-loop from traces.</p><p>The section positions HarnessX relative to prompt optimizers, memory-based agents, workflow search, SICA, Darwin Gödel Machine, HyperAgents, Meta-Harness, AHE, and Life-Harness. The claimed distinction is the combination of typed composition, operational mirror to RL pathologies, trace observability, variant isolation, and shared replay for model training.</p></div>
+<div class="section-summary"><h3>3. Harness Composition</h3><p>HarnessX represents a harness as a pair of model configuration and harness configuration. The harness configuration decomposes into processor pipelines attached to lifecycle hooks plus shared slot resources such as tool registry, tracer, workspace, sandbox provider, and plugins.</p><p>The processor abstraction is intentionally narrow: a processor consumes and yields events of the same hook-specific type, allowing pass-through, transform, split, intercept, or interrupt behavior. Metadata such as singleton groups and ordering hints constrain composition. The nine-dimensional taxonomy spans model selection, context assembly, memory, tools, execution environment, evaluation/reward, control/safety, observability, and training bridge.</p></div>
+<div class="section-summary"><h3>4. Harness Adaptation</h3><p>The adaptation section formalizes harness evolution as an MDP over symbolic artifacts: harness configurations are states, typed edits are actions, execution traces and verifier scores are feedback, and deterministic gates govern state transitions. This is the paper's “operational mirror” between RL and symbolic harness adaptation.</p><p>AEGIS is the proposed defense architecture. The Digester compresses raw traces into evidence, the Planner constructs an adaptation landscape, the Evolver proposes typed builder edits with manifests, and the Critic plus deterministic gate reject unsupported or regressive candidates. Variant isolation maintains multiple harness variants and routes tasks to the variant with the best prior success for a cluster.</p></div>
+<div class="section-summary"><h3>5. Harness-Model Co-Evolution</h3><p>Co-evolution relaxes the frozen-model assumption. A shared replay buffer stores trajectories with harness version, model checkpoint, verifier reward, and cached behavior log-probabilities. The same rollouts feed AEGIS harness evolution and cross-harness GRPO model training.</p><p>The key method is task-level grouping across harness versions. Trajectories for the same task are compared by verifier reward even when their tool schemas, prompts, or control flows differ. The authors argue this lets the model internalize successful strategies introduced by successive harness versions without requiring action-level alignment.</p></div>
+<div class="section-summary"><h3>6. Experiments</h3><p>The evaluation uses five benchmarks: GAIA (103 tasks), ALFWorld (134 tasks), WebShop (100 tasks), τ3-Bench (three domains), and SWE-bench Verified (55-task subset). The meta-agent is Claude Opus 4.6; task agents include Claude Sonnet 4.6, GPT-5.4, and Qwen3.5-9B. The primary metric is pass@2 success rate under each benchmark's verifier.</p><p>The authors report improvement in 14 of 15 configurations. However, the Global strategy can catastrophically degrade on heterogeneous GAIA tasks; variant isolation fixes this in an ablation. The authors also report that a single-agent CC SDK evolver is close in final accuracy to the four-stage AEGIS architecture but uses more tokens, implying that typed infrastructure and variant isolation may matter more than multi-stage decomposition at this meta-agent capability level.</p></div>
+<div class="section-summary"><h3>7. Discussion</h3><p>The discussion emphasizes that compositional structure enables variant isolation but does not guarantee safe edits. Rich traces are necessary to diagnose reward hacking, under-exploration, and catastrophic forgetting; scalar reward alone cannot distinguish those failure modes.</p><p>The authors explicitly limit the RL mirror to a design heuristic rather than a convergence theory. They acknowledge cost tradeoffs, dependence on capable closed-source meta-agents, lack of held-out evaluation, discrete text-action spaces only, partial benchmark coverage, and the practical difficulty of joint control over harness and model training.</p></div>
+<div class="section-summary"><h3>8. Conclusion</h3><p>The conclusion restates HarnessX as a composable runtime interface that can be evolved from traces and coupled with model training. The paper concludes that agent progress can come from improving the runtime interface, not only from model scaling.</p><p>The conclusion is directionally supported by internal experiments but should be treated as a systems hypothesis pending public code, exact run artifacts, and held-out or independently reproduced evaluations.</p></div>
+<div class="section-summary"><h3>Appendices A-E</h3><p>Appendix A details benchmark sets, metric definitions, evolution hyperparameters, and runtime infrastructure. Appendix B reproduces meta-agent prompts and a representative ALFWorld task-agent prompt. Appendix C walks through a GAIA/Sonnet round-10 edit introducing WikiTextFetch. Appendix D provides additional benchmark-level failure clusters and lever-effectiveness figures. Appendix E specifies a per-run artifact directory layout.</p><p>The appendices materially improve interpretability. The most reusable operational details are the Planner/Evolver/Critic prompt requirements, change-manifest schema, evidence anchors, regression files, and per-run directory layout; these are more actionable than the unreleased codebase itself.</p></div>
+</section>
+
+<section id="visuals">
+<h2>Figures, tables, workflows, and appendices</h2>
+<h3>Main-text figures and workflows</h3>
+<table><thead><tr><th>Item</th><th>Purpose / structure</th><th>Key details and interpretation</th><th>Limits</th></tr></thead><tbody>
+<tr><td><strong>Figure 1</strong><br>HarnessX overview</td><td>High-level lifecycle: Compose, Adapt, Evolve. Shows harness as nine pluggable dimensions, adaptive search over configurations, and trajectory reuse for model fine-tuning.</td><td>Communicates the thesis that better harnesses and better models can improve each other through an execution-feedback loop.</td><td>Conceptual diagram; no quantitative evidence.</td></tr>
+<tr><td><strong>Figure 2</strong><br>AEGIS evolution loop</td><td>Architecture diagram tying runtime execution, traces, verifier scores, and the Digester-Planner-Evolver-Critic pipeline to candidate edits and gating.</td><td>Shows the proposed separation between LLM-generated proposals and deterministic shipping decisions. Also maps the nine taxonomy dimensions around the runtime.</td><td>Does not prove that gates detect all harmful edits; later failure analysis shows sub-threshold coupling can evade them.</td></tr>
+<tr><td><strong>Algorithm 1</strong><br>AEGIS harness evolution loop</td><td>Selective invocation loop: run batch, digest traces, continue only if actionable; plan landscape; evolve candidates; critique; accept first ranked candidate passing deterministic gate; stop after patience threshold.</td><td>Core workflow includes trace-store accumulation whether edits ship or not. Candidate acceptance depends on manifest completeness, normalization, smoke tests, and regression checks.</td><td>Algorithm is high-level. Specific gate thresholds, verifier behavior, and implementation details are not enough for full reproduction without code and logged artifacts.</td></tr>
+<tr><td><strong>Figure 3</strong><br>Harness-model co-evolution</td><td>Diagram of shared replay buffer, cross-harness grouping, AEGIS harness update, and cross-harness GRPO model update.</td><td>Highlights that the same rollouts drive both non-parametric harness edits and parametric model training, lowering marginal rollout cost.</td><td>Requires joint access to model training and harness infrastructure; this is not realistic for many deployed systems.</td></tr>
+<tr><td><strong>Figure 4</strong><br>GAIA evolution trajectory</td><td>Pass@2 trajectory by round with annotations: prompt/processor changes, metric masking, tool fix via WikiTextFetch, and noise-inflated peak.</td><td>Illustrates non-monotonic evolution and the importance of tool-level fixes after prompt/processor changes plateau. Notes R10 tool pivot and R11 apparent peak.</td><td>Single trajectory example; uses adaptation set, not held-out data.</td></tr>
+<tr><td><strong>Figure 5</strong><br>Co-evolution versus harness-only</td><td>Comparison curves for Qwen3.5-9B on GAIA and WebShop.</td><td>Reported peak success rises from 37.4% to 41.7% on GAIA (+4.3%) and 49.0% to 54.0% on WebShop (+5.0%); average +4.7% over harness-only.</td><td>Small subsets; no external validation; co-evolution details depend on training infrastructure.</td></tr>
+<tr><td><strong>Figure 6</strong><br>Failure cases by pathology</td><td>Nine case cards organized by reward hacking, catastrophic forgetting, and under-exploration.</td><td>Most useful empirical figure for design. Examples include GAIA verifier-format exploitation, τ3-Bench same-bucket edit accumulation, GAIA global-harness forgetting, and WebShop prompt-local stagnation.</td><td>Case studies diagnose failure but are drawn from the same evolution runs and rely on internal trace interpretation.</td></tr>
+</tbody></table>
+
+<h3>Main-text tables</h3>
+<table><thead><tr><th>Item</th><th>Key content</th><th>Appraisal notes</th></tr></thead><tbody>
+<tr><td><strong>Table 1</strong><br>Hook points</td><td>task_start can modify system prompt; step_start can edit structural history; before_model can modify last user content or append one user message; after_model can modify response/tool calls; before_tool can modify tool input and approval flag; after_tool can modify tool result; step_end and task_end are read-only.</td><td>Clear, implementation-useful edit surface. Strongest design-level contribution.</td></tr>
+<tr><td><strong>Table 2</strong><br>Operational mirror</td><td>RL policy maps to harness-update procedure; state to harness configuration plus trace store; action to typed harness edit; feedback to trace plus verifier score; update to deterministic acceptance gate.</td><td>Useful conceptual checklist. It is not a proof of RL-style convergence.</td></tr>
+<tr><td><strong>Table 3</strong><br>Benchmarks</td><td>GAIA 103 tasks, exact match; ALFWorld 134 tasks, goal completion; WebShop 100 tasks, attribute match; τ3-Bench three domains, rule compliance; SWE-bench Verified 55 tasks, patch resolution.</td><td>Broad task coverage, but some subsets are small and selected.</td></tr>
+<tr><td><strong>Table 4</strong><br>Main pass@2 results</td><td>ALFWorld: Sonnet 83.6→94.8, GPT-5.4 76.9→97.8, Qwen 53.0→97.0. WebShop: Sonnet 60→76, GPT-5.4 55→73, Qwen 36→49. GAIA: Sonnet 73.8→83.5, GPT-5.4 73.8→73.8, Qwen 20.3→37.4. SWE-bench: Sonnet 76.4→87.3, GPT-5.4 45.5→63.6, Qwen 23.6→41.8. τ3 average: Sonnet 89.6→95.0, GPT-5.4 76.2→90.7, Qwen 93.5→94.6.</td><td>Large reported gains, especially for weaker models. Evidence is capped by adaptation-set evaluation and lack of released code/traces.</td></tr>
+<tr><td><strong>Table 5</strong><br>Strategy comparison</td><td>GAIA GPT-5.4, 15 rounds: Ensemble final/peak 87.4/87.4 with 107.8M tokens; Global final/peak 49.5/73.8 with 143.7M tokens.</td><td>High-value lesson: variant isolation can prevent cross-task forgetting and reduce wasted evaluation.</td></tr>
+<tr><td><strong>Table 6</strong><br>Meta-agent architecture</td><td>GAIA GPT-5.4 with variant isolation: AEGIS 87.4 at R14 using 107.8M tokens; CC SDK 86.4 at R12 using 123.1M tokens.</td><td>Suggests four-stage AEGIS mainly improves efficiency and auditability, not final accuracy, when infrastructure and meta-agent are strong.</td></tr>
+<tr><td><strong>Table 7</strong><br>Cost summary</td><td>GAIA GPT-5.4 Global: 15 rounds, 143.7M tokens, 0.0% gain. GAIA GPT-5.4 variant isolation: 15 rounds, 107.8M tokens, +13.6%. ALFWorld Sonnet Global: 7 rounds, 43.4M tokens, +11.2%.</td><td>Cost may amortize only for repeated use. The evolved harness can either reduce or increase per-task token cost depending on benchmark.</td></tr>
+</tbody></table>
+
+<h3>Appendix items included because they affect reproducibility or interpretation</h3>
+<table><thead><tr><th>Item</th><th>Key content</th><th>Use</th></tr></thead><tbody>
+<tr><td><strong>Table 8</strong><br>Evolution hyperparameters</td><td>K=4 candidates per round; seeds=3; ignored single-round pass-count delta ±5%; H0 is a handcrafted base harness; meta-agent Opus 4.6; task agents Sonnet 4.6, GPT-5.4, Qwen3.5-9B; rollout concurrency 10; max steps vary by benchmark; co-evolution uses 8x H100 GPUs, batch size 256, learning rate 1e-6.</td><td>Important for reproduction and cost appraisal.</td></tr>
+<tr><td><strong>Table 9</strong><br>Change-manifest fields</td><td>candidate_id, bucket, capability_evidence, file_changes, predicted_impact, attribution_signature.</td><td>Directly reusable for agent-harness engineering. This is one of the paper's most operationally valuable artifacts.</td></tr>
+<tr><td><strong>Figure 7</strong><br>GAIA/Sonnet round-10 manifest card</td><td>Worked example: WikiTextFetch tool, prompt line, and config restoration fix Wikipedia zero-character WebFetch failures. Predicted five unlocks and two stabilizations; hit rate 5/7.</td><td>Useful demonstration of trace-grounded, falsifiable change manifests.</td></tr>
+<tr><td><strong>Figure 8</strong><br>GAIA analysis</td><td>Failure clusters: blocked-source 39%, reasoning 33%, figure/visual 11%, document/table parse 11%, scope ambiguity 6%. Qwen's single tools ship has 0.67 hit-rate.</td><td>Shows why tools matter for retrieval failures and why visual/document tasks remain residual gaps.</td></tr>
+<tr><td><strong>Figure 9</strong><br>ALFWorld analysis</td><td>Failure clusters: search/step-ceiling 89%, prompt-rule side effect 7%, object-type confusion 4%. Qwen structural levers are high-yield: processor 0.84, config 0.71.</td><td>Supports inverse-scaling interpretation: weaker models need more structural enforcement.</td></tr>
+<tr><td><strong>Figure 10</strong><br>WebShop analysis</td><td>Failure clusters: wrong product 46%, pagination loop 21%, colour matching 17%, attribute check 17%. Prompt/config productive; color-matcher tool 0.0 hit-rate.</td><td>Shows residual judgment errors after navigation loops improve.</td></tr>
+<tr><td><strong>Figure 11</strong><br>τ3-Bench analysis</td><td>Failure clusters: premature/unverified action 28%, wrong selection/count 24%, incomplete multi-step fix 16%, missed step/sub-task 14%, policy misinterpretation 13%, capability-boundary confusion 5%.</td><td>Supports prompt/processor emphasis for dialogue-policy ordering constraints.</td></tr>
+<tr><td><strong>Figure 12</strong><br>SWE-bench analysis</td><td>Failure clusters: incomplete fix 62%, wrong diagnosis 19%, no edit attempted 6%, old-string mismatch 5%, budget exhausted 4%, plus small wrong-file/test-verify/other tail. Strong models reach 0.39-0.48 lever hit-rate; Qwen levers collapse to about 0.05.</td><td>Important limiting result: harness evolution cannot overcome a model capability floor on code-editing tasks.</td></tr>
+<tr><td><strong>Appendix E</strong><br>Per-run directory layout</td><td>Each run contains INDEX.md, journal.md, curves.json, scoreboard.json, audit.jsonl, data ledgers, per-round landscape, candidates, applied config/assets, decisions, verdicts, regressions, digests, and trajectories.</td><td>Strong reproducibility design pattern, even though the actual artifacts are not provided in the paper.</td></tr>
+</tbody></table>
+</section>
+
+<section id="appraisal">
+<h2>Evaluation and appraisal</h2>
+<div class="badnote"><strong>Bottom line.</strong> This is build-useful and conceptually strong, but empirically immature. Use it to design agent-harness infrastructure and evaluation logs. Do not use it as settled evidence that HarnessX outperforms other harness-evolution systems until released code, logs, and held-out replications exist.</div>
+<table><thead><tr><th>Dimension</th><th>Score</th><th>Rationale</th><th>Evidence basis</th><th>Principal limiting factor</th><th>What would raise or lower the score</th></tr></thead><tbody>
+
+    <tr>
+      <td><strong>Relevance</strong></td><td class="score">9/10</td>
+      <td>Directly relevant to agent harnesses, RAG/agent evaluation, parser-like trace extraction, deterministic QA, and workflow implementation.</td><td>The entire paper is about typed harness components, trace logging, verifier design, and evolution workflows.</td><td>Limited immediate use without public code.</td><td>Raise with released implementation and logs; lower if core abstractions are already covered by comparable open systems.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Novelty</strong></td><td class="score">7/10</td>
+      <td>The individual components have precedents, but the integrated framing of typed harness composition, trace-driven evolution, deterministic gates, variant isolation, and cross-harness GRPO is meaningfully synthetic.</td><td>Related-work section situates the work against prompt optimization, workflow search, and explicit harness-evolution systems.</td><td>Novelty is mostly architectural integration rather than a single clearly proven algorithmic breakthrough.</td><td>Raise with demonstrated unique capability versus strong open baselines; lower if later comparison shows similar systems already implement the same loop.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Method strength</strong></td><td class="score">4/10</td>
+      <td>The experimental suite is broad but has serious design limitations: adaptation-set evaluation, small selected subsets, limited uncertainty, unreleased code, and dependence on closed or future model identifiers.</td><td>Five benchmarks and multiple model families are reported, with ablations for strategy and meta-agent architecture.</td><td>No held-out evaluation and no reproducible artifact bundle in the paper.</td><td>Raise with held-out task splits, public traces, preregistered protocols, exact seeds, code release, and independent reproduction; lower if code/results cannot be verified.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Evidence strength</strong></td><td class="score">4/10</td>
+      <td>The results are internally coherent and include failure analysis, but the data do not yet establish generalizable performance claims.</td><td>Tables 4-7 and Figures 4-6 report gains, instability, variant-isolation benefits, and failure modes.</td><td>Self-reported benchmark-only evidence on the evolution set.</td><td>Raise with external validation and confidence intervals; lower if results depend on benchmark-specific leakage, verifier exploits, or task-set overfitting.</td>
+    </tr>
+
+    <tr>
+      <td><strong>External validity</strong></td><td class="score">3/10</td>
+      <td>Generalization is weakly established because all gains are measured on the same tasks used for evolution and only discrete text-action environments are tested.</td><td>The limitations section explicitly acknowledges no held-out evaluation, discrete action spaces only, closed-source meta-agent, and limited benchmark coverage.</td><td>Untested deployment setting and no unseen-task performance.</td><td>Raise with unseen tasks, new domains, open-weight meta-agents, live deployment monitoring, and broader task distributions; lower if variants over-specialize or fail outside selected tasks.</td>
+    </tr>
+
+    <tr>
+      <td><strong>Implementation value</strong></td><td class="score">6/10</td>
+      <td>The paper gives useful design primitives, prompts, manifests, gates, and run-layout ideas, but not enough to reproduce the reported system end to end.</td><td>Appendices include prompts, manifest schema, hyperparameters, worked example, failure clusters, and run directory layout.</td><td>Complete codebase is not available in the paper.</td><td>Raise with code, sample traces, evaluator fixtures, and reusable schemas; lower if implementation relies on inaccessible internal tools or model APIs.</td>
+    </tr>
+</tbody></table>
+
+<h3>Main strengths</h3>
+<ul class="compact-list">
+<li>Typed hook and processor abstraction gives a concrete edit surface for agent harnesses instead of treating the harness as opaque glue code.</li>
+<li>Rich trace logging and falsifiable change manifests are strong engineering practices for agent-system improvement.</li>
+<li>Variant-isolation result is a valuable warning against one-size-fits-all harness evolution on heterogeneous task sets.</li>
+<li>Failure analysis is unusually useful: reward hacking, catastrophic forgetting, and under-exploration are mapped to concrete agent-harness failure modes.</li>
+<li>Appendix details - prompts, manifest schema, hyperparameters, worked example, run directory layout - are operationally reusable.</li>
+</ul>
+<h3>Main limitations</h3>
+<ul class="compact-list">
+<li>No held-out evaluation; the same task sets are used for evolution and scoring.</li>
+<li>Codebase and run artifacts are not provided in the paper, despite the system being implementation-heavy.</li>
+<li>Several model identifiers and tooling assumptions are inaccessible for independent verification from the paper alone.</li>
+<li>Limited uncertainty reporting; some benchmark subsets are small, especially SWE-bench Verified at 55 tasks.</li>
+<li>Results may overfit verifier quirks; the paper itself documents reward-hacking pathways and metric masking.</li>
+<li>Co-evolution assumes control over model training, which many organizations do not have.</li>
+</ul>
+<h3>Confidence in appraisal</h3>
+<p><strong>Moderate.</strong> The paper is available and internally detailed enough to appraise its claims, but confidence in empirical conclusions is limited by unreleased code, lack of held-out validation, and self-reported benchmark outcomes.</p>
+</section>
+
+<section id="aiml">
+<h2>AI/ML systems appraisal module</h2>
+<table><thead><tr><th>Domain element</th><th>What the paper reports</th><th>Appraisal</th></tr></thead><tbody>
+<tr><td><strong>Task</strong></td><td>Improve agent performance by composing, adapting, and co-evolving runtime harnesses.</td><td>Important task for practical agent systems; framing is strong.</td></tr>
+<tr><td><strong>Data / benchmarks</strong></td><td>GAIA, ALFWorld, WebShop, τ3-Bench, SWE-bench Verified; fixed evaluation sets rescored each round.</td><td>Broad but not held out; risk of adaptation-set overfitting.</td></tr>
+<tr><td><strong>Method</strong></td><td>Typed processors at lifecycle hooks; AEGIS Digester-Planner-Evolver-Critic; deterministic gates; ensemble routing; shared replay and cross-harness GRPO.</td><td>Coherent architecture. Some pieces are underspecified without code.</td></tr>
+<tr><td><strong>Baselines</strong></td><td>Static Harness and Claude Code SDK evolver under comparable infrastructure/round budgets.</td><td>Useful but incomplete. Needs comparison to other open harness-evolution systems and prompt/workflow optimizers under public conditions.</td></tr>
+<tr><td><strong>Metrics</strong></td><td>Benchmark-specific success rates, primarily pass@2; token costs for selected runs; hit-rate for predicted task flips in appendix figures.</td><td>Pass@2 reduces rollout noise but can mask sub-threshold degradation; authors identify this problem.</td></tr>
+<tr><td><strong>Ablations</strong></td><td>Global versus variant isolation, AEGIS versus single-agent CC SDK, co-evolution versus harness-only.</td><td>Most convincing result is variant isolation; it directly addresses observed catastrophic forgetting.</td></tr>
+<tr><td><strong>Failure analysis</strong></td><td>Reward hacking, catastrophic forgetting, and under-exploration case studies across benchmarks.</td><td>Strong qualitative contribution; useful for designing safeguards.</td></tr>
+<tr><td><strong>Reproducibility</strong></td><td>Appendices provide prompts, hyperparameters, manifest schema, and run-directory layout; full codebase promised for future release.</td><td>Partial. Insufficient to reproduce reported numbers now.</td></tr>
+<tr><td><strong>Deployment relevance</strong></td><td>Authors discuss cost amortization, static deployment of evolved harnesses, human approval options, and artifact auditability.</td><td>Conceptually relevant but not deployment-validated.</td></tr>
+</tbody></table>
+</section>
+
+<section id="takeaways">
+<h2>Implementation and research takeaways</h2>
+<div class="takeaway-grid">
+  <div class="mini-card"><b>Build now</b>Adopt explicit lifecycle hooks, typed processors, singleton groups, and hook-level modification contracts in agent harnesses. This makes edits auditable and reversible.</div>
+  <div class="mini-card"><b>Log now</b>Store full trajectories, digests, candidate manifests, verifier scores, rejected candidates, shipped edits, regressions, and task histories. Scalar success rates are not enough.</div>
+  <div class="mini-card"><b>Gate now</b>Separate LLM judgment from deterministic acceptance. Require manifest completeness, smoke tests, round-trip evidence for tools/processors, and regression checks before shipping changes.</div>
+  <div class="mini-card"><b>Use variants</b>For heterogeneous task sets, maintain separate harness variants by cluster rather than forcing a single global harness to satisfy conflicting behaviors.</div>
+  <div class="mini-card"><b>Watch metrics</b>Track sub-threshold drift, not only pass/fail flips. Pass@2 can hide probability degradation until a later edit produces visible collapse.</div>
+  <div class="mini-card"><b>Use with caution</b>Do not rely on reported gains as evidence of production performance. Treat them as hypotheses and design patterns until reproduced.</div>
+</div>
+<h3>What to extract into a reusable workflow</h3>
+<ul class="compact-list">
+<li>Change-manifest schema: candidate ID, bucket, capability evidence, file changes, predicted impact, attribution signature.</li>
+<li>Four-stage evolution record: per-task digest, landscape synthesis, candidate manifests, critic verdicts, deterministic gate result.</li>
+<li>Regression ledger: tasks worsened versus prior round and suspected shipped changes.</li>
+<li>Portfolio audit: block repeated same-bucket edits when hit-rate decays and another neglected bucket matches failure evidence.</li>
+<li>Variant isolation: route task clusters to their best-performing harness variant and scope regression checks per variant.</li>
+</ul>
+<h3>What not to overclaim</h3>
+<ul class="compact-list">
+<li>Not proof that harness evolution generally beats model scaling.</li>
+<li>Not proof that the reported model-specific benchmark numbers will reproduce under public APIs or open models.</li>
+<li>Not evidence that evolved harnesses generalize to unseen tasks, clinical workflows, regulated deployments, or continuous-action domains.</li>
+<li>Not a substitute for external validation, leakage checks, and human governance in agent systems.</li>
+</ul>
+</section>
+
+<section id="qa">
+<h2>QA, provenance, and caveats</h2>
+<h3>Semantic QA checklist</h3>
+<ul class="compact-list">
+<li>Source title, arXiv ID, version, and source type included.</li>
+<li>Main sections and appendices mapped.</li>
+<li>All main figures, tables, and Algorithm 1 accounted for as structured blocks.</li>
+<li>Key quantitative results preserved: benchmark task counts, pass@2 gains, variant-isolation numbers, meta-agent comparison, co-evolution gains, token costs, major appendix failure-cluster percentages.</li>
+<li>Summary separated from appraisal; ratings include score, evidence basis, limiting factor, and score-change conditions.</li>
+<li>Implementation takeaways and overclaim warnings included.</li>
+<li>No external scripts, remote images, external CSS, or internal file-citation syntax inside this artifact.</li>
+</ul>
+<h3>Provenance</h3>
+<div class="mini-card"><b>Evaluated source</b>HarnessX: A Composable, Adaptive, and Evolvable Agent Harness Foundry. arXiv:2606.14249v2 [cs.AI], dated 2 July 2026. Uploaded PDF file evaluated locally: 2606.14249v2.pdf.</div>
+<div class="mini-card"><b>Generation date</b>2026-07-03</div>
+<div class="mini-card"><b>Caveat</b>This reference file summarizes and appraises the uploaded source. It does not verify external availability of code, model versions, benchmark leaderboards, or post-publication changes.</div>
+</section>
+</main>
+</body>
+</html>

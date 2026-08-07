@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reference Appraisal - arXiv:2607.02175v1</title>
+<style>
+:root{
+  --bg:#f5f7fb;--card:#ffffff;--ink:#17202a;--muted:#59677a;--line:#d9e2ee;
+  --accent:#1d4f91;--accent2:#2a6fb0;--good:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;
+  --chip:#edf4fb;--codebg:#101928;--codefg:#eef5ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#10243d,#1d4f91);color:#fff;padding:2.25rem 1.25rem;border-bottom:5px solid #d2e2f5}
+.wrap{max-width:1180px;margin:0 auto;padding:1.25rem}
+header .wrap{padding:0 1.25rem}
+h1{margin:.1rem 0 .65rem;font-size:clamp(1.75rem,3vw,2.65rem);line-height:1.12}
+.subtitle{font-size:1.05rem;max-width:920px;color:#e7f0fb;margin:.2rem 0 0}
+.badges{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:#fff;border-radius:999px;padding:.32rem .65rem;font-size:.86rem}
+nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 5px rgba(16,36,61,.06);margin:1rem 0;padding:1.05rem 1.15rem}
+nav.toc h2,section h2{margin-top:0;color:#0f315f}.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.45rem}.toc a{display:block;text-decoration:none;background:#f0f5fb;border:1px solid #dbe6f3;border-radius:10px;padding:.5rem .65rem;color:#173f72;font-weight:650}
+h2{font-size:1.45rem} h3{color:#173f72;margin-bottom:.35rem} h4{margin-bottom:.25rem;color:#24364b}.muted{color:var(--muted)}
+.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:.75rem}.mini-card{background:#f8fbff;border:1px solid var(--line);border-radius:12px;padding:.85rem}.mini-card b{display:block;color:#1e395c;margin-bottom:.2rem}.score{font-size:1.65rem;font-weight:800;color:#0f315f}.tag{display:inline-block;background:var(--chip);border:1px solid #dbe6f3;border-radius:999px;padding:.18rem .55rem;margin:.15rem .2rem .15rem 0;color:#244565;font-size:.84rem}.verdict{border-left:6px solid var(--accent);background:#eef5ff}.warning{border-left:6px solid var(--warn);background:#fff8e8}.badnote{border-left:6px solid var(--bad);background:#fff0f0}.goodnote{border-left:6px solid var(--good);background:#edf9f2}.section-summary{border-top:1px solid var(--line);padding-top:.75rem;margin-top:.75rem}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.95rem}th,td{border:1px solid var(--line);padding:.55rem .65rem;vertical-align:top}th{background:#eef3f9;text-align:left;color:#1e395c}.num{text-align:right;font-variant-numeric:tabular-nums}.nowrap{white-space:nowrap}
+pre{background:var(--codebg);color:var(--codefg);padding:1rem;border-radius:12px;overflow:auto;border:1px solid #24334f;line-height:1.45}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:.88rem}.small{font-size:.9rem}.footer{font-size:.9rem;color:var(--muted)}
+@media print{body{background:#fff}header{background:#fff;color:#000;border-bottom:2px solid #000}.subtitle,.badge{color:#000}nav.toc,section{box-shadow:none;break-inside:avoid}a{color:inherit}.toc a{border:1px solid #ccc;background:#fff}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>A Rubric-Based Controlled Comparison of Frontier Language Models on Expert-Authored Clinical Reasoning Tasks</h1>
+    <p class="subtitle">Reference HTML appraisal of an arXiv preprint proposing a small clinician-authored benchmark pipeline for open-ended clinical reasoning evaluation.</p>
+    <div class="badges">
+      <span class="badge">arXiv:2607.02175v1</span><span class="badge">AI/ML benchmark</span><span class="badge">Clinical reasoning</span><span class="badge">Rubric-based evaluation</span><span class="badge">Preliminary methods paper</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <div class="toc-grid">
+    <a href="#metadata">Metadata</a><a href="#synthesis">One-page synthesis</a><a href="#manifest">Coverage manifest</a><a href="#section-map">Section condensation</a><a href="#tables-workflows">Tables and workflows</a><a href="#aiml-appraisal">AI/ML appraisal</a><a href="#ratings">Ratings</a><a href="#takeaways">Implementation takeaways</a><a href="#qa">Semantic QA</a><a href="#provenance">Provenance</a>
+  </div>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><b>Exact title</b>A Rubric-Based Controlled Comparison of Frontier Language Models on Expert-Authored Clinical Reasoning Tasks</div>
+    <div class="mini-card"><b>Authors</b>Dr. Samiha A. Ismail; Fan X. Chen, Ph.D.; Ali Merali</div>
+    <div class="mini-card"><b>Affiliations reported</b>Prime Analytics Consulting Limited; Talbert House / Thomas More University; MAKZ</div>
+    <div class="mini-card"><b>Source type</b>arXiv preprint; AI/ML benchmark and methods pilot</div>
+    <div class="mini-card"><b>Date / version</b>arXiv v1; 2 July 2026</div>
+    <div class="mini-card"><b>Identifier</b>arXiv:2607.02175v1; DOI: 10.48550/arXiv.2607.02175</div>
+    <div class="mini-card"><b>Design</b>Controlled comparison of three frontier LLMs across five clinician-authored clinical scenarios scored by weighted atomic rubrics.</div>
+    <div class="mini-card"><b>License / source metadata</b>PDF metadata reports CC BY 4.0 and arXiv GenPDF production.</div>
+  </div>
+  <div class="mini-card warning" style="margin-top:.75rem"><b>Scope warning</b>This paper is best read as a benchmark-design and failure-analysis pilot. It does not validate model safety for clinical use, does not justify clinical decision support deployment, and is underpowered for reliable model ranking.</div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="mini-card verdict"><b>Verdict: Read soon</b>High fit for clinical AI evaluation, rubric design, and deterministic appraisal workflows. Treat the model ranking as descriptive only; the durable contribution is the evaluation pipeline and the “critical criteria are missed more often than trivial criteria” failure pattern.</div>
+  <p><strong>Core thesis.</strong> The preprint argues that multiple-choice medical benchmarks and broad conversational rubrics under-measure a specific capability: synthesis, prioritization, and safety reasoning under contradictory clinical evidence and resource constraints. The authors build five deliberately hard clinician-authored clinical tasks, derive weighted atomic rubrics from clinician-drafted golden answers, and compare GPT 5.4, Claude Opus 4.7, and Gemini 3.1 Pro under the same single-turn API harness.</p>
+  <p><strong>Central result.</strong> Mean weighted rubric pass rates were low: Claude 0.47, GPT 0.39, and Gemini 0.37. The strongest signal is not the model order; it is the priority inversion. Low-stakes weight-1 criteria passed at 80-90%, while critical weight-5 criteria passed at only 32.4-41.7%. The authors report that 56 of 108 critical criteria were missed by all three models, with the obstetric pre-eclampsia/asthma/twin-pregnancy case driving many universal misses.</p>
+  <p><strong>Best use.</strong> Use this as a compact model-evaluation design reference: clinician-authored cases, golden-answer-derived rubrics, criticality weights, category tags, expert adjudication, autorater calibration, and explicit validity accounting. It is especially useful for building local clinical reasoning evals where omission of a decisive inference matters more than fluent formatting.</p>
+  <p><strong>Main caution.</strong> The dataset has only five tasks and 184 criteria, with no formal statistical inference, limited external validity, and one final expert label per criterion after peer review/reconciliation rather than full independent double grading. The study supports “these scenarios expose important failures” more strongly than “this model is clinically better than that model.”</p>
+  <p><span class="tag">Clinical AI safety</span><span class="tag">Rubric engineering</span><span class="tag">Weighted criteria</span><span class="tag">Autorater calibration</span><span class="tag">Benchmark validity</span><span class="tag">Not practice-changing</span></p>
+</section>
+
+<section id="manifest">
+  <h2>Coverage manifest</h2>
+  <table>
+    <tbody>
+      <tr><th>Source ID</th><td>arXiv:2607.02175v1</td></tr>
+      <tr><th>Exact title</th><td>A Rubric-Based Controlled Comparison of Frontier Language Models on Expert-Authored Clinical Reasoning Tasks</td></tr>
+      <tr><th>Source type</th><td>Preprint; AI/ML benchmark/methods paper with clinical reasoning focus.</td></tr>
+      <tr><th>Sections/headings</th><td>Abstract; Introduction; Related Work; Methods; Dataset construction; Rubric schema; Inclusion threshold; Quality-control pipeline; Models and harness; Evaluation validity; Results; Aggregate scores; Failure distribution by weight; Failure distribution by category; Autorater-expert agreement; Universal critical misses; Qualitative deep-dives; Discussion; Limitations; Conclusion; References.</td></tr>
+      <tr><th>Figures</th><td>None in the main text.</td></tr>
+      <tr><th>Tables</th><td>Four main-text tables: evaluation tasks, weighted pass rate by task, pass rate by criterion weight, pass rate by category.</td></tr>
+      <tr><th>Algorithms / workflows</th><td>Dataset construction and rubric-generation workflow; quality-control and expert reconciliation pipeline; single-turn controlled model evaluation harness; autorater calibration process.</td></tr>
+      <tr><th>Appendices / supplements</th><td>None included in the uploaded PDF.</td></tr>
+      <tr><th>Visual strategy</th><td>All tables and workflows are represented as structured blocks. No embedded screenshots are required because the tables are text-reconstructable.</td></tr>
+      <tr><th>Omissions</th><td>Individual references are not summarized one-by-one. No main-text figure, table, workflow, appendix, or supplement was omitted.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="section-map">
+  <h2>Section condensation</h2>
+  <div class="section-summary">
+    <h3>Abstract</h3>
+    <p>The abstract frames the problem as saturation of multiple-choice medical benchmarks and incomplete performance on open-ended clinical evaluation. The paper presents five clinician-authored scenarios across anaesthesia, internal/family medicine, emergency medicine, and obstetrics; each scenario has an atomic weighted MECE rubric derived from a clinician golden answer, with 25-62 criteria per task and 184 criteria total.</p>
+    <p>The authors report mean weighted pass rates of 0.47 for Claude, 0.39 for GPT, and 0.37 for Gemini. Their main claim is that models pass easy low-weight criteria much more often than critical high-weight criteria; 56 of 108 weight-5 criteria were missed by all models. Autoraters reproduced expert met/not-met labels for 92.8-94.7% of graded criteria.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Introduction</h3>
+    <p>The introduction argues that high performance on MedQA-style multiple-choice benchmarks does not adequately test the clinical abilities needed in real decisions: synthesizing contradictory signals, identifying drug-disease or drug-drug interactions, anticipating resource constraints, and knowing when withholding an intervention is safer than acting.</p>
+    <p>The authors position their contribution as a deliberately difficult evaluation pipeline rather than a large benchmark. They emphasize controlled comparison, conservative single-turn evaluation, clinician-authored synthetic cases, golden-answer-derived rubrics, weighted criteria, category-resolved analysis, autorater calibration, and third-party-evaluation validity framing.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Related Work</h3>
+    <p>The paper contrasts its approach with multiple-choice medical QA datasets such as MedQA, MedMCQA, PubMedQA, and MultiMedQA, which measure recall and constrained reasoning more than open-ended synthesis. It also situates itself near HealthBench, AMIE-style OSCE/conversational evaluation, MedHELM, and ER-Reason.</p>
+    <p>The distinctive claimed niche is the combination of clinician-authored organic cases, golden-answer-derived atomic weighted rubrics, and controlled multi-model comparison under a fixed harness. The related-work framing is plausible, though the paper remains a pilot relative to larger efforts such as HealthBench and MedHELM.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Methods</h3>
+    <p>Five practicing clinicians authored synthetic clinical scenarios requiring structured outputs such as ranked differential diagnosis, SOAP-style plans, or time-bound commitments. Rubrics were built as atomic assertions with criterion text, optional source references, justification, weight 1-5, category tags, expert labels, and three autorater labels.</p>
+    <p>The quality-control process included structural rubric checks, peer review, LLM autorater grading, expert reconciliation when two or more autoraters disagreed with the expert, and final consistency checks. The model harness was single-turn API use with no tools, retrieval, retry logic, or agent scaffolding. The pass rate was weighted: sum of weights passed divided by total weights.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Results</h3>
+    <p>Claude led on three of five tasks, GPT led on two, and all three models failed badly on Task 5, the pre-eclampsia with asthma and twin pregnancy scenario. Weighted mean pass rates were 0.37 for Gemini, 0.39 for GPT, and 0.47 for Claude. Per-task variance was high.</p>
+    <p>The most important pattern was the mismatch between surface compliance and clinical importance: instruction following was 87.5% and style 100%, but reasoning ranged from 28.5-42.3% and safety from 38.8-44.8%. Critical weight-5 pass rates were only 32.4% for Gemini, 33.3% for GPT, and 41.7% for Claude. Three autoraters agreed with expert binary labels on 512/552 to 523/552 labels.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Qualitative deep-dives</h3>
+    <p>The universal misses illustrate clinically meaningful failure types: failure to use an improving BNP trend against persistent volume-overload anchoring; failure to connect NSAID + diuretic + ARB exposure to AKI and impaired salicylate clearance; failure to reason through labetalol as a relative contraindication in asthma rather than a simple yes/no contraindication; and failure to state that resuscitation should not occur after loss of cardiac output during transfer in a ruptured AAA case.</p>
+    <p>These examples make the paper more useful than its size alone would suggest. They show that the rubric design captures omission of decisive inferences, mechanism chains, and “do not intervene” safety judgments that holistic preference ratings could miss.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Discussion</h3>
+    <p>The discussion emphasizes that formatting and apparent fluency are weak proxies for clinical correctness. The authors argue that atomic weighted rubrics reveal decisive omission failures that pairwise preference or Likert ratings could overlook, especially when outputs are fluent and organized.</p>
+    <p>The authors also frame discriminating criteria as training signals for preference optimization or rubric-reward reinforcement learning. This is plausible as a research direction, but the paper does not show training experiments, downstream improvement, or deployment testing.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Limitations</h3>
+    <p>The authors explicitly state that five tasks and 184 criteria are not enough for statistical inference about model rankings. They describe the paper as a methods-and-preliminary-findings contribution, with the pipeline and qualitative failure taxonomy as the main value.</p>
+    <p>Additional limitations include predominantly UK/US guidance, one final expert label per criterion after peer review and reconciliation, absence of full formal inter-rater statistics, and limited transferability across specialties, institutions, and health systems. The paper also depends on paper-reported model versions and a conservative single-turn harness that does not represent tool-augmented or retrieval-augmented clinical workflows.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Conclusion</h3>
+    <p>The conclusion restates the priority inversion: models nearly saturate style and instruction following while missing many critical clinical reasoning criteria. The authors identify synthesis under contradiction, mechanism reasoning, resource anticipation, and knowing when to withhold intervention as recurring shared blind spots.</p>
+    <p>The proper reading is that the benchmark pipeline is promising and the observed failures are concerning, but the dataset is too small to support definitive ranking, clinical deployment claims, or broad conclusions about frontier model safety.</p>
+  </div>
+</section>
+
+<section id="tables-workflows">
+  <h2>Tables and workflow extraction</h2>
+  <h3>TABLE 1 - The five evaluation tasks</h3>
+  <table>
+    <thead><tr><th>Task</th><th>Specialty</th><th>Scenario</th><th class="num">Criteria</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>Anaesthetist</td><td>Intraoperative cardiac arrest during prone neurosurgery for cerebellar tumour resection.</td><td class="num">62</td></tr>
+      <tr><td class="num">2</td><td>Family/Internal Medicine</td><td>Overnight digoxin toxicity on a decompensated heart-failure admission.</td><td class="num">25</td></tr>
+      <tr><td class="num">3</td><td>Family/Emergency Medicine</td><td>Rural ED “triple whammy” AKI with salicylate toxicity masquerading as pneumonia/sepsis.</td><td class="num">25</td></tr>
+      <tr><td class="num">4</td><td>Emergency Physician</td><td>Ruptured abdominal aortic aneurysm at a district hospital without vascular surgery; time-critical transfer decision.</td><td class="num">30</td></tr>
+      <tr><td class="num">5</td><td>Obstetric Registrar</td><td>Pre-eclampsia with severe asthma and twin pregnancy; labetalol relative-contraindication decision.</td><td class="num">42</td></tr>
+    </tbody>
+  </table>
+  <p class="small"><strong>Appraisal.</strong> The task mix targets high-stakes acute reasoning and safety, but the denominator is very small. Coverage across four specialties is useful for stress testing; it is not enough to represent clinical medicine.</p>
+
+  <h3>TABLE 2 - Weighted rubric pass rate by task</h3>
+  <table>
+    <thead><tr><th>Task</th><th class="num">Gemini</th><th class="num">GPT</th><th class="num">Claude</th><th>Pattern</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td class="num">0.29</td><td class="num">0.37</td><td class="num">0.49</td><td>Claude highest; all below 0.50.</td></tr>
+      <tr><td class="num">2</td><td class="num">0.60</td><td class="num">0.46</td><td class="num">0.64</td><td>Claude highest; Gemini near Claude.</td></tr>
+      <tr><td class="num">3</td><td class="num">0.47</td><td class="num">0.45</td><td class="num">0.65</td><td>Claude clearly highest in this sample.</td></tr>
+      <tr><td class="num">4</td><td class="num">0.42</td><td class="num">0.57</td><td class="num">0.45</td><td>GPT highest.</td></tr>
+      <tr><td class="num">5</td><td class="num">0.07</td><td class="num">0.07</td><td class="num">0.12</td><td>Near-total failure for all three models.</td></tr>
+      <tr><th>Mean</th><th class="num">0.37</th><th class="num">0.39</th><th class="num">0.47</th><th>Descriptive only; not powered for ranking.</th></tr>
+    </tbody>
+  </table>
+
+  <h3>TABLE 3 - Expert pass rate by criterion weight</h3>
+  <table>
+    <thead><tr><th>Weight</th><th class="num">Gemini</th><th class="num">GPT</th><th class="num">Claude</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>1 (trivial)</td><td class="num">8/10 = 80.0%</td><td class="num">8/10 = 80.0%</td><td class="num">9/10 = 90.0%</td><td>Low-stakes details mostly passed.</td></tr>
+      <tr><td>2</td><td class="num">1/1 = 100%</td><td class="num">1/1 = 100%</td><td class="num">1/1 = 100%</td><td>Denominator too small to interpret.</td></tr>
+      <tr><td>3</td><td class="num">12/44 = 27.3%</td><td class="num">14/44 = 31.8%</td><td class="num">20/44 = 45.5%</td><td>Moderate-weight content often missed.</td></tr>
+      <tr><td>4</td><td class="num">5/21 = 23.8%</td><td class="num">8/21 = 38.1%</td><td class="num">8/21 = 38.1%</td><td>High-weight content weakly captured.</td></tr>
+      <tr><td>5 (critical)</td><td class="num">35/108 = 32.4%</td><td class="num">36/108 = 33.3%</td><td class="num">45/108 = 41.7%</td><td>Central priority inversion: critical criteria most often missed.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>TABLE 4 - Expert pass rate by category</h3>
+  <table>
+    <thead><tr><th>Category</th><th class="num">Gemini</th><th class="num">GPT</th><th class="num">Claude</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>Reasoning</td><td class="num">35/123 = 28.5%</td><td class="num">39/123 = 31.7%</td><td class="num">52/123 = 42.3%</td><td>Largest and weakest category; Claude leads but remains below 50%.</td></tr>
+      <tr><td>Safety</td><td class="num">26/67 = 38.8%</td><td class="num">27/67 = 40.3%</td><td class="num">30/67 = 44.8%</td><td>Safety failures remain frequent.</td></tr>
+      <tr><td>Extraction</td><td class="num">1/3 = 33.3%</td><td class="num">1/3 = 33.3%</td><td class="num">1/3 = 33.3%</td><td>Too few criteria for category-level inference.</td></tr>
+      <tr><td>Instruction Following</td><td class="num">7/8 = 87.5%</td><td class="num">7/8 = 87.5%</td><td class="num">7/8 = 87.5%</td><td>Mostly solved in this setting.</td></tr>
+      <tr><td>Style</td><td class="num">5/5 = 100%</td><td class="num">5/5 = 100%</td><td class="num">5/5 = 100%</td><td>Perfect surface-style score; does not imply clinical correctness.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>WORKFLOW - Rubric construction and scoring pipeline</h3>
+  <pre><code>Inputs:
+- Five synthetic clinician-authored clinical scenarios.
+- Clinician-drafted golden answers.
+- Atomic MECE criteria with weights 1-5 and category tags.
+
+Process / decision rules:
+1. Verify structural identity of the three per-model rubrics for each task.
+2. Peer review each rubric for defensibility, weight calibration, and missing criteria.
+3. Grade each model response with expert labels and three LLM autorater labels.
+4. Route criteria back to the clinician when at least 2 of 3 autoraters disagree with the expert.
+5. Use expert reconciliation as final.
+6. Compute weighted pass rate as passed criterion weights / total criterion weights.
+
+Outputs:
+- Per-task weighted pass rates.
+- Pass rates by weight class and category.
+- Autorater-expert raw agreement.
+- Universal weight-5 misses.
+
+Failure modes:
+- Small task set.
+- Single final expert label per criterion.
+- Limited transparency if source cases, responses, and full rubrics are not released.
+- Rubric weights encode expert judgment and require calibration at scale.
+
+Human review:
+- Central; autoraters are used as a calibration mirror, not final arbiters.
+
+Governance:
+- Better versioning, preregistration, released rubric schema, adjudication logs, and inter-rater statistics would strengthen the pipeline.</code></pre>
+
+  <h3>WORKFLOW - Controlled model evaluation harness</h3>
+  <pre><code>Inputs:
+- Identical clinical prompts and rubrics.
+- Three paper-reported frontier models: GPT 5.4, Claude Opus 4.7, Gemini 3.1 Pro.
+
+Process:
+- Single-turn API prompt-response package.
+- No retrieval augmentation.
+- No external tool access.
+- No agentic scaffolding.
+- No retry logic.
+
+Outputs:
+- Conservative elicitation estimate under a fixed harness.
+
+Failure modes:
+- Does not estimate performance of tool-using, retrieval-augmented, multi-pass, verifier-assisted, or human-in-the-loop systems.
+- Model settings, sampling controls, prompt exactness, and response artifacts are necessary for high-grade reproducibility.
+- Paper-reported model identifiers and versions need independent verification before using scores as a benchmark baseline.</code></pre>
+</section>
+
+<section id="aiml-appraisal">
+  <h2>AI/ML systems appraisal</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><b>Task definition</b>Open-ended clinical reasoning under contradictory evidence, safety constraints, medication mechanisms, transfer/resource limitations, and intervention-withholding decisions.</div>
+    <div class="mini-card"><b>Data</b>Five synthetic clinician-authored clinical scenarios; 184 rubric criteria total; tasks retained only when at least two of three models scored below 0.60.</div>
+    <div class="mini-card"><b>Splits / leakage</b>No train/validation/test split because this is an evaluation pilot. Contamination risk is framed as low due to synthetic clinician-authored scenarios, but raw task release would be needed for independent audit.</div>
+    <div class="mini-card"><b>Models / baselines</b>Three frontier models compared under a shared single-turn harness. No non-frontier baseline, human-clinician baseline, or ablation comparator is reported.</div>
+    <div class="mini-card"><b>Metrics</b>Primary metric is weighted rubric pass rate. Secondary analyses include pass by weight class, pass by category, universal weight-5 misses, and raw autorater-expert agreement.</div>
+    <div class="mini-card"><b>Prompts / tool use</b>Single-turn prompts; no tool use, retrieval, retries, or agent scaffolds. This isolates baseline response behavior but underestimates engineered clinical-assistant workflows.</div>
+    <div class="mini-card"><b>Reproducibility</b>Method is described clearly enough to imitate, but full reproducibility depends on releasing prompts, cases, model outputs, rubrics, grading sheets, API parameters, and adjudication logs.</div>
+    <div class="mini-card"><b>Failure analysis</b>Strongest part of the paper: clinically interpretable universal misses across contradictory evidence, mechanism reasoning, relative contraindications, resource anticipation, and withholding intervention.</div>
+  </div>
+  <div class="mini-card badnote" style="margin-top:.75rem"><b>What not to overclaim</b>Do not claim that Claude is clinically safer than GPT or Gemini from these five tasks. Do not claim frontier LLMs are unsafe across all clinical tasks from this sample alone. Do not use the paper to set clinical policy. The defensible claim is narrower: this rubric pipeline exposed serious omission failures in a small, deliberately hard clinical reasoning pilot.</div>
+</section>
+
+<section id="ratings">
+  <h2>Evaluation and appraisal ratings</h2>
+  <div class="rating-grid">
+    <div class="mini-card"><b>Relevance</b><span class="score">8/10</span><p>Directly relevant to clinical AI evaluation, benchmark design, and high-stakes rubric scoring. Evidence basis: clinician-authored tasks, weighted criteria, safety/reasoning categories, and explicit validity framing. Limiting factor: it is a pilot, not a broad benchmark. Higher if full cases/rubrics and a larger multi-specialty corpus were released.</p></div>
+    <div class="mini-card"><b>Novelty</b><span class="score">7/10</span><p>The weighted criticality inversion and universal critical-miss framing are useful additions to rubric-based clinical LLM evaluation. Evidence basis: weight-stratified and category-stratified results. Limiting factor: the broader rubric-evaluation concept overlaps with HealthBench, AMIE, MedHELM, and ER-Reason. Higher with released discriminating criteria and replication.</p></div>
+    <div class="mini-card"><b>Method strength</b><span class="score">5/10</span><p>The controlled harness, rubric identity checks, peer review, and reconciliation are methodologically sensible, but the study is small and not statistically powered. Evidence basis: five tasks, 184 criteria, one final expert label per criterion, and descriptive scoring. Lower if raw prompts/rubrics are unavailable; higher with preregistration, double-expert adjudication, and full release.</p></div>
+    <div class="mini-card"><b>Evidence strength</b><span class="score">5/10</span><p>The data support the descriptive claim that these hard cases expose critical omission failures, but not broad claims about frontier-model clinical performance. Evidence basis: large difference between style/instruction scores and reasoning/safety scores, plus 56/108 universal critical misses. Limiting factor: no uncertainty intervals, no human baseline, no statistical inference.</p></div>
+    <div class="mini-card"><b>External validity</b><span class="score">3/10</span><p>Generalizability is weak because the sample is only five synthetic scenarios selected for difficulty and guided mainly by UK/US sources. Evidence basis: authors' own limitations and inclusion threshold. Higher with hundreds of cases across specialties, institutions, countries, clinician roles, and ordinary as well as adversarial cases.</p></div>
+    <div class="mini-card"><b>Implementation value</b><span class="score">6/10</span><p>Useful for building local evaluation pipelines and rubric schemas, but insufficient for clinical deployment or policy decisions. Evidence basis: clear workflow, scoring categories, harness description, and failure taxonomy. Limiting factor: limited reproducibility details and no deployed-system evaluation.</p></div>
+  </div>
+  <h3>Minimal final appraisal block</h3>
+  <table>
+    <tbody>
+      <tr><th>Verdict</th><td>Read soon.</td></tr>
+      <tr><th>Best use</th><td>Designing clinical LLM evals, weighting critical omissions, building expert-rubric adjudication workflows, and stress-testing clinical reasoning beyond MCQ benchmarks.</td></tr>
+      <tr><th>Do not use for</th><td>Clinical practice changes, model procurement decisions, definitive ranking of frontier models, or claims about real-world clinical safety.</td></tr>
+      <tr><th>Main strengths</th><td>Atomic weighted rubrics; explicit safety/reasoning focus; controlled harness; peer review and reconciliation; useful qualitative failure taxonomy.</td></tr>
+      <tr><th>Main limitations</th><td>Five-task sample; descriptive results only; limited external validity; incomplete independent rater statistics; no human-clinician baseline; unclear public reproducibility of full cases, rubrics, and responses.</td></tr>
+      <tr><th>Confidence in appraisal</th><td>Moderate for evaluating the paper's design and limitations; low for generalizing its model-performance conclusions beyond this pilot.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="takeaways">
+  <h2>Implementation / practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card goodnote"><b>Build-useful idea</b>Use weighted atomic criteria for clinical reasoning evals. Give decisive inferences their own high-weight criteria rather than burying them in a holistic quality score.</div>
+    <div class="mini-card goodnote"><b>Operational design</b>Separate “style/instruction following” from “reasoning/safety.” A well-structured clinical note can still miss the single inference that matters.</div>
+    <div class="mini-card goodnote"><b>Evaluation governance</b>Use LLM autoraters as discrepancy detectors, not final graders. Route high-disagreement items back to human experts and preserve adjudication logs.</div>
+    <div class="mini-card warning"><b>Benchmark caution</b>Selection for hard cases increases signal density but reduces representativeness. Use a mix of routine, ambiguous, edge-case, and adversarial cases when building a local benchmark.</div>
+    <div class="mini-card warning"><b>Clinical safety</b>Evidence is insufficient for clinical action. The paper supports further evaluation work, not autonomous clinical use.</div>
+    <div class="mini-card warning"><b>Next-read targets</b>Pair this with HealthBench for scale, ER-Reason for longitudinal ED reasoning, MedHELM for task taxonomy, and AMIE papers for conversational diagnostic evaluation.</div>
+  </div>
+</section>
+
+<section id="qa">
+  <h2>Semantic QA</h2>
+  <table>
+    <tbody>
+      <tr><th>Source identity</th><td>Pass - title, arXiv ID, authors, and source type match the uploaded PDF metadata and first page.</td></tr>
+      <tr><th>Coverage manifest</th><td>Pass - sections, tables, workflows, figures, appendices, visual strategy, and omissions are enumerated before appraisal content.</td></tr>
+      <tr><th>Main-text tables</th><td>Pass - all four main-text tables are reconstructed as structured HTML tables.</td></tr>
+      <tr><th>Figures</th><td>Pass - no figures present in the uploaded PDF.</td></tr>
+      <tr><th>Workflows</th><td>Pass - rubric/scoring pipeline and controlled harness are extracted into structured blocks.</td></tr>
+      <tr><th>Claims vs appraisal</th><td>Pass - paper-reported findings are separated from independent appraisal and implementation limits.</td></tr>
+      <tr><th>Clinical action warning</th><td>Pass - artifact explicitly warns against clinical practice or deployment use.</td></tr>
+      <tr><th>HTML hygiene</th><td>Pass - self-contained CSS, no external scripts, no remote assets, no internal chat citation syntax.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="provenance">
+  <h2>Provenance</h2>
+  <p><strong>Evaluated file:</strong> 2607.02175v1.pdf</p>
+  <p><strong>Source title:</strong> A Rubric-Based Controlled Comparison of Frontier Language Models on Expert-Authored Clinical Reasoning Tasks</p>
+  <p><strong>Source identifier:</strong> arXiv:2607.02175v1; DOI: 10.48550/arXiv.2607.02175</p>
+  <p><strong>Generated:</strong> 2026-07-03</p>
+  <p class="footer">This reference file summarizes and appraises the uploaded preprint. It is not a substitute for reading the source, evaluating released artifacts if available, or conducting clinical, regulatory, or institutional review.</p>
+</section>
+</main>
+</body>
+</html>

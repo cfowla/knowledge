@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pairwise is Not Enough — Summary, Evaluation, and Appraisal</title>
+<style>
+:root{
+  --bg:#f4f7fb;--card:#ffffff;--ink:#172033;--muted:#526176;--line:#d8e1ec;
+  --accent:#204f88;--accent2:#0e766e;--good:#176b43;--warn:#8a5a00;--bad:#8b2635;
+  --soft-blue:#edf4fc;--soft-green:#edf8f3;--soft-yellow:#fff7e6;--soft-red:#fff0f2;
+  --code:#111b2b;--codeink:#edf4ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+}
+a{color:var(--accent);text-decoration-thickness:.08em;text-underline-offset:.16em}
+header{
+  background:linear-gradient(135deg,#10243d 0%,#204f88 58%,#0e766e 100%);
+  color:#fff;padding:3.2rem 1.25rem 2.5rem;border-bottom:6px solid #c9d9ed;
+}
+.wrap{max-width:1180px;margin:0 auto}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:.78rem;opacity:.86}
+h1{font-size:clamp(2rem,4.5vw,3.45rem);line-height:1.08;margin:.45rem 0 .7rem;max-width:980px}
+.subtitle{max-width:900px;font-size:1.08rem;opacity:.92}
+main{padding:1.25rem}
+nav.toc,section{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 2px 8px rgba(20,40,70,.05);max-width:1180px;margin:1rem auto;padding:1.25rem;
+}
+nav.toc h2,section>h2{margin-top:0;color:#123c70}
+nav.toc ul{columns:2;column-gap:2rem;padding-left:1.2rem}
+h2{font-size:1.55rem;line-height:1.25}
+h3{color:#204f88;margin-top:1.35rem;line-height:1.3}
+h4{margin-bottom:.35rem;color:#2b405c}
+p{margin:.68rem 0}
+.meta-grid,.rating-grid,.takeaway-grid,.three-grid{
+  display:grid;gap:.8rem
+}
+.meta-grid{grid-template-columns:repeat(auto-fit,minmax(225px,1fr))}
+.rating-grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.takeaway-grid{grid-template-columns:repeat(auto-fit,minmax(285px,1fr))}
+.three-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.mini-card{
+  border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem;background:#fbfdff
+}
+.mini-card strong{display:block;color:#173f72;margin-bottom:.18rem}
+.verdict,.goodnote,.warning,.badnote,.inference{
+  border-radius:12px;padding:1rem 1.05rem;margin:.8rem 0
+}
+.verdict{border-left:6px solid var(--accent);background:var(--soft-blue)}
+.goodnote{border-left:6px solid var(--good);background:var(--soft-green)}
+.warning{border-left:6px solid var(--warn);background:var(--soft-yellow)}
+.badnote{border-left:6px solid var(--bad);background:var(--soft-red)}
+.inference{border-left:6px solid var(--accent2);background:#eaf8f7}
+.tag{
+  display:inline-block;border:1px solid #b9c9dd;background:#eef4fb;color:#234c78;
+  border-radius:999px;padding:.18rem .58rem;margin:.12rem .18rem .12rem 0;font-size:.82rem;font-weight:700
+}
+table{border-collapse:collapse;width:100%;margin:.8rem 0 1rem;font-size:.94rem}
+th,td{border:1px solid var(--line);padding:.55rem .65rem;vertical-align:top}
+th{background:#edf3fa;color:#173c66;text-align:left}
+tr:nth-child(even) td{background:#fbfdff}
+pre{
+  background:var(--code);color:var(--codeink);padding:1rem;border-radius:12px;
+  overflow-x:auto;white-space:pre-wrap;line-height:1.48;font-size:.89rem
+}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+details{
+  border:1px solid var(--line);border-radius:12px;margin:.58rem 0;background:#fff
+}
+summary{
+  cursor:pointer;padding:.75rem .9rem;font-weight:800;color:#1c466f;background:#f6f9fd;border-radius:12px
+}
+details>div{padding:.15rem .95rem .9rem}
+.score{font-size:1.55rem;font-weight:850;color:#123c70}
+.small{font-size:.88rem;color:var(--muted)}
+.kicker{font-weight:800;color:#173f72}
+ul,ol{padding-left:1.35rem}
+li{margin:.32rem 0}
+hr{border:0;border-top:1px solid var(--line);margin:1.2rem 0}
+footer{
+  max-width:1180px;margin:1rem auto 2rem;padding:1rem 1.25rem;color:var(--muted);font-size:.9rem
+}
+@media(max-width:720px){
+  nav.toc ul{columns:1}
+  main{padding:.65rem}
+  section,nav.toc{padding:1rem}
+  table{display:block;overflow-x:auto}
+}
+@media print{
+  body{background:#fff}
+  header{background:#fff;color:#000;border-bottom:2px solid #000;padding:1rem 0}
+  main{padding:0}
+  section,nav.toc{box-shadow:none;border:1px solid #aaa;break-inside:avoid}
+  details{break-inside:avoid}
+  details>div{display:block!important}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">AI/ML paper appraisal · arXiv:2602.06733v2 · ICLR 2026</div>
+    <h1>Pairwise is Not Enough: Hypergraph Neural Networks for Multi-Agent Pathfinding</h1>
+    <p class="subtitle">Summary, evidence map, visual and algorithm reconciliation, methodological appraisal, and transfer analysis for multi-agent clinical and LLM workflows.</p>
+  </div>
+</header>
+
+<main>
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">Metadata and scope</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#source-map">Source map and coverage</a></li>
+    <li><a href="#methods">Methods and architecture</a></li>
+    <li><a href="#results">Results and evidence</a></li>
+    <li><a href="#mechanism">Mechanistic analysis</a></li>
+    <li><a href="#sections">Section-by-section condensation</a></li>
+    <li><a href="#visuals">Figures, tables, and algorithms</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#transfer">Relevance to your workflows</a></li>
+    <li><a href="#implementation">Implementation lessons</a></li>
+    <li><a href="#reading">Reading recommendation</a></li>
+    <li><a href="#provenance">Provenance</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata and scope</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><strong>Exact title</strong>Pairwise is Not Enough: Hypergraph Neural Networks for Multi-Agent Pathfinding</div>
+    <div class="mini-card"><strong>Authors</strong>Rishabh Jain; Keisuke Okumura; Michael Amir; Pietro Liò; Amanda Prorok</div>
+    <div class="mini-card"><strong>Source type</strong>Conference research paper; arXiv v2; published at ICLR 2026</div>
+    <div class="mini-card"><strong>Date/version</strong>Submitted 6 February 2026; revised 10 May 2026</div>
+    <div class="mini-card"><strong>Identifier</strong>arXiv:2602.06733v2 · DOI: 10.48550/arXiv.2602.06733</div>
+    <div class="mini-card"><strong>Domains</strong>Machine learning, artificial intelligence, multi-agent systems, multi-agent pathfinding</div>
+    <div class="mini-card"><strong>Design</strong>Imitation-learning architecture paper with benchmark comparisons, ablations, controlled HGNN-versus-GNN analyses, interpretability experiments, and appendicial robustness tests</div>
+    <div class="mini-card"><strong>Code</strong>Public repository with Docker setup, training/evaluation commands, checkpoints, and incorporated baseline implementations</div>
+  </div>
+  <div class="warning">
+    <strong>Scope warning.</strong> The paper validates a hypergraph attention architecture for grid-based multi-agent pathfinding. It does not evaluate LLM agents, clinical decision support, medication review, shared-file concurrency, transactional state, or healthcare deployment.
+  </div>
+  <p>
+    <span class="tag">hypergraph neural networks</span>
+    <span class="tag">multi-agent coordination</span>
+    <span class="tag">attention dilution</span>
+    <span class="tag">imitation learning</span>
+    <span class="tag">inductive bias</span>
+    <span class="tag">MAPF</span>
+  </p>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="verdict">
+    <div class="kicker">Verdict: Skim deeply</div>
+    <p><strong>Best use:</strong> a technically credible demonstration that explicit higher-order interaction structure can outperform much larger pairwise models when the task truly depends on coordinated groups.</p>
+    <p><strong>Do not use for:</strong> evidence that hypergraphs will improve LLM-agent systems or clinical workflows without a task-specific method for constructing valid groups and without separate state, locking, verification, and safety controls.</p>
+  </div>
+
+  <div class="three-grid">
+    <div class="mini-card">
+      <strong>Core thesis</strong>
+      Pairwise message passing is a poor inductive bias for densely coupled coordination. Directed hyperedges can represent a group of agents jointly influencing one agent’s action and can reduce softmax attention dilution.
+    </div>
+    <div class="mini-card">
+      <strong>What the paper contributes</strong>
+      HMAGAT: a CNN–HGNN–MLP imitation-learning policy; three dynamic hypergraph-generation strategies; online expert refinement; quality post-training; and an adaptive temperature module.
+    </div>
+    <div class="mini-card">
+      <strong>Why the evidence matters</strong>
+      The authors do more than report a leaderboard result: they isolate HGNN from GNN, run ablations, construct diagnostic scenarios, analyze Shapley influence, quantify attention entropy, and inspect failures.
+    </div>
+  </div>
+
+  <div class="goodnote">
+    <strong>Highest-value result.</strong> In the controlled stripped-down comparison, replacing GNN layers with HGNN layers increased Dense Warehouse success from <strong>2.3% to 39.8%</strong> and improved relative sum-of-costs from <strong>2.12 ± 0.10 to 1.78 ± 0.08</strong>. This is more probative of the architectural claim than the final-model headline alone.
+  </div>
+
+  <div class="badnote">
+    <strong>Main limitation.</strong> External validity is narrow. The groups are generated from spatial geometry in a structured grid task, and the final system includes several components beyond the hypergraph layer. The paper does not establish that learned or hand-authored hyperedges will be reliable in semantic, partially observable, high-stakes workflows.
+  </div>
+
+  <p><strong>Bottom line:</strong> The paper is strong evidence for a general design principle—represent the interaction order that the task actually requires—but only direct evidence for MAPF. For your work, the useful object is not “a hypergraph model” by itself; it is a <em>group-aware coordination layer</em> that identifies which agents, evidence items, and actions must be reasoned about jointly.</p>
+</section>
+
+<section id="source-map">
+  <h2>Source map and coverage manifest</h2>
+  <pre><code>SOURCE COVERAGE MANIFEST
+source_id: arXiv:2602.06733v2
+exact_title: Pairwise is Not Enough: Hypergraph Neural Networks for Multi-Agent Pathfinding
+source_type: ICLR 2026 research paper / arXiv version
+main_sections:
+  1 Introduction
+  2 Preliminaries
+    2.1 Hypergraphs and multi-agent learning
+    2.2 Multi-agent pathfinding
+    2.3 MAGAT
+  3 HMAGAT
+    3.1 Architecture
+    3.2 Hypergraph generation
+    3.3 Training pipeline
+  4 Evaluation
+    4.1 Results
+    4.2 HGNN vs GNN — deeper analysis
+    4.3 Hand-crafted scenarios
+  5 Conclusion
+  Reproducibility statement
+appendices:
+  A Further details for HMAGAT
+  B Radar plot details
+  C Further evaluation results
+  D Further details on hand-crafted scenarios
+  E Informal proof of attention dilution
+  F Pairwise interaction modelling for MAPF
+  G Failure-mode analysis
+  H Further attention-dilution experiments
+  I Hyperparameter sensitivity
+figures: 10
+tables: 16
+algorithms: 4
+visual_strategy: all items represented as structured blocks
+omissions: references condensed; raw plot coordinates not transcribed</code></pre>
+
+  <p>All main-text figures, tables, and algorithms are individually reconciled below. Appendicial items are included because they materially affect interpretation of mechanism, reproducibility, robustness, and failure behavior.</p>
+</section>
+
+<section id="methods">
+  <h2>Methods and architecture</h2>
+
+  <h3>Task and baseline formulation</h3>
+  <p>Multi-agent pathfinding assigns collision-free paths to multiple agents on a four-connected grid. Agents may move to adjacent cells or wait; vertex collisions and pairwise swaps are prohibited. The primary optimization target is sum-of-costs, the total time required for agents to stop at their goals.</p>
+  <p>The model builds on MAGAT. Each agent receives a local four-channel observation: obstacles, nearby agents, projected goal direction, and normalized cost-to-go. A CNN encodes the observation; the interaction layer aggregates information from other agents; an MLP predicts the next action.</p>
+
+  <h3>HMAGAT architecture</h3>
+  <p>HMAGAT replaces graph attention with a directed hypergraph attention network. Each directed hyperedge has a multi-agent tail and a singleton head: several agents jointly send a group representation to the agent whose decision is being updated. Message passing occurs in two stages: tail nodes aggregate into a hyperedge representation, then hyperedges aggregate into the head node.</p>
+  <p>The layer includes relative-position and Manhattan-distance features. Attention is normalized within node-to-hyperedge and hyperedge-to-node stages, which allows irrelevant nearby agents to be compressed into a group instead of competing individually with every informative agent in one neighborhood-wide softmax.</p>
+
+  <h3>Hypergraph-generation strategies</h3>
+  <table>
+    <thead><tr><th>Strategy</th><th>Construction</th><th>Trade-off</th></tr></thead>
+    <tbody>
+      <tr><td>Lloyd</td><td>Balanced Voronoi-like spatial regions with softened, overlapping boundaries</td><td>Principled partitions but worst-case cubic dependence on grid size; slow on very large maps</td></tr>
+      <tr><td>k-means</td><td>Diffuse color vectors across the grid, cluster vertices, retain populous colors, and propagate discarded-region colors to create overlap</td><td>Good overall performance-speed balance; selected as the main variant</td></tr>
+      <tr><td>Shortest distance</td><td>Build local cliques using path-distance conditions among communicating agents and regenerate periodically</td><td>More configuration-sensitive runtime; can be advantageous on large sparse grids</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Training pipeline</h3>
+  <div class="meta-grid">
+    <div class="mini-card"><strong>Initial dataset</strong>21,000 instances; 20% randomly placed obstacles and 80% maze-like environments</div>
+    <div class="mini-card"><strong>Training maps</strong>17×17 to 21×21; 16, 24, or 32 agents</div>
+    <div class="mini-card"><strong>Expert</strong>LaCAM3 with staged timeouts of 1, 5, 15, and 60 seconds</div>
+    <div class="mini-card"><strong>Main training</strong>Cross-entropy imitation learning for 200 epochs; approximately 100 hours on one NVIDIA L40S GPU</div>
+    <div class="mini-card"><strong>Online expert</strong>On-demand dataset aggregation after failures or trajectories exceeding 1.2× expert length</div>
+    <div class="mini-card"><strong>Post-training</strong>20 epochs of quality-improvement fine-tuning; approximately 30 additional L40S hours</div>
+    <div class="mini-card"><strong>Temperature module</strong>PPO actor–critic predicts per-agent softmax temperature from 0.5 to 1.0; approximately 3 hours</div>
+    <div class="mini-card"><strong>Model/data headline</strong>Approximately 1M parameters and substantially less training data than the 85M MAPF-GPT comparator</div>
+  </div>
+
+  <div class="warning">
+    <strong>Interpretation constraint.</strong> The final HMAGAT result is the product of hypergraphs, online expert refinement, post-training quality improvement, adaptive temperature sampling, and PIBT collision shielding. The paper’s ablation and stripped-down HGNN-versus-GNN comparison are therefore essential for attributing gains to the interaction representation.
+  </div>
+</section>
+
+<section id="results">
+  <h2>Results and evidence</h2>
+
+  <h3>Evaluation design</h3>
+  <p>The study compares HMAGAT with MAGAT, MAPF-GPT at 2M, 6M, and 85M parameters, MAPF-GPT-DDG, SSIL, SCRIMP, and DCC. PIBT-based collision shielding is applied to the main learned-policy comparisons. LaCAM3 with a 30-second budget serves as the reference for relative sum-of-costs and is the only search-based solver in the evaluation.</p>
+  <p>Primary metrics are whole-instance success rate, relative sum-of-costs, and runtime per map. Evaluation spans sparse and dense maze, room, warehouse, game, and city maps, generally using 128 instances per condition.</p>
+
+  <h3>Key quantitative findings</h3>
+  <table>
+    <thead>
+      <tr><th>Finding</th><th>Result</th><th>Interpretation</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Controlled HGNN vs GNN: Dense Warehouse</td>
+        <td>Success 39.8% vs 2.3%; Rel. SoC 1.78 ± 0.08 vs 2.12 ± 0.10</td>
+        <td>Strong evidence that explicit group structure helps in the densest, highly coupled setting.</td>
+      </tr>
+      <tr>
+        <td>Controlled HGNN vs GNN: Dense Maze</td>
+        <td>Success 75.8% vs 72.7%; Rel. SoC 1.79 ± 0.09 vs 2.07 ± 0.09</td>
+        <td>Quality improves more consistently than binary success in some environments.</td>
+      </tr>
+      <tr>
+        <td>Final HMAGAT vs MAPF-GPT 85M: Dense Warehouse, highest density</td>
+        <td>89.1% vs 4% success</td>
+        <td>Large headline gain, but it reflects the complete pipeline and collision shielding.</td>
+      </tr>
+      <tr>
+        <td>Large-map scaling</td>
+        <td>HMAGAT and MAGAT maintain perfect success across tested large-map agent counts; HMAGAT stays near LaCAM3 solution quality</td>
+        <td>Supports computational scalability of the learned local-policy approach.</td>
+      </tr>
+      <tr>
+        <td>Ablation</td>
+        <td>Hypergraphs, online expert quality improvement, and post-training each reduce failure and/or Rel. SoC; temperature sampling improves quality while slightly trading off success</td>
+        <td>The architecture is not a single-change system; multiple additions matter.</td>
+      </tr>
+      <tr>
+        <td>Attention entropy across highest-density maps</td>
+        <td>HGNN 0.502–0.592 vs GNN 0.651–0.733 on the five reported maps</td>
+        <td>HGNN attention is systematically less diffuse, consistent with the proposed mechanism.</td>
+      </tr>
+      <tr>
+        <td>Hand-crafted attention stability</td>
+        <td>GNN coefficient of variation is 2.01–4.94× HGNN in first-layer group attention</td>
+        <td>Adding irrelevant agents perturbs GNN attention substantially more.</td>
+      </tr>
+      <tr>
+        <td>Group-interaction Shapley test</td>
+        <td>Agent 3 influence exceeds mirrored Agent 4 by 802% with HGNN vs 13% with GNN</td>
+        <td>Illustrates sensitivity to a higher-order dependency that pairwise symmetry obscures.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Failure analysis</h3>
+  <p>HMAGAT’s weaker Dense Room condition is not ignored. In failed 128-agent instances, average partial success is 97.3%. Among the 2.7% of agents not at goal at termination, 90% had reached their goal earlier but subsequently moved. The reported failure breakdown is 3.4% deadlock, 46.4% livelock, and 50.2% reaching the maximum timestep limit.</p>
+  <p>This matters because the residual problem is not simply inability to find useful paths. It is long-horizon stability and termination behavior. The authors suggest explicit deadlock/livelock detection and an escape policy, but do not implement or evaluate that extension.</p>
+
+  <h3>Hyperparameter sensitivity</h3>
+  <p>Varying the number of k-means colors and communication radius produces relatively stable relative sum-of-costs, while success rates move more noticeably in some dense settings. This supports moderate robustness of solution quality but does not establish insensitivity of all operational outcomes.</p>
+</section>
+
+<section id="mechanism">
+  <h2>Mechanistic claim: attention dilution and higher-order influence</h2>
+
+  <h3>Attention dilution</h3>
+  <p>In graph attention, every neighbor competes in a shared softmax. Adding many irrelevant but plausible neighbors increases the denominator and reduces normalized attention allocated to informative neighbors, even when their pre-softmax scores do not change. The paper formalizes this as an informal proof and then checks it empirically.</p>
+  <p>In HMAGAT, irrelevant nodes occupying the same locality can be aggregated within one hyperedge. If the hypergraph groups are appropriate, adding more irrelevant nodes to that hyperedge does not create additional competing hyperedges for the informative groups. The important hyperedge-level attention can therefore remain stable.</p>
+
+  <h3>Group interaction</h3>
+  <p>A pairwise model can approximate higher-order interactions using large embeddings or multiple stacked layers. The authors argue that these are inefficient indirect routes: embedding capacity must grow with agent count, and fixed-depth pairwise propagation limits the complexity of group dependencies that can be represented.</p>
+  <p>The diagnostic Shapley experiment is useful because it asks whether two agents that look symmetric relative to the focal agent receive different influence when only one participates in a three-agent dependency. HGNN produces the expected asymmetry; GNN mostly does not.</p>
+
+  <div class="warning">
+    <strong>Causal caution.</strong> Attention distributions and Shapley values are evidence about model behavior, not complete causal explanations of performance. The controlled replacement experiment, ablation, and multi-instance entropy analysis strengthen the mechanism claim, but they do not prove that every performance gain arises from the stated attention pathway.
+  </div>
+</section>
+
+<section id="sections">
+  <h2>Section-by-section condensation</h2>
+
+  <h3>Abstract and introduction</h3>
+  <p>The paper frames MAPF as a dense coordination task in which pairwise interaction models underrepresent simultaneous multi-agent dependencies. It proposes HMAGAT and argues that an appropriate higher-order inductive bias can outperform scale-heavy alternatives.</p>
+  <p>The introduction makes four claims: a new hypergraph-attention imitation-learning framework, dynamic directed-hypergraph generation, state-of-the-art learned MAPF performance with much lower parameter and data scale, and analyses explaining where pairwise attention fails.</p>
+
+  <h3>Preliminaries</h3>
+  <p>The preliminaries define directed hypergraphs, HGNN message passing, standard MAPF constraints, and the sum-of-costs objective. They establish MAGAT as the direct graph-based reference architecture.</p>
+  <p>This section is technically necessary but not where the paper’s novelty lies. Its key role is to make the later comparison close: HMAGAT is designed as a replacement of the GNN interaction layer inside an otherwise related local-policy pipeline.</p>
+
+  <h3>HMAGAT</h3>
+  <p>The architecture uses multi-node tails and singleton heads to represent a set of agents jointly influencing one agent. Two-stage attention constructs hyperedge representations and then updates the head agent.</p>
+  <p>Three hypergraph generators balance semantic adequacy and runtime. The k-means coloring approach is ultimately preferred. Training combines imitation learning, on-demand expert data, quality-focused post-training, and an RL-based temperature module.</p>
+
+  <h3>Evaluation</h3>
+  <p>The benchmark suite is broad within grid-based MAPF: multiple layouts, obstacle densities, agent counts, model families, and large maps. The final HMAGAT pipeline generally improves success and solution quality while running faster than the largest transformer comparator.</p>
+  <p>The strongest causal support for the paper’s thesis comes from the stripped-down HGNN-versus-GNN comparison and diagnostic scenarios, not solely the aggregate benchmark ranking.</p>
+
+  <h3>Conclusion and reproducibility</h3>
+  <p>The authors conclude that higher-order inductive bias can reduce sample and parameter requirements in tightly coupled multi-agent problems. This conclusion is justified for the tested MAPF family and plausible—but untested—outside it.</p>
+  <p>The paper supplies architecture and hyperparameter details, and the public repository includes Docker support, checkpoints, dataset generation, training, and evaluation commands. Independent reproduction results are not reported in the paper.</p>
+
+  <h3>Appendices</h3>
+  <p>The appendices are substantive rather than optional. They provide generator pseudocode, detailed benchmark plots, collision-shielding sensitivity, controlled tables, raw attention values, the informal dilution proof, failure-mode analysis, entropy analysis, and hyperparameter sensitivity.</p>
+  <p>For appraisal, Appendices C, D, G, and H materially increase confidence by exposing performance variation, baseline sensitivity, residual failure structure, and multi-instance mechanism evidence.</p>
+</section>
+
+<section id="visuals">
+  <h2>Figures, tables, and algorithms</h2>
+
+  <h3>Figures 1–10</h3>
+  <details open><summary>Figure 1 — Motivation, interaction order, and headline comparison</summary><div>
+    <p><strong>Purpose:</strong> Shows a MAPF case where combining pairwise-optimal paths is suboptimal, locates prior methods by modeled interaction size, and summarizes performance in a radar plot.</p>
+    <p><strong>Main pattern:</strong> The group-optimal solution has lower sum-of-costs than the pairwise combination. HMAGAT occupies the previously underexplored group-interaction regime.</p>
+    <p><strong>Limit:</strong> The path example is illustrative; the radar plot compresses heterogeneous metrics and excludes large maps.</p>
+  </div></details>
+
+  <details><summary>Figure 2 — HMAGAT workflow</summary><div>
+    <p><strong>Structure:</strong> Expert demonstrations → per-timestep hypergraph generation → CNN/HGNN/MLP training → quality post-training and temperature sampling.</p>
+    <p><strong>Appraisal:</strong> Clarifies that the reported system is a multi-stage pipeline, not only an HGNN layer.</p>
+  </div></details>
+
+  <details><summary>Figure 3 — Strict partitions to overlapping groups</summary><div>
+    <p><strong>Purpose:</strong> Visualizes soft boundaries after discarding low-population colors and propagating neighboring colors.</p>
+    <p><strong>Interpretation:</strong> Overlap is intended to prevent artificial region boundaries from blocking interactions.</p>
+  </div></details>
+
+  <details><summary>Figure 4 — Main benchmark plots</summary><div>
+    <p><strong>Axes:</strong> Agent count against success rate, runtime, and relative sum-of-costs across six representative maps.</p>
+    <p><strong>Main pattern:</strong> HMAGAT variants outperform smaller learned baselines and remain competitive with or superior to MAPF-GPT 85M, especially in dense maze and dense warehouse conditions.</p>
+    <p><strong>Limit:</strong> Dense Room remains a relative weakness; visual density makes exact comparisons difficult without appendix tables.</p>
+  </div></details>
+
+  <details><summary>Figure 5 — Incremental ablation</summary><div>
+    <p><strong>Sequence:</strong> MAGAT → hypergraphs → online expert quality improvement → post-training quality improvement → temperature sampling.</p>
+    <p><strong>Main pattern:</strong> Each component improves failure rate and/or relative cost; temperature sampling trades some success for quality.</p>
+    <p><strong>Limit:</strong> Incremental ablation does not test every factorial interaction between components.</p>
+  </div></details>
+
+  <details><summary>Figure 6 — Attention-score distributions</summary><div>
+    <p><strong>Purpose:</strong> Compares first-layer GNN and HGNN attention distributions in single Dense Warehouse and Dense Maze instances.</p>
+    <p><strong>Main pattern:</strong> HGNN retains more mass in the highest attention bin and less in the diluted middle range.</p>
+    <p><strong>Limit:</strong> Single-instance visualization; Table 14 supplies stronger multi-instance confirmation.</p>
+  </div></details>
+
+  <details><summary>Figure 7 — Hand-crafted diagnostic scenarios</summary><div>
+    <p><strong>Scenario 1:</strong> Adds irrelevant agents to one group to test attention stability.</p>
+    <p><strong>Scenario 2:</strong> Constructs a higher-order dependency that should distinguish two pairwise-symmetric agents.</p>
+    <p><strong>Value:</strong> Converts a broad architectural claim into falsifiable local behavior.</p>
+  </div></details>
+
+  <details><summary>Figure 8 — Full small-map benchmark</summary><div>
+    <p><strong>Coverage:</strong> Six small maps, 11 methods/variants, success, runtime, and relative cost, averaged over 128 instances.</p>
+    <p><strong>Main pattern:</strong> HMAGAT is generally strongest among compact learned policies; the 85M comparator remains competitive on some room/warehouse quality measures.</p>
+  </div></details>
+
+  <details><summary>Figure 9 — Full large-map benchmark</summary><div>
+    <p><strong>Coverage:</strong> Two game maps and two city maps.</p>
+    <p><strong>Main pattern:</strong> HMAGAT and MAGAT scale reliably; HMAGAT improves solution quality. Lloyd grouping times out on the largest city maps.</p>
+  </div></details>
+
+  <details><summary>Figure 10 — Important-region attention stress test</summary><div>
+    <p><strong>Purpose:</strong> Checks that HGNN does not remain stable merely by ignoring a growing group. Here the enlarged group is intentionally important.</p>
+    <p><strong>Main pattern:</strong> Attention to the important group remains approximately 98.5–99.7% as group size increases.</p>
+  </div></details>
+
+  <h3>Tables 1–16</h3>
+  <details open><summary>Tables 1–3 — Main controlled and diagnostic results</summary><div>
+    <p><strong>Table 1:</strong> Controlled HGNN-versus-GNN comparison at maximum density. The largest success gain is Dense Warehouse, 39.8% versus 2.3%.</p>
+    <p><strong>Table 2:</strong> First-layer attention coefficient of variation under irrelevant-agent additions; GNN variation is 2.01–4.94× HGNN.</p>
+    <p><strong>Table 3:</strong> Shapley influence in the group-dependency scenario; HGNN sharply differentiates Agent 3 from Agent 4.</p>
+  </div></details>
+
+  <details><summary>Table 4 — Evaluation map specifications</summary><div>
+    <p>Lists dimensions, obstacle density, step limits, and time limits for 10 maps. The evaluation ranges from 21×21 small grids to 256×256 city maps and approximately 8% to 65% obstacle density.</p>
+  </div></details>
+
+  <details><summary>Tables 5–6 — Baseline sensitivity and expanded controlled comparison</summary><div>
+    <p><strong>Table 5:</strong> Removing PIBT collision shielding reverses the relative ranking of MAPF-GPT 85M and MAPF-GPT-DDG on sparse 128-agent maps, demonstrating that external collision handling materially affects reported policy performance.</p>
+    <p><strong>Table 6:</strong> Extends HGNN-versus-GNN comparisons to 10 maps. HGNN generally improves relative cost; success gains concentrate in difficult dense conditions.</p>
+  </div></details>
+
+  <details><summary>Tables 7–12 — Raw attention stability analyses</summary><div>
+    <p><strong>Tables 7–8:</strong> First-layer group attention values for GNN and HGNN as irrelevant agents are added.</p>
+    <p><strong>Tables 9–10:</strong> The same analysis averaged across layers.</p>
+    <p><strong>Table 11:</strong> Across-layer coefficients of variation: HGNN remains substantially more stable.</p>
+    <p><strong>Table 12:</strong> When the growing group is important, HGNN keeps nearly all attention on that group.</p>
+  </div></details>
+
+  <details><summary>Tables 13–14 — Failure modes and multi-instance attention entropy</summary><div>
+    <p><strong>Table 13:</strong> Residual failure is dominated by livelock and timestep exhaustion rather than static deadlock.</p>
+    <p><strong>Table 14:</strong> Across 128 instances per map, normalized attention entropy is consistently lower for HGNN, strengthening the attention-dilution claim beyond selected examples.</p>
+  </div></details>
+
+  <details><summary>Tables 15–16 — Hyperparameter sensitivity</summary><div>
+    <p>Tests k-means color proportion and communication radius at inference. Relative cost is stable; success rate varies modestly, with some dense-map improvements at broader settings.</p>
+  </div></details>
+
+  <h3>Algorithms 1–4</h3>
+  <details open><summary>Algorithm 1 — Coloring-based hypergraph construction</summary><div>
+    <p>For every head agent and color, collect communicating agents occupying vertices assigned that color, then create a directed hyperedge from the group to the head. This is the runtime bridge from static grid coloring to dynamic agent groups.</p>
+  </div></details>
+
+  <details><summary>Algorithm 2 — Shortest-distance-based hypergraphs</summary><div>
+    <p>Construct candidate interactions using a path-distance condition, sample cliques among communicating agents, and create one hyperedge per clique and head agent. Hypergraphs are regenerated every five timesteps to control cost.</p>
+  </div></details>
+
+  <details><summary>Algorithm 3 — Lloyd grid coloring</summary><div>
+    <p>Run graph Lloyd clustering, retain the most populous colors, and iteratively propagate neighboring colors into uncolored vertices to form overlapping regions.</p>
+  </div></details>
+
+  <details><summary>Algorithm 4 — k-means grid coloring</summary><div>
+    <p>Seed color vectors, diffuse them through neighboring vertices, cluster with k-means, retain populous colors, and propagate boundaries. This reduces the generator’s dependence on expensive graph-centroid updates.</p>
+  </div></details>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+
+  <div class="rating-grid">
+    <div class="mini-card">
+      <strong>Relevance</strong><div class="score">7.5 / 10</div>
+      <p><b>Rationale:</b> Highly relevant to multi-agent architecture and reliability, but indirectly relevant to clinical or LLM-agent work.</p>
+      <p class="small"><b>Evidence basis:</b> Explicit group coordination, attention allocation, failure analysis, and small-model efficiency.</p>
+      <p class="small"><b>Limiting factor:</b> No semantic agents, tools, files, clinical tasks, or long-horizon knowledge workflows.</p>
+      <p class="small"><b>Would rise with:</b> Demonstration on tool-using or decision-support agents.</p>
+    </div>
+
+    <div class="mini-card">
+      <strong>Novelty</strong><div class="score">8.5 / 10</div>
+      <p><b>Rationale:</b> Applies directed hypergraph attention at meaningful MAPF scale and couples the model with explicit tests of higher-order interaction behavior.</p>
+      <p class="small"><b>Evidence basis:</b> Interaction-order framing, dynamic hypergraph generators, and diagnostic analysis.</p>
+      <p class="small"><b>Limiting factor:</b> HGNNs and hypergraph multi-agent methods pre-exist; novelty is in scale, task adaptation, and evidence package.</p>
+      <p class="small"><b>Would rise with:</b> Learned task-adaptive hyperedge induction or broader task validation.</p>
+    </div>
+
+    <div class="mini-card">
+      <strong>Method strength</strong><div class="score">8.0 / 10</div>
+      <p><b>Rationale:</b> Strong benchmark breadth, relevant baselines, ablation, controlled architecture replacement, diagnostic scenarios, failure analysis, and sensitivity testing.</p>
+      <p class="small"><b>Evidence basis:</b> Figures 4–10 and Tables 1–16.</p>
+      <p class="small"><b>Limiting factor:</b> Independent training seeds and statistical testing across trained replicas are not clearly reported; final-model attribution remains multi-component.</p>
+      <p class="small"><b>Would rise with:</b> Multi-seed training statistics, factorial ablations, and independent reproduction.</p>
+    </div>
+
+    <div class="mini-card">
+      <strong>Evidence strength</strong><div class="score">8.0 / 10</div>
+      <p><b>Rationale:</b> Data support the MAPF performance claim and provide converging evidence for reduced attention dilution.</p>
+      <p class="small"><b>Evidence basis:</b> Controlled Dense Warehouse gain, Shapley diagnostic, entropy analysis over 128-instance sets, and large-map evaluation.</p>
+      <p class="small"><b>Limiting factor:</b> Attention-based explanations are not complete causal proof; some success claims depend on collision shielding.</p>
+      <p class="small"><b>Would rise with:</b> Intervention studies on hyperedge quality and stronger causal attribution.</p>
+    </div>
+
+    <div class="mini-card">
+      <strong>External validity</strong><div class="score">5.5 / 10</div>
+      <p><b>Rationale:</b> Generalizes across many grid maps and densities but remains within one formal task family and one observation/action structure.</p>
+      <p class="small"><b>Evidence basis:</b> Sparse, dense, game, and city maps with varying sizes and agent counts.</p>
+      <p class="small"><b>Limiting factor:</b> No continuous control, real robots, non-spatial groups, heterogeneous agents, adversarial behavior, or LLM systems.</p>
+      <p class="small"><b>Would rise with:</b> Cross-domain multi-agent tasks and real-world deployment.</p>
+    </div>
+
+    <div class="mini-card">
+      <strong>Implementation value</strong><div class="score">6.5 / 10</div>
+      <p><b>Rationale:</b> Reproducible code and a clear group-aware architecture provide concrete design ideas, but transfer requires a new hyperedge-construction layer.</p>
+      <p class="small"><b>Evidence basis:</b> Algorithms 1–4, public checkpoints, Docker, and command-level instructions.</p>
+      <p class="small"><b>Limiting factor:</b> The difficult part in semantic workflows—defining valid dynamic groups—is outside the paper.</p>
+      <p class="small"><b>Would rise with:</b> A domain-independent or learned grouping method and governance tests.</p>
+    </div>
+  </div>
+
+  <h3>Main strengths</h3>
+  <ul>
+    <li>Strong alignment between problem structure and model inductive bias.</li>
+    <li>Headline performance is supported by controlled and mechanistic analyses rather than leaderboard results alone.</li>
+    <li>Benchmark coverage includes density, map topology, scale, runtime, success, and solution quality.</li>
+    <li>Appendix exposes comparator sensitivity to collision shielding instead of hiding it.</li>
+    <li>Failure and hyperparameter analyses are operationally useful.</li>
+    <li>Public code, checkpoints, Docker setup, and detailed commands improve reproducibility.</li>
+  </ul>
+
+  <h3>Main limitations</h3>
+  <ul>
+    <li>All empirical validation is MAPF-specific; transfer to general multi-agent intelligence is asserted rather than demonstrated.</li>
+    <li>Hyperedge quality is assumed to follow from spatial grouping heuristics. Incorrect groups could suppress rather than protect important interactions.</li>
+    <li>The complete model mixes representation changes with data aggregation, fine-tuning, temperature control, and collision shielding.</li>
+    <li>Independent training-run variability is not clearly characterized.</li>
+    <li>The benchmark evaluates a simulator and surrogate operational metrics, not real-world safety, maintainability, or human oversight.</li>
+    <li>Residual failures are predominantly temporal coordination failures—livelock and non-termination—showing that better interaction representation does not solve workflow governance.</li>
+  </ul>
+
+  <h3>Claim audit</h3>
+  <table>
+    <thead><tr><th>Claim</th><th>Assessment</th></tr></thead>
+    <tbody>
+      <tr><td>HMAGAT is state of the art among evaluated learned MAPF policies.</td><td><strong>Supported in the reported benchmark suite.</strong> Some per-map metrics favor MAPF-GPT 85M or DDG, but aggregate performance and dense/high-scale behavior favor HMAGAT.</td></tr>
+      <tr><td>Hypergraphs reduce attention dilution.</td><td><strong>Well supported.</strong> Informal derivation, selected distributions, controlled stress tests, raw attention tables, and multi-instance entropy point in the same direction.</td></tr>
+      <tr><td>Hypergraphs capture group interactions better than pairwise GNNs.</td><td><strong>Supported for the constructed MAPF scenarios.</strong> Broader task generalization is untested.</td></tr>
+      <tr><td>Inductive bias can matter more than model and data scale.</td><td><strong>Plausibly supported in this comparison.</strong> The conclusion should not be universalized beyond tasks whose higher-order structure is correctly represented.</td></tr>
+      <tr><td>The approach is directly applicable to LLM-agent or clinical systems.</td><td><strong>Not tested.</strong> This is a transfer hypothesis, not a paper result.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="verdict">
+    <strong>Confidence in appraisal: High for the paper’s internal MAPF claims; moderate for architectural transfer.</strong>
+    <p>The PDF, appendices, figures, tables, algorithms, and public repository provide enough information for a grounded appraisal. The main uncertainty is not what the paper found, but how far the inductive-bias lesson transfers beyond spatial coordination.</p>
+  </div>
+</section>
+
+<section id="transfer">
+  <h2>Relevance to your workflows</h2>
+  <div class="inference">
+    <strong>Transfer analysis below is independent inference, not a result of the paper.</strong>
+  </div>
+
+  <div class="takeaway-grid">
+    <div class="mini-card">
+      <strong>Medication-regimen group reasoning</strong>
+      A clinically meaningful decision may depend jointly on an anticoagulant, renal function, interacting drugs, laboratory trends, procedure timing, and bleeding evidence. Modeling only medication–medication or agent–agent pairs can miss a combination-level hazard.
+    </div>
+    <div class="mini-card">
+      <strong>Dynamic agent teams around one decision</strong>
+      Hyperedges can represent the temporary set of specialist agents and evidence sources that jointly affect one decision node: renal dosing, interaction review, indication, laboratory validity, and protocol logic.
+    </div>
+    <div class="mini-card">
+      <strong>Attention budgeting under dense context</strong>
+      The attention-dilution result is analogous to large workflows in which many weakly relevant agents or documents compete with a small set of decisive evidence. Grouping low-value context may preserve attention for load-bearing groups.
+    </div>
+    <div class="mini-card">
+      <strong>Shared artifact dependencies</strong>
+      A hypergraph can represent which agents jointly depend on a file, state branch, or decision. It may improve routing and scheduling, but it does not implement locking, version checks, atomic writes, or invalidation.
+    </div>
+    <div class="mini-card">
+      <strong>Protocol decomposition</strong>
+      Rather than one agent per isolated checklist item, construct groups around coupled invariants: dose–weight–rate consistency, aPTT–current dose–hold duration–restart dose, or labs–bleeding–notification requirements.
+    </div>
+    <div class="mini-card">
+      <strong>Failure analysis for agent loops</strong>
+      HMAGAT’s residual livelock is directly instructive: improved reasoning representations still require loop detection, termination conditions, escalation, and recovery policies.
+    </div>
+  </div>
+
+  <h3>What the paper does not support</h3>
+  <ul>
+    <li>That multiple scratchpads are safer than one scratchpad.</li>
+    <li>That a single shared state artifact is inherently fragile.</li>
+    <li>That hypergraphs solve concurrent writes, stale state, deletion propagation, or authorization.</li>
+    <li>That medication-review agents should autonomously coordinate without deterministic reconciliation and pharmacist oversight.</li>
+    <li>That learned attention should be treated as an audit trail or clinical explanation.</li>
+  </ul>
+
+  <div class="warning">
+    <strong>Correction to the initial prediction.</strong> Resource contention is a reasonable analogy, but the paper’s validated contribution is representation of joint influence. Concurrency safety still requires transactional state, ownership or leases, version identifiers, conflict detection, invalidation, and auditable event logs.
+  </div>
+</section>
+
+<section id="implementation">
+  <h2>Implementation lessons</h2>
+
+  <h3>Build-useful abstraction</h3>
+  <pre><code>decision node = the action or recommendation being produced
+tail nodes    = agents, evidence items, constraints, and resources that jointly affect it
+hyperedge     = one clinically or operationally meaningful interaction group
+head node     = the agent or decision receiving the grouped message
+
+Example:
+{current heparin dose, aPTT, specimen validity, pre-hold dose, protocol row}
+    → "restart-order verification"
+
+Not:
+aPTT → verifier
+dose → verifier
+specimen → verifier
+...then average independent pairwise outputs</code></pre>
+
+  <h3>Recommended hybrid architecture</h3>
+  <ol>
+    <li><strong>Deterministic schema first:</strong> define the decision object, evidence fields, invariants, and allowed outputs.</li>
+    <li><strong>Dynamic group construction:</strong> create explicit interaction sets from domain rules, a dependency graph, or a validated classifier.</li>
+    <li><strong>Group-aware reasoning:</strong> allow the relevant agents to exchange one structured group state rather than unbounded free-form messages.</li>
+    <li><strong>Transactional state layer:</strong> maintain authoritative versioned state outside the model; use atomic updates and conflict checks.</li>
+    <li><strong>Independent verifier:</strong> mechanically validate quantitative consistency, provenance, required fields, and forbidden claims.</li>
+    <li><strong>Loop and livelock detection:</strong> cap retries, detect repeated states, and escalate when the workflow oscillates.</li>
+    <li><strong>Auditability:</strong> preserve which group was formed, why each member was included, the input snapshot, output, and verifier disposition.</li>
+  </ol>
+
+  <h3>Acceptance tests suggested by the paper</h3>
+  <ul>
+    <li>Add irrelevant agents or documents and verify that decisive evidence retains influence.</li>
+    <li>Add one new agent to an important group and verify that the group’s influence changes appropriately.</li>
+    <li>Create two pairwise-symmetric agents where only one participates in a higher-order dependency; verify that the system distinguishes them.</li>
+    <li>Compare pairwise-only, grouped, and full-joint-state variants under equal model and data budgets.</li>
+    <li>Measure decision quality, failure rate, latency, and attention or attribution stability separately.</li>
+    <li>Test incorrect group construction as an adversarial failure mode.</li>
+    <li>Detect repeated state transitions and terminate or escalate livelocked workflows.</li>
+  </ul>
+</section>
+
+<section id="reading">
+  <h2>Reading recommendation</h2>
+  <div class="verdict">
+    <strong>Priority: Skim deeply.</strong>
+    <p>Read the introduction, Figure 2, Sections 3.1–3.3, Sections 4.2–4.3, and the conclusion. Then read Appendices D, G, and H. The full benchmark plots are useful for verification but need not be studied line by line unless implementing or comparing MAPF systems.</p>
+  </div>
+
+  <table>
+    <thead><tr><th>Reading goal</th><th>Sections</th></tr></thead>
+    <tbody>
+      <tr><td>Understand the core design principle</td><td>Introduction; Figures 1–3; Section 3.1</td></tr>
+      <tr><td>Assess whether hypergraphs actually cause the gain</td><td>Figure 5; Section 4.2; Table 1; Appendix H</td></tr>
+      <tr><td>Understand higher-order interaction evidence</td><td>Section 4.3; Tables 2–3; Appendix D</td></tr>
+      <tr><td>Assess operational weaknesses</td><td>Appendix G; Table 13</td></tr>
+      <tr><td>Implement or reproduce</td><td>Section 3.2–3.3; Appendix A; Algorithms 1–4; repository README</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="provenance">
+  <h2>Provenance</h2>
+  <p><strong>Primary paper:</strong> https://arxiv.org/pdf/2602.06733</p>
+  <p><strong>Metadata page:</strong> https://arxiv.org/abs/2602.06733</p>
+  <p><strong>Code repository:</strong> https://github.com/proroklab/hmagat</p>
+  <p><strong>Evaluated version:</strong> arXiv v2, revised 10 May 2026; listed as published at ICLR 2026.</p>
+  <p><strong>Generated:</strong> 1 August 2026.</p>
+  <p class="small">This reference file distinguishes source-derived findings from transfer inferences. It is an appraisal aid, not evidence that HMAGAT is safe or effective for clinical use.</p>
+</section>
+</main>
+
+<footer>
+  Summary, Evaluation, and Appraisal artifact · self-contained HTML · no external scripts, fonts, stylesheets, or images
+</footer>
+</body>
+</html>

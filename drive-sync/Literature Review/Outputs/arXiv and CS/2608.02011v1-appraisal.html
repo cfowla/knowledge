@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Before Reasoning Fails — Summary, Evaluation, and Appraisal</title>
+<style>
+:root{
+  --bg:#f4f6f9;--card:#ffffff;--ink:#17202a;--muted:#586575;--line:#d8e0e9;
+  --navy:#102a43;--blue:#1f5a94;--blue2:#dbeafe;--green:#0f6b47;--greenbg:#e7f6ef;
+  --amber:#8a5a00;--amberbg:#fff4d6;--red:#8b2b2b;--redbg:#fdecec;--slate:#e9eef4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.58}
+a{color:var(--blue)}
+header.hero{background:linear-gradient(135deg,#0c2238 0%,#173f68 58%,#2468a2 100%);color:#fff;padding:3.2rem 1.2rem 2.5rem;border-bottom:6px solid #b9d6ef}
+.wrap{max-width:1180px;margin:0 auto}
+.hero h1{font-size:clamp(2rem,4.4vw,3.6rem);line-height:1.06;margin:0 0 .75rem;letter-spacing:-.035em}
+.hero .subtitle{font-size:1.08rem;color:#dceaf6;max-width:920px;margin:0}
+.hero .kicker{font-size:.83rem;letter-spacing:.13em;text-transform:uppercase;color:#b9d6ef;font-weight:800;margin-bottom:.8rem}
+main{max-width:1180px;margin:0 auto;padding:1.2rem}
+section,.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 8px rgba(12,34,56,.055)}
+section{padding:1.25rem 1.35rem;margin:1rem 0}
+h2{color:var(--navy);font-size:1.55rem;margin:.1rem 0 1rem;letter-spacing:-.015em}
+h3{color:#173f68;font-size:1.15rem;margin:1.35rem 0 .55rem}
+h4{color:#253a52;margin:1rem 0 .35rem}
+p{margin:.65rem 0}
+ul,ol{margin:.55rem 0;padding-left:1.35rem}
+li{margin:.28rem 0}
+.small{font-size:.9rem;color:var(--muted)}
+.muted{color:var(--muted)}
+.grid{display:grid;gap:.8rem}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.meta-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}
+.mini-card{background:#fbfcfe;border:1px solid var(--line);border-radius:12px;padding:.85rem}
+.mini-card strong{display:block;color:#243b53;margin-bottom:.22rem}
+.verdict{border-left:6px solid var(--green);background:var(--greenbg);padding:1rem 1.1rem;border-radius:12px}
+.warning{border-left:6px solid var(--amber);background:var(--amberbg);padding:1rem 1.1rem;border-radius:12px}
+.badnote{border-left:6px solid var(--red);background:var(--redbg);padding:1rem 1.1rem;border-radius:12px}
+.goodnote{border-left:6px solid var(--blue);background:#edf6ff;padding:1rem 1.1rem;border-radius:12px}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem}
+.tag{display:inline-flex;background:#e7eef6;color:#26445f;border:1px solid #cedbe8;border-radius:999px;padding:.22rem .58rem;font-size:.8rem;font-weight:700}
+nav.toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem;margin:1rem 0;box-shadow:0 2px 8px rgba(12,34,56,.045)}
+nav.toc ul{columns:2;column-gap:2rem;list-style:none;padding:0;margin:0}
+nav.toc li{break-inside:avoid;margin:.32rem 0}
+nav.toc a{text-decoration:none;font-weight:650}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.92rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:.52rem .62rem;vertical-align:top}
+th{background:#eaf0f6;color:#203a55;text-align:left;white-space:nowrap}
+tr:nth-child(even) td{background:#fbfcfd}
+.metric{font-variant-numeric:tabular-nums;font-weight:800;color:#173f68}
+.positive{color:var(--green);font-weight:800}.negative{color:var(--red);font-weight:800}.neutral{color:#4f5d6b;font-weight:700}
+.rating-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+.rating{border:1px solid var(--line);border-radius:13px;padding:.85rem;background:#fbfcfe}
+.rating .score{font-size:1.75rem;font-weight:900;color:var(--navy);line-height:1}
+.rating .label{font-weight:800;color:#27445f;margin:.25rem 0}
+.rating p{font-size:.88rem;color:#4f5f70}
+.claim{border-left:4px solid #6f87a0;padding:.55rem .8rem;margin:.55rem 0;background:#f7f9fb;border-radius:0 10px 10px 0}
+pre{background:#0f1d2c;color:#eaf2fb;border:1px solid #23384f;border-radius:12px;padding:1rem;overflow:auto;font-size:.85rem;line-height:1.46;white-space:pre-wrap}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.flow{display:flex;align-items:center;gap:.42rem;flex-wrap:wrap;margin:.7rem 0}
+.flow .node{border:1px solid #aebdcc;background:#f7f9fb;padding:.55rem .75rem;border-radius:9px;font-weight:750;color:#29445e}
+.flow .gate{border:2px solid #b04040;background:#fdeeee;color:#762121}
+.flow .arrow{font-weight:900;color:#65809a}
+.decomp{display:grid;grid-template-columns:1fr;gap:.55rem;max-width:760px;margin:.8rem auto}
+.decomp .step{display:grid;grid-template-columns:minmax(220px,1fr) 45px minmax(190px,.8fr);align-items:center;gap:.55rem}
+.decomp .question{border:1px solid #aebdcc;background:#f8fafc;padding:.65rem;border-radius:9px}
+.decomp .yesno{text-align:center;color:#60778f;font-weight:800}
+.decomp .bucket{padding:.65rem;border-radius:9px;border:2px solid}
+.b-disc{background:#fdeaea;border-color:#c74444}.b-post{background:#fff4d6;border-color:#d69a1f}.b-retr{background:#eaf3fd;border-color:#3d78b8}.b-amb{background:#eef1f4;border-color:#7e8994}
+.barset{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:.8rem 0}
+.bar-card{border:1px solid var(--line);border-radius:12px;padding:.75rem;background:#fbfcfe}
+.bar-row{display:grid;grid-template-columns:78px 1fr 54px;align-items:center;gap:.45rem;margin:.38rem 0;font-size:.83rem}
+.bar-track{height:12px;background:#e4eaf0;border-radius:999px;overflow:hidden}.bar{height:100%;background:#3e77ad;border-radius:999px}.bar.min{background:#2f7c5e}.bar.med{background:#9b6f34}
+.figure-card{border:1px solid var(--line);border-radius:13px;padding:1rem;margin:.8rem 0;background:#fcfdff}
+.figure-card .fig-title{font-weight:900;color:#1d3d5c;margin-bottom:.45rem}
+.caption{font-size:.86rem;color:#586575;margin-top:.55rem}
+.callout-number{font-size:1.9rem;font-weight:900;color:var(--navy);line-height:1}
+.implementation{counter-reset:item}
+.implementation .item{position:relative;padding:.75rem .8rem .75rem 3.2rem;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;margin:.55rem 0}
+.implementation .item:before{counter-increment:item;content:counter(item);position:absolute;left:.8rem;top:.65rem;width:1.75rem;height:1.75rem;border-radius:50%;display:grid;place-items:center;background:#173f68;color:white;font-weight:900}
+footer{max-width:1180px;margin:1rem auto 2rem;padding:0 1.2rem;color:#647487;font-size:.86rem}
+@media(max-width:850px){.grid-2,.grid-3,.grid-4,.meta-grid,.rating-grid,.barset{grid-template-columns:1fr}.decomp .step{grid-template-columns:1fr}.decomp .yesno{display:none}nav.toc ul{columns:1}.hero h1{font-size:2.25rem}}
+@media print{body{background:white}header.hero{padding:1.7rem 0;border-bottom:2px solid #555}main{padding:0}section,nav.toc,.card{box-shadow:none;break-inside:avoid}a{color:inherit;text-decoration:none}.wrap{max-width:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Summary · Evaluation · Appraisal</div>
+    <h1>Before Reasoning Fails</h1>
+    <p class="subtitle">Critical reference assessment of <em>Pre-Evidence Procedural Failures in Agentic RAG</em> (Roh &amp; Han, arXiv:2608.02011v1, 3 August 2026).</p>
+  </div>
+</header>
+<main>
+  <section id="verdict">
+    <div class="verdict">
+      <strong>Verdict: Read first for agent-harness and RAG workflow design.</strong>
+      The paper identifies a practical, observable failure mode—finalizing after search but before a full-chunk read—and tests a minimal runtime gate that is easy to implement. The paired design, mechanism controls, robustness analyses, and released trajectories make it unusually build-useful. Evidence is still benchmark-bound and several measurement choices weaken the broadest conceptual claims.
+    </div>
+    <div class="grid grid-4" style="margin-top:.9rem">
+      <div class="mini-card"><div class="callout-number">12,000</div><strong>Primary paired trajectories</strong><span class="small">Three datasets × four OpenAI-controller conditions.</span></div>
+      <div class="mini-card"><div class="callout-number">+3.2–9.4</div><strong>Full-cell LLM-Acc gain</strong><span class="small">READ-GATE at minimal reasoning.</span></div>
+      <div class="mini-card"><div class="callout-number">+14.9–19.9</div><strong>Zero-read rescue gain</strong><span class="small">Self-selected skipped-read subset.</span></div>
+      <div class="mini-card"><div class="callout-number">0.38</div><strong>Discipline-failure OR</strong><span class="small">READ-GATE vs no gate, 95% CI 0.35–0.41.</span></div>
+    </div>
+    <div class="tags"><span class="tag">Agentic RAG</span><span class="tag">Trajectory evaluation</span><span class="tag">Runtime invariants</span><span class="tag">Tool-use reliability</span><span class="tag">Multi-hop QA</span><span class="tag">Paired ablation</span></div>
+  </section>
+
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ul>
+      <li><a href="#metadata">1. Metadata and scope</a></li>
+      <li><a href="#synthesis">2. One-page synthesis</a></li>
+      <li><a href="#coverage">3. Source and visual coverage</a></li>
+      <li><a href="#sections">4. Section-by-section condensation</a></li>
+      <li><a href="#methods">5. Methods appraisal</a></li>
+      <li><a href="#results">6. Main results</a></li>
+      <li><a href="#visuals">7. Main figures and tables</a></li>
+      <li><a href="#appendices">8. Appendix evidence map</a></li>
+      <li><a href="#critical">9. Critical appraisal</a></li>
+      <li><a href="#ratings">10. Ratings</a></li>
+      <li><a href="#implementation">11. Implementation takeaways</a></li>
+      <li><a href="#bottom-line">12. Bottom line</a></li>
+    </ul>
+  </nav>
+
+  <section id="metadata">
+    <h2>1. Metadata and scope</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><strong>Exact title</strong>Before Reasoning Fails: Pre-Evidence Procedural Failures in Agentic RAG</div>
+      <div class="mini-card"><strong>Authors</strong>Daeyoung Roh; Donghee Han</div>
+      <div class="mini-card"><strong>Source type</strong>AI/ML systems preprint; agentic RAG benchmark and runtime-control study</div>
+      <div class="mini-card"><strong>Identifier</strong>arXiv:2608.02011v1 [cs.AI]</div>
+      <div class="mini-card"><strong>Date/version</strong>Version 1, 3 August 2026</div>
+      <div class="mini-card"><strong>Evaluated file</strong>2608.02011v1.pdf; 22 pages including appendices</div>
+      <div class="mini-card"><strong>Primary task</strong>Wikipedia-style multi-hop question answering</div>
+      <div class="mini-card"><strong>Primary intervention</strong>READ-GATE: reject finalization when <code>read_count = 0</code> after retrieval</div>
+      <div class="mini-card"><strong>Artifact availability</strong>Code, scripts, cached analyses, and 33,950 raw trajectories reported as released</div>
+    </div>
+    <div class="warning" style="margin-top:.9rem"><strong>Scope warning.</strong> This study validates a procedural control in explicit <code>search/read/final</code> agent loops on three English Wikipedia-style QA datasets. It does not establish that one read is sufficient grounding, that the gate improves production RAG broadly, or that the same policy is safe in clinical or other high-stakes domains.</div>
+  </section>
+
+  <section id="synthesis">
+    <h2>2. One-page synthesis</h2>
+    <div class="grid grid-3">
+      <div class="mini-card"><strong>Core thesis</strong>Some agentic RAG errors occur before answer-side reasoning is meaningfully tested: the controller searches, receives candidate snippets, and finalizes without expanding a retrieved passage. These should be measured as trajectory-control failures rather than pooled with post-read reasoning errors.</div>
+      <div class="mini-card"><strong>Intervention</strong>READ-GATE is an environment-level invariant. A final answer is rejected when no read action has occurred; the environment returns a corrective observation and resumes the loop without changing model weights, retriever, judge, or reasoning budget.</div>
+      <div class="mini-card"><strong>Most defensible result</strong>At gpt-5-mini minimal reasoning, READ-GATE improves paired full-cell LLM-Acc by 3.2, 5.3, and 9.4 percentage points on HotpotQA, 2WikiMultiHopQA, and MuSiQue, with gains increasing where baseline zero-read/discipline failure is higher.</div>
+    </div>
+    <h3>Why this matters</h3>
+    <p>The paper converts a vague complaint—“the agent did not use its tools properly”—into an observable invariant and a trace-level error decomposition. This is operationally valuable because it points to a low-cost harness fix rather than reflexively increasing reasoning effort, changing models, or retraining retrieval policies.</p>
+    <h3>Central qualification</h3>
+    <p>The term <em>pre-evidence</em> is rhetorically stronger than the actual interface. Search returns five query-relevant sentences as snippets, so zero-read trajectories may already have seen evidence-like content. The cleanest interpretation is <strong>pre-full-passage-read</strong> or <strong>pre-verification finalization</strong>, not literally reasoning without any evidence. Appendix I confirms that snippet leakage is a minority but nontrivial component.</p>
+    <div class="goodnote"><strong>Best use of the paper:</strong> a design pattern and evaluation template for auditable agent loops. Instrument the trajectory, measure zero-read finalization, apply a minimal gate only where the failure rate is material, and monitor loop-budget side effects.</div>
+  </section>
+
+  <section id="coverage">
+    <h2>3. Source and visual coverage</h2>
+    <p class="small">Coverage manifest completed before appraisal. All main-text figures and tables are represented below as structured blocks. Appendices A–M are mapped because most materially affect validity, mechanism, reproducibility, or deployment interpretation.</p>
+    <table>
+      <thead><tr><th>Source component</th><th>Count / range</th><th>Representation in this artifact</th><th>Coverage decision</th></tr></thead>
+      <tbody>
+        <tr><td>Main sections</td><td>Abstract; §§1–6; Limitations; Ethics</td><td>Section-by-section condensation</td><td>Included</td></tr>
+        <tr><td>Main figures</td><td>Figures 1–3</td><td>Reconstructed workflow and structured visual summaries</td><td>All included</td></tr>
+        <tr><td>Main tables</td><td>Tables 1–5</td><td>Reconstructed HTML tables with exact reported values</td><td>All included</td></tr>
+        <tr><td>Appendices</td><td>A–M</td><td>Evidence map plus selected quantitative tables</td><td>All mapped; highest-value details extracted</td></tr>
+        <tr><td>Appendix figures</td><td>Figures 4–7</td><td>Structured summaries</td><td>Included at interpretive level</td></tr>
+        <tr><td>Appendix tables</td><td>Tables 6–19</td><td>Key values extracted; each table’s role documented</td><td>All accounted for</td></tr>
+        <tr><td>References</td><td>Bibliography</td><td>Not individually summarized</td><td>Omitted as non-load-bearing to appraisal</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="sections">
+    <h2>4. Section-by-section condensation</h2>
+    <h3>Abstract and Introduction</h3>
+    <p>The paper defines an agentic-RAG failure in which a controller searches and then finalizes without calling the full-passage read tool. It argues that final-answer accuracy alone obscures whether evidence inspection occurred, and that early-finalization errors should be separated from errors after gold-supporting evidence has been read.</p>
+    <p>The proposed contribution is deliberately procedural: labels are deterministic functions of saved traces rather than claims about latent cognition. The authors position runtime constraints as a distinct intervention class from stronger reasoning, retrieval-policy training, or answer verification.</p>
+
+    <h3>Related Work</h3>
+    <p>The paper situates READ-GATE against tool-using systems such as WebGPT, ReAct, Toolformer, and ToolLLM; agentic retrieval systems such as IRCoT, FLARE, and A-RAG; learned retrieval-control systems such as Self-RAG and CRAG; and answer-side evaluation or verification methods. Its claimed gap is narrow and plausible: prior work controls retrieval or evaluates outputs, but does not isolate the case where retrieval is invoked and then bypassed before a full read.</p>
+
+    <h3>Framework (§3)</h3>
+    <p>Wrong trajectories are assigned by priority to discipline, post-gold-read, retrieval, or residual ambiguity buckets. Discipline failure has three subtypes: no-read final, snippet-only final, and low-evidence final based on less than 80% question-entity coverage in read chunks. Because the latter two rely on surface matching, the authors foreground strict no-read as the primary non-heuristic signal.</p>
+    <p>READ-GATE blocks a final action when <code>read_count = 0</code> and returns a corrective hint. The paper also uses independent multi-label indicators for discipline and post-gold-read failure, generating three predictions: non-redundancy of failure axes, gate benefit proportional to residual discipline error, and different intervention signatures for runtime gating versus reasoning effort.</p>
+
+    <h3>Experimental Setup (§4)</h3>
+    <p>The main evaluation uses HotpotQA, 2WikiMultiHopQA, and MuSiQue, generally with 1,000 paired questions per dataset-condition cell. The agent has hybrid BM25+dense search with reciprocal-rank fusion and a full-chunk read tool. The primary 12,000 OpenAI trajectories cover gpt-4o-mini, gpt-5-mini minimal, gpt-5-mini medium, and gpt-5-mini minimal plus READ-GATE.</p>
+    <p>Temperature is 0, top-k is 5, loop budget is 10, and token budget is 128k. A fixed gpt-5-mini judge evaluates semantic answer equivalence; Contain-Acc is secondary. Paired correctness uses exact McNemar tests, regressions use question-clustered standard errors, and the release reportedly includes raw traces and cached outputs.</p>
+
+    <h3>Experiments (§5.1–§5.3)</h3>
+    <p>The paper reports that discipline failures and post-gold-read failures follow different patterns across controller regimes. Strict no-read rates preserve the same “minimal reasoning hump.” On self-selected zero-read cases, forced reading yields large rescue gains; on full minimal-reasoning cells, the gate improves accuracy by 3.2–9.4 points. The authors correctly separate the self-selected rescue contrast from the population-level marginal effect.</p>
+    <p>Gate benefit is conditional. In medium-reasoning n=100 boundary ablations, READ-GATE is neutral or harmful and increases loop count; on 2Wiki it pushes more trajectories to the loop cap. This supports an adaptive, measured deployment policy rather than universal enforcement.</p>
+
+    <h3>Mechanism and intervention signatures (§5.4–§5.5)</h3>
+    <p>A three-arm ablation compares no gate, READ-GATE, and silent rank-1 context injection. Context injection does not reproduce the gate’s gains and is strongly harmful on 2Wiki. A four-arm MuSiQue probe suggests that tool-role delivery explains little of the remaining difference, while the agent’s self-issued read action adds about 3 points over fabricated tool injection. The authors appropriately call this an action-commitment interpretation rather than a conclusively isolated mechanism.</p>
+    <p>READ-GATE strongly reduces discipline failure but, after read exposure is matched, does not alter post-gold-read error (OR 1.00). Medium versus minimal reasoning lowers both discipline and post-gold-read errors. This is the paper’s strongest evidence that procedure and answer-side reasoning are separable control axes.</p>
+
+    <h3>Hidden thinking, conclusion, and limitations (§5.6–§6)</h3>
+    <p>Gemini 2.5 Flash diagnostics show that enabling a 1,024-token hidden thinking budget increases zero-read finalization and decreases paired correctness in this harness. The valid conclusion is limited: added hidden deliberation does not guarantee execution of the external evidence-gathering procedure. It is not evidence that reasoning effort is generally harmful.</p>
+    <p>The conclusion frames READ-GATE as a diagnostic and conditional control, not a universal policy. The authors explicitly limit claims to English Wikipedia-style multi-hop QA, explicit search/read/final interfaces, cost-sensitive controllers, and a gate that does not repair retrieval quality or guarantee correctness.</p>
+
+    <h3>Ethics and artifact disclosure</h3>
+    <p>The study uses public benchmarks and no private data. The authors warn that a procedural gate does not guarantee factual correctness and should be combined with verification and domain-specific safety checks. They disclose use of Gemini for prose refinement and Claude for some experimental coding, with author review.</p>
+  </section>
+
+  <section id="methods">
+    <h2>5. Methods appraisal</h2>
+    <table>
+      <thead><tr><th>Element</th><th>What the study did</th><th>Appraisal</th></tr></thead>
+      <tbody>
+        <tr><td>Design</td><td>Paired benchmark experiment with saved tool-call trajectories and deterministic failure labels.</td><td>Strong fit for a runtime-control question; pairing reduces question-level noise.</td></tr>
+        <tr><td>Datasets</td><td>HotpotQA, 2WikiMultiHopQA, MuSiQue.</td><td>Useful range of multi-hop difficulty, but all are English Wikipedia QA and share benchmark artifacts.</td></tr>
+        <tr><td>Controllers</td><td>gpt-4o-mini and gpt-5-mini main analysis; Gemini 2.5 Flash diagnostic; Qwen2.5 small-sample generalization.</td><td>Multiple families help, but the confirmatory evidence is concentrated in one provider and low-cost controller regimes.</td></tr>
+        <tr><td>Intervention</td><td>Reject finalization when no read has occurred; return corrective hint; continue same loop.</td><td>Minimal, reproducible, and causally interpretable at the harness level.</td></tr>
+        <tr><td>Primary outcome</td><td>LLM-Acc from a fixed gpt-5-mini semantic-equivalence judge.</td><td>Reasonable for open QA; same-family bias is partly mitigated by cross-judge κ=0.924 on a stratified n=450 sample.</td></tr>
+        <tr><td>Process outcomes</td><td>Discipline and post-gold-read labels, zero-read rates, reads, loops, corrections, retrieved tokens.</td><td>High operational value; some labels depend on imperfect entity heuristics and incomplete gold annotations.</td></tr>
+        <tr><td>Statistics</td><td>Exact McNemar tests, paired bootstrap intervals, clustered logistic models, permutation test, multiplicity correction.</td><td>More rigorous than typical agent benchmark papers. Cell-level correlation claims remain underpowered.</td></tr>
+        <tr><td>Reproducibility</td><td>Code, scripts, prompts, tool schemas, cached outputs, and raw trajectories reportedly released.</td><td>Major strength; independent reproduction is still needed.</td></tr>
+      </tbody>
+    </table>
+    <div class="warning"><strong>Measurement boundary:</strong> the framework requires explicit and logged <code>search</code>, <code>read</code>, and <code>final</code> actions. It cannot directly evaluate systems where retrieval and generation are fused or where the model receives full passages automatically.</div>
+  </section>
+
+  <section id="results">
+    <h2>6. Main results</h2>
+    <table>
+      <thead><tr><th>Question</th><th>Result</th><th>Interpretation</th><th>Confidence</th></tr></thead>
+      <tbody>
+        <tr><td>Does forced reading rescue skipped-read cases?</td><td>+14.9 to +19.9 pp on the voluntary zero-read subset; all paired McNemar p&lt;10<sup>−4</sup>.</td><td>Strong targeted rescue signal, but subset is policy-selected rather than population-random.</td><td>High for this subset</td></tr>
+        <tr><td>Does READ-GATE improve full minimal-reasoning cells?</td><td>Hotpot +3.2; 2Wiki +5.3; MuSiQue +9.4 pp.</td><td>Direct population-level paired benefit where residual discipline error is high.</td><td>High within these cells</td></tr>
+        <tr><td>Is the gain just extra context?</td><td>Context injection: −0.1, −7.4, +3.9 pp; READ-GATE significantly better on all datasets.</td><td>Extra text alone does not explain the effect; interaction/action structure matters.</td><td>Moderate-high</td></tr>
+        <tr><td>Does the gate help when baseline reading is already reliable?</td><td>Medium-reasoning n=100: 0.0, −7.0, −4.0 pp.</td><td>Gate can consume loop budget and harm competent agents.</td><td>Moderate; boundary samples are small</td></tr>
+        <tr><td>Does READ-GATE alter post-read answering?</td><td>Within read-exposed strata, Ppost OR 1.00 [0.84, 1.19].</td><td>Gate changes whether reading occurs, not answer quality after comparable read exposure.</td><td>Moderate-high</td></tr>
+        <tr><td>Does more hidden thinking guarantee reading?</td><td>Gemini zero-read +5.7 to +42.6 pp with net correctness losses.</td><td>No, in this model/interface configuration.</td><td>Moderate; diagnostic and model-specific</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="visuals">
+    <h2>7. Main figures and tables</h2>
+
+    <div class="figure-card">
+      <div class="fig-title">Figure 1 — Pre-evidence finalization in agentic RAG (page 1)</div>
+      <div class="flow" aria-label="Question to search to skipped read to answer">
+        <div class="node">Question</div><div class="arrow">→</div><div class="node">Search</div><div class="arrow">→</div><div class="node gate">Read skipped</div><div class="arrow">→</div><div class="node">Answer</div>
+      </div>
+      <p><strong>Purpose:</strong> isolates the target trajectory: candidate chunks are retrieved, but no full-chunk read occurs before finalization.</p>
+      <p><strong>Limit:</strong> search snippets are already visible to the agent; the figure depicts no <em>read action</em>, not necessarily no informational exposure.</p>
+    </div>
+
+    <div class="figure-card">
+      <div class="fig-title">Figure 2 — Priority decomposition of wrong trajectories (page 3)</div>
+      <div class="decomp">
+        <div class="step"><div class="question">Discipline violation? <span class="small">no-read / snippet-only / low-evidence</span></div><div class="yesno">yes →</div><div class="bucket b-disc"><strong>Discipline</strong></div></div>
+        <div class="step"><div class="question">Gold-supporting chunk read?</div><div class="yesno">yes →</div><div class="bucket b-post"><strong>Post-gold-read</strong></div></div>
+        <div class="step"><div class="question">Gold in retrieved top-k?</div><div class="yesno">no →</div><div class="bucket b-retr"><strong>Retrieval</strong></div></div>
+        <div class="step"><div class="question">Otherwise</div><div class="yesno">→</div><div class="bucket b-amb"><strong>Ambiguity</strong></div></div>
+      </div>
+      <p><strong>Interpretation:</strong> the priority scheme gives mutually exclusive accounting, while separate multi-label indicators test co-occurrence. READ-GATE directly targets only the first branch.</p>
+      <p><strong>Key caution:</strong> “post-gold-read” means at least one gold-supporting chunk was read, not that the complete multi-hop evidence chain was inspected.</p>
+    </div>
+
+    <div class="figure-card">
+      <div class="fig-title">Figure 3 — Discipline error across controller regimes (page 6)</div>
+      <div class="barset">
+        <div class="bar-card"><strong>HotpotQA</strong>
+          <div class="bar-row"><span>4o-mini</span><div class="bar-track"><div class="bar" style="width:13%"></div></div><span>7.6%</span></div>
+          <div class="bar-row"><span>5mini-min</span><div class="bar-track"><div class="bar min" style="width:22%"></div></div><span>13.3%</span></div>
+          <div class="bar-row"><span>5mini-med</span><div class="bar-track"><div class="bar med" style="width:7.5%"></div></div><span>4.5%</span></div>
+        </div>
+        <div class="bar-card"><strong>2WikiMultiHopQA</strong>
+          <div class="bar-row"><span>4o-mini</span><div class="bar-track"><div class="bar" style="width:21%"></div></div><span>12.8%</span></div>
+          <div class="bar-row"><span>5mini-min</span><div class="bar-track"><div class="bar min" style="width:37%"></div></div><span>22.1%</span></div>
+          <div class="bar-row"><span>5mini-med</span><div class="bar-track"><div class="bar med" style="width:9.5%"></div></div><span>5.7%</span></div>
+        </div>
+        <div class="bar-card"><strong>MuSiQue</strong>
+          <div class="bar-row"><span>4o-mini</span><div class="bar-track"><div class="bar" style="width:46%"></div></div><span>27.8%</span></div>
+          <div class="bar-row"><span>5mini-min</span><div class="bar-track"><div class="bar min" style="width:95%"></div></div><span>57.0%</span></div>
+          <div class="bar-row"><span>5mini-med</span><div class="bar-track"><div class="bar med" style="width:36%"></div></div><span>21.7%</span></div>
+        </div>
+      </div>
+      <p><strong>Main pattern:</strong> discipline failures peak at gpt-5-mini minimal rather than changing monotonically with model identity or reasoning effort. The source’s dashed post-gold-read series follows a different curve on datasets where that label is measurable.</p>
+    </div>
+
+    <h3>Table 1 — Forced reading on the self-selected zero-read subset</h3>
+    <table><thead><tr><th>Dataset</th><th>n</th><th>Voluntary zero-read LLM-Acc</th><th>Forced-read LLM-Acc</th><th>Δ</th></tr></thead><tbody>
+      <tr><td>HotpotQA</td><td>215</td><td>58.1</td><td>73.0</td><td class="positive">+14.9</td></tr>
+      <tr><td>2Wiki</td><td>261</td><td>42.1</td><td>62.1</td><td class="positive">+19.9</td></tr>
+      <tr><td>MuSiQue</td><td>617</td><td>22.5</td><td>37.4</td><td class="positive">+14.9</td></tr>
+    </tbody></table>
+
+    <h3>Table 2 — Three-arm mechanism ablation</h3>
+    <table><thead><tr><th>Dataset</th><th>No gate</th><th>READ-GATE (Δ)</th><th>Context injection (Δ)</th><th>READ-GATE vs context p</th></tr></thead><tbody>
+      <tr><td>HotpotQA</td><td>79.6</td><td class="positive">82.8 (+3.2)</td><td>79.5 (−0.1)</td><td>1.4×10<sup>−4</sup></td></tr>
+      <tr><td>2Wiki</td><td>64.4</td><td class="positive">69.7 (+5.3)</td><td class="negative">57.0 (−7.4)</td><td>&lt;10<sup>−22</sup></td></tr>
+      <tr><td>MuSiQue</td><td>34.2</td><td class="positive">43.6 (+9.4)</td><td>38.1 (+3.9)</td><td>1.0×10<sup>−5</sup></td></tr>
+    </tbody></table>
+
+    <h3>Table 3 — Gate benefit versus residual discipline error</h3>
+    <table><thead><tr><th>Effort</th><th>Dataset</th><th>Baseline discipline error</th><th>Baseline LLM-Acc</th><th>Δ READ-GATE</th></tr></thead><tbody>
+      <tr><td rowspan="3"><strong>Minimal</strong></td><td>HotpotQA</td><td>13.3%</td><td>79.6</td><td class="positive">+3.2</td></tr>
+      <tr><td>2Wiki</td><td>22.1%</td><td>64.4</td><td class="positive">+5.3</td></tr>
+      <tr><td>MuSiQue</td><td>57.0%</td><td>34.2</td><td class="positive">+9.4</td></tr>
+      <tr><td rowspan="3"><strong>Medium</strong><br><span class="small">n=100 boundary ablation</span></td><td>HotpotQA</td><td>4.5%</td><td>95.0</td><td class="neutral">0.0</td></tr>
+      <tr><td>2Wiki</td><td>5.7%</td><td>90.0</td><td class="negative">−7.0</td></tr>
+      <tr><td>MuSiQue</td><td>21.7%</td><td>74.0</td><td class="negative">−4.0</td></tr>
+    </tbody></table>
+
+    <h3>Table 4 — Differential intervention signatures</h3>
+    <table><thead><tr><th>Intervention</th><th>Specification</th><th>Indicator</th><th>OR / statistic</th><th>95% CI / test</th></tr></thead><tbody>
+      <tr><td rowspan="3">READ-GATE</td><td>Full</td><td>Pdisc</td><td class="metric">0.38</td><td>[0.35, 0.41]</td></tr>
+      <tr><td>Marginal</td><td>Ppost</td><td>1.46</td><td>[1.36, 1.57] — exposure-induced reclassification</td></tr>
+      <tr><td>Within read-exposed strata</td><td>Ppost</td><td class="metric">1.00</td><td>[0.84, 1.19]</td></tr>
+      <tr><td rowspan="2">Medium vs minimal effort</td><td>—</td><td>Pdisc</td><td class="metric">0.22</td><td>[0.20, 0.26]</td></tr>
+      <tr><td>—</td><td>Ppost</td><td class="metric">0.51</td><td>[0.43, 0.61]</td></tr>
+      <tr><td>Interaction</td><td>Effort × axis</td><td>Stacked</td><td>2.02</td><td>p&lt;10<sup>−4</sup></td></tr>
+      <tr><td>Permutation</td><td>—</td><td>Tobs</td><td>18.6 pp</td><td>p&lt;10<sup>−4</sup></td></tr>
+    </tbody></table>
+
+    <h3>Table 5 — Gemini 2.5 Flash thinking-budget diagnostic</h3>
+    <table><thead><tr><th>Dataset</th><th>Zero-read Δ</th><th>Net correct-answer Δ</th><th>McNemar p</th></tr></thead><tbody>
+      <tr><td>HotpotQA</td><td class="negative">+5.7 pp</td><td class="negative">−44</td><td>0.0025</td></tr>
+      <tr><td>2Wiki</td><td class="negative">+24.8 pp</td><td class="negative">−67</td><td>0.0001</td></tr>
+      <tr><td>MuSiQue</td><td class="negative">+42.6 pp</td><td class="negative">−73</td><td>3.1×10<sup>−5</sup></td></tr>
+    </tbody></table>
+  </section>
+
+  <section id="appendices">
+    <h2>8. Appendix evidence map</h2>
+    <table>
+      <thead><tr><th>Appendix</th><th>Content</th><th>Load-bearing result / appraisal</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>Prompts, corrective hints, tool schemas, judge prompt</td><td>Supports reproducibility; original prompt contains a snippet exception that permits some zero-read answers.</td></tr>
+        <tr><td>B</td><td>Overhead, read-rank distribution, Contain-Acc, conditional benefit, cost–accuracy</td><td>READ-GATE raises reads, loops, corrections, and retrieved tokens. Contain-Acc moves in the same direction. Cost figures need clearer token/accounting explanation.</td></tr>
+        <tr><td>C</td><td>Mechanism ablations and four-arm channel/action probe</td><td>Strengthens the argument that self-issued action/interaction structure matters beyond passive context delivery, but the most refined probe is MuSiQue-only.</td></tr>
+        <tr><td>D</td><td>Threshold, extractor, bootstrap, permutation, multiple testing, Qwen generalization</td><td>Headline paired gains are robust. Qwen results are mixed and mostly underpowered; they support direction, not uniform benefit.</td></tr>
+        <tr><td>E</td><td>Gemini break decomposition and representative trace</td><td>Shows some same-read failures are output-token truncation artifacts, while zero-read shifts remain.</td></tr>
+        <tr><td>F</td><td>Broader gate-family probe</td><td>Stronger heuristic gates exceed two corrections/question and are dataset-sensitive; supports choosing the minimal no-read gate.</td></tr>
+        <tr><td>G</td><td>Entity-coverage labeling and validation</td><td>n=60 validation has precision 1.00 but recall 0.734 overall and 0.148 for single-token entities; heuristic subtypes should remain secondary.</td></tr>
+        <tr><td>H</td><td>Discipline subtype decomposition</td><td>56.8% of discipline failures are strict no-read, 9.3% snippet-only, 33.9% low-evidence. This anchors the non-heuristic portion of the signal.</td></tr>
+        <tr><td>I</td><td>Zero-read provenance and snippet-length sensitivity</td><td>At the 300-character definition, 23.7% of wrong zero-read cases show snippet leakage; most are unsupported guesses. Leakage rises to 60.3% with full-chunk matching.</td></tr>
+        <tr><td>J</td><td>Intervention visualization</td><td>Graphically separates READ-GATE’s movement on Pdisc from reasoning effort’s movement on both axes.</td></tr>
+        <tr><td>K</td><td>Strict prompt-only control</td><td>Prompting reduces zero-read but gives 0.0, −2.8, and +3.2 pp versus READ-GATE’s +3.2, +5.3, +9.4.</td></tr>
+        <tr><td>L</td><td>Cross-judge robustness</td><td>Pooled κ=0.924; all three READ-GATE deltas remain directionally positive under Gemini 2.5 Pro re-judging.</td></tr>
+        <tr><td>M</td><td>Architecture × backbone comparison</td><td>Two-tool interface helps 4o-mini but loses to hierarchical A-RAG at medium reasoning; agent interface should be regime-dependent.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Selected appendix quantitative checks</h3>
+    <div class="grid grid-2">
+      <div class="mini-card"><strong>Deployment overhead (Table 6)</strong>Reads/question increase from 0.81→1.03, 0.77→1.06, and 0.35→1.00. Loops/question increase from 3.07→3.63, 3.54→4.32, and 2.90→4.97. MuSiQue receives the largest correction burden (0.89/question).</div>
+      <div class="mini-card"><strong>Prompt-only control (Table 17)</strong>Strict prompting reduces zero-read to 12.4%, 20.7%, and 48.1%, but does not match the gate’s accuracy. This supports execution enforcement over instruction alone.</div>
+      <div class="mini-card"><strong>Cross-judge check (Table 18)</strong>Gemini reweighted deltas are +3.2, +7.4, and +7.3 pp versus the paper’s +3.2, +5.3, and +9.4. Direction and approximate magnitude are preserved.</div>
+      <div class="mini-card"><strong>Interface comparison (Table 19)</strong>The two-tool interface wins all gpt-4o-mini cells, is mixed at gpt-5-mini minimal, and loses all gpt-5-mini medium cells. Reduced decision burden benefits weaker controllers; stronger controllers may exploit retrieval-mode granularity.</div>
+    </div>
+  </section>
+
+  <section id="critical">
+    <h2>9. Critical appraisal</h2>
+    <h3>Main strengths</h3>
+    <div class="grid grid-2">
+      <div class="mini-card"><strong>Observable, actionable failure definition</strong>The target event is trace-derived and easy to instrument. The proposed fix is a deterministic environment invariant rather than an opaque learned policy.</div>
+      <div class="mini-card"><strong>Paired and mechanism-aware evaluation</strong>Question pairing, McNemar tests, bootstrap intervals, context controls, prompt controls, and read-exposure matching materially strengthen causal interpretation.</div>
+      <div class="mini-card"><strong>Appropriate boundary finding</strong>The paper shows the gate can be neutral or harmful when discipline error is low, preventing a simplistic “always force a read” conclusion.</div>
+      <div class="mini-card"><strong>High reproducibility potential</strong>Prompts, schemas, code, raw traces, and cached analyses are reported as released; the study exposes enough operational detail to reproduce.</div>
+    </div>
+
+    <h3>Major limitations and interpretive risks</h3>
+    <div class="badnote"><strong>1. “Pre-evidence” is not literally evidence-free.</strong> Search returns five query-relevant sentences. Some zero-read trajectories have already seen the answer or supporting facts in snippets. The paper is strongest when interpreted as preventing finalization before <em>full-passage verification</em>, not before all evidence-conditioned cognition.</div>
+    <div class="claim"><strong>2. H1 pooled-overlap denominator is insufficiently clear.</strong> The text reports the 11.2–13.1% both-trigger rate over 3,807 wrong cases across all 12,000 trajectories, while MuSiQue lacks the gold annotations needed to measure Ppost. If MuSiQue cases are included as Ppost=0, the pooled overlap is mechanically diluted. The paper should report the overlap restricted to HotpotQA and 2Wiki, where both axes are measurable, and provide a formal dependence metric rather than comparing with an asserted 60% “collapse” threshold.</div>
+    <div class="claim"><strong>3. Post-gold-read is not post-complete-evidence.</strong> Reading one gold-supporting chunk may leave a multi-hop chain incomplete. Some “post-read reasoning errors” may still be evidence-acquisition failures.</div>
+    <div class="claim"><strong>4. Measurement validity is mixed.</strong> Strict no-read is clean, but snippet-only and low-evidence labels depend on entity extraction with n=60 validation and very poor single-token recall. These secondary subtypes should not carry major causal weight.</div>
+    <div class="claim"><strong>5. Generalization is narrow.</strong> Main evidence comes from one provider’s low-cost controllers, one explicit two-tool interface, English Wikipedia QA, and top-k=5 retrieval. Qwen generalization is directionally suggestive but mostly non-significant at n=200/cell.</div>
+    <div class="claim"><strong>6. Conditional-benefit statistics are exploratory.</strong> The prominent residual-error correlation uses only six OpenAI cells; medium-reasoning boundary ablations use n=100. The monotonic pattern is useful but not a stable deployment threshold.</div>
+    <div class="claim"><strong>7. Prompt design partly creates the failure opportunity.</strong> The original system prompt explicitly allows no-read finalization when a snippet contains an exact answer span. The strict-prompt control is valuable, but the baseline zero-read rate is not purely spontaneous protocol violation.</div>
+    <div class="claim"><strong>8. Cost reporting needs clarification.</strong> Appendix Table 9 reports lower dollar cost for READ-GATE than no gate on HotpotQA and 2Wiki despite more reads and loops. Token categories, caching, model-price assumptions, and run-time accounting should be decomposed before using the cost claim operationally.</div>
+    <div class="claim"><strong>9. Correctness is not grounding.</strong> The judge sees only question, gold answer, and prediction. A correct answer may still be unsupported by inspected evidence; a separate attribution or citation-faithfulness outcome would better validate the grounding interpretation.</div>
+
+    <h3>Claim-to-evidence matrix</h3>
+    <table><thead><tr><th>Claim</th><th>Support</th><th>Appraisal</th></tr></thead><tbody>
+      <tr><td>Zero-read finalization is a meaningful agent failure mode.</td><td>Direct trace logs; strict no-read lower bounds; prompt and gate interventions.</td><td><strong>Well supported</strong> as a procedural event.</td></tr>
+      <tr><td>READ-GATE improves accuracy where zero-read behavior is common.</td><td>Three paired n=1,000 minimal-reasoning cells with significant gains.</td><td><strong>Well supported</strong> within the tested regime.</td></tr>
+      <tr><td>READ-GATE and reasoning effort target different axes.</td><td>Read-exposure-matched Ppost OR 1.00 vs effort lowering both Pdisc and Ppost.</td><td><strong>Supported</strong>, though operational label validity matters.</td></tr>
+      <tr><td>The mechanism is self-issued action commitment.</td><td>Three-arm all-dataset ablation plus one-dataset four-arm probe.</td><td><strong>Plausible, not isolated.</strong></td></tr>
+      <tr><td>Discipline and post-gold-read failures are largely non-redundant.</td><td>Multi-label overlap and extractor robustness.</td><td><strong>Likely, but pooled denominator/measurability needs clarification.</strong></td></tr>
+      <tr><td>Hidden thinking does not guarantee evidence inspection.</td><td>Gemini paired diagnostic on three datasets.</td><td><strong>Supported for this API/harness configuration</strong>, not a universal scaling law.</td></tr>
+    </tbody></table>
+  </section>
+
+  <section id="ratings">
+    <h2>10. Evaluation ratings</h2>
+    <div class="rating-grid">
+      <div class="rating"><div class="score">9.5/10</div><div class="label">Relevance</div><p><strong>Rationale:</strong> Directly relevant to agent reliability, RAG instrumentation, deterministic evaluation, and harness design. <strong>Basis:</strong> explicit runtime invariant and trace taxonomy. <strong>Limiter:</strong> not clinical-domain RAG. <strong>Would rise:</strong> validation in high-stakes retrieval workflows.</p></div>
+      <div class="rating"><div class="score">8.0/10</div><div class="label">Novelty</div><p><strong>Rationale:</strong> The individual “force a read” idea is simple, but the trajectory decomposition and causal framing add useful novelty. <strong>Basis:</strong> distinct procedural/error-axis analysis. <strong>Limiter:</strong> concept resembles standard software precondition enforcement. <strong>Would rise:</strong> broader theory or adaptive gating.</p></div>
+      <div class="rating"><div class="score">7.5/10</div><div class="label">Method strength</div><p><strong>Rationale:</strong> Paired design, large main cells, mechanism controls, robust statistics, and artifact release are strong. <strong>Limiter:</strong> heuristic labels, small boundary cells, and possible H1 denominator ambiguity. <strong>Would rise:</strong> preregistered multi-domain replication and human label validation.</p></div>
+      <div class="rating"><div class="score">7.0/10</div><div class="label">Evidence strength</div><p><strong>Rationale:</strong> Full-cell gate gains are direct and statistically persuasive. <strong>Limiter:</strong> benchmark-only evidence and some conceptual overreach from “read action” to “evidence inspection.” <strong>Would rise:</strong> independent reproduction plus attribution-aware outcomes.</p></div>
+      <div class="rating"><div class="score">5.0/10</div><div class="label">External validity</div><p><strong>Rationale:</strong> Three datasets and several model families help, but all tasks are English Wikipedia multi-hop QA with one explicit interface. <strong>Limiter:</strong> no enterprise, clinical, multilingual, long-document, or web-search deployment. <strong>Would rise:</strong> domain and interface diversity.</p></div>
+      <div class="rating"><div class="score">9.0/10</div><div class="label">Implementation value</div><p><strong>Rationale:</strong> The gate, logging schema, prompts, and failure metrics are immediately transferable. <strong>Limiter:</strong> thresholds for when to enable/disable remain empirical. <strong>Would rise:</strong> an adaptive policy and production monitoring guidance.</p></div>
+    </div>
+    <div class="warning" style="margin-top:.9rem"><strong>Confidence in appraisal: moderate-high.</strong> The paper is unusually transparent and quantitative, but this is a version-1 preprint and the most consequential conceptual concern—the measurable overlap denominator—requires checking the released analysis code or a revised manuscript.</div>
+  </section>
+
+  <section id="implementation">
+    <h2>11. Implementation takeaways</h2>
+    <h3>Recommended harness pattern</h3>
+    <div class="implementation">
+      <div class="item"><strong>Log the process, not just the answer.</strong> Store searches, returned chunk IDs/snippets, reads, read chunk IDs, final attempts, rejected actions, loop count, token budget, and correctness/grounding outcomes.</div>
+      <div class="item"><strong>Define the minimal invariant narrowly.</strong> For a search/read/final interface: block finalization only when retrieval occurred and <code>read_count == 0</code>. Do not infer that one read is sufficient for multi-hop or safety-critical tasks.</div>
+      <div class="item"><strong>Measure residual zero-read finalization before enabling.</strong> Use unlabeled production traces to estimate the rate. The paper supports gating where the rate is material, not globally.</div>
+      <div class="item"><strong>Protect the loop budget.</strong> A corrective read consumes turns. Reserve budget for the forced action or increase the cap conditionally; otherwise the gate can convert correct trajectories into abstentions or partial answers.</div>
+      <div class="item"><strong>Separate procedural and post-read failures.</strong> Route no-read failures to harness fixes; route wrong-after-sufficient-evidence cases to model reasoning, synthesis, verifier, or prompt improvements.</div>
+      <div class="item"><strong>Use paired evaluation.</strong> Re-run identical question IDs with and without the gate. Report full-cell marginal effect, targeted rescue effect, breaks, fixes, loops, reads, retrieved tokens, and max-loop terminations.</div>
+      <div class="item"><strong>Add grounding outcomes.</strong> Beyond answer accuracy, test whether the final answer is entailed by read evidence and whether cited chunks actually support each claim.</div>
+      <div class="item"><strong>Make gating adaptive.</strong> Disable or relax the gate when recent zero-read rates are low, loop-cap failures rise, or accuracy deteriorates. Version the policy and log every intervention.</div>
+    </div>
+
+    <h3>Minimal pseudocode</h3>
+    <pre><code>if action.type == "final" and state.search_count &gt; 0 and state.read_count == 0:
+    if state.remaining_loops &lt;= 1:
+        return safe_abstention("Insufficient loop budget to inspect retrieved evidence")
+    audit("FINAL_REJECTED_NO_READ", retrieved_ids=state.last_retrieved_ids)
+    return corrective_observation(
+        "Read at least one promising retrieved chunk before finalizing."
+    )
+else:
+    execute(action)</code></pre>
+
+    <h3>For clinical or policy RAG</h3>
+    <div class="badnote"><strong>Do not deploy the paper’s one-read rule as a clinical safety guarantee.</strong> A clinical gate should require evidence sufficiency appropriate to the question: source authority, recency, patient applicability, conflicting guidance checks, and explicit citation support. The paper supports the general pattern—runtime preconditions and trace auditing—not the exact sufficiency criterion.</div>
+  </section>
+
+  <section id="bottom-line">
+    <h2>12. Bottom line</h2>
+    <div class="verdict"><strong>Read and reuse the design pattern.</strong> The paper makes a convincing case that agentic-RAG evaluation should distinguish failure to execute evidence inspection from failure after evidence exposure. READ-GATE is a credible, low-complexity intervention at low-cost operating points with high zero-read rates. The most transferable lesson is not “always force one read,” but <strong>measure trajectory invariants, intervene at the environment layer, and disable the intervention when its target failure is absent.</strong></div>
+    <p><strong>Do not overclaim:</strong> the study does not prove that read actions equal grounding, that one read is sufficient, that the non-redundancy estimate is free of annotation-denominator effects, or that the gate generalizes beyond explicit Wikipedia-style QA agents.</p>
+    <p><strong>Priority:</strong> Read first; preserve as a reference for agent harnesses, trace schemas, runtime safety constraints, and paired process-level evaluation.</p>
+  </section>
+</main>
+<footer>
+  <strong>Provenance:</strong> Evaluated from the uploaded PDF <em>Before Reasoning Fails: Pre-Evidence Procedural Failures in Agentic RAG</em>, arXiv:2608.02011v1, dated 3 August 2026. Source identifier: <a href="https://arxiv.org/abs/2608.02011">https://arxiv.org/abs/2608.02011</a>. Code repository reported in the paper: <a href="https://github.com/Noverse0/before-reasoning-fails">https://github.com/Noverse0/before-reasoning-fails</a>. Appraisal generated 4 August 2026. This reference file is an independent evaluation, not peer review or independent reproduction.
+</footer>
+</body>
+</html>

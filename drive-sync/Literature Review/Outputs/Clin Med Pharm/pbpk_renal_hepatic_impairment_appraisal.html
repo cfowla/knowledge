@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Physiologically-Based Pharmacokinetic Modeling in Renal and Hepatic Impairment Populations: A Pharmaceutical Industry Perspective — Reference Appraisal</title>
+<style>
+:root {
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --ink:#17202a;
+  --muted:#526173;
+  --line:#d9e0ea;
+  --accent:#1d4f91;
+  --accent2:#0f315f;
+  --good:#0f6b3b;
+  --warn:#8a5a00;
+  --bad:#8a1f1f;
+  --codebg:#0e1726;
+  --codefg:#edf4ff;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height:1.55;
+}
+header {
+  background:linear-gradient(135deg,#10243d,#1d4f91);
+  color:#fff;
+  padding:2.2rem 1.25rem 2rem;
+  border-bottom:5px solid #d2e2f5;
+}
+.wrap { max-width:1120px; margin:0 auto; padding:0 1.25rem; }
+header .wrap { padding:0 1.25rem; }
+h1 { margin:.1rem 0 .65rem; font-size:clamp(1.65rem,3.2vw,2.55rem); line-height:1.12; }
+.subtitle { margin:0; max-width:900px; color:#dcecff; font-size:1.02rem; }
+.docmeta { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:1rem; }
+.tag {
+  display:inline-block;
+  border:1px solid rgba(255,255,255,.35);
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  border-radius:999px;
+  padding:.18rem .55rem;
+  font-size:.82rem;
+}
+main { padding:1.25rem 0 2.5rem; }
+section, nav.toc {
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:1.05rem 1.25rem;
+  margin:1rem 0;
+  box-shadow:0 1px 4px rgba(16,36,61,.05);
+}
+h2 { color:var(--accent2); margin:.15rem 0 .75rem; font-size:1.35rem; }
+h3 { color:#173f72; margin:1rem 0 .45rem; font-size:1.05rem; }
+h4 { color:#24364b; margin:.9rem 0 .35rem; }
+p { margin:.65rem 0; }
+a { color:var(--accent); }
+nav.toc ul { columns:2; margin:.4rem 0 0; padding-left:1.2rem; }
+nav.toc li { break-inside:avoid; margin:.25rem 0; }
+.meta-grid, .rating-grid, .takeaway-grid, .mini-grid {
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:.7rem;
+}
+.meta-card, .mini-card, .rating-card {
+  grid-column:span 6;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:.8rem .9rem;
+  background:#fbfdff;
+}
+.meta-card strong, .mini-card strong { display:block; color:#203650; margin-bottom:.25rem; }
+.rating-card { grid-column:span 4; }
+.rating-score { font-weight:800; color:#0f315f; font-size:1.35rem; }
+.rating-label { font-weight:700; }
+.verdict, .warning, .goodnote, .badnote {
+  border-radius:12px;
+  padding:.85rem 1rem;
+  margin:.75rem 0;
+  border:1px solid;
+}
+.verdict { background:#eef5ff; border-color:#c6d9f2; }
+.goodnote { background:#eef9f2; border-color:#c6e7d3; }
+.warning { background:#fff8e8; border-color:#ead394; }
+.badnote { background:#fff0f0; border-color:#e5b3b3; }
+.kv {
+  display:grid;
+  grid-template-columns: 210px 1fr;
+  gap:.25rem .8rem;
+  border-top:1px solid var(--line);
+  padding-top:.6rem;
+  margin-top:.6rem;
+}
+.kv div:nth-child(odd) { color:var(--muted); font-weight:700; }
+.table-wrap { overflow-x:auto; }
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin:.75rem 0;
+  font-size:.92rem;
+  border:1px solid var(--line);
+}
+th,td { border:1px solid var(--line); padding:.5rem .6rem; vertical-align:top; }
+th { background:#eef3f9; text-align:left; color:#1e395c; }
+.section-summary {
+  border-left:5px solid #d2e2f5;
+  padding:.05rem 0 .05rem .85rem;
+  margin:.75rem 0;
+}
+pre {
+  margin:.55rem 0 1rem;
+  padding:1rem;
+  background:var(--codebg);
+  color:var(--codefg);
+  border-radius:12px;
+  overflow-x:auto;
+  border:1px solid #1b2e49;
+  font-size:.88rem;
+  line-height:1.45;
+  white-space:pre-wrap;
+}
+code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace; }
+.small { color:var(--muted); font-size:.9rem; }
+ul { padding-left:1.2rem; }
+li { margin:.28rem 0; }
+.footer-note { color:var(--muted); font-size:.9rem; }
+@media (max-width:760px) {
+  nav.toc ul { columns:1; }
+  .meta-card, .mini-card, .rating-card { grid-column:span 12; }
+  .kv { grid-template-columns:1fr; }
+  .wrap { padding:0 .85rem; }
+  section, nav.toc { padding:.95rem; }
+}
+@media print {
+  body { background:white; }
+  section, nav.toc { box-shadow:none; break-inside:avoid; }
+  header { color:#000; background:#fff; border-bottom:2px solid #000; }
+  .tag { color:#000; border-color:#999; background:#fff; }
+  a { color:inherit; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Physiologically-Based Pharmacokinetic Modeling in Renal and Hepatic Impairment Populations: A Pharmaceutical Industry Perspective</h1>
+    <p class="subtitle">Reference HTML: structured summary, visual/table extraction, and appraisal using a pharmacotherapy/model-informed drug development lens.</p>
+    <div class="docmeta">
+      <span class="tag">Clinical pharmacology</span>
+      <span class="tag">PBPK</span>
+      <span class="tag">Renal impairment</span>
+      <span class="tag">Hepatic impairment</span>
+      <span class="tag">Regulatory science</span>
+      <span class="tag">White paper / modeling evaluation</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#coverage">Coverage manifest</a></li>
+    <li><a href="#section-condensation">Section-by-section condensation</a></li>
+    <li><a href="#visuals">Figures and tables</a></li>
+    <li><a href="#clinical-translation">Clinical and regulatory translation</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#takeaways">Implementation takeaways</a></li>
+    <li><a href="#qa">QA and provenance</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="meta-grid">
+    <div class="meta-card"><strong>Title</strong>Physiologically-Based Pharmacokinetic Modeling in Renal and Hepatic Impairment Populations: A Pharmaceutical Industry Perspective</div>
+    <div class="meta-card"><strong>Authors</strong>Tycho Heimbach, Yuan Chen, Jun Chen, Vaishali Dixit, Neil Parrott, Sheila Annie Peters, Italo Poggesi, Pradeep Sharma, Jan Snoeys, Mohamad Shebley, Guoying Tai, Susanna Tse, Vijay V. Upreti, Ying-Hong Wang, Alice Tsai, Binfeng Xia, Ming Zheng, Andy Z.X. Zhu, Stephen Hall.</div>
+    <div class="meta-card"><strong>Source</strong><em>Clinical Pharmacology &amp; Therapeutics</em>. Volume 110, Number 2, August 2021, pages 297–310.</div>
+    <div class="meta-card"><strong>Identifier</strong>DOI: 10.1002/cpt.2125.</div>
+    <div class="meta-card"><strong>Source type</strong>White paper / consortium modeling evaluation using industry-contributed clinical pharmacokinetic organ-impairment data.</div>
+    <div class="meta-card"><strong>Design</strong>Retrospective performance evaluation of physiologically based pharmacokinetic models against observed renal and hepatic impairment study arms.</div>
+    <div class="meta-card"><strong>Population / data unit</strong>29 compounds; 106 organ-impairment study arms from 19 IQ Consortium member companies. Renal impairment: 25 compounds, 50 study arms. Hepatic impairment: 27 compounds, 56 study arms.</div>
+    <div class="meta-card"><strong>Scope warning</strong>This source evaluates PBPK prediction performance and regulatory strategy. It does not provide drug-specific bedside dosing recommendations, does not replace current labels/guidance, and is not a patient-outcomes study.</div>
+  </div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="verdict">
+    <strong>Core thesis:</strong> Verified PBPK models predicted renal impairment effects on drug exposure more reliably than hepatic impairment effects in this IQ Consortium dataset, and the authors argue that robust PBPK can support organ-impairment study design, supplement incomplete clinical data, and potentially support mild-impairment study waivers under defined conditions.
+  </div>
+  <p>The study assembled a relatively large cross-company dataset for an area where public examples were sparse: 29 anonymized compounds with 106 renal or hepatic impairment study arms. Models were built in Simcyp V15, verified first against healthy/control exposure and, where possible, against drug-drug interaction or metabolic phenotype data. The central endpoint was whether simulated organ-impaired-to-control exposure ratios, especially AUC ratios, matched observed clinical ratios within prespecified bounds.</p>
+  <p>Renal impairment performance was stronger: 47 of 50 renal AUC ratios were within twofold of observed ratios, with most failures in severe impairment or ESRD. Hepatic impairment performance was less robust: 43 of 56 hepatic AUC ratios were within twofold, with more overprediction in Child-Pugh B and C cirrhosis, especially for low-clearance compounds. The authors interpret overprediction as potentially conservative for safety-risk assessment, but the pattern also reveals incomplete disease physiology in the model platform, limited ESRD/severe data, and weaker applicability to transporter-dependent or narrow-therapeutic-index drugs.</p>
+  <div class="takeaway-grid">
+    <div class="mini-card"><strong>Best use</strong>Regulatory/pharmacotherapy background for understanding how PBPK may support renal/hepatic impairment study planning, label justification, and waiver arguments.</div>
+    <div class="mini-card"><strong>Do not use for</strong>Direct bedside dose adjustment, high-risk narrow-therapeutic-index decisions, or assuming PBPK substitutes for clinical data in poorly characterized disposition pathways.</div>
+    <div class="mini-card"><strong>High-value result</strong>RI AUC ratio prediction: &gt;90% within twofold; HI AUC ratio prediction: &gt;70% within twofold, with hepatic overprediction concentrated in more severe cirrhosis.</div>
+    <div class="mini-card"><strong>Main limitation</strong>Anonymized proprietary compounds, incomplete access to supplement details in the uploaded PDF, Simcyp V15 disease models, limited ESRD/severe data, and few transporter-dominant examples.</div>
+  </div>
+</section>
+
+<section id="coverage">
+  <h2>Coverage manifest</h2>
+  <div class="kv">
+    <div>Source ID</div><div>CPT 110(2):297–310; DOI 10.1002/cpt.2125; uploaded file: CPT-110-297.pdf.</div>
+    <div>Exact title</div><div>Physiologically-Based Pharmacokinetic Modeling in Renal and Hepatic Impairment Populations: A Pharmaceutical Industry Perspective</div>
+    <div>Source type</div><div>Clinical pharmacology white paper; model-performance evaluation.</div>
+    <div>Date/version</div><div>Received June 23, 2020; accepted November 17, 2020; published in August 2021 issue.</div>
+    <div>Sections/headings</div><div>Abstract/summary; background; approach of PBPK modeling for renal and hepatic impairment populations; PBPK model development strategy and model verification; renal impairment modeling; hepatic impairment modeling; predictive performance; learnings and challenges; perspective and future direction; supporting information; acknowledgments/funding/conflicts; references.</div>
+    <div>Figures</div><div>Figure 1 workflow; Figure 2 renal impairment prediction plots; Figure 3 hepatic impairment prediction plots; Figure 4 observed renal AUC/Cmax ratio trends; Figure 5 observed hepatic AUC/Cmax ratio trends.</div>
+    <div>Tables</div><div>Table 1 ADME properties; Table 2 RI AUC ratios; Table 3 RI Cmax ratios; Table 4 HI AUC ratios; Table 5 HI Cmax ratios.</div>
+    <div>Algorithms/workflows</div><div>Figure 1 is treated as the model-development workflow. No separate algorithm pseudocode is reported.</div>
+    <div>Appendices/supplements</div><div>Supplementary tables S1–S10 are referenced but not included in the uploaded PDF; they were not independently appraised here.</div>
+    <div>Visual strategy</div><div>All main-text figures and tables are represented as structured extraction blocks. No embedded screenshots were required because the load-bearing content is summarized textually.</div>
+    <div>Omissions</div><div>Supplementary information not present in the uploaded file; detailed compound-level study demographics and model files cannot be audited from the main PDF alone.</div>
+  </div>
+</section>
+
+<section id="section-condensation">
+  <h2>Section-by-section condensation</h2>
+
+  <div class="section-summary">
+    <h3>Abstract / opening summary</h3>
+    <p>The authors evaluated PBPK model performance for renal and hepatic impairment pharmacokinetics using clinical data contributed by 19 member companies of the IQ Consortium. The dataset included 29 compounds and 106 organ-impairment study arms: 50 renal impairment arms and 56 hepatic impairment arms.</p>
+    <p>The central quantitative result was better prediction for renal impairment than hepatic impairment. Renal impaired-to-control AUC ratios were predicted within twofold for 47/50 arms; hepatic impaired-to-control AUC ratios were predicted within twofold for 43/56 arms. Errors were more common in moderate/severe hepatic impairment and usually reflected overestimation of exposure ratios.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Background and rationale</h3>
+    <p>PBPK modeling is positioned as a mechanistic tool for extrapolating pharmacokinetics beyond directly studied scenarios after model verification. The paper notes that most regulatory PBPK experience had been in drug-drug interaction prediction, while organ-impairment applications were less mature and regarded by regulators as a lower-confidence use case.</p>
+    <p>The rationale is clinically and operationally relevant: renal and hepatic impairment studies are resource-intensive, difficult to recruit, and sometimes incomplete, especially in severe disease or ESRD. Because kidney, liver, and intestine physiology affects absorption, distribution, metabolism, and excretion, PBPK could theoretically integrate disease-related physiologic changes and supplement or guide clinical study strategy.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Approach of PBPK modeling for renal and hepatic impairment populations</h3>
+    <p>To reduce selection bias, the authors state that all available compounds from the 19 companies with organ-impairment studies and comprehensive PK datasets were included. Most compounds were predominantly cleared by metabolism, with renal clearance contribution ranging from negligible to approximately 50% for many entries.</p>
+    <p>Renal impairment data covered 25 compounds and 50 arms: 8 mild, 14 moderate, 25 severe, and 3 ESRD. Hepatic impairment data covered 27 compounds and 56 arms: 18 Child-Pugh A/mild, 25 Child-Pugh B/moderate, and 13 Child-Pugh C/severe. This distribution supports broad evaluation but leaves ESRD and severe hepatic subgroups thinner than the aggregate count suggests.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Model development strategy and verification</h3>
+    <p>Models were built by contributing-company modelers in Simcyp V15. The workflow used compound-specific physicochemical and disposition parameters, clinical PK verification in healthy volunteers or patients, and organ-impairment population parameters before simulating impairment-specific PK profiles.</p>
+    <p>The first verification step compared predicted Cmax and AUC in matched healthy control subjects with observed values. If exposures were within twofold, the model was considered adequate for organ-impairment simulation. A second step compared predicted impaired-to-healthy AUC ratios with observed ratios using the Guest criterion and common twofold criteria.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Renal impairment population PBPK modeling</h3>
+    <p>Moderate and severe renal impairment populations were based on Simcyp GFR categories, while a mild renal impairment population was created by adapting the moderate renal file to GFR 60–90 mL/min/1.73 m² and revising selected physiology toward healthy volunteer values. Simulations generally used 10 trials with 10 subjects each, with age and sex matched when data were available.</p>
+    <p>The renal model implementation included disease changes such as reduced GFR and selected physiologic changes, but the authors explicitly note that inhibition of enzymes and transporters by uremic toxins was not implemented in Simcyp V15. This matters for drugs with transporter-mediated renal handling or metabolism affected by uremia.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Hepatic impairment population PBPK modeling</h3>
+    <p>The hepatic impairment model used Simcyp cirrhosis populations mapped to Child-Pugh A, B, and C. Implemented disease changes included demographics, hepatic blood flow, hematocrit, alpha-1-acid glycoprotein, albumin, CYP enzyme abundance, intestinal CYP3A4/5 expression/activity, mesenteric blood flow changes from shunting, gastric residence time, and liver size changes.</p>
+    <p>The authors also identify gaps: altered hepatic scalars such as milligram microsomal protein per gram liver were not considered in Simcyp V15, and not all relevant transporter or bile-acid-mediated absorption changes were fully represented. These gaps align with the poorer hepatic prediction performance observed later.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Predictive performance: renal impairment</h3>
+    <p>For matched healthy controls in the renal dataset, 76% of AUC predictions and 67% of Cmax predictions were within 25% of observed values; 92% of AUC and 92% of Cmax predictions were within 50%. All predicted AUCs and Cmax values were within twofold except one compound whose predicted AUC was about threefold observed.</p>
+    <p>Across 50 renal impairment arms, observed parent-drug exposure effects were generally modest, and 88% of AUC ratio predictions met the Guest criterion. The main headline result was 47/50 renal AUC ratios within twofold. Failed Guest-criterion predictions clustered in severe renal impairment and ESRD, with two cases exceeding twofold error.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Predictive performance: hepatic impairment</h3>
+    <p>For matched healthy controls in the hepatic dataset, 85% of AUC predictions and 76% of Cmax predictions were within 25% of observed values; 96% of AUC and 76% of Cmax predictions were within 50%, and all AUC predictions were within twofold. Observed AUC ratios in hepatic impairment were more variable than in renal impairment, ranging from below 1 to approximately 8 in moderate impairment and below 1 to approximately 9.5 in severe impairment.</p>
+    <p>Hepatic impairment models tended to overpredict exposure effects and the authors report no false-negative predictions. Child-Pugh A performed best by twofold criteria, while approximately one-third of Child-Pugh B and C AUC predictions were outside twofold. Low-clearance compounds were the most common source of overprediction, while compounds with systemic clearance above 20 L/h were predicted more reliably.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Learnings and challenges</h3>
+    <p>The authors frame this as a systematic evaluation that addresses a prior evidence gap: organ impairment PBPK had fewer public examples than drug-drug interaction PBPK, and regulatory confidence was lower. They argue that performance depends on both the compound model, including accurate clearance-pathway assignment, and the platform’s physiologic representation of organ impairment.</p>
+    <p>The main technical learning is asymmetry of error: models more often overpredicted than underpredicted organ-impairment exposure increases, especially with higher disease severity. The authors suggest compensatory mechanisms, cardiovascular changes, acid-base changes, incomplete disease physiology, bile-acid/absorption effects, and transporter changes as possible explanations.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Perspective and future direction</h3>
+    <p>The authors conclude that verified PBPK models can supplement missing clinical data when recruitment is incomplete, particularly if at least one impairment category has been clinically studied and the model adequately represents the compound’s disposition and variability. They propose that when predicted impaired-to-healthy AUC ratios fall within bioequivalence limits, impairment studies may be restricted to narrow-therapeutic-index drugs.</p>
+    <p>The appropriate interpretation is narrower than “PBPK replaces organ-impairment studies.” The paper supports PBPK as part of totality-of-evidence decision-making for study timing, eligibility expansion, and study design; it does not eliminate the need for confirmatory work when therapeutic index is narrow, exposure margins are small, disposition pathways are uncertain, or target populations are poorly represented.</p>
+  </div>
+</section>
+
+<section id="visuals">
+  <h2>Figures and tables: structured extraction</h2>
+
+  <h3>Figure 1 — Schematic workflow for organ-impairment PBPK modeling</h3>
+  <pre><code>Purpose:
+  Show the general PBPK model-development pathway used for organ impairment.
+
+Structure/panels:
+  Compound-specific parameters feed a base PBPK model.
+  Clinical PK in healthy volunteers/patients verifies and refines the base model.
+  Organ-impairment-specific parameters then expand the model into an OI PBPK model.
+  Final simulations compare predicted PK in renal/hepatic impairment with observed PK.
+
+Variables/inputs:
+  Physicochemical properties, fraction metabolized, renal/biliary clearance, transporter kinetics,
+  binding, microsomal parameters, absorption and volume parameters, GFR, hepatic blood flow,
+  CYP abundance, and clinical verification data.
+
+Interpretation:
+  The workflow emphasizes that organ-impairment predictions should follow prior model verification,
+  not be generated from an unverified compound model.
+
+Limits:
+  The diagram is conceptual. It does not specify mandatory verification thresholds beyond the text,
+  nor does it solve uncertainty in transporter, bile-acid, or uremic-toxin mechanisms.
+
+Representation:
+  Structured block.</code></pre>
+
+  <h3>Table 1 — Summary of ADME properties for IQ Working Group compounds</h3>
+  <pre><code>Rows:
+  29 anonymized compounds.
+
+Columns:
+  Compound, fraction unbound, IV or oral clearance, renal clearance contribution, biliary clearance,
+  and biotransformation pathway.
+
+Key values/pattern:
+  The dataset is metabolism-heavy. Many compounds are CYP3A substrates or mixed CYP/UGT/non-CYP
+  substrates. Renal clearance varies from negligible to substantial, and some compounds include
+  biliary clearance or uptake/efflux transporter relevance.
+
+Appraisal:
+  This table supports mechanistic breadth but also shows limits: compounds are anonymized, most are
+  not primarily renally eliminated, and the dataset has limited representation of transporter-dominant
+  disposition. That constrains generalization to drugs whose clearance is primarily transporter-mediated
+  or whose absorption depends heavily on bile acid physiology.
+
+Representation:
+  Structured block.</code></pre>
+
+  <h3>Table 2 — Observed and predicted AUC ratios in renal impairment</h3>
+  <pre><code>Rows:
+  Compound-level renal impairment study arms by severity: mild, moderate, severe, ESRD.
+
+Columns:
+  Observed impaired/control AUC ratio, predicted ratio, and predicted/observed ratio.
+
+Key values:
+  50 RI arms; 47/50 AUC ratios were within twofold of observed values.
+  Observed effects were generally modest for parent drugs, with failures concentrated in severe RI/ESRD.
+  Examples exceeding twofold prediction error include K946A in ESRD and T631W in severe RI.
+  Several severe/ESRD cases show lower observed exposure than predicted, contributing to overprediction.
+
+Pattern:
+  Prediction is strongest in mild/moderate RI and weaker in severe RI/ESRD.
+
+Appraisal:
+  Strong table for the renal headline claim, but ESRD has only 3 arms and the compounds are anonymized.
+  Clinical extrapolation should be cautious for drugs with narrow therapeutic index, active metabolites,
+  transporter-mediated renal clearance, or uncertain clearance pathways.
+
+Representation:
+  Structured block.</code></pre>
+
+  <h3>Figure 2 — Renal impairment prediction plots</h3>
+  <pre><code>Purpose:
+  Visualize predicted vs observed AUC ratios, Cmax ratios, and fraction unbound in renal impairment.
+
+Structure/panels:
+  (a) Predicted vs observed AUC ratio by RI severity.
+  (b) Predicted vs observed Cmax ratio by RI severity.
+  (c) Predicted vs observed fraction unbound in plasma.
+
+Main pattern:
+  Most points cluster near line of unity and within twofold bounds.
+  Outliers occur mainly in severe RI and ESRD.
+  Protein-binding predictions are generally within twofold, with few exceptions.
+
+Interpretation:
+  The visual supports the conclusion that PBPK performs reasonably for RI in this dataset,
+  especially mild/moderate RI.
+
+Limits:
+  Plot density can obscure compound-specific mechanisms; ESRD and severe categories are relatively sparse.
+  The visual evaluates ratio prediction, not clinical outcome or dosing safety.
+
+Representation:
+  Structured block.</code></pre>
+
+  <h3>Table 3 — Observed and predicted Cmax ratios in renal impairment</h3>
+  <pre><code>Rows:
+  Compound-level Cmax ratios across mild, moderate, severe RI, and ESRD.
+
+Columns:
+  Observed Cmax ratio, predicted Cmax ratio, predicted/observed ratio.
+
+Key values/pattern:
+  Cmax prediction follows the same broad trend as AUC but includes notable severe-RI outliers.
+  Examples include T631W severe RI with substantial overprediction and V597G severe RI with
+  overprediction beyond twofold.
+
+Appraisal:
+  Cmax is less central than AUC for organ-impairment exposure assessment but remains clinically relevant
+  for concentration-related toxicity. Missing or NA entries reduce completeness.
+
+Representation:
+  Structured block.</code></pre>
+
+  <h3>Table 4 — Observed and predicted AUC ratios in hepatic impairment</h3>
+  <pre><code>Rows:
+  Compound-level hepatic impairment arms by Child-Pugh category: A/mild, B/moderate, C/severe.
+
+Columns:
+  Observed impaired/control AUC ratio, predicted ratio, and predicted/observed ratio.
+
+Key values:
+  56 HI arms; 43/56 AUC ratios were within twofold.
+  Observed ratios range below 1 to approximately 8 in moderate impairment and below 1 to approximately
+  9.5 in severe impairment.
+  Overprediction examples include D384S across categories, A242N severe HI, M731N severe HI,
+  S471Q severe HI, and several moderate-HI low-clearance compounds.
+  Some high observed effects, such as Y582A, were predicted reasonably.
+
+Pattern:
+  More variable and less reliable than RI. Overprediction is concentrated in Child-Pugh B/C and
+  low-clearance compounds.
+
+Appraisal:
+  This is the pivotal table for the hepatic caution. It supports use of PBPK for hypothesis/study design
+  but weakens claims that hepatic impairment can be waived broadly based on PBPK alone.
+
+Representation:
+  Structured block.</code></pre>
+
+  <h3>Figure 3 — Hepatic impairment prediction plots</h3>
+  <pre><code>Purpose:
+  Compare predicted vs observed AUC and Cmax ratios for Child-Pugh A, B, and C populations.
+
+Structure/panels:
+  (a-c) AUC ratio plots for CP-A, CP-B, CP-C.
+  (d-f) Cmax ratio plots for CP-A, CP-B, CP-C.
+  Closed markers indicate CLiv &lt;20 L/h; open markers indicate CLiv &gt;20 L/h.
+
+Main pattern:
+  CP-A has the best twofold performance.
+  CP-B and CP-C show more points above the unity/twofold region, consistent with overprediction.
+  Low-clearance compounds account for many problematic predictions.
+  Higher-clearance compounds are predicted more reliably.
+
+Interpretation:
+  The figure supports a severity- and clearance-dependent confidence gradient:
+  higher confidence in mild HI and lower confidence in moderate/severe HI, especially low-clearance drugs.
+
+Limits:
+  Child-Pugh is an imperfect proxy for drug-disposition physiology.
+  The figure cannot establish the mechanisms behind overprediction.
+
+Representation:
+  Structured block.</code></pre>
+
+  <h3>Table 5 — Observed and predicted Cmax ratios in hepatic impairment</h3>
+  <pre><code>Rows:
+  Compound-level hepatic impairment Cmax ratios by Child-Pugh category.
+
+Columns:
+  Observed Cmax ratio, predicted Cmax ratio, predicted/observed ratio.
+
+Key values/pattern:
+  Cmax results mirror AUC variability. Overprediction occurs in several moderate/severe HI examples,
+  including D384S, E929K, and S471Q. Some compounds show lower observed Cmax in severe HI despite
+  predicted increases.
+
+Appraisal:
+  Cmax variability reinforces the limitation that hepatic impairment affects not only clearance but also
+  absorption, distribution, shunting, and protein binding. Cmax is especially relevant when peak-related
+  toxicity matters.
+
+Representation:
+  Structured block.</code></pre>
+
+  <h3>Figure 4 — Observed renal AUC and Cmax ratios across impairment categories</h3>
+  <pre><code>Purpose:
+  Show observed, not predicted, exposure ratios across RI severities for compounds studied in two or
+  more categories.
+
+Structure/panels:
+  (a) Observed AUC ratios by RI category.
+  (b) Observed Cmax ratios by RI category.
+
+Main pattern:
+  Many compounds show modest exposure changes and not all show monotonic increases with severity.
+  A major metabolite example shows larger AUC shifts than most parent-drug examples.
+
+Interpretation:
+  The observed clinical dataset itself suggests that renal impairment effects are often modest for
+  metabolism-dominant compounds, but active metabolites or specific clearance pathways can behave differently.
+
+Limits:
+  Not every compound appears in every category; line plots can imply trajectories even when categories are
+  sparse or heterogeneous.
+
+Representation:
+  Structured block.</code></pre>
+
+  <h3>Figure 5 — Observed hepatic AUC and Cmax ratios across impairment categories</h3>
+  <pre><code>Purpose:
+  Show observed exposure ratios across hepatic impairment categories for compounds studied in two or
+  more categories.
+
+Structure/panels:
+  (a) Observed AUC ratios by Child-Pugh category.
+  (b) Observed Cmax ratios by Child-Pugh category.
+
+Main pattern:
+  Exposure generally tends to rise with increasing hepatic impairment for some compounds, but the pattern is
+  heterogeneous. Some ratios remain near unity or below unity, suggesting competing mechanisms.
+
+Interpretation:
+  The figure supports the authors' concern that hepatic impairment is more difficult to model because
+  Child-Pugh severity does not map cleanly to all ADME mechanisms.
+
+Limits:
+  Observed heterogeneity may reflect compound properties, absorption changes, protein binding, transporters,
+  study design, disease physiology, and small category sizes.
+
+Representation:
+  Structured block.</code></pre>
+</section>
+
+<section id="clinical-translation">
+  <h2>Clinical and regulatory translation</h2>
+  <div class="mini-grid">
+    <div class="mini-card"><strong>Clinical question</strong>Can verified PBPK models predict renal/hepatic impairment exposure changes well enough to support organ-impairment study design, waiver decisions, or label-supporting totality of evidence?</div>
+    <div class="mini-card"><strong>Population</strong>Adults in organ-impairment PK studies represented through anonymized compounds and matched healthy controls; not disease-treatment outcomes populations.</div>
+    <div class="mini-card"><strong>Intervention / method</strong>PBPK simulation using Simcyp V15 with compound-specific ADME parameters and renal/hepatic impairment virtual populations.</div>
+    <div class="mini-card"><strong>Comparator</strong>Observed clinical PK ratios from organ-impaired subjects vs healthy/matched controls.</div>
+  </div>
+
+  <h3>Practice translation</h3>
+  <ul>
+    <li><strong>Use now for interpretation:</strong> Helpful when reading drug labels or regulatory reviews that cite PBPK to justify renal/hepatic impairment recommendations.</li>
+    <li><strong>Use cautiously for development strategy:</strong> Supports designing organ-impairment studies, timing them later when appropriate, and supplementing incomplete severe/ESRD recruitment.</li>
+    <li><strong>Do not use as a dosing shortcut:</strong> The paper does not validate drug-specific patient dosing decisions outside the studied or modeled context.</li>
+    <li><strong>High-risk exceptions:</strong> Narrow therapeutic index, active metabolites, transporter-dominant clearance, bile-acid-dependent absorption, severe hepatic impairment, ESRD, and uncertain clearance assignment should trigger higher evidentiary expectations.</li>
+  </ul>
+
+  <div class="warning">
+    <strong>Clinical caveat:</strong> The article is from 2021 and uses Simcyp V15. Current regulatory expectations, PBPK platform physiology, and drug-specific labels may have changed. Treat the paper as background and model-confidence evidence, not current dosing guidance.
+  </div>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="verdict">
+    <strong>Verdict: Read soon / skim deeply.</strong> High-value for PBPK, renal/hepatic impairment, and regulatory pharmacotherapy background; not necessary as a front-line clinical reference for routine dosing.
+  </div>
+
+  <div class="rating-grid">
+    <div class="rating-card">
+      <div class="rating-label">Relevance</div>
+      <div class="rating-score">8.0 / 10</div>
+      <p>Strong fit for pharmacotherapy, renal/hepatic dosing, model-informed drug development, and label interpretation.</p>
+      <p class="small"><strong>Evidence basis:</strong> Directly evaluates organ-impairment PBPK. <strong>Limiter:</strong> Not bedside dosing guidance. <strong>Raise/lower:</strong> Would rise with direct label case studies; lower if the task is acute patient care.</p>
+    </div>
+    <div class="rating-card">
+      <div class="rating-label">Novelty</div>
+      <div class="rating-score">7.0 / 10</div>
+      <p>The cross-company dataset and standardized evaluation add value beyond isolated published PBPK examples.</p>
+      <p class="small"><strong>Evidence basis:</strong> 19 companies, 29 compounds, 106 arms. <strong>Limiter:</strong> Uses established PBPK concepts rather than a new model. <strong>Raise/lower:</strong> Would rise with public model files or newer platform validation.</p>
+    </div>
+    <div class="rating-card">
+      <div class="rating-label">Method strength</div>
+      <div class="rating-score">6.5 / 10</div>
+      <p>Good structured evaluation, but retrospective, sponsor-modeled, anonymized, and dependent on Simcyp V15 assumptions.</p>
+      <p class="small"><strong>Evidence basis:</strong> Verification workflow, twofold/Guest criteria, severity strata. <strong>Limiter:</strong> Limited independent reproducibility and incomplete supplement access here. <strong>Raise/lower:</strong> Would rise with blinded independent modeling and full public datasets.</p>
+    </div>
+    <div class="rating-card">
+      <div class="rating-label">Evidence strength</div>
+      <div class="rating-score">6.5 / 10</div>
+      <p>The aggregate RI/HI prediction results support the main claims, but uncertainty and compound-level auditability are limited.</p>
+      <p class="small"><strong>Evidence basis:</strong> 47/50 RI and 43/56 HI AUC ratios within twofold. <strong>Limiter:</strong> Sparse ESRD/severe groups, no patient outcomes, anonymized compounds. <strong>Raise/lower:</strong> Would rise with confidence intervals, full study protocols, and external validation.</p>
+    </div>
+    <div class="rating-card">
+      <div class="rating-label">External validity</div>
+      <div class="rating-score">6.0 / 10</div>
+      <p>Generalizable to many metabolism-dominant development compounds, less so to transporter-heavy, bile-acid-dependent, ESRD, or severe hepatic scenarios.</p>
+      <p class="small"><strong>Evidence basis:</strong> ADME table shows broad but metabolism-heavy properties. <strong>Limiter:</strong> Few ESRD arms and little transporter activity. <strong>Raise/lower:</strong> Would rise with more severe/ESRD and transporter-dominant examples.</p>
+    </div>
+    <div class="rating-card">
+      <div class="rating-label">Implementation value</div>
+      <div class="rating-score">7.0 / 10</div>
+      <p>Useful for study design, waiver rationale, and interpreting PBPK limitations, but not sufficient alone for operational dosing rules.</p>
+      <p class="small"><strong>Evidence basis:</strong> Provides workflow, performance strata, and decision framing. <strong>Limiter:</strong> No drug-specific implementation protocol. <strong>Raise/lower:</strong> Would rise with checklists mapped to regulatory submissions and current software versions.</p>
+    </div>
+  </div>
+
+  <h3>Main strengths</h3>
+  <ul>
+    <li>Large and unusually practical dataset for organ-impairment PBPK compared with isolated case reports.</li>
+    <li>Clear separation of renal vs hepatic performance, showing materially better confidence in RI than HI.</li>
+    <li>Clinically useful emphasis on severe disease, ESRD recruitment difficulty, and narrow-therapeutic-index exceptions.</li>
+    <li>Transparent acknowledgment of mechanistic gaps such as uremic toxins, transporter changes, hepatic scalars, bile-acid effects, and compensatory physiology.</li>
+  </ul>
+
+  <h3>Main limitations</h3>
+  <ul>
+    <li>Anonymized compounds limit independent clinical interpretation and reproducibility.</li>
+    <li>Industry-contributed models may reflect sponsor knowledge not available to outside users.</li>
+    <li>Simcyp V15 physiology is dated relative to future/current platform versions.</li>
+    <li>Severe RI/ESRD and severe HI subgroups are smaller and are exactly where decisions are highest risk.</li>
+    <li>The uploaded PDF references supplementary tables that are not included; detailed study demographics and model parameters are not fully auditable in this artifact.</li>
+  </ul>
+
+  <div class="badnote">
+    <strong>Do not overclaim:</strong> The paper supports PBPK as part of totality-of-evidence assessment. It does not prove that PBPK can generally replace hepatic impairment studies, nor does it validate unverified models for patient-specific dose adjustment.
+  </div>
+</section>
+
+<section id="takeaways">
+  <h2>Implementation and practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><strong>For label reading</strong>When a label cites PBPK for organ impairment, ask whether the model was verified in healthy controls, DDI/pathway data, and at least one impairment category.</div>
+    <div class="mini-card"><strong>For renal impairment</strong>PBPK confidence is higher for metabolism-dominant compounds with modest renal contribution, but severe RI/ESRD still require caution.</div>
+    <div class="mini-card"><strong>For hepatic impairment</strong>Child-Pugh status is a blunt PK predictor. Severe cirrhosis, low-clearance drugs, transporter effects, shunting, absorption changes, and protein binding can break simple assumptions.</div>
+    <div class="mini-card"><strong>For study planning</strong>Use PBPK to design and prioritize studies, broaden eligibility cautiously, and supplement missing severe categories when recruitment is incomplete.</div>
+    <div class="mini-card"><strong>For narrow therapeutic index drugs</strong>Do not rely on model reassurance alone. Favor confirmatory clinical data, conservative monitoring, and label-specific recommendations.</div>
+    <div class="mini-card"><strong>For local clinical policy</strong>This is background evidence only. Local renal/hepatic dose protocols should still rely on current labeling, guidelines, institutional policy, and patient-specific monitoring.</div>
+  </div>
+
+  <h3>Fast appraisal bottom line</h3>
+  <pre><code>Verdict:
+  Read soon / skim deeply.
+
+Best use:
+  PBPK confidence framing for renal/hepatic impairment study design and regulatory interpretation.
+
+Do not use for:
+  Direct bedside dose adjustment or waiving clinical data for high-risk drugs.
+
+Main finding:
+  RI AUC ratio prediction was more reliable than HI prediction:
+  47/50 RI arms within twofold vs 43/56 HI arms within twofold.
+
+Main caution:
+  Hepatic impairment predictions overestimated exposure in multiple moderate/severe cases,
+  especially low-clearance compounds.
+
+Confidence in this appraisal:
+  Moderate-high for main-text conclusions; lower for supplement-level details not present in the uploaded PDF.</code></pre>
+</section>
+
+<section id="qa">
+  <h2>QA and provenance</h2>
+  <div class="kv">
+    <div>Generated</div><div>2026-07-04</div>
+    <div>Evaluated file</div><div>CPT-110-297.pdf</div>
+    <div>Primary source</div><div>Physiologically-Based Pharmacokinetic Modeling in Renal and Hepatic Impairment Populations: A Pharmaceutical Industry Perspective. Clinical Pharmacology &amp; Therapeutics. 2021;110(2):297–310. DOI: 10.1002/cpt.2125.</div>
+    <div>Artifact type</div><div>Single-file self-contained HTML; no external scripts, remote images, or external CSS.</div>
+    <div>Internal citation syntax</div><div>Not included in the HTML artifact.</div>
+    <div>Coverage check</div><div>All 5 main-text figures and all 5 main-text tables accounted for as structured blocks. Supporting information referenced by the article but absent from the uploaded PDF was not appraised.</div>
+  </div>
+  <p class="footer-note">This reference file is a structured appraisal aid. It should be used alongside the original article and current clinical/regulatory sources when patient care or regulatory decisions are involved.</p>
+</section>
+
+</main>
+</body>
+</html>

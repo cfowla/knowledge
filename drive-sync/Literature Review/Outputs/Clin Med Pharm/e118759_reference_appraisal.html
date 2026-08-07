@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference appraisal - Clean versus sterile urinary catheterisation and CAUTI sustainability</title>
+<style>
+:root{
+  --bg:#f6f8fb; --card:#ffffff; --ink:#17202a; --muted:#536579; --line:#d9e2ec;
+  --accent:#174a7c; --accent2:#0f766e; --good:#0f6b3b; --warn:#8a5a00; --bad:#8a1f1f;
+  --soft:#eef5ff; --soft2:#eefaf7; --softwarn:#fff7e6; --codebg:#101827; --codefg:#e9f1ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#0e223d,#174a7c 65%,#0f766e);color:#fff;padding:2.2rem 1.25rem;border-bottom:5px solid #cfe0f2}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.1rem}
+header .wrap{padding:0 1.1rem}
+h1{font-size:clamp(1.55rem,3.1vw,2.65rem);line-height:1.1;margin:.2rem 0 .65rem;font-weight:820;letter-spacing:-.02em}
+.subtitle{font-size:1.05rem;color:#e7eef7;max-width:950px;margin:0}
+.badges{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+.badge,.tag{display:inline-block;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.24rem .55rem;font-size:.82rem;background:rgba(255,255,255,.12);color:#fff}
+main{max-width:1180px;margin:0 auto;padding:1rem 1.1rem 2.5rem}
+section,nav.toc{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:1rem 0;padding:1.05rem 1.15rem;box-shadow:0 1px 5px rgba(15,34,61,.05)}
+h2{margin:.1rem 0 .75rem;color:#123c66;font-size:1.35rem;letter-spacing:-.01em}
+h3{margin:1.05rem 0 .45rem;color:#173f72;font-size:1.05rem}
+h4{margin:.9rem 0 .35rem;color:#24364b;font-size:.98rem}
+p{margin:.45rem 0 .8rem}
+ul,ol{margin:.35rem 0 .8rem;padding-left:1.25rem}
+li{margin:.22rem 0}
+a{color:#174a7c;text-decoration-thickness:.08em;text-underline-offset:.15em}
+.toc ul{columns:2;list-style:none;padding-left:0;margin:.4rem 0 0}
+.toc li{break-inside:avoid;margin:.25rem 0}
+.toc a{text-decoration:none;font-weight:650}
+.meta-grid,.rating-grid,.takeaway-grid,.two-grid,.three-grid{display:grid;gap:.75rem;margin:.8rem 0}
+.meta-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.rating-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.takeaway-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.two-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.three-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mini-card{border:1px solid var(--line);border-radius:13px;padding:.85rem;background:#fbfdff}
+.mini-card h3,.mini-card h4{margin-top:0}
+.k{font-size:.77rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:780;margin-bottom:.15rem}
+.v{font-weight:650;color:#1d2d3d}
+.callout{border-radius:13px;border:1px solid var(--line);padding:.85rem .95rem;margin:.8rem 0;background:var(--soft)}
+.verdict{border-left:5px solid var(--accent2);background:var(--soft2)}
+.warning{border-left:5px solid var(--warn);background:var(--softwarn)}
+.badnote{border-left:5px solid var(--bad);background:#fff0f0}
+.goodnote{border-left:5px solid var(--good);background:#eefaf2}
+.tagrow{display:flex;flex-wrap:wrap;gap:.35rem;margin:.5rem 0}.tagrow .tag{color:#123c66;background:#eef5ff;border:1px solid #cfe0f2}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.94rem;overflow-wrap:anywhere}
+th,td{border:1px solid var(--line);padding:.55rem .62rem;vertical-align:top;text-align:left}
+th{background:#eef3f9;color:#1e395c;font-weight:760}
+tbody tr:nth-child(even){background:#fbfdff}
+pre{background:var(--codebg);color:var(--codefg);padding:.9rem 1rem;border-radius:12px;overflow-x:auto;border:1px solid #22324d;line-height:1.45;font-size:.88rem;white-space:pre-wrap;margin:.7rem 0 1rem}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+.section-summary{border:1px solid var(--line);border-radius:13px;padding:.85rem .95rem;background:#fcfdff;margin:.8rem 0}
+.section-summary h3{margin-top:0}.score{font-size:1.35rem;font-weight:830;color:#0f4f50}.muted{color:var(--muted)}
+.small{font-size:.9rem}.nowrap{white-space:nowrap}.hr{border-top:1px solid var(--line);margin:1rem 0}.compact td,.compact th{font-size:.9rem;padding:.45rem .5rem}
+footer{max-width:1180px;margin:0 auto;padding:0 1.1rem 2.5rem;color:var(--muted)}
+@media (max-width:860px){.meta-grid,.rating-grid,.takeaway-grid,.two-grid,.three-grid{grid-template-columns:1fr}.toc ul{columns:1}main{padding:.7rem}.wrap{padding:0}.takeaway-grid{gap:.5rem}}
+@media print{body{background:white}header{background:#fff;color:#111;border-bottom:2px solid #999}.subtitle,.badge{color:#111}.badge{border:1px solid #999;background:#fff}section,nav.toc{box-shadow:none;break-inside:avoid}a{color:inherit}pre{white-space:pre-wrap;background:#f5f5f5;color:#111;border:1px solid #aaa}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Effect of transitioning from sterile to clean urinary catheterisation on catheter-associated urinary tract infections and sustainability</h1>
+    <p class="subtitle">Protocol-based reference appraisal of a BMJ Open retrospective observational non-inferiority pre-post study in a Dutch university hospital.</p>
+    <div class="badges">
+      <span class="badge">Original research</span><span class="badge">Clinical practice / infection prevention</span><span class="badge">Non-inferiority pre-post design</span><span class="badge">Life-cycle assessment</span>
+    </div>
+  </div>
+</header>
+<main>
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">1. Metadata</a></li>
+    <li><a href="#synthesis">2. One-page synthesis</a></li>
+    <li><a href="#pico">3. Clinical question and PICO</a></li>
+    <li><a href="#coverage">4. Source map and coverage manifest</a></li>
+    <li><a href="#sections">5. Section condensation</a></li>
+    <li><a href="#visuals">6. Figures, tables, and visual evidence</a></li>
+    <li><a href="#appraisal">7. Evaluation and appraisal</a></li>
+    <li><a href="#practice">8. Implementation and practice takeaways</a></li>
+    <li><a href="#qa">9. QA and provenance</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+  <h2>1. Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><div class="k">Exact title</div><div class="v">Effect of transitioning from sterile to clean urinary catheterisation on catheter-associated urinary tract infections and sustainability: a pre-post study in a Dutch university hospital</div></div>
+    <div class="mini-card"><div class="k">Authors</div><div class="v">Stijn Bluiminck; Anna-Karina Nijman; Arjen De Boer; Frank d'Ancona; Saskia Taffijn; Nicolien Hanemaaijer; Tim Stobernack; Gerjon Hannink; Alma Tostmann; Joost Plate; Philip de Reuver</div></div>
+    <div class="mini-card"><div class="k">Source</div><div class="v">BMJ Open. 2026;16:e118759.</div></div>
+    <div class="mini-card"><div class="k">Identifier</div><div class="v">DOI: 10.1136/bmjopen-2026-118759</div></div>
+    <div class="mini-card"><div class="k">Date / version</div><div class="v">Received 24 Feb 2026; accepted 18 Jun 2026; 2026 journal article.</div></div>
+    <div class="mini-card"><div class="k">Design</div><div class="v">Retrospective observational non-inferiority pre-post implementation study with interrupted time series and life-cycle assessment.</div></div>
+    <div class="mini-card"><div class="k">Setting</div><div class="v">Radboud University Medical Center, tertiary referral hospital in the Netherlands, approximately 22,500 annual admissions.</div></div>
+    <div class="mini-card"><div class="k">Population</div><div class="v">3,293 adult inpatients with indwelling urinary catheterization included across two 6-month periods.</div></div>
+    <div class="mini-card"><div class="k">Scope warning</div><div class="v">Supports source appraisal and local practice review. It does not independently override local infection-prevention policy, device policy, or high-risk sterile-procedure exceptions.</div></div>
+  </div>
+</section>
+
+<section id="synthesis">
+  <h2>2. One-page synthesis</h2>
+  <div class="callout verdict">
+    <strong>Core thesis.</strong> In this single-center hospital-wide transition, clean non-sterile urinary catheterization was non-inferior to sterile catheterization for suspected CAUTI by a narrow prespecified 0.5 percentage-point margin and produced a large reduction in catheterization-set carbon footprint.
+  </div>
+  <div class="two-grid">
+    <div class="mini-card">
+      <h3>What the study found</h3>
+      <p>Among 3,293 catheterized adults, suspected CAUTI occurred in 3.8% during the sterile phase and 3.3% during the clean phase. The adjusted risk difference was -0.44 percentage points with a 95% CI from -1.4 to 0.5 percentage points, meeting the study's non-inferiority criterion because the upper bound did not exceed the 0.5 percentage-point margin.</p>
+      <p>Positive urine cultures were essentially unchanged at 13.1% in both phases. The top cultured organisms remained clinically plausible urinary pathogens or flora, with no reported signal of increased skin-bound bacteria. Clean catheterization sets had a carbon footprint of 0.056 kg CO2-equivalent per use, versus 0.191 kg for the sterile ward/emergency set and 0.316 kg for the sterile operating-room set.</p>
+    </div>
+    <div class="mini-card">
+      <h3>How much to trust it</h3>
+      <p>The study is useful because it uses a large real-world hospital dataset, prespecified non-inferiority margin, adjusted risk differences, interrupted time series, protocol-adherence measures, and life-cycle assessment. Baseline characteristics were generally balanced, and no major institutional changes in patient care, infection control, or microbiology analysis were reported across the study window.</p>
+      <p>The study is not definitive because it is non-randomized and pre-post, CAUTI was an inferred "suspected CAUTI" based on catheter timing, positive culture, and antibiotic administration rather than standardized prospective adjudication, urine-culture ordering was clinician-dependent, and some high-risk sterile-protocol patients could not be identified and excluded.</p>
+    </div>
+  </div>
+  <div class="tagrow">
+    <span class="tag">Read first</span><span class="tag">Sustainable care</span><span class="tag">CAUTI prevention</span><span class="tag">Low-value sterile routine reassessment</span><span class="tag">Pre-post evidence</span>
+  </div>
+</section>
+
+<section id="pico">
+  <h2>3. Clinical question and PICO</h2>
+  <table>
+    <tbody>
+      <tr><th>Clinical question</th><td>For adult inpatients receiving indwelling urinary catheterization, does a clean non-sterile catheterization protocol avoid clinically undesirable increases in suspected CAUTI compared with a sterile catheterization protocol, while reducing environmental burden?</td></tr>
+      <tr><th>Population</th><td>Adults at least 18 years old who received an indwelling urinary catheter in a Dutch tertiary hospital. Exclusions included catheterization under 120 minutes, kidney transplant recipients, Synergo thermochemotherapy, conventional intravesical chemotherapy, and urodynamic examinations where identifiable.</td></tr>
+      <tr><th>Intervention</th><td>Hospital-wide clean catheterization protocol using non-sterile gloves, non-sterile gauze, anesthetic gel, and tap water. New protocol uploaded 3 Apr 2024; implementation training occurred Apr-Jun 2024; post-transition analysis began Oct 2024 after wash-in.</td></tr>
+      <tr><th>Comparator</th><td>Sterile catheterization during Aug 2023-Jan 2024, before the hospital-wide transition.</td></tr>
+      <tr><th>Primary outcome</th><td>Proportion of patients with suspected CAUTI: indwelling catheter, positive urine culture collected during catheterization, and UTI-directed antibiotic administration from 2 days after catheter insertion through 7 days after catheter removal.</td></tr>
+      <tr><th>Secondary outcomes</th><td>Positive urine cultures, cultured microorganisms, and carbon footprint of catheterization sets by cradle-to-grave life-cycle assessment.</td></tr>
+      <tr><th>Non-inferiority margin</th><td>Upper bound of two-sided 95% CI for adjusted risk difference could not exceed 0.5 percentage point.</td></tr>
+      <tr><th>Practice translation status</th><td>Practice-informing, not practice-settling. Most applicable to standard adult inpatient catheter placement in systems with reliable clean water, staff training, infection-prevention infrastructure, and continued sterile exceptions for selected high-risk situations.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="coverage">
+  <h2>4. Source map and coverage manifest</h2>
+  <pre><code>SOURCE COVERAGE MANIFEST
+source_id: BMJ Open 2026;16:e118759; DOI 10.1136/bmjopen-2026-118759
+exact_title: Effect of transitioning from sterile to clean urinary catheterisation on catheter-associated urinary tract infections and sustainability: a pre-post study in a Dutch university hospital
+source_type: Journal article; original research; retrospective observational non-inferiority pre-post study with life-cycle assessment
+date_or_version: 2026 article; accepted 18 Jun 2026
+sections_or_headings: Abstract; Introduction; Methods; Results; Discussion; Conclusion; references; online supplemental material noted by authors
+figures: 4 main-text figures - flow diagram/timeline, overall interrupted time series, catheter-duration stratified interrupted time series, carbon-footprint stacked bar chart
+tables: 3 main-text tables - baseline characteristics, CAUTI outcomes/subgroups, urine-culture isolates
+algorithms_or_workflows: Clean catheterization implementation workflow described in methods; no formal algorithm figure beyond Figure 1 timeline
+appendices_or_supplements: Online supplemental A-E are referenced but not included in the uploaded PDF. They include questionnaire, selected antibiotics, protocol/video/product specifications, and DAG.
+visual_strategy:
+  structured_blocks: Figures 1-4 and Tables 1-3 are represented as structured text blocks with key numeric values.
+  embedded_crops_or_screenshots: None. The main visual information is recoverable from captions, tables, and surrounding text.
+  omitted_with_reason: Online supplements are not embedded because the uploaded source does not include them; their reported roles are summarized where they affect appraisal.
+coverage_decision: All main-text figures and tables are accounted for. Supplemental materials are treated as unavailable but acknowledged.
+omissions: No main-text figures or tables omitted.</code></pre>
+</section>
+
+<section id="sections">
+  <h2>5. Section condensation</h2>
+  <div class="section-summary">
+    <h3>Abstract</h3>
+    <p>The abstract frames bladder catheterization as a common hospital procedure traditionally performed sterile to prevent infection, despite cost and carbon-footprint concerns. The study asks whether adopting clean catheterization as standard hospital practice is non-inferior to sterile catheterization for suspected CAUTI and evaluates catheterization-set carbon footprint.</p>
+    <p>The reported main result is 3.8% suspected CAUTI in the sterile phase versus 3.3% in the clean phase, adjusted risk difference -0.44 percentage points with 95% CI -1.4 to 0.5, meeting the stated non-inferiority criterion. Positive urine cultures were unchanged at 13.1% in both groups. Clean sets reduced carbon footprint by 70.7%-82.3% compared with sterile sets.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Introduction</h3>
+    <p>The introduction argues that catheterization is common, resource-intensive, and historically sterile despite limited direct evidence that sterile insertion prevents CAUTI better than a clean approach. It contrasts guidelines that recommend sterile insertion with Dutch infection-prevention guidance that acknowledges limited evidence and supports clean insertion.</p>
+    <p>The implementation context is important: the institution adopted a clean non-sterile urinary catheterization protocol hospital-wide in 2024, creating a pragmatic before-after opportunity. The clinical relevance is strongest for routine catheter placement where sterility may be a low-value default, not for high-risk procedural exceptions.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Methods</h3>
+    <p>The study compared two 6-month periods at Radboud University Medical Center: Aug 2023-Jan 2024 with sterile catheterization and Oct 2024-Mar 2025 after transition to clean catheterization. The clean protocol was introduced Apr-Jun 2024, with post-transition analysis delayed until Oct 2024 to allow staff familiarization. Adult inpatients with at least one urinary catheter were eligible; exclusions included age under 18, catheterization less than 120 minutes, kidney transplant, urodynamic examinations, and intravesical therapies where identifiable.</p>
+    <p>CAUTI was not prospectively adjudicated or routinely surveilled, so the primary outcome was a suspected CAUTI definition requiring an indwelling catheter, a positive urine culture during catheterization, and UTI-directed antibiotics administered 2 days after insertion through 7 days after removal. Analyses used multivariable logistic regression with marginal standardization for adjusted risk differences, a prespecified 0.5 percentage-point non-inferiority margin, interrupted time series for temporal trends, exploratory catheter-duration interactions, and life-cycle assessment using ISO14040/ReCiPe2016 methods.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Results</h3>
+    <p>The analysis included 3,293 patients: 1,647 in the pretransition sterile phase and 1,646 in the post-transition clean phase. Baseline patient, admission, and catheter characteristics were generally balanced by standardized mean differences; median catheter duration was about 1.9 days. Self-reported clean-protocol adherence was high at 91%, and sterile catheterization-set purchasing dropped 96.7% from 4,274 sets in the 6-month pretransition phase to 141 sets in the post-transition phase.</p>
+    <p>Suspected CAUTI occurred in 62/1,647 patients during the sterile phase and 55/1,646 during the clean phase. The adjusted risk difference was -0.44 percentage points, 95% CI -1.4 to 0.5. Interrupted time series did not identify a significant preintervention trend or postimplementation trend change. Positive urine cultures occurred in 215/1,647 and 215/1,646 patients, respectively. Carbon footprint was 0.056 kg CO2-equivalent for the clean set versus 0.191 kg for the sterile ward/emergency set and 0.316 kg for the sterile operating-room set.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Discussion, limitations, and conclusion</h3>
+    <p>The authors interpret the findings as support that clean catheterization can be a safe default alternative to sterile catheterization for standard hospital practice, while substantially reducing environmental impact. They argue that the absence of increased CAUTI and absence of increased skin-bound bacteria are consistent with CAUTI prevention depending more on catheter necessity and timely removal than on maximal sterility at insertion.</p>
+    <p>The limitations materially affect causal strength: pre-post design, residual temporal confounding, suspected rather than adjudicated CAUTI, clinician-dependent culture ordering, inability to identify all immunocompromised or guidewire-catheterized patients, self-reported adherence, and single-center setting. The conclusion is credible as a practice-review signal but should be implemented through local infection-prevention governance, prospective monitoring, and explicit sterile-procedure exceptions.</p>
+  </div>
+</section>
+
+<section id="visuals">
+  <h2>6. Figures, tables, and visual evidence</h2>
+  <h3>Main-text figures</h3>
+  <pre><code>FIGURE 1 - Flow diagram and timeline
+Purpose: Show study flow, exclusions, catheter days, and implementation timeline.
+Structure/panels: CONSORT-like flow plus month-by-month pretransition, transition, and post-transition timeline.
+Key numeric details: 3,894 eligible; 601 excluded; 3,293 included. Exclusions listed: patients under 18 years n=430; catheterization under 120 minutes n=160; kidney transplant recipient n=59; Synergo, conventional intravesical chemotherapy, and urodynamic examinations not quantifiable from registry. Pretransition sterile protocol: 1,647 patients and 5,704 catheterization days. Post-transition clean protocol: 1,646 patients and 6,224 catheterization days.
+Main pattern: Similar patient counts across phases; slightly more catheter days in the clean phase.
+Interpretation: Supports basic comparability of phase sizes but not random exchangeability.
+Limits: Some exclusions were not fully quantifiable; unidentifiable high-risk sterile-protocol exceptions could remain in the dataset.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 2 - Binomial interrupted time series: monthly suspected CAUTI proportion
+Purpose: Assess whether suspected CAUTI trend changed after implementation of clean catheterization.
+Structure/panels: Monthly proportions across Aug 2023-Mar 2025 with grey transition phase and modeled pre/post trends.
+Numeric details: Pretrend OR 1.06 per month (95% CI 0.91-1.23; p=0.473). Immediate change OR 0.98 (95% CI 0.46-2.03; p=0.956). Post-trend OR 0.89 (95% CI 0.71-1.10; p=0.274).
+Main pattern: No statistically significant baseline trend, immediate step change, or postimplementation trend change.
+Interpretation: Supports absence of a visible temporal safety signal after implementation.
+Limits: Monthly aggregate analysis with short pre/post series; low event counts constrain sensitivity.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 3 - Binomial interrupted time series stratified by catheterization duration
+Purpose: Explore whether the clean-protocol effect differed by catheter dwell time.
+Structure/panels: Same monthly ITS concept stratified into 0-2 days, 3-7 days, and more than 7 days catheter duration.
+Numeric details: Absolute suspected CAUTI risks: 1.4% (24/1,697) for 0-2 days, 5.0% (57/1,139) for 3-7 days, and 7.88% (36/457) for more than 7 days. No statistically significant level change reported for 3-7 days (OR 0.70; 95% CI 0.24-2.08) or more than 7 days (OR 1.08; 95% CI 0.31-3.74). No statistically significant postimplementation trend change reported.
+Main pattern: Longer catheter duration carried higher absolute suspected CAUTI risk, as expected, without a clear clean-protocol harm signal.
+Interpretation: Reinforces that dwell-time reduction remains a central CAUTI prevention target.
+Limits: Exploratory, underpowered strata; 0-2-day group has low event rate.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 4 - Carbon footprint of sterile and non-sterile catheterization sets
+Purpose: Compare material contributors to cradle-to-grave carbon footprint.
+Structure/panels: Stacked bars for sterile operating-room set, sterile ward/emergency-room set, and non-sterile set.
+Numeric details: Sterile OR set 0.316 kg CO2-eq per use; sterile ward/ER set 0.191 kg CO2-eq per use; non-sterile set 0.056 kg CO2-eq per use. Reduction with clean set: 82.3% versus OR set and 70.7% versus ward/ER set. Estimated annual reduction at the institution: approximately 1,300 kg CO2-eq.
+Main pattern: Sterile packaging/materials drive most of the footprint; clean sets have markedly lower impact.
+Interpretation: The sustainability claim is strongly supported at the set-composition level.
+Limits: Catheter and anesthetic gel were excluded because they did not change; institution-specific product mix may alter absolute values.
+Representation: Structured block.</code></pre>
+
+  <h3>Main-text tables</h3>
+  <table class="compact">
+    <thead><tr><th>Table</th><th>Key contents</th><th>Appraisal notes</th></tr></thead>
+    <tbody>
+      <tr><td>Table 1 - Patient, admission, and catheter characteristics</td><td>3,293 total; 49.5% female; mean age 62.5 years; median admission duration 4 days; emergency admission 43.9%; median catheter duration 1.92 days; 51.5% catheterized 0-2 days, 34.6% 3-7 days, 13.9% more than 7 days; silicone 43.9%, unknown catheter type 52.3%.</td><td>Most standardized mean differences were below 0.1, suggesting baseline balance. Coated Foley had SMD -0.119 but was a small category. Unknown catheter type was common, limiting device-specific inference.</td></tr>
+      <tr><td>Table 2 - Suspected CAUTI outcomes and subgroups</td><td>Overall suspected CAUTI 117/3,293 (3.6%). Sterile phase: 62/1,647 (3.8%). Clean phase: 55/1,646 (3.3%). Unadjusted RD -0.4 percentage points (95% CI -1.7 to 0.8). Adjusted RD -0.4 percentage points (95% CI -1.4 to 0.5). Subgroups by sex, age, admission type, catheter duration, and catheter type did not show a clear harm signal.</td><td>The primary non-inferiority inference depends on the upper 95% CI exactly reaching, but not exceeding, the 0.5 percentage-point margin. The endpoint is suspected CAUTI, not prospectively adjudicated clinical CAUTI.</td></tr>
+      <tr><td>Table 3 - Culture data</td><td>831 isolates: 434 pretransition and 397 post-transition. Top organisms included Escherichia coli (31.6% pre vs 27.2% post), Gram-positive flora (21.4% vs 17.1%), Klebsiella pneumoniae (12.2% vs 8.1%), mixed bacterial flora (9.4% vs 9.8%), Proteus mirabilis (3.2% vs 5.5%), Candida albicans (1.6% vs 3.8%), Enterococcus faecalis (1.6% vs 3.3%), and Pseudomonas aeruginosa (2.5% vs 2.5%).</td><td>No increase in skin-bound bacteria is reported. The culture distribution is exploratory and should not be overinterpreted as proof of unchanged pathogenesis because culture-ordering decisions were not standardized.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="appraisal">
+  <h2>7. Evaluation and appraisal</h2>
+  <div class="callout verdict"><strong>Verdict: Read first.</strong> Best use is as a high-yield practice-reassessment paper for infection prevention, nursing workflow, and sustainable care. Do not use it alone to override local sterile-technique policy or apply clean technique to high-risk sterile exceptions.</div>
+  <div class="rating-grid">
+    <div class="mini-card"><div class="k">Relevance</div><div class="score">8.5 / 10</div><p><strong>Rationale:</strong> Directly addresses a common hospital procedure with implications for infection prevention, nursing workflow, cost, and low-carbon care.</p><p><strong>Evidence basis:</strong> Adult inpatient catheterization, suspected CAUTI rates, culture data, adherence, purchasing, and LCA. <strong>Limiting factor:</strong> Less directly pharmacotherapy-focused. <strong>Would raise/lower:</strong> Raise with multicenter implementation outcomes; lower if local policy excludes clean technique categorically.</p></div>
+    <div class="mini-card"><div class="k">Novelty</div><div class="score">7.5 / 10</div><p><strong>Rationale:</strong> Clean versus sterile catheterization is not a new question, but hospital-wide implementation plus narrow non-inferiority margin and LCA adds meaningful practical value.</p><p><strong>Evidence basis:</strong> Large pre-post hospital cohort and sustainability analysis. <strong>Limiting factor:</strong> Prior small RCTs and Dutch guidance already pointed in this direction. <strong>Would raise/lower:</strong> Raise with implementation-cost and workflow-time outcomes; lower if similar multicenter data already exist.</p></div>
+    <div class="mini-card"><div class="k">Method strength</div><div class="score">6.5 / 10</div><p><strong>Rationale:</strong> Strong for pragmatic observational implementation but weaker than randomized or multicenter prospective surveillance.</p><p><strong>Evidence basis:</strong> Consecutive 12-month sampling, adjusted marginal risk differences, DAG-informed covariates, ITS, balanced SMDs, and LCA. <strong>Limiting factor:</strong> Pre-post design, no formal sample size calculation, suspected endpoint, and incomplete high-risk subgroup identification. <strong>Would raise/lower:</strong> Raise with cluster-randomized or stepped-wedge design and adjudicated CAUTI; lower if unmeasured concurrent changes were discovered.</p></div>
+    <div class="mini-card"><div class="k">Evidence strength</div><div class="score">6.8 / 10</div><p><strong>Rationale:</strong> The data support no obvious CAUTI increase, but endpoint construction and residual confounding cap certainty.</p><p><strong>Evidence basis:</strong> Adjusted RD -0.44 percentage points with CI upper bound at 0.5, unchanged positive culture rate, and no ITS signal. <strong>Limiting factor:</strong> Suspected CAUTI can include treated asymptomatic bacteriuria or miss untreated true CAUTI. <strong>Would raise/lower:</strong> Raise with standardized clinical adjudication and catheter-day incidence; lower if culture or antibiotic-ordering behavior changed by phase.</p></div>
+    <div class="mini-card"><div class="k">External validity</div><div class="score">6.0 / 10</div><p><strong>Rationale:</strong> Generalizable to similar hospitals with clean water and strong IPC infrastructure, but single-center Dutch tertiary implementation limits broader transfer.</p><p><strong>Evidence basis:</strong> Diverse hospital adult inpatient cohort and real-world training/adherence data. <strong>Limiting factor:</strong> Unclear applicability to low-resource settings without reliable clean water, immunocompromised populations, guidewire catheterization, or units with different CAUTI surveillance. <strong>Would raise/lower:</strong> Raise with multicenter, nursing-home, home-care, and high-risk subgroup data; lower in settings with weak basic infection-control practices.</p></div>
+    <div class="mini-card"><div class="k">Implementation value</div><div class="score">8.0 / 10</div><p><strong>Rationale:</strong> The paper provides enough protocol, adherence, purchasing, outcome, and LCA information to support a local quality-improvement proposal.</p><p><strong>Evidence basis:</strong> Implementation timeline, clean protocol components, staff training, 91% reported adherence, 96.7% reduction in sterile-set purchases, and quantified CO2-equivalent reductions. <strong>Limiting factor:</strong> Full supplemental protocol and product specifications are not contained in the uploaded PDF. <strong>Would raise/lower:</strong> Raise with supplemental protocol, audit forms, cost analysis, and staff time data; lower if local products have very different environmental profiles.</p></div>
+  </div>
+  <div class="two-grid">
+    <div class="mini-card">
+      <h3>Main strengths</h3>
+      <ul>
+        <li>Large real-world inpatient dataset with nearly identical pre/post patient counts.</li>
+        <li>Narrow non-inferiority margin, adjusted risk differences, and ITS temporal checks.</li>
+        <li>Protocol adherence assessed through both self-report and purchasing data.</li>
+        <li>Culture spectrum and LCA address mechanism and sustainability, not only headline CAUTI rate.</li>
+      </ul>
+    </div>
+    <div class="mini-card">
+      <h3>Main limitations</h3>
+      <ul>
+        <li>Pre-post observational design cannot fully remove secular confounding.</li>
+        <li>Suspected CAUTI definition depends on culture plus antibiotic administration, not adjudicated symptoms.</li>
+        <li>Urine-culture decisions were based on clinician judgment rather than a standardized trigger.</li>
+        <li>Immunocompromised and guidewire-catheterized patients could not be reliably identified.</li>
+        <li>Single-center Dutch implementation may not map directly to other hospitals or supply chains.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="practice">
+  <h2>8. Implementation and practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><h3>Reasonable use</h3><p>Use this as a source for local IPC/nursing/urology review of whether routine sterile catheterization is necessary for standard adult inpatient catheter placement.</p></div>
+    <div class="mini-card"><h3>Do not overclaim</h3><p>Do not claim clean catheterization is proven universally equivalent for all patient groups or all procedural contexts. The study evaluates suspected CAUTI in one tertiary hospital.</p></div>
+    <div class="mini-card"><h3>Best next step</h3><p>If adopted locally, pair the protocol change with prospective CAUTI surveillance, culture-ordering review, adherence audits, and explicit sterile exceptions.</p></div>
+  </div>
+  <h3>Local implementation checklist</h3>
+  <table>
+    <thead><tr><th>Domain</th><th>Action</th><th>Monitoring metric</th></tr></thead>
+    <tbody>
+      <tr><td>Eligibility</td><td>Define standard adult inpatient catheter placement versus exceptions requiring sterile technique.</td><td>Percent of catheterizations assigned to clean vs sterile pathway; exception documentation rate.</td></tr>
+      <tr><td>Protocol</td><td>Specify hand hygiene, non-sterile gloves, cleaning materials, water source, catheter/gel use, and documentation requirements.</td><td>Direct-observation adherence audit; supply utilization.</td></tr>
+      <tr><td>Training</td><td>Train nursing, ED, perioperative, urology, and float staff before go-live; maintain competency materials.</td><td>Completion rate; observed deviations; staff questions and remediation items.</td></tr>
+      <tr><td>Safety</td><td>Track catheter-days, suspected CAUTI, adjudicated CAUTI where possible, urine-culture rates, antibiotic treatment, and catheter dwell time.</td><td>CAUTI per 1,000 catheter-days; positive culture rate; UTI antibiotic days of therapy.</td></tr>
+      <tr><td>Sustainability</td><td>Compare local sterile and clean set compositions, costs, waste, and purchasing volume.</td><td>CO2-equivalent per catheterization, supply cost per catheterization, sterile-set reduction.</td></tr>
+      <tr><td>Governance</td><td>Obtain approval from infection prevention, nursing leadership, urology, perioperative services, antimicrobial stewardship, and quality/safety.</td><td>Policy approval date; review interval; escalation trigger thresholds.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warning"><strong>Clinical caution.</strong> The paper supports reconsidering routine sterility for standard catheter insertion, but the safer local framing is a controlled deimplementation project with surveillance, not an unmonitored switch.</div>
+</section>
+
+<section id="qa">
+  <h2>9. QA and provenance</h2>
+  <div class="two-grid">
+    <div class="mini-card">
+      <h3>Semantic QA checks</h3>
+      <ul>
+        <li>Exact title, journal, DOI, source type, design, setting, and population included.</li>
+        <li>All main-text figures and tables accounted for as structured blocks or table summaries.</li>
+        <li>Primary magnitudes preserved: sample size, event rates, adjusted risk difference, confidence interval, non-inferiority margin, culture rates, adherence, purchasing reduction, and CO2-equivalent values.</li>
+        <li>Claims separated from appraisal; limitations appear next to affected claims and in final appraisal.</li>
+        <li>Self-contained HTML: embedded CSS only; no scripts, remote images, external fonts, or internal chat citation syntax.</li>
+      </ul>
+    </div>
+    <div class="mini-card">
+      <h3>Provenance</h3>
+      <p><strong>Evaluated source:</strong> Bluiminck S, Nijman A-K, De Boer A, d'Ancona F, Taffijn S, Hanemaaijer N, Stobernack T, Hannink G, Tostmann A, Plate J, de Reuver P. Effect of transitioning from sterile to clean urinary catheterisation on catheter-associated urinary tract infections and sustainability: a pre-post study in a Dutch university hospital. BMJ Open. 2026;16:e118759.</p>
+      <p><strong>Identifier:</strong> DOI 10.1136/bmjopen-2026-118759.</p>
+      <p><strong>Input file:</strong> e118759.full.pdf.</p>
+      <p><strong>Generated:</strong> 2026-07-04.</p>
+      <p><strong>Caveat:</strong> This reference file summarizes and appraises the uploaded article; it does not include the online supplemental files and does not replace local clinical governance.</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <p>Single-file reference HTML artifact generated for source appraisal. No external assets.</p>
+</footer>
+</body>
+</html>

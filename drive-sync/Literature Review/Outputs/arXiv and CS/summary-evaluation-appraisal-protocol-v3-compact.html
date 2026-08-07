@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Summary, Evaluation, and Appraisal Protocol - Integrated
+Compact v3</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <style>
+  :root{--bg:#f7f8fb;--card:#fff;--ink:#17202a;--muted:#526173;--line:#d9e0ea;--accent:#1d4f91;--good:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;--codebg:#0e1726;--codefg:#edf4ff}*{box-sizing:border-box}body{margin:0 auto;max-width:1100px;padding:1.25rem;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;background:var(--bg);color:var(--ink)}body:before{content:"Summary, Evaluation, and Appraisal Protocol";display:block;margin:-1.25rem -1.25rem 1.25rem;padding:2rem 1.25rem 1.8rem;background:linear-gradient(135deg,#10243d,#1d4f91);color:white;font-size:clamp(1.5rem,3vw,2.4rem);font-weight:800;line-height:1.15;border-bottom:5px solid #d2e2f5}h1{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.25rem;margin:1rem 0;box-shadow:0 1px 4px rgba(16,36,61,.05);color:#0f315f}h2{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.25rem;margin:1rem 0 .75rem;box-shadow:0 1px 4px rgba(16,36,61,.05);color:#0f315f}h3{color:#173f72;margin-top:1.25rem}h4{color:#24364b}p,ul,ol,table,pre,blockquote{background:var(--card)}p,ul,ol,blockquote{border-radius:10px}blockquote{margin:.75rem 0;padding:.9rem 1rem;border-left:5px solid var(--accent);background:#eef5ff;color:#26384e}table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.95rem;border:1px solid var(--line);box-shadow:0 1px 3px rgba(16,36,61,.04)}th,td{border:1px solid var(--line);padding:.55rem .65rem;vertical-align:top}th{background:#eef3f9;text-align:left;color:#1e395c}pre{margin:.75rem 0 1.1rem;padding:1rem;background:var(--codebg);color:var(--codefg);border-radius:12px;overflow-x:auto;border:1px solid #1b2e49;font-size:.88rem;line-height:1.45;white-space:pre}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}p code,li code,td code{background:#eef3f9;color:#17202a;border:1px solid #d7e0eb;border-radius:5px;padding:.05rem .25rem}a{color:var(--accent)}hr{border:0;border-top:1px solid var(--line)}ul,ol{padding-top:.1rem;padding-bottom:.1rem}li{margin:.28rem 0}.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.25rem;margin:1rem 0 1.25rem;box-shadow:0 1px 4px rgba(16,36,61,.06)}@media print{body{background:white}body:before,h1,h2,table,pre,blockquote{box-shadow:none}pre{white-space:pre-wrap}a{color:inherit}}
+  </style>
+</head>
+<body>
+<h1
+id="summary-evaluation-and-appraisal-protocol--integrated-compact-v3">Summary,
+Evaluation, and Appraisal Protocol — Integrated Compact v3</h1>
+<blockquote>
+<p>Reusable standard for scientific, clinical, scholarly, and AI/ML
+reference HTML files. This version folds prior guardrail patches into
+the operating workflow, coverage rules, visual extraction rules,
+appraisal scoring, HTML handling, and QA gates so future updates do not
+accumulate as append-only context.</p>
+</blockquote>
+<h2 id="contents">Contents</h2>
+<ol type="1">
+<li>Protocol metadata</li>
+<li>Core operating standard</li>
+<li>End-to-end execution contract</li>
+<li>Source intake, routing, and grounding</li>
+<li>Coverage manifest and inclusion gate</li>
+<li>Section condensation rules</li>
+<li>Figure, table, exhibit, and workflow extraction</li>
+<li>Evaluation and appraisal rubric</li>
+<li>Domain-specific appraisal modules</li>
+<li>Reference HTML output specification</li>
+<li>Reusable prompts</li>
+<li>Quality-control checklist</li>
+<li>Protocol maintenance rules</li>
+</ol>
+<h2 id="1-protocol-metadata">1. Protocol metadata</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Protocol name</td>
+<td>Summary, Evaluation, and Appraisal Reference HTML Protocol</td>
+</tr>
+<tr class="even">
+<td>Primary use</td>
+<td>Scientific, clinical, scholarly, and AI/ML source evaluation</td>
+</tr>
+<tr class="odd">
+<td>Output format</td>
+<td>Polished single-file HTML, with Markdown protocol as reusable
+control document</td>
+</tr>
+<tr class="even">
+<td>Default depth</td>
+<td>Section-by-section synthesis, visual/table/workflow extraction,
+appraisal, implementation takeaways</td>
+</tr>
+<tr class="odd">
+<td>Default tone</td>
+<td>Concise, technical, evidence-oriented, non-promotional</td>
+</tr>
+<tr class="even">
+<td>Best fit</td>
+<td>Papers, preprints, guidelines, protocols, benchmarks, clinical
+reviews, technical reports, practice documents</td>
+</tr>
+<tr class="odd">
+<td>Scope warning</td>
+<td>This protocol supports source understanding and appraisal. It does
+not replace primary-source reading, clinical judgment, regulatory
+review, or local policy.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-core-operating-standard">2. Core operating standard</h2>
+<p>Each reference file must make the source easier to retain, search,
+critique, and reuse. It must separate: what the source says, how it
+supports the claims, what the figures/tables/workflows contain, how
+credible the work is, and what should be done with it next.</p>
+<p>Default compression is strict: summarize each source section in no
+more than two dense paragraphs unless greater depth is explicitly
+requested. Preserve load-bearing claims, methods, measurements,
+limitations, quantitative results, and conclusions. Decompose figures,
+tables, algorithms, workflows, equations, and key appendices into
+structured blocks because they often carry the most reusable
+information.</p>
+<p><strong>Execution invariant:</strong> Source access → source map →
+visual/table inventory → coverage decision → artifact generation →
+semantic QA → final response.</p>
+<h2 id="3-end-to-end-execution-contract">3. End-to-end execution
+contract</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Phase</th>
+<th>Required action</th>
+<th>Output / gate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Source access</td>
+<td>Use the user-provided source as the primary object. For remote
+papers, use web/PDF tooling; do not use container internet for
+downloads.</td>
+<td>Source URL/file, source type, accessible text/visual strategy.</td>
+</tr>
+<tr class="even">
+<td>2. Classify source</td>
+<td>Identify whether it is a preprint, journal article, guideline,
+label, benchmark, technical report, software paper, dataset paper,
+protocol, review, policy, or practice document.</td>
+<td>Appraisal lens selected.</td>
+</tr>
+<tr class="odd">
+<td>3. Map structure</td>
+<td>Map actual headings: abstract, background, methods, results,
+discussion, limitations, conclusion, figures, tables, algorithms,
+appendices, supplements. Do not force non-IMRaD sources into IMRaD.</td>
+<td>Source map.</td>
+</tr>
+<tr class="even">
+<td>4. Build coverage manifest</td>
+<td>Enumerate source ID, title, source type, sections, figures, tables,
+algorithms/workflows, appendices, and known omissions.</td>
+<td>Coverage gate; do not write HTML before this exists.</td>
+</tr>
+<tr class="odd">
+<td>5. Decide coverage</td>
+<td>Include all main-text figures/tables. Include appendices only when
+methodologically, empirically, clinically, or operationally important.
+Mark meaningful omissions explicitly.</td>
+<td>Coverage decision.</td>
+</tr>
+<tr class="even">
+<td>6. Extract and summarize</td>
+<td>Condense sections, preserve magnitudes, decompose
+visuals/tables/workflows, and keep claims separate from appraisal.</td>
+<td>Draft content.</td>
+</tr>
+<tr class="odd">
+<td>7. Appraise</td>
+<td>Score relevance, novelty, method strength, evidence strength,
+external validity, and implementation value. Each rating needs a score,
+one-sentence rationale, evidence basis, and what would raise/lower the
+score.</td>
+<td>Appraisal block.</td>
+</tr>
+<tr class="even">
+<td>8. Generate HTML</td>
+<td>Use established single-file HTML style. Do not include internal
+citation syntax in the artifact. Include plain source/provenance.</td>
+<td>HTML artifact.</td>
+</tr>
+<tr class="odd">
+<td>9. Semantic QA</td>
+<td>Check source ID/title match, required sections, visual/table
+accounting, ratings, anchors, no placeholders, no stale
+filenames/headings, no planning language, provenance included.</td>
+<td>Pass/fail before final.</td>
+</tr>
+<tr class="even">
+<td>10. Final response</td>
+<td>Provide the artifact link and brief note only unless the user asks
+for details or something failed.</td>
+<td>Final chat response.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-source-intake-routing-and-grounding">4. Source intake,
+routing, and grounding</h2>
+<h3 id="minimum-metadata">Minimum metadata</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Required content</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Title</td>
+<td>Exact title</td>
+<td>Do not silently shorten titles in the metadata card.</td>
+</tr>
+<tr class="even">
+<td>Authors / organization</td>
+<td>Authors, group authors, issuing body, sponsor</td>
+<td>For guidelines, include issuing body and endorsement status.</td>
+</tr>
+<tr class="odd">
+<td>Source type</td>
+<td>Preprint, article, guideline, label, benchmark, report, policy,
+protocol, dataset, software</td>
+<td>Determines appraisal lens.</td>
+</tr>
+<tr class="even">
+<td>Date / version</td>
+<td>Publication, submission, update date, version</td>
+<td>Critical for preprints, guidelines, software, AI/ML, and practice
+documents.</td>
+</tr>
+<tr class="odd">
+<td>Identifier</td>
+<td>DOI, PMID, PMCID, arXiv ID, URL, registry ID, guideline ID</td>
+<td>Prefer stable identifiers.</td>
+</tr>
+<tr class="even">
+<td>Design</td>
+<td>RCT, cohort, case-control, modeling study, benchmark, systematic
+review, consensus guideline, software architecture, etc.</td>
+<td>Do not infer stronger design than reported.</td>
+</tr>
+<tr class="odd">
+<td>Scope warning</td>
+<td>What this reference does and does not validate</td>
+<td>Required for clinical, regulatory, and AI safety-relevant
+files.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grounding-priority">Grounding priority</h3>
+<ol type="1">
+<li>User-provided source or uploaded file.</li>
+<li>Source metadata page for title, authors, date, version,
+DOI/PMID/arXiv ID, abstract, or errata.</li>
+<li>Primary full text, PDF, supplementary appendix, registry, code
+repository, dataset card, or implementation documentation when appraisal
+depends on methods or visuals.</li>
+<li>Guidelines, labels, society statements, or regulatory sources for
+clinical/practice claims that could affect care.</li>
+<li>Secondary commentary only when the task asks about reception,
+controversy, user sentiment, implementation experience, or broader
+context.</li>
+</ol>
+<p><strong>Currency rule:</strong> Clinical practice, drug information,
+guidelines, regulatory status, pricing, software, benchmarks, AI model
+capabilities, and current events require recency verification when
+feasible. A source can be accurately summarized and still be outdated
+for practice.</p>
+<h2 id="5-coverage-manifest-and-inclusion-gate">5. Coverage manifest and
+inclusion gate</h2>
+<p>Before drafting the artifact, create a compact internal manifest:</p>
+<pre class="text"><code>SOURCE COVERAGE MANIFEST
+source_id:
+title:
+source_type:
+date_or_version:
+sections:
+figures:
+tables:
+algorithms_or_workflows:
+appendices_or_supplements:
+coverage_decision:
+omissions:</code></pre>
+<p><strong>Gate:</strong> Do not generate the HTML until source ID,
+title, sections, figures, tables, appendices/supplements, and omissions
+are enumerated. If parsed text lacks visual content, screenshot only
+main-text figures/tables or central appendix visuals that are not
+recoverable from parsed text.</p>
+<h2 id="6-section-condensation-rules">6. Section condensation rules</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Section type</th>
+<th>Preserve</th>
+<th>Avoid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Abstract</td>
+<td>Problem, method, main result, claimed implication</td>
+<td>Treating author framing as verified evidence.</td>
+</tr>
+<tr class="even">
+<td>Introduction / background</td>
+<td>Rationale, claimed gap, domain context</td>
+<td>Overweighting background as proof.</td>
+</tr>
+<tr class="odd">
+<td>Methods</td>
+<td>Design, population/data, inclusion/exclusion, intervention/model,
+comparator/baseline, endpoints, statistics, validation</td>
+<td>Vague “standard methods” language.</td>
+</tr>
+<tr class="even">
+<td>Results</td>
+<td>Primary outcomes, effect sizes, uncertainty, benchmark deltas,
+ablations, subgroup findings, table-linked results</td>
+<td>Direction-only summaries without magnitude.</td>
+</tr>
+<tr class="odd">
+<td>Discussion</td>
+<td>Authors’ interpretation, stated implications, acknowledged
+limitations</td>
+<td>Accepting speculation as established.</td>
+</tr>
+<tr class="even">
+<td>Limitations</td>
+<td>Internal, external, statistical, operational, regulatory, safety,
+and generalizability limits</td>
+<td>Hiding limitations only in final appraisal.</td>
+</tr>
+<tr class="odd">
+<td>Conclusion</td>
+<td>Final claim and justified next step</td>
+<td>Letting conclusions inflate weak evidence.</td>
+</tr>
+</tbody>
+</table>
+<p>Preferred block:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;section-summary&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h3</span><span class="dt">&gt;</span>Source heading<span class="dt">&lt;/</span><span class="kw">h3</span><span class="dt">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Paragraph 1: section function, claim, and relevance.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Paragraph 2: load-bearing details, magnitudes, caveats, or limits.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>Compression discipline: preserve headings, named methods, numbered
+frameworks, arms/groups, metrics, timepoints, denominators, sample
+sizes, effect sizes, confidence intervals, p values, calibration,
+accuracy, latency, thresholds, and benchmark scores when central. Use
+“Not tested,” “Not reported,” “Unclear,” or “Out of scope” instead of
+vague prose. Keep author claims distinct from independent inference.</p>
+<h2 id="7-figure-table-exhibit-and-workflow-extraction">7. Figure,
+table, exhibit, and workflow extraction</h2>
+<h3 id="inclusion-rules">Inclusion rules</h3>
+<ul>
+<li>Include all main-text figures and tables.</li>
+<li>Include appendix/supplement visuals only when they change
+interpretation, methods, evidence strength, reproducibility, safety, or
+implementation.</li>
+<li>Explicitly mark omitted figures/tables only when omission matters to
+source understanding.</li>
+<li>Screenshot sparingly: use screenshots for figures/tables that cannot
+be reliably reconstructed from parsed text.</li>
+</ul>
+<h3 id="compact-extraction-templates">Compact extraction templates</h3>
+<pre class="text"><code>FIGURE N — Title
+Purpose:
+Structure/panels:
+Variables/axes/groups:
+Numeric details:
+Main pattern:
+Interpretation:
+Limits:</code></pre>
+<pre class="text"><code>TABLE N — Title
+Rows:
+Columns:
+Key values:
+Pattern:
+Appraisal: denominators, uncertainty, comparators, missing data, subgroup power.</code></pre>
+<pre class="text"><code>WORKFLOW / ALGORITHM — Title
+Inputs:
+Process / decision rules:
+Outputs:
+Failure modes:
+Human review:
+Governance: boundary checks, escalation, audit trail, versioning, monitoring triggers.</code></pre>
+<p>Visual appraisal questions: Are denominators, scales, units,
+uncertainty, and time windows clear? Does the visual support the text
+claim? Could confounding, selection bias, leakage, cherry-picking, or
+calibration failure explain the pattern? For AI/ML, separate training,
+validation, test, external validation, ablation, and deployment. For
+clinical work, distinguish surrogate from patient-centered outcomes.</p>
+<h2 id="8-evaluation-and-appraisal-rubric">8. Evaluation and appraisal
+rubric</h2>
+<p>Final appraisal must answer: Is the source worth reading? How much
+should it be trusted? What practical use should it have?</p>
+<table>
+<thead>
+<tr class="header">
+<th>Dimension</th>
+<th style="text-align: right;">Score</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Relevance</td>
+<td style="text-align: right;">0–10</td>
+<td>Fit to clinical, research, AI/ML, workflow, or implementation
+interests.</td>
+</tr>
+<tr class="even">
+<td>Novelty</td>
+<td style="text-align: right;">0–10</td>
+<td>Added value beyond known methods, guidelines, systems, or prior
+evidence.</td>
+</tr>
+<tr class="odd">
+<td>Method strength</td>
+<td style="text-align: right;">0–10</td>
+<td>Design, controls, statistics, validation,
+baselines/comparators.</td>
+</tr>
+<tr class="even">
+<td>Evidence strength</td>
+<td style="text-align: right;">0–10</td>
+<td>How directly data support claims and whether uncertainty is
+reported.</td>
+</tr>
+<tr class="odd">
+<td>External validity</td>
+<td style="text-align: right;">0–10</td>
+<td>Generalizability across sites, populations, datasets, tasks, or
+practice settings.</td>
+</tr>
+<tr class="even">
+<td>Implementation value</td>
+<td style="text-align: right;">0–10</td>
+<td>Enough detail to change practice, build a tool, or inform workflow
+design.</td>
+</tr>
+</tbody>
+</table>
+<p>Each score must include: score, one-sentence rationale, evidence
+basis, and what would raise or lower the score.</p>
+<h3 id="verdict-labels">Verdict labels</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Verdict</th>
+<th>Use when</th>
+<th>Typical action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Read first</td>
+<td>High relevance and high utility</td>
+<td>Read full text; preserve methods, figures, tables.</td>
+</tr>
+<tr class="even">
+<td>Read soon</td>
+<td>Useful but not immediately central or not mature</td>
+<td>Add to queue/notes/RAG corpus.</td>
+</tr>
+<tr class="odd">
+<td>Skim deeply</td>
+<td>One or two high-value ideas, methods, datasets, or warnings</td>
+<td>Extract key method/visual and move on.</td>
+</tr>
+<tr class="even">
+<td>Skim</td>
+<td>Peripheral or incremental</td>
+<td>Capture citation and one-line takeaway.</td>
+</tr>
+<tr class="odd">
+<td>Do not prioritize</td>
+<td>Low relevance, weak methods, redundant contribution, poor fit</td>
+<td>Skip unless needed for completeness.</td>
+</tr>
+<tr class="even">
+<td>Do not use for practice</td>
+<td>Interesting but inadequate for clinical/operational/regulatory
+action</td>
+<td>Background or hypothesis only.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="evidence-strength-anchors">Evidence-strength anchors</h3>
+<ul>
+<li><strong>9–10:</strong> Prospective/well-controlled or robust
+benchmark; external validation; meaningful outcomes; strong
+baselines/ablations; reproducible implementation; leakage checks;
+transparent limitations.</li>
+<li><strong>7–8:</strong> Good design with manageable limits;
+uncertainty reported; reasonable generalizability; mostly clear
+implementation.</li>
+<li><strong>5–6:</strong> Useful but constrained by
+observational/surrogate/small/narrow data, weak baselines, missing
+ablations, or partial reproducibility.</li>
+<li><strong>3–4:</strong> Hypothesis-generating; serious confounding,
+underpowering, unclear endpoints, limited evaluation, or demo-level
+support.</li>
+<li><strong>0–2:</strong> Unsupported, unsafe, irreproducible,
+contaminated, marketing-like, or not supported by results.</li>
+</ul>
+<p>Red flags: claim inflation, missing denominators, surrogate
+substitution, benchmark leakage, weak comparator, no failure analysis,
+no implementation path, and clinical/regulatory ambiguity.</p>
+<h2 id="9-domain-specific-appraisal-modules">9. Domain-specific
+appraisal modules</h2>
+<p>Use the core structure for every file, then add only the relevant
+modules.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Module</th>
+<th>Preserve</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Clinical trials</td>
+<td>PICO, duration, randomization, blinding, attrition, adverse events,
+effect size, NNT/NNH, external validity.</td>
+</tr>
+<tr class="even">
+<td>Pharmacotherapy</td>
+<td>Dose, route, PK/PD, renal/hepatic adjustment, exposure metrics,
+MIC/target attainment, interactions, contraindications, monitoring,
+label/guideline alignment.</td>
+</tr>
+<tr class="odd">
+<td>Guidelines</td>
+<td>Recommendation wording, evidence grade, population, exclusions,
+implementation notes, controversies, differences from prior
+guidance.</td>
+</tr>
+<tr class="even">
+<td>Systematic reviews</td>
+<td>Search dates, databases, selection criteria, risk of bias,
+heterogeneity, publication bias, GRADE certainty, pooled estimates,
+applicability.</td>
+</tr>
+<tr class="odd">
+<td>AI/ML benchmarks</td>
+<td>Task, datasets, splits, metrics, baselines, prompts, tool use,
+contamination risk, ablations, compute, reproducibility, error modes,
+deployment relevance.</td>
+</tr>
+<tr class="even">
+<td>Agent / RAG systems</td>
+<td>Tools, retrieval corpus, context policy, state management, verifier
+design, citation rules, trace logging, fallback behavior, failure
+analysis.</td>
+</tr>
+<tr class="odd">
+<td>Parser / extraction papers</td>
+<td>Supported formats, layout handling, table/figure extraction,
+citation preservation, schema, fixtures, error taxonomy, downstream use
+cases.</td>
+</tr>
+<tr class="even">
+<td>Practice workflows</td>
+<td>Trigger, actors, handoffs, required data, decisions, escalation,
+downtime, documentation, audit trail, measurable outcomes.</td>
+</tr>
+</tbody>
+</table>
+<p>Clinical add-on:</p>
+<pre class="text"><code>PICO:
+Validity: design, bias, confounding, missing data, statistics, subgroups.
+Practice translation: patient-centered benefit, safety, monitoring, exclusions, guideline alignment, local barriers.
+Bottom line: use now? yes/no/maybe; strength; conditions required.</code></pre>
+<p>AI/ML add-on:</p>
+<pre class="text"><code>Task:
+Data: datasets, splits, leakage, external validation.
+Method: model, retrieval/tools/agents, prompting/training, baselines, ablations.
+Metrics: primary/secondary, calibration, latency/cost, human evaluation.
+Failures: error taxonomy, robustness, safety, generalization.
+Bottom line: conceptual, benchmark-useful, build-useful, or deployment-useful.</code></pre>
+<h2 id="10-reference-html-output-specification">10. Reference HTML
+output specification</h2>
+<h3 id="required-layout">Required layout</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Section</th>
+<th>Purpose</th>
+<th>Default content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Header</td>
+<td>Identity</td>
+<td>Source title and reference scope.</td>
+</tr>
+<tr class="even">
+<td>Table of contents</td>
+<td>Navigation</td>
+<td>Anchors for metadata, synthesis, sections, visuals, appraisal,
+takeaways.</td>
+</tr>
+<tr class="odd">
+<td>Metadata</td>
+<td>Traceability</td>
+<td>Title, authors, source, date/version, type, domain, scope
+warning.</td>
+</tr>
+<tr class="even">
+<td>One-page synthesis</td>
+<td>Compressed understanding</td>
+<td>Core thesis, value, limitations, tags.</td>
+</tr>
+<tr class="odd">
+<td>Section condensation</td>
+<td>Faithful summary</td>
+<td>Max two paragraphs per source section by default.</td>
+</tr>
+<tr class="even">
+<td>Figures / tables / exhibits</td>
+<td>Visual evidence</td>
+<td>Structured blocks for every included
+figure/table/workflow/algorithm.</td>
+</tr>
+<tr class="odd">
+<td>Evaluation and appraisal</td>
+<td>Independent judgment</td>
+<td>Verdict, strengths, limitations, ratings, bottom line.</td>
+</tr>
+<tr class="even">
+<td>Implementation / practice takeaways</td>
+<td>Actionability</td>
+<td>What to build, monitor, change, read next, avoid, or not
+overclaim.</td>
+</tr>
+<tr class="odd">
+<td>Footer / provenance</td>
+<td>Scope</td>
+<td>Source URL/identifier, generation date, caveats.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="style-and-citation-standards">Style and citation standards</h3>
+<p>Use a single-file HTML document with embedded CSS; card-based
+sections; metadata and rating grids; dark code blocks for structured
+visual/table/workflow extraction; semantic HTML; print-friendly CSS; no
+external fonts, scripts, remote images, or external CSS. Use colored
+callouts sparingly: verdict/core thesis, caution, serious limitation,
+high-value takeaway.</p>
+<p>Do not place internal chat citation syntax inside the HTML artifact.
+Use a plain source/provenance section with source URL/identifier and
+generation date. The final chat response should provide the artifact
+link and brief note only unless the user asks for source citations or
+process details.</p>
+<p>Component vocabulary: <code>header</code>, <code>.wrap</code>,
+<code>nav.toc</code>, <code>section</code>, <code>.meta-grid</code>,
+<code>.rating-grid</code>, <code>.takeaway-grid</code>,
+<code>.mini-card</code>, <code>.verdict</code>, <code>.warning</code>,
+<code>.badnote</code>, <code>.goodnote</code>,
+<code>.section-summary</code>, <code>.tag</code>,
+<code>pre &gt; code</code>.</p>
+<h2 id="11-reusable-prompts">11. Reusable prompts</h2>
+<h3 id="standard-prompt">Standard prompt</h3>
+<pre class="text"><code>[SOURCE URL OR FILE]
+Create a polished single-file reference HTML file using the integrated Summary, Evaluation, and Appraisal protocol. Extract metadata, map the source, build a coverage manifest, condense each section to no more than two paragraphs, decompose all included figures/tables/workflows, preserve quantitative and methodological details, separate summary from appraisal, score the source with rationales/evidence basis, include implementation takeaways, run semantic QA, and provide the artifact link.</code></pre>
+<h3 id="clinical-practice-prompt">Clinical-practice prompt</h3>
+<pre class="text"><code>[GUIDELINE / ARTICLE / LABEL / CLINICAL SOURCE]
+Use the protocol with a clinical-practice lens. Add PICO/clinical question, recommendation strength/evidence quality, population/exclusions, dosing/monitoring/contraindications/interactions/renal-hepatic considerations where relevant, safety signals, implementation constraints, and what should or should not change in practice. Warn explicitly when evidence is insufficient for clinical action.</code></pre>
+<h3 id="aiml-research-prompt">AI/ML research prompt</h3>
+<pre class="text"><code>[PAPER / PREPRINT / TECHNICAL REPORT]
+Use the protocol with an AI/ML systems lens. Add task definition, datasets/splits/leakage controls, baselines, metrics, prompts/tool use/state/verifier design, ablations, compute, reproducibility, failure analysis, generalization limits, build-useful takeaways, and what not to overclaim.</code></pre>
+<h3 id="batch-triage-prompt">Batch triage prompt</h3>
+<pre class="text"><code>[LIST OF PAPERS / ABSTRACTS / LINKS]
+Triage for interests in clinical pharmacy, AI/ML, RAG, parser design, agent harnesses, deterministic evaluation, scientific curation, and practical workflow implementation. For each source: title, type, one-line thesis, relevance, evidence maturity, priority, and whether it deserves full reference HTML. Do not over-rank loosely relevant or purely conceptual work.</code></pre>
+<h2 id="12-quality-control-checklist">12. Quality-control checklist</h2>
+<p>Pass condition: the finished file lets a reader understand the
+source’s claim, evidence, visual content, weaknesses, and practical
+relevance without immediately reopening the original.</p>
+<p>Pre-output checks:</p>
+<ul>
+<li>Metadata complete: title, source type, date/version,
+authors/organization, identifier when available.</li>
+<li>Source ID/title match the requested source; no stale title,
+filename, headings, or unrelated content.</li>
+<li>Sections preserved or omissions explicitly noted.</li>
+<li>Main-text figures/tables accounted for; appendix inclusion/omission
+justified when relevant.</li>
+<li>Section summaries follow the two-paragraph default.</li>
+<li>Magnitudes preserved: sample sizes, denominators, rates, effect
+sizes, uncertainty, thresholds, metrics, benchmark deltas.</li>
+<li>Claims separated from appraisal; limitations appear near weakened
+claims and in final appraisal.</li>
+<li>Ratings include score, rationale, evidence basis, and what would
+raise/lower the score.</li>
+<li>HTML is self-contained, readable, anchor-consistent, and free of
+placeholders or planning language.</li>
+<li>Provenance includes source URL/identifier and generation date.</li>
+</ul>
+<p>Failure mode to prevent: a polished-looking abstract expansion that
+omits methods, quantitative results, visual evidence, limitations,
+implementation constraints, or appraisal basis.</p>
+<h3 id="minimal-final-appraisal-block">Minimal final appraisal
+block</h3>
+<pre class="text"><code>Verdict: Read first / Read soon / Skim deeply / Skim / Do not prioritize / Do not use for practice
+Best use:
+Do not use for:
+Main strengths:
+Main limitations:
+Implementation / practice takeaways:
+Confidence in appraisal: high / moderate / low, with reason.</code></pre>
+<h2 id="13-protocol-maintenance-rules">13. Protocol maintenance
+rules</h2>
+<p>Future patch updates should not be appended as a new patch block
+unless they are temporary. Classify each patch as one of five types and
+integrate it into the relevant section:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Patch type</th>
+<th>Integrate into</th>
+<th>Compression rule</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source/tooling rule</td>
+<td>Source intake, routing, and grounding</td>
+<td>Keep as a route/gate, not a narrative explanation.</td>
+</tr>
+<tr class="even">
+<td>Coverage or omission rule</td>
+<td>Coverage manifest and inclusion gate</td>
+<td>Add to manifest fields or inclusion rules.</td>
+</tr>
+<tr class="odd">
+<td>Extraction/detail rule</td>
+<td>Section or visual extraction sections</td>
+<td>Convert to preserve/avoid language or compact template fields.</td>
+</tr>
+<tr class="even">
+<td>Appraisal/scoring rule</td>
+<td>Rubric or domain modules</td>
+<td>Add to scoring requirements, anchors, or red flags.</td>
+</tr>
+<tr class="odd">
+<td>Output/QA rule</td>
+<td>HTML specification or QA checklist</td>
+<td>Add as a pass/fail check.</td>
+</tr>
+</tbody>
+</table>
+<p>Delete duplicate wording after integration. Keep invariants once,
+examples only where they prevent ambiguity, and prompts short enough to
+fit into routine task context. If a patch does not change behavior,
+convert it into a brief change note outside the operational
+protocol.</p>
+</body>
+</html>

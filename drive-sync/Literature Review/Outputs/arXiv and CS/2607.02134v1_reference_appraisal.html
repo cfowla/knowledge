@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coding-agents can replicate scientific machine learning papers — Reference Appraisal</title>
+<style>
+:root{
+  --bg:#f6f8fb;--card:#ffffff;--ink:#17202a;--muted:#526173;--line:#d8e0ea;--accent:#194f90;
+  --accent2:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;--soft:#eef5ff;--codebg:#111827;--codefg:#edf4ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#10243d,#1d4f91);color:#fff;padding:2.4rem 1.25rem 2rem;border-bottom:5px solid #cfe0f6}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.1rem}
+header .wrap{padding:0 1.1rem}
+h1{font-size:clamp(1.7rem,3.2vw,3rem);line-height:1.08;margin:.2rem 0 .6rem;font-weight:850;letter-spacing:-.02em}
+.subtitle{max-width:900px;font-size:1.05rem;color:#e6eef9;margin:.5rem 0 0}
+.badges{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}.tag{display:inline-block;border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.14);color:#fff;padding:.22rem .55rem;border-radius:999px;font-size:.82rem;font-weight:650}
+main{max-width:1120px;margin:0 auto;padding:1.25rem 1.1rem 2.5rem}
+nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:1rem 0;padding:1rem 1.15rem;box-shadow:0 1px 5px rgba(16,36,61,.06)}
+nav.toc{padding:1rem 1.2rem}nav.toc h2{margin-top:0}nav.toc ol{columns:2;column-gap:2rem;margin:.25rem 0;padding-left:1.2rem}nav.toc li{break-inside:avoid;margin:.25rem 0}
+h2{font-size:1.35rem;color:#123a68;margin:.2rem 0 .85rem;border-bottom:1px solid var(--line);padding-bottom:.35rem}h3{font-size:1.05rem;color:#173f72;margin:1.05rem 0 .45rem}h4{font-size:.96rem;margin:.9rem 0 .35rem;color:#24364b}
+p{margin:.58rem 0}.muted{color:var(--muted)}
+.meta-grid,.rating-grid,.takeaway-grid,.two-col,.three-col{display:grid;gap:.75rem}.meta-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.rating-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.takeaway-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}.three-col{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mini-card{border:1px solid var(--line);border-radius:12px;background:#fbfdff;padding:.75rem}.mini-card b{display:block;color:#24364b;margin-bottom:.2rem}.score{font-size:1.25rem;font-weight:850;color:#123a68}.verdict{border-left:6px solid var(--accent2);background:#eef8f1}.warning{border-left:6px solid var(--warn);background:#fff7e8}.badnote{border-left:6px solid var(--bad);background:#fff1f1}.goodnote{border-left:6px solid var(--accent2);background:#eef8f1}.callout{border-radius:12px;padding:.85rem 1rem;margin:.75rem 0;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.94rem;border:1px solid var(--line);display:table}th,td{border:1px solid var(--line);padding:.55rem .62rem;vertical-align:top}th{background:#eef3f9;text-align:left;color:#1e395c}tr:nth-child(even) td{background:#fbfdff}
+pre{background:var(--codebg);color:var(--codefg);border-radius:12px;padding:.85rem 1rem;overflow-x:auto;white-space:pre-wrap;font-size:.88rem;line-height:1.45;border:1px solid #24364b}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}.section-summary{border-left:4px solid #c7d8ee;padding:.2rem 0 .2rem .85rem;margin:.65rem 0}.tight li{margin:.22rem 0}.small{font-size:.9rem}.hl{font-weight:800;color:#0f315f}.pill{display:inline-block;background:#eef3f9;border:1px solid #d7e0eb;border-radius:999px;padding:.15rem .45rem;margin:.12rem;font-size:.82rem}.page{color:#526173;font-size:.85rem;font-weight:650}
+footer{max-width:1120px;margin:0 auto 2rem;padding:0 1.1rem;color:var(--muted);font-size:.88rem}
+@media (max-width:850px){nav.toc ol{columns:1}.meta-grid,.rating-grid,.takeaway-grid,.two-col,.three-col{grid-template-columns:1fr}main{padding:.75rem}header{padding:1.6rem .75rem}section,nav.toc{border-radius:12px}}
+@media print{body{background:#fff}header{background:#fff;color:#000;border-bottom:2px solid #000}.subtitle,.tag{color:#000}.tag{border-color:#999;background:#fff}section,nav.toc{box-shadow:none;break-inside:avoid}a{color:inherit}pre{white-space:pre-wrap}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="small">Reference HTML appraisal · AI/ML systems lens</div>
+    <h1>Coding-agents can replicate scientific machine learning papers</h1>
+    <p class="subtitle">A structured evaluation of an arXiv preprint proposing <em>Paper-replication</em>, a coding-agent skill that treats paper replication as a persistent, target-level evidence workflow.</p>
+    <div class="badges">
+      <span class="tag">arXiv:2607.02134v1</span><span class="tag">cs.AI</span><span class="tag">Agent harnesses</span><span class="tag">Scientific reproducibility</span><span class="tag">Workflow evidence contract</span>
+    </div>
+  </div>
+</header>
+<main>
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#manifest">Coverage manifest</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#task-method">Task, method, and validation design</a></li>
+    <li><a href="#section-summaries">Section-by-section condensation</a></li>
+    <li><a href="#figures-tables">Figures, tables, and workflows</a></li>
+    <li><a href="#results-extract">Results extraction</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#implementation">Implementation takeaways</a></li>
+    <li><a href="#not-overclaim">What not to overclaim</a></li>
+    <li><a href="#provenance">Provenance</a></li>
+  </ol>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><b>Exact title</b>Coding-agents can replicate scientific machine learning papers</div>
+    <div class="mini-card"><b>Authors</b>Atharva Hans; Ilias Bilionis</div>
+    <div class="mini-card"><b>Affiliation</b>School of Mechanical Engineering, Purdue University</div>
+    <div class="mini-card"><b>Source type</b>arXiv preprint / AI agent workflow and case-study evaluation</div>
+    <div class="mini-card"><b>Date / version</b>arXiv v1, 2 July 2026</div>
+    <div class="mini-card"><b>Identifier</b>arXiv:2607.02134v1 [cs.AI]</div>
+    <div class="mini-card"><b>Design</b>Workflow/tool implementation plus repeated-run case study: 12 independent agent workspaces across 4 scientific machine-learning papers</div>
+    <div class="mini-card"><b>Primary domain</b>Agentic scientific replication; coding-agent skills; reproducibility harnesses</div>
+    <div class="mini-card"><b>Scope warning</b>This appraisal evaluates the paper's claims and reported evidence. It does not independently audit the released code, the generated workspaces, or the GitHub repository.</div>
+  </div>
+</section>
+
+<section id="manifest">
+  <h2>Coverage manifest</h2>
+  <table>
+    <tbody>
+      <tr><th>Source ID</th><td>2607.02134v1.pdf; arXiv:2607.02134v1</td></tr>
+      <tr><th>Sections / headings</th><td>Abstract; Introduction; Methods; 2.1 Replication targets and evidence; 2.2 Persistent workspace; 2.3 Validation and completion; 2.4 Skill implementation; 2.5 Case study analysis; Results; 3.1 Target coverage and decomposition variation; 3.2 Paper-anchored numeric fidelity; 3.3 Effort and correction work; 3.4 Judgment variation in acceptance rule types; Discussion; Conclusion; Code and data availability; Declarations; References.</td></tr>
+      <tr><th>Figures</th><td>6 main-text figures. All represented as structured extraction blocks. No screenshots embedded because parsed text and captions were sufficient for appraisal-level extraction.</td></tr>
+      <tr><th>Tables</th><td>2 main-text tables. Both extracted as structured tables.</td></tr>
+      <tr><th>Algorithms / workflows / equations</th><td>Paper-replication workflow; target set and evidence bundle; completion gate; skill utility architecture; repeated-run statistical analysis. Represented as structured workflow blocks and method summary.</td></tr>
+      <tr><th>Appendices / supplements</th><td>No appendix or supplement was present in the uploaded PDF. The paper reports a GitHub repository with code, prompts, workspaces, and analysis files; this was not independently inspected in this artifact.</td></tr>
+      <tr><th>Coverage decision</th><td>Full main-text coverage. References were not individually summarized because the appraisal target is the proposed workflow and case-study evidence, not a literature-review bibliography.</td></tr>
+      <tr><th>Known omissions</th><td>No external repository audit, no rerun of case-study code, no independent scoring of released workspaces, and no web verification of current repository contents.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="callout verdict"><b>Verdict: Read first for agent-harness design; do not treat as proof that coding agents generally replicate science.</b><br>The paper is highly relevant if you are building evaluation workflows, RAG/agent evidence systems, reproducibility checklists, or structured appraisal artifacts. Its strongest contribution is not the headline success rate; it is the target-level evidence contract that separates paper claims, generated outputs, provenance, comparisons, and final report coverage.</div>
+  <p><span class="hl">Core thesis.</span> The authors argue that direct prompts are inadequate for paper replication because an agent can lose state, confuse progress with evidence, reuse paper assets, substitute methods, or declare completion in a final message. Their proposed workflow, <em>Paper-replication</em>, makes each selected paper claim a target and requires an evidence bundle before the target can be marked matched: generated output, run record, provenance, comparison against the paper claim, and report coverage.</p>
+  <p><span class="hl">Main evidence.</span> The case study evaluates 12 independent Codex workspaces across 4 scientific machine-learning papers: PIFT, PINN-I, PINN-II, and SINDy. The authors report that all 12 workspaces passed the completion gate, all 158 recorded targets reached MATCHED, and every matched target had report coverage. The workspaces also show variability in target decomposition, numerical fidelity, elapsed time, correction work, and acceptance-rule type.</p>
+  <p><span class="hl">Main limitation.</span> Completion is explicitly relative to the target list recorded by the agent and the validation checks applied to that list. The study has no no-skill baseline, no ablation, no independent human audit of omitted claims, only four papers, one coding-agent interface/model setting, and a self-evaluation structure in which the authors evaluate their own skill. The result supports a useful harness pattern, not a general claim that agents can autonomously reproduce the scientific literature.</p>
+  <div class="two-col">
+    <div class="mini-card goodnote"><b>Best use</b>Blueprint for durable agent workspaces: source inventory, target matrix, task ledger, run recorder, provenance records, output/paper-asset separation, comparison checks, and report-coverage gates.</div>
+    <div class="mini-card badnote"><b>Do not use for</b>Capability benchmarking without a baseline, proof of exact numerical reproducibility, evidence that all paper claims were captured, or operational replacement of expert reproducibility review.</div>
+  </div>
+</section>
+
+<section id="task-method">
+  <h2>Task, method, and validation design</h2>
+  <div class="three-col">
+    <div class="mini-card"><b>Task definition</b>Reconstruct computational claims from paper materials, regenerate supporting results, and record evidence for each claim. The paper distinguishes this from simply rerunning an existing author package.</div>
+    <div class="mini-card"><b>Agent setting</b>Codex with GPT-5.4 at Extra High reasoning, using the Paper-replication skill. Author code was not allowed. Some runs used local MacBook Pro compute; some PINN targets used Purdue cluster jobs.</div>
+    <div class="mini-card"><b>Evaluation corpus</b>Four scientific machine-learning papers: PIFT, PINN-I, PINN-II, and SINDy. Each had three independent runs under the same prompt templates, materials, tools, compute environment, and no-author-code policy.</div>
+  </div>
+  <h3>Evidence contract</h3>
+  <p>For each target, the agent must record the claim location, source support, method component, required output, acceptance rule, current status, and report location. A target can be marked matched only when the workspace contains the generated output, successful run record, provenance, comparison evidence, and report coverage. The paper’s central control move is that the agent’s final message is not accepted as evidence; the workspace state is.</p>
+  <pre><code>Target-level evidence bundle:
+E_j = (generated candidate result, execution record, provenance record, comparison evidence, report coverage)
+
+Completion gate:
+Specification check passes AND progress/evidence check passes AND report-coverage check passes AND every recorded target is MATCHED AND no active target remains AND final report PDF exists.</code></pre>
+  <h3>AI/ML systems appraisal focus</h3>
+  <table>
+    <thead><tr><th>Dimension</th><th>Extraction</th><th>Appraisal note</th></tr></thead>
+    <tbody>
+      <tr><td>State management</td><td>Manifest, reproduction matrix, task ledger, specification files, run records, provenance records, comparison evidence, report coverage.</td><td>Strongest systems contribution; directly addresses long-horizon agent drift and premature completion.</td></tr>
+      <tr><td>Verifier design</td><td>Specification check, progress check, paper-asset checks, provenance/comparison checks, report-coverage check, completion gate.</td><td>Good conceptual structure, but checks validate recorded evidence rather than proving full paper coverage.</td></tr>
+      <tr><td>Reproducibility</td><td>Paper reports release of skill files, prompts, workspaces, and analysis scripts.</td><td>Promising but not audited here; repository availability does not by itself validate the workspaces.</td></tr>
+      <tr><td>Generalization</td><td>Four scientific machine-learning papers, twelve total runs, one agent/model/interface.</td><td>Narrow corpus and single-agent design limit claims outside similar SciML replication tasks.</td></tr>
+      <tr><td>Failure analysis</td><td>Tracks superseded executions, judgment variation, decomposition variation, and numeric fidelity gaps.</td><td>Better than binary pass/fail, but lacks adversarial tests and independent claim-list audit.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="section-summaries">
+  <h2>Section-by-section condensation</h2>
+  <div class="section-summary">
+    <h3>Abstract</h3>
+    <p>The abstract frames scientific machine-learning papers as collections of computational claims, such as error thresholds or uncertainty-coverage claims. It states that a coding agent can attempt replication from paper materials but that prompts alone do not reliably preserve progress or verify evidence.</p>
+    <p>The proposed Paper-replication workflow converts selected claims into evidence targets and implements this as a coding-agent skill. In twelve runs across four SciML papers, all workspaces passed the completion gate and all 158 recorded targets had matched report coverage, but repeated runs still differed in decomposition, fidelity, elapsed time, correction work, and acceptance rules.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Introduction</h3>
+    <p>The introduction situates the problem in computational reproducibility for scientific machine learning, where reported results depend on code, data, solvers, preprocessing, stochastic training, seeds, and implementation choices. It distinguishes paper-only replication from rerunning an author-provided package and reviews related code-generation and paper-reproduction benchmarks.</p>
+    <p>The gap is framed as an evidentiary one: existing agent and benchmark work shows agents can write code or run experiments, but paper replication needs durable target records, provenance, comparison evidence, and completion checks. The authors present Paper-replication as harness engineering: add a persistent workspace and validation checks instead of relying on prompt instructions or final-message claims.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Methods — target and evidence model</h3>
+    <p>The methods define a paper as materials available to the agent, including LaTeX, figures, tables, bibliography, appendices, and data references. The agent records a finite target set of computational claims, where targets may be scalars, figures, tables, learned fields, posterior distributions, trajectories, discovered equations, or structural statements.</p>
+    <p>Each target receives an evidence bundle with candidate result, execution record, provenance, comparison evidence, and report coverage. Acceptance rules are claim-specific: numeric targets use metrics and tolerances, distributional targets compare statistical properties, structural targets compare patterns or relationships, and visual targets require visual comparison when appearance is the claim.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Methods — persistent workspace and validation</h3>
+    <p>The persistent workspace records the source inventory, hashes, reproduction matrix, task ledger, specification files, run records, provenance records, comparison evidence, report coverage, and final report. The agent is constrained to one active target at a time and must keep paper-provided assets separate from generated outputs.</p>
+    <p>Validation checks reject missing specifications, inconsistent target state, copied paper assets based on path/hash, missing provenance, insufficient comparison evidence, and absent report coverage. Completion requires all checks to pass, every target to be matched, no active target, and a final report PDF. The paper acknowledges that this does not prove every possible paper claim was included or that exact numerical equality is attainable.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Methods — case-study analysis</h3>
+    <p>The case study uses four SciML papers and three independent runs per paper under the same paper materials, prompts, tools, compute environment, and no-author-code rule. Follow-up prompts reopen the same workspace and continue until the completion gate passes.</p>
+    <p>The analysis measures paper-level completion, target coverage, scalar fidelity using paper-anchored thresholds, elapsed replication time, tracked/superseded executions, and judgment variation in acceptance rule type. Bayesian models describe target counts, scalar headroom, and elapsed effort, but the paper treats these models as corpus descriptions rather than definitive rankings of difficulty.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Results</h3>
+    <p>All twelve workspaces passed the completion gate, and all 158 recorded targets reached MATCHED with report coverage. Target decomposition varied: PIFT had 8, 8, and 25 targets; PINN-I had 8, 8, and 8; PINN-II had 9, 9, and 15; SINDy had 20, 20, and 20. The extra targets reflected different decomposition choices rather than incomplete workspaces.</p>
+    <p>For scalar anchors, 37 of 39 observations fell within fixed paper-anchored thresholds. Two were outside: Schrödinger run 3 relative L2 error of 4.8 × 10^-2 against a 1% threshold, and Navier-Stokes λ2 run 1 coefficient error of 16.4% against a 10% threshold. Elapsed replication time ranged from 1.2 to 13.0 hours, with most superseded executions occurring in the PINN papers. Acceptance-rule agreement varied from 0.46 for PINN-II to 0.95 for SINDy.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Discussion and conclusion</h3>
+    <p>The discussion emphasizes that completion is a workspace state relative to the recorded target set and checks, not proof that all possible aspects of a paper were replicated. The workspaces preserve not just completion labels but also decomposition differences, correction paths, numeric fidelity variation, and judgment variation.</p>
+    <p>The conclusion states that Paper-replication supports inspectable replication by decomposing papers into targets and linking generated outputs to provenance, comparisons, and report coverage. It explicitly frames the approach as an inspectable process, not a guarantee of exact reproduction or proof that the completed workspace covers every possible paper claim.</p>
+  </div>
+</section>
+
+<section id="figures-tables">
+  <h2>Figures, tables, and workflows</h2>
+  <h3>Figure extraction</h3>
+  <pre><code>FIGURE 1 — Paper-replication workflow (page 4)
+Purpose: Shows the workflow as three aligned layers: agent work, workspace records, and validation checks.
+Structure/panels: Flow from inspecting paper materials → recording target list → recording method reconstruction → running experiments → comparing and reporting.
+Variables/objects: Source inventory/hashes; reproduction matrix/task ledger; specification files; run/provenance/comparison records; report coverage; completion gate.
+Main pattern: The workflow converts loose agent activity into persistent artifacts and external checks.
+Interpretation: Central conceptual figure; it explains why completion depends on workspace state rather than final-message self-report.
+Limits: Diagrammatic; does not quantify whether the checks detect omitted claims, transformed copying, or overly permissive acceptance rules.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 2 — Per-run workspace evidence for twelve case-study runs (page 10)
+Purpose: Displays elapsed replication time, final target count, and tracked executions for each run.
+Structure/panels: (a) elapsed replication time; (b) final target count; (c) tracked executions with superseded segments.
+Numeric details: Target counts are PIFT 8/8/25, PINN-I 8/8/8, PINN-II 9/9/15, SINDy 20/20/20. Elapsed time spans roughly 1.2 to 13.0 hours.
+Main pattern: Completion is uniform, but effort and decomposition are not.
+Interpretation: Supports the paper's claim that workspace evidence reveals variation hidden by a binary completion label.
+Limits: Does not compare against a no-skill or baseline-agent condition.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 3 — Target coverage across runs (page 10)
+Purpose: Summarizes final target counts and posterior target-count estimates.
+Numeric details: Decomposition ratios: PIFT 3.1×, PINN-I 1.0×, PINN-II 1.7×, SINDy 1.0×. PIFT posterior median target count 13.4, 95% credible interval 8.8 to 20.5.
+Main pattern: PIFT and PINN-II show run-dependent decomposition; PINN-I and SINDy are stable.
+Interpretation: The agent may choose different granularities for the same paper even when the completion gate passes.
+Limits: Target count is not correctness; target selection can still omit claims.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 4 — Paper-anchored scalar fidelity (page 11)
+Purpose: Compares reproduced scalar discrepancies with paper-reported discrepancies and fixed thresholds.
+Structure/panels: (a) log10 reproduced/paper discrepancy by anchor and run; (b) posterior headroom; (c) run-residual scale.
+Numeric details: 13 scalar anchors and 39 anchor-run observations; 37/39 inside fixed thresholds. Posterior median headroom: PINN-I 0.51, PINN-II 1.75, SINDy 0.42. PINN-II residual scale median 1.16, suggesting larger run-to-run scalar movement.
+Main pattern: Most scalar results fall within paper-anchored thresholds, but exact numeric agreement varies substantially.
+Interpretation: Supports the authors' claim that stochastic and underspecified implementation choices matter.
+Limits: PIFT contributes no scalar anchor; thresholds are analysis conventions tied to source-paper accuracy scales.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 5 — Elapsed replication time and correction work (page 12)
+Purpose: Summarizes effort and superseded tracked executions.
+Numeric details: Posterior median elapsed time: PIFT 2.2 h, PINN-I 5.0 h, PINN-II 6.9 h, SINDy 1.9 h. Superseded executions: PIFT 3, PINN-I 11, PINN-II 10, SINDy 1.
+Main pattern: PINN papers require more elapsed time and correction work in this corpus.
+Interpretation: Correction records are useful because final accepted outputs obscure failed or replaced attempts.
+Limits: Does not establish intrinsic paper difficulty; compute environment and agent choices affect elapsed time.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 6 — Judgment variation in acceptance rule type (page 12)
+Purpose: Measures whether repeated runs assign the same acceptance-rule type to aligned claims.
+Numeric details: Same-rule fractions: PIFT 8/11 = 0.73; PINN-I 4/8 = 0.50; PINN-II 5/11 = 0.46; SINDy 19/20 = 0.95.
+Main pattern: SINDy judgments are stable; PINN judgments vary more.
+Interpretation: Completion can coexist with different definitions of sufficient evidence for the same aligned claim.
+Limits: Acceptance-rule type agreement does not measure whether the chosen rule is scientifically adequate.
+Representation: Structured block.</code></pre>
+
+  <h3>Table extraction</h3>
+  <table>
+    <caption><b>Table 1 — Analysis rules used in the case-study analysis</b></caption>
+    <thead><tr><th>Paper</th><th>Claim family</th><th>Paper-anchored analysis rule</th><th>Analysis type</th></tr></thead>
+    <tbody>
+      <tr><td>PINN-I</td><td>Solution relative L2 error</td><td>d ≤ 10^-2</td><td>Scalar</td></tr>
+      <tr><td>PINN-II</td><td>Coefficient percentage error</td><td>d ≤ 10%</td><td>Scalar</td></tr>
+      <tr><td>SINDy</td><td>Lorenz coefficient relative error</td><td>d ≤ 10^-3</td><td>Scalar</td></tr>
+      <tr><td>SINDy</td><td>Sparse-support recovery and trajectory geometry</td><td>Exact support or structural agreement, depending on target</td><td>Structural</td></tr>
+      <tr><td>PIFT</td><td>Posterior collapse, bimodality, selective identifiability</td><td>Distributional or structural evidence, depending on target</td><td>Non-scalar</td></tr>
+    </tbody>
+  </table>
+  <table>
+    <caption><b>Table 2 — Summary of twelve case-study runs</b></caption>
+    <thead><tr><th>Paper</th><th>Runs</th><th>Targets/run</th><th>Matched</th><th>Elapsed time, h: posterior median [95% CrI]</th><th>Superseded executions</th></tr></thead>
+    <tbody>
+      <tr><td>PIFT</td><td>3</td><td>8, 8, 25</td><td>All</td><td>2.2 [1.1, 4.4]</td><td>3</td></tr>
+      <tr><td>PINN-I</td><td>3</td><td>8, 8, 8</td><td>All</td><td>5.0 [2.5, 9.9]</td><td>11</td></tr>
+      <tr><td>PINN-II</td><td>3</td><td>9, 9, 15</td><td>All</td><td>6.9 [3.0, 13.4]</td><td>10</td></tr>
+      <tr><td>SINDy</td><td>3</td><td>20, 20, 20</td><td>All</td><td>1.9 [1.0, 4.3]</td><td>1</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Workflow / algorithm extraction</h3>
+  <pre><code>WORKFLOW — Paper-replication skill
+Inputs: Paper materials, LaTeX source tree, figures/tables, data references, compute environment, author-code policy, prompt templates.
+Process: Build source inventory and hashes; define target set; keep one active target; reconstruct paper method in specification files; run experiments through run recorder; register generated outputs; write provenance; compare outputs to paper claims; record report coverage; run validation checks.
+Outputs: Reproduction matrix, task ledger, specification files, run records, provenance records, comparison records, final replication report, completion status.
+Failure modes addressed: Lost agent state, premature completion claims, copied paper assets, method substitution, untracked assumptions, missing report coverage.
+Human review: Still needed for target completeness, acceptance-rule adequacy, scientific judgment, and repository/workspace audit.
+Governance: Strong candidate pattern for audit trails and versioned agent workflows.
+Representation: Structured block.</code></pre>
+</section>
+
+<section id="results-extract">
+  <h2>Results extraction</h2>
+  <table>
+    <thead><tr><th>Claim</th><th>Reported support</th><th>Interpretation</th><th>Limit</th></tr></thead>
+    <tbody>
+      <tr><td>Paper-level completion</td><td>12/12 workspaces passed the completion gate; 158/158 recorded targets reached MATCHED with report coverage.</td><td>Shows the workflow can drive the selected corpus to a completed workspace state.</td><td>Completion is relative to recorded targets and checks; not proof of exhaustive claim coverage.</td></tr>
+      <tr><td>Target decomposition varies</td><td>PIFT 8/8/25; PINN-II 9/9/15; PINN-I and SINDy stable at 8 and 20 targets.</td><td>Different runs can segment the same paper into different evidence units.</td><td>The paper aligns targets post hoc by paper claim for comparison.</td></tr>
+      <tr><td>Scalar fidelity is mostly within thresholds</td><td>37/39 scalar anchor-run observations inside fixed thresholds.</td><td>Supports plausibility of replicated numeric behavior for most scalar claims.</td><td>Two anchor-run observations exceed thresholds; exact digit-level equality is often unavailable because seeds/data subsets/optimizer states are unspecified.</td></tr>
+      <tr><td>Effort varies substantially</td><td>Elapsed replication time 1.2 to 13.0 hours; PINN-II median 6.9 h; SINDy median 1.9 h.</td><td>Agentic replication can be long-horizon work even with a skill.</td><td>Elapsed time mixes agent work, execution time, validation, reporting, and waiting time.</td></tr>
+      <tr><td>Correction work is concentrated in PINN papers</td><td>25 superseded tracked executions total; 21 in PINN-I and PINN-II.</td><td>Run records capture trial-and-correction instead of hiding it behind final artifacts.</td><td>Superseded execution count depends on what the workflow records as a tracked execution.</td></tr>
+      <tr><td>Acceptance rules vary by run</td><td>Same-rule fraction: PINN-II 0.46, PINN-I 0.50, PIFT 0.73, SINDy 0.95.</td><td>Different runs may judge the same aligned claim using different evidence types.</td><td>The paper reports variation but does not independently adjudicate which rule is optimal.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="callout warning"><b>Bottom line.</b> Strong as a workflow-design paper and useful as a template for agent evidence governance. Moderate as empirical evidence. Weak for broad capability claims because the evaluation is small, self-contained, non-comparative, and dependent on an agent-selected target list.</div>
+  <div class="rating-grid">
+    <div class="mini-card"><b>Relevance</b><span class="score">9 / 10</span><p>Directly relevant to agent harnesses, scientific curation, reproducibility workflows, and deterministic evidence gates. Evidence basis: target matrix, provenance checks, completion gate, and case-study workspaces. Limiting factor: less relevant to clinical practice or ordinary ML benchmarking. Higher if paired with an audited public implementation; lower if the reader only needs model-performance benchmarks.</p></div>
+    <div class="mini-card"><b>Novelty</b><span class="score">8 / 10</span><p>The target-level evidence contract and workspace-completion framing add practical structure beyond prompt-only replication or code-generation benchmarks. Evidence basis: explicit target/evidence model, persistent workspace, and report-coverage gate. Limiting factor: many ingredients build on known reproducible-research and agent-evaluation practices. Higher with clearer contrast to existing harnesses; lower if similar systems already implement equivalent target/provenance gates.</p></div>
+    <div class="mini-card"><b>Method strength</b><span class="score">5.5 / 10</span><p>The repeated-run case study is useful but narrow and lacks a baseline or ablation. Evidence basis: 12 runs, 4 papers, standardized prompt templates, recorded workspaces, and Bayesian descriptive summaries. Limiting factor: no no-skill comparator, no independent target-list audit, one agent/model/interface, and self-evaluation. Higher with randomized baseline comparisons and external reviewers; lower if released workspaces cannot be reproduced.</p></div>
+    <div class="mini-card"><b>Evidence strength</b><span class="score">5.5 / 10</span><p>The data support the narrower claim that this workflow can produce completed workspaces in this corpus, but not the broad headline that agents can generally replicate papers. Evidence basis: 158 recorded targets, completion gate results, scalar headroom, elapsed-time and correction-work analyses. Limiting factor: completion is conditional on recorded targets and acceptance rules. Higher with independent validation of every target and omitted-claim search; lower if target selection or acceptance rules are found permissive.</p></div>
+    <div class="mini-card"><b>External validity</b><span class="score">4 / 10</span><p>Generalization outside similar scientific machine-learning papers and the specific Codex setup is uncertain. Evidence basis: corpus restricted to four SciML papers, three runs each, one agent interface/model setting, high-resource compute. Limiting factor: no clinical, wet-lab, statistical, social-science, or heterogeneous document corpus evaluation. Higher with multi-domain, multi-agent, multi-site evaluations; lower if performance depends on paper type or expensive compute.</p></div>
+    <div class="mini-card"><b>Implementation value</b><span class="score">8 / 10</span><p>The workflow is build-useful even if the empirical claims are preliminary. Evidence basis: concrete artifacts named throughout the paper: manifest, matrix, ledger, specs, run recorder, provenance records, comparison checks, and report coverage. Limiting factor: operational details require repository audit and adaptation. Higher with schema definitions and validator examples; lower if the code is hard to run or not maintained.</p></div>
+  </div>
+
+  <h3>Strengths</h3>
+  <ul class="tight">
+    <li>Defines completion as a verifiable workspace state rather than an agent message.</li>
+    <li>Separates target identification, method reconstruction, output generation, provenance, comparison, and report coverage.</li>
+    <li>Records negative path information through failed or superseded executions.</li>
+    <li>Distinguishes scalar, structural, distributional, and visual evidence instead of forcing all claims into exact numeric equality.</li>
+    <li>Openly states key limitations: completion is relative to recorded targets and checks; hash checks do not detect every transformed copy; accepted evidence is not proof of unique implementation.</li>
+  </ul>
+
+  <h3>Limitations and bias risks</h3>
+  <ul class="tight">
+    <li><b>No baseline.</b> The paper does not compare Paper-replication against direct prompting, a simpler checklist, PaperBench-style grading, or another agent workflow.</li>
+    <li><b>No ablation.</b> The contribution of the target matrix, task ledger, provenance records, report coverage, and completion gate cannot be separated.</li>
+    <li><b>Self-evaluation.</b> The authors built the workflow and evaluated it; an independent audit would be more persuasive.</li>
+    <li><b>Target completeness remains vulnerable.</b> If the agent omits a claim or defines a target too coarsely, the completion gate can still pass relative to that target set.</li>
+    <li><b>Acceptance-rule plasticity.</b> Runs differ in rule type for the same aligned claim, especially in PINN papers, which can weaken comparability.</li>
+    <li><b>Compute and model dependence.</b> Results use a specific Codex configuration and high-resource local/cluster environment.</li>
+  </ul>
+
+  <h3>Confidence in appraisal</h3>
+  <p><b>Moderate.</b> The uploaded PDF provides enough detail to evaluate the conceptual workflow, case-study design, results, and stated limitations. Confidence is not high because the released code, prompts, workspaces, and analysis scripts were not independently inspected or rerun.</p>
+</section>
+
+<section id="implementation">
+  <h2>Implementation and practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><b>Adopt the evidence bundle pattern</b>For any agent-generated scientific appraisal, require: source claim, generated artifact, command/run record, code/config/seed provenance, comparison rule, and final report location.</div>
+    <div class="mini-card"><b>Use a target matrix</b>Do not let an agent summarize progress narratively. Store claims, source locations, status, acceptance rules, outputs, and report coverage in a structured file.</div>
+    <div class="mini-card"><b>Keep one active target</b>A task ledger with one active target reduces drift, partial completion, and accidental reuse of stale outputs.</div>
+    <div class="mini-card"><b>Separate paper assets from outputs</b>Use directory separation plus hashes to prevent paper-provided figures/tables from being counted as generated evidence.</div>
+    <div class="mini-card"><b>Validate before reporting</b>Completion should be blocked until specification, progress/provenance, comparison, and report-coverage checks pass.</div>
+    <div class="mini-card"><b>Record disagreement</b>When acceptance-rule type varies across runs, preserve that variation; it is evidence about judgment instability.</div>
+  </div>
+  <h3>Useful adaptations for your reference-HTML workflow</h3>
+  <ul class="tight">
+    <li>Add a manifest gate before drafting: exact title, source type, sections, figures, tables, workflows, omissions.</li>
+    <li>Require figure/table/workflow reconciliation before appraisal scores are assigned.</li>
+    <li>Use provenance fields for generated artifacts: evaluated file, extraction method, visual strategy, known omissions, and QA checks.</li>
+    <li>For AI/ML papers, record whether claims are numeric, structural, distributional, visual, or workflow-level.</li>
+    <li>Separate “matched under the source’s stated rule” from “externally convincing under a stricter appraisal rule.”</li>
+  </ul>
+  <h3>What would make the paper stronger</h3>
+  <ul class="tight">
+    <li>A no-skill baseline and a simpler-workflow baseline.</li>
+    <li>Ablations of the matrix, ledger, provenance, asset checks, and report-coverage gate.</li>
+    <li>Independent expert review of target completeness and acceptance-rule adequacy.</li>
+    <li>Cross-agent replication using different coding agents and model families.</li>
+    <li>Adversarial tests for transformed paper-asset reuse and method substitution.</li>
+    <li>Evaluation across more domains, including non-SciML computational papers and papers with incomplete or messy supplementary materials.</li>
+  </ul>
+</section>
+
+<section id="not-overclaim">
+  <h2>What not to overclaim</h2>
+  <table>
+    <thead><tr><th>Tempting claim</th><th>Safer interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>“Coding agents can replicate scientific machine-learning papers.”</td><td>In this study, a specific Codex setup using the Paper-replication skill completed 12 recorded workspaces across 4 selected SciML papers under the authors' completion gate.</td></tr>
+      <tr><td>“All claims were replicated.”</td><td>All recorded targets were matched. The paper itself notes that completion is relative to the recorded target set and checks.</td></tr>
+      <tr><td>“The numerical results were reproduced exactly.”</td><td>Most scalar anchors fell within fixed thresholds, but exact equality is not expected when seeds, sampled training sets, optimizer states, and preprocessing details are missing.</td></tr>
+      <tr><td>“The workflow prevents copied or substitute evidence.”</td><td>The workflow reduces this risk through directory separation, hashes, provenance, and comparison checks; it does not prove all transformed copying or method substitution is impossible.</td></tr>
+      <tr><td>“This is a validated benchmark of agent ability.”</td><td>The paper is better read as a workflow and case-study report. It does not include broad benchmark coverage, baseline comparison, or independent grading.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="provenance">
+  <h2>Provenance and QA</h2>
+  <table>
+    <tbody>
+      <tr><th>Evaluated source</th><td>Uploaded PDF: 2607.02134v1.pdf</td></tr>
+      <tr><th>Source title</th><td>Coding-agents can replicate scientific machine learning papers</td></tr>
+      <tr><th>Identifier</th><td>arXiv:2607.02134v1 [cs.AI]</td></tr>
+      <tr><th>Generated</th><td>2026-07-03</td></tr>
+      <tr><th>Protocol lens</th><td>Integrated Summary, Evaluation, and Appraisal protocol; AI/ML systems module.</td></tr>
+      <tr><th>QA checks performed</th><td>Metadata present; all main figures and tables reconciled; appraisal ratings assigned after extraction; HTML is self-contained with embedded CSS; no external scripts, fonts, or remote assets; no internal citation syntax inside artifact.</td></tr>
+      <tr><th>Caveat</th><td>The GitHub repository reported by the paper was not independently opened, executed, or audited. This file appraises the uploaded manuscript, not the released software package.</td></tr>
+    </tbody>
+  </table>
+</section>
+</main>
+<footer>
+  <p>Single-file HTML reference appraisal. Use as a reading and implementation aid, not as a substitute for full-text review or independent reproduction of the authors' released materials.</p>
+</footer>
+</body>
+</html>

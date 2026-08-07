@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guideline-as-Oracle — Summary, Evaluation, and Appraisal</title><style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#17202a;--muted:#566575;--line:#d8e0ea;--accent:#174f8a;--good:#eaf6ef;--warn:#fff5df;--bad:#fdecec;--code:#101827;--codefg:#eef5ff;--shadow:0 3px 14px rgba(20,45,75,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.58 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:linear-gradient(135deg,#102a47,#1d5d9b);color:#fff;padding:3.2rem 1.25rem 2.7rem}.wrap{max-width:1120px;margin:auto}header h1{font-size:clamp(2rem,4vw,3.25rem);line-height:1.12;margin:0 0 .8rem}header p{max-width:850px;margin:.35rem 0;color:#e8f1fb}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.badge,.tag{display:inline-block;border-radius:999px;padding:.28rem .68rem;font-size:.84rem;font-weight:650}.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25)}
+main{max-width:1120px;margin:1.2rem auto 3rem;padding:0 1rem}nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin:1rem 0;padding:1.25rem 1.4rem}nav.toc ul{columns:2;gap:2rem;padding-left:1.2rem}
+h2{color:#123d69;margin:.1rem 0 1rem;border-bottom:2px solid #e8eef5;padding-bottom:.5rem}h3{color:#174f8a;margin-top:1.3rem}a{color:#174f8a}.meta-grid,.rating-grid,.takeaway-grid,.two-col,.three-col{display:grid;gap:.8rem}.meta-grid,.rating-grid,.takeaway-grid,.three-col{grid-template-columns:repeat(3,minmax(0,1fr))}.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mini-card{border:1px solid var(--line);border-radius:11px;padding:.9rem;background:#fbfcfe}.mini-card strong{display:block;color:#28445f;margin-bottom:.25rem}.verdict,.warning,.badnote,.goodnote{border-radius:11px;padding:1rem 1.05rem;margin:.8rem 0}.verdict{background:#eaf2fb;border-left:5px solid var(--accent)}.warning{background:var(--warn);border-left:5px solid #ad7100}.badnote{background:var(--bad);border-left:5px solid #a12626}.goodnote{background:var(--good);border-left:5px solid #157240}
+.section-summary{border-left:4px solid #d7e4f2;padding-left:1rem;margin:1.15rem 0}table{border-collapse:collapse;width:100%;margin:.8rem 0;font-size:.94rem}th,td{border:1px solid var(--line);padding:.58rem .65rem;vertical-align:top}th{background:#eef3f8;color:#24425e;text-align:left}pre{background:var(--code);color:var(--codefg);padding:1rem;border-radius:11px;white-space:pre-wrap;overflow:auto}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.metric{font-size:1.45rem;font-weight:800;color:#123d69}.small{font-size:.9rem;color:var(--muted)}.score{font-size:1.4rem;font-weight:800;color:#174f8a}.tag{background:#edf3f9;color:#264966;margin:.15rem .2rem .15rem 0}ul.tight li{margin:.22rem 0}footer{color:var(--muted);font-size:.9rem}
+@media(max-width:820px){.meta-grid,.rating-grid,.takeaway-grid,.two-col,.three-col{grid-template-columns:1fr}nav.toc ul{columns:1}}
+@media print{body{background:#fff}header{background:#fff;color:#000;padding:1rem 0;border-bottom:2px solid #000}header p{color:#333}.badge{border:1px solid #555;color:#000}nav.toc,section{box-shadow:none}a{color:#000;text-decoration:none}}
+</style></head>
+<body>
+<header><div class="wrap">
+<h1>Guideline-as-Oracle: Zero-Annotation Training of an Ophthalmic Telephone Triage Agent</h1>
+<p>Summary, evaluation, and appraisal of arXiv:2608.04772v1 using an AI/ML systems and clinical-safety lens.</p>
+<div class="badges"><span class="badge">Preprint</span><span class="badge">AI/ML agent training</span><span class="badge">Synthetic dialogue</span><span class="badge">Clinical triage</span><span class="badge">Policy-conformance study</span></div>
+</div></header>
+<main>
+<nav class="toc" aria-label="Table of contents"><h2>Contents</h2><ul>
+<li><a href="#metadata">Metadata and scope</a></li><li><a href="#synthesis">One-page synthesis</a></li><li><a href="#manifest">Coverage manifest</a></li><li><a href="#sections">Section condensation</a></li><li><a href="#visuals">Figures, table, and workflow</a></li><li><a href="#methods">Methods and evaluation audit</a></li><li><a href="#appraisal">Evaluation and appraisal</a></li><li><a href="#takeaways">Implementation takeaways</a></li><li><a href="#provenance">Provenance and caveats</a></li>
+</ul></nav>
+
+<section id="metadata"><h2>Metadata and scope</h2>
+<div class="meta-grid">
+<div class="mini-card"><strong>Exact title</strong>Guideline-as-Oracle: Zero-Annotation Training of an Ophthalmic Telephone Triage Agent</div>
+<div class="mini-card"><strong>Authors</strong>Chenyu Wang, Yi Liu, Baoqing Li, Min Tu, Diping Song</div>
+<div class="mini-card"><strong>Organizations</strong>Shanghai Institute of Microsystem and Information Technology; ByteDance Inc.; Shanghai Artificial Intelligence Laboratory</div>
+<div class="mini-card"><strong>Source type</strong>AI/ML preprint; agent-training and benchmark evaluation study</div>
+<div class="mini-card"><strong>Date/version</strong>arXiv:2608.04772v1, 5 August 2026</div>
+<div class="mini-card"><strong>Design</strong>Full-parameter SFT of a 9B model on synthetic multi-turn dialogues, evaluated against a 201-case internal operational reference</div>
+</div>
+<div class="warning"><strong>Scope warning.</strong> The study evaluates conformance to an author-compiled, benchmark-informed triage policy. It does not establish clinical validity, patient benefit, deployment safety, or equivalence to clinician triage. The authors state that the system must not guide care.</div>
+</section>
+
+<section id="synthesis"><h2>One-page synthesis</h2>
+<div class="verdict"><strong>Verdict: Read first for methodology; do not use for clinical practice.</strong> The paper is a high-value case study of converting written guidance into synthetic supervision, auditing contamination and evaluation defects, and separating policy conformance from clinical validity. Its foundational limitation is that the policy and operational reference were author-defined, benchmark-informed, and not independently validated by clinicians.</div>
+<div class="three-col">
+<div class="mini-card"><strong class="metric">61.7% → 74.1%</strong>Exact agreement after SFT versus the untuned 9B base on the clean 201-case protocol; paired difference 12.4 points, exact McNemar p=0.0046.</div>
+<div class="mini-card"><strong class="metric">9.5% → 69.0%</strong>Emergent-case recall on 42 emergent references.</div>
+<div class="mini-card"><strong class="metric">3,000 dialogues</strong>Training corpus labeled solely by a 70-row author-compiled table; weighted resampling yielded 3,998 exposures.</div>
+</div>
+<h3>Core thesis</h3><p>A specialty guideline can be operationalized as a rule table and used as the sole source of instance-level labels for synthetic multi-turn dialogue training. Here, the resulting 9B agent learned a policy-relative mapping that substantially increased emergent recall without a frontier model at inference time.</p>
+<h3>What is demonstrated</h3><ul class="tight">
+<li>A clean same-day base-versus-SFT comparison supports a substantial gain in agreement with the paper's operational reference.</li>
+<li>A label-shuffling control supports the claim that useful signal depends on evidence-to-label assignment, not dialogue style, length, or class frequency alone.</li>
+<li>The work identifies concrete synthetic-pipeline failures: benchmark paraphrases, unsupported rationales, contradictory labels, hidden heuristic overwrites, and reward-stage early termination.</li>
+<li>Total agreement and safety-relevant emergent recall are separable.</li></ul>
+<h3>What is not demonstrated</h3><ul class="tight">
+<li>Clinical accuracy, prospective safety, patient benefit, or performance against an independent multi-clinician gold standard.</li>
+<li>Generalization to real telephone calls, other specialties, sites, languages, or populations.</li>
+<li>Independent causal effects for most of the eight corpus strategies.</li>
+<li>General superiority to frontier models; the reported finding is only two-metric non-dominance under this internal protocol.</li></ul>
+<p><span class="tag">guideline compilation</span><span class="tag">synthetic data</span><span class="tag">multi-turn agents</span><span class="tag">evaluation leakage</span><span class="tag">label repair</span><span class="tag">clinical safety</span></p>
+</section>
+
+<section id="manifest"><h2>Coverage manifest</h2><table>
+<tr><th>Field</th><th>Coverage decision</th></tr>
+<tr><td>Source ID</td><td>arXiv:2608.04772v1</td></tr>
+<tr><td>Sections</td><td>Abstract; Introduction; Related Work; Method (3.1–3.3); Experimental Setup (4.1–4.3); Results (5.1–5.3); What Carries the Signal; Conclusion; References</td></tr>
+<tr><td>Main-text figures</td><td>Figures 1–5, all represented as structured blocks below</td></tr>
+<tr><td>Main-text tables</td><td>Table 1 reconstructed with all reported rows and key metrics</td></tr>
+<tr><td>Workflows/algorithms</td><td>GAO pipeline; maximum-tier assignment Φ(J); three-view scoring; historical overwrite bounding logic</td></tr>
+<tr><td>Supplement</td><td>Referenced but not included in the uploaded nine-page file; not directly appraised</td></tr>
+<tr><td>Visual strategy</td><td>Structured reconstruction. No screenshot embedded because captions, axes, values, and interpretation were recoverable.</td></tr>
+<tr><td>Omissions</td><td>Individual references not annotated. Supplementary confusion matrices, detailed checks, proofs, and intervals could not be verified.</td></tr>
+</table></section>
+
+<section id="sections"><h2>Section-by-section condensation</h2>
+<div class="section-summary"><h3>Abstract</h3><p>The paper introduces Guideline-as-Oracle (GAO), in which an author-compiled 70-row ophthalmic triage rule table supplies every instance-level label for 3,000 synthetic multi-turn dialogues. A 9B backbone is fine-tuned to ask questions and emit emergent, urgent, or routine dispositions. Human judgment is reserved for evaluation.</p><p>On a 201-case operational reference, SFT increases agreement from 61.7% to 74.1% and emergent recall from 9.5% to 69.0%. Label permutation collapses the model to routine-only prediction, while label repair coincides with removal of a late-training safety degradation. The claim is explicitly narrowed to policy conformance.</p></div>
+<div class="section-summary"><h3>1. Introduction</h3><p>The motivation is the scarcity, expense, privacy sensitivity, and release difficulty of expert-labeled medical telephone dialogue. Specialty guidance is proposed as an alternative labeling source. “Zero annotation” excludes instance-level training labels, not the human work required to compile and audit the policy.</p><p>The contributions are an eight-strategy rule-to-dialogue design space, a small nurse-role model competitive with tested general-purpose systems on internal metrics, and a control localizing the signal to guideline-derived assignments. The introduction also discloses that the benchmark influenced rule coverage and model selection.</p></div>
+<div class="section-summary"><h3>2. Related Work</h3><p>GAO is positioned against data programming, constitutional supervision, self-instruction, user simulation, proactive questioning, preference optimization, and medical-agent benchmarks. The key distinction is that the guideline table is the operative labeling rule rather than one noisy vote among weak sources.</p><p>The section is strongest when linking prior work to observed failures: internally contradictory generated labels, a credit-assignment gap between final outcome and question-asking behavior, benchmark transmission through repair, and biases in LLM-as-judge workflows.</p></div>
+<div class="section-summary"><h3>3. Method: Guideline-as-Oracle</h3><p>The core object is an ordered rule table T = {(qj, sj, yj)}. Each generated profile cites a nonempty set J and receives the maximum severity Φ(J) among cited rows. Labels are citation-derived rather than semantically matched. The table expanded from 64 to 70 rows after benchmark analysis and lacks independent clinician validation or source-passage mapping.</p><p>Eight construction strategies are described: cited-row assignment, one-fact boundary pairs, metadata-only repair, phrasing diversity, case replacement, evidence gating, train–serve alignment, and label repair. Two are mechanisms, two have null findings, three are confounded, and one is package-level only.</p></div>
+<div class="section-summary"><h3>3.2 Corpus construction and audits</h3><p>The primary corpus has 3,000 dialogues with a median of 11 nurse turns: 625 emergent, 746 urgent, and 1,629 routine. Class weights of 2.0, 1.5, and 1.0 create 3,998 exposures. Training uses three epochs, nurse-token cross-entropy, and caller-token masking.</p><p>Audits found benchmark-derived paraphrase clusters, lexical overlap that could not establish decontamination, and about 19% unsupported “Reason” fields in earlier corpora. A later sweep removed 222 dialogues, regenerated 219 replacements, and dropped three. Label repair neutralized 491 family–tier contradictions and corrected 91 dialogues with three inconsistent labels.</p></div>
+<div class="section-summary"><h3>4. Experimental Setup</h3><p>The 201-case benchmark derives from public patient-authored ophthalmic Reddit narratives converted into interactive profiles. Final references contain 42 emergent, 47 urgent, and 112 routine cases. Label review was by exception: 25 original labels were flagged, 176 retained by default, and 12 revised after LLM audits and author adjudication.</p><p>The benchmark influenced rule revision, corpus development, model selection, and adjudication, making the endpoint internal policy conformance. The three-view analysis uses a distinct 5,177-dialogue lineage and a different condition from the headline comparison.</p></div>
+<div class="section-summary"><h3>4.3 Historical protocol defects</h3><p>Historical comparisons are disqualified because a complete-profile heuristic could read hidden case data and overwrite a model verdict when they disagreed. One protocol had 31 base and 18 SFT overwrites; across 5,427 runs, 19–44 cases per run were affected. Original verdicts were not retained.</p><p>The paper derives bounds for direct agreement from stored agreement and overwrite counts, while acknowledging unverifiable assumptions. This audit increases credibility and demonstrates how an evaluation harness can mask failure.</p></div>
+<div class="section-summary"><h3>5. Results</h3><p>In the clean primary comparison, agreement rises from 61.7% to 74.1% (p=0.0046; paired risk-difference 95% CI 4.3–20.6 points). Emergent recall rises from 9.5% to 69.0%; severe under-triage falls descriptively from 24 to 17. A second seed reaches 73.1% agreement, and a second simulator preserves the emergent-recall gap.</p><p>No external arm exceeds GAO-Triage on both internal agreement and emergent recall. However, GPT-5.5 has 75.1% agreement, some systems have higher emergent recall, interaction lengths differ, and GPT-5.5 shares a family with the simulator. The correct reading is non-dominance, not equivalence or superiority.</p></div>
+<div class="section-summary"><h3>5.2–5.3 Ablations and post-training</h3><p>Removing or replacing 160 boundary dialogues changes agreement by at most 2 of 201 cases, an underpowered null. Giving GPT-5.5 the rule table lowers its point estimate from 75.1% to 67.7%. Most strategy checks cannot identify isolated effects.</p><p>Outcome GRPO performs poorly: agreement falls to 45.3%, and 39.8% of dialogues end without a disposition. Because the checkpoint descends from unretained original SFT weights and the reward combined several components, this is a checkpoint failure rather than a clean causal estimate for outcome reward.</p></div>
+<div class="section-summary"><h3>6. What Carries the Signal</h3><p>Permuting dialogue–label assignments while preserving class marginals collapses prediction to routine for all 201 cases, yielding 55.7% agreement and zero emergent and urgent recall. The control supports dependence on the intended evidence-to-tier mapping, though it uses a different corpus size from the headline arm.</p><p>A paired case suggests SFT changes evidence acquisition rather than only final guessing. Development records show agreement does not order safety. On Oxford-40, GPT-5.5 reaches 82.5%, a trained precursor 62.5%, and base 50.0%, but the set is small, static, and has a 57.5% constant-emergent baseline.</p></div>
+<div class="section-summary"><h3>Limitations, ethics, and conclusion</h3><p>The operational reference is the weakest link. Two rule-conditioned reviewers agreed on only 44.1% of 930 citation-to-tier recomputations (κ=0.285), and nine of twelve revisions were downgrades. Most arms use one seed and simulator, lexical audits are incomplete, parsing is permissive, and important detail resides in the unavailable supplement.</p><p>An unknown fraction of profile seeds and benchmark cases derives from Reddit posts without retained acquisition records, platform agreement, de-identification audit, endpoint-retention records, or IRB review. The conclusion remains appropriately limited to policy-conformance learning.</p></div>
+</section>
+
+<section id="visuals"><h2>Figures, table, and workflow extraction</h2>
+<h3>Figure 1 — Agreement versus emergent recall</h3><pre><code>Purpose:
+  Compare GAO-Triage with the base, general-purpose models, a rule-table variant,
+  and a routine-only floor.
+
+Axes:
+  x = exact agreement on 201 cases
+  y = emergent recall on 42 emergent cases
+
+Pattern:
+  No external arm lies above and right of GAO-Triage.
+  GPT-5.5: higher agreement (75.1% vs 74.1%), lower emergent recall (64.3% vs 69.0%).
+  Qwen3.5 and Kimi-K2.6: higher emergent recall, lower agreement.
+
+Limit:
+  Reference coupling, interaction-length differences, and simulator-family overlap.</code></pre>
+<h3>Figure 2 — Guideline-as-Oracle workflow</h3><pre><code>Inputs:
+  AAO-informed guidance → author-compiled 70-row table
+
+Process:
+  Profiles cite row set J → label Φ(J) is maximum cited tier
+  Eight strategies generate/filter 3,000 dialogues
+  Class-weighted resampling yields 3,998 exposures
+  Three-epoch full-parameter SFT with caller-token masking and nurse-token loss
+
+Output:
+  Interactive nurse-role model that asks questions and emits E/U/R disposition
+
+Human review:
+  No instance-level human labels in training; human judgment enters evaluation
+
+Failure points:
+  Author-defined rule validity, incomplete semantic checks, repair leakage,
+  prompt/version drift, and hidden evaluation transforms.</code></pre>
+<h3>Figure 3 — Primary corpus composition</h3><table>
+<tr><th>Tier</th><th>Unique dialogues</th><th>Training exposures</th><th>Training share</th><th>Evaluation share</th></tr>
+<tr><td>Emergent</td><td>625</td><td>1,250</td><td>31%</td><td>21%</td></tr>
+<tr><td>Urgent</td><td>746</td><td>1,119</td><td>28%</td><td>23%</td></tr>
+<tr><td>Routine</td><td>1,629</td><td>1,629</td><td>41%</td><td>56%</td></tr>
+</table><p class="small">Median interaction depth: 11 nurse turns. Severe tiers were intentionally upweighted.</p>
+<h3>Table 1 — Clean results on 201 cases</h3><table>
+<tr><th>System/condition</th><th>Emergent recall</th><th>No verdict</th><th>Agreement</th><th>p vs GAO</th></tr>
+<tr><td><strong>GAO-Triage</strong></td><td>69.0% (29/42)</td><td>1</td><td>74.1%</td><td>—</td></tr>
+<tr><td>GAO, seed 2</td><td>78.6% (33/42)</td><td>0</td><td>73.1%</td><td>0.878</td></tr>
+<tr><td>Base 9B</td><td>9.5% (4/42)</td><td>0</td><td>61.7%</td><td>0.0046</td></tr>
+<tr><td>ROUTINE-only floor</td><td>0.0%</td><td>0</td><td>55.7%</td><td>3.8×10⁻⁵</td></tr>
+<tr><td>Outcome GRPO</td><td>42.9%</td><td>80</td><td>45.3%</td><td>1.9×10⁻⁹</td></tr>
+<tr><td>GPT-5.5</td><td>64.3%</td><td>0</td><td>75.1%</td><td>0.899</td></tr>
+<tr><td>GPT-5.5 + rule table</td><td>66.7%</td><td>0</td><td>67.7%</td><td>0.130</td></tr>
+<tr><td>GPT-5.4</td><td>64.3%</td><td>0</td><td>70.6%</td><td>0.464</td></tr>
+<tr><td>DeepSeek-V4-Pro</td><td>40.5%</td><td>0</td><td>71.6%</td><td>0.590</td></tr>
+<tr><td>GLM-5.2</td><td>45.2%</td><td>0</td><td>69.2%</td><td>0.295</td></tr>
+<tr><td>Qwen3.5-397B</td><td>73.8%</td><td>0</td><td>68.2%</td><td>0.141</td></tr>
+<tr><td>Kimi-K2.6</td><td>76.2%</td><td>2</td><td>71.1%</td><td>0.532</td></tr>
+<tr><td>Qwen3-235B</td><td>35.7%</td><td>0</td><td>62.2%</td><td>0.0043</td></tr>
+</table><div class="warning">External-arm p-values are secondary and descriptive. Non-significance is not equivalence.</div>
+<h3>Figure 4 — Paired emergent case</h3><pre><code>Untuned base:
+  Screens for flashes/curtain/field loss, but never asks about recent surgery.
+  Outputs Urgent while citing surgery in its rationale.
+
+GAO-Triage:
+  Asks about recent eye surgery.
+  Elicits recent pneumatic retinopexy for retinal detachment.
+  Outputs Emergent.
+
+Interpretation:
+  Illustrates acquisition of decisive evidence, but one case does not establish
+  the mechanism for the aggregate recall gain.</code></pre>
+<h3>Figure 5 — Development variants</h3><pre><code>Sequence:
+  Gated baseline → Tight threshold → Routing fix → More cases → Label repair
+
+Reported:
+  More-cases variant: recall peak 82.6%, accuracy trough 63.7%, over-triage 27.4%.
+  Label-repair package: 71.8% agreement, 76.0% emergent recall on filtered subset.
+
+Limit:
+  Unequal denominators, historical contamination, bundled changes, and one-seed
+  development records prevent causal attribution.</code></pre>
+</section>
+
+<section id="methods"><h2>Methods and evaluation audit</h2>
+<div class="two-col">
+<div class="mini-card"><strong>Task</strong>Interactive ophthalmic telephone triage into emergent, urgent, or routine care.</div>
+<div class="mini-card"><strong>Model</strong>9B backbone; full-parameter SFT; three epochs; nurse-token loss; caller-token masking.</div>
+<div class="mini-card"><strong>Training labels</strong>Maximum severity among cited rows in an author-compiled 70-row table.</div>
+<div class="mini-card"><strong>Primary comparator</strong>Same-day clean SFT versus untuned base, hidden-profile heuristic disabled.</div>
+<div class="mini-card"><strong>Primary endpoint</strong>Exact agreement; emergent recall is the critical class-level finding.</div>
+<div class="mini-card"><strong>Uncertainty</strong>Exact McNemar test and paired risk-difference CI for the primary comparison.</div>
+</div>
+<h3>Bias and validity assessment</h3><table>
+<tr><th>Domain</th><th>Assessment</th><th>Implication</th></tr>
+<tr><td>Reference standard</td><td>High concern</td><td>Author-adjudicated, policy-coupled, exception-reviewed; not an independent clinical gold standard.</td></tr>
+<tr><td>Leakage/contamination</td><td>High concern, openly audited</td><td>Known paraphrase clusters and lexical overlaps; screens do not prove decontamination.</td></tr>
+<tr><td>Evaluation harness</td><td>Mixed</td><td>Historical runs were corrupted, but primary claims were rerun cleanly and defects disclosed.</td></tr>
+<tr><td>Comparator fairness</td><td>Moderate concern</td><td>Different interaction lengths; simulator/model-family overlap for GPT-5.5.</td></tr>
+<tr><td>Statistical power</td><td>Moderate concern</td><td>Adequate for the observed primary gap, underpowered for small ablation effects.</td></tr>
+<tr><td>Reproducibility</td><td>Moderate-high concern</td><td>Missing checkpoints, rubrics, immutable provider snapshots, and supplement.</td></tr>
+<tr><td>External validity</td><td>High concern</td><td>Single specialty, synthetic calls, public-post-derived narratives, internal policy reference.</td></tr>
+<tr><td>Clinical safety</td><td>Not established</td><td>No prospective deployment, clinician benchmark, calibration, or patient outcomes.</td></tr>
+</table>
+<div class="goodnote"><strong>Well supported:</strong> SFT improves policy-reference agreement and emergent recall under the clean internal protocol; shuffled assignment destroys the mapping.</div>
+<div class="warning"><strong>Partially supported:</strong> the model may improve decision-critical evidence acquisition, but systematic question-quality evidence is limited.</div>
+<div class="badnote"><strong>Not supported:</strong> clinical accuracy, safe autonomous triage, real-world generalization, or superiority to clinicians/frontier models.</div>
+</section>
+
+<section id="appraisal"><h2>Evaluation and appraisal</h2>
+<div class="rating-grid">
+<div class="mini-card"><span class="score">9/10</span><strong>Relevance</strong>Highly aligned with clinical-agent evaluation, synthetic supervision, and safety-oriented pipeline design.</div>
+<div class="mini-card"><span class="score">8/10</span><strong>Novelty</strong>The guideline-labeling mechanism plus candid pipeline audit is distinctive.</div>
+<div class="mini-card"><span class="score">6/10</span><strong>Method strength</strong>Useful primary contrast and controls, but major coupling, adaptive development, and confounded ablations remain.</div>
+<div class="mini-card"><span class="score">6/10</span><strong>Evidence strength</strong>The main internal effect is supported, but it validates policy conformance rather than clinical correctness.</div>
+<div class="mini-card"><span class="score">3/10</span><strong>External validity</strong>No independent interactive clinical benchmark, prospective calls, or multi-clinician reference.</div>
+<div class="mini-card"><span class="score">8/10</span><strong>Implementation value</strong>Strong blueprint for lineage, validation, clean harnesses, negative controls, and safety metrics.</div>
+</div>
+<h3>Main strengths</h3><ul>
+<li>Clear separation of generated training labels from evaluation judgment.</li><li>Explicit statement that “oracle” is a construction role, not clinical truth.</li><li>Clean rerun after finding a serious hidden-data overwrite defect.</li><li>Nulls and confounds are preserved rather than overstated.</li><li>Agreement is separated from emergent recall and severe under-triage.</li><li>Ethical limitations are disclosed in concrete operational terms.</li></ul>
+<h3>Main limitations</h3><ul>
+<li>Benchmark, rule table, adjudication, corpus development, and model selection are entangled.</li><li>The 70-row policy lacks independent clinician validation and passage-level source mapping.</li><li>Most labels were retained by default rather than independently relabeled.</li><li>Contamination pathways remain incompletely resolved.</li><li>Most construction strategies are not separately identified.</li><li>Important methodological detail resides in an unavailable supplement.</li></ul>
+<h3>What would raise the score</h3><p>Freeze the rule table before benchmark exposure; map each rule to source passages; obtain blinded multi-clinician labels for every case; build an external interactive benchmark; publish corpora, prompts, checkpoints, hashes, provider snapshots, and repair lineage; evaluate calibration and severity-weighted errors; and perform prospective silent-mode validation.</p>
+<div class="verdict"><strong>Bottom line: Read first.</strong> The most transferable contribution is not the 74.1% score; it is the documented chain from rule compilation through synthetic supervision, leakage auditing, clean evaluation, negative controls, and claim restraint. Use it for architecture and evaluation design, not patient care.</div>
+<p><strong>Confidence in appraisal:</strong> Moderate-high for the main paper; reduced by the unavailable supplement, code, rule table, prompts, and datasets.</p>
+</section>
+
+<section id="takeaways"><h2>Implementation and research takeaways</h2>
+<div class="takeaway-grid">
+<div class="mini-card"><strong>Build</strong>Versioned rule objects with source anchors, rule IDs, severity, symptom family, provenance, reviewer state, and validation status.</div>
+<div class="mini-card"><strong>Validate</strong>Separate structural from semantic sufficiency checks; verify cited-row logic, grounded rationales, consistency, prompt alignment, and leakage.</div>
+<div class="mini-card"><strong>Audit lineage</strong>Track seed cases, prompts, repair events, rejected text, replacements, provider snapshots, checkpoints, and harness versions with hashes.</div>
+<div class="mini-card"><strong>Use controls</strong>Shuffle labels, remove decisive evidence, vary simulators, and compare with constant-class floors.</div>
+<div class="mini-card"><strong>Select for safety</strong>Predefine severe under-triage, no-verdict rate, over-triage, calibration, and stopping behavior—not only total agreement.</div>
+<div class="mini-card"><strong>Do not deploy</strong>Require independent clinical labels, external interactive testing, silent-mode validation, privacy review, escalation, and monitoring.</div>
+</div>
+<h3>Transfer to CDS and literature-extraction architecture</h3><ul>
+<li><strong>Policy as content:</strong> keep rules in versioned repositories, not service code.</li>
+<li><strong>Provenance as a first-class field:</strong> every example, label, repair, and result should retain anchors and transformation history.</li>
+<li><strong>Structured incompleteness:</strong> unresolved evidence and uncertain labels should produce incomplete outputs rather than silent guesses.</li>
+<li><strong>Harness contract tests:</strong> hidden case data must never overwrite system outputs; pre-transform outputs must be retained.</li>
+</ul>
+</section>
+
+<section id="provenance"><h2>Provenance and caveats</h2>
+<p><strong>Evaluated source:</strong> Wang C, Liu Y, Li B, Tu M, Song D. <em>Guideline-as-Oracle: Zero-Annotation Training of an Ophthalmic Telephone Triage Agent.</em> arXiv:2608.04772v1. 5 August 2026.</p>
+<p><strong>Evaluated file:</strong> <code>2608.04772.pdf</code></p>
+<p><strong>Generated:</strong> 2026-08-06</p>
+<p><strong>Scope:</strong> Grounded in the uploaded nine-page main paper. The appraisal does not independently verify the AAO-derived table, model identities, code, datasets, supplement, or reported results. It is for research review and implementation planning, not clinical decision support.</p>
+<footer>Single-file HTML with embedded CSS; no external scripts, fonts, or remote assets.</footer>
+</section>
+</main></body></html>

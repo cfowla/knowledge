@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Supersede: Diagnosing and Training the Memory-Update Gap in LLM Agents — Summary, Evaluation, and Appraisal</title>
+<style>
+:root{
+  --bg:#f6f8fb;--card:#ffffff;--ink:#17202a;--muted:#536173;--line:#d9e2ec;
+  --accent:#1d4f91;--accent2:#0f315f;--soft:#eef5ff;--soft2:#f2f6fb;
+  --good:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;--codebg:#0e1726;--codefg:#edf4ff;
+  --shadow:0 1px 5px rgba(16,36,61,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg);color:var(--ink)}
+body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;color:var(--ink);background:var(--bg)}
+.wrap{max-width:1120px;margin:0 auto;padding:1.25rem}
+header{background:linear-gradient(135deg,#10243d,#1d4f91);color:#fff;border-bottom:5px solid #d2e2f5}
+header .wrap{padding:2.2rem 1.25rem 2rem}
+h1{margin:0 0 .65rem;font-size:clamp(1.75rem,3.2vw,2.85rem);line-height:1.1;letter-spacing:-.02em}
+.subtitle{margin:0;color:#e6eef9;max-width:860px;font-size:1.05rem}.header-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}.tag{display:inline-block;border:1px solid #cbd8e8;background:#edf4ff;color:#173f72;border-radius:999px;padding:.2rem .55rem;font-size:.8rem;font-weight:650}.header-tags .tag{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);color:#fff}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.25rem;margin:1rem 0 1.25rem;box-shadow:var(--shadow)}
+nav.toc h2{margin:.1rem 0 .65rem;color:var(--accent2);font-size:1.05rem}nav.toc ol{columns:2;gap:2rem;margin:.25rem 0 0;padding-left:1.25rem}nav.toc li{break-inside:avoid;margin:.35rem 0}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:1rem 0;padding:1.1rem 1.25rem;box-shadow:var(--shadow)}
+h2{color:var(--accent2);margin:.2rem 0 1rem;font-size:1.45rem}h3{color:#173f72;margin:1.15rem 0 .45rem;font-size:1.08rem}h4{color:#24364b;margin:.9rem 0 .35rem}p{margin:.55rem 0}.muted{color:var(--muted)}
+.meta-grid,.rating-grid,.takeaway-grid,.synthesis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.75rem}.mini-card{border:1px solid var(--line);background:var(--soft2);border-radius:12px;padding:.85rem}.mini-card h3,.mini-card h4{margin-top:0}.mini-card p:last-child{margin-bottom:0}.verdict{border-left:6px solid var(--accent);background:#eef5ff;border-radius:12px;padding:1rem;margin:.75rem 0}.goodnote{border-left:6px solid var(--good);background:#effaf4;border-radius:12px;padding:.85rem;margin:.75rem 0}.warning{border-left:6px solid var(--warn);background:#fff7e6;border-radius:12px;padding:.85rem;margin:.75rem 0}.badnote{border-left:6px solid var(--bad);background:#fff0f0;border-radius:12px;padding:.85rem;margin:.75rem 0}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.94rem;display:block;overflow-x:auto;border:1px solid var(--line);border-radius:10px}th,td{border:1px solid var(--line);padding:.55rem .65rem;vertical-align:top}th{background:#eef3f9;text-align:left;color:#1e395c}tbody tr:nth-child(even){background:#fbfcfe}
+pre{margin:.75rem 0 1rem;padding:1rem;background:var(--codebg);color:var(--codefg);border-radius:12px;overflow-x:auto;border:1px solid #1b2e49;font-size:.88rem;line-height:1.45;white-space:pre-wrap}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}p code,li code,td code{background:#eef3f9;color:#17202a;border:1px solid #d7e0eb;border-radius:5px;padding:.05rem .25rem}.section-summary{border-top:1px solid var(--line);padding-top:.9rem;margin-top:.9rem}.section-summary:first-of-type{border-top:0;padding-top:0}.score{font-size:1.7rem;font-weight:800;color:#0f315f;line-height:1}.score small{font-size:.8rem;color:var(--muted);font-weight:650}.compact-list{margin:.3rem 0 .2rem;padding-left:1.2rem}.compact-list li{margin:.25rem 0}.kicker{text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-size:.78rem;font-weight:800}.footer{font-size:.88rem;color:var(--muted)}
+@media (max-width:720px){nav.toc ol{columns:1}.wrap{padding:.8rem}section{padding:1rem}.meta-grid,.rating-grid,.takeaway-grid,.synthesis-grid{grid-template-columns:1fr}}
+@media print{html,body{background:#fff}header{background:#fff;color:#000;border-bottom:2px solid #000}.subtitle,.header-tags .tag{color:#000}.header-tags .tag{border-color:#999;background:#fff}section,nav.toc{box-shadow:none;break-inside:avoid}a{color:#000}pre{white-space:pre-wrap}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Supersede: Diagnosing and Training the Memory-Update Gap in LLM Agents</h1>
+    <p class="subtitle">Summary, Evaluation, and Appraisal reference file for an AI/ML preprint on temporal fact-currency, bounded agent memory, and trainable supersession rewards.</p>
+    <div class="header-tags">
+      <span class="tag">arXiv:2606.27472v1</span><span class="tag">LLM agents</span><span class="tag">memory updates</span><span class="tag">RL environment</span><span class="tag">benchmark appraisal</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#coverage">Coverage manifest</a></li>
+    <li><a href="#sections">Section-by-section condensation</a></li>
+    <li><a href="#visuals">Figures, tables, and workflows</a></li>
+    <li><a href="#aiml">AI/ML systems appraisal</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#takeaways">Implementation takeaways</a></li>
+    <li><a href="#qa">Quality-control notes</a></li>
+    <li><a href="#provenance">Provenance</a></li>
+  </ol>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><h3>Title</h3><p>Supersede: Diagnosing and Training the Memory-Update Gap in LLM Agents</p></div>
+    <div class="mini-card"><h3>Author</h3><p>Vedant Patel, Vrin</p></div>
+    <div class="mini-card"><h3>Source</h3><p>Preprint, under review; arXiv:2606.27472v1 [cs.CL], submitted 25 Jun 2026.</p></div>
+    <div class="mini-card"><h3>Source type</h3><p>AI/ML systems preprint; benchmark diagnosis plus released reinforcement-learning environment and small-model fine-tuning experiment.</p></div>
+    <div class="mini-card"><h3>Design</h3><p>Paired benchmark comparison on LongMemEval knowledge-update items; scale/budget ablation; programmatic reward environment; single-run GRPO fine-tuning of Qwen2.5-3B-Instruct.</p></div>
+    <div class="mini-card"><h3>Primary task</h3><p>Measure and train <em>supersession</em>: using the current value of a changed fact while suppressing superseded values under bounded, self-maintained memory.</p></div>
+    <div class="mini-card"><h3>Artifacts claimed</h3><p>Environment, trained model, dataset, and Prime Intellect environment hub release are listed in the paper.</p></div>
+    <div class="mini-card"><h3>Scope warning</h3><p>This is an early preprint. It supports research and workflow design thinking, not production-memory deployment claims or clinical/practice decisions.</p></div>
+  </div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="verdict"><strong>Core thesis.</strong> The paper argues that LLM agents have a distinct <em>memory-update</em> or <em>supersession</em> failure: when facts change across sessions, bounded self-maintained memory often preserves stale values or drops current values, even when the same model can answer correctly from full context. The proposed fix is not simply a larger model or a larger memory, but a trainable memory policy optimized directly for temporal fact-currency.</div>
+  <div class="synthesis-grid">
+    <div class="mini-card"><h3>What the source contributes</h3><p>It isolates the performance gap between full-context reading and bounded-memory maintenance on real conversational update questions, then turns the failure into a verifiable RL environment called Supersede.</p></div>
+    <div class="mini-card"><h3>Most important result</h3><p>On LongMemEval knowledge-update oracle questions, gpt-5.4 is reported to fall from 92% full-context accuracy to 77% bounded-memory accuracy, with paired McNemar p = 0.0033. A smaller model also shows a significant gap.</p></div>
+    <div class="mini-card"><h3>Scale/budget finding</h3><p>In a 25-question scale study, extending history from about 2 sessions to about 48 sessions drops gpt-4.1-mini from 68% to 28%; proportional memory growth does not recover accuracy in that sample.</p></div>
+    <div class="mini-card"><h3>Training finding</h3><p>GRPO fine-tuning of Qwen2.5-3B on synthetic bounded-memory episodes raises held-out LongMemEval oracle accuracy from 9.0% to 16.7%, a relative gain of 86% but still low absolute performance.</p></div>
+    <div class="mini-card"><h3>Why it matters</h3><p>The no-re-feed setup mirrors a real design tension in production memory systems: agents cannot keep replaying all prior sessions forever, so memory-write/update policies must decide which facts survive.</p></div>
+    <div class="mini-card"><h3>Main caveat</h3><p>The diagnosis is more convincing than the training result. The strongest training claim rests on one small model, one run, synthetic training episodes, and n = 78 held-out questions.</p></div>
+  </div>
+  <p><span class="tag">High relevance to agent harnesses</span> <span class="tag">Deterministic reward design</span> <span class="tag">Memory/RAG state management</span> <span class="tag">Evidence immature</span></p>
+</section>
+
+<section id="coverage">
+  <h2>Coverage manifest</h2>
+<pre><code>SOURCE COVERAGE MANIFEST
+source_id: arXiv:2606.27472v1
+title: Supersede: Diagnosing and Training the Memory-Update Gap in LLM Agents
+source_type: Preprint / AI-agent benchmark and RL-environment paper
+date_or_version: v1, 25 Jun 2026
+sections: Abstract; 1 Introduction; 2 Related Work; 3 The Supersede Environment; 4 Experimental Setup; 5 Results; 6 Discussion; 7 Limitations; 8 Conclusion; References
+figures: Figure 1 rollout; Figure 2 full-context vs bounded-memory accuracy; Figure 3 scale vs memory size; Figure 4 training and transfer curves
+tables: Table 1 oracle gap; Table 2 scale study; Table 3 held-out gap-closing by checkpoint; Table 4 GRPO configuration
+algorithms_or_workflows: Supersede rollout; programmatic reward matcher; GRPO fine-tuning loop; example synthetic episodes
+appendices_or_supplements: Appendix A reward matcher; Appendix B training details; Appendix C example episodes
+coverage_decision: All main figures and tables included as structured text. Appendices A-C included because they define scoring, reproducibility, and training-data semantics.
+omissions: References are not summarized individually. Claimed public code/model/dataset links are recorded but not externally audited in this artifact.</code></pre>
+</section>
+
+<section id="sections">
+  <h2>Section-by-section condensation</h2>
+
+  <div class="section-summary">
+    <h3>Abstract</h3>
+    <p>The abstract defines the core problem: long-session agents must answer using the current value of facts that have changed, not values that have been superseded. On LongMemEval knowledge-update questions, replacing full context with bounded, self-maintained memory lowers reported accuracy from 92% to 77% even on gpt-5.4, with paired McNemar p &lt; 0.005, framing the bottleneck as memory maintenance rather than comprehension.</p>
+    <p>The authors further report that increasing conversation length by 24x degrades performance from 68% to 28%, while proportional memory expansion yields no detectable recovery in n = 25. They release Supersede as a trainable environment with a programmatic reward for current-value answers and show a single GRPO run on Qwen2.5-3B improves held-out real conversational supersession accuracy from 9.0% to 16.7%.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>1. Introduction</h3>
+    <p>The introduction positions supersession as a central long-horizon agent problem: facts are introduced, later revised, and must be overwritten in memory. The paper names the lost accuracy under bounded self-maintained memory the <em>supersession gap</em> and structures the contribution around four questions: whether the failure exists, whether model scale fixes it, whether memory size fixes it, and whether training can reduce it.</p>
+    <p>The authors claim five contributions: an isolation result separating memory maintenance from reading comprehension, a frontier-model confirmation, a scale-vs-size ablation, an open verifiers/prime-rl environment, and a proof-of-mechanism training result. The introduction is well aligned with practical agent-memory design because it focuses on state updates rather than static recall.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>2. Related Work</h3>
+    <p>The paper situates itself among long-term memory benchmarks such as LoCoMo, LongMemEval, MemoryArena, MemoryAgentBench, MemBench, Memora/FAMA, and temporal-conflict QA. The key distinction is that those works mainly evaluate memory or forgetting behavior, while Supersede attempts to make supersession-correctness a training signal.</p>
+    <p>For memory-system and RL-for-memory work, the authors contrast Supersede against Mem0, MemAgent, LongRLVR, AgeMem, Memory-T1, and MemPO. Their claimed differentiator is strict no-re-feeding of raw history plus a reward directly tied to which version of a fact is current, rather than final-answer success, evidence relevance, or memory task-sufficiency. The section also references closed deployed memory systems from major labs, but those comparisons rely on public product claims rather than independently audited methodology.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>3. The Supersede Environment</h3>
+    <p>A task consists of multiple sessions followed by a query about the current value of a changed fact. The agent updates a bounded notes memory after each session; raw sessions are never re-fed. This design forces the memory field to carry all relevant state and makes stale or missing memory updates directly visible at the final answer.</p>
+    <p>The primary reward is <code>r_cur = 1</code> when the final answer conveys the current value, scored by a programmatic matcher using normalization, gold variants, substring matching, and token-overlap fallback. When stale values are known, the environment can add <code>r_stale = -1</code> for asserting superseded values, though reported runs optimize <code>r_cur</code> alone.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>4. Experimental Setup</h3>
+    <p>The authors first built a procedural synthetic generator but found frontier models score 100% when full history is in context, making templated supersession uninformative for diagnosis. They therefore use the LongMemEval knowledge-update subset for real conversational updates, while retaining synthetic timelines for controls and training curriculum.</p>
+    <p>The main diagnosis uses 78 oracle-split questions with about 2 evidence sessions per question, graded by a gpt-4.1-mini judge following LongMemEval protocol and cross-checked against the programmatic matcher. The scale study uses a longer split with about 48 sessions and about 122k tokens per question, and training uses Qwen2.5-3B-Instruct with GRPO, LoRA rank 32, learning rate 1e-5, batch 32, group size 8, and 4x A10G GPUs on 2000 synthetic episodes.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>5.1 Bounded memory degrades supersession</h3>
+    <p>Table 1 and Figure 2 provide the main gap result. gpt-4.1-mini drops from 82% full-context to 63% bounded-memory accuracy, with p = 0.0035; gpt-4.1 drops from 91% to 64%; gpt-5.4 drops from 92% to 77%, with p = 0.0033. Full-context accuracy rises and saturates with stronger models, but bounded-memory accuracy lags.</p>
+    <p>The authors interpret this as evidence that memory maintenance, not comprehension, is the bottleneck. Qualitative errors are dominated by current facts being compressed away or not overwritten, producing answers such as “you haven’t mentioned any” or “no information” when the relevant updated fact appeared earlier but did not survive in notes.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>5.2 It is scale, not memory size</h3>
+    <p>The scale study tests whether the bounded memory budget of 300 characters is simply too small. With gpt-4.1-mini on n = 25, moving from the oracle split at about 2 sessions to the longer s split at about 48 sessions drops accuracy from 68% to 28% at the same 300-character memory, with paired McNemar p = 0.002.</p>
+    <p>Increasing memory proportionally for the long split leaves accuracy at 28%. The authors note that larger memory changed all 25 answers but helped and hurt in equal measure, giving McNemar b = c = 4. This supports the claim that longer histories make update maintenance harder beyond simple compression ratio, although the small n limits precision.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>5.3 Training closes the gap</h3>
+    <p>On procedural training episodes, GRPO reward rises from 0.66 to 0.97, then the run self-terminates at step 175 after zero-advantage batches because nearly every sampled rollout in a group succeeds. The authors treat this as saturation of the easy synthetic curriculum rather than a failure of the method.</p>
+    <p>On held-out real LongMemEval oracle items, the same Qwen2.5-3B policy improves from 7/78 correct (9.0%) to 13/78 correct (16.7%). The checkpoint curve is flat through steps 50 and 100, then rises at steps 150 and 175, which supports a real training effect under the fixed harness and matcher, but statistical significance is not established because it is a single run.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>6. Discussion</h3>
+    <p>The discussion reframes supersession as a memory-policy problem. Larger models can read updated context well, but under bounded state they still discard or fail to overwrite facts that later matter. This is exactly the regime of persistent memory systems that consolidate user profiles without replaying all prior sessions.</p>
+    <p>The authors argue that two intuitive fixes—larger models and larger memory—do not close the gap, while a trained currency-preserving policy moves the metric. The conclusion is plausible, but the evidence supports “trainable signal exists” more strongly than “training is the definitive solution.”</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>7. Limitations</h3>
+    <p>The authors clearly state that the training result is proof-of-mechanism, not a finished policy: one small model, one run, modest absolute gain, low final accuracy, and a synthetic curriculum that saturates. They also acknowledge that harder, longer, more implicit training episodes are needed to determine whether the curve can continue.</p>
+    <p>The diagnosis has additional caveats: the scale study has n = 25, added sessions are distractors rather than necessarily more updates to the tracked fact, Section 5.1 uses an LLM judge while later sections use the matcher, and the matcher is lenient on surface form. These limitations are material and should remain near any citation of the training result.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>8. Conclusion</h3>
+    <p>The conclusion states that agents fail at supersession because they cannot maintain changed facts under bounded memory, not because they cannot read updates in full context. The gap is significant on the benchmark, worsens with longer conversation history, and is not eliminated by model or memory scaling in the reported experiments.</p>
+    <p>The closing claim is that Supersede demonstrates a trainable route toward more current agent memory. The strongest defensible reading is that the environment provides a useful diagnosis and a promising reward design; the policy result is an early signal requiring replication, harder curricula, and broader model/task evaluation.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Appendix A: Reward matcher</h3>
+    <p>The matcher lowercases text, replaces punctuation with spaces, collapses whitespace, creates acceptable gold variants by splitting on connectives and separators, and checks whether any gold variant appears as a normalized substring in the answer. If not, a token-overlap fallback credits answers with overlap greater than 0.6.</p>
+    <p>The same matcher can score stale values when known and apply a penalty. This design is pragmatic and judge-free, but it may credit near misses or partial answers, so absolute accuracies are matcher-defined rather than necessarily human-equivalent.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Appendix B: Training details</h3>
+    <p>Training uses procedurally generated bounded-memory episodes with 6-8 sessions, one fact introduced and later superseded, and the update buried among distractors. Evaluation uses the untouched real LongMemEval oracle set, making the train/test distinction conceptually clean.</p>
+    <p>The full GRPO configuration is listed in Table 4: Qwen2.5-3B-Instruct, LoRA rank 32 with alpha 64 and dropout 0, target modules q/k/v/o/gate/up/down projections, no KL penalty, greedy evaluation, answer limit of 64 tokens, and self-halt at step 175 out of 200 maximum.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Appendix C: Example episodes</h3>
+    <p>The examples show simple synthetic timelines: a user first lives in Chicago and later moves to Atlanta, or first drives a Mazda, then a Kia, then a Lexus. The reward requires the final current value, not the superseded values.</p>
+    <p>These examples clarify the environment semantics but also reveal why the synthetic curriculum may be easier than real conversational memory: updates are explicit, short, and semantically clean, even if buried among distractors.</p>
+  </div>
+</section>
+
+<section id="visuals">
+  <h2>Figures, tables, and workflows</h2>
+
+  <h3>Figure 1 — Supersede rollout</h3>
+<pre><code>Purpose: Show the no-re-feed bounded-memory setup.
+Structure/panels: Session 1 -> Session 2 -> ... -> Session k -> Query, with each session updating a bounded memory notes field capped at B characters.
+Variables/axes/groups: Sequential raw sessions; bounded memory; final query.
+Numeric details: Memory budget B is 300 characters unless otherwise noted in experiments.
+Main pattern: Only notes carry state forward; raw sessions are never reintroduced.
+Interpretation: Any stale value that is not overwritten, or current value that is compressed away, can corrupt the final answer.
+Limits: Diagram is conceptual; does not show specific memory-write prompts, note format, or update-policy alternatives.</code></pre>
+
+  <h3>Figure 2 — Knowledge-update accuracy: full context vs bounded memory</h3>
+<pre><code>Purpose: Visualize the supersession gap across models on LongMemEval oracle questions.
+Structure/panels: Grouped bars for gpt-4.1-mini, gpt-4.1, and gpt-5.4; full context vs bounded memory.
+Variables/axes/groups: Y-axis knowledge-update accuracy (%); n = 78 oracle questions; dotted reference line at synthetic in-context 100%.
+Numeric details:
+  gpt-4.1-mini: 82% full context vs 63% bounded memory; gap -19.
+  gpt-4.1:      91% full context vs 64% bounded memory; gap -27.
+  gpt-5.4:      92% full context vs 77% bounded memory; gap -15.
+Main pattern: Full-context accuracy improves with model strength, but bounded-memory accuracy remains substantially lower.
+Interpretation: The failure is not resolved by stronger full-context comprehension alone.
+Limits: gpt-4.1 intermediate condition has no McNemar p-value reported; Section 5.1 uses LLM judging.</code></pre>
+
+  <h3>Table 1 — LongMemEval knowledge-update, oracle split</h3>
+  <table>
+    <thead><tr><th>Model</th><th>Full context</th><th>Bounded memory</th><th>Paired McNemar</th><th>Appraisal note</th></tr></thead>
+    <tbody>
+      <tr><td>gpt-4.1-mini</td><td>82%</td><td>63%</td><td>p = 0.0035</td><td>Statistically significant gap in the smaller model.</td></tr>
+      <tr><td>gpt-4.1</td><td>91%</td><td>64%</td><td>Not computed</td><td>Large descriptive gap but no paired test reported.</td></tr>
+      <tr><td>gpt-5.4</td><td>92%</td><td>77%</td><td>p = 0.0033</td><td>Frontier model narrows but does not remove the gap.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Figure 3 — Scale, not size</h3>
+<pre><code>Purpose: Test whether memory budget, rather than conversation length, explains bounded-memory failure.
+Structure/panels: Three bars for oracle short history with 300-char memory, long s split with 300-char memory, and long s split with proportional memory.
+Variables/axes/groups: Y-axis knowledge-update accuracy (%); gpt-4.1-mini; n = 25; programmatic matcher held constant.
+Numeric details:
+  Oracle, ~2 sessions, 300-char memory: 68%.
+  s split, ~48 sessions, 300-char memory: 28%.
+  s split, ~48 sessions, proportional memory: 28%.
+Main pattern: Longer history causes a 40-point drop; proportional memory yields no net recovery.
+Interpretation: The error tracks history length and update-maintenance difficulty, not only raw compression ratio.
+Limits: Small n = 25; long-history added sessions are distractors; figure axis/caption suggests ~6,500 characters while Table 2/text report ~7,150 characters.</code></pre>
+
+  <h3>Table 2 — Scale study</h3>
+  <table>
+    <thead><tr><th>Split</th><th>History</th><th>Memory</th><th>Accuracy</th><th>Appraisal note</th></tr></thead>
+    <tbody>
+      <tr><td>oracle</td><td>~2 sessions</td><td>300 characters</td><td>68%</td><td>Short evidence-only setup.</td></tr>
+      <tr><td>s</td><td>~48 sessions</td><td>300 characters</td><td>28%</td><td>Longer context sharply worsens performance.</td></tr>
+      <tr><td>s</td><td>~48 sessions</td><td>~7,150 characters, constant ratio</td><td>28%</td><td>No net recovery despite larger notes budget.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Figure 4 — Training closes the gap</h3>
+<pre><code>Purpose: Show that GRPO training learns the synthetic supersession policy and transfers partially to real held-out data.
+Structure/panels:
+  (a) Training reward over GRPO steps on procedural episodes.
+  (b) Held-out LongMemEval oracle accuracy by checkpoint.
+Variables/axes/groups:
+  Panel (a): GRPO step vs train reward; per-step reward and moving average.
+  Panel (b): base/50/100/150/175 checkpoint vs held-out oracle accuracy.
+Numeric details:
+  Training reward: starts about 0.66, rises to about 0.97, self-terminates at step 175.
+  Held-out accuracy: 9.0% base, 9.0% step 50, 9.0% step 100, 12.8% step 150, 16.7% step 175.
+Main pattern: Held-out gains begin after training reward saturates and rise monotonically across late checkpoints.
+Interpretation: Fixed harness + fixed matcher + changing policy supports a genuine training effect.
+Limits: Single training seed; low absolute accuracy; no confidence interval; synthetic training curriculum solved early.</code></pre>
+
+  <h3>Table 3 — Held-out gap-closing by checkpoint</h3>
+  <table>
+    <thead><tr><th>Checkpoint</th><th>Oracle accuracy</th><th>Change vs baseline</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>Base, untrained</td><td>7/78 = 9.0%</td><td>Reference</td><td>Very low bounded-memory baseline for 3B model.</td></tr>
+      <tr><td>Step 50</td><td>7/78 = 9.0%</td><td>+0.0</td><td>No transfer yet.</td></tr>
+      <tr><td>Step 100</td><td>7/78 = 9.0%</td><td>+0.0</td><td>No transfer yet.</td></tr>
+      <tr><td>Step 150</td><td>10/78 = 12.8%</td><td>+3.8</td><td>First observed held-out improvement.</td></tr>
+      <tr><td>Step 175</td><td>13/78 = 16.7%</td><td>+7.7</td><td>Nearly doubles baseline but remains weak in absolute terms.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Table 4 — GRPO training configuration</h3>
+  <table>
+    <thead><tr><th>Setting</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Base model</td><td>Qwen2.5-3B-Instruct</td></tr>
+      <tr><td>Algorithm</td><td>GRPO</td></tr>
+      <tr><td>Adapter</td><td>LoRA, rank 32, alpha 64, dropout 0</td></tr>
+      <tr><td>Target modules</td><td>{q, k, v, o, gate, up, down} projections</td></tr>
+      <tr><td>Bias</td><td>None</td></tr>
+      <tr><td>Learning rate</td><td>1e-5</td></tr>
+      <tr><td>Batch size / group size</td><td>32 / 8</td></tr>
+      <tr><td>Hardware</td><td>4x A10G</td></tr>
+      <tr><td>Stack</td><td>prime-rl / verifiers</td></tr>
+      <tr><td>Training episodes</td><td>Procedural, 6-8 sessions, 2000 total</td></tr>
+      <tr><td>KL penalty</td><td>None, beta = 0</td></tr>
+      <tr><td>Decoding, evaluation</td><td>Greedy, temperature 0; answer <= 64 tokens</td></tr>
+      <tr><td>Termination</td><td>Self-halt at step 175 of 200 max after 10 zero-advantage batches</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Workflow — Supersede environment</h3>
+<pre><code>Inputs:
+  Multi-session conversation with at least one changed fact.
+  Final query asking for the current value.
+  Bounded notes-memory budget B.
+Process / decision rules:
+  1. Present one session at a time.
+  2. Agent rewrites notes memory after each session.
+  3. Do not re-feed raw prior sessions.
+  4. After final session, answer query from memory alone.
+Outputs:
+  Final answer plus programmatic current-value reward.
+Failure modes:
+  Current fact compressed away; stale value retained; update not recognized; notes polluted by distractors; larger memory induces distraction rather than recovery.
+Human review:
+  Needed for matcher audit, edge cases, partial-value answers, and natural-language equivalence.
+Governance:
+  Track prompt, memory budget, session split, matcher version, stale-value annotations, checkpoint, and deterministic decoding settings.</code></pre>
+
+  <h3>Algorithm — Reward matcher</h3>
+<pre><code>Inputs: model answer a; gold current value g; optional superseded values.
+Normalize: lowercase; replace punctuation with spaces; collapse whitespace.
+Gold variants: split g on "or", "and", "/", ";", and comma; keep variants length >= 2.
+Match: reward if any normalized gold variant occurs as substring of a.
+Fallback: reward if token overlap with a gold variant exceeds 0.6.
+Current-value reward: r_cur = 1[match].
+Stale penalty: if stale values are known, match answer against stale values and apply r_stale.
+Reported optimization: uses r_cur alone; stale penalty only appears in environment ablation.
+Appraisal: deterministic and trainable, but permissive enough that absolute accuracy needs manual audit.</code></pre>
+
+  <h3>Example episodes — Synthetic curriculum semantics</h3>
+<pre><code>Example 1:
+  S1: user lives in Chicago.
+  S4: user moved to Atlanta.
+  Query: current city?
+  Correct current value: Atlanta. Superseded value: Chicago.
+
+Example 2:
+  S1: user got a Mazda.
+  S4: new ride is Kia.
+  S5: switched to Lexus.
+  Query: current car?
+  Correct current value: Lexus. Superseded values: Mazda, Kia.
+
+Interpretation: These examples make the reward semantics clear, but they are cleaner and more explicit than many real conversational updates.</code></pre>
+</section>
+
+<section id="aiml">
+  <h2>AI/ML systems appraisal module</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><h3>Task</h3><p>Long-term agent memory under fact updates: answer current-value questions from bounded, self-maintained notes without re-reading the raw conversation.</p></div>
+    <div class="mini-card"><h3>Data</h3><p>LongMemEval knowledge-update subset for real evaluation; synthetic procedural episodes for training and control. Main gap n = 78; scale study n = 25; training evaluation n = 78.</p></div>
+    <div class="mini-card"><h3>Method</h3><p>Compare full-context upper bound against bounded-memory agent; hold questions paired; test model scale, history length, memory budget, and GRPO training on synthetic episodes.</p></div>
+    <div class="mini-card"><h3>Metrics</h3><p>Knowledge-update accuracy by LongMemEval judge protocol and programmatic matcher; paired McNemar tests for selected comparisons; reward trajectory and held-out checkpoint accuracy for training.</p></div>
+    <div class="mini-card"><h3>Baselines</h3><p>Full-context model as upper bound; bounded-memory version of same model; untrained Qwen2.5-3B baseline for training comparison. Missing: broader open-model baselines, heuristic memory systems, retrieval/session-selection baselines, and multiple memory policies.</p></div>
+    <div class="mini-card"><h3>Failures</h3><p>Fact compressed away, update not overwritten, stale answer retained, answer says no information despite prior updated fact, larger notes field changes behavior without improving net accuracy.</p></div>
+    <div class="mini-card"><h3>Reproducibility</h3><p>Paper claims release of environment, model, and dataset; appendix gives matcher and GRPO configuration. External audit of code, dataset construction, and exact prompts is not performed here.</p></div>
+    <div class="mini-card"><h3>Bottom line</h3><p>Benchmark-useful and build-useful for memory-agent evaluation harnesses; not deployment-useful as a solved policy.</p></div>
+  </div>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="verdict"><strong>Verdict: Read first</strong> for agent-memory evaluation, deterministic reward design, and bounded-memory harness construction. <strong>Do not use as proof that supersession is solved</strong>; treat the training result as an early proof of mechanism.</div>
+  <div class="rating-grid">
+    <div class="mini-card"><div class="score">9<small>/10</small></div><h3>Relevance</h3><p><strong>Rationale:</strong> Directly fits agent harnesses, memory/RAG state management, deterministic evaluation, and practical workflow implementation.</p><p><strong>Evidence basis:</strong> No-re-feed memory setup, programmatic reward, LongMemEval update subset, and released environment framing.</p><p><strong>Would raise/lower:</strong> Higher with verified code audit and integration examples; lower if artifacts are incomplete or prompts are irreproducible.</p></div>
+    <div class="mini-card"><div class="score">8<small>/10</small></div><h3>Novelty</h3><p><strong>Rationale:</strong> The focus on temporal fact-currency as the reward, not just final task success, is a useful and relatively sharp contribution.</p><p><strong>Evidence basis:</strong> Related-work contrast against memory benchmarks and RL memory agents that do not directly reward current-value maintenance.</p><p><strong>Would raise/lower:</strong> Higher with stronger comparison to MemPO/Memory-T1 implementations; lower if prior environments already provide equivalent supersession reward.</p></div>
+    <div class="mini-card"><div class="score">6<small>/10</small></div><h3>Method strength</h3><p><strong>Rationale:</strong> The paired diagnosis is coherent, but training evidence is limited by single run, small held-out sample, and synthetic curriculum.</p><p><strong>Evidence basis:</strong> Paired McNemar tests for main gaps; n = 78 main oracle set; n = 25 scale study; single Qwen2.5-3B GRPO run.</p><p><strong>Would raise/lower:</strong> Higher with multi-seed training, broader models, external validation, and more baselines; lower if matcher audit reveals many false-positive credits.</p></div>
+    <div class="mini-card"><div class="score">5<small>/10</small></div><h3>Evidence strength</h3><p><strong>Rationale:</strong> The memory-gap diagnosis is moderately supported; the “training closes it” claim is directionally supported but statistically immature.</p><p><strong>Evidence basis:</strong> Significant 82->63 and 92->77 gaps; 68->28 scale drop; 9.0->16.7 single-run training gain.</p><p><strong>Would raise/lower:</strong> Higher with confidence intervals and replicated gains; lower if proprietary-model results or judge labels cannot be independently reproduced.</p></div>
+    <div class="mini-card"><div class="score">4<small>/10</small></div><h3>External validity</h3><p><strong>Rationale:</strong> Results are tied to LongMemEval knowledge-update questions, synthetic training data, and a narrow bounded-notes architecture.</p><p><strong>Evidence basis:</strong> Main benchmark uses one dataset subset; scale adds distractor sessions; training uses explicit procedural supersession episodes.</p><p><strong>Would raise/lower:</strong> Higher with real user-memory logs, multiple domains, multilingual updates, tool-using agents, and production-like memory stores; lower if gains vanish outside LongMemEval.</p></div>
+    <div class="mini-card"><div class="score">7<small>/10</small></div><h3>Implementation value</h3><p><strong>Rationale:</strong> The environment pattern, matcher, and evaluation contrasts are highly reusable for building local memory-agent tests.</p><p><strong>Evidence basis:</strong> Clear rollout, reward definition, metrics, examples, and training configuration.</p><p><strong>Would raise/lower:</strong> Higher after code inspection and turnkey scripts; lower if the released environment lacks stable fixtures, seeds, or reproducible prompt templates.</p></div>
+  </div>
+  <div class="warning"><strong>Confidence in appraisal: moderate.</strong> The paper is internally coherent and unusually relevant to memory-agent evaluation, but it is a preprint under review, and the central intervention result needs replication and broader baselines.</div>
+
+  <h3>Main strengths</h3>
+  <ul class="compact-list">
+    <li>Clean separation between full-context comprehension and bounded-memory maintenance.</li>
+    <li>Paired comparisons avoid many between-question confounds.</li>
+    <li>No-re-feed design creates a sharper test of actual memory state.</li>
+    <li>Programmatic matcher makes the reward trainable without an auxiliary judge.</li>
+    <li>Limitations are unusually explicit for a short preprint.</li>
+  </ul>
+  <h3>Main limitations</h3>
+  <ul class="compact-list">
+    <li>Single small-model training run; no multi-seed significance.</li>
+    <li>Low final held-out accuracy after training: 16.7%.</li>
+    <li>Scale null for proportional memory uses only n = 25.</li>
+    <li>Different grading schemes across diagnosis and training sections complicate absolute comparison.</li>
+    <li>Missing strong implementation baselines, such as retrieval over session summaries, heuristic update/delete memory, larger open models, or hybrid memory stores.</li>
+    <li>Potential inconsistency in proportional-memory budget reporting for Figure 3/Table 2 (~6,500 vs ~7,150 characters).</li>
+  </ul>
+</section>
+
+<section id="takeaways">
+  <h2>Implementation and practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><h3>Build</h3><p>Use a no-re-feed memory harness as a regression test for any persistent memory/RAG agent. Full-context accuracy should be treated as an upper bound, not as evidence that memory maintenance works.</p></div>
+    <div class="mini-card"><h3>Measure</h3><p>Track current-value accuracy, stale-value assertion rate, missing-answer rate, and memory-note overwrite behavior separately. Pair questions across conditions when testing memory budget or policy changes.</p></div>
+    <div class="mini-card"><h3>Reward design</h3><p>A deterministic current-value matcher is a useful starting point, but maintain a manual audit set for near-miss answers, partial quantities, aliases, and multi-value facts.</p></div>
+    <div class="mini-card"><h3>Do not overclaim</h3><p>Do not claim larger context windows, larger summary notes, or stronger models solve temporal memory. This paper suggests they help incompletely and inconsistently.</p></div>
+    <div class="mini-card"><h3>Next experiments</h3><p>Run multi-seed training, harder implicit synthetic updates, real update logs, multiple open models, memory-store baselines, retrieval baselines, and calibration of matcher vs human labels.</p></div>
+    <div class="mini-card"><h3>Use in a paper library</h3><p>Index under agent memory, temporal consistency, evaluation harnesses, deterministic rewards, and post-training environments. Preserve Figures 1-4 and Tables 1-4 as the reusable evidence core.</p></div>
+  </div>
+  <div class="goodnote"><strong>Best use:</strong> Treat Supersede as a design pattern for testing whether an agent can keep memory current under explicit update pressure. The artifact is most useful for building local test fixtures, not for selecting a production memory product.</div>
+  <div class="badnote"><strong>Do not use for:</strong> Claims that deployed LLM memory systems are solved or unsafe; claims that GRPO generally fixes long-term memory; clinical, regulatory, or patient-care decisions.</div>
+</section>
+
+<section id="qa">
+  <h2>Quality-control notes</h2>
+  <ul class="compact-list">
+    <li>Source identity checked against uploaded PDF title, author, and arXiv ID.</li>
+    <li>Main sections, all four figures, all four tables, and appendices A-C are accounted for.</li>
+    <li>Quantitative claims preserve denominators, model names, accuracy values, p-values, and training checkpoints where central.</li>
+    <li>Summary and appraisal are separated; author claims are not treated as deployment validation.</li>
+    <li>No external CSS, scripts, fonts, or remote images are used.</li>
+  </ul>
+</section>
+
+<section id="provenance">
+  <h2>Provenance</h2>
+  <p><strong>Primary source:</strong> Uploaded PDF, <em>Supersede: Diagnosing and Training the Memory-Update Gap in LLM Agents</em>, arXiv:2606.27472v1 [cs.CL], 25 Jun 2026.</p>
+  <p><strong>Claimed source links in paper:</strong> environment <code>https://github.com/Vrin-cloud/supersede</code>; model <code>https://huggingface.co/vedant33/supersede-qwen2.5-3b-grpo-lora</code>; dataset <code>https://huggingface.co/datasets/vedant33/supersede-rl-episodes</code>. These links are recorded from the PDF and were not externally audited in this artifact.</p>
+  <p class="footer">Generated 2026-06-29 using the Summary/Evaluation/Appraisal protocol. This reference file condenses and appraises the source; it does not replace reading the full paper or inspecting released code/data.</p>
+</section>
+</main>
+</body>
+</html>

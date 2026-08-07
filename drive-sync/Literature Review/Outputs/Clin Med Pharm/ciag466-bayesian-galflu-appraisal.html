@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appraisal — Bayesian Re-Analysis of the GALFLU Trial (ciag466)</title>
+<style>
+:root {
+  --bg:#f4f7fb; --paper:#ffffff; --ink:#152033; --muted:#5b687a; --line:#d8e0eb;
+  --navy:#12355b; --blue:#1f5f99; --pale:#eaf2fb; --green:#17633b; --green-bg:#e9f6ef;
+  --amber:#805600; --amber-bg:#fff5d8; --red:#8a2635; --red-bg:#fdecef; --slate:#eef2f6;
+  --shadow:0 7px 24px rgba(24,48,78,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}
+header.hero{background:linear-gradient(135deg,#0f2946 0%,#174f7f 62%,#1b668d 100%);color:#fff;padding:3.2rem 1.25rem 2.6rem;border-bottom:6px solid #cfe0f2}
+.wrap{max-width:1160px;margin:0 auto}
+.kicker{text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:.78rem;color:#cfe6fb}
+h1{font-size:clamp(2rem,4.2vw,3.45rem);line-height:1.08;margin:.45rem 0 .85rem;max-width:1000px}
+.subtitle{max-width:900px;font-size:1.08rem;color:#e6f0f8;margin:0}
+.hero-meta{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1.15rem}
+.pill{display:inline-block;border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.1);border-radius:999px;padding:.28rem .7rem;font-size:.85rem}
+main{padding:1.35rem 1.25rem 3rem}
+nav.toc, section{background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);margin:1rem auto;padding:1.25rem 1.4rem}
+nav.toc h2, section h2{margin:.05rem 0 .8rem;color:var(--navy);font-size:1.45rem}
+section h3{color:#17466f;margin:1.2rem 0 .45rem}
+section h4{margin:.8rem 0 .35rem;color:#283b52}
+a{color:#145c93;text-decoration-thickness:.08em;text-underline-offset:.13em}
+.toc ol{columns:2;column-gap:2rem;margin:.4rem 0;padding-left:1.2rem}
+.toc li{break-inside:avoid;margin:.26rem 0}
+.verdict{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:1rem;align-items:stretch}
+.verdict-main{border-left:6px solid var(--green);background:var(--green-bg);border-radius:12px;padding:1rem 1.1rem}
+.verdict-score{background:#0f3153;color:#fff;border-radius:12px;padding:1rem;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.verdict-score strong{font-size:2rem}
+.callout{border-radius:12px;padding:.95rem 1rem;margin:.75rem 0;border-left:5px solid}
+.good{background:var(--green-bg);border-color:var(--green)}
+.warning{background:var(--amber-bg);border-color:#bd850d}
+.bad{background:var(--red-bg);border-color:var(--red)}
+.note{background:var(--pale);border-color:var(--blue)}
+.grid{display:grid;gap:.85rem}
+.meta-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.meta-card,.mini-card,.score-card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:.85rem .95rem}
+.meta-card b,.mini-card b{display:block;color:#294a6b;font-size:.77rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.25rem}
+.tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem}
+.tag{border-radius:999px;background:var(--slate);border:1px solid var(--line);padding:.2rem .58rem;font-size:.8rem;color:#33465e}
+.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}
+.three-col{grid-template-columns:repeat(3,minmax(0,1fr))}
+.stat{text-align:center;background:#f7f9fc;border:1px solid var(--line);border-radius:12px;padding:.8rem}
+.stat strong{display:block;font-size:1.5rem;color:#123f68}
+.stat span{font-size:.86rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:.7rem 0}
+th,td{padding:.58rem .62rem;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+thead th{background:#eaf0f7;color:#213e5c;position:sticky;top:0}
+tbody tr:nth-child(even){background:#fafbfd}
+tbody tr:hover{background:#f2f7fc}
+.caption{font-size:.86rem;color:var(--muted);margin:.35rem 0 .8rem}
+.prior{display:inline-block;border-radius:999px;padding:.15rem .48rem;border:1px solid var(--line);font-size:.78rem;white-space:nowrap}
+.noninformative{background:#edf4fb;color:#23547c}
+.evidencebased{background:#e9f6ef;color:#17633b}
+.sceptical{background:#fff1df;color:#8a5100}
+pre{background:#101c2b;color:#e8f0f8;border:1px solid #243a52;border-radius:12px;padding:1rem;overflow:auto;white-space:pre-wrap;font-size:.9rem;line-height:1.48}
+.score-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.score-head{display:flex;align-items:center;justify-content:space-between;gap:.7rem;margin-bottom:.45rem}
+.score-head h3{margin:0;font-size:1.05rem;color:#173f67}
+.score-badge{min-width:58px;text-align:center;background:#123f68;color:#fff;border-radius:999px;padding:.22rem .55rem;font-weight:800}
+.score-card p{margin:.32rem 0;font-size:.91rem}
+.label{font-weight:800;color:#344e68}
+details{border:1px solid var(--line);border-radius:10px;padding:.6rem .8rem;background:#fbfcfe}
+details summary{cursor:pointer;font-weight:700;color:#214b70}
+ul.tight,ol.tight{margin:.45rem 0;padding-left:1.25rem}
+ul.tight li,ol.tight li{margin:.27rem 0}
+hr{border:0;border-top:1px solid var(--line);margin:1.2rem 0}
+footer{max-width:1160px;margin:0 auto 2rem;padding:0 1.25rem;color:var(--muted);font-size:.86rem}
+.small{font-size:.86rem;color:var(--muted)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+@media(max-width:850px){
+ .meta-grid,.three-col,.score-grid,.two-col{grid-template-columns:1fr}
+ .verdict{grid-template-columns:1fr}
+ .toc ol{columns:1}
+}
+@media print{
+ body{background:#fff;font-size:10.5pt}
+ header.hero{padding:1.4rem 0;border-bottom:2px solid #555;background:#fff;color:#000}
+ .kicker,.subtitle{color:#222}
+ .hero-meta{display:none}
+ main{padding:.4rem 0}
+ nav.toc,section{box-shadow:none;border:1px solid #bbb;break-inside:avoid-page}
+ a{color:#000;text-decoration:none}
+ thead th{position:static}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Summary, evaluation, and appraisal · Clinical evidence</div>
+    <h1>A Bayesian Re-Analysis of the GALFLU Trial of high dose versus standard dose influenza vaccine against hospitalisation outcomes</h1>
+    <p class="subtitle">A source-grounded appraisal of a Bayesian re-analysis comparing high-dose and standard-dose inactivated influenza vaccine in community-dwelling adults aged 65–79 years.</p>
+    <div class="hero-meta">
+      <span class="pill">Clinical Infectious Diseases · Brief Report</span>
+      <span class="pill">DOI 10.1093/cid/ciag466</span>
+      <span class="pill">Accepted manuscript · 2026</span>
+      <span class="pill">Generated 4 August 2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#verdict">Verdict</a></li>
+    <li><a href="#metadata">Metadata and scope</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#pico">Clinical question and PICO</a></li>
+    <li><a href="#sections">Section-by-section condensation</a></li>
+    <li><a href="#table1">Table 1 extraction</a></li>
+    <li><a href="#interpretation">Critical interpretation</a></li>
+    <li><a href="#validity">Validity and bias</a></li>
+    <li><a href="#appraisal">Appraisal scores</a></li>
+    <li><a href="#practice">Practice and implementation takeaways</a></li>
+    <li><a href="#coverage">Coverage manifest</a></li>
+    <li><a href="#provenance">Provenance</a></li>
+  </ol>
+</nav>
+
+<section id="verdict">
+  <h2>Verdict</h2>
+  <div class="verdict">
+    <div class="verdict-main">
+      <h3 style="margin-top:0">Read soon</h3>
+      <p><strong>Why:</strong> The paper adds a clinically interpretable Bayesian framing to a very large randomized trial and shows that the main influenza-or-pneumonia hospitalization result is robust to non-informative, evidence-based, and sceptical priors. It is useful both for influenza-vaccine policy and for learning how posterior probabilities can separate “any benefit” from a clinically meaningful benefit.</p>
+      <p><strong>Why not “Read first”:</strong> It does not add new randomized observations, does not evaluate safety, cost-effectiveness, or implementation, and several secondary outcomes remain imprecise or strongly prior-sensitive.</p>
+      <p><strong>Efficient reading route:</strong> Read Table 1 first, then the prior specifications in Methods, followed by the final two Discussion paragraphs on transportability and design limitations.</p>
+    </div>
+    <div class="verdict-score">
+      <span>Overall utility</span>
+      <strong>7.3/10</strong>
+      <span>High interpretive value; moderate direct practice impact</span>
+    </div>
+  </div>
+  <div class="callout warning"><strong>Scope:</strong> Relative vaccine effectiveness (rVE) compares high-dose with standard-dose vaccine. It is not effectiveness versus no vaccination. Posterior probabilities are conditional on the selected data model and prior distributions.</div>
+</section>
+
+<section id="metadata">
+  <h2>Metadata and scope</h2>
+  <div class="grid meta-grid">
+    <div class="meta-card"><b>Source</b>Clinical Infectious Diseases, Brief Report; accepted manuscript, 2026</div>
+    <div class="meta-card"><b>Identifier</b><a href="https://doi.org/10.1093/cid/ciag466">DOI: 10.1093/cid/ciag466</a></div>
+    <div class="meta-card"><b>Design</b>Bayesian re-analysis of a pragmatic, registry-based, open-label, active-controlled, individually randomized trial</div>
+    <div class="meta-card"><b>Trial registry</b>NCT06141655; EudraCT 2023-506977-36-00</div>
+    <div class="meta-card"><b>Population</b>Community-dwelling adults aged 65–79 years in Galicia, Spain</div>
+    <div class="meta-card"><b>Seasons</b>2023–2024 and 2024–2025 influenza seasons</div>
+    <div class="meta-card"><b>Analysis population</b>134,476 enrolled; 133,882 included in intention-to-treat analysis</div>
+    <div class="meta-card"><b>Funding</b>Sanofi research grant; several authors were Sanofi employees or reported industry relationships</div>
+    <div class="meta-card"><b>Data availability</b>Individual-level regional health data cannot be shared outside approved protocols; summarized data may be requested</div>
+  </div>
+  <details style="margin-top:.8rem">
+    <summary>Full author list</summary>
+    <p>Jacobo Pardo-Seco; Carmen Rodriguez-Tenreiro-Sánchez; Iago Giné-Vázquez; Narmeen Mallah; Susana Mirás-Carballal; Marta Piñeiro-Sotelo; Martín Cribeiro González; Mónica Conde Pájaro; Juan-Manuel González-Pérez; Irene Rivero-Calle; Xabier Bello; Josefina L Razzini; Antonio Salas; Rebecca C Harris; Matthew M Loiacono; Robertus van Aalst; Manel Farre; Marine Dufournet; Niklas Dyrby Johansen; Daniel Modin; Tor Biering-Sørensen; Carmen Duran-Parrondo; Federico Martinón-Torres; for the GALFLU trial team.</p>
+  </details>
+  <div class="tags">
+    <span class="tag">influenza vaccine</span><span class="tag">older adults</span><span class="tag">high-dose IIV</span>
+    <span class="tag">randomized trial</span><span class="tag">Bayesian re-analysis</span><span class="tag">hospitalization</span>
+  </div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="callout good"><strong>Core thesis:</strong> Among adults aged 65–79 years randomized to influenza vaccine in Galicia, high-dose inactivated influenza vaccine (HD-IIV) had a high posterior probability of reducing influenza-or-pneumonia hospitalization compared with standard-dose vaccine (SD-IIV), including under a prior that pulled effects toward no difference.</div>
+  <div class="grid three-col">
+    <div class="stat"><strong>17.0–24.0%</strong><span>Posterior median rVE for the primary endpoint across priors</span></div>
+    <div class="stat"><strong>83.8–95.7%</strong><span>Probability that primary-endpoint rVE exceeded 10%</span></div>
+    <div class="stat"><strong>0.26% vs 0.34%</strong><span>Reported primary-endpoint event rates: HD-IIV vs SD-IIV</span></div>
+  </div>
+  <p>The principal result is internally consistent: influenza-or-pneumonia hospitalization occurred in 174 HD-IIV recipients and 227 SD-IIV recipients, with posterior median rVE estimates of 23.7%, 24.0%, and 17.0% under non-informative, evidence-based, and sceptical priors. Even the sceptical analysis assigned an 83.8% probability to a relative benefit greater than 10%.</p>
+  <p>The clinical magnitude requires calibration against baseline risk. Using the rounded event percentages reported in Table 1, the absolute difference for the primary endpoint was approximately 0.08 percentage points, equivalent to roughly one fewer event per 1,250 vaccinated people. This is a descriptive derived estimate, not a source-reported treatment effect, and it does not include uncertainty. The paper therefore supports comparative benefit while also illustrating why a large relative benefit can coexist with a small absolute benefit.</p>
+  <div class="callout note"><strong>Most instructive secondary finding:</strong> For all-cause hospitalization, the probability of any benefit was 88.0%–90.9%, but the probability of a benefit exceeding 5% was only 10.7%–13.5%, and the probability of exceeding 10% was effectively zero. “Probably better” is not the same as “probably clinically important.”</div>
+</section>
+
+<section id="pico">
+  <h2>Clinical question and PICO</h2>
+  <div class="grid two-col">
+    <div class="mini-card"><b>Population</b>Community-dwelling adults aged 65–79 years in Galicia, Spain, vaccinated during two influenza seasons.</div>
+    <div class="mini-card"><b>Intervention</b>High-dose inactivated influenza vaccine (HD-IIV).</div>
+    <div class="mini-card"><b>Comparator</b>Standard-dose inactivated influenza vaccine (SD-IIV), allocated 1:1.</div>
+    <div class="mini-card"><b>Primary outcome</b>Influenza-or-pneumonia-related hospitalization.</div>
+    <div class="mini-card"><b>Secondary / exploratory outcomes</b>Cardiorespiratory hospitalization, all-cause hospitalization, all-cause death, influenza hospitalization, pneumonia hospitalization, and laboratory-confirmed influenza hospitalization.</div>
+    <div class="mini-card"><b>Time horizon</b>Not restated in this brief report; inherited from the underlying GALFLU trial procedures and seasonal follow-up.</div>
+  </div>
+  <div class="callout warning"><strong>Clinical question answered:</strong> How probable is a comparative benefit of HD-IIV over SD-IIV, at several effect-size thresholds? <strong>Questions not answered:</strong> comparative safety, cost-effectiveness, supply strategy, performance in adults aged 80 years or older, long-term-care residents, or effectiveness versus no vaccination.</div>
+</section>
+
+<section id="sections">
+  <h2>Section-by-section condensation</h2>
+
+  <div class="section-summary">
+    <h3>Introduction</h3>
+    <p>The authors position the re-analysis within prior evidence that high-dose influenza vaccine provides greater protection than standard-dose vaccine in older adults. They cite a phase IIIb–IV trial showing 24.2% superior protection against laboratory-confirmed influenza and pooled randomized evidence from DANFLU-2 and GALFLU showing lower hospitalization rates with HD-IIV.</p>
+    <p>The stated purpose is interpretive rather than evidentiary expansion: Bayesian analysis is used to estimate direct probabilities that rVE is positive or exceeds clinically selected thresholds of 5% and 10%, while incorporating either minimal prior information, prior randomized evidence, or scepticism about large effects.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Methods</h3>
+    <p>GALFLU was a pragmatic, registry-based, open-label, active-controlled, individually randomized trial conducted over the 2023–2024 and 2024–2025 influenza seasons. The re-analysis used Bayesian log-Poisson regression to estimate risk ratios and transformed them to rVE as (1 − RR) × 100%.</p>
+    <p>Three priors were used on the log-risk-ratio scale: a very broad prior centered at no effect; an evidence-based prior derived from prior randomized evidence with uncertainty inflated using I²; and a sceptical prior centered at no effect with SD 0.15. Four Markov chains were run with 6,000 iterations per chain and 3,000 warm-up iterations. The paper reported posterior medians, 95% credible intervals, probabilities above 0%, 5%, and 10% rVE, Monte Carlo standard errors, effective sample sizes, R-hat, and divergences.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Results</h3>
+    <p>The intention-to-treat analysis included 133,882 participants; mean age was 72.3 years, and 53.6% were male. The primary endpoint favored HD-IIV under all priors. Cardiorespiratory hospitalization showed a smaller but generally probable benefit. All-cause hospitalization showed only a small expected effect, despite a high probability that the effect was above zero.</p>
+    <p>Mortality and narrower influenza-specific endpoints had fewer events and wider credible intervals. Their interpretation depended more strongly on prior choice. MCMC diagnostics were technically satisfactory: all reported models had R-hat below 1.001, bulk and tail effective sample sizes above 1,000, Monte Carlo standard errors below 0.01, and no divergent transitions.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Discussion</h3>
+    <p>The authors argue that consistency across priors strengthens the conclusion that HD-IIV reduces severe outcomes relative to SD-IIV. They appropriately show that evidence-based priors pull posterior estimates toward historical evidence when the new data and prior differ, as seen for mortality and some pneumonia outcomes.</p>
+    <p>The discussion acknowledges sensitivity to prior choice, limited transportability of historical prior data, open-label design, limited event counts, non-routine influenza testing, and absence of clinical outcome adjudication. The authors correctly note that Bayesian analysis improves interpretation but cannot repair design-related bias.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Conclusion</h3>
+    <p>The paper concludes that HD-IIV is associated with a lower incidence of hospitalization than SD-IIV in adults aged 65–79 years and that the probability of a clinically substantive reduction in influenza-or-pneumonia hospitalization is high.</p>
+    <p>This conclusion is well supported for the primary comparative endpoint. It should not be generalized into a definitive mortality claim or an unconditional formulary mandate because absolute effects are small, some secondary outcomes are prior-sensitive, and safety, cost, and implementation were outside scope.</p>
+  </div>
+</section>
+
+<section id="table1">
+  <h2>Table 1 — Structured extraction</h2>
+  <p class="caption">Posterior median relative vaccine effectiveness (rVE), 95% credible interval, and posterior probabilities of exceeding 0%, 5%, and 10%. Positive rVE favors HD-IIV. Event percentages and estimates are reproduced from the supplied manuscript; punctuation was normalized for readability.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Endpoint</th>
+          <th>Events by arm</th>
+          <th>Prior</th>
+          <th>Posterior median rVE (95% CrI)</th>
+          <th>P(rVE &gt; 0%)</th>
+          <th>P(rVE &gt; 5%)</th>
+          <th>P(rVE &gt; 10%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+      <td>Influenza-or-pneumonia hospitalization</td>
+      <td>HD-IIV 174 (0.26%); SD-IIV 227 (0.34%)</td>
+      <td><span class="prior noninformative">Non-informative</span></td>
+      <td>23.7% (7.3 to 37.2)</td>
+      <td>99.7%</td><td>98.6%</td><td>95.2%</td>
+    </tr>
+<tr>
+      <td>Influenza-or-pneumonia hospitalization</td>
+      <td>HD-IIV 174 (0.26%); SD-IIV 227 (0.34%)</td>
+      <td><span class="prior evidencebased">Evidence-based</span></td>
+      <td>24.0% (8.1 to 37.0)</td>
+      <td>99.8%</td><td>99.0%</td><td>95.7%</td>
+    </tr>
+<tr>
+      <td>Influenza-or-pneumonia hospitalization</td>
+      <td>HD-IIV 174 (0.26%); SD-IIV 227 (0.34%)</td>
+      <td><span class="prior sceptical">Sceptical</span></td>
+      <td>17.0% (2.6 to 29.3)</td>
+      <td>98.9%</td><td>95.0%</td><td>83.8%</td>
+    </tr>
+<tr>
+      <td>Cardiorespiratory hospitalization</td>
+      <td>HD-IIV 985 (1.47%); SD-IIV 1,071 (1.60%)</td>
+      <td><span class="prior noninformative">Non-informative</span></td>
+      <td>8.4% (0.2 to 16.2)</td>
+      <td>97.7%</td><td>79.9%</td><td>34.2%</td>
+    </tr>
+<tr>
+      <td>Cardiorespiratory hospitalization</td>
+      <td>HD-IIV 985 (1.47%); SD-IIV 1,071 (1.60%)</td>
+      <td><span class="prior evidencebased">Evidence-based</span></td>
+      <td>11.6% (4.8 to 17.6)</td>
+      <td>100%</td><td>97.2%</td><td>68.4%</td>
+    </tr>
+<tr>
+      <td>Cardiorespiratory hospitalization</td>
+      <td>HD-IIV 985 (1.47%); SD-IIV 1,071 (1.60%)</td>
+      <td><span class="prior sceptical">Sceptical</span></td>
+      <td>7.8% (-0.1 to 15.0)</td>
+      <td>97.2%</td><td>76.3%</td><td>28.5%</td>
+    </tr>
+<tr>
+      <td>All-cause hospitalization</td>
+      <td>HD-IIV 4,336 (6.46%); SD-IIV 4,427 (6.63%)</td>
+      <td><span class="prior noninformative">Non-informative</span></td>
+      <td>2.5% (-1.7 to 6.5)</td>
+      <td>88.0%</td><td>10.8%</td><td>0.0%</td>
+    </tr>
+<tr>
+      <td>All-cause hospitalization</td>
+      <td>HD-IIV 4,336 (6.46%); SD-IIV 4,427 (6.63%)</td>
+      <td><span class="prior evidencebased">Evidence-based</span></td>
+      <td>2.8% (-1.3 to 6.6)</td>
+      <td>90.9%</td><td>13.5%</td><td>0.0%</td>
+    </tr>
+<tr>
+      <td>All-cause hospitalization</td>
+      <td>HD-IIV 4,336 (6.46%); SD-IIV 4,427 (6.63%)</td>
+      <td><span class="prior sceptical">Sceptical</span></td>
+      <td>2.5% (-1.6 to 6.5)</td>
+      <td>88.4%</td><td>10.7%</td><td>0.0%</td>
+    </tr>
+<tr>
+      <td>All-cause death</td>
+      <td>HD-IIV 305 (0.45%); SD-IIV 348 (0.52%)</td>
+      <td><span class="prior noninformative">Non-informative</span></td>
+      <td>12.8% (-1.6 to 25.4)</td>
+      <td>96.1%</td><td>85.7%</td><td>65.0%</td>
+    </tr>
+<tr>
+      <td>All-cause death</td>
+      <td>HD-IIV 305 (0.45%); SD-IIV 348 (0.52%)</td>
+      <td><span class="prior evidencebased">Evidence-based</span></td>
+      <td>8.6% (-0.9 to 17.4)</td>
+      <td>96.1%</td><td>77.2%</td><td>37.9%</td>
+    </tr>
+<tr>
+      <td>All-cause death</td>
+      <td>HD-IIV 305 (0.45%); SD-IIV 348 (0.52%)</td>
+      <td><span class="prior sceptical">Sceptical</span></td>
+      <td>10.1% (-2.9 to 21.7)</td>
+      <td>93.7%</td><td>78.9%</td><td>50.4%</td>
+    </tr>
+<tr>
+      <td>Influenza hospitalization</td>
+      <td>HD-IIV 63 (0.09%); SD-IIV 92 (0.14%)</td>
+      <td><span class="prior noninformative">Non-informative</span></td>
+      <td>31.8% (6.4 to 50.6)</td>
+      <td>99.1%</td><td>98.0%</td><td>95.8%</td>
+    </tr>
+<tr>
+      <td>Influenza hospitalization</td>
+      <td>HD-IIV 63 (0.09%); SD-IIV 92 (0.14%)</td>
+      <td><span class="prior evidencebased">Evidence-based</span></td>
+      <td>22.9% (7.0 to 35.8)</td>
+      <td>99.7%</td><td>98.7%</td><td>94.9%</td>
+    </tr>
+<tr>
+      <td>Influenza hospitalization</td>
+      <td>HD-IIV 63 (0.09%); SD-IIV 92 (0.14%)</td>
+      <td><span class="prior sceptical">Sceptical</span></td>
+      <td>16.2% (-3.9 to 32.3)</td>
+      <td>94.9%</td><td>87.1%</td><td>74.1%</td>
+    </tr>
+<tr>
+      <td>Pneumonia hospitalization</td>
+      <td>HD-IIV 116 (0.17%); SD-IIV 137 (0.21%)</td>
+      <td><span class="prior noninformative">Non-informative</span></td>
+      <td>15.6% (-8.3 to 33.9)</td>
+      <td>91.0%</td><td>82.1%</td><td>69.4%</td>
+    </tr>
+<tr>
+      <td>Pneumonia hospitalization</td>
+      <td>HD-IIV 116 (0.17%); SD-IIV 137 (0.21%)</td>
+      <td><span class="prior evidencebased">Evidence-based</span></td>
+      <td>22.6% (13.0 to 31.0)</td>
+      <td>100%</td><td>100%</td><td>99.4%</td>
+    </tr>
+<tr>
+      <td>Pneumonia hospitalization</td>
+      <td>HD-IIV 116 (0.17%); SD-IIV 137 (0.21%)</td>
+      <td><span class="prior sceptical">Sceptical</span></td>
+      <td>9.7% (-9.4 to 24.9)</td>
+      <td>85.0%</td><td>70.1%</td><td>48.3%</td>
+    </tr>
+<tr>
+      <td>Laboratory-confirmed influenza hospitalization</td>
+      <td>HD-IIV 72 (0.11%); SD-IIV 89 (0.13%)</td>
+      <td><span class="prior noninformative">Non-informative</span></td>
+      <td>19.6% (-9.4 to 41.3)</td>
+      <td>91.4%</td><td>85.2%</td><td>76.2%</td>
+    </tr>
+<tr>
+      <td>Laboratory-confirmed influenza hospitalization</td>
+      <td>HD-IIV 72 (0.11%); SD-IIV 89 (0.13%)</td>
+      <td><span class="prior evidencebased">Evidence-based</span></td>
+      <td>19.5% (5.0 to 31.7)</td>
+      <td>99.4%</td><td>97.5%</td><td>90.9%</td>
+    </tr>
+<tr>
+      <td>Laboratory-confirmed influenza hospitalization</td>
+      <td>HD-IIV 72 (0.11%); SD-IIV 89 (0.13%)</td>
+      <td><span class="prior sceptical">Sceptical</span></td>
+      <td>9.7% (-12.0 to 27.3)</td>
+      <td>83.1%</td><td>68.4%</td><td>49.0%</td>
+    </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout note"><strong>Computational diagnostics:</strong> The source reports no divergent transitions, R-hat below 1.001, bulk and tail effective sample sizes above 1,000, and Monte Carlo standard errors below 0.01 for all models. These support numerical convergence, but do not validate the outcome definitions, prior construction, or causal transportability.</div>
+</section>
+
+<section id="interpretation">
+  <h2>Critical interpretation</h2>
+  <div class="grid two-col">
+    <div class="mini-card">
+      <b>Primary endpoint robustness</b>
+      The central result changes modestly across priors: median rVE 17.0%–24.0%, with all credible intervals above zero and P(rVE &gt;10%) at 83.8%–95.7%. This is the paper’s strongest finding.
+    </div>
+    <div class="mini-card">
+      <b>Absolute versus relative benefit</b>
+      The primary event-rate difference was approximately 0.08 percentage points. Policy relevance therefore depends on population size, baseline risk, vaccine cost, and operational feasibility—not only rVE.
+    </div>
+    <div class="mini-card">
+      <b>Prior-sensitive pneumonia estimate</b>
+      For pneumonia hospitalization, P(rVE &gt;10%) ranged from 48.3% with the sceptical prior to 99.4% with the evidence-based prior. This large spread means the prior materially changes the clinical interpretation.
+    </div>
+    <div class="mini-card">
+      <b>Mortality remains uncertain</b>
+      All mortality credible intervals included no effect. Posterior probabilities above selected thresholds are suggestive, not equivalent to a confirmed mortality reduction.
+    </div>
+    <div class="mini-card">
+      <b>Any benefit can be trivial</b>
+      The all-cause hospitalization result demonstrates that a high posterior probability above zero can coexist with a low probability of exceeding a clinically meaningful threshold.
+    </div>
+    <div class="mini-card">
+      <b>Re-analysis, not new trial evidence</b>
+      The Bayesian model changes the inferential language and combines evidence under selected priors; it does not add events, alter randomization, or resolve ascertainment limitations.
+    </div>
+  </div>
+  <h3>Bayesian analysis workflow</h3>
+  <pre><code>Inputs
+  GALFLU randomized outcome data
+  + one of three prior distributions on log(RR)
+
+Model
+  Bayesian log-Poisson regression
+  → posterior distribution for RR
+  → transform to rVE = (1 − RR) × 100%
+
+Reported outputs
+  Posterior median and 95% credible interval
+  P(rVE > 0%), P(rVE > 5%), P(rVE > 10%)
+  MCMC convergence and precision diagnostics
+
+Interpretive dependency
+  Conclusions are conditional on:
+  outcome coding + follow-up + model form + prior construction + threshold choice</code></pre>
+</section>
+
+<section id="validity">
+  <h2>Validity, bias, and generalizability</h2>
+  <div class="grid two-col">
+    <div>
+      <h3>Strengths</h3>
+      <ul class="tight">
+        <li>Very large individually randomized active-controlled trial base.</li>
+        <li>Patient-centered severe outcomes rather than immunogenicity alone.</li>
+        <li>Three prior strategies explicitly expose sensitivity to prior assumptions.</li>
+        <li>Clinically interpretable posterior thresholds rather than a binary significance test.</li>
+        <li>Excellent reported MCMC convergence and precision diagnostics.</li>
+        <li>Two influenza seasons reduce dependence on a single-season match.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limitations</h3>
+      <ul class="tight">
+        <li>Open-label design, non-routine influenza testing, and no clinical outcome adjudication.</li>
+        <li>Rare influenza-specific events produce wide credible intervals.</li>
+        <li>Secondary and exploratory outcomes were numerous; no explicit multiplicity or decision framework was described.</li>
+        <li>Evidence-based prior construction depends on supplementary material not present in the supplied file.</li>
+        <li>Community-dwelling adults aged 65–79 in one Spanish region limit transportability.</li>
+        <li>Safety, adverse events, cost-effectiveness, vaccine supply, and operational feasibility were not analyzed.</li>
+        <li>Sanofi funded the work and several authors were employees or had relevant industry relationships.</li>
+        <li>Individual-level data are not publicly shareable, limiting independent re-analysis.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout bad"><strong>Most important threat to overinterpretation:</strong> A well-converged Bayesian model can precisely summarize biased or misclassified outcomes. The reported diagnostics establish computational stability, not freedom from ascertainment bias or transportability problems.</div>
+
+  <h3>External validity boundaries</h3>
+  <ul class="tight">
+    <li><strong>Supported most directly:</strong> community-dwelling adults aged 65–79 receiving seasonal influenza vaccine in a registry-enabled European health system.</li>
+    <li><strong>Uncertain:</strong> adults aged 80 years or older, long-term-care residents, severely immunocompromised populations, regions with different vaccine uptake or coding practices, and future seasons with different circulating strains.</li>
+    <li><strong>Not tested:</strong> HD-IIV versus adjuvanted or recombinant influenza vaccines, or either vaccine versus no vaccination.</li>
+  </ul>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="grid score-grid">
+    <div class="score-card">
+      <div class="score-head"><h3>Relevance</h3><span class="score-badge">8/10</span></div>
+      <p><span class="label">Rationale:</span> Directly relevant to infectious diseases, older-adult immunization, comparative effectiveness, and evidence interpretation.</p>
+      <p><span class="label">Evidence basis:</span> Large randomized vaccine trial with hospitalization outcomes and clinically framed posterior thresholds.</p>
+      <p><span class="label">Limiting factor:</span> Less directly relevant to acute inpatient pharmacotherapy than to vaccination policy and formulary planning.</p>
+      <p><span class="label">Would change:</span> Higher with cost, safety, and implementation analysis; lower if immunization policy is outside the intended workflow.</p>
+    </div>
+
+    <div class="score-card">
+      <div class="score-head"><h3>Novelty</h3><span class="score-badge">6/10</span></div>
+      <p><span class="label">Rationale:</span> The contribution is a clearer inferential framing, not new participants or outcomes.</p>
+      <p><span class="label">Evidence basis:</span> Three priors and threshold probabilities make robustness and clinical magnitude easier to interpret.</p>
+      <p><span class="label">Limiting factor:</span> The underlying GALFLU results and prior randomized evidence were already published.</p>
+      <p><span class="label">Would change:</span> Higher with a prespecified decision analysis or new external data; lower if the prior sensitivity analysis adds little beyond the original confidence intervals.</p>
+    </div>
+
+    <div class="score-card">
+      <div class="score-head"><h3>Method strength</h3><span class="score-badge">8/10</span></div>
+      <p><span class="label">Rationale:</span> Strong randomized data base, transparent prior categories, and comprehensive MCMC diagnostics.</p>
+      <p><span class="label">Evidence basis:</span> Individually randomized design, intention-to-treat population, multiple priors, credible intervals, MCSE, ESS, R-hat, and divergence checks.</p>
+      <p><span class="label">Limiting factor:</span> The main text incompletely documents the evidence-based prior and alternative sceptical-prior scenarios.</p>
+      <p><span class="label">Would change:</span> Higher with full supplement/code and a clearer multiplicity or decision framework; lower if prior construction proves unstable or selectively specified.</p>
+    </div>
+
+    <div class="score-card">
+      <div class="score-head"><h3>Evidence strength</h3><span class="score-badge">7.5/10</span></div>
+      <p><span class="label">Rationale:</span> The primary comparative hospitalization result is robust, but several secondary outcomes remain imprecise or prior-sensitive.</p>
+      <p><span class="label">Evidence basis:</span> Primary rVE remained positive across priors with high probability of exceeding 10%; all-cause and mortality effects were less definitive.</p>
+      <p><span class="label">Limiting factor:</span> Outcome ascertainment limitations, rare events, and lack of adjudication constrain certainty.</p>
+      <p><span class="label">Would change:</span> Higher with adjudicated outcomes and independent pooled replication; lower with evidence of differential testing/coding or selective endpoint emphasis.</p>
+    </div>
+
+    <div class="score-card">
+      <div class="score-head"><h3>External validity</h3><span class="score-badge">6/10</span></div>
+      <p><span class="label">Rationale:</span> Two seasons help, but the population and health-system context are narrow.</p>
+      <p><span class="label">Evidence basis:</span> Community-dwelling adults aged 65–79 from Galicia only.</p>
+      <p><span class="label">Limiting factor:</span> No direct evidence for the oldest adults, long-term-care residents, other vaccine comparators, or other regions.</p>
+      <p><span class="label">Would change:</span> Higher with multinational replication across multiple seasons and frailty strata; lower if local coding or vaccine-delivery patterns materially affected outcomes.</p>
+    </div>
+
+    <div class="score-card">
+      <div class="score-head"><h3>Implementation value</h3><span class="score-badge">6.5/10</span></div>
+      <p><span class="label">Rationale:</span> Useful as supportive evidence for preferential HD-IIV use, but insufficient for a complete policy decision.</p>
+      <p><span class="label">Evidence basis:</span> Direct comparison of two vaccine strategies with severe outcomes and interpretable effect thresholds.</p>
+      <p><span class="label">Limiting factor:</span> No safety, cost, budget impact, supply, workflow, or guideline implementation analysis.</p>
+      <p><span class="label">Would change:</span> Higher with cost-effectiveness and operational data; lower where high-dose vaccine availability or eligible population differs substantially.</p>
+    </div>
+  </div>
+  <div class="callout note"><strong>Confidence in appraisal: high-moderate.</strong> The full main manuscript and complete primary table were available. Confidence is reduced because the referenced supplementary prior specifications, sensitivity analysis, posterior figure, and code file were not included.</div>
+</section>
+
+<section id="practice">
+  <h2>Practice and implementation takeaways</h2>
+  <div class="grid two-col">
+    <div class="mini-card">
+      <b>Reasonable use now</b>
+      Treat this as supportive comparative-effectiveness evidence favoring HD-IIV over SD-IIV for eligible community-dwelling adults aged 65–79, particularly when preventing influenza-or-pneumonia hospitalization is the decision target.
+    </div>
+    <div class="mini-card">
+      <b>Do not use alone for</b>
+      A definitive mortality claim, a universal “high-dose for every older adult” mandate, or a formulary decision that ignores safety, cost, supply, and alternative enhanced vaccines.
+    </div>
+    <div class="mini-card">
+      <b>Formulary translation</b>
+      Combine the relative effect with local event risk, vaccine acquisition cost, eligible population size, administration capacity, and guideline recommendations. The low absolute event rate is central to budget impact.
+    </div>
+    <div class="mini-card">
+      <b>Journal-club value</b>
+      Use the paper to discuss prior selection, clinically meaningful thresholds, posterior probability versus credible intervals, and why MCMC convergence does not address outcome bias.
+    </div>
+  </div>
+  <h3>Bottom line for practice</h3>
+  <div class="callout good"><strong>Maybe—supportive, not determinative.</strong> The analysis strengthens confidence that HD-IIV provides a real comparative reduction in influenza-or-pneumonia hospitalization in the studied population. It should reinforce, rather than independently create, a preferential-vaccine policy.</div>
+  <h3>Questions to resolve before local implementation</h3>
+  <ol class="tight">
+    <li>What is the local baseline hospitalization risk and expected absolute benefit?</li>
+    <li>How does HD-IIV compare with other enhanced vaccines available locally?</li>
+    <li>What are the incremental acquisition and administration costs?</li>
+    <li>Are supply constraints likely to displace vaccination rather than only change product selection?</li>
+    <li>Do current institutional and national recommendations align with the studied age range and comparator?</li>
+  </ol>
+</section>
+
+<section id="coverage">
+  <h2>Coverage manifest</h2>
+  <div class="table-wrap">
+    <table>
+      <tbody>
+        <tr><th>Source ID</th><td>ciag466 / DOI 10.1093/cid/ciag466</td></tr>
+        <tr><th>Exact title</th><td>A Bayesian Re-Analysis of the GALFLU Trial of high dose versus standard dose influenza vaccine against hospitalisation outcomes</td></tr>
+        <tr><th>Source type</th><td>Clinical journal brief report; Bayesian re-analysis of randomized trial data</td></tr>
+        <tr><th>Sections mapped</th><td>Title/abstract summary, Introduction, Methods, Outcomes, Results, Discussion, Conclusion, funding/conflicts/data availability, references</td></tr>
+        <tr><th>Main-text figures</th><td>None in the supplied manuscript. The text refers to a Figure 1 in the original GALFLU publication, not a figure reproduced here.</td></tr>
+        <tr><th>Main-text tables</th><td>One: Table 1, fully reconstructed as a structured HTML table above.</td></tr>
+        <tr><th>Algorithms/workflows</th><td>No formal diagram. The Bayesian analysis pipeline was reconstructed as a structured workflow.</td></tr>
+        <tr><th>Supplements referenced</th><td>Supplementary Table 1, Supplementary Table 2, Supplementary Text 1, Supplementary Figure 1, and Supplementary File 1.</td></tr>
+        <tr><th>Omissions</th><td>Referenced supplements were not present in the supplied PDF and therefore could not be independently extracted or audited.</td></tr>
+        <tr><th>Visual strategy</th><td>Structured reconstruction; no embedded screenshots were needed because the sole main-text table was recoverable from text and rendered pages.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="provenance">
+  <h2>Provenance and citation</h2>
+  <p><strong>Evaluated source:</strong> Pardo-Seco J, Rodriguez-Tenreiro-Sánchez C, Giné-Vázquez I, et al. A Bayesian Re-Analysis of the GALFLU Trial of high dose versus standard dose influenza vaccine against hospitalisation outcomes. <em>Clinical Infectious Diseases</em>. 2026. doi:10.1093/cid/ciag466.</p>
+  <p><strong>Evaluated file:</strong> <span class="mono">ciag466.pdf</span> (10-page accepted manuscript).</p>
+  <p><strong>Generation date:</strong> 4 August 2026.</p>
+  <p class="small">This appraisal summarizes and critiques the supplied source. It does not replace primary-source review, current vaccination guidance, local formulary evaluation, or patient-specific clinical judgment. Derived absolute-effect estimates are labeled and should not be treated as source-reported estimates.</p>
+</section>
+</main>
+
+<footer>
+  Single-file reference HTML · No external scripts, fonts, stylesheets, or remote images.
+</footer>
+</body>
+</html>

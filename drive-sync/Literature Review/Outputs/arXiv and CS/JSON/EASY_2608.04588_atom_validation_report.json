@@ -1,0 +1,119 @@
+{
+  "source_metadata": {
+    "title": "EASY: Towards Efficient LLM-Based Agentic System",
+    "authors": [
+      "Junnan Liu",
+      "Linhao Luo",
+      "Thuy-Trang Vu",
+      "Gholamreza Haffari"
+    ],
+    "source_type": "preprint_under_review",
+    "identifier": "arXiv:2608.04588v1",
+    "date": "2026-08-05",
+    "publication_id": "de7502cc-cfdc-52bd-9a27-f1d964bc6501",
+    "input_file": "2608.04588.pdf",
+    "input_document_sha256": "9c9316e22e9c93e74e03e02da6aabc4eff11d658eaad58ed743f2e895f94c624",
+    "page_count": 42
+  },
+  "governing_sources": {
+    "domain_model": "literature.py",
+    "sufficiency_validator": "literature_atoms.py",
+    "serialization_contract": "literature_atom.schema.json",
+    "workflow_intent": "README(2).md",
+    "illustrative_example": "example_atom.json"
+  },
+  "extraction_run_id": "d059ed5e-340c-597e-b3d0-a99e6aa4595d",
+  "atom_count_total": 361,
+  "atom_counts_by_type": {
+    "author_conclusion": 5,
+    "limitation": 2,
+    "method": 63,
+    "qualitative_result": 8,
+    "quantitative_result": 282,
+    "study_objective": 1
+  },
+  "atom_counts_by_assertion_origin": {
+    "calculated_from_reported_data": 14,
+    "normalized_from_source": 347
+  },
+  "atom_counts_by_source_section": {
+    "abstract": 1,
+    "conclusion": 1,
+    "discussion": 2,
+    "figure": 30,
+    "methods": 32,
+    "results": 8,
+    "supplement": 16,
+    "table": 271
+  },
+  "validation": {
+    "pydantic_structural_valid": true,
+    "pydantic_structural_errors": [],
+    "json_schema_valid": true,
+    "json_schema_errors": [],
+    "sufficiency_valid": true,
+    "sufficiency_errors": [],
+    "sufficiency_warnings": [],
+    "source_package_unit_tests": {
+      "passed": 8,
+      "failed": 0,
+      "command": "PYTHONPATH=src pytest -q"
+    }
+  },
+  "coverage": {
+    "main_text_sections": [
+      "abstract",
+      "introduction",
+      "methodology",
+      "experiments",
+      "ablation",
+      "qualitative analysis",
+      "conclusion"
+    ],
+    "main_text_tables": [
+      "Table 1",
+      "Table 2"
+    ],
+    "main_text_figures": [
+      "Figure 2",
+      "Figure 4",
+      "Figure 5",
+      "Figure 6"
+    ],
+    "appendix_tables": [
+      "Table 3",
+      "Table 4",
+      "Table 5",
+      "Table 6"
+    ],
+    "appendix_content": [
+      "prompts",
+      "agent-pool configuration",
+      "tool configuration",
+      "training parameters",
+      "orchestrator scaling",
+      "executor generalization",
+      "case studies",
+      "limitations"
+    ],
+    "quantitative_cell_policy": "Every numeric result cell in Tables 1-6 and Figure 4 was atomized; AIME24/25 paired cells were split into separate atoms.",
+    "main_text_figure_inventory": {
+      "Figure 1": "not separately atomized; conceptual comparison restated by text atoms",
+      "Figure 2": "represented by method atoms for system design and training pipeline",
+      "Figure 3": "represented by method atoms for tree-structured rollout",
+      "Figure 4": "all plotted numeric efficiency values atomized",
+      "Figure 5": "authors' qualitative usage trends atomized; coordinates not digitized",
+      "Figure 6": "authors' qualitative training-dynamics trends atomized; coordinates not digitized"
+    }
+  },
+  "extraction_limitations": [
+    "Figure 1 is conceptual background and was not atomized separately because its content is restated in the introduction.",
+    "Figure 3 is a schematic of the rollout process and was represented through method atoms rather than image-specific atoms.",
+    "Figure 5 and Figure 6 were atomized at the authors’ stated qualitative-trend level; exact plotted time-series coordinates were not digitized.",
+    "Bibliographic references were not converted into literature atoms.",
+    "The complete wording of every prompt and tool-card field was not atomized line by line; operative constraints and configurations were extracted.",
+    "No funding, conflict-of-interest, or data-availability statement was located in the provided preprint; no such atom was fabricated.",
+    "Table 2 labels its second metric as Cost while the caption and prose describe performance and efficiency; atoms preserve this ambiguity explicitly.",
+    "All atoms remain needs_review because extraction was performed by a language model without human verification."
+  ]
+}

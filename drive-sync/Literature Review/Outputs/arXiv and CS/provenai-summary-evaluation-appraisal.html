@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProvenAI — Summary, Evaluation, and Appraisal</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --ink: #17202a;
+      --muted: #526173;
+      --line: #d9e0ea;
+      --accent: #1d4f91;
+      --accent2: #7a3e06;
+      --good: #0f6b3b;
+      --warn: #8a5a00;
+      --bad: #8a1f1f;
+      --codebg: #0e1726;
+      --codefg: #edf4ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: linear-gradient(135deg, #10243d, #1d4f91);
+      color: white;
+      padding: 2.2rem 1.25rem 2rem;
+      border-bottom: 5px solid #d2e2f5;
+    }
+    header .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { margin: 0 0 .6rem; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.15; }
+    .subtitle { max-width: 920px; font-size: 1.05rem; color: #dce9f8; margin: 0; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    nav.toc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0 1.25rem;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .06);
+    }
+    nav.toc a { color: var(--accent); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+    .toc-grid { columns: 2; column-gap: 2rem; padding-left: 1.25rem; }
+    section, article.card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .05);
+    }
+    h2 { color: #0f315f; margin: .2rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: .45rem; }
+    h3 { color: #173f72; margin-top: 1.25rem; }
+    h4 { margin: 1rem 0 .35rem; color: #24364b; }
+    .meta-grid, .rating-grid, .takeaway-grid, .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .75rem;
+    }
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .8rem;
+      background: #fbfcff;
+    }
+    .label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .value { font-weight: 650; margin-top: .2rem; }
+    .verdict {
+      border-left: 5px solid var(--accent);
+      background: #eef5ff;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: .6rem 0 1rem;
+    }
+    .warning {
+      border-left: 5px solid var(--warn);
+      background: #fff8e8;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      margin: .75rem 0;
+    }
+    .badnote {
+      border-left: 5px solid var(--bad);
+      background: #fff1f1;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      margin: .75rem 0;
+    }
+    .goodnote {
+      border-left: 5px solid var(--good);
+      background: #edf8f2;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      margin: .75rem 0;
+    }
+    table { width: 100%; border-collapse: collapse; margin: .75rem 0; font-size: .96rem; }
+    th, td { border: 1px solid var(--line); padding: .55rem .65rem; vertical-align: top; }
+    th { background: #eef3f9; text-align: left; color: #1e395c; }
+    .rating-grid .mini-card { min-height: 100px; }
+    .score { font-size: 1.35rem; font-weight: 800; color: var(--accent); }
+    pre {
+      margin: .75rem 0 1.1rem;
+      padding: 1rem;
+      background: var(--codebg);
+      color: var(--codefg);
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #1b2e49;
+      font-size: .88rem;
+      line-height: 1.45;
+      white-space: pre;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .section-summary { border-left: 4px solid #cbd8e8; padding-left: .95rem; margin: .9rem 0 1.2rem; }
+    .section-summary h3 { margin: 0 0 .4rem; }
+    .section-summary p { margin: .4rem 0; }
+    .tag {
+      display: inline-block;
+      border: 1px solid #c9d7e8;
+      background: #f2f6fb;
+      color: #27496d;
+      padding: .15rem .45rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin: .12rem .2rem .12rem 0;
+    }
+    .small { color: var(--muted); font-size: .92rem; }
+    ul.tight li, ol.tight li { margin-bottom: .35rem; }
+    .checklist li { margin-bottom: .45rem; }
+    .keyline { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
+    footer { max-width: 1100px; margin: 0 auto 2rem; color: var(--muted); padding: 0 1.25rem; font-size: .9rem; }
+    @media print {
+      body { background: white; }
+      section, article.card, nav.toc { box-shadow: none; break-inside: avoid; }
+      pre { white-space: pre-wrap; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>ProvenAI: Provenance-Native Traces of Evidence in Generated Answers</h1>
+    <p class="subtitle">Reference summary, evaluation, and appraisal of an arXiv preprint proposing a layered evidence-provenance audit framework for retrieval-grounded multi-hop question answering.</p>
+  </div>
+</header>
+<main>
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ol class="toc-grid">
+      <li><a href="#metadata">Source metadata</a></li>
+      <li><a href="#onepage">One-page synthesis</a></li>
+      <li><a href="#section-condensation">Section-by-section condensation</a></li>
+      <li><a href="#methods">Method and measurement scaffold</a></li>
+      <li><a href="#visuals">Figures, tables, and exhibits</a></li>
+      <li><a href="#appraisal">Evaluation and appraisal</a></li>
+      <li><a href="#takeaways">Implementation takeaways</a></li>
+      <li><a href="#qa">Quality-control notes</a></li>
+    </ol>
+  </nav>
+
+  <section id="metadata">
+    <h2>Source metadata</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><div class="label">Title</div><div class="value">ProvenAI: Provenance-Native Traces of Evidence in Generated Answers</div></div>
+      <div class="mini-card"><div class="label">Authors</div><div class="value">Mohammad Faizan; Dalal Alharthi</div></div>
+      <div class="mini-card"><div class="label">Source</div><div class="value">arXiv:2606.26449v1</div></div>
+      <div class="mini-card"><div class="label">Date / version</div><div class="value">Submitted 24 Jun 2026; v1</div></div>
+      <div class="mini-card"><div class="label">Source type</div><div class="value">Preprint; AI/ML systems and evaluation paper</div></div>
+      <div class="mini-card"><div class="label">Domains</div><div class="value">cs.CL; cs.AI; cs.CR; cs.IR</div></div>
+      <div class="mini-card"><div class="label">Benchmark</div><div class="value">HotpotQA distractor validation split</div></div>
+      <div class="mini-card"><div class="label">Primary artifact</div><div class="value">Seven-stage RAG transparency pipeline with structured reports and dashboard inspection</div></div>
+    </div>
+    <p class="small">Scope warning: this reference summarizes and appraises the preprint as a research artifact. It should not be read as evidence that the reported system is production-ready, externally validated, or broadly generalizable beyond the reported HotpotQA configuration.</p>
+  </section>
+
+  <section id="onepage">
+    <h2>One-page synthesis</h2>
+    <div class="verdict">
+      <strong>Core thesis:</strong> RAG transparency should not be reduced to citations. ProvenAI separates three layers—answer correctness, citation fidelity against gold supporting evidence, and resource influence under leave-one-resource-out ablation—because the cited documents and the documents that behaviorally shape the output can diverge.
+    </div>
+    <p>ProvenAI is not presented as a stronger QA model. It is an audit harness for retrieval-grounded question answering. The implemented pipeline normalizes HotpotQA distractor records, builds a FAISS retrieval index over a deduplicated corpus, generates citation-aware answers, audits citations against gold supporting titles, estimates document influence through ablation, aggregates validation metrics, and exposes results through a Streamlit/MCP trace interface.</p>
+    <p>The paper’s empirical anchor is mixed. It evaluates 7,405 HotpotQA validation examples and reports 53.53% answer accuracy with 71.55% mean citation-fidelity score, supporting the claim that answer accuracy and citation alignment are separable. However, the strongest “citation-influence gap” result rests on a targeted case study rather than full-validation ablation, because leave-one-resource-out influence was disabled in the full run for cost. The conceptual framing is high-value for RAG evaluator design, but the evidence base remains early.</p>
+    <div class="keyline">
+      <span class="tag">RAG evaluation</span>
+      <span class="tag">Citation fidelity</span>
+      <span class="tag">Context attribution</span>
+      <span class="tag">Leave-one-out ablation</span>
+      <span class="tag">Evidence provenance</span>
+      <span class="tag">MCP traces</span>
+      <span class="tag">HotpotQA</span>
+      <span class="tag">Audit harness</span>
+    </div>
+  </section>
+
+  <section id="section-condensation">
+    <h2>Section-by-section condensation</h2>
+
+    <div class="section-summary">
+      <h3>Abstract</h3>
+      <p>The abstract frames the problem: citations in generated answers are not proof that the cited source meaningfully shaped the output. ProvenAI decomposes transparency into answer correctness, citation fidelity, and per-document influence, then evaluates a seven-stage pipeline on HotpotQA distractor with 7,405 validation examples and a canonical corpus of 509,300 passages.</p>
+      <p>Reported outcomes are 53.53% answer accuracy and 71.55% mean citation-fidelity score. The abstract foregrounds a worked example in which citation audit looks clean but influence analysis finds one weakly influential cited source and seven uncited influential sources, formalizing this as a “citation-influence gap.”</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>1. Introduction</h3>
+      <p>The introduction argues that multi-hop RAG intensifies evidence-transparency problems because correct answers may depend on several retrieved documents. A model can cite only a subset of retrieved passages while still being shaped by the uncited remainder, so citation lists only answer what the model claims to have used, not whether those sources match gold evidence or caused the generated output.</p>
+      <p>The paper positions ProvenAI as infrastructure for measuring evidence propagation, not as a new retriever or generator. Its stated contributions are a three-layer transparency decomposition, reproducible pipeline artifacts, characterization of the citation-influence gap, formal connection between a surface proxy and KL-divergence influence, and linkage to causal mediation, database provenance, cryptographic provenance, and autonomous scientific discovery.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>2. Related Work</h3>
+      <p>The related work situates ProvenAI among RAG foundations, multi-hop QA benchmarks, citation-verifiability metrics, context attribution, causal mediation, database provenance, and MCP-style tool/resource access. The key distinction is that ProvenAI asks whether removing a retrieved document changes the answer or citation pattern after the document has been retrieved and possibly cited.</p>
+      <p>The closest conceptual neighbors are attribution and citation-evaluation methods such as ALCE, MIRAGE, ContextCite, SelfCite, FActScore, and RAGAS. ProvenAI uses a document-level ablation intuition and categorical verdicts rather than training a citation model or directly using probability-aware attribution.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3. Problem Formulation</h3>
+      <p>The formulation defines a question <code>q</code>, retrieved resources <code>R = {r1...rk}</code>, generated answer <code>a</code>, citation set <code>C ⊆ R</code>, gold answer <code>a*</code>, and gold supporting titles <code>G</code>. It evaluates answer correctness with normalized string matching, citation fidelity by comparing cited titles to gold supporting titles, and resource influence by checking whether removing a retrieved resource changes the answer or citation set.</p>
+      <p>Citation fidelity is measured with token-set Jaccard similarity over document titles at a fixed threshold. Influence is ideally defined as a KL divergence between full-context and ablated-context output distributions, but the implementation uses a surface proxy combining answer-token Jaccard shift and citation-set Jaccard shift. Each retrieved document is assigned one of four labels: USED, HALLUCINATED CITATION, UNCITED INFLUENTIAL, or LOW INFLUENCE.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>4. System Design</h3>
+      <p>The system is organized into seven stages: data normalization, retrieval-index construction, citation-aware answer generation, citation-fidelity audit, document-influence estimation, aggregate evaluation, and interactive inspection. The modular design is useful: each phase writes disk artifacts so downstream phases can be rerun, audited, or swapped without recomputing everything.</p>
+      <p>The data layer converts HotpotQA distractor examples into stable JSONL records, creates a deterministic 250-example development subset, deduplicates evidence rows, embeds passages with all-MiniLM-L6-v2, indexes them with FAISS inner-product search, and mirrors records in SQLite. The generation layer uses Qwen2.5-3B-Instruct through an MLX path, asks for citation-tagged output, repairs parsing failures, and records MCP trace artifacts for replayable resource access.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>5. Experimental Setup</h3>
+      <p>The evaluation uses the full HotpotQA distractor validation split. The paper reports dataset and runtime configuration in detail because retrieval depth, generation model, prompt document limits, citation threshold, and model scale can materially affect answer accuracy and audit behavior.</p>
+      <p>Answer correctness is evaluated with lightweight normalization: citation tags are stripped, strings are lowercased and trimmed, and yes/no questions use prefix matching. The authors explicitly caution that this scoring is for internal diagnostics and should not be directly compared with official HotpotQA leaderboard scores.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>6. Results</h3>
+      <p>Aggregate validation shows 53.53% answer accuracy and 71.55% citation fidelity over 7,405 examples. The 18-point spread supports the paper’s central idea that answer correctness and evidence alignment can decouple: a system may cite the right titles even when answer generation fails, or answer correctly despite degraded citation alignment.</p>
+      <p>The case study asks whether Scott Derrickson and Ed Wood were of the same nationality. The model answers correctly and cites the two gold supporting titles, producing perfect citation fidelity. Leave-one-out ablation across 10 retrieved documents then finds 1 USED document, 1 HALLUCINATED CITATION, 7 UNCITED INFLUENTIAL documents, and 1 LOW-INFLUENCE document, demonstrating that the visible citation set can diverge from the output’s sensitivity profile.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>7. From Measurement to Provenance-Native Reasoning</h3>
+      <p>This section extends the framework from measurement to provenance-native reasoning. The paper argues that cryptographic provenance can validate which resources were retrieved and signed, but this still does not prove that the cited subset was what shaped the generated conclusion. A system can be cryptographically sound at module boundaries and still be behaviorally influenced by uncited co-retrieved context.</p>
+      <p>The proposed audit record includes four artifacts per generated claim: a retrieval manifest, a citation manifest, a verdict assignment over retrieved resources, and a proxy-to-target statement explaining when influence numbers are interpretable. This makes the paper most relevant to RAG observability, scientific-agent audit trails, and secure evidence pipelines rather than leaderboard QA performance.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>8. Discussion and Limitations</h3>
+      <p>The discussion states the central caution directly: citations indicate claimed use, not confirmed influence. The three-layer decomposition exposes cases that aggregate accuracy cannot distinguish, including correct answers with poor citation fidelity and clean citation audits with diffuse or uncited influence.</p>
+      <p>The main limitations are substantial: the MLX backend does not expose per-token probabilities, so influence is not measured with the KL target; the implemented model is only Qwen2.5-3B-Instruct; citation audit is title-level rather than claim/sentence-level entailment; all aggregate results come from HotpotQA distractor; and rich audit artifacts may increase user overconfidence if presented as guarantees rather than diagnostic indicators.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>9. Conclusion</h3>
+      <p>The conclusion restates that transparency in retrieval-grounded QA is layered. Answer correctness, citation lists, and resource-influence profiles can disagree, and ProvenAI offers a reproducible framework for making those disagreements visible.</p>
+      <p>The strongest contribution is not the raw performance numbers; it is the audit pattern and vocabulary. The paper gives a useful decomposition for RAG system evaluation while acknowledging that stronger probability-aware influence measurement, larger models, sentence-level evidence checks, and additional benchmarks are needed before broader claims are warranted.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Appendices</h3>
+      <p>Appendix A proves the one-sided relationship between positive answer-surface change and positive KL divergence under near-deterministic decoding, while also showing that the reverse implication fails. The example given is a probability shift that leaves the greedy argmax unchanged, creating nonzero KL divergence with zero observed answer change.</p>
+      <p>Appendix B lists reproducibility commands for the pipeline, and Appendices C–E describe dashboard screenshots, additional experimental constraints, and MCP traceability. The appendices are practically important because they clarify that current influence claims should be framed as answer-and-citation sensitivity rather than probability-level causal influence.</p>
+    </div>
+  </section>
+
+  <section id="methods">
+    <h2>Method and measurement scaffold</h2>
+    <h3>Core objects</h3>
+    <pre><code>QUESTION AND EVIDENCE SETUP
+
+q       = user/question benchmark item
+R       = retrieved resource set {r1, ..., rk}
+a       = generated textual answer
+C       = citation set emitted by the generator, where C ⊆ R
+a*      = gold answer
+G       = gold supporting document titles supplied by HotpotQA
+
+THREE INDEPENDENT LAYERS
+
+1. Answer correctness
+   - Does normalized generated answer a match gold answer a*?
+
+2. Citation fidelity
+   - Do cited titles C match gold supporting titles G?
+
+3. Resource influence
+   - Does removing resource ri from context change the answer or citation set?</code></pre>
+
+    <h3>Citation fidelity equations</h3>
+    <pre><code>CITATION FIDELITY
+
+TC = cited titles
+TG = gold supporting titles
+sim(t, g) = token-set Jaccard similarity
+τ = fixed matching threshold; reported exact τ = 1 and semantic τ = 0.34
+
+Precision proxy:
+Pτ = (1 / |TC|) Σ[t ∈ TC] 1(max[g ∈ TG] sim(t, g) ≥ τ)
+
+Recall proxy:
+Rτ = (1 / |TG|) Σ[g ∈ TG] 1(max[t ∈ TC] sim(t, g) ≥ τ)
+
+Fidelity score:
+Fτ = 2PτRτ / (Pτ + Rτ)</code></pre>
+
+    <h3>Resource influence target and implemented proxy</h3>
+    <pre><code>CONCEPTUAL TARGET
+
+InfluenceKL(ri) = DKL( p(· | q, R) || p(· | q, R \ {ri}) )
+
+IMPLEMENTED SURFACE PROXY
+
+a-i = regenerated answer after removing ri
+C-i = regenerated citation set after removing ri
+
+Answer shift:
+Δa(ri) = 1 - Jaccard(tok(a), tok(a-i))
+
+Citation shift:
+Δc(ri) = 1 - |C ∩ C-i| / |C ∪ C-i|
+
+Combined influence proxy:
+φ(ri) = 0.8Δa(ri) + 0.2Δc(ri)
+
+Interpretation:
+- Positive surface change can witness a nontrivial KL shift under near-deterministic decoding.
+- Zero surface change does not prove zero influence, because probability mass can shift without changing the greedy output.</code></pre>
+
+    <h3>Verdict assignment</h3>
+    <pre><code>VERDICT LABELS FOR EACH RETRIEVED RESOURCE ri
+
+Threshold:
+θ = max(median({φ(ri)}), θfloor)
+
+Citation indicator + influence proxy:
+
+1. USED
+   Condition: ri ∈ C and φ(ri) ≥ θ
+   Meaning: cited and behaviorally influential under the proxy.
+
+2. HALLUCINATED CITATION
+   Condition: ri ∈ C and φ(ri) &lt; θ
+   Meaning: cited but weakly influential under the proxy.
+
+3. UNCITED INFLUENTIAL
+   Condition: ri ∉ C and φ(ri) ≥ θ
+   Meaning: not cited, but answer/citation output changes when removed.
+
+4. LOW INFLUENCE
+   Condition: ri ∉ C and φ(ri) &lt; θ
+   Meaning: not cited and low observed sensitivity under the proxy.</code></pre>
+  </section>
+
+  <section id="visuals">
+    <h2>Figures, tables, and exhibits</h2>
+
+    <h3>Table 1 — ProvenAI pipeline stages and saved outputs</h3>
+    <pre><code>TABLE 1 — SEVEN-STAGE PIPELINE
+
+ROWS:
+  Each row is a sequential pipeline phase.
+
+COLUMNS:
+  - Stage number
+  - Primary role
+  - Saved output
+
+KEY CONTENT:
+  1. Normalize HotpotQA distractor records
+     Output: JSONL examples, evidence files, manifest
+
+  2. Build retrieval corpus and FAISS index
+     Output: canonical corpus, embeddings, FAISS index, SQLite lookup
+
+  3. Generate citation-aware answers
+     Output: answer reports with retrieved resources
+
+  4. Audit citation fidelity
+     Output: per-example citation metrics and verdicts
+
+  5. Estimate document influence
+     Output: ablation reports and influence labels
+
+  6. Run aggregate evaluation
+     Output: validation metrics and summary JSON
+
+  7. Inspect results interactively
+     Output: Streamlit views and exportable reports
+
+APPRAISAL:
+  Strong workflow decomposition. The saved-artifact design is more useful than a single monolithic evaluator because it supports reruns, caching, traceability, and error inspection.</code></pre>
+
+    <h3>Figure 1 — ProvenAI end-to-end system overview</h3>
+    <pre><code>FIGURE 1 — PROVENAI SYSTEM OVERVIEW
+
+PURPOSE:
+  Show how a multi-hop question and retrieved evidence pass through ProvenAI's audit pipeline.
+
+STRUCTURE:
+  1. Input
+     - Task: answer a multi-hop question from retrieved evidence and return an attributed response.
+     - Example question: Were Scott Derrickson and Ed Wood of the same nationality?
+
+  2. Retrieved documents
+     - Doc 0: Ed Wood was an American filmmaker, actor, writer, producer, and director.
+     - Doc 1: Scott Derrickson is an American filmmaker and screenwriter.
+     - Doc 2: Adam Collis is an American film director and actor.
+     - Doc 3: Shamim Ara was a Bangladeshi actress, director, and producer.
+
+  3. ProvenAI pipeline
+     Retrieval → Answer Generation → Citation Audit → Document Ablation → Lineage Trace
+
+  4. Output
+     - Answer cites R1 for Scott Derrickson and R0 for Ed Wood.
+     - Output summary reports cited docs, support docs, uncited influential docs, and verdict.
+
+INTERPRETATION:
+  The figure communicates the central architecture: citations are only one observed layer; ablation and lineage tracing add separate behavioral and provenance views.
+
+LIMITATIONS:
+  The figure is conceptual and example-driven. It does not quantify full-validation influence behavior.</code></pre>
+
+    <h3>Table 2 — Dataset, corpus statistics, and runtime configuration</h3>
+    <pre><code>TABLE 2 — DATASET / CORPUS / CONFIGURATION
+
+DATASET AND CORPUS:
+  Train examples:              90,447
+  Validation examples:          7,405
+  Total examples:              97,852
+  Train evidence rows:        899,667
+  Validation evidence rows:    73,700
+  Source evidence rows:       973,367
+  Canonical retrieval rows:   509,300
+  Duplicate rows removed:     464,067
+  Development subset size:        250
+  Random seed:                     42
+
+RUNTIME CONFIGURATION:
+  Benchmark:             HotpotQA distractor
+  Retrieval depth:        10
+  Embedding model:        all-MiniLM-L6-v2
+  Index:                  FAISS inner product + SQLite
+  Generation backend:     MLX on Apple Silicon
+  Generation model:       Qwen2.5-3B-Instruct
+  Citation limit:         2
+  Prompt doc limit:       900 characters
+  Citation threshold τ:   0.34
+  Influence weights:      0.8 answer shift / 0.2 citation shift
+
+APPRAISAL:
+  The configuration is sufficiently concrete to support replication attempts. The 3B model and 900-character document cap are important generalizability constraints.</code></pre>
+
+    <h3>Table 3 — Aggregate validation metrics</h3>
+    <pre><code>TABLE 3 — AGGREGATE METRICS OVER HOTPOTQA DISTRACTOR VALIDATION
+
+Validation examples:                    7,405
+Answer accuracy:                        0.5353
+Mean citation-fidelity score:           0.7155
+Mean exact citation F1:                  0.7155
+Mean semantic citation F1:               0.7155
+Aggregate influence score:               0.0000
+  Note: ablation disabled during full-batch run.
+
+PATTERN:
+  Citation fidelity exceeds answer accuracy by about 18 percentage points.
+
+INTERPRETATION:
+  This supports the paper's argument that answer correctness and citation fidelity are separable. It does not, by itself, establish the frequency or severity of the citation-influence gap because full-validation ablation was not run.</code></pre>
+
+    <h3>Table 4 — Ablation verdict distribution for the worked example</h3>
+    <pre><code>TABLE 4 — SCOTT DERRICKSON / ED WOOD EXAMPLE
+
+Question:
+  Were Scott Derrickson and Ed Wood of the same nationality?
+
+Gold answer:
+  Yes.
+
+Reported citation audit:
+  Exact and semantic Fτ = 1.0.
+
+Ablation verdict distribution:
+  Used:                    1
+  Hallucinated citation:   1
+  Uncited-influential:     7
+  Low-influence:           1
+
+Mean influence proxy:
+  0.97
+
+INTERPRETATION:
+  A perfect citation audit can coexist with a diffuse influence pattern. One cited source appears weakly influential, while several uncited retrieved documents shift the output or citation set when ablated.
+
+LIMITATION:
+  This is a single saved case study. It demonstrates the failure mode but does not estimate prevalence across tasks.</code></pre>
+
+    <h3>Figure 2 — Worked example illustrating the citation-influence gap</h3>
+    <pre><code>FIGURE 2 — WORKED EXAMPLE
+
+PURPOSE:
+  Visualize how an apparently faithful citation-bearing answer can still have a mismatched influence profile.
+
+INPUT:
+  Question: Were Scott Derrickson and Ed Wood of the same nationality?
+  Retrieved documents include:
+    - Ed Wood: American filmmaker / actor / writer / producer / director.
+    - Scott Derrickson: American filmmaker / screenwriter.
+    - Adam Collis: American film director / actor.
+    - Shamim Ara: Bangladeshi actress / director / producer.
+
+PROCESS:
+  Generate answer → Audit citations → Ablate documents → Trace influence
+
+ATTRIBUTED ANSWER:
+  The answer states that both Scott Derrickson and Ed Wood are American and cites the corresponding resources.
+
+SURFACE AUDIT:
+  Answer correct and citation alignment high.
+
+INFLUENCE AUDIT:
+  The broader ablation report reveals uncited influential resources and one cited weak-influence resource.
+
+APPRAISAL:
+  The figure is useful for intuition but visually compresses a 10-document ablation result into a schematic. The accompanying table is needed for the actual verdict distribution.</code></pre>
+
+    <h3>Figures 3–5 — Dashboard and portal screenshots</h3>
+    <pre><code>FIGURES 3–5 — DASHBOARD INSPECTION VIEWS
+
+FIGURE 3: Console overview
+  - Shows the ProvenAI web interface.
+  - Displays question input, generated answer, citation count, and evaluation summary.
+  - Includes controls for query mode, example source, collection, embedding target, index size, top-k documents, KL threshold, model ID, and rebuild/index actions.
+
+FIGURE 4: Evidence inspection view
+  - Shows retrieved documents, cited sources, and supporting context.
+  - Includes citation pills and source previews.
+  - Demonstrates how a reviewer can inspect nominal citation support separately from final-answer text.
+
+FIGURE 5: Ablation view
+  - Shows leave-one-resource-out influence results.
+  - Displays per-resource bars, proxy scores, thresholds, whether answer/citation changed, and verdict labels such as USED or UNCITED-INFLUENTIAL.
+
+APPRAISAL:
+  The dashboard matters because the paper is about auditability, not only metrics. However, the screenshots are interface evidence, not validation evidence. They demonstrate inspectability but not correctness, reliability, or human-review effectiveness.</code></pre>
+
+    <h3>Appendix B — Reproducibility command sequence</h3>
+    <pre><code>REPRODUCIBILITY COMMANDS REPORTED BY THE PAPER
+
+PYTHONPATH=src python3 scripts/prepare_hotpotqa.py
+PYTHONPATH=src python3 scripts/build_faiss_index.py
+PYTHONPATH=src python3 scripts/run_experiment.py
+PYTHONPATH=src python3 scripts/run_attribution_audit.py
+PYTHONPATH=src python3 scripts/run_ablation.py
+PYTHONPATH=src python3 scripts/run_evaluation.py
+PYTHONPATH=src python3 scripts/run_mcp_server.py
+
+REPORTED ARTIFACT PATHS:
+  data/processed/manifest.json
+  data/index/hotpotqa_distractor_hashing_metadata.json
+  reports/phase4/latest_audit.json
+  reports/phase5/latest_ablation.json
+  reports/phase6/latest_evaluation.json
+
+APPRAISAL:
+  The pipeline is scriptable in principle, but reproducibility cannot be fully judged from the paper alone without inspecting the actual repository, dependency pins, model settings, prompts, and raw report artifacts.</code></pre>
+  </section>
+
+  <section id="appraisal">
+    <h2>Evaluation and appraisal</h2>
+    <div class="verdict">
+      <strong>Verdict: Read first for RAG/provenance evaluator design; do not treat as mature empirical evidence for deployed RAG reliability.</strong> The paper is conceptually aligned with practical RAG harness work and provides useful instrumentation vocabulary, but its strongest behavioral influence claim is case-study level and the current proxy is intentionally weaker than the formal KL target.
+    </div>
+
+    <h3>Ratings</h3>
+    <div class="rating-grid">
+      <div class="mini-card"><div class="label">Relevance</div><div class="score">9 / 10</div><div class="small">Directly relevant to RAG audit trails, source attribution, deterministic evaluation, and evidence-aware AI workflows.</div></div>
+      <div class="mini-card"><div class="label">Novelty</div><div class="score">7 / 10</div><div class="small">The three-layer framing and citation-influence gap vocabulary are useful, though built from known retrieval, citation, attribution, and ablation ideas.</div></div>
+      <div class="mini-card"><div class="label">Method strength</div><div class="score">6 / 10</div><div class="small">Pipeline is concrete and modular; influence measurement is limited by surface proxy, title-level matching, small model, and partial ablation coverage.</div></div>
+      <div class="mini-card"><div class="label">Evidence strength</div><div class="score">5.5 / 10</div><div class="small">Aggregate citation-vs-answer decoupling is supported; citation-influence-gap prevalence is not established because full-validation ablation was disabled.</div></div>
+      <div class="mini-card"><div class="label">External validity</div><div class="score">4 / 10</div><div class="small">Single benchmark, curated document pool, one local 3B model path, and title-level support checks limit generalization.</div></div>
+      <div class="mini-card"><div class="label">Implementation value</div><div class="score">8 / 10</div><div class="small">High value as a design pattern for RAG observability: log retrieval, citations, ablation sensitivity, verdicts, and traceable artifacts.</div></div>
+    </div>
+
+    <h3>Major strengths</h3>
+    <div class="goodnote">
+      <ul class="tight">
+        <li><strong>Useful decomposition:</strong> separates answer correctness, citation fidelity, and influence instead of collapsing them into one trust signal.</li>
+        <li><strong>Operational artifact design:</strong> uses staged saved outputs, per-example reports, summary JSON, dashboard inspection, and MCP trace records.</li>
+        <li><strong>Clear diagnostic labels:</strong> USED, HALLUCINATED CITATION, UNCITED INFLUENTIAL, and LOW INFLUENCE map cleanly to reviewable RAG failure modes.</li>
+        <li><strong>Honest formal limitation:</strong> explicitly states that the surface proxy is one-sided and can underestimate distributional influence.</li>
+      </ul>
+    </div>
+
+    <h3>Major limitations</h3>
+    <div class="badnote">
+      <ul class="tight">
+        <li><strong>Full-validation influence not measured:</strong> aggregate influence score is zero because ablation was disabled, so the main influence-gap phenomenon is illustrated by a targeted case report.</li>
+        <li><strong>Title-level citation audit:</strong> matching document titles is weaker than verifying sentence-level support or claim-level entailment.</li>
+        <li><strong>Surface proxy under-detects influence:</strong> unchanged greedy output does not imply unchanged distribution, and the implementation lacks token-level probabilities.</li>
+        <li><strong>Small-model and benchmark constraints:</strong> Qwen2.5-3B-Instruct on HotpotQA distractor may not generalize to larger RAG systems, open-domain retrieval, clinical sources, or agentic workflows.</li>
+        <li><strong>Thresholding is heuristic:</strong> adaptive median-plus-floor thresholding makes labels inspectable but not necessarily calibrated across examples or models.</li>
+      </ul>
+    </div>
+
+    <h3>Bottom-line interpretation</h3>
+    <p>ProvenAI is best read as a <strong>RAG audit harness blueprint</strong>. Its most durable contribution is the insistence that citations, gold-evidence alignment, and behavioral influence are different audit layers. The design is directly reusable for evaluators that need to answer: what was retrieved, what was cited, what matched gold evidence, what changed the output when removed, and what should a reviewer inspect?</p>
+    <p>The empirical evidence is not yet strong enough to support broad claims about how often citation-influence gaps occur across real systems. To make the paper deployment-relevant, the next version would need probability-aware influence scoring, sentence/claim-level citation verification, larger and multiple generators, broader datasets, full-batch or sampled influence prevalence estimates, and stronger calibration of verdict thresholds.</p>
+  </section>
+
+  <section id="takeaways">
+    <h2>Implementation and practice takeaways</h2>
+    <div class="takeaway-grid">
+      <div class="mini-card">
+        <div class="label">Build-useful pattern</div>
+        <div class="value">Separate retrieved, cited, gold-supported, and influential resources.</div>
+        <p>A RAG evaluator should not stop at citation rendering. It should preserve the full retrieved set, parsed citation set, gold or adjudicated support set, and a sensitivity score for each resource.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Highest-value addition</div>
+        <div class="value">Add leave-one-resource-out sensitivity to selected examples.</div>
+        <p>Full ablation can be costly, but targeted ablation on failures, high-risk answers, or random validation samples can expose uncited influence without multiplying inference cost for every run.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Needed for rigor</div>
+        <div class="value">Move from title matching to claim-level entailment.</div>
+        <p>For scientific or clinical use, matching source titles is insufficient. Each cited claim should be checked against exact passages or sentences, with unsupported claims surfaced separately.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Needed for causal attribution</div>
+        <div class="value">Use logprob-capable backends.</div>
+        <p>If the goal is true distributional influence, use an inference backend that exposes token probabilities and compare the implemented proxy against KL/logprob attribution methods.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Operational caution</div>
+        <div class="value">Display influence as diagnostic, not proof.</div>
+        <p>Audit dashboards can increase overconfidence. Labels like USED or LOW INFLUENCE should include caveats about proxy limits, benchmark scope, and threshold behavior.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Fit to local workflows</div>
+        <div class="value">Relevant to deterministic RAG/agent harnesses.</div>
+        <p>The staged report pattern is compatible with local structured outputs, audit JSON, human review queues, and later HTML or Markdown reference-file generation.</p>
+      </div>
+    </div>
+
+    <h3>Suggested next-step evaluator design</h3>
+    <pre><code>MINIMUM PRACTICAL RAG AUDIT SCHEMA
+
+For each answer:
+  question_id
+  question_text
+  generated_answer
+  normalized_answer
+  retrieved_resources[]
+    - resource_id
+    - title
+    - source_url_or_document_id
+    - passage_text
+    - retrieval_score
+    - rank
+  cited_resources[]
+    - resource_id
+    - citation_marker
+    - cited_claim_span
+  support_check[]
+    - cited_claim_span
+    - supporting_passage_span
+    - entailment_label
+    - verifier
+  ablation_sensitivity[]
+    - resource_id
+    - answer_changed
+    - citation_changed
+    - answer_similarity
+    - citation_similarity
+    - influence_proxy
+    - verdict_label
+  trace_artifacts
+    - retrieval_manifest
+    - citation_manifest
+    - model_config
+    - prompt_hash
+    - run_id
+    - timestamp
+
+Escalate for human review when:
+  - answer correct but citation fidelity low
+  - citation fidelity high but uncited influential resources present
+  - cited resources are low influence
+  - gold support missing from retrieved context
+  - verifier and generator disagree
+  - high-stakes domain or practice-changing output</code></pre>
+  </section>
+
+  <section id="qa">
+    <h2>Quality-control notes</h2>
+    <div class="warning">
+      <strong>Most important caveat:</strong> the paper’s key concept is useful even though the empirical demonstration is early. Do not overread the single worked ablation example as prevalence evidence.
+    </div>
+    <h3>What this source establishes</h3>
+    <ul class="tight">
+      <li>It establishes a clear measurement vocabulary for layered RAG transparency.</li>
+      <li>It demonstrates that answer accuracy and citation fidelity can diverge on HotpotQA under the reported setup.</li>
+      <li>It provides an example where clean citation audit and influence profile diverge.</li>
+      <li>It gives a practical staged architecture for generating reusable audit artifacts.</li>
+    </ul>
+    <h3>What this source does not establish</h3>
+    <ul class="tight">
+      <li>It does not establish the population prevalence of citation-influence gaps because full-validation ablation was disabled.</li>
+      <li>It does not prove sentence-level citation support or claim-level factuality.</li>
+      <li>It does not validate the approach across clinical, scientific-literature, enterprise, or open-web RAG settings.</li>
+      <li>It does not demonstrate that the dashboard improves reviewer decisions or reduces operational risk.</li>
+    </ul>
+    <h3>Priority verdict</h3>
+    <pre><code>FINAL APPRAISAL BLOCK
+
+Verdict:
+  Read first for RAG/provenance evaluator design.
+
+Best use:
+  Designing audit schemas and harnesses that preserve retrieved resources, cited resources, citation fidelity, ablation sensitivity, and trace artifacts.
+
+Do not use for:
+  Claims that the method is production-ready, calibrated, externally validated, or sufficient for high-stakes factual verification.
+
+Main strengths:
+  - Strong transparency decomposition.
+  - Concrete staged pipeline and saved artifacts.
+  - Useful diagnostic labels for citation-vs-influence mismatch.
+
+Main limitations:
+  - Full-batch influence disabled.
+  - Surface proxy rather than probability-aware KL influence.
+  - Title-level citation matching and single-benchmark evaluation.
+
+Implementation takeaways:
+  - Add citation/influence mismatch labels to RAG evaluators.
+  - Sample or target ablation runs to control cost.
+  - Upgrade to claim-level support checks and logprob-capable attribution before high-stakes use.
+
+Confidence in appraisal:
+  Moderate-high for conceptual and implementation value; moderate-low for empirical generalization.</code></pre>
+  </section>
+</main>
+<footer>
+  Source evaluated: arXiv:2606.26449v1, “ProvenAI: Provenance-Native Traces of Evidence in Generated Answers.” Generated as a self-contained Summary/Evaluation/Appraisal reference HTML file on 2026-06-28.
+</footer>
+</body>
+</html>

@@ -1,0 +1,132 @@
+{
+  "activated_macro": "@ATOM",
+  "status": "completed_with_source_limitations",
+  "governing_sources": [
+    {
+      "file": "literature.py",
+      "role": "core domain model and structural validation",
+      "precedence": 1
+    },
+    {
+      "file": "literature_atoms.py",
+      "role": "atom-kind sufficiency validation",
+      "precedence": 2
+    },
+    {
+      "file": "literature_atom.schema.json",
+      "role": "serialization contract",
+      "precedence": 3
+    },
+    {
+      "file": "README(2).md",
+      "role": "workflow intent",
+      "precedence": 4
+    },
+    {
+      "file": "example_atom.json",
+      "role": "illustrative example only",
+      "precedence": 5
+    }
+  ],
+  "source_document": {
+    "publication_id": "f29a2c06-7dc9-5944-b700-d39cc1314d69",
+    "title": "Large language model-assisted referral triage automation in a tertiary hospital",
+    "authors": [
+      "Byeongjae Kang",
+      "Minjun Son",
+      "Wonoh Jeong",
+      "Seo Yeong Jeong",
+      "Young Joo Kim",
+      "Hye-Eun Park",
+      "Hyun Kyung Lee",
+      "Myung Jin Chung",
+      "Taeyoung Kim",
+      "Kwangmo Yang"
+    ],
+    "journal": "npj Digital Medicine",
+    "publication_status": "Article in Press; unedited accepted manuscript",
+    "year": 2026,
+    "received_date": "2026-03-27",
+    "accepted_date": "2026-07-21",
+    "doi": "10.1038/s41746-026-03067-6",
+    "source_file": "s41746-026-03067-6_reference.pdf",
+    "source_page_count": 29,
+    "source_sha256": "58c20767bf9f5de054ec6591095a8ff67930a3de71ffbcaf5b45fb108447e3fb",
+    "source_type": "Primary research article; retrospective single-center LLM classification evaluation",
+    "study_setting": "Samsung Medical Center, tertiary hospital, South Korea",
+    "study_period": "January through December 2023",
+    "language": "English",
+    "extraction_timestamp_utc": "2026-08-07T03:38:21Z",
+    "extraction_run_id": "atom-f29a2c06-7dc9-5944-b700-d39cc1314d69-20260807T033821Z",
+    "atom_schema_version": "1.0"
+  },
+  "atom_summary": {
+    "total_atoms": 48,
+    "counts_by_atom_kind": {
+      "author_conclusion": 5,
+      "conflict_of_interest": 1,
+      "data_availability": 1,
+      "eligibility_criterion": 2,
+      "funding_disclosure": 1,
+      "limitation": 4,
+      "method": 14,
+      "other": 1,
+      "outcome_definition": 2,
+      "population_description": 3,
+      "qualitative_result": 3,
+      "quantitative_result": 3,
+      "study_objective": 1,
+      "subgroup_result": 7
+    },
+    "counts_by_assertion_origin": {
+      "calculated_from_reported_data": 1,
+      "directly_reported": 23,
+      "normalized_from_source": 24
+    }
+  },
+  "validation": {
+    "pydantic_structural_validation": {
+      "validated_atoms": 48,
+      "failed_atoms": 0,
+      "errors": []
+    },
+    "json_schema_validation": {
+      "validated_atoms": 48,
+      "failed_atoms": 0,
+      "errors": []
+    },
+    "sufficiency_validation": {
+      "validated_atoms": 48,
+      "atoms_with_errors": 0,
+      "atoms_with_warnings": 0,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "source_consistency_notes": [
+    {
+      "issue": "The abstract reports 5.9% of referrals lacked sufficient information, whereas the Results section reports 6 of 104 discordant cases (5.8%).",
+      "handling": "The atom uses the denominator-backed Results value of 6/104 (5.8%); the discrepancy remains unresolved in the article-in-press source."
+    },
+    {
+      "issue": "Figure 2 labels the 680-referral split as a validation set, while the text consistently describes it as a hold-out test set.",
+      "handling": "Atoms use the textual designation hold-out test set and retain the source terminology issue in this report."
+    },
+    {
+      "issue": "The abstract describes incorporation of real-time clinician availability, while Methods state that a point-in-time roster snapshot was frozen for evaluation.",
+      "handling": "Method atoms represent the evaluated configuration as a frozen snapshot; dynamic roster updating is retained only as an author implementation claim."
+    }
+  ],
+  "extraction_limitations": [
+    "The uploaded PDF is an unedited Article in Press manuscript and may change before final publication.",
+    "Supplementary Figure S1 and Supplementary Tables S1-S5 were cited but were not present in the uploaded 29-page PDF; no supplement-only atoms were extracted.",
+    "Underlying referral-level data and implementation code were unavailable, so atom verification was limited to the reported aggregate text, tables, and figures.",
+    "The extraction targets load-bearing independently reviewable assertions and is not an exhaustive atomization of every background or descriptive sentence.",
+    "All atoms remain review_status=needs_review because no human reviewer verified the extraction."
+  ],
+  "output_files": [
+    "10.1038-s41746-026-03067-6.source_metadata.json",
+    "10.1038-s41746-026-03067-6.atoms.json",
+    "10.1038-s41746-026-03067-6.validation_report.json"
+  ]
+}

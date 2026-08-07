@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SKILL-DISCO: Summary, Evaluation, and Appraisal</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --ink: #17202a;
+      --muted: #526173;
+      --line: #d9e0ea;
+      --accent: #1d4f91;
+      --accent2: #7a3e06;
+      --good: #0f6b3b;
+      --warn: #8a5a00;
+      --bad: #8a1f1f;
+      --codebg: #0e1726;
+      --codefg: #edf4ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: linear-gradient(135deg, #10243d, #1d4f91);
+      color: white;
+      padding: 2.2rem 1.25rem 2rem;
+      border-bottom: 5px solid #d2e2f5;
+    }
+    header .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { margin: 0 0 .6rem; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.15; }
+    .subtitle { max-width: 920px; font-size: 1.05rem; color: #dce9f8; margin: 0; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    nav.toc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0 1.25rem;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .06);
+    }
+    nav.toc a { color: var(--accent); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+    .toc-grid { columns: 2; column-gap: 2rem; padding-left: 1.25rem; }
+    section, article.card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .05);
+    }
+    h2 { color: #0f315f; margin: .2rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: .45rem; }
+    h3 { color: #173f72; margin-top: 1.25rem; }
+    h4 { margin: 1rem 0 .35rem; color: #24364b; }
+    .meta-grid, .rating-grid, .takeaway-grid, .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .75rem;
+    }
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .8rem;
+      background: #fbfcff;
+    }
+    .label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .value { font-weight: 650; margin-top: .2rem; }
+    .verdict {
+      border-left: 5px solid var(--accent);
+      background: #eef5ff;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: .6rem 0 1rem;
+    }
+    .warning {
+      border-left: 5px solid var(--warn);
+      background: #fff8e8;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      margin: .85rem 0;
+    }
+    .badnote {
+      border-left: 5px solid var(--bad);
+      background: #fff1f1;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      margin: .85rem 0;
+    }
+    .goodnote {
+      border-left: 5px solid var(--good);
+      background: #edf8f2;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      margin: .85rem 0;
+    }
+    table { width: 100%; border-collapse: collapse; margin: .75rem 0; font-size: .96rem; }
+    th, td { border: 1px solid var(--line); padding: .55rem .65rem; vertical-align: top; }
+    th { background: #eef3f9; text-align: left; color: #1e395c; }
+    .rating-grid .mini-card { min-height: 92px; }
+    .score { font-size: 1.35rem; font-weight: 800; color: var(--accent); }
+    pre {
+      margin: .75rem 0 1.1rem;
+      padding: 1rem;
+      background: var(--codebg);
+      color: var(--codefg);
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #1b2e49;
+      font-size: .88rem;
+      line-height: 1.45;
+      white-space: pre;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .section-summary { border-left: 4px solid #cbd8e8; padding-left: .95rem; margin: .9rem 0 1.2rem; }
+    .section-summary h3 { margin: 0 0 .4rem; }
+    .section-summary p { margin: .4rem 0; }
+    .tag {
+      display: inline-block;
+      border: 1px solid #c9d7e8;
+      background: #f2f6fb;
+      color: #27496d;
+      padding: .15rem .45rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin: .12rem .2rem .12rem 0;
+    }
+    .small { color: var(--muted); font-size: .92rem; }
+    ul.tight li, ol.tight li { margin-bottom: .35rem; }
+    .checklist li { margin-bottom: .45rem; }
+    footer { max-width: 1100px; margin: 0 auto 2rem; color: var(--muted); padding: 0 1.25rem; font-size: .9rem; }
+    @media print {
+      body { background: white; }
+      section, article.card, nav.toc { box-shadow: none; break-inside: avoid; }
+      pre { white-space: pre-wrap; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>SKILL-DISCO: Distilling and Compiling Agent Traces into Reusable Procedural Skills</h1>
+    <p class="subtitle">Summary, Evaluation, and Appraisal reference file for an AI/ML systems preprint on procedural skill discovery, PFSM-based trace abstraction, executable skill compilation, and cross-model agent skill transfer.</p>
+  </div>
+</header>
+<main>
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ol class="toc-grid">
+      <li><a href="#metadata">Source metadata</a></li>
+      <li><a href="#onepage">One-page synthesis</a></li>
+      <li><a href="#section-condensation">Section-by-section condensation</a></li>
+      <li><a href="#method">Method and pipeline extraction</a></li>
+      <li><a href="#figures-tables">Figures, tables, and exhibits</a></li>
+      <li><a href="#ai-ml-appraisal">AI/ML appraisal module</a></li>
+      <li><a href="#evaluation">Evaluation and appraisal</a></li>
+      <li><a href="#implementation">Implementation takeaways</a></li>
+      <li><a href="#quality">Quality-control notes</a></li>
+    </ol>
+  </nav>
+
+  <section id="metadata">
+    <h2>Source metadata</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><div class="label">Title</div><div class="value">SKILL-DISCO: Distilling and Compiling Agent Traces into Reusable Procedural Skills</div></div>
+      <div class="mini-card"><div class="label">Authors</div><div class="value">Zhongxin Guo, Danrui Qi, Hanwen Gu, Peng Cheng, Yongqiang Xiong</div></div>
+      <div class="mini-card"><div class="label">Affiliations</div><div class="value">Microsoft Research; Beijing Foreign Studies University</div></div>
+      <div class="mini-card"><div class="label">Source</div><div class="value">arXiv:2606.26669v1, cs.AI</div></div>
+      <div class="mini-card"><div class="label">Submitted</div><div class="value">25 Jun 2026</div></div>
+      <div class="mini-card"><div class="label">Source type</div><div class="value">AI/ML systems preprint; agent skill-induction benchmark paper</div></div>
+      <div class="mini-card"><div class="label">Study design</div><div class="value">Formal framework + offline skill induction + held-out benchmark evaluation</div></div>
+      <div class="mini-card"><div class="label">Evaluation domains</div><div class="value">ALFWorld and WebArena</div></div>
+      <div class="mini-card"><div class="label">Primary metrics</div><div class="value">Success rate, average turns, token use, cost, skill count, primitive-step compression, execution-error rate</div></div>
+      <div class="mini-card"><div class="label">Core construct</div><div class="value">Parameterized finite-state-machine subgraphs compiled into verified executable skills</div></div>
+      <div class="mini-card"><div class="label">Best fit</div><div class="value">Agent harnesses, procedural memory, skill libraries, trace distillation, workflow compilation</div></div>
+      <div class="mini-card"><div class="label">Scope warning</div><div class="value">Best interpreted as a procedural-task architecture pattern, not as proof for open-ended language tasks or production autonomy.</div></div>
+    </div>
+    <p class="small">Source evaluated: https://arxiv.org/pdf/2606.26669 and https://arxiv.org/abs/2606.26669. This reference file summarizes and appraises the preprint; it does not independently reproduce the experiments.</p>
+  </section>
+
+  <section id="onepage">
+    <h2>One-page synthesis</h2>
+    <div class="verdict">
+      <strong>Core thesis:</strong> agents should not repeatedly solve procedurally similar tasks from scratch. In finite-state-machine-like environments, successful traces can be mined for shared parameterized control-flow structures, then compiled into callable, executable, and verifiable skills that reduce reasoning burden and transfer procedural knowledge across models.
+    </div>
+    <p>SKILL-DISCO frames procedural skill discovery as extraction of reusable PFSM subgraphs from successful traces. The paper’s strongest idea is not simply “store prior workflows,” but “distill shared transition structure, define a typed contract, synthesize executable code, verify it on held-out tasks, and expose it as a skill library.” This matters for agent systems because it separates durable procedural memory from brittle prompt-context memories and makes skill reuse testable before deployment.</p>
+    <p>Empirically, the method improves success rate and turn efficiency on ALFWorld and WebArena, with especially large transfer gains for smaller models on some settings. The most important caution is scope: the authors explicitly restrict the approach to tasks with reusable executable structure. The method depends on successful traces, competent LLM-based trace normalization and code synthesis, and verification tasks that adequately cover the skill’s possible runtime states.</p>
+    <div>
+      <span class="tag">Procedural memory</span>
+      <span class="tag">LLM agents</span>
+      <span class="tag">Skill libraries</span>
+      <span class="tag">PFSM</span>
+      <span class="tag">Trace distillation</span>
+      <span class="tag">Executable verification</span>
+      <span class="tag">Cross-model transfer</span>
+      <span class="tag">Agent harness design</span>
+    </div>
+
+    <h3>Compressed answer</h3>
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td>Is this worth reading?</td><td><strong>Yes - read first</strong> for agent-harness and procedural-memory work.</td></tr>
+        <tr><td>What is genuinely useful?</td><td>The five-stage pipeline: trace normalization → subgoal operation extraction → operation clustering → typed skill contract → synthesis and verification.</td></tr>
+        <tr><td>What should not be overclaimed?</td><td>It does not prove general skill discovery for open-ended reasoning, text generation, clinical reasoning, or arbitrary web agents. It demonstrates a method for procedural environments with repeated executable structure.</td></tr>
+        <tr><td>Highest-value implementation lesson</td><td>Do not promote single successful trajectories into durable memory. Promote only consolidated, parameterized, contract-specified, verified skills.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="section-condensation">
+    <h2>Section-by-section condensation</h2>
+
+    <div class="section-summary">
+      <h3>Abstract</h3>
+      <p>The abstract identifies a recurring inefficiency in LLM agents: they often solve similar task instances from scratch, incurring unnecessary reasoning cost and long execution traces. Prior work explored workflow reuse and executable skill induction, but the paper argues that it remains underspecified when procedural skills are meaningful and how common structure should be represented across successful traces.</p>
+      <p>The authors restrict the problem to FSM-defined scenarios and define procedural skills as reusable parameterized control-flow subgraphs. SKILL-DISCO distills PFSM subgraphs from successful traces and compiles them into callable, executable, and verifiable procedural skills; experiments on ALFWorld and WebArena report higher success rates and fewer agent turns across benchmarks and model scales.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>1. Introduction</h3>
+      <p>The introduction motivates procedural skill reuse by contrasting repeated independent task solving with accumulated reusable procedures. Existing experience-reuse methods may synthesize workflow or skill artifacts directly from successful traces, but without an explicit structure target the resulting libraries can fragment into redundant, trace-specific routines rather than robust procedural logic.</p>
+      <p>The paper’s main move is to make the scope explicit: procedural discovery is meaningful in FSM-defined scenarios where transitions are finite and deterministic and successful traces can be treated as paths in an unknown transition graph. The contributions are: formalizing the setting, representing skills as parameterized control-flow subgraphs under parameter binding, introducing a distillation-and-compilation framework, and showing success/efficiency gains with compact skill libraries that transfer across model scales.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>2. Preliminaries</h3>
+      <p>The preliminaries define FSM-defined scenarios as finite state/action systems with deterministic transition functions, initial states, and goal states. A primitive operator has input/output spaces, a precondition, and a post-evaluation predicate. Successful traces are finite observation/action records that correspond to an underlying path from a valid initial state to a goal state.</p>
+      <p>The paper then introduces PFSM-based procedural skill discovery. A PFSM abstracts concrete states and actions into parameterized states and actions, allowing different concrete paths to instantiate the same control-flow pattern. A desirable skill set should have coverage across multiple successful traces, utility for reaching goals, and compactness - neither single-instance overfitting nor trivial primitive-action fragments.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3. SKILL-DISCO</h3>
+      <p>SKILL-DISCO has two phases. The distillation phase approximates the latent lifting function from raw traces to reusable PFSM subgraphs by normalizing raw traces into executable intermediate programs, extracting subgoal-level operations, and clustering fragments that share parameterized control-flow structure. Each cluster is treated as an approximate PFSM subgraph and a candidate skill.</p>
+      <p>The compilation phase converts each candidate into an executable artifact. It builds a typed skill specification containing signature, parameters, return type, description, behavioral requirements, side effects, and metadata; then it synthesizes Python code and verifies it on held-out tasks for runtime correctness, postcondition satisfaction, and action savings. Skills that fail verification are refined or discarded.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>4. Experiments</h3>
+      <p>The experiments ask whether SKILL-DISCO improves end-to-end success and turn efficiency, transfers across model families and scales, is invoked reliably, and depends on both distillation and compilation. The setup uses ALFWorld household tasks and WebArena web-navigation tasks, with strict induction/evaluation splits: 200 ALFWorld train tasks for induction and the 134-task unseen split for evaluation; WebArena’s 812 tasks are split into 406 induction and 406 evaluation tasks.</p>
+      <p>Against ReAct, CodeAct, AWMoffline, and ASIoffline, SKILL-DISCO improves success rate and reduces average turns in the main GPT-4o experiments. Transfer experiments show that a GPT-4o-induced skill library improves most smaller and larger target models, especially Qwen3.5 models in ALFWorld and Qwen3.5-4B in WebArena. Skill-usage statistics show much smaller libraries than ASIoffline, higher primitive-step compression, and lower execution-error rates.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>5. Related Work</h3>
+      <p>The related-work section positions SKILL-DISCO among LLM agents, workflow reuse, experience storage, and executable skill generation. The authors contrast it with ReAct and CodeAct-style agents that do not durably reuse procedural knowledge, and with natural-language experience memory systems such as Reflexion, AWM, and Trace2Skill that leave skills as text interpreted again at inference time.</p>
+      <p>The paper also distinguishes SKILL-DISCO from tool/workflow generation systems and per-trajectory skill-induction systems such as Voyager and ASI. Its claimed distinction is corpus-level consolidation: repeated operations are semantically clustered into compact executable skills so the library scales with distinct behaviors rather than episode count.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>6. Conclusion</h3>
+      <p>The conclusion restates the central claim: procedural skill discovery should make shared execution structure explicit. Skills are formulated as reusable PFSM subgraphs under parameter binding, and SKILL-DISCO distills high-coverage trace structures into executable, verifiable skills.</p>
+      <p>The empirical conclusion is that ALFWorld and WebArena results support improved success rate and turn efficiency from structurally grounded procedural skills. The conclusion is strongest when read as support for reusable execution structures in procedural agents, not as a universal theory of agent memory.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Limitations</h3>
+      <p>The paper acknowledges three core limitations. First, the method is intended for procedural tasks such as navigation, web automation, and tool use, and it offers no benefit for pure NLP tasks where success depends on linguistic understanding rather than executable procedures. Second, pipeline quality depends on the compiler LLM’s reasoning and code-generation ability; weaker compilers can produce incorrect or overly specific skills.</p>
+      <p>Third, the method requires successful traces. If a domain has sparse success even for frontier models, there may be too little signal for reliable corpus-level skill extraction. These limitations are central: the approach is best understood as a compiler for recurring procedures observed in successful behavior, not as a general self-improvement method.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Appendices</h3>
+      <p>Appendix A adds token and cost reporting, including pricing assumptions and per-episode token/cost breakdowns. It shows that efficiency is not uniform: ALFWorld generally improves or holds cost nearly flat, while WebArena skill augmentation can increase per-episode cost despite fewer turns and lower output tokens.</p>
+      <p>Appendix B exposes the prompts for each pipeline stage, which is unusually useful for implementers. Appendix C shows representative compiled skills for ALFWorld and WebArena, illustrating the intended shift from natural-language memory to reusable, state-aware, environment-adaptive executable procedures.</p>
+    </div>
+  </section>
+
+  <section id="method">
+    <h2>Method and pipeline extraction</h2>
+    <div class="verdict">
+      <strong>Reusable architecture:</strong> SKILL-DISCO is best represented as an offline compiler that converts a corpus of successful traces into a compact, verified runtime skill library.
+    </div>
+
+    <h3>Core formal objects</h3>
+    <table>
+      <thead><tr><th>Object</th><th>Role in paper</th><th>Implementation interpretation</th></tr></thead>
+      <tbody>
+        <tr><td>FSM-defined scenario</td><td>Task environment with finite states, finite actions, deterministic transitions, valid starts, and goal states.</td><td>Use when tasks have stable state transitions and repeated action structures.</td></tr>
+        <tr><td>Primitive operator</td><td>Atomic action with precondition and post-evaluation predicate.</td><td>Environment action/tool call that can be executed and checked.</td></tr>
+        <tr><td>Successful trace</td><td>Observation/action record that reaches a goal state.</td><td>Input data for offline skill mining; failures are not used by the core pipeline.</td></tr>
+        <tr><td>PFSM</td><td>Parameterized abstraction of concrete FSM paths.</td><td>Control-flow schema with variables for objects, locations, UI elements, or other entities.</td></tr>
+        <tr><td>Procedural skill</td><td>Reusable PFSM subgraph matched across traces under parameter binding.</td><td>Callable function that captures a repeated subgoal-level procedure.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Five-stage pipeline</h3>
+    <pre><code>SKILL-DISCO PIPELINE
+
+INPUT:
+  - Successful agent traces from a procedural environment.
+  - Primitive environment actions and observations.
+  - Induction/evaluation split to avoid evaluating on traces used for skill discovery.
+
+DISTILLATION PHASE:
+  1. Trace normalization
+     - Convert raw ReAct-style logs into Python-like executable intermediate programs.
+     - Preserve primitive actions, observations, order, branches, loops, and task-specific variables.
+     - Make deterministic and LLM-driven decisions explicit.
+
+  2. Subgoal-level operation extraction
+     - Segment each normalized program into coherent reusable operations.
+     - Keep multi-step operations; discard unit-length primitive fragments.
+     - Represent each operation with identifier, summary, primitive sequence, and code fragment.
+
+  3. Procedural skill consolidation
+     - Cluster operations with shared parameterized control-flow structure.
+     - Prefer high-coverage, compact, reusable clusters over trace-specific fragments.
+     - Estimate reusability from trace coverage and operation statistics.
+
+COMPILATION PHASE:
+  4. Skill specification
+     - Create a typed contract: name, parameters, return type, description, preconditions,
+       postconditions, side effects, canonical action sequence, abstraction level, expected
+       action savings, and confidence score.
+
+  5. Synthesis and verification
+     - Generate Python implementation from the contract.
+     - Verify runtime correctness, postcondition satisfaction, and action savings on held-out tasks.
+     - Refine failed skills up to a retry limit; discard unresolved failures.
+
+OUTPUT:
+  - Compact callable skill library with documented signatures and structured return values.</code></pre>
+
+    <h3>Why the pipeline is better than simple trace memory</h3>
+    <table>
+      <thead><tr><th>Naive alternative</th><th>Failure mode</th><th>SKILL-DISCO response</th></tr></thead>
+      <tbody>
+        <tr><td>Store natural-language experience summaries</td><td>Agent must reinterpret text at inference time; no executable guarantee.</td><td>Compile skills into executable programs with structured returns.</td></tr>
+        <tr><td>Promote every successful trajectory to a skill</td><td>Library grows with episodes and accumulates overlapping variants.</td><td>Cluster repeated subgoal operations into compact shared structures.</td></tr>
+        <tr><td>Use fixed macro templates</td><td>Rigid templates fail when observations require branching or skipping steps.</td><td>Represent skills as environment-adaptive PFSM structures with conditional control flow.</td></tr>
+        <tr><td>Invoke skills without verification</td><td>Wrong action syntax, invalid assumptions, or incomplete state handling can silently harm performance.</td><td>Check runtime behavior, postconditions, and action savings before library admission.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="figures-tables">
+    <h2>Figures, tables, and exhibits</h2>
+
+    <h3>Figure 1 - SKILL-DISCO vs. natural-language experience and prior skill induction</h3>
+    <pre><code>FIGURE 1 — Procedural skill abstraction from agent traces
+
+PURPOSE:
+  Show why SKILL-DISCO differs from NL experience summaries and macro-action template induction.
+
+STRUCTURE:
+  Left: ALFWorld traces
+    - Episode examples contain concrete action paths such as moving to locations, opening containers,
+      taking an object, navigating to a microwave, and heating an object.
+    - Observed targets are marked within traces.
+
+  Middle-left: NL experience
+    - Compresses a successful trace into an abstract task summary.
+    - Useful for human-readable memory but not guaranteed executable.
+
+  Middle: Prior skill induction
+    - Produces fixed macro-action templates such as check(location) or heat(object, microwave).
+    - May be executable but is non-adaptive if environment conditions differ.
+
+  Right: SKILL-DISCO
+    - Represents skills as PFSM-like control-flow programs.
+    - Branches on observations: open only if valid, skip if already open, continue search if target not found.
+    - Parameterizes locations and objects.
+
+INTERPRETATION:
+  The key value is adaptive executable procedural structure: a skill is not just text, and not just a fixed action list.
+
+LIMITATION:
+  The figure is conceptual; it does not quantify performance by itself.</code></pre>
+
+    <h3>Figure 2 - Pipeline overview</h3>
+    <pre><code>FIGURE 2 — Overview of SKILL-DISCO
+
+PURPOSE:
+  Present the two-phase distillation-and-compilation process.
+
+STRUCTURE:
+  Input:
+    - Successful traces.
+
+  Distillation:
+    1. Trace normalization
+       Converts raw traces into structured program-like traces.
+    2. Operation extraction
+       Segments traces into subgoal-level operations.
+    3. Procedural skill consolidation
+       Groups equivalent subgoal operations into reusable PFSM subgraphs.
+
+  Compilation:
+    4. Skill specification
+       Produces a skill contract/specification document.
+    5. Synthesis and verification
+       Synthesizes executable code, verifies it, and refines when needed.
+
+  Output:
+    - Skill library.
+
+INTERPRETATION:
+  The framework intentionally separates discovery of common structure from production of executable artifacts.
+
+IMPLEMENTATION NOTE:
+  This separation is useful for your harness work because each stage can be logged, audited, tested, and scored separately.</code></pre>
+
+    <h3>Table 1 - End-to-end results</h3>
+    <table>
+      <thead><tr><th>Benchmark</th><th>Method</th><th>SR (%)</th><th>Avg. turns</th><th>Appraisal</th></tr></thead>
+      <tbody>
+        <tr><td>ALFWorld</td><td>ReAct</td><td>82.0</td><td>19.3</td><td>Lower success; long traces.</td></tr>
+        <tr><td>ALFWorld</td><td>CodeAct</td><td>96.3</td><td>3.6</td><td>Strong baseline.</td></tr>
+        <tr><td>ALFWorld</td><td>AWMoffline</td><td>54.5</td><td>11.3</td><td>Poor in this setup.</td></tr>
+        <tr><td>ALFWorld</td><td>ASIoffline</td><td>47.0</td><td>11.4</td><td>Poor in this setup despite executable-skill framing.</td></tr>
+        <tr><td>ALFWorld</td><td><strong>SKILL-DISCO + ReAct</strong></td><td><strong>92.4 (+12.7%)</strong></td><td><strong>8.8 (-54.5%)</strong></td><td>Large turn reduction and success gain over ReAct.</td></tr>
+        <tr><td>ALFWorld</td><td><strong>SKILL-DISCO + CodeAct</strong></td><td><strong>99.3 (+3.1%)</strong></td><td><strong>3.2 (-11.3%)</strong></td><td>Incremental gain over strong CodeAct baseline.</td></tr>
+        <tr><td>WebArena</td><td>ReAct</td><td>23.9</td><td>5.9</td><td>Low absolute success.</td></tr>
+        <tr><td>WebArena</td><td>CodeAct</td><td>20.0</td><td>10.9</td><td>Lower success and more turns than ReAct.</td></tr>
+        <tr><td>WebArena</td><td>AWMoffline</td><td>21.2</td><td>5.9</td><td>No clear advantage.</td></tr>
+        <tr><td>WebArena</td><td>ASIoffline</td><td>24.6</td><td>5.7</td><td>Slightly above ReAct in SR.</td></tr>
+        <tr><td>WebArena</td><td><strong>SKILL-DISCO + ReAct</strong></td><td><strong>29.1 (+21.6%)</strong></td><td><strong>5.1 (-13.1%)</strong></td><td>Best WebArena SR in reported table.</td></tr>
+        <tr><td>WebArena</td><td><strong>SKILL-DISCO + CodeAct</strong></td><td><strong>22.9 (+14.8%)</strong></td><td><strong>8.5 (-22.0%)</strong></td><td>Improves CodeAct but remains below ReAct+SKILL-DISCO.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Table 2 - Cross-model skill transfer</h3>
+    <table>
+      <thead><tr><th>Benchmark</th><th>Model</th><th>Vanilla SR</th><th>+Skill SR</th><th>SR delta</th><th>Vanilla turns</th><th>+Skill turns</th><th>Turn delta</th></tr></thead>
+      <tbody>
+        <tr><td>ALFWorld</td><td>Qwen3.5-4B</td><td>61.2</td><td>91.0</td><td>+48.8%</td><td>9.0</td><td>5.0</td><td>-44.4%</td></tr>
+        <tr><td>ALFWorld</td><td>Qwen3.5-9B</td><td>54.5</td><td>98.5</td><td>+80.8%</td><td>10.8</td><td>3.4</td><td>-68.2%</td></tr>
+        <tr><td>ALFWorld</td><td>GPT-4o</td><td>96.3</td><td>99.3</td><td>+3.1%</td><td>3.6</td><td>3.2</td><td>-11.3%</td></tr>
+        <tr><td>ALFWorld</td><td>GPT-4o-mini</td><td>71.6</td><td>94.8</td><td>+32.3%</td><td>7.1</td><td>4.4</td><td>-38.0%</td></tr>
+        <tr><td>ALFWorld</td><td>GPT-5-chat</td><td>91.0</td><td>98.5</td><td>+8.2%</td><td>4.7</td><td>3.0</td><td>-34.6%</td></tr>
+        <tr><td>ALFWorld</td><td>GPT-5-mini</td><td>91.8</td><td>98.5</td><td>+7.3%</td><td>4.9</td><td>3.3</td><td>-33.3%</td></tr>
+        <tr><td>WebArena</td><td>Qwen3.5-4B</td><td>10.1</td><td>18.7</td><td>+85.3%</td><td>8.6</td><td>6.8</td><td>-20.4%</td></tr>
+        <tr><td>WebArena</td><td>Qwen3.5-9B</td><td>21.2</td><td>23.9</td><td>+12.8%</td><td>6.8</td><td>6.0</td><td>-12.0%</td></tr>
+        <tr><td>WebArena</td><td>GPT-4o</td><td>23.9</td><td>29.1</td><td>+21.6%</td><td>5.9</td><td>5.1</td><td>-13.1%</td></tr>
+        <tr><td>WebArena</td><td>GPT-4o-mini</td><td>18.0</td><td>18.0</td><td>0.0%</td><td>7.7</td><td>7.1</td><td>-7.7%</td></tr>
+        <tr><td>WebArena</td><td>GPT-5-chat</td><td>32.5</td><td>37.0</td><td>+13.7%</td><td>5.3</td><td>4.8</td><td>-8.6%</td></tr>
+        <tr><td>WebArena</td><td>GPT-5-mini</td><td>32.5</td><td>33.7</td><td>+3.8%</td><td>5.4</td><td>4.8</td><td>-10.1%</td></tr>
+      </tbody>
+    </table>
+    <div class="goodnote"><strong>Key pattern:</strong> turns drop in every reported transfer cell, while success improves or stays flat. Smaller models show the largest relative success gains in several settings, which supports the paper’s procedural-knowledge-distillation framing.</div>
+
+    <h3>Table 3 - Skill usage and execution reliability</h3>
+    <table>
+      <thead><tr><th>Benchmark</th><th>Method</th><th># skills</th><th>Turns</th><th>Skill turns</th><th>Avg primitive steps/call</th><th>Max primitive steps</th><th>Error rate</th></tr></thead>
+      <tbody>
+        <tr><td>ALFWorld</td><td>ASIoffline</td><td>110</td><td>11.4</td><td>1.4</td><td>0.2</td><td>10</td><td>75.3%</td></tr>
+        <tr><td>ALFWorld</td><td><strong>SKILL-DISCO</strong></td><td><strong>5</strong></td><td><strong>3.2</strong></td><td><strong>2.6</strong></td><td><strong>5.6</strong></td><td><strong>33</strong></td><td><strong>0.0%</strong></td></tr>
+        <tr><td>WebArena</td><td>ASIoffline</td><td>146</td><td>5.5</td><td>1.3</td><td>2.5</td><td>8</td><td>33.9%</td></tr>
+        <tr><td>WebArena</td><td><strong>SKILL-DISCO</strong></td><td><strong>20</strong></td><td><strong>5.1</strong></td><td><strong>1.0</strong></td><td><strong>2.8</strong></td><td><strong>36</strong></td><td><strong>21.5%</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="verdict"><strong>Interpretation:</strong> library compactness is central. SKILL-DISCO does not just add skills; it adds far fewer, higher-coverage skills with better execution reliability.</div>
+
+    <h3>Table 4 and Table 7 - Ablations</h3>
+    <table>
+      <thead><tr><th>Configuration</th><th># skills</th><th>SR (%)</th><th>Turns</th><th>Input tokens (cached)</th><th>Output tokens</th><th>Cost ($)</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td>Vanilla (no skills)</td><td>0</td><td>96.27</td><td>3.63</td><td>7,720 (6,231)</td><td>561</td><td>0.01090</td><td>Strong CodeAct baseline.</td></tr>
+        <tr><td>A1: no distill</td><td>43</td><td>52.99</td><td>11.51</td><td>107,528 (97,901)</td><td>994</td><td>0.05849</td><td>Catastrophic: many trace-specific variants harm selection and efficiency.</td></tr>
+        <tr><td>A2: no compile</td><td>0</td><td>97.01</td><td>3.59</td><td>19,083 (17,393)</td><td>559</td><td>0.01417</td><td>Natural-language procedures preserve much of success but inflate context.</td></tr>
+        <tr><td><strong>Full SKILL-DISCO</strong></td><td><strong>5</strong></td><td><strong>99.25</strong></td><td><strong>3.22</strong></td><td><strong>8,468 (6,302)</strong></td><td><strong>368</strong></td><td><strong>0.01067</strong></td><td>Best combined success, turn count, and cost in this ablation setting.</td></tr>
+      </tbody>
+    </table>
+    <div class="badnote"><strong>High-value warning:</strong> “skill induction” can be worse than no skills when it promotes redundant, trace-specific variants. Distillation is not optional if the skill library is used for real control decisions.</div>
+
+    <h3>Table 5 - Token and cost summary</h3>
+    <table>
+      <thead><tr><th>Benchmark</th><th>Method</th><th>SR (%)</th><th>Turns</th><th>Input tokens (cached)</th><th>Output tokens</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td>ALFWorld</td><td>ReAct</td><td>82.00</td><td>19.29</td><td>35,600 (22,200)</td><td>626</td><td>$0.0450</td></tr>
+        <tr><td>ALFWorld</td><td>CodeAct</td><td>96.27</td><td>3.63</td><td>7,721 (6,232)</td><td>562</td><td>$0.0109</td></tr>
+        <tr><td>ALFWorld</td><td>SKILL-DISCO + ReAct</td><td>92.40</td><td>8.78</td><td>22,100 (11,300)</td><td>607</td><td>$0.0360</td></tr>
+        <tr><td>ALFWorld</td><td>SKILL-DISCO + CodeAct</td><td>99.25</td><td>3.22</td><td>8,468 (6,303)</td><td>368</td><td>$0.0107</td></tr>
+        <tr><td>WebArena</td><td>ReAct</td><td>23.89</td><td>5.88</td><td>50,914 (8,605)</td><td>728</td><td>$0.1152</td></tr>
+        <tr><td>WebArena</td><td>CodeAct</td><td>19.95</td><td>10.86</td><td>75,962 (24,202)</td><td>806</td><td>$0.1435</td></tr>
+        <tr><td>WebArena</td><td>SKILL-DISCO + ReAct</td><td>29.06</td><td>5.11</td><td>51,068 (8,582)</td><td>561</td><td>$0.1215</td></tr>
+        <tr><td>WebArena</td><td>SKILL-DISCO + CodeAct</td><td>22.91</td><td>8.47</td><td>85,649 (27,078)</td><td>736</td><td>$0.1606</td></tr>
+      </tbody>
+    </table>
+    <div class="warning"><strong>Cost caveat:</strong> fewer turns do not automatically mean lower cost. In WebArena, SKILL-DISCO improves success and turns but increases per-episode cost in the GPT-4o rows reported in Appendix Table 5.</div>
+
+    <h3>Table 6 - ALFWorld per-model token/cost details</h3>
+    <table>
+      <thead><tr><th>Model</th><th>Input tokens vanilla</th><th>Input tokens +Skill</th><th>Input delta</th><th>Output tokens vanilla</th><th>Output tokens +Skill</th><th>Cost vanilla</th><th>Cost +Skill</th><th>Cost delta</th></tr></thead>
+      <tbody>
+        <tr><td>Qwen3.5-4B</td><td>28,010 (24,566)</td><td>19,608 (14,505)</td><td>-30.0%</td><td>2,095</td><td>1,391</td><td>$0.00049</td><td>$0.00041</td><td>-16.3%</td></tr>
+        <tr><td>Qwen3.5-9B</td><td>27,754 (24,939)</td><td>10,152 (7,292)</td><td>-63.4%</td><td>1,382</td><td>610</td><td>$0.00061</td><td>$0.00036</td><td>-41.0%</td></tr>
+        <tr><td>GPT-4o</td><td>7,721 (6,232)</td><td>8,468 (6,303)</td><td>+9.7%</td><td>562</td><td>368</td><td>$0.01090</td><td>$0.01067</td><td>-2.1%</td></tr>
+        <tr><td>GPT-4o-mini</td><td>17,620 (16,020)</td><td>13,686 (11,271)</td><td>-22.3%</td><td>891</td><td>485</td><td>$0.00102</td><td>$0.00082</td><td>-19.6%</td></tr>
+        <tr><td>GPT-5-chat</td><td>10,606 (8,517)</td><td>7,728 (5,496)</td><td>-27.1%</td><td>677</td><td>391</td><td>$0.01040</td><td>$0.00739</td><td>-28.9%</td></tr>
+        <tr><td>GPT-5-mini</td><td>11,046 (6,979)</td><td>8,561 (6,189)</td><td>-22.5%</td><td>871</td><td>492</td><td>$0.00293</td><td>$0.00173</td><td>-41.0%</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Appendix B - Pipeline prompts</h3>
+    <pre><code>PROMPT / SCHEMA EXTRACTION
+
+Stage 1 — Trace to program transpilation
+  - Role: convert raw ReAct traces into structured Python-like programs.
+  - Important rule: preserve actions, observations, reasoning, mistakes, and recovery steps.
+  - Design pattern: make deterministic control flow explicit and reserve LLM calls for uncertain/adaptive steps.
+
+Stage 2 — Semantic operation extraction
+  - Role: group consecutive action/observation pairs into coherent subgoals.
+  - Important rule: environment step log is authoritative because code conversion may drop actions.
+  - Output: JSON with task_summary and operations.
+
+Stage 3 — Operation clustering
+  - Role: group operations by reusable action/observation pattern and semantic goal.
+  - Important rule: ignore incidental differences in object, location, page, or task instance.
+  - Bias: prefer fewer, larger, uniform groups when in doubt.
+
+Stage 4 — Skill contract definition
+  - Role: convert clusters into typed APIs.
+  - Contract contains: skill name, description, docstring, typed parameters, return type,
+    preconditions, postconditions, side effects, canonical action sequence, abstraction level,
+    estimated action savings, and confidence score.
+
+Stage 5 — Skill synthesis
+  - Role: synthesize self-contained Python implementation from the contract.
+  - Important rules: use only env.step and stdlib, match action syntax, branch on latest observation,
+    honor every parameter, append every action/observation pair to process_trace, return structured Dict.</code></pre>
+
+    <h3>Appendix C - Representative skill examples</h3>
+    <table>
+      <thead><tr><th>Skill</th><th>Benchmark</th><th>What it does</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>systematic_search_locations</td><td>ALFWorld</td><td>Iterates through candidate locations, navigates to each, opens closed containers when needed, checks observations for the target, and returns a structured result with process trace.</td><td>Shows a compact reusable search procedure with observation-conditioned branching.</td></tr>
+        <tr><td>create_submission_workflow</td><td>WebArena</td><td>Drives a multi-step forum submission process: open form, fill optional URL and required fields, select forum, submit; it uses live admissible-action matching and failure reasons.</td><td>Shows how procedural web workflows can be compiled into environment-adaptive skills rather than prompt-only instructions.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="ai-ml-appraisal">
+    <h2>AI/ML appraisal module</h2>
+    <h3>Task</h3>
+    <table>
+      <thead><tr><th>Element</th><th>Assessment</th></tr></thead>
+      <tbody>
+        <tr><td>Task definition</td><td>Mine reusable procedural skills from successful interactive-agent traces and deploy them as callable skills during later task execution.</td></tr>
+        <tr><td>Real-use representativeness</td><td>Moderate. ALFWorld and WebArena are relevant to embodied/text and web-agent tasks, but they are still benchmark environments with constrained action APIs.</td></tr>
+        <tr><td>Primary practical target</td><td>Reusable subgoal-level procedures in deterministic or quasi-deterministic tool/navigation environments.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Data and splits</h3>
+    <table>
+      <thead><tr><th>Dataset</th><th>Induction split</th><th>Evaluation split</th><th>Appraisal</th></tr></thead>
+      <tbody>
+        <tr><td>ALFWorld</td><td>200 tasks sampled from official train split</td><td>Official unseen split, 134 tasks</td><td>Good separation for a benchmark skill-induction paper.</td></tr>
+        <tr><td>WebArena</td><td>First 406 of 812 tasks</td><td>Remaining 406 tasks</td><td>Useful but less standardized because WebArena lacks a canonical induction split.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Method</h3>
+    <pre><code>METHOD APPRAISAL
+
+Strengths:
+  - Structural target is explicit: reusable PFSM subgraphs, not free-form summaries.
+  - Pipeline separates discovery, specification, synthesis, and verification.
+  - Skills have structured interfaces and return values, enabling continuation by the caller.
+  - Verification screens out skills that fail runtime correctness or postconditions.
+
+Concerns:
+  - LLM-driven normalization, operation extraction, clustering, and synthesis can introduce errors.
+  - The quality of verification depends on held-out task coverage and environment representativeness.
+  - The formal FSM framing may be cleaner than many real-world partially observable or stochastic workflows.
+  - Successful traces only capture what worked, not necessarily why other plausible procedures fail.</code></pre>
+
+    <h3>Metrics</h3>
+    <table>
+      <thead><tr><th>Metric</th><th>Usefulness</th><th>Gap</th></tr></thead>
+      <tbody>
+        <tr><td>Success rate</td><td>Primary end-to-end outcome.</td><td>Does not isolate whether gains come from better planning, better execution, or easier task subsets.</td></tr>
+        <tr><td>Average turns</td><td>Good proxy for decision burden and trace length.</td><td>Can diverge from token/cost savings when skill descriptions or code prompts are large.</td></tr>
+        <tr><td>Token/cost</td><td>Important operational metric; Appendix A is useful.</td><td>Cost benefits are task/model dependent and not uniformly positive.</td></tr>
+        <tr><td>Skill count and compression</td><td>Directly evaluates library compactness and action amortization.</td><td>Does not fully capture semantic coverage or safety boundaries.</td></tr>
+        <tr><td>Execution-error rate</td><td>Strong practical metric for compiled skills.</td><td>Error taxonomy could be more granular for implementation debugging.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Failure and generalization analysis</h3>
+    <div class="warning">
+      The method’s biggest real-world risks are wrong abstraction boundaries, over-broad skill contracts, under-specified preconditions, insufficient verification coverage, and model misuse of a skill outside its intended state. The paper shows reliability gains versus ASIoffline, but production use would require stronger sandboxing, versioning, permissioning, telemetry, rollback, and negative-test suites.
+    </div>
+  </section>
+
+  <section id="evaluation">
+    <h2>Evaluation and appraisal</h2>
+    <div class="verdict">
+      <strong>Verdict: Read first.</strong> This is a high-relevance architecture paper for agent harnesses, procedural memory, and reusable workflow compilation. It is more valuable as a build pattern than as a finished proof of production-ready self-improving agents.
+    </div>
+
+    <div class="rating-grid">
+      <div class="mini-card"><div class="label">Relevance to agent harness work</div><div class="score">9.0 / 10</div><div class="small">Directly addresses procedural memory, reusable skills, trace mining, and verifier-gated promotion.</div></div>
+      <div class="mini-card"><div class="label">Novelty</div><div class="score">8.0 / 10</div><div class="small">Strong integration of PFSM framing, corpus-level consolidation, contract specification, and executable verification.</div></div>
+      <div class="mini-card"><div class="label">Method strength</div><div class="score">7.0 / 10</div><div class="small">Clear pipeline and ablations; limited by two benchmark domains and LLM-mediated stages.</div></div>
+      <div class="mini-card"><div class="label">Evidence strength</div><div class="score">7.0 / 10</div><div class="small">Results are directionally convincing, especially ablations and skill-usage stats, but not broad enough for universal claims.</div></div>
+      <div class="mini-card"><div class="label">External validity</div><div class="score">5.5 / 10</div><div class="small">Likely useful for procedural agents; weaker support for messy, stochastic, open-ended, clinical, or high-stakes domains.</div></div>
+      <div class="mini-card"><div class="label">Implementation value</div><div class="score">8.5 / 10</div><div class="small">The appendix prompts and representative skills make the paper unusually build-useful.</div></div>
+      <div class="mini-card"><div class="label">Production readiness</div><div class="score">5.5 / 10</div><div class="small">Needs stronger governance, negative testing, sandboxing, versioning, and monitoring before deployment use.</div></div>
+      <div class="mini-card"><div class="label">Priority</div><div class="score">Read first</div><div class="small">Especially relevant if building agent skill memory or deterministic workflow harnesses.</div></div>
+    </div>
+
+    <h3>Main strengths</h3>
+    <ul class="tight">
+      <li><strong>Explicit scope:</strong> the paper does not pretend all tasks admit procedural skills; it grounds the method in FSM-defined scenarios.</li>
+      <li><strong>Good abstraction target:</strong> skills are parameterized control-flow structures, not merely summaries or trace snippets.</li>
+      <li><strong>Compactness matters:</strong> the comparison to ASIoffline and the no-distill ablation show why library size and consolidation are central.</li>
+      <li><strong>Verification loop:</strong> compiling and checking skills before library admission is the right operational pattern.</li>
+      <li><strong>Strong implementation clues:</strong> prompts, schemas, and representative skills expose enough of the pipeline to reproduce a simplified version.</li>
+    </ul>
+
+    <h3>Main limitations</h3>
+    <ul class="tight">
+      <li><strong>Benchmark scope:</strong> only ALFWorld and WebArena are tested; the evidence does not establish broad transfer to arbitrary agents.</li>
+      <li><strong>LLM compiler dependency:</strong> trace normalization, clustering, contract writing, and code synthesis depend on LLM competence.</li>
+      <li><strong>Successful-trace dependency:</strong> sparse-success domains may not provide enough positive examples for reliable skill mining.</li>
+      <li><strong>Verification depth unclear:</strong> the paper reports held-out verification but does not fully establish coverage of all runtime states a skill may encounter.</li>
+      <li><strong>Cost is mixed:</strong> WebArena shows success and turn gains with increased cost in reported GPT-4o settings.</li>
+      <li><strong>Governance gaps:</strong> production deployment would need permission boundaries, generated-code review, artifact logging, and safety constraints beyond the benchmark harness.</li>
+    </ul>
+
+    <h3>Bottom-line appraisal</h3>
+    <pre><code>FINAL APPRAISAL
+
+Verdict:
+  Read first.
+
+Best use:
+  Architecture pattern for building a durable procedural-memory layer in agent systems.
+
+Do not use for:
+  Claims that agents can automatically discover safe, general, production-ready skills in arbitrary domains.
+
+Most important lesson:
+  Durable skill memory should be consolidated, parameterized, contract-specified, executable, and verified.
+
+Confidence in appraisal:
+  Moderate-high for architecture relevance; moderate for empirical generalization.</code></pre>
+  </section>
+
+  <section id="implementation">
+    <h2>Implementation and practice takeaways</h2>
+    <div class="goodnote">
+      <strong>Build-useful takeaway:</strong> Adapt SKILL-DISCO as a promotion pipeline for procedural memory: traces should become durable skills only after structural consolidation and deterministic verification.
+    </div>
+
+    <div class="takeaway-grid">
+      <div class="mini-card">
+        <div class="label">Build next</div>
+        <div class="value">A staged skill-promotion pipeline</div>
+        <p>Start with logs from repeated workflows. Normalize them, extract candidate subgoals, cluster by structure, define typed contracts, synthesize code or deterministic templates, and run verification before any skill becomes callable.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Do not do</div>
+        <div class="value">Do not store every success as a skill</div>
+        <p>The no-distill ablation is the clearest warning in the paper: large trace-specific libraries can perform much worse than no skill library.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Measure</div>
+        <div class="value">Success, turns, tokens, cost, errors</div>
+        <p>Track the same operational metrics: success rate, turns, input tokens, output tokens, cost, skill count, primitive steps collapsed per call, and execution-error rate.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Add for safety</div>
+        <div class="value">Negative tests and guardrails</div>
+        <p>Extend beyond the paper by testing when skills should not run, what states they are forbidden to modify, and how failures are logged.</p>
+      </div>
+    </div>
+
+    <h3>Suggested minimal implementation schema</h3>
+    <pre><code>procedural_skill_candidate:
+  skill_id: stable identifier
+  source_traces:
+    - trace_id
+    - task_id
+    - environment_version
+  operation_cluster:
+    name: verb_noun
+    description: concise subgoal
+    support_count: integer
+    avg_primitive_steps: number
+    representative_sequences: list
+  contract:
+    signature: typed function signature
+    parameters: typed inputs
+    preconditions: list
+    postconditions: list
+    side_effects: list
+    return_schema:
+      success: bool
+      observation: string
+      available_actions: list
+      process_trace: list[action, observation]
+  verification:
+    heldout_tasks: list
+    pass_rate: number
+    action_savings: number
+    failure_modes: list
+    reviewer: human or automated verifier
+  deployment:
+    status: candidate | active | deprecated | blocked
+    version: semver
+    allowed_contexts: list
+    rollback_skill_id: optional</code></pre>
+
+    <h3>How to translate this into your parser/RAG/agent harness work</h3>
+    <table>
+      <thead><tr><th>SKILL-DISCO idea</th><th>Equivalent in a parser/RAG harness</th><th>Why useful</th></tr></thead>
+      <tbody>
+        <tr><td>Trace normalization</td><td>Convert raw model/tool logs into structured execution records.</td><td>Creates auditable inputs for scoring and learning.</td></tr>
+        <tr><td>Operation extraction</td><td>Identify repeated subroutines such as “extract metadata,” “verify table denominator,” or “resolve citation.”</td><td>Moves from monolithic agent traces to reusable steps.</td></tr>
+        <tr><td>Operation clustering</td><td>Group repeated successful subroutines by input/output shape and control flow.</td><td>Prevents a bloated library of near-duplicate prompts.</td></tr>
+        <tr><td>Skill contract</td><td>Define typed inputs, outputs, preconditions, failure states, and required evidence artifacts.</td><td>Makes tools callable and testable.</td></tr>
+        <tr><td>Synthesis and verification</td><td>Generate deterministic Python/checker code or tool wrappers, then run on held-out fixtures.</td><td>Promotes only skills that actually work outside their source traces.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Concrete next-step pattern</h3>
+    <pre><code>FIRST IMPLEMENTABLE VERSION
+
+1. Choose one repetitive workflow:
+   Example: arXiv paper intake -> metadata extraction -> section map -> figure/table inventory.
+
+2. Collect successful traces:
+   Save raw conversation/tool logs and final outputs for 20-50 successful examples.
+
+3. Normalize:
+   Convert logs into structured steps:
+     observation, action, artifact_created, validation_check, next_state.
+
+4. Extract operations:
+   Identify reusable subgoals:
+     fetch_abs_page, parse_metadata, identify_sections, extract_table_values, validate_output_schema.
+
+5. Consolidate:
+   Keep only operations supported by multiple traces and with stable input/output shapes.
+
+6. Specify:
+   Add contracts: parameters, preconditions, outputs, side effects, failure codes.
+
+7. Verify:
+   Run each candidate on held-out saved HTML/PDF fixtures.
+
+8. Promote:
+   Only active skills can be called by the agent; failed skills remain candidates with error reports.</code></pre>
+  </section>
+
+  <section id="quality">
+    <h2>Quality-control notes</h2>
+    <h3>What this reference file preserves</h3>
+    <ul class="checklist">
+      <li>Source metadata and preprint status.</li>
+      <li>Section-by-section summary with the original paper’s structure preserved.</li>
+      <li>Figure and table decompositions, including major numeric results.</li>
+      <li>Appendix prompt structure and representative skill-library content.</li>
+      <li>Independent appraisal separating author claims from implementation implications.</li>
+    </ul>
+
+    <h3>What remains uncertain</h3>
+    <ul class="tight">
+      <li>Whether the authors will release full code, traces, prompts, and generated skill libraries in a form sufficient for independent reproduction was not verified in this pass.</li>
+      <li>The paper’s GPT-5-named model rows are reported as source claims; this reference file does not independently verify those model identities or availability.</li>
+      <li>External validity to regulated, safety-critical, stochastic, or highly open-ended settings remains unproven.</li>
+    </ul>
+
+    <div class="warning">
+      <strong>Use constraint:</strong> apply this paper as an architecture pattern for procedural skill promotion. Do not treat it as evidence that generated skills are safe without sandboxing, verification coverage, audit trails, and human review for high-impact workflows.
+    </div>
+  </section>
+</main>
+<footer>
+  Reference HTML generated using the Summary, Evaluation, and Appraisal protocol. Source evaluated: arXiv:2606.26669v1, “SKILL-DISCO: Distilling and Compiling Agent Traces into Reusable Procedural Skills.”
+</footer>
+</body>
+</html>

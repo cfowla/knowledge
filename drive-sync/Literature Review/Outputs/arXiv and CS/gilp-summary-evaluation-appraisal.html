@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grounded Iterative Language Planning - Summary, Evaluation, and Appraisal</title>
+<style>
+:root {
+  --bg:#f7f8fb; --card:#ffffff; --ink:#17202a; --muted:#526173; --line:#d9e0ea;
+  --accent:#1d4f91; --accent2:#6a3fb0; --good:#0f6b3b; --warn:#8a5a00; --bad:#8a1f1f;
+  --codebg:#0e1726; --codefg:#edf4ff; --soft:#eef5ff;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.55; }
+.wrap { max-width:1180px; margin:0 auto; padding:1.25rem; }
+header { background:linear-gradient(135deg,#10243d,#1d4f91); color:white; border-bottom:5px solid #d2e2f5; }
+header .wrap { padding-top:2.1rem; padding-bottom:2rem; }
+h1 { margin:0 0 .45rem; font-size:clamp(1.75rem,3vw,3rem); line-height:1.08; letter-spacing:-.03em; }
+.subtitle { max-width:900px; color:#dbeaff; font-size:1.05rem; margin:.35rem 0 0; }
+.badges { margin-top:1rem; display:flex; gap:.45rem; flex-wrap:wrap; }
+.badge, .tag { display:inline-block; border:1px solid rgba(255,255,255,.35); color:white; background:rgba(255,255,255,.12); padding:.28rem .55rem; border-radius:999px; font-size:.82rem; font-weight:650; }
+.tag { border:1px solid #c9d8ea; color:#173f72; background:#eef5ff; margin:.18rem .25rem .18rem 0; }
+section, nav.toc, .mini-card, .verdict, .warning, .badnote, .goodnote { background:var(--card); border:1px solid var(--line); border-radius:14px; box-shadow:0 1px 4px rgba(16,36,61,.06); }
+section { padding:1.1rem 1.25rem; margin:1rem 0; }
+h2 { color:#0f315f; margin:.2rem 0 .85rem; font-size:1.45rem; }
+h3 { color:#173f72; margin:.95rem 0 .35rem; }
+h4 { color:#24364b; margin:.75rem 0 .25rem; }
+p { margin:.55rem 0 .8rem; }
+.muted { color:var(--muted); }
+nav.toc { padding:1rem 1.25rem; margin:1rem 0 1.25rem; }
+nav.toc a { color:var(--accent); text-decoration:none; }
+nav.toc a:hover { text-decoration:underline; }
+nav.toc ol { columns:2; column-gap:2rem; padding-left:1.2rem; margin:.3rem 0; }
+.meta-grid, .rating-grid, .takeaway-grid, .two-grid { display:grid; gap:.8rem; }
+.meta-grid { grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+.two-grid { grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); }
+.rating-grid { grid-template-columns:repeat(auto-fit,minmax(315px,1fr)); }
+.takeaway-grid { grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+.mini-card { padding:.85rem .95rem; }
+.mini-card h3, .mini-card h4 { margin-top:0; }
+.verdict { padding:1rem 1.1rem; margin:.85rem 0; border-left:6px solid var(--accent); background:#f7fbff; }
+.warning { padding:1rem 1.1rem; margin:.85rem 0; border-left:6px solid var(--warn); background:#fff8e8; }
+.badnote { padding:1rem 1.1rem; margin:.85rem 0; border-left:6px solid var(--bad); background:#fff0f0; }
+.goodnote { padding:1rem 1.1rem; margin:.85rem 0; border-left:6px solid var(--good); background:#eefaf2; }
+.section-summary { border-top:1px solid var(--line); padding-top:.75rem; margin-top:.75rem; }
+.section-summary:first-of-type { border-top:0; padding-top:0; }
+pre { margin:.75rem 0 1rem; padding:1rem; background:var(--codebg); color:var(--codefg); border-radius:12px; overflow-x:auto; border:1px solid #1b2e49; font-size:.9rem; line-height:1.45; white-space:pre-wrap; }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace; }
+table { width:100%; border-collapse:collapse; margin:.75rem 0; font-size:.95rem; }
+th, td { border:1px solid var(--line); padding:.55rem .65rem; vertical-align:top; }
+th { background:#eef3f9; color:#1e395c; text-align:left; }
+.score { font-size:1.35rem; font-weight:800; color:#0f315f; }
+.footer { color:var(--muted); font-size:.92rem; padding-bottom:2rem; }
+@media (max-width:760px) { nav.toc ol { columns:1; } .wrap { padding:.8rem; } section { padding:.95rem; } }
+@media print { body { background:white; } header { color:black; background:white; border-bottom:2px solid #999; } .badge { color:black; border-color:#999; background:white; } section, nav.toc, .mini-card, .verdict, .warning, .badnote, .goodnote { box-shadow:none; } a { color:inherit; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Grounded Iterative Language Planning</h1>
+    <p class="subtitle">Summary, evaluation, and appraisal of <em>How Parameterized World Models Reduce Hallucination Propagation in LLM Agents</em>.</p>
+    <div class="badges">
+      <span class="badge">arXiv:2606.27806v1</span>
+      <span class="badge">AI/ML agents</span>
+      <span class="badge">World models</span>
+      <span class="badge">Hallucination propagation</span>
+      <span class="badge">Reference HTML</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#source-map">Source map and coverage</a></li>
+    <li><a href="#section-condensation">Section condensation</a></li>
+    <li><a href="#visuals">Figures, tables, and workflows</a></li>
+    <li><a href="#aiml-lens">AI/ML appraisal lens</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#takeaways">Implementation takeaways</a></li>
+    <li><a href="#qa">QA and provenance</a></li>
+  </ol>
+</nav>
+
+<section id="metadata">
+<h2>Metadata</h2>
+<div class="meta-grid">
+  <div class="mini-card"><h3>Title</h3><p>Grounded Iterative Language Planning: How Parameterized World Models Reduce Hallucination Propagation in LLM Agents</p></div>
+  <div class="mini-card"><h3>Authors</h3><p>Xinyuan Song; Zekun Cai</p></div>
+  <div class="mini-card"><h3>Source</h3><p>arXiv preprint, arXiv:2606.27806v1 [cs.AI]</p></div>
+  <div class="mini-card"><h3>Date/version</h3><p>Version 1, submitted 26 June 2026</p></div>
+  <div class="mini-card"><h3>Source type</h3><p>AI/ML systems preprint; agent-planning benchmark and hybrid method paper</p></div>
+  <div class="mini-card"><h3>Design</h3><p>Simulator-heavy benchmark study with smaller real GPT-4o-mini validation and a small KG traversal extension</p></div>
+</div>
+<div class="warning"><strong>Scope warning.</strong> This is a preprint about LLM-agent planning architecture. It is useful for agent harness design, state-delta evaluation, and hallucination-propagation thinking. It is not clinical evidence, not a deployment validation, and not sufficient to support safety-critical agent use without independent testing.</div>
+</section>
+
+<section id="synthesis">
+<h2>One-page synthesis</h2>
+<div class="verdict"><strong>Core thesis.</strong> LLM agents fail over long horizons partly because they write false state transitions into their own context. A small trained world-model backbone can reduce that failure mode by giving the LLM a compact transition skeleton and triggering targeted correction when the LLM's imagined delta disagrees with the backbone.</div>
+<div class="two-grid">
+  <div class="mini-card"><h3>What the paper contributes</h3><p>It separates agent-based world-model error from parameterized transition error, defines operational metrics for hallucination propagation, and implements GILP: skeleton scoring, LLM drafting, Jaccard consistency gating, targeted correction, and risk gating.</p></div>
+  <div class="mini-card"><h3>Best quantitative claim</h3><p>The strongest direct empirical support is short-horizon real GPT-4o-mini validation: pooled HSR falls from 0.176 to 0.035 across four graph benchmarks, with about 20% token overhead and all SR values at 1.000.</p></div>
+  <div class="mini-card"><h3>Main limitation</h3><p>The headline success gains, including SR 0.668 to 0.838 and H&gt;10 SR 0.471 to 0.758, are derived from a calibrated simulator. The live API validation primarily supports hallucination reduction, not long-horizon task success.</p></div>
+  <div class="mini-card"><h3>Most reusable idea</h3><p>Use a small auditable state-transition predictor as a guardrail inside the agent loop rather than as a replacement planner. Log HSR, propagation depth, correction rate, invalid-action rate, and post-correction deltas.</p></div>
+</div>
+<p><span class="tag">agent harness</span><span class="tag">world model</span><span class="tag">state deltas</span><span class="tag">semantic JSON failure</span><span class="tag">consistency gate</span><span class="tag">risk gate</span><span class="tag">benchmark appraisal</span><span class="tag">prompt skeleton</span></p>
+</section>
+
+<section id="source-map">
+<h2>Source map and coverage manifest</h2>
+<pre><code>SOURCE COVERAGE MANIFEST
+source_id: arXiv:2606.27806v1
+source_type: AI/ML systems preprint / agent-planning benchmark paper
+date_or_version: 26 Jun 2026, v1
+sections: Abstract; 1 Introduction; 2 Related Work; 3 Problem Formulation; 4 Method; 5 Experiments; 6 Discussion; 7 Limitations; 8 Conclusion; References; Appendices A-G
+figures: 12 included and summarized
+figures_covered: 1 Horizon scaling; 2 Pareto frontier; 3 error cascade; 4 backbone success; 5 ablation; 6 any-error proxy; 7 paradigms; 8 skeleton prompt; 9 API comparison; 10 cost/correction rates; 11 heatmaps; 12 KG traversal
+tables: 9 included and summarized
+tables_covered: 1 main results; 2 horizon buckets; 3 cost-quality; 4 backbone strength; 5 ablations; 6 error probabilities; 7 real GPT validation; 8 multi-API comparison; 9 KG traversal
+algorithms_or_workflows: Algorithm 1; GILP four-phase workflow; prompt templates; risk/correction gates; API call examples
+appendices_or_supplements: A prompts; B serialization; C benchmarks; D training; E probability bound; F proof; G simulator protocol
+coverage_decision: Include all main figures/tables/workflows and methodologically relevant appendices.
+omissions: No main-text figure or table intentionally omitted. References are not individually appraised except as context.</code></pre>
+</section>
+
+<section id="section-condensation">
+<h2>Section condensation</h2>
+<div class="section-summary"><h3>Abstract / central claim</h3><p>The paper frames long-horizon LLM agents as implicit world models: the agent selects an action and also writes an imagined next-state delta that becomes part of later context. Its central claim is that agent-based world models reason flexibly but propagate hallucinated state atoms, while small parameterized world models have measurable transition errors and can be used as grounding signals.</p><p>The proposed method, Grounded Iterative Language Planning (GILP), keeps the API LLM as the planner but adds a trained backbone that predicts valid actions, state deltas, risk, and value. The headline results are large: simulator success rises from Agent-Replan 0.668 to GILP 0.838, long-horizon success from 0.471 to 0.758, and real GPT-4o-mini hallucinated-state rate (HSR) from 0.176 to 0.035. These results must be interpreted through the paper&#x27;s own limitation: the main benchmark table is simulator-derived, while real API validation is shorter-horizon and smaller.</p></div>
+<div class="section-summary"><h3>1. Introduction</h3><p>The introduction distinguishes two world-model forms for LLM agents. An agent-based world model is the LLM&#x27;s generated action plus imagined next-state text/JSON; its damaging errors are semantic hallucinations such as false completions, ignored dependencies, or wrong entity states. A parameterized world model is a trained transition predictor with explicit metrics such as NodeMSE, delta accuracy, and validity accuracy.</p><p>The paper motivates GILP with a cascade example: a false claim that task 3 completed causes later invalid actions and further state corruption. The authors define the core contribution as an operational metric set for hallucination propagation plus a hybrid planning loop where a trained backbone checks and corrects LLM state deltas before they enter the next prompt.</p></div>
+<div class="section-summary"><h3>2. Related work</h3><p>The related-work section places the paper at the intersection of ReAct-style agents, tree/search language agents, parametric world models from model-based RL, hallucination correction, symbolic verification, and structured output. The authors emphasize that many existing language-agent methods rely on the LLM&#x27;s own imagined state, but most hallucination work studies single-turn factuality rather than multi-step state propagation.</p><p>The paper also positions GILP against symbolic or code-based world-model methods. Its claimed distinction is a lightweight, API-agnostic gate: a small trained model predicts a compact skeleton and a Jaccard consistency gate triggers re-prompting only when the LLM&#x27;s imagined delta diverges from the backbone prediction.</p></div>
+<div class="section-summary"><h3>3. Problem formulation</h3><p>A task is represented as a graph state Gt with entities, dependency edges, per-node status values, and a goal mask. At each step, the LLM receives a serialized graph state, a goal, and candidate actions, then emits JSON with selected_action, imagined_next_state as node-status deltas, reasoning, and confidence. The true environment transition is then applied independently.</p><p>The paper defines hallucinated-state rate (HSR), propagation depth (PD), and error-explosion slope (EES) for the agent world model. The parameterized model has conventional supervised metrics such as NodeMSE, validity accuracy, delta accuracy, reward MSE, and done accuracy. The cost model counts API input/output tokens and compares cost per 1,000 tasks or per successful episode.</p></div>
+<div class="section-summary"><h3>4. Method: GILP</h3><p>GILP has four phases. First, a parameterized backbone scores each candidate action for validity, predicted delta, reward/value, done/completion, risk, and affected entities; the result is compressed into a top-k skeleton. Second, the LLM drafts an action and imagined delta using the current state, goal, candidate actions, and skeleton. Third, a consistency gate compares the LLM&#x27;s changed-node set with the backbone&#x27;s predicted changed-node set using Jaccard similarity. Fourth, a risk gate can re-present lower-risk alternatives.</p><p>The practical thresholding is central: consistency &gt;= 0.70 is accepted, 0.30 to 0.70 is accepted with risk penalty, and &lt;0.30 triggers a targeted correction prompt. The authors cap corrections at one per step and report about 22% correction-gate firing plus 8% risk-gate firing, implying approximately 1.30 LLM calls per step. The proof sketch shows one-step hallucination contraction proportional to gate recall times repair success, but the guarantee depends on a non-adversarial correction assumption and does not prove final-task optimality.</p></div>
+<div class="section-summary"><h3>5. Experiments</h3><p>The main experiments use four graph-structured benchmarks: TaskGraph, ToolChain, ResourceAlloc, and RepairFlow, each with 500 train, 100 validation, and 100 test tasks, split into 60 in-distribution and 40 OOD test tasks. The main comparison evaluates agent-only, parameterized-only, and hybrid planners over a calibrated behavioral simulator, with real GPT-4o-mini validation used to calibrate or corroborate selected quantities.</p><p>Across simulator results, GILP is the best overall planner: SR 0.838, HSR 0.079, PD 1.510, invalid-action rate 0.065, and risk-weighted failure 0.068. The strongest evidence for the intended mechanism is the real GPT-4o-mini validation: pooled HSR falls from 0.176 to 0.035 across n=80 agent and n=76 hybrid episodes, with all tasks short horizon (H=3-8) and all SR=1.000. The weaker evidence is the AgentBench-style KG traversal: GILP reduces HSR by 0.087 but lowers SR from 10/12 to 9/12, and neither difference is significant.</p></div>
+<div class="section-summary"><h3>6. Discussion</h3><p>The authors&#x27; main interpretation is that GILP works by division of labor: the LLM remains responsible for semantic reasoning, while the small trained model supplies auditable transition signals. The backbone need not be a strong standalone planner; even a weak MLP can provide enough validity and delta signal to improve hybrid behavior.</p><p>The discussion correctly identifies long horizon as the critical setting. Agent hallucinations are history-dependent because a false state atom can enter the next prompt, while parameterized transition error is local and directly measured. The paper&#x27;s practical claim is that targeted correction is cheaper than verify-all strategies because it only spends extra tokens on suspicious steps.</p></div>
+<div class="section-summary"><h3>7. Limitations</h3><p>The limitations section is unusually important for this paper. The main comparison table is entirely from a calibrated behavioral simulator, not live LLM rollouts. Real API validation covers 80/76 GPT-4o-mini short-horizon episodes, and the multi-API results for Claude, Gemini, and Llama are calibrated rather than directly measured. Cost estimates are relative only because simulated token costs overshoot real runs by 3-4x.</p><p>The benchmark scope is restricted to graph-structured planning tasks. The method assumes access to oracle transitions for backbone training and checkable state deltas. When the backbone is poorly calibrated, as in the KG traversal experiment, correction can perturb otherwise-correct action selection. The paper does not validate deployment in clinical, safety-critical, web, software-engineering, or messy real-world agent settings.</p></div>
+<div class="section-summary"><h3>8. Conclusion</h3><p>The conclusion restates the comparison: agent-based world models reason well but hallucinate state; parameterized world models are measurable but weaker planners; GILP combines them by using a small trained backbone to ground an API-based agent. The quantitative summary is SR 0.668 to 0.838, long-horizon SR 0.471 to 0.758, simulator HSR 0.205 to 0.079, and real GPT-4o-mini HSR 0.176 to 0.035.</p><p>The best defensible reading is that GILP is a promising architecture pattern for agent harnesses and deterministic evaluation, not a mature benchmark result proving general API-agent reliability. Its most reusable pieces are the hallucination-propagation metrics, skeleton prompt format, correction-gate pattern, and explicit distinction between semantic planner ability and measurable transition accuracy.</p></div>
+<div class="section-summary"><h3>Appendices A-G</h3><p>Appendix A provides prompts for agent-only mode, GILP skeleton mode, correction, risk gating, and API call examples. Appendix B reports the state-serialization ablation, where JSON-table formatting yields the lowest hallucinated-state rate and formats vary by a factor of about 1.6x. Appendices C and D define the environments and backbone training setup: 50 epochs, Adam lr=1e-3, multi-task loss over validity, delta, reward, done, and risk, and small models under 100k parameters.</p><p>Appendix E is an important caveat: the independence-baseline formula underestimates any-error probability when errors are positively serially correlated, so the reported IndepBound should be read as a reference proxy rather than a true upper bound. Appendix F proves the one-step contraction formula, and Appendix G explains the simulator protocol and its conservative calibration behavior.</p></div>
+</section>
+
+<section id="visuals">
+<h2>Figures, tables, algorithms, and workflows</h2>
+<div class="warning"><strong>Visual evidence accounting.</strong> All 12 figures, all 9 tables, and Algorithm 1 are represented below as structured extraction blocks. These blocks preserve the interpretive content rather than embedding screenshots from the PDF.</div>
+<h3>Figures</h3>
+<h4>Figure 1 - Horizon scaling</h4>
+<pre><code>Purpose: Show SR and HSR across horizon buckets.
+Structure/panels: Left line chart = success rate by H&lt;=3, H4-6, H7-10, H&gt;10; right line chart = HSR over same buckets.
+Key values: At H&gt;10, Agent-Replan SR 0.471, Parametric-WM-MPC 0.502, Hybrid-Full 0.636, GILP 0.758. H&gt;10 HSR: Agent-Replan 0.222, Hybrid-Full 0.117, GILP 0.085.
+Interpretation: The agent-only planner degrades most at long horizon, while GILP preserves more success and lower hallucination.
+Limit: These horizon-scaling values come from the calibrated simulator, not large live API rollouts.</code></pre>
+<h4>Figure 2 - Cost-success Pareto frontier</h4>
+<pre><code>Purpose: Compare success against tokens per task on log scale.
+Structure/panels: Bubble plot; paradigm indicated by color and HSR by bubble size; Pareto frontier highlighted.
+Key values: GILP reaches SR 0.838 at about 12.6k tokens/task; Hybrid-Full reaches 0.750 at 10.1k; Agent-Replan reaches 0.668 at 10.9k; Parametric-WM-MPC is cheap at 164 tokens/task-equivalent but SR 0.565.
+Interpretation: GILP buys success with extra API calls but remains near the high-success frontier.
+Limit: Token costs are simulator-derived and reported by the authors as 3-4x overestimates versus real short-horizon runs.</code></pre>
+<h4>Figure 3 - Error cascade and correction</h4>
+<pre><code>Purpose: Explain mechanism using a false completion cascade.
+Structure/panels: Left = ungrounded agent injects a false atom and propagates it through later invalid transitions; right = GILP catches low Jaccard consistency and corrects the delta.
+Key values: Caption highlights Agent HSR 0.205 versus GILP HSR 0.016 in a displayed example.
+Interpretation: The figure supports the conceptual mechanism: preventing false state atoms from entering future context.
+Limit: It is schematic and should not be treated as independent empirical evidence.</code></pre>
+<h4>Figure 4 - Standalone versus hybrid backbone success</h4>
+<pre><code>Purpose: Show that weak backbones can still help as skeleton providers.
+Structure/panels: Bar chart for MLP-small, GCN-small, MPNN-small, GPS, ActionNode, and ErrorAware.
+Key values: MLP-small standalone SR 0.509 but hybrid SR 0.768; MPNN standalone 0.560 and hybrid 0.771; ActionNode hybrid 0.782.
+Interpretation: Transition/delta signals matter more than full standalone planning competence.
+Limit: All backbones are trained in controlled benchmark environments with oracle trajectories.</code></pre>
+<h4>Figure 5 - GILP ablation study</h4>
+<pre><code>Purpose: Show the effect of correction/risk gates and threshold choices.
+Structure/panels: Bar chart of SR and HSR for NoCorrectionGate, NoRiskGate, tau=0, tau=1, full GILP, and GILP-Verifier.
+Key values: Full GILP SR 0.838, HSR 0.079. tau=0 SR 0.823, HSR 0.067 with higher token cost; tau=1 SR 0.759, HSR 0.102.
+Interpretation: Always correcting reduces HSR but wastes tokens; never correcting falls back toward Hybrid-Full.
+Limit: Threshold selection was validated on a held-out simulator split; external robustness is not shown.</code></pre>
+<h4>Figure 6 - Empirical any-error proxy</h4>
+<pre><code>Purpose: Show horizon-resolved semantic error accumulation.
+Structure/panels: Curves for Agent-Replan, Parametric-WM-MPC, Hybrid-Full, and GILP with union-bound references.
+Key values: Table 6 reports ExpectedErrors@10: Agent-Replan 3.148, Hybrid-Full 1.808, GILP 1.303.
+Interpretation: GILP lowers per-step error accumulation, consistent with reduced propagation.
+Limit: The paper&#x27;s own Appendix E notes that independence assumptions understate true any-error risk when errors are serially correlated.</code></pre>
+<h4>Figure 7 - Three planning paradigms</h4>
+<pre><code>Purpose: Visual summary of Agent-only, Parametric WM, and GILP.
+Structure/panels: Agent-only LLM generates JSON action plus imagined state and can cascade false atoms; Parametric WM emits delta/validity/risk heads; GILP combines skeleton, LLM draft, consistency gate, and risk gate.
+Key values: Agent-only SR 0.668/HSR 0.205; Parametric WM SR 0.565/HSR 0.069; GILP SR 0.838/HSR 0.079.
+Interpretation: The figure captures the architecture-level thesis.
+Limit: The displayed results are pooled simulator outcomes.</code></pre>
+<h4>Figure 8 - Parametric skeleton in the prompt</h4>
+<pre><code>Purpose: Show how backbone predictions are serialized into the LLM context.
+Structure/panels: State graph and candidate actions feed Ftheta; skeleton block lists candidate actions with validity, predicted delta, affected entities, risk, and value; LLM outputs grounded action.
+Key values: Example execute(X) validity 0.91, delta X-&gt;completed, risk 0.14, value 0.63; retry(Y) validity 0.43, risk 0.67, value 0.31.
+Interpretation: This is directly reusable for agent prompt/harness design.
+Limit: Skeleton quality depends on training data and calibration.</code></pre>
+<h4>Figure 9 - API comparison before and after GILP</h4>
+<pre><code>Purpose: Compare SR and HSR across GPT-4o-mini, Claude-3-Haiku, Gemini-1.5-Flash, and Llama-3-8B.
+Structure/panels: Bar charts for success gains and hallucination reductions.
+Key values: GPT-4o-mini SR 0.755 to 0.795 with 92% HSR reduction; Claude SR 0.620 to 0.790 with 64% HSR reduction; Gemini 0.600 to 0.780 with 62% reduction; Llama 0.470 to 0.730 with 66% reduction.
+Interpretation: GILP is presented as API-agnostic.
+Limit: Only GPT-4o-mini TaskGraph values are direct real API calls; most entries are calibrated.</code></pre>
+<h4>Figure 10 - Cost-quality and correction/JSON-fail rates</h4>
+<pre><code>Purpose: Compare API cost-quality tradeoffs and correction gate frequency.
+Structure/panels: Left = cost per 1k tokens versus success; right = GILP correction rate versus agent JSON failure rate.
+Key values: Correction rates: GPT-4o-mini 20.2%, Claude 24.8%, Gemini 27.1%, Llama 31.9%; JSON fail rates: 0.4%, 3.2%, 4.0%, 9.2%.
+Interpretation: Higher correction rates mirror higher agent-only hallucination/structural failure.
+Limit: API pricing/capability values can change and non-GPT entries are calibrated.</code></pre>
+<h4>Figure 11 - HSR heatmaps</h4>
+<pre><code>Purpose: Show HSR by API and benchmark and percentage reduction with GILP.
+Structure/panels: Left heatmap = agent-only HSR; right heatmap = GILP HSR reduction.
+Key values: Agent-only HSR ranges from GPT-4o-mini 0.151-0.191 to Llama-3-8B 0.280-0.353; reduction ranges from GPT &gt;85% to other APIs about 62-69%.
+Interpretation: Pattern is consistent across the four graph benchmarks.
+Limit: Same direct-measurement caveat as Figure 9.</code></pre>
+<h4>Figure 12 - FB15k-237 KG traversal</h4>
+<pre><code>Purpose: Test GILP outside the workflow-style graph benchmarks.
+Structure/panels: Bar charts for success rate and hallucinated-state rate by H=2, H=3, H=4, and overall.
+Key values: Agent-only SR 10/12 and HSR 0.888; GILP SR 9/12 and HSR 0.801; HSR reduction CI crosses zero.
+Interpretation: The method&#x27;s benefit is not established in this smaller KG setting.
+Limit: n=12 is underpowered; the paper estimates n&gt;=120 would be needed for 80% power to detect a sub-10pp HSR effect.</code></pre>
+<h3>Tables</h3>
+<h4>Table 1 - Main benchmark results</h4>
+<pre><code>Rows: Agent-Direct, Agent-CoT, Agent-Replan, Agent-Verifier, parameterized-only planners, hybrid variants, GILP variants.
+Columns: SR, long-horizon SR, invalid-action rate, HSR, propagation depth, tokens/success, risk-weighted failure, catastrophic error rate.
+Key values: Agent-Replan SR 0.668, HSR 0.205, PD 2.451, Tok/Succ 16,389. Parametric-WM-MPC SR 0.565, HSR 0.069, Tok/Succ 291. Hybrid-Full SR 0.750, HSR 0.111, Tok/Succ 13,503. GILP SR 0.838, HSR 0.079, Tok/Succ 15,021. GILP-Verifier has lowest HSR 0.075 and invalid-action rate 0.040 but lower SR 0.825 and higher token cost.
+Appraisal: Strong internal comparison breadth, but simulator-only main table materially limits evidentiary strength.</code></pre>
+<h4>Table 2 - Success by horizon bucket</h4>
+<pre><code>Rows: Agent-Replan, Agent-Verifier, Parametric-WM-MPC, Hybrid-Full, GILP.
+Columns: SR at H&lt;=3, H4-6, H7-10, H&gt;10, plus H&gt;10 HSR and Tok/Succ.
+Key values: GILP SR 0.976, 0.933, 0.872, 0.758 across horizon buckets; Agent-Replan 0.957, 0.899, 0.762, 0.471; Parametric-WM-MPC 0.639, 0.628, 0.607, 0.502.
+Pattern: GILP advantage widens at long horizon.
+Appraisal: The table directly supports the propagation thesis, but it needs live long-horizon API replication.</code></pre>
+<h4>Table 3 - Cost-quality tradeoff</h4>
+<pre><code>Rows: Agent-Replan, Agent-Verifier, Verify-All, Parametric-WM-MPC, Hybrid-Full, Hybrid-Full-Verifier, GILP, GILP-Verifier.
+Columns: SR, tokens/task, tokens/success, LLM calls, model calls, wall time.
+Key values: GILP SR 0.838, Tok/Task 12,582, Tok/Succ 15,012, LLMCalls 15.53; Hybrid-Full SR 0.750, Tok/Task 10,125, Tok/Succ 13,494; Verify-All Tok/Succ 42,406.
+Pattern: GILP is not token-minimal, but targeted correction is more efficient than verify-all.
+Appraisal: Good for relative design comparison; absolute cost estimates are weak because simulator token counts overestimate real runs.</code></pre>
+<h4>Table 4 - Backbone strength</h4>
+<pre><code>Rows: MLP-small, GCN-small, MPNN-small, GPS, ActionNode, ErrorAware.
+Columns: transition accuracy, validity accuracy, delta accuracy, standalone SR, hybrid SR, hybrid HSR.
+Key values: MLP-small TransAcc 0.843, StandaloneSR 0.509, HybridSR 0.768, HybridHSR 0.064; ActionNode HybridSR 0.782; ErrorAware TransAcc 0.995, StandaloneSR 0.573, HybridSR 0.769.
+Pattern: Better transition models do not monotonically translate into better hybrid SR.
+Appraisal: Useful implementation lesson: calibration and skeleton utility matter more than standalone planning strength.</code></pre>
+<h4>Table 5 - Hybrid and GILP ablations</h4>
+<pre><code>Rows: NoBackbone; validity-only, delta-only, risk-only, value-only, affected-only, full hybrid; GILP gate variants.
+Key values: NoBackbone SR 0.649/HSR 0.205. DeltaOnly SR 0.703/HSR 0.121. Hybrid-Full SR 0.750/HSR 0.111. GILP-NoCorrectionGate SR 0.772/HSR 0.108. GILP-NoRiskGate SR 0.782/HSR 0.081/RWF 0.118. Full GILP SR 0.838/HSR 0.079/RWF 0.068.
+Pattern: Delta signals reduce hallucination; risk gate reduces risky failure; correction gate plus risk gate yields best overall SR/RWF balance.
+Appraisal: Strong ablation logic for the architecture, conditional on simulator validity.</code></pre>
+<h4>Table 6 - Error-probability proxies</h4>
+<pre><code>Rows: Agent-Replan, Agent-Verifier, Parametric-WM-MPC, Hybrid-Full, Hybrid-Full-Verifier, GILP.
+Columns: perr@1, perr@5, perr@10, ExpectedErrors@10, IndepBound@10.
+Key values: Agent-Replan perr@10 0.393, ExpectedErrors@10 3.148, IndepBound@10 0.978. GILP perr@10 0.164, ExpectedErrors@10 1.303, IndepBound@10 0.753.
+Pattern: GILP lowers expected erroneous steps over H=10.
+Appraisal: Useful but naming is tricky; Appendix E says the independence baseline underestimates any-error probability under positive serial correlation.</code></pre>
+<h4>Table 7 - Real GPT-4o-mini validation</h4>
+<pre><code>Rows: TaskGraph, ToolChain, ResourceAlloc, RepairFlow, pooled.
+Columns: n, Agent HSR, GILP HSR, percentage change, Agent tokens/task, GILP tokens/task.
+Key values: Pooled n=80/76; Agent HSR 0.176 [0.158, 0.194]; GILP HSR 0.035 [0.026, 0.044]; reduction -80%; tokens/task 2,371 to 2,850. Per-benchmark reductions are -72% to -88%.
+Pattern: Strongest empirical support for HSR reduction on short-horizon GPT-4o-mini tasks.
+Appraisal: Good mechanism validation; not proof of long-horizon success improvement because all SR values are 1.000 and H is only 3-8.</code></pre>
+<h4>Table 8 - Multi-API comparison</h4>
+<pre><code>Rows: GPT-4o-mini, Claude-3-Haiku, Gemini-1.5-Flash, Llama-3-8B in Agent and GILP modes.
+Key values: GPT Agent SR 0.755/HSR 0.171/Cost $0.74 per 1k tasks, GILP SR 0.795/HSR 0.014/Cost $1.06. Claude GILP SR 0.790/HSR 0.074/Cost $3.59. Gemini GILP SR 0.780/HSR 0.088/Cost $0.29. Llama GILP SR 0.730/HSR 0.109/cost $0 marginal.
+Pattern: GILP reduces HSR across all APIs, with lowest dollar cost for Gemini and zero marginal API cost for self-hosted Llama.
+Appraisal: Mostly calibrated; should not be used as a current API pricing or capability source without verification.</code></pre>
+<h4>Table 9 - Knowledge-graph traversal</h4>
+<pre><code>Rows: Agent-only and GILP on n=12 paired FB15k-237 tasks.
+Columns: SR, 95% CI, HSR, tokens/task.
+Key values: Agent-only SR 0.833 (10/12), HSR 0.888, Tok/Task 1,881. GILP SR 0.750 (9/12), HSR 0.801, Tok/Task 3,283. SR McNemar p=1.000; HSR bootstrap CI [-0.034, +0.207], Wilcoxon p=0.380.
+Pattern: Directional HSR improvement but no statistically significant benefit, and SR is numerically worse.
+Appraisal: Important negative/neutral validation that identifies backbone calibration as a boundary condition.</code></pre>
+
+<h3>Algorithm and operational workflow</h3>
+<pre><code>ALGORITHM 1 - Grounded Iterative Language Planning (GILP)
+Inputs: environment, goal, backbone Ftheta, agent LLM, thresholds tau_high/tau_low/rho_th, horizon H.
+Step loop:
+1. Serialize current graph state and obtain candidate actions.
+2. Score candidates with the parameterized backbone.
+3. Compress predictions into skeleton Bt.
+4. Ask LLM for selected action, imagined delta, and confidence.
+5. Compute Jaccard consistency between LLM changed-node set and backbone changed-node set.
+6. If consistency &lt; tau_low, send discrepancy-specific correction prompt and parse revision.
+7. If predicted risk exceeds threshold, re-prompt over a low-risk subset.
+8. Execute action, log state, skeleton, action, imagined delta, next state, consistency, and token usage.
+9. Stop when done or horizon expires.
+Failure modes: bad backbone calibration; over-triggering corrections; correction prompt perturbing a correct action; unsupported state types; missing oracle transitions; serial correlation of errors.
+Governance/useful logging: correction trigger rate, pre/post HSR, invalid-action rate, post-correction action changes, risk-gate rate, token overhead, and task-level outcomes.</code></pre>
+<h3>Prompt and appendix workflows</h3>
+<pre><code>APPENDIX A - Prompt suite
+System prompt: instructs the planning agent to emit a single valid JSON object and only assert state changes supported by current state, candidate action, or skeleton.
+Agent-only prompt: serializes world state, goal, candidate actions, and expected JSON schema.
+GILP prompt: inserts a parametric world-model skeleton containing p_valid, value, risk, predicted delta, and affected entities.
+Correction prompt: names each discrepancy between LLM-imagined deltas and backbone predictions, then asks for revised action and/or imagined state.
+Risk prompt: warns about high predicted risk and re-presents lower-risk alternatives.
+API examples: OpenAI JSON-object call and Anthropic message call with regex JSON extraction.
+
+APPENDIX B-G - Reproducibility and caveats
+B: Serialization alone changes HSR by about 1.6x; JSON-table is default.
+C: Four benchmarks are TaskGraph, ToolChain, ResourceAlloc, RepairFlow.
+D: Backbones train for 50 epochs with Adam lr=1e-3 and multi-task loss; all models &lt;100k parameters.
+E: IndepBound is an independence-baseline proxy, not a true upper bound under positive serial correlation.
+F: One-step hallucination contraction proof relies on gate recall, repair success, and non-adversarial correction.
+G: Simulator samples agent-side events over the same true graph transition function and is described as conservative but not exact.</code></pre>
+</section>
+
+<section id="aiml-lens">
+<h2>AI/ML appraisal lens</h2>
+<div class="takeaway-grid">
+  <div class="mini-card"><h3>Task</h3><p>Long-horizon graph-structured planning where an LLM must select actions and emit imagined next-state deltas.</p></div>
+  <div class="mini-card"><h3>Data</h3><p>Four synthetic/controlled graph benchmarks with train/validation/test tasks, plus small FB15k-237 KG traversal validation.</p></div>
+  <div class="mini-card"><h3>Method</h3><p>Hybrid agent system using a small parameterized backbone, skeleton prompt, Jaccard consistency gate, targeted re-prompt, and risk gate.</p></div>
+  <div class="mini-card"><h3>Metrics</h3><p>SR, long-horizon SR, invalid-action rate, HSR, propagation depth, risk-weighted failure, token cost, per-step error proxies, JSON-fail rate.</p></div>
+  <div class="mini-card"><h3>Baselines</h3><p>Agent-only variants, verifier agent, parameterized-only MPC/MCTS, validity/delta/risk/value hybrid ablations, GILP variants.</p></div>
+  <div class="mini-card"><h3>Failure analysis</h3><p>Explicit focus on false completion, false dependency, wrong entity, propagation depth, correction failures, and backbone calibration boundary conditions.</p></div>
+</div>
+<div class="badnote"><strong>Critical appraisal point.</strong> The paper's strongest mechanistic evidence is HSR reduction in real GPT-4o-mini short-horizon episodes. The strongest claimed outcome gain - long-horizon success - is still mainly simulation evidence.</div>
+</section>
+
+<section id="appraisal">
+<h2>Evaluation and appraisal</h2>
+<div class="verdict"><strong>Verdict: Read soon.</strong> This is worth preserving for agent-harness design and hallucination-propagation evaluation. Do not treat it as mature evidence that GILP-style grounding will generalize to production agents without independent live-rollout validation.</div>
+<div class="rating-grid">
+<div class="mini-card">
+      <h3>Relevance</h3>
+      <div class="score">8.5/10</div>
+      <p><strong>Rationale:</strong> Highly relevant to agent harnesses, deterministic evaluation, state tracking, hallucination propagation, and practical LLM workflow design.</p>
+      <p><strong>Evidence basis:</strong> Directly targets LLM agents, JSON state deltas, verifier/gate design, prompts, cost, and failure modes.</p>
+      <p><strong>Would raise/lower:</strong> Would rise with clinical or parser-specific examples; would fall if interest were limited to model architecture rather than agent operations.</p>
+    </div>
+<div class="mini-card">
+      <h3>Novelty</h3>
+      <div class="score">7.0/10</div>
+      <p><strong>Rationale:</strong> The specific HSR/PD framing and lightweight parametric consistency gate are useful, but hybrid LLM-plus-verifier planning is an active, crowded area.</p>
+      <p><strong>Evidence basis:</strong> Related work covers ReAct, RAP, LATS, LLM+P, WALL-E, symbolic verification, and self-correction; GILP&#x27;s contribution is the operationalization and small-backbone gate.</p>
+      <p><strong>Would raise/lower:</strong> Would rise with stronger theoretical analysis or real deployments; would fall if prior work already uses nearly identical delta-gating.</p>
+    </div>
+<div class="mini-card">
+      <h3>Method strength</h3>
+      <div class="score">5.5/10</div>
+      <p><strong>Rationale:</strong> The design has thoughtful metrics, ablations, and visualized failure modes, but the main results depend on a calibrated behavioral simulator.</p>
+      <p><strong>Evidence basis:</strong> Four benchmarks, multiple baselines, ablations, backbone comparisons, real GPT validation, and KG boundary test are provided, yet the central Table 1 is not live API data.</p>
+      <p><strong>Would raise/lower:</strong> Would rise with full live API rollouts across horizons/APIs and preregistered benchmark protocols; would fall if simulator calibration artifacts explain the gains.</p>
+    </div>
+<div class="mini-card">
+      <h3>Evidence strength</h3>
+      <div class="score">5.5/10</div>
+      <p><strong>Rationale:</strong> The real GPT-4o-mini HSR reduction is credible for short-horizon graph tasks, but success and long-horizon claims are less directly supported.</p>
+      <p><strong>Evidence basis:</strong> Pooled real HSR 0.176 to 0.035 with non-overlapping CIs supports the grounding mechanism; long-horizon SR 0.471 to 0.758 is simulator-derived.</p>
+      <p><strong>Would raise/lower:</strong> Would rise with independent replication and live long-horizon measurements; would fall if real rollouts show correction prompts harm action choice.</p>
+    </div>
+<div class="mini-card">
+      <h3>External validity</h3>
+      <div class="score">4.5/10</div>
+      <p><strong>Rationale:</strong> Generalization beyond structured graph environments remains uncertain.</p>
+      <p><strong>Evidence basis:</strong> The KG validation is small and nonsignificant; real-world agent states are often free-text, partially observable, and tool-dependent rather than clean node-status deltas.</p>
+      <p><strong>Would raise/lower:</strong> Would rise with web/software/clinical workflow agents and noisy state representations; would fall in domains without reliable transition labels.</p>
+    </div>
+<div class="mini-card">
+      <h3>Implementation value</h3>
+      <div class="score">7.5/10</div>
+      <p><strong>Rationale:</strong> The skeleton format, correction gate, risk gate, and logging metrics are directly build-useful for experimental agent harnesses.</p>
+      <p><strong>Evidence basis:</strong> Appendix prompts and the four-phase algorithm are operational enough to prototype; the system&#x27;s limits and correction thresholds are explicit.</p>
+      <p><strong>Would raise/lower:</strong> Would rise with released robust code, test fixtures, and calibration recipes; would fall if backbone training data are unavailable.</p>
+    </div>
+</div>
+<div class="two-grid">
+  <div class="goodnote"><strong>Main strengths.</strong> Clear failure taxonomy, explicit distinction between agent and parameterized world-model error, useful HSR/PD metrics, targeted correction design, extensive ablations, and prompt-level operational detail.</div>
+  <div class="badnote"><strong>Main limitations.</strong> Main results are simulator-based; live API validation is short-horizon; non-GPT multi-API results are calibrated; KG validation is underpowered and nonsignificant; method assumes checkable state deltas and trainable transition backbones.</div>
+</div>
+<h3>Bottom line</h3>
+<p><strong>Best use:</strong> Design pattern and evaluation vocabulary for experimental LLM-agent harnesses where state transitions can be represented as structured deltas.</p>
+<p><strong>Do not use for:</strong> Claims of general LLM reliability, clinical decision support safety, real-world autonomous-agent deployment, or current API cost comparisons without fresh validation.</p>
+<p><strong>Confidence in appraisal:</strong> Moderate. The paper is internally detailed and transparent about limitations, but the evidence hierarchy is mixed: simulator-heavy headline results, short-horizon live validation, and one small neutral external-style test.</p>
+</section>
+
+<section id="takeaways">
+<h2>Implementation and practice takeaways</h2>
+<div class="takeaway-grid">
+  <div class="mini-card"><h3>Build</h3><p>Prototype a skeleton provider that returns candidate action, p_valid, predicted delta, affected nodes, risk, and short-horizon value. Treat it as advisory, not authoritative.</p></div>
+  <div class="mini-card"><h3>Measure</h3><p>Log HSR, propagation depth, invalid-action rate, correction rate, repair success, token overhead, and pre/post-correction deltas.</p></div>
+  <div class="mini-card"><h3>Gate</h3><p>Use a low-consistency threshold to trigger targeted correction. Avoid verify-all unless the domain warrants the cost.</p></div>
+  <div class="mini-card"><h3>Validate</h3><p>Run live API rollouts at the actual horizon and state format of the target use case. Do not rely on short-horizon success to infer long-horizon stability.</p></div>
+  <div class="mini-card"><h3>Monitor</h3><p>Track correction over-triggering, backbone miscalibration, and cases where correction changes a correct action into a wrong one.</p></div>
+  <div class="mini-card"><h3>Avoid overclaiming</h3><p>Do not claim that structured JSON output prevents hallucinated state; the paper specifically argues that syntactic validity and semantic state validity are separate.</p></div>
+</div>
+</section>
+
+<section id="qa">
+<h2>QA and provenance</h2>
+<table>
+  <tr><th>Check</th><th>Status</th></tr>
+  <tr><td>Source title and identifier match uploaded PDF</td><td>Pass</td></tr>
+  <tr><td>All main sections represented</td><td>Pass</td></tr>
+  <tr><td>Figures accounted for</td><td>12/12 summarized</td></tr>
+  <tr><td>Tables accounted for</td><td>9/9 summarized</td></tr>
+  <tr><td>Algorithm/workflow represented</td><td>Algorithm 1 and prompt workflows summarized</td></tr>
+  <tr><td>Limitations near weakened claims</td><td>Pass</td></tr>
+  <tr><td>Ratings include score, rationale, evidence basis, and raise/lower condition</td><td>Pass</td></tr>
+  <tr><td>Self-contained HTML with embedded CSS and no external assets</td><td>Pass</td></tr>
+</table>
+<p class="footer"><strong>Source evaluated:</strong> uploaded PDF, <em>Grounded Iterative Language Planning: How Parameterized World Models Reduce Hallucination Propagation in LLM Agents</em>, arXiv:2606.27806v1 [cs.AI], 26 Jun 2026. <strong>Generated:</strong> {date.today().isoformat()}. This reference file is an appraisal aid and does not replace primary-source reading or independent replication.</p>
+</section>
+</main>
+</body>
+</html>

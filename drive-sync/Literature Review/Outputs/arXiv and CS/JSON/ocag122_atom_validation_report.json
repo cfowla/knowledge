@@ -1,0 +1,94 @@
+{
+  "activated_macro": "@ATOM",
+  "source": {
+    "publication_id": "210bd77a-2aa2-5d20-a4f7-e3766580484d",
+    "title": "CiteSure: retrieval-augmented large language models for faithful biomedical citation recommendation",
+    "doi": "10.1093/jamia/ocag122",
+    "source_file": "ocag122.pdf",
+    "source_file_sha256": "69fd330f76c8d6ee56d0b9043dc88f4f60f5ff47b44f1997ad797b053a5252d7"
+  },
+  "outputs": {
+    "atoms_file": "ocag122_literature_atoms.json",
+    "source_metadata_file": "ocag122_source_metadata.json",
+    "validation_report_file": "ocag122_atom_validation_report.json"
+  },
+  "atom_summary": {
+    "total_atoms": 95,
+    "counts_by_kind": {
+      "author_conclusion": 4,
+      "conflict_of_interest": 1,
+      "data_availability": 2,
+      "funding_disclosure": 1,
+      "limitation": 5,
+      "method": 20,
+      "outcome_definition": 2,
+      "population_description": 5,
+      "qualitative_result": 1,
+      "quantitative_result": 53,
+      "study_objective": 1
+    },
+    "counts_by_assertion_origin": {
+      "calculated_from_reported_data": 1,
+      "directly_reported": 9,
+      "normalized_from_source": 85
+    },
+    "counts_by_review_status": {
+      "needs_review": 95
+    }
+  },
+  "validation": {
+    "pydantic_structural_validation": "passed",
+    "json_schema_validation": "passed",
+    "sufficiency_validation": "passed",
+    "structural_errors": [],
+    "json_schema_errors": [],
+    "sufficiency_errors": [],
+    "sufficiency_warnings": []
+  },
+  "source_reconciliation": {
+    "figures_reviewed": [
+      "Figure 1 (workflow architecture)",
+      "Figure 2 (dense-retriever hit-rate curves)"
+    ],
+    "tables_reviewed": [
+      "Table 1 (human factual accuracy)",
+      "Table 2 (automatic factual accuracy and relevance)",
+      "Table 3 (reranker metrics)"
+    ],
+    "supplements": "No supplementary material was included in the uploaded PDF."
+  },
+  "extraction_warnings": [
+    {
+      "code": "relevance_denominator_inconsistency",
+      "message": "Methods state that fabricated citations receive relevance score 0 and that mean relevance is computed across all citations, but Table 2 reports standalone-LLM relevance denominators only among factually accurate citations (for example 278/412 rather than 278/2525). Table 2 values were extracted exactly and labeled as Table 2 relevance scores."
+    },
+    {
+      "code": "human_verification_source_inconsistency",
+      "message": "The Results text says human annotators cross-referenced Medline and Google Scholar, whereas the Table 1 footnote defines factual accuracy using PubMed verification. Both descriptions were preserved in provenance and validation notes."
+    },
+    {
+      "code": "recall_not_reported_in_table_3",
+      "message": "Methods list Recall, MAP, MRR, and Precision@5 for reranking evaluation, but Table 3 provides only MAP, MRR, and Precision@5. No Recall atom was created."
+    },
+    {
+      "code": "figure_2_exact_values_not_tabulated",
+      "message": "Figure 2 provides curves rather than exact tabulated values. Only the text-supported statement that BioLLM2Vec exceeded 80% at top 100 was extracted; no values were estimated from pixels."
+    },
+    {
+      "code": "no_uncertainty_or_significance_for_main_metrics",
+      "message": "The main benchmark tables do not report confidence intervals, variance, or formal significance tests. These fields remain absent rather than inferred."
+    }
+  ],
+  "schema_gaps": [
+    "The LiteratureAtom schema has no dedicated fields for AI model, dataset split, benchmark, or compute configuration; model systems were represented using ExposureDescriptor and method statements.",
+    "The quantitative schema represents one estimate per atom, so each table metric was extracted as a separate independently reviewable atom.",
+    "The schema cannot directly encode inequalities such as 'over 80%'; the Figure 2 result was retained as a qualitative_result atom with the reported threshold in the canonical statement.",
+    "Publication-level metadata are not part of LiteratureAtom and were emitted in a separate source-metadata JSON file."
+  ],
+  "extraction_limitations": [
+    "Atoms were extracted from the uploaded article PDF only; linked repositories, datasets, code, and supplementary materials were not inspected.",
+    "All atoms remain review_status=needs_review because no human verification step was performed.",
+    "The extraction records reported study content and does not convert independent appraisal into reported data.",
+    "No missing confidence intervals, p-values, dataset splits, or unreported metric values were invented."
+  ]
+}

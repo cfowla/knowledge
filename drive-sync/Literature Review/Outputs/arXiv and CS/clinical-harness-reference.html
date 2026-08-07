@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reference: Clinical Harness for Governable Medical AI Skill Ecosystems</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --ink: #17202a;
+      --muted: #526173;
+      --line: #d9e0ea;
+      --accent: #1d4f91;
+      --accent2: #7a3e06;
+      --good: #0f6b3b;
+      --warn: #8a5a00;
+      --bad: #8a1f1f;
+      --codebg: #0e1726;
+      --codefg: #edf4ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: linear-gradient(135deg, #10243d, #1d4f91);
+      color: white;
+      padding: 2.2rem 1.25rem 2rem;
+      border-bottom: 5px solid #d2e2f5;
+    }
+    header .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { margin: 0 0 .6rem; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.15; }
+    .subtitle { max-width: 900px; font-size: 1.05rem; color: #dce9f8; margin: 0; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    nav.toc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0 1.25rem;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .06);
+    }
+    nav.toc a { color: var(--accent); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+    .toc-grid { columns: 2; column-gap: 2rem; padding-left: 1.25rem; }
+    section, article.card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .05);
+    }
+    h2 { color: #0f315f; margin: .2rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: .45rem; }
+    h3 { color: #173f72; margin-top: 1.25rem; }
+    h4 { margin: 1rem 0 .35rem; color: #24364b; }
+    .meta-grid, .rating-grid, .takeaway-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .75rem;
+    }
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .8rem;
+      background: #fbfcff;
+    }
+    .label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .value { font-weight: 650; margin-top: .2rem; }
+    .verdict {
+      border-left: 5px solid var(--accent);
+      background: #eef5ff;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: .6rem 0 1rem;
+    }
+    .warning {
+      border-left: 5px solid var(--warn);
+      background: #fff8e8;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    .badnote {
+      border-left: 5px solid var(--bad);
+      background: #fff1f1;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    table { width: 100%; border-collapse: collapse; margin: .75rem 0; font-size: .96rem; }
+    th, td { border: 1px solid var(--line); padding: .55rem .65rem; vertical-align: top; }
+    th { background: #eef3f9; text-align: left; color: #1e395c; }
+    .rating-grid .mini-card { min-height: 92px; }
+    .score { font-size: 1.35rem; font-weight: 800; color: var(--accent); }
+    pre {
+      margin: .75rem 0 1.1rem;
+      padding: 1rem;
+      background: var(--codebg);
+      color: var(--codefg);
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #1b2e49;
+      font-size: .88rem;
+      line-height: 1.45;
+      white-space: pre;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .section-summary { border-left: 4px solid #cbd8e8; padding-left: .95rem; margin: .9rem 0 1.2rem; }
+    .section-summary h3 { margin: 0 0 .4rem; }
+    .section-summary p { margin: .4rem 0; }
+    .tag {
+      display: inline-block;
+      border: 1px solid #c9d7e8;
+      background: #f2f6fb;
+      color: #27496d;
+      padding: .15rem .45rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin: .12rem .2rem .12rem 0;
+    }
+    .small { color: var(--muted); font-size: .92rem; }
+    ul.tight li { margin-bottom: .35rem; }
+    footer { max-width: 1100px; margin: 0 auto 2rem; color: var(--muted); padding: 0 1.25rem; font-size: .9rem; }
+    @media print {
+      body { background: white; }
+      section, article.card, nav.toc { box-shadow: none; break-inside: avoid; }
+      pre { white-space: pre-wrap; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Clinical Harness for Governable Medical AI Skill Ecosystems</h1>
+    <p class="subtitle">Condensed section-by-section reference, figure decomposition, and appraisal of arXiv:2606.26494v1.</p>
+  </div>
+</header>
+<main>
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ol class="toc-grid">
+      <li><a href="#metadata">Paper metadata</a></li>
+      <li><a href="#onepage">One-page synthesis</a></li>
+      <li><a href="#sections">Section condensation</a></li>
+      <li><a href="#figures">Figure and visual breakdowns</a></li>
+      <li><a href="#appraisal">Evaluation and appraisal</a></li>
+      <li><a href="#implementation">Implementation takeaways</a></li>
+    </ol>
+  </nav>
+
+  <section id="metadata">
+    <h2>Paper metadata</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><div class="label">Title</div><div class="value">Clinical Harness for Governable Medical AI Skill Ecosystems</div></div>
+      <div class="mini-card"><div class="label">Authors</div><div class="value">Tianhan Xu, Lei Bao, Yongxiang Wang</div></div>
+      <div class="mini-card"><div class="label">Source</div><div class="value">arXiv:2606.26494v1, cs.AI</div></div>
+      <div class="mini-card"><div class="label">Submitted</div><div class="value">25 Jun 2026</div></div>
+      <div class="mini-card"><div class="label">Paper type</div><div class="value">Conceptual architecture / framework paper</div></div>
+      <div class="mini-card"><div class="label">Clinical exemplar</div><div class="value">Osteoporosis lifecycle care</div></div>
+    </div>
+    <p class="small">Reference scope: this file summarizes and appraises the v1 PDF. It does not validate the clinical safety or regulatory acceptability of any proposed system.</p>
+  </section>
+
+  <section id="onepage">
+    <h2>One-page synthesis</h2>
+    <div class="verdict">
+      <strong>Core thesis:</strong> medical AI should not be deployed as disconnected prediction models. The authors propose wrapping model capabilities as registered, bounded, auditable “clinical AI skills,” then executing them through a runtime governance layer called the <strong>Clinical Harness</strong>. The harness controls which skill can run, under what conditions, with which inputs, what human review is required, and what trace must be logged.
+    </div>
+    <p>The paper’s most useful contribution is architectural: it reframes clinical AI from “model performs task” to “skill executes within a governed workflow.” The proposed skill card, deterministic orchestration DAG, safety gates, artifact contracts, and audit/monitoring layers map closely to modern agent-harness design, but with clinical constraints foregrounded.</p>
+    <p>The paper is not an empirical validation paper. It provides no deployed system, no code, no prospective outcomes, and no quantitative comparison against conventional clinical decision support. Its value is as a reference model for thinking about medical-agent governance; its weakness is that many implementation-critical parts remain underspecified.</p>
+    <div>
+      <span class="tag">Clinical AI governance</span>
+      <span class="tag">Agent harnesses</span>
+      <span class="tag">Runtime constraints</span>
+      <span class="tag">Deterministic orchestration</span>
+      <span class="tag">Skill cards</span>
+      <span class="tag">Human-in-the-loop</span>
+      <span class="tag">Osteoporosis exemplar</span>
+    </div>
+  </section>
+
+  <section id="sections">
+    <h2>Section condensation</h2>
+
+    <div class="section-summary">
+      <h3>Abstract</h3>
+      <p>The abstract states that medical AI remains organized around isolated models, while clinical care requires accountable capabilities that persist longitudinally. The proposed solution is a “clinical AI skill” abstraction plus the Clinical Harness, a runtime governance architecture for registering, orchestrating, guarding, and monitoring AI-enabled clinical capabilities.</p>
+      <p>Osteoporosis is used as the concrete exemplar. The authors argue that knowledge-driven, data-driven, and physics-enhanced skills can be combined into lifecycle care under runtime governance.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>1. Introduction: medical AI’s translational gap is also an organizational gap</h3>
+      <p>The introduction frames the translational gap in medical AI as partly organizational rather than purely technical. AI systems can support imaging, risk prediction, education, guideline interpretation, and decision support, but clinical impact remains uneven because most systems are built and evaluated as isolated task-specific models.</p>
+      <p>Clinical care is longitudinal and involves changing evidence, uncertainty, patient preference, responsibility, referral, monitoring, and intervention. The paper’s three stated contributions are: defining “clinical AI skills,” introducing the Clinical Harness as runtime governance infrastructure, and using osteoporosis to show how multiple skill types might support full lifecycle care.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>2. Clinical AI skills: an abstraction between models and agents</h3>
+      <p>The authors define a clinical AI skill as a software-defined clinical capability that performs a specific task in a defined clinical context while carrying explicit evidence, boundaries, safety constraints, human oversight, and governance metadata. A skill can include models, rules, knowledge bases, simulation modules, interface contracts, and escalation logic.</p>
+      <p>Six properties convert a model into a skill: goal-directed, boundary-aware, evidence-aware, safety-constrained, collaborative, and governable. The proposed “clinical AI skill card” records interface boundaries, evidence level, validation status, failure modes, bias risks, and review requirements; it functions as both a technical contract and a clinical instruction label.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3. Osteoporosis as an exemplar clinical AI skill ecosystem</h3>
+      <p>The osteoporosis exemplar tests whether AI capabilities can be organized across prevention, screening, diagnosis, risk stratification, treatment selection, surgical intervention, rehabilitation, and long-term monitoring. The authors define nine skills, S1–S9, each assumed to be registered with input/output contracts, evidence status, boundaries, review requirements, and monitoring rules.</p>
+      <p>The skills span guideline-grounded education, opportunistic CT screening, complex-case diagnostic reasoning, fracture-risk stratification, treatment-pathway reasoning, physics-enhanced surgical planning/navigation, rehabilitation/adherence support, and longitudinal prognostic monitoring. S9 closes the loop by feeding refracture, bone-density decline, pain, function loss, or poor adherence back into reassessment.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>4. Orchestration and hybrid reasoning: from prediction to action</h3>
+      <p>The authors reject unconstrained LLM-driven planning for high-risk medical workflows. Instead, they propose deterministic clinical orchestration, where predefined clinical pathways, conditional branches, and human-review nodes decide when skills are invoked.</p>
+      <p>The example workflow starts with routine CT upload and S2 opportunistic screening. Low risk closes with education; high risk invokes S1, S3, and S4 in parallel, routes outputs to S5 treatment-pathway reasoning, requires clinician review, then branches to conservative management or surgical support with S6/S7. S9 monitoring can reactivate S4/S5 through feedback.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>5. Expanding the boundary: physics-enhanced surgical AI and outcome closure</h3>
+      <p>This section argues that medical AI should move beyond diagnostic intelligence into interventional intelligence. For vertebral augmentation, S6 and S7 combine vertebral segmentation, finite-element analysis, computational fluid dynamics, and AI surrogate models to support cement-material planning, injection-volume selection, trajectory planning, and leakage-risk assessment.</p>
+      <p>The second extension is outcome-closed-loop management. S9 would feed real-world outcome signals back into risk stratification and pathway selection, supporting learning from treatment response, durability of benefit, adverse events, fracture burden, and functional outcomes.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>6. Clinical Harness: from governance principles to executable infrastructure</h3>
+      <p>The authors argue that governance principles alone do not prevent unsafe execution. The Clinical Harness is proposed as runtime infrastructure that makes governance executable, auditable, and interruptible through constrained loops: care-execution, safety, outcome-feedback, and governance-improvement loops.</p>
+      <p>The harness has four layers: multilayer safety guardrails, skill registry and boundary management, deterministic orchestration with state management, and audit tracking with continuous monitoring. The key design move is passing intermediate decisions through structured artifact contracts rather than fragile natural-language context.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>7. From skill ecosystems to governable medical agents</h3>
+      <p>The paper positions Clinical Harness as a substrate for future medical agents. More autonomous agents could reason and plan, but would only act by invoking registered, validated, and monitored clinical AI skills under harness constraints.</p>
+      <p>The distinction is important: the governable medical agent is not the harness. The agent sits above the harness and requests actions; the harness determines what can be done, when it can be done, what evidence is required, and when a clinician must intervene.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>8. Implementation and validation roadmap</h3>
+      <p>The roadmap has four phases. First, each skill should be validated before registration, with different validation emphases for knowledge-driven, data-driven, and physics-enhanced skills. Second, the harness should undergo silent deployment, running in the background without changing care while logging skill invocation, artifact completeness, guardrail activation, latency, audit completeness, and clinician disagreement.</p>
+      <p>Third, prospective workflow evaluation should test clinical utility while clinicians remain in control, using pragmatic, stepped-wedge, or prospective implementation designs. Fourth, post-deployment monitoring should track drift, bias, repeated overrides, safety events, version changes, and guideline updates, with triggers for recalibration, suspension, revalidation, or retirement.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>9. Conclusion</h3>
+      <p>The conclusion restates that medical AI value will depend on whether validated models can be organized into safe, accountable workflows. Osteoporosis is an exemplar, but the proposed architecture is disease-agnostic.</p>
+      <p>The final claim is that Clinical Harness converts governance principles into executable constraints, logs, monitoring, and intervention points. It reframes deployment as governed capability organization: isolated models become clinical skills, skills become harnessed workflows, and harnessed workflows can later support governable medical agents.</p>
+    </div>
+  </section>
+
+  <section id="figures">
+    <h2>Figure and visual breakdowns</h2>
+    <p>Each block below translates the paper’s visual content into structured text. The goal is to preserve figure-level detail for search, notes, RAG indexing, or later conversion into diagrams.</p>
+
+    <h3>Figure 1 — Conceptual evolution from isolated AI models to governable clinical AI skill ecosystems</h3>
+    <pre><code>FIGURE 1 STRUCTURE
+
+LEFT: Conventional paradigm — isolated AI models
+  Independent models without collaboration:
+    1. CT bone density model
+       - Input/role: CT-based bone density estimation
+       - Output shown: T-score -2.8
+    2. Risk prediction model
+       - Input/role: fracture-risk prediction
+       - Output shown: Risk 18%
+    3. LLM Q&A chatbot
+       - Input/role: text question/answer interaction
+       - Output shown: text response
+
+  Limitations box:
+    - No shared boundaries
+    - No handoff rules
+    - No unified governance
+    - Difficult to trace and optimize
+
+CENTER TRANSITION:
+  Arrow: "From isolated models to governable clinical capabilities"
+
+RIGHT: Proposed paradigm — clinical AI skill ecosystem
+  Top layer: Orchestration and governance layer (Clinical Harness)
+    Actors/components:
+      - Clinician
+      - Unified registration
+      - Workflow orchestration
+      - Monitoring and alerts
+      - Audit trails
+      - Version control
+      - EHR system
+    Role:
+      - Coordinates and governs execution across clinical workflow
+
+  Middle layer: Clinical AI skill layer (capability packaging)
+    Example skill cards:
+      - Opportunistic screening skill (S2)
+      - Risk-stratification skill (S4)
+      - Education skill (S1)
+      - Treatment-pathway reasoning skill (S5)
+      - Additional skills represented by ellipsis
+    Each card includes:
+      - Boundary
+      - Safety gate
+      - Clinician review
+
+  Bottom layer: Foundational AI model layer (technical capability)
+    Model types:
+      - CNN / 3D U-Net imaging models
+      - XGBoost / MLP predictive models
+      - LLM / RAG language models
+      - Physics models: finite element / computational fluid dynamics
+
+  Coordinated outputs across patient journey:
+    Prevention & education
+      -> Opportunistic screening
+      -> Risk assessment
+      -> Treatment decision
+      -> Surgical intervention
+      -> Rehabilitation
+      -> Prognostic monitoring
+      -> Continuous optimization
+
+INTERPRETATION:
+  The figure argues that the unit of clinical deployment should not be the raw model.
+  It should be a governed clinical capability with boundaries, review, handoffs, and traceability.</code></pre>
+
+    <h3>Figure 2 — Exemplar clinical AI skills for osteoporosis lifecycle management</h3>
+    <pre><code>FIGURE 2 STRUCTURE
+
+TOP PATIENT-JOURNEY STAGES:
+  Prevention
+    -> Screening / Diagnosis
+    -> Treatment decision
+    -> Surgical intervention
+    -> Rehabilitation / Monitoring
+
+NINE CLINICAL AI SKILLS:
+  S1. Education skill
+      Category: knowledge-driven
+      Function: health education and lifestyle guidance
+      Visual cue: education/communication icon
+
+  S2. Opportunistic screening skill
+      Category: data-driven
+      Function: bone-density assessment from routine CT
+      Visual cue: scan/imaging icon
+
+  S3. Diagnostic-support skill
+      Category: knowledge-driven / hybrid-supportive
+      Function: diagnostic-pathway reasoning
+      Visual cue: checklist + dialogue icon
+
+  S4. Risk-stratification skill
+      Category: data-driven
+      Function: machine-learning fracture-risk prediction
+      Visual cue: risk gauge
+
+  S5. Treatment-pathway reasoning skill
+      Category: knowledge-driven / hybrid knowledge-data skill
+      Function: treatment recommendation and referral logic
+      Clinician review checkpoint: yes
+      Visual cue: decision-tree icon
+
+  S6. Material-planning skill
+      Category: physics-enhanced surgical AI
+      Function: personalized cement-related planning
+      Clinician review checkpoint: yes
+      Visual cue: vertebra/cement/material icon
+
+  S7. Intraoperative navigation skill
+      Category: physics-enhanced surgical AI
+      Function: trajectory planning and leakage-risk prediction
+      Clinician review checkpoint: yes
+      Visual cue: trajectory/dispersion icon
+
+  S8. Rehabilitation-management skill
+      Category: knowledge-driven
+      Function: rehabilitation and adherence support
+      Visual cue: walking/rehabilitation icon
+
+  S9. Prognostic-monitoring skill
+      Category: data-driven
+      Function: long-term follow-up and outcome monitoring
+      Visual cue: trend line
+
+FEEDBACK / CLOSURE:
+  Outcome-closed-loop management is drawn from later monitoring back to earlier decision points.
+  S9 can reopen upstream reassessment when outcomes worsen.
+
+LEGEND:
+  Green border: knowledge-driven skills (S1, S3, S5, S8)
+  Blue border: data-driven skills (S2, S4, S9)
+  Purple dashed grouping: physics-enhanced skills (S6, S7)
+  Clinician icon: clinician review checkpoint
+
+FOUNDATIONAL INTELLIGENCE LAYERS:
+  Knowledge-driven intelligence:
+    - Guidelines
+    - Consensus
+    - Literature
+    - Clinical pathways
+    - Expert knowledge
+    - Supports S1, S3, S5, S8
+
+  Data-driven intelligence:
+    - Imaging
+    - Clinical data
+    - Follow-up data
+    - Real-world evidence
+    - Supports S2, S4, S9
+
+  Physics-enhanced intelligence:
+    - Biomechanical modeling
+    - Finite-element analysis
+    - Fluid-dynamics simulation
+    - Supports S6, S7
+
+INTERPRETATION:
+  The figure is a disease-specific map of how multiple AI skill types could be arranged
+  along an osteoporosis lifecycle rather than deployed as disconnected tools.</code></pre>
+
+    <h3>Figure 3 — Deterministic orchestration and hybrid reasoning</h3>
+    <pre><code>FIGURE 3 STRUCTURE
+
+TITLE:
+  Deterministic clinical orchestration
+  Subtitle: Predefined pathway, not open-ended LLM planning
+
+WORKFLOW GRAPH:
+  START:
+    Routine CT upload
+      -> S2: Opportunistic screening
+           Function: automated bone-density assessment
+      -> Decision node: Screening result
+
+  LOW-RISK BRANCH:
+    Screening result = low risk
+      -> S1: Prevention & education
+           Function: health education and lifestyle guidance
+      -> End of workflow
+
+  HIGH-RISK BRANCH:
+    Screening result = high risk
+      -> Parallel invocation block:
+           S1: Prevention & education
+           S3: Diagnostic support
+               Function: diagnostic-pathway reasoning
+           S4: Risk stratification
+               Function: machine-learning prediction of fracture risk
+      -> S5: Treatment-pathway reasoning
+           Function: treatment-pathway decision
+      -> Clinician review node
+      -> Decision node: Treatment pathway
+
+  CONSERVATIVE-TREATMENT BRANCH:
+    Treatment pathway = conservative treatment
+      -> S8: Rehabilitation management
+           Function: rehabilitation plan and adherence management
+      -> S9: Prognostic monitoring
+           Function: long-term follow-up and outcome monitoring
+
+  SURGICAL-TREATMENT BRANCH:
+    Treatment pathway = surgical treatment
+      -> S6: Material planning
+           Function: personalized cement composition and volume recommendation
+      -> Clinician review
+      -> S7: Intraoperative navigation
+           Function: trajectory planning and cement-dispersion prediction using CFD
+      -> Clinician review
+      -> S9: Prognostic monitoring
+
+CLOSED-LOOP FEEDBACK:
+  S9 monitoring output
+    -> feedback loop to S4 / S5 re-stratification when needed
+
+LEGEND:
+  Blue: data-driven skills (S2, S4, S9)
+  Green: knowledge-driven skills (S1, S8)
+  Orange: hybrid knowledge-and-data skills (S3, S5)
+  Purple: physics-enhanced skills (S6, S7)
+  Clinician icon: review checkpoint
+  Green dashed arrow: closed-loop feedback
+
+INTERPRETATION:
+  This is the paper’s most operational figure. It converts the abstract harness idea
+  into a clinical-pathway DAG with conditional branches and mandatory review nodes.</code></pre>
+
+    <h3>Box 1 — From loop engineering to human-governed clinical loops</h3>
+    <pre><code>BOX 1 STRUCTURE
+
+GENERAL IDEA:
+  General-purpose loop engineering:
+    - Plan
+    - Act
+    - Observe feedback
+    - Verify progress
+    - Iterate until task completion
+
+  Clinical Harness adaptation:
+    - Constrain loop execution using skill boundaries
+    - Use state machines
+    - Require artifact contracts
+    - Apply safety guardrails
+    - Preserve clinician authority
+    - Keep outcome and governance loops auditable and interruptible
+
+MAPPING TABLE:
+  General loop engineering        -> Clinical Harness interpretation
+  -----------------------------------------------------------------------------
+  Agent loop: iterative planning  -> Care-execution loop:
+  and action                         registered skills execute only through
+                                     predefined clinical pathways and state transitions
+
+  Verification loop: outputs      -> Safety loop:
+  checked against task criteria      validation, hard constraints, confidence checks,
+                                     boundary enforcement, clinician review
+
+  Event-driven loop: external     -> Outcome-feedback loop:
+  events trigger new actions         refracture, bone-density decline, persistent pain,
+                                     functional deterioration, or poor adherence trigger reassessment
+
+  Self-improvement loop: repeated -> Governance-improvement loop:
+  trials improve behavior            audit logs, clinician overrides, drift and safety events
+                                     trigger recalibration, suspension, revalidation, or retirement
+
+INTERPRETATION:
+  The authors do not endorse free-running agent loops in medicine.
+  They reinterpret loops as constrained, auditable clinical governance cycles.</code></pre>
+
+    <h3>Figure 4 — Four-layer runtime governance architecture of Clinical Harness</h3>
+    <pre><code>FIGURE 4 STRUCTURE
+
+CENTRAL CORE:
+  Clinical Harness
+  Runtime governance infrastructure
+  Harness Core contains:
+    - Skill registry
+    - Boundary metadata
+    - Evidence and validation status
+    - Dependency management
+
+LAYER 1: Multilayer safety guardrails
+  Label: Make unsafe paths unreachable
+  Components:
+    - Input validation
+    - Constraint checking
+    - Confidence monitoring
+    - Boundary enforcement
+    - Human oversight
+
+LAYER 2: Skill registry and boundary management
+  Label: Declare what each skill can and cannot do
+  Components:
+    - Skill card: inputs/outputs, units, intended use, exclusions
+    - Evidence status: guidelines, validation level, known limitations
+    - Role boundary: registered scope, permitted action, review requirement
+    - Version control: active version, dependencies, update history
+
+LAYER 3: Deterministic orchestration and state management
+  Label: Predefined workflows, transitions, and fallback logic
+  Components:
+    - Clinical-pathway DAG
+    - Finite state machine
+    - Conditional branches
+    - Exception handling / fallback
+    - Structured artifact contracts
+
+LAYER 4: Audit tracking and continuous monitoring
+  Label: Logging, traceability, and runtime oversight
+  Components:
+    - Invocation log: input, output, latency, result
+    - Clinician actions: confirm, modify, reject, override
+    - Final decision trace: decision basis, evidence chain
+    - Drift / performance monitoring: AUC, sensitivity, specificity, calibration drift
+    - Safety-event monitoring: adverse events, alerts, revalidation triggers
+
+BOTTOM LIFECYCLE GOVERNANCE BAR:
+  Design and development
+    -> Validation and evaluation
+    -> Deployment
+    -> Monitoring and operation
+    -> Update and iteration
+    -> Retirement and archiving
+
+INTERPRETATION:
+  The figure is the architectural heart of the paper.
+  It turns governance from a documentation requirement into a runtime execution layer.</code></pre>
+
+    <h3>Figure 5 — Multilayer safety guardrails in Clinical Harness</h3>
+    <pre><code>FIGURE 5 STRUCTURE
+
+INPUT:
+  Skill invocation request
+    - Patient data
+    - Clinical scenario
+    - Request parameter
+    - Context information
+    - Additional items represented by ellipsis
+
+NORMAL PASS PATH:
+  Skill invocation request
+    -> Layer 1: Input validation layer
+        Checks:
+          - Data integrity
+          - Format
+          - Range
+        If pass:
+          -> Layer 2
+        If validation failed:
+          -> Escalate to clinician review
+
+    -> Layer 2: Constraint checking layer
+        Checks:
+          - Clinical guideline rules
+          - Contradiction checks
+          - Hard constraints
+        If pass:
+          -> Layer 3
+        If check failed:
+          -> Escalate to clinician review
+
+    -> Layer 3: Confidence monitoring layer
+        Checks:
+          - Confidence assessment
+          - Threshold comparison
+        If confidence below threshold:
+          -> Degrade / review or escalate
+        If confidence at or above threshold:
+          -> Continue execution
+
+    -> Layer 4: Boundary enforcement layer
+        Checks:
+          - Boundary validation
+          - Permission validation
+          - Resource access control
+        If out of scope:
+          -> Escalate to clinician review
+        If pass:
+          -> Layer 5
+
+    -> Layer 5: Human oversight layer
+        Mandatory clinician-in-the-loop for high-risk decisions
+        Components:
+          - Clinician confirmation
+          - Recommendation display
+          - Human decision
+        If reject or revise:
+          -> Escalate / route for review
+        If pass:
+          -> Skill execution
+
+OUTPUT:
+  Skill execution
+    - Generate output and return results
+    -> Audit log
+       - End-to-end recording and traceability
+
+LEGEND:
+  Blue arrow: pass path / normal flow
+  Red dashed arrow: fail path / escalate-to-human-review path
+
+INTERPRETATION:
+  The figure decomposes safety into sequential filters.
+  It is most useful as a checklist for pre-execution gating, not as a fully specified implementation.</code></pre>
+
+    <h3>Figure 6 — Evolution from isolated models to governable medical agents</h3>
+    <pre><code>FIGURE 6 STRUCTURE
+
+LEFT EVOLUTION COLUMN:
+  Model era
+    - Single-task
+    - Isolated coordination
+    - Isolated model development
+    - Lack of clinical boundaries
+    - Difficult to integrate governance
+      -> evolves upward to:
+  Skill era
+    - Orchestrable and governable
+    - Skills as capability units
+    - Standardized interfaces and boundaries
+    - Human-AI collaboration and safety constraints
+      -> evolves upward to:
+  Agent era
+    - Governable medical agents
+    - Autonomous coordination across scenarios
+    - Planning and action through registered skills
+    - Governed and constrained throughout
+
+TOP AGENT LAYER:
+  Governable medical agent
+  Constraint: constrained by Clinical Harness
+  Goal shown: provide optimal full-cycle management for patients
+  Orchestration interface sits below agent
+
+  Governance functions around agent:
+    1. Safety guardrails: input checks, risk interception
+    2. Human-AI collaboration: clinician oversight, decision confirmation
+    3. Performance monitoring: continuous evaluation, drift detection
+    4. Audit tracking: end-to-end logging, traceability
+    5. Access control & compliance: access control, privacy protection
+    6. Versioning & updates: lifecycle management
+
+MIDDLE SKILL LAYER:
+  Clinical AI skills:
+    S1 Education skill
+    S2 Opportunistic screening skill
+    S3 Diagnostic-support skill
+    S4 Risk-stratification skill
+    S5 Treatment-pathway reasoning skill
+    S6 Material planning
+    S7 Intraoperative navigation
+    S8 Rehabilitation management
+    S9 Prognostic monitoring
+
+  Skill metadata and governance elements (Skill Card):
+    - Clinical objective
+    - Input/output contract
+    - Intended-use boundaries
+    - Evidence source
+    - Safety guardrails
+    - Version control
+    - Clinician review
+
+BOTTOM TECHNICAL LAYER:
+  Foundational AI model layer:
+    - CNN / 3D U-Net imaging models
+    - XGBoost / MLP predictive models
+    - LLM / RAG language models
+    - Transformer sequence models
+    - Physics models: FE / CFD etc.
+    - Additional models represented by ellipsis
+
+RIGHT INFRASTRUCTURE SUPPORT:
+  Unified governance and infrastructure support:
+    - Skill registry
+    - Interface and metadata standards
+    - Security and compliance auditing
+
+BOTTOM PATIENT JOURNEY:
+  Coordinated services across the patient journey:
+    Prevention and education
+      -> Opportunistic screening
+      -> Precision diagnosis
+      -> Treatment decision
+      -> Surgical intervention
+      -> Postoperative rehabilitation
+      -> Prognostic monitoring
+      -> Continuous optimization
+
+INTERPRETATION:
+  The figure separates three things that are often collapsed:
+    1. The agent that reasons and requests actions
+    2. The clinical skills that package capabilities
+    3. The harness/infrastructure that governs whether actions may execute</code></pre>
+
+    <h3>Table 1 — Implementation and validation roadmap</h3>
+    <pre><code>TABLE 1 STRUCTURE
+
+Phase 1: Skill-level validation
+  Objective:
+    Validate each S1-S9 skill before registration.
+  Key validation focus:
+    - Input quality
+    - Accuracy
+    - Calibration
+    - Subgroup robustness
+    - Safety
+    - Failure modes
+    - Fallback rules
+  Example endpoints:
+    - Guideline fidelity
+    - Calibration
+    - Segmentation or surrogate-model accuracy
+
+Phase 2: Silent deployment
+  Objective:
+    Run Clinical Harness in the background without affecting care.
+  Key validation focus:
+    - Workflow fit
+    - Artifact completeness
+    - Guardrail activation
+    - Latency
+    - Audit-log completeness
+    - Clinician-disagreement patterns
+  Example endpoints:
+    - Skill-call rate
+    - Safety-gate trigger rate
+    - Escalation frequency
+
+Phase 3: Prospective workflow evaluation
+  Objective:
+    Test clinical utility with clinicians in control.
+  Key validation focus:
+    - Care-process improvement
+    - Safety
+    - Usability
+    - Clinician trust
+    - Patient-centered benefit
+  Example endpoints:
+    - Screening yield
+    - Treatment initiation
+    - Clinician override
+    - Patient-reported outcomes
+
+Phase 4: Post-deployment monitoring
+  Objective:
+    Maintain performance and governance after deployment.
+  Key validation focus:
+    - Drift
+    - Bias
+    - Safety events
+    - Version changes
+    - Guideline updates
+    - Revalidation and retirement triggers
+  Example endpoints:
+    - Calibration drift
+    - Subgroup gaps
+    - Adverse events
+    - Revalidation events
+
+INTERPRETATION:
+  This table is a reasonable validation ladder, but it remains high-level.
+  It does not specify statistical thresholds, monitoring windows, sample sizes, or regulatory decision criteria.</code></pre>
+  </section>
+
+  <section id="appraisal">
+    <h2>Evaluation and appraisal</h2>
+    <div class="verdict">
+      <strong>Verdict:</strong> High conceptual relevance; limited empirical maturity. Read and keep as an architecture reference, but treat it as a design proposal rather than a validated clinical AI method.
+    </div>
+
+    <h3>What the paper gets right</h3>
+    <ul class="tight">
+      <li><strong>Correct unit of abstraction:</strong> “Skill” is more deployable than “model” because it can carry intended use, exclusions, evidence, review requirements, and monitoring status.</li>
+      <li><strong>Runtime governance emphasis:</strong> The paper correctly argues that documentation frameworks are insufficient unless constraints are enforced at execution time.</li>
+      <li><strong>Deterministic orchestration:</strong> The rejection of unconstrained LLM planning in high-risk clinical workflows is appropriate. A clinical-pathway DAG plus state machine is the right control primitive.</li>
+      <li><strong>Artifact contracts:</strong> Structured inputs/outputs are much safer and more auditable than passing intermediate clinical decisions through natural-language context.</li>
+      <li><strong>Silent deployment phase:</strong> Running the harness in the background before exposing recommendations is a practical and clinically conservative validation step.</li>
+      <li><strong>Outcome closure:</strong> The S9 monitoring loop correctly treats long-term outcomes, overrides, drift, and safety events as governance inputs rather than afterthoughts.</li>
+    </ul>
+
+    <h3>Major limitations</h3>
+    <ul class="tight">
+      <li><strong>No empirical system:</strong> The paper does not implement or benchmark a Clinical Harness.</li>
+      <li><strong>No quantitative validation:</strong> There are no prospective outcomes, retrospective simulations, user studies, latency measurements, reliability rates, or safety-gate performance metrics.</li>
+      <li><strong>Underspecified contracts:</strong> The paper calls for skill cards and artifact contracts but does not provide a formal schema detailed enough to implement directly.</li>
+      <li><strong>Regulatory ambiguity:</strong> It does not deeply address how skill versioning, adaptive updates, off-label use, responsibility, and device-regulatory classification would be managed in practice.</li>
+      <li><strong>Integration burden:</strong> EHR integration, identity/access control, data lineage, PHI handling, downtime modes, and interoperability are acknowledged only at a high level.</li>
+      <li><strong>Osteoporosis exemplar is plausible but selective:</strong> It is a good lifecycle example, but the paper does not test whether the architecture handles urgent, ambiguous, adversarial, multimorbid, or resource-constrained care.</li>
+    </ul>
+
+    <h3>Ratings</h3>
+    <div class="rating-grid">
+      <div class="mini-card"><div class="label">Relevance to clinical AI governance</div><div class="score">9 / 10</div><div class="small">Strong framing of runtime constraints and oversight.</div></div>
+      <div class="mini-card"><div class="label">Relevance to agent harness design</div><div class="score">8.5 / 10</div><div class="small">Clear alignment with skill registry, DAG orchestration, state, and audit.</div></div>
+      <div class="mini-card"><div class="label">Novelty</div><div class="score">6.5 / 10</div><div class="small">Useful synthesis; many components resemble known model-card, CDS, governance, and agent-control ideas.</div></div>
+      <div class="mini-card"><div class="label">Empirical strength</div><div class="score">2 / 10</div><div class="small">Conceptual only; no direct validation.</div></div>
+      <div class="mini-card"><div class="label">Implementation specificity</div><div class="score">5.5 / 10</div><div class="small">Gives layers and roadmap, but not schemas, state machines, or test harnesses.</div></div>
+      <div class="mini-card"><div class="label">Priority for your work</div><div class="score">Read soon</div><div class="small">High fit with parser/RAG/harness and clinical-safety interests.</div></div>
+    </div>
+
+    <h3>Bottom-line appraisal</h3>
+    <p>This paper is best understood as a reference architecture for governable clinical AI systems. Its strongest idea is not “osteoporosis AI”; it is the separation between model capability, clinical skill packaging, deterministic runtime orchestration, and governance monitoring.</p>
+    <p>The paper’s immediate use is as a design checklist. It should not be treated as evidence that such a harness improves patient outcomes or is ready for deployment. The next scientifically useful version would include a concrete schema, a minimal prototype, trace examples, deterministic safety tests, retrospective replay over real clinical pathways, and silent-deployment statistics.</p>
+  </section>
+
+  <section id="implementation">
+    <h2>Implementation takeaways for a parser / RAG / clinical-agent harness</h2>
+    <div class="takeaway-grid">
+      <div class="mini-card">
+        <div class="label">Build first</div>
+        <div class="value">Skill-card schema</div>
+        <p>Define task, population, exclusions, inputs, outputs, evidence, validation status, version, owner, fallback, and human-review requirement.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Use deterministic control</div>
+        <div class="value">Pathway DAG + finite-state machine</div>
+        <p>Do not let an LLM decide the clinical action sequence. Let it propose within a typed, bounded state machine.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Avoid context soup</div>
+        <div class="value">Artifact contracts</div>
+        <p>Pass structured artifacts: document IDs, section IDs, extracted facts, units, timestamps, confidence, validation flags, and provenance.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Evaluate traces</div>
+        <div class="value">Audit-first scoring</div>
+        <p>Score whether required evidence was retrieved, gates fired correctly, citations are valid, and human-review triggers occurred.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Deploy conservatively</div>
+        <div class="value">Silent mode</div>
+        <p>Run in shadow mode before action: measure skill-call rate, missing artifact rate, latency, disagreement, override patterns, and unsafe recommendation attempts.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Monitor after launch</div>
+        <div class="value">Drift + override triggers</div>
+        <p>Predefine when to recalibrate, suspend, retire, or revalidate a skill based on drift, subgroup gaps, adverse events, or clinician override clusters.</p>
+      </div>
+    </div>
+
+    <h3>Minimal schema to steal from the paper</h3>
+    <pre><code>{
+  "skill_id": "S2_opportunistic_osteoporosis_screening",
+  "clinical_goal": "Estimate osteoporosis risk from routine CT",
+  "intended_population": ["adults with eligible routine CT"],
+  "exclusions": ["invalid image quality", "unsupported anatomy", "known hardware artifact if not validated"],
+  "inputs": [
+    {"name": "ct_series", "type": "DICOM", "required": true},
+    {"name": "patient_age", "type": "integer", "required": true},
+    {"name": "sex", "type": "coded_value", "required": true}
+  ],
+  "outputs": [
+    {"name": "risk_category", "type": "enum", "values": ["low", "intermediate", "high"]},
+    {"name": "evidence_trace", "type": "provenance_bundle"},
+    {"name": "review_required", "type": "boolean"}
+  ],
+  "evidence_basis": {
+    "guidelines": [],
+    "validation_studies": [],
+    "local_validation_status": "not_started | silent | prospective | deployed"
+  },
+  "guardrails": {
+    "input_validation": true,
+    "boundary_enforcement": true,
+    "confidence_threshold": "predefined",
+    "human_review_rules": ["high_risk", "low_confidence", "out_of_scope"]
+  },
+  "runtime_metadata": {
+    "model_version": "...",
+    "skill_card_version": "...",
+    "owner": "...",
+    "last_revalidated": "YYYY-MM-DD",
+    "fallback_strategy": "withhold_output_and_route_to_clinician"
+  }
+}</code></pre>
+
+    <h3>Most important missing experiment</h3>
+    <div class="warning">
+      A useful follow-up would replay a large retrospective osteoporosis cohort through the proposed S1–S9 pathway in silent mode. The study should report artifact-completeness rate, skill eligibility rate, guardrail-trigger rate, clinician-disagreement rate, latency, calibration, subgroup performance, override clusters, and whether S9 feedback would have changed downstream decisions.
+    </div>
+  </section>
+</main>
+<footer>
+  Source evaluated: arXiv:2606.26494v1, “Clinical Harness for Governable Medical AI Skill Ecosystems.” Generated as a single-file reference HTML.
+</footer>
+</body>
+</html>

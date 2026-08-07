@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reference Appraisal - Newer vs Generic Antibiotics for HABP/VABP</title>
+  <style>
+    :root {
+      --bg:#f6f8fb; --card:#ffffff; --ink:#182232; --muted:#526176; --line:#d9e1eb;
+      --accent:#1d4f91; --accent2:#143b69; --good:#0f6b3b; --warn:#8a5a00; --bad:#8a1f1f;
+      --soft:#eef5ff; --soft2:#f8fbff; --codebg:#111827; --codefg:#eaf0f8;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.55; background:var(--bg); color:var(--ink); }
+    header { background:linear-gradient(135deg,#10243d,#1d4f91); color:white; padding:2.2rem 1rem; border-bottom:6px solid #cfe0f3; }
+    .wrap { max-width:1180px; margin:0 auto; padding:0 1rem; }
+    .kicker { text-transform:uppercase; letter-spacing:.08em; font-weight:700; opacity:.85; font-size:.82rem; }
+    h1 { margin:.35rem 0 .7rem; font-size:clamp(1.75rem,4vw,3rem); line-height:1.08; }
+    header p { max-width:980px; margin:.6rem 0 0; color:#edf5ff; }
+    main { max-width:1180px; margin:0 auto; padding:1.25rem 1rem 3rem; }
+    section, nav.toc { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:1.1rem 1.25rem; margin:1rem 0; box-shadow:0 1px 5px rgba(16,36,61,.06); }
+    h2 { color:#0f315f; margin:.2rem 0 .85rem; font-size:1.45rem; }
+    h3 { color:#173f72; margin:1rem 0 .45rem; }
+    h4 { margin:.85rem 0 .35rem; color:#24364b; }
+    p { margin:.55rem 0; }
+    a { color:var(--accent); }
+    .toc ul { columns:2; gap:2.2rem; padding-left:1.1rem; margin:.4rem 0 0; }
+    .toc li { break-inside:avoid; margin:.25rem 0; }
+    .meta-grid, .takeaway-grid, .score-grid { display:grid; gap:.75rem; }
+    .meta-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .takeaway-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .score-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .mini-card, .rating-card { border:1px solid var(--line); background:var(--soft2); border-radius:13px; padding:.85rem .95rem; }
+    .mini-card .label { display:block; color:var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; font-weight:700; margin-bottom:.25rem; }
+    .tag-row { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.65rem; }
+    .tag { display:inline-flex; align-items:center; border:1px solid #c9d7e8; background:#eef5ff; color:#173f72; border-radius:999px; padding:.22rem .55rem; font-size:.82rem; font-weight:650; }
+    .verdict, .warning, .goodnote, .badnote { border-radius:13px; padding:.9rem 1rem; margin:.8rem 0; border-left:6px solid; }
+    .verdict { background:#eef5ff; border-color:var(--accent); }
+    .warning { background:#fff8e8; border-color:var(--warn); }
+    .goodnote { background:#edf8f1; border-color:var(--good); }
+    .badnote { background:#fff0f0; border-color:var(--bad); }
+    table { width:100%; border-collapse:collapse; margin:.75rem 0; font-size:.94rem; }
+    th, td { border:1px solid var(--line); padding:.58rem .65rem; vertical-align:top; }
+    th { background:#eef3f9; color:#1e395c; text-align:left; }
+    tbody tr:nth-child(even) td { background:#fbfdff; }
+    pre { margin:.75rem 0 1rem; padding:1rem; background:var(--codebg); color:var(--codefg); border-radius:12px; overflow-x:auto; border:1px solid #1b2e49; font-size:.89rem; line-height:1.45; white-space:pre-wrap; }
+    code { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .section-summary { border-top:1px solid var(--line); padding-top:.75rem; margin-top:.75rem; }
+    .section-summary:first-of-type { border-top:0; padding-top:0; }
+    .rating-head { display:flex; justify-content:space-between; gap:1rem; align-items:center; border-bottom:1px solid var(--line); margin-bottom:.5rem; padding-bottom:.45rem; }
+    .rating-head h3 { margin:0; }
+    .rating-head span { min-width:3.5rem; text-align:center; background:#eef5ff; color:#0f315f; border:1px solid #c9d7e8; border-radius:999px; font-weight:800; padding:.2rem .5rem; }
+    .compact-list li { margin:.25rem 0; }
+    footer { max-width:1180px; margin:0 auto 2rem; padding:0 1rem; color:var(--muted); font-size:.9rem; }
+    @media (max-width:850px) { .meta-grid, .takeaway-grid, .score-grid { grid-template-columns:1fr; } .toc ul { columns:1; } }
+    @media print { body { background:white; } section, nav.toc { box-shadow:none; break-inside:avoid; } header { color:white; } a { color:inherit; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">Summary, Evaluation, and Appraisal Reference HTML</div>
+    <h1>Efficacy and Safety of Newer Antibiotics Versus Generic Antibiotics for HABP/VABP</h1>
+    <p>Structured appraisal of a Clinical Infectious Diseases systematic review and meta-analysis of randomized trials comparing newer anti-gram-negative antibiotics with generic/standard comparators for hospital-acquired and ventilator-associated bacterial pneumonia.</p>
+    <div class="tag-row"><span class="tag">Clinical ID</span><span class="tag">HABP/VABP</span><span class="tag">Systematic review</span><span class="tag">Meta-analysis</span><span class="tag">Newer beta-lactams</span><span class="tag">Colistin-sparing</span></div>
+  </div>
+</header>
+<main>
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ul>
+      <li><a href="#metadata">Metadata</a></li>
+      <li><a href="#synthesis">One-page synthesis</a></li>
+      <li><a href="#manifest">Coverage manifest</a></li>
+      <li><a href="#pico">Clinical question and PICO</a></li>
+      <li><a href="#source-map">Source map</a></li>
+      <li><a href="#methods-results">Methods and results extraction</a></li>
+      <li><a href="#visuals">Figures and visual evidence</a></li>
+      <li><a href="#appraisal">Evaluation and appraisal</a></li>
+      <li><a href="#practice">Practice and implementation takeaways</a></li>
+      <li><a href="#provenance">Provenance</a></li>
+    </ul>
+  </nav>
+
+  <section id="metadata">
+    <h2>Metadata</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><span class="label">Exact title</span>Efficacy and Safety of Newer Antibiotics Versus Generic Antibiotics for Hospital-Acquired and Ventilator-Associated Bacterial Pneumonia: A Systematic Review and Meta-analysis of Randomized Controlled Trials</div>
+      <div class="mini-card"><span class="label">Authors</span>Anh T. K. Nguyen; David L. Paterson; Yin Mo; Yukiko Ezure; Pham Thanh Duy; C. Louise Thwaites</div>
+      <div class="mini-card"><span class="label">Source</span>Clinical Infectious Diseases. 2026;82(Supplement 5):S116-S125.</div>
+      <div class="mini-card"><span class="label">Identifier</span>DOI: 10.1093/cid/ciag045. PROSPERO: CRD42023476481.</div>
+      <div class="mini-card"><span class="label">Source type</span>Peer-reviewed supplement article; systematic review and meta-analysis of randomized controlled trials.</div>
+      <div class="mini-card"><span class="label">Domain</span>Clinical infectious diseases, antimicrobial stewardship, pharmacotherapy, critical care pneumonia.</div>
+      <div class="mini-card"><span class="label">Included evidence</span>8 RCTs; 2881 patients; 1450 newer-antibiotic recipients and 1431 generic-comparator recipients.</div>
+      <div class="mini-card"><span class="label">Search window</span>Published 2013-2025; initial search 7 September 2023; update January 2025 after a new trial was published in December 2024.</div>
+      <div class="mini-card"><span class="label">Scope warning</span>This review supports source understanding and stewardship framing. It is not a dosing guide, guideline, formulary economic evaluation, or substitute for susceptibility-directed treatment decisions.</div>
+    </div>
+  </section>
+
+  <section id="synthesis">
+    <h2>One-page synthesis</h2>
+    <div class="verdict"><strong>Core thesis:</strong> Across 8 RCTs in HABP/VABP, newer antibiotics did not significantly improve 28-day all-cause mortality, clinical response, or overall microbiological response versus heterogeneous generic comparators. The clearest actionable signal was lower nephrotoxicity when newer agents replaced colistin-based regimens, with a subgroup microbiological-response signal in carbapenem-resistant gram-negative bacilli.</div>
+    <p>The meta-analysis pooled pivotal noninferiority-style nosocomial pneumonia trials and smaller pathogen-focused trials involving ceftazidime-avibactam, cefiderocol, imipenem-cilastatin-relebactam, sulbactam-durlobactam, and ceftolozane-tazobactam. Comparators were not uniform: some were meropenem or piperacillin-tazobactam in broader HABP/VABP populations, whereas carbapenem-resistant trials used colistin, colistin plus imipenem, or best available therapy. This makes the pooled question clinically useful but conceptually broad.</p>
+    <p>The most important practice interpretation is not that newer antibiotics are broadly superior for all HABP/VABP. Rather, the review supports a more selective conclusion: use newer active agents when resistance phenotype, toxicity avoidance, guideline indications, and local susceptibility data justify them; do not expect this pooled RCT evidence to prove broad mortality benefit in unselected HABP/VABP. The review also reinforces the need for rapid pathogen/resistance identification so future trials and stewardship decisions target the patients most likely to benefit.</p>
+    <div class="warning"><strong>High-risk overclaim:</strong> The microbiological response benefit in carbapenem-resistant gram-negative bacilli should not be converted into a proven patient-centered benefit. Mortality and clinical response did not significantly improve in that subgroup.</div>
+  </section>
+
+  <section id="manifest">
+    <h2>Coverage manifest</h2>
+    <pre><code>SOURCE COVERAGE MANIFEST
+source_id: ciag045.pdf / DOI 10.1093/cid/ciag045
+exact_title: Efficacy and Safety of Newer Antibiotics Versus Generic Antibiotics for Hospital-Acquired and Ventilator-Associated Bacterial Pneumonia: A Systematic Review and Meta-analysis of Randomized Controlled Trials
+source_type: peer-reviewed systematic review and meta-analysis of RCTs
+date_or_version: Clinical Infectious Diseases 2026;82(Supplement 5):S116-S125
+sections_or_headings: Abstract; Introduction/Background; Methods; Search Strategy; Study Selection; Risk-of-Bias Assessment; Data Extraction and Outcome Measures; Statistical Analysis; Results; GRADE Assessment; Effects of Interventions; Safety Outcomes; Subgroup Analysis; Sensitivity Analysis; Discussion; Supplementary Data; Notes; References
+figures: 4 main-text forest plots
+  Figure 1: 28-day all-cause mortality, primary and pathogen/resistance subgroup analyses
+  Figure 2: clinical response, primary and subgroup analyses
+  Figure 3: microbiological response, primary and subgroup analyses
+  Figure 4: nephrotoxicity in trials with colistin comparators
+tables: no main-text tables in the uploaded PDF; supplementary tables are referenced but not included in the uploaded file
+algorithms_or_workflows: none
+appendices_or_supplements: supplementary tables/text/figures referenced online but not supplied in the uploaded PDF
+visual_strategy:
+  structured_blocks: Figures 1-4 reconstructed as structured evidence blocks with key estimates, denominators, heterogeneity, and interpretation
+  embedded_crops_or_screenshots: none; forest plot quantitative content was recoverable from parsed text and visual inspection
+  omitted_with_reason: supplementary materials omitted because not present in the uploaded PDF
+coverage_decision: include all main-text sections and all 4 main-text figures as structured blocks; explicitly mark absent main-text tables and inaccessible supplements
+omissions: detailed supplementary risk-of-bias, CONSORT, GRADE, search strings, and expanded baseline tables were not extracted because the supplement was not included in the PDF</code></pre>
+  </section>
+
+  <section id="pico">
+    <h2>Clinical question and PICO</h2>
+    <table>
+      <tbody>
+        <tr><th>Clinical question</th><td>In adults with hospital-acquired bacterial pneumonia or ventilator-associated bacterial pneumonia, do newer antibiotics improve efficacy or safety outcomes compared with generic/standard antibiotic regimens?</td></tr>
+        <tr><th>Population</th><td>Adults with HABP/VABP in randomized trials; mean ages generally in the late 50s to mid 60s; APACHE II scores at least 15; common baseline pathogens included K. pneumoniae, P. aeruginosa, and Acinetobacter spp.</td></tr>
+        <tr><th>Intervention</th><td>Ceftazidime-avibactam, cefiderocol, imipenem-cilastatin-relebactam, sulbactam-durlobactam, or ceftolozane-tazobactam regimens.</td></tr>
+        <tr><th>Comparator</th><td>Meropenem, piperacillin-tazobactam, colistin, colistin plus imipenem, or best available therapy depending on trial and resistance focus.</td></tr>
+        <tr><th>Primary endpoint</th><td>28-day all-cause mortality.</td></tr>
+        <tr><th>Secondary/safety endpoints</th><td>Favorable clinical response, favorable microbiological response, and nephrotoxicity.</td></tr>
+        <tr><th>Clinical bottom line</th><td>Use as stewardship background and colistin-sparing evidence. Do not use as a stand-alone justification for broad empiric preference for newer agents in all HABP/VABP.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="source-map">
+    <h2>Source map</h2>
+    <table>
+      <thead><tr><th>Location</th><th>Content</th><th>Load-bearing details</th></tr></thead>
+      <tbody>
+        <tr><td>Page 1</td><td>Title, abstract, introduction begins.</td><td>Defines clinical problem; reports pooled abstract estimates; frames MDR gram-negative HABP/VABP burden.</td></tr>
+        <tr><td>Page 2</td><td>Methods.</td><td>PRISMA/AMSTAR statement; PROSPERO registration; databases; English-language restriction; RCT selection; RoB 2; extracted variables; endpoint definitions.</td></tr>
+        <tr><td>Page 3</td><td>Statistical analysis and results begin.</td><td>Random-effects RR approach; I2 thresholds; GRADE; included trials and population characteristics; primary efficacy results.</td></tr>
+        <tr><td>Pages 4-5</td><td>Figures 1-2.</td><td>Forest plots for 28-day mortality and clinical response, including subgroup analyses.</td></tr>
+        <tr><td>Page 6</td><td>Safety outcomes, subgroup analysis, sensitivity analysis, discussion begins.</td><td>Nephrotoxicity reduction versus colistin; pathogen/resistance subgroup signals; notes no major differences in mortality/clinical response by HABP/VABP syndrome.</td></tr>
+        <tr><td>Pages 7-8</td><td>Figures 3-4 and discussion.</td><td>Forest plots for microbiological response and nephrotoxicity; discussion of heterogeneity, small trial sizes, endpoints, and subgroup caution.</td></tr>
+        <tr><td>Page 9</td><td>Limitations, supplement, funding/conflicts, references begin.</td><td>Only 8 RCTs; limited adverse-event data; no drug-specific subgrouping; recommendation for targeted CR-pathogen trials and rapid diagnostics.</td></tr>
+        <tr><td>Page 10</td><td>References.</td><td>Primary RCTs and supporting AMR/guideline/methods citations.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="methods-results">
+    <h2>Methods and results extraction</h2>
+    <div class="section-summary">
+      <h3>Background and rationale</h3>
+      <p>The authors frame HABP/VABP as common and high-burden ICU infections, with MDR gram-negative pathogens driving delayed effective therapy and mortality risk. The clinical motivation is strongest for carbapenem-resistant K. pneumoniae, P. aeruginosa, and A. baumannii, where generic options are limited and newer agents may avoid toxic or less effective salvage regimens.</p>
+      <p>The review is also framed as a resource-allocation question: newer agents may be important in low- and middle-income countries but are less accessible and higher cost, so broader adoption requires stronger evidence than in vitro spectrum alone.</p>
+    </div>
+    <div class="section-summary">
+      <h3>Search and study selection</h3>
+      <p>The search included PubMed, CENTRAL, Scopus, Ovid MEDLINE, ClinicalTrials.gov, and Google Scholar, with manual reference screening. The initial search was conducted 7 September 2023 and updated in January 2025. The review was restricted to English-language publications from 2013-2025.</p>
+      <p>Eligible studies were RCTs comparing newer antibiotics with generic antibiotics in adults with HABP/VABP. Trials with placebo controls, community-acquired pneumonia populations, or healthy volunteers were excluded. Two authors independently screened titles, abstracts, and full texts.</p>
+    </div>
+    <div class="section-summary">
+      <h3>Risk of bias, extraction, and endpoints</h3>
+      <p>The authors report using CONSORT quality assessment, RoB 2 for randomized trials, Cochrane Handbook extraction methods, and GRADE. Extracted data included study identity, population, sample size, ITT population, demographics, ventilation/ICU status, renal function, APACHE II score, antibiotic regimen/duration, and baseline respiratory pathogens.</p>
+      <p>The primary efficacy endpoint was 28-day all-cause mortality. Secondary endpoints were favorable clinical response and favorable microbiological response. Safety was nephrotoxicity, defined by serum creatinine changes using study-specific baseline renal function definitions reported in supplementary material.</p>
+    </div>
+    <div class="section-summary">
+      <h3>Statistical approach</h3>
+      <p>Treatment effects were risk ratios with 95% confidence intervals using a modified random-effects model based on DerSimonian and Laird inverse variance. For mortality and nephrotoxicity, RR below 1 favored newer antibiotics; for clinical and microbiological response, RR above 1 favored newer antibiotics.</p>
+      <p>The authors calculated prediction intervals, assessed heterogeneity with I2, used subgroup analyses by pathogen/resistance group, and performed sensitivity analyses using a classic random-effects Mantel-Haenszel model and HABP versus VABP strata. Analyses used R 4.4.2 with the metabin function.</p>
+    </div>
+    <div class="section-summary">
+      <h3>Included trials and comparators</h3>
+      <p>The review included 8 international multicenter RCTs with 2881 patients. All included RCTs were funded by pharmaceutical companies. Antibiotic intervention duration ranged from 7 to 21 days. Trial populations were generally older, predominantly male, and moderately to severely ill, with APACHE II scores at least 15.</p>
+      <table>
+        <thead><tr><th>Trial</th><th>Newer antibiotic</th><th>Comparator</th><th>Comment</th></tr></thead>
+        <tbody>
+          <tr><td>RESTORE-IMI 2</td><td>Imipenem-cilastatin-relebactam</td><td>Piperacillin-tazobactam</td><td>Broad HABP/VABP trial</td></tr><tr><td>REPROVE</td><td>Ceftazidime-avibactam</td><td>Meropenem</td><td>Nosocomial pneumonia including VABP</td></tr><tr><td>ASPECT-NP</td><td>Ceftolozane-tazobactam</td><td>Meropenem</td><td>Nosocomial pneumonia</td></tr><tr><td>APEKS-NP</td><td>Cefiderocol</td><td>High-dose extended-infusion meropenem</td><td>Gram-negative nosocomial pneumonia</td></tr><tr><td>RESTORE-IMI 1</td><td>Imipenem-cilastatin-relebactam</td><td>Colistin plus imipenem</td><td>Imipenem-nonsusceptible bacterial infections; small HABP/VABP subset</td></tr><tr><td>CREDIBLE-CR</td><td>Cefiderocol</td><td>Best available therapy</td><td>Carbapenem-resistant gram-negative serious infections; descriptive pathogen-focused trial</td></tr><tr><td>ATTACK</td><td>Sulbactam-durlobactam</td><td>Colistin</td><td>Acinetobacter baumannii-calcoaceticus complex serious infections</td></tr><tr><td>IMI-REL CHINA</td><td>Imipenem-cilastatin-relebactam</td><td>Piperacillin-tazobactam</td><td>China trial in HABP/VABP</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section-summary">
+      <h3>Pooled outcome summary</h3>
+      <table>
+        <thead><tr><th>Outcome</th><th>Newer antibiotics</th><th>Generic comparators</th><th>Pooled estimate</th><th>Interpretation</th></tr></thead>
+        <tbody>
+          <tr><td>28-day all-cause mortality</td><td>242/1450 (16.7%)</td><td>247/1431 (17.3%)</td><td>RR 0.97 (95% CI 0.72-1.30); I2 30%; prediction interval 0.54-1.75</td><td>No significant difference; wide future-trial range.</td></tr><tr><td>Favorable clinical response</td><td>839/1385 (60.6%)</td><td>815/1375 (59.3%)</td><td>RR 1.04 (95% CI 0.93-1.17); I2 35%; prediction interval 0.82-1.31</td><td>No significant difference.</td></tr><tr><td>Favorable microbiological response</td><td>591/957 (61.8%)</td><td>556/930 (59.8%)</td><td>RR 1.05 (95% CI 0.89-1.24); I2 52%; prediction interval 0.73-1.51</td><td>No overall significant difference; heterogeneity substantial.</td></tr><tr><td>Nephrotoxicity, colistin-comparator trials</td><td>15/221 (6.8%)</td><td>43/150 (28.7%)</td><td>RR 0.30 (95% CI 0.11-0.79); I2 0%; prediction interval 0.09-0.93</td><td>Large toxicity reduction versus colistin-based comparator regimens; approximate ARR 21.9%, NNT to avoid one nephrotoxicity event about 5.</td></tr><tr><td>Microbiological response in carbapenem-resistant gram-negative bacilli</td><td>72/153 (47.1%)</td><td>43/124 (34.7%)</td><td>RR 1.50 (95% CI 1.18-1.90); I2 0%</td><td>Best efficacy signal, but surrogate and subgroup-based.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section-summary">
+      <h3>Discussion and limitations</h3>
+      <p>The authors interpret the pooled evidence as showing no major clinical efficacy improvement for newer antibiotics over generic comparators in unselected HABP/VABP, while recognizing signals in pathogen-defined subgroups. They argue that future trials should enrich for carbapenem-resistant gram-negative infections and that rapid point-of-care testing for carbapenemase-producing pathogens is important for both care and trial design.</p>
+      <p>The major limitations are heterogeneity of study design and comparators, limited RCT count, limited adverse-event data, small trial sizes, underpowered pathogen subgroups, potential multiplicity from 12 subgroup analyses, and imperfect patient-centered endpoints. The review also cannot determine drug-specific superiority, because the available RCTs do not support adequately powered agent-by-agent subgroup analysis.</p>
+    </div>
+  </section>
+
+  <section id="visuals">
+    <h2>Figures and visual evidence</h2>
+    <div class="section-summary">
+      <h3>Figure 1 - 28-day all-cause mortality</h3>
+      <pre><code>Purpose: Compare mortality between newer and generic antibiotics in the overall HABP/VABP trial populations and pathogen/resistance subgroups.
+Structure/panels: Panel A primary meta-analysis across 8 RCTs; Panel B subgroup analysis by K. pneumoniae, P. aeruginosa, Acinetobacter spp., and carbapenem-resistant gram-negative bacteria.
+Variables/groups: Newer-antibiotic events/total versus generic-comparator events/total; risk ratio with 95% CI; random-effects pooling; I2 heterogeneity.
+Numeric details: Overall 242/1450 vs 247/1431; RR 0.97 (95% CI 0.72-1.30); I2 30%; prediction interval 0.54-1.75. K. pneumoniae subgroup RR 0.73 (0.55-0.99); carbapenem-resistant gram-negative subgroup RR 0.83 (0.33-2.07).
+Main pattern: No overall mortality advantage. K. pneumoniae subgroup shows a nominal mortality signal favoring newer agents, while carbapenem-resistant gram-negative subgroup does not show significant mortality benefit.
+Interpretation: Mortality is not convincingly improved in pooled RCT evidence. The K. pneumoniae signal is hypothesis-generating because subgroup multiplicity and trial-design heterogeneity can produce unstable estimates.
+Limits: All-cause mortality may be diluted by nonpneumonia ICU mortality; subgroup denominators are smaller; comparators differ materially across trials.
+Representation: structured block.</code></pre>
+    </div>
+    <div class="section-summary">
+      <h3>Figure 2 - Favorable clinical response</h3>
+      <pre><code>Purpose: Compare favorable clinical response at test-of-cure or relevant trial visits.
+Structure/panels: Panel A overall meta-analysis; Panel B pathogen/resistance subgroup analysis.
+Variables/groups: Clinical response events/total; risk ratio with 95% CI; random-effects pooling; I2.
+Numeric details: Overall 839/1385 vs 815/1375; RR 1.04 (95% CI 0.93-1.17); I2 35%; prediction interval 0.82-1.31. Subgroups: K. pneumoniae RR 1.05 (0.98-1.14); P. aeruginosa RR 0.88 (0.77-1.00); Acinetobacter spp. RR 1.14 (0.68-1.89); carbapenem-resistant gram-negative bacteria RR 1.21 (0.86-1.70).
+Main pattern: No significant overall clinical-response advantage for newer agents. P. aeruginosa trends against newer agents at the CI boundary, while carbapenem-resistant gram-negative bacteria trend toward newer agents but remain nonsignificant.
+Interpretation: Clinical-response results do not justify broad preference for newer agents over generic comparators in all HABP/VABP.
+Limits: Clinical response definitions vary across trials and are less objective than mortality or microbiologic endpoints; subgroup power is limited.
+Representation: structured block.</code></pre>
+    </div>
+    <div class="section-summary">
+      <h3>Figure 3 - Favorable microbiological response</h3>
+      <pre><code>Purpose: Compare microbiological eradication/favorable microbiological response in microbiological ITT or modified microbiological ITT populations.
+Structure/panels: Panel A overall microbiological response; Panel B pathogen/resistance subgroup analysis.
+Variables/groups: Microbiological response events/total; risk ratio with 95% CI; random-effects pooling; I2.
+Numeric details: Overall 591/957 vs 556/930; RR 1.05 (95% CI 0.89-1.24); I2 52%; prediction interval 0.73-1.51. Subgroups: K. pneumoniae RR 1.10 (0.86-1.39); P. aeruginosa RR 1.09 (0.87-1.36); Acinetobacter spp. RR 1.44 (1.09-1.90); carbapenem-resistant gram-negative bacteria RR 1.50 (1.18-1.90).
+Main pattern: No significant overall microbiological-response improvement, but subgroup effects favor newer agents for Acinetobacter spp. and carbapenem-resistant gram-negative bacteria.
+Interpretation: This is the strongest efficacy signal for newer agents, but it is a surrogate endpoint. It supports targeted study/use in resistant pathogens more than broad clinical superiority.
+Limits: Microbiological response may not translate into mortality or clinical response; the subgroup result is susceptible to multiplicity and comparator effects.
+Representation: structured block.</code></pre>
+    </div>
+    <div class="section-summary">
+      <h3>Figure 4 - Nephrotoxicity in colistin-comparator trials</h3>
+      <pre><code>Purpose: Compare nephrotoxicity when newer antibiotics are tested against colistin-containing comparator regimens.
+Structure/panels: Single forest plot of 3 trials: RESTORE-IMI 1, CREDIBLE-CR, and ATTACK.
+Variables/groups: Nephrotoxicity events/total in safety population; risk ratio with 95% CI.
+Numeric details: RESTORE-IMI 1: 3/29 vs 9/16, RR 0.18 (0.06-0.58). CREDIBLE-CR: 0/101 vs 2/49, RR 0.10 (0.00-1.99). ATTACK: 12/91 vs 32/85, RR 0.35 (0.19-0.63). Pooled: 15/221 vs 43/150, RR 0.30 (0.11-0.79); I2 0%; prediction interval 0.09-0.93.
+Main pattern: Consistent nephrotoxicity reduction with newer agents versus colistin-based regimens.
+Interpretation: Clinically meaningful toxicity avoidance is the most practice-actionable finding, especially where colistin would otherwise be used.
+Limits: Applies to colistin-comparator contexts, not to comparisons versus meropenem or piperacillin-tazobactam. Nephrotoxicity definitions were not uniform in the main text.
+Representation: structured block.</code></pre>
+    </div>
+  </section>
+
+  <section id="appraisal">
+    <h2>Evaluation and appraisal</h2>
+    <div class="verdict"><strong>Verdict: Read soon.</strong> High relevance for ID stewardship and formulary reasoning, but the paper is more useful as a synthesis and cautionary framework than as a direct practice-changing trial result.</div>
+    <div class="score-grid">
+      
+      <article class="rating-card">
+        <div class="rating-head"><h3>Relevance</h3><span>9/10</span></div>
+        <p><strong>Rationale:</strong> Highly relevant to infectious diseases stewardship, formulary positioning, and pharmacotherapy of HABP/VABP due to MDR gram-negative pathogens.</p>
+        <p><strong>Evidence basis:</strong> Directly evaluates newer anti-gram-negative agents used in nosocomial pneumonia and compares mortality, clinical response, microbiological response, and nephrotoxicity.</p>
+        <p><strong>Principal limiting factor:</strong> It does not provide bedside selection algorithms, dosing details, renal adjustment guidance, or local antibiogram integration.</p>
+        <p><strong>Would raise/lower:</strong> Raise with cost-effectiveness and local implementation analyses; lower if used outside MDR or HABP/VABP decision contexts.</p>
+      </article>
+      <article class="rating-card">
+        <div class="rating-head"><h3>Novelty</h3><span>6/10</span></div>
+        <p><strong>Rationale:</strong> Useful synthesis of pivotal and pathogen-focused RCTs, but the main efficacy message largely restates known noninferiority-style trial findings.</p>
+        <p><strong>Evidence basis:</strong> Authors state this is the first systematic review/meta-analysis focused on newer versus generic antibiotics for HABP/VABP RCTs; it adds pooled estimates and subgroup signals.</p>
+        <p><strong>Principal limiting factor:</strong> Most included evidence comes from previously known pivotal trials, with heterogeneous comparators and limited drug-specific inference.</p>
+        <p><strong>Would raise/lower:</strong> Raise with patient-level meta-analysis or resistant-pathogen-specific pooling; lower if treated as a broad new therapeutic claim.</p>
+      </article>
+      <article class="rating-card">
+        <div class="rating-head"><h3>Method strength</h3><span>7/10</span></div>
+        <p><strong>Rationale:</strong> Registered systematic review with multiple databases, independent extraction, RoB 2, GRADE, random-effects models, and sensitivity analysis, but constrained by source-trial heterogeneity.</p>
+        <p><strong>Evidence basis:</strong> PROSPERO registration CRD42023476481; databases included PubMed, CENTRAL, Scopus, Ovid MEDLINE, ClinicalTrials.gov, and Google Scholar; included 8 RCTs and 2881 patients.</p>
+        <p><strong>Principal limiting factor:</strong> English-only search, only 8 RCTs, no individual-patient data, industry-funded source trials, and mixed comparators ranging from meropenem/piperacillin-tazobactam to colistin-based therapy.</p>
+        <p><strong>Would raise/lower:</strong> Raise with broader language inclusion, IPD meta-analysis, full adverse-event extraction, and prespecified pathogen/drug strata; lower if subgroup results are overinterpreted.</p>
+      </article>
+      <article class="rating-card">
+        <div class="rating-head"><h3>Evidence strength</h3><span>6/10</span></div>
+        <p><strong>Rationale:</strong> The pooled clinical outcomes are transparent but mostly null with wide prediction intervals; the strongest actionable signal is reduced nephrotoxicity versus colistin-based comparators.</p>
+        <p><strong>Evidence basis:</strong> Mortality RR 0.97 (95% CI 0.72-1.30), clinical response RR 1.04 (0.93-1.17), microbiological response RR 1.05 (0.89-1.24), nephrotoxicity versus colistin RR 0.30 (0.11-0.79).</p>
+        <p><strong>Principal limiting factor:</strong> Clinical endpoints may be underpowered and diluted by all-cause mortality, competing ICU mortality risks, and nonresistant populations; subgroup multiplicity weakens pathogen-specific signals.</p>
+        <p><strong>Would raise/lower:</strong> Raise with trials enriched for confirmed carbapenem-resistant pathogens and patient-centered endpoints; lower if surrogate microbiological response is treated as proven clinical benefit.</p>
+      </article>
+      <article class="rating-card">
+        <div class="rating-head"><h3>External validity</h3><span>6/10</span></div>
+        <p><strong>Rationale:</strong> Multinational multicenter RCTs improve geographic breadth, but selected trial populations and comparator choices limit bedside generalization.</p>
+        <p><strong>Evidence basis:</strong> Study sites spanned Asia, North/South America, Europe, and Australia; included adults with HABP/VABP and common pathogens including K. pneumoniae, P. aeruginosa, and Acinetobacter spp.</p>
+        <p><strong>Principal limiting factor:</strong> Access, resistance epidemiology, rapid diagnostics, drug availability, and colistin reliance vary substantially by setting, especially in LMICs where the authors frame the need.</p>
+        <p><strong>Would raise/lower:</strong> Raise with pragmatic LMIC trials and rapid-diagnostic-guided enrollment; lower when extrapolated to empiric broad use without microbiologic confirmation.</p>
+      </article>
+      <article class="rating-card">
+        <div class="rating-head"><h3>Implementation value</h3><span>7/10</span></div>
+        <p><strong>Rationale:</strong> Valuable for stewardship framing and colistin-sparing rationale, but insufficient by itself to change guidelines or local empiric therapy.</p>
+        <p><strong>Evidence basis:</strong> Identifies no broad mortality or clinical-response advantage, a microbiological-response signal in carbapenem-resistant gram-negative bacilli, and substantially lower nephrotoxicity in colistin-comparator trials.</p>
+        <p><strong>Principal limiting factor:</strong> Does not integrate susceptibility breakpoints, MIC distributions, PK/PD target attainment, formulary costs, dosing logistics, or local resistance patterns.</p>
+        <p><strong>Would raise/lower:</strong> Raise with cost-effectiveness, susceptibility-specific recommendations, and implementation pathways; lower if used as a simple &#x27;newer drugs are equivalent&#x27; conclusion.</p>
+      </article>
+    </div>
+    <h3>Main strengths</h3>
+    <ul class="compact-list">
+      <li>Clearly defined clinical question with RCT-only inclusion.</li>
+      <li>Registered protocol and standard systematic-review tools: PRISMA, AMSTAR, RoB 2, Cochrane extraction framework, GRADE.</li>
+      <li>Preserves clinically important outcomes rather than relying solely on microbiological eradication.</li>
+      <li>Separates overall HABP/VABP results from pathogen/resistance subgroup signals.</li>
+      <li>Identifies colistin-sparing nephrotoxicity reduction, which is more actionable than the null pooled efficacy outcomes.</li>
+    </ul>
+    <h3>Main limitations</h3>
+    <ul class="compact-list">
+      <li>Only 8 RCTs; many subgroup estimates are underpowered.</li>
+      <li>Heterogeneous comparators make the pooled “generic antibiotic” category clinically mixed.</li>
+      <li>All included RCTs were pharmaceutical-company funded; the review itself reports no external funding.</li>
+      <li>English-only search may miss relevant trials or data.</li>
+      <li>Adverse-event synthesis is thin beyond nephrotoxicity, and nephrotoxicity details depend on supplementary definitions not present in the uploaded PDF.</li>
+      <li>No individual-patient data, no formal cost-effectiveness analysis, and no susceptibility/MIC-level treatment-effect modeling.</li>
+      <li>Microbiological subgroup benefit is not matched by clear mortality or clinical-response benefit.</li>
+    </ul>
+    <div class="warning"><strong>Confidence in appraisal: moderate-high.</strong> The main text is sufficient to appraise the central findings, but full independent verification of RoB/GRADE/search-string details would require the supplementary files.</div>
+  </section>
+
+  <section id="practice">
+    <h2>Practice and implementation takeaways</h2>
+    <div class="takeaway-grid">
+      <div class="mini-card"><span class="label">Best use</span>Use as a stewardship reference when explaining why newer agents should be targeted to resistant pathogens or colistin-sparing scenarios rather than broadly substituted for standard beta-lactams in all HABP/VABP.</div>
+      <div class="mini-card"><span class="label">Do not use for</span>Do not use this review alone to choose empiric therapy, override susceptibility results, justify universal newer-agent use, or conclude that microbiological eradication equals mortality benefit.</div>
+      <div class="mini-card"><span class="label">Formulary implication</span>The strongest formulary argument is not broad superiority; it is availability of safer active alternatives to colistin and targeted coverage of carbapenem-resistant gram-negative bacilli.</div>
+      <div class="mini-card"><span class="label">Bedside implication</span>For suspected HABP/VABP, prioritize local resistance risk, prior cultures, recent antibiotics, severity, renal risk, and rapid diagnostics. De-escalate when susceptibilities permit.</div>
+      <div class="mini-card"><span class="label">Research implication</span>Future trials should enroll microbiologically confirmed resistant pathogens, report patient-centered endpoints, use active modern comparators, and evaluate rapid-diagnostic-guided treatment pathways.</div>
+      <div class="mini-card"><span class="label">Monitoring implication</span>If newer agents replace colistin, track nephrotoxicity, clinical response, microbiologic clearance, resistance emergence, recurrence/relapse, and cost per treated resistant infection.</div>
+    </div>
+    <h3>Local stewardship translation</h3>
+    <ul class="compact-list">
+      <li><strong>For susceptible non-MDR HABP/VABP:</strong> this review does not show that newer agents improve mortality or clinical response over standard comparators.</li>
+      <li><strong>For carbapenem-resistant gram-negative pathogens:</strong> newer agents show better microbiological response, but mortality and clinical response remain unproven; use with susceptibility and guideline alignment.</li>
+      <li><strong>For colistin-eligible salvage scenarios:</strong> nephrotoxicity reduction is compelling and clinically relevant, supporting colistin-sparing strategies when an active newer agent is available.</li>
+      <li><strong>For policy writing:</strong> avoid a blanket “newer versus generic” rule. Prefer organism/resistance/mechanism-specific criteria and require microbiology review when feasible.</li>
+    </ul>
+  </section>
+
+  <section id="provenance">
+    <h2>Provenance and caveats</h2>
+    <p><strong>Evaluated source file:</strong> ciag045.pdf.</p>
+    <p><strong>Reference:</strong> Nguyen ATK, Paterson DL, Mo Y, Ezure Y, Duy PT, Thwaites CL. Efficacy and Safety of Newer Antibiotics Versus Generic Antibiotics for Hospital-Acquired and Ventilator-Associated Bacterial Pneumonia: A Systematic Review and Meta-analysis of Randomized Controlled Trials. <em>Clinical Infectious Diseases</em>. 2026;82(Suppl 5):S116-S125. DOI: 10.1093/cid/ciag045.</p>
+    <p><strong>Generation date:</strong> 2026-07-03.</p>
+    <p><strong>Caveat:</strong> This reference file summarizes and appraises the uploaded PDF only. Supplementary materials referenced by the article were not included in the uploaded PDF and were not independently extracted.</p>
+  </section>
+</main>
+<footer>
+  <p>Single-file HTML appraisal generated for source understanding, retention, and critique. Clinical use requires primary-source review, current guidelines, local microbiology, and patient-specific assessment.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reference Summary: Knowledge-augmented Agentic AI for Mental Health Medication Information Seeking</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --ink: #17202a;
+      --muted: #526173;
+      --line: #d9e0ea;
+      --accent: #1d4f91;
+      --accent2: #7a3e06;
+      --good: #0f6b3b;
+      --warn: #8a5a00;
+      --bad: #8a1f1f;
+      --codebg: #0e1726;
+      --codefg: #edf4ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: linear-gradient(135deg, #10243d, #1d4f91);
+      color: white;
+      padding: 2.2rem 1.25rem 2rem;
+      border-bottom: 5px solid #d2e2f5;
+    }
+    header .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { margin: 0 0 .6rem; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.15; }
+    .subtitle { max-width: 920px; font-size: 1.05rem; color: #dce9f8; margin: 0; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    nav.toc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0 1.25rem;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .06);
+    }
+    nav.toc a { color: var(--accent); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+    .toc-grid { columns: 2; column-gap: 2rem; padding-left: 1.25rem; }
+    section, article.card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .05);
+    }
+    h2 { color: #0f315f; margin: .2rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: .45rem; }
+    h3 { color: #173f72; margin-top: 1.25rem; }
+    h4 { margin: 1rem 0 .35rem; color: #24364b; }
+    .meta-grid, .rating-grid, .takeaway-grid, .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .75rem;
+    }
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .8rem;
+      background: #fbfcff;
+    }
+    .label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .value { font-weight: 650; margin-top: .2rem; }
+    .verdict {
+      border-left: 5px solid var(--accent);
+      background: #eef5ff;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: .6rem 0 1rem;
+    }
+    .warning {
+      border-left: 5px solid var(--warn);
+      background: #fff8e8;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    .badnote {
+      border-left: 5px solid var(--bad);
+      background: #fff1f1;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    .goodnote {
+      border-left: 5px solid var(--good);
+      background: #edf8f2;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    table { width: 100%; border-collapse: collapse; margin: .75rem 0; font-size: .96rem; }
+    th, td { border: 1px solid var(--line); padding: .55rem .65rem; vertical-align: top; }
+    th { background: #eef3f9; text-align: left; color: #1e395c; }
+    .rating-grid .mini-card { min-height: 92px; }
+    .score { font-size: 1.35rem; font-weight: 800; color: var(--accent); }
+    pre {
+      margin: .75rem 0 1.1rem;
+      padding: 1rem;
+      background: var(--codebg);
+      color: var(--codefg);
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #1b2e49;
+      font-size: .88rem;
+      line-height: 1.45;
+      white-space: pre;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .section-summary { border-left: 4px solid #cbd8e8; padding-left: .95rem; margin: .9rem 0 1.2rem; }
+    .section-summary h3 { margin: 0 0 .4rem; }
+    .section-summary p { margin: .4rem 0; }
+    .tag {
+      display: inline-block;
+      border: 1px solid #c9d7e8;
+      background: #f2f6fb;
+      color: #27496d;
+      padding: .15rem .45rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin: .12rem .2rem .12rem 0;
+    }
+    .small { color: var(--muted); font-size: .92rem; }
+    ul.tight li, ol.tight li { margin-bottom: .35rem; }
+    .checklist li { margin-bottom: .45rem; }
+    footer { max-width: 1100px; margin: 0 auto 2rem; color: var(--muted); padding: 0 1.25rem; font-size: .9rem; }
+    @media print {
+      body { background: white; }
+      section, article.card, nav.toc { box-shadow: none; break-inside: avoid; }
+      pre { white-space: pre-wrap; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Knowledge-augmented Agentic AI for Mental Health Medication Information Seeking</h1>
+    <p class="subtitle">Summary, evaluation, and appraisal reference file for a preprint on psychiatric medication information retrieval using Reddit, WebMD, FAERS, knowledge graphs, and multi-agent LLM orchestration.</p>
+  </div>
+</header>
+<main>
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ol class="toc-grid">
+      <li><a href="#metadata">Source metadata</a></li>
+      <li><a href="#onepage">One-page synthesis</a></li>
+      <li><a href="#question">Clinical/AI question</a></li>
+      <li><a href="#sections">Section-by-section condensation</a></li>
+      <li><a href="#methods">Methods architecture</a></li>
+      <li><a href="#results">Results tables</a></li>
+      <li><a href="#figures">Figure and exhibit breakdowns</a></li>
+      <li><a href="#appendices">Appendix extraction</a></li>
+      <li><a href="#evaluation">Evaluation and appraisal</a></li>
+      <li><a href="#takeaways">Implementation takeaways</a></li>
+      <li><a href="#qa">Quality-control notes</a></li>
+    </ol>
+  </nav>
+
+  <section id="metadata">
+    <h2>Source metadata</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><div class="label">Title</div><div class="value">Knowledge-augmented Agentic AI for Mental Health Medication Information Seeking</div></div>
+      <div class="mini-card"><div class="label">Authors</div><div class="value">Huizi Yu, Jian Liu, Wenkong Wang, Lingyao Li, Jiayan Zhou, Zhaoqian Xue, Xiang Li, Xinxin Lin, Zhiying Liang, Zhuoru Wu, Siyuan Ma, Xin Ma, Lizhou Fan</div></div>
+      <div class="mini-card"><div class="label">Source</div><div class="value">arXiv preprint PDF</div></div>
+      <div class="mini-card"><div class="label">Identifier</div><div class="value">arXiv:2606.26205v1 [cs.AI]</div></div>
+      <div class="mini-card"><div class="label">Date</div><div class="value">24 Jun 2026</div></div>
+      <div class="mini-card"><div class="label">Document type</div><div class="value">Preprint; retrospective data-mining study + knowledge graph + agentic RAG architecture</div></div>
+      <div class="mini-card"><div class="label">Domain</div><div class="value">Clinical AI, psychiatric pharmacotherapy, pharmacovigilance, patient education, LLM agents, knowledge graphs</div></div>
+      <div class="mini-card"><div class="label">Primary data sources</div><div class="value">Reddit Academic Torrents, WebMD medication reviews, FDA FAERS</div></div>
+    </div>
+    <p class="small">Scope warning: this reference summarizes and appraises a preprint. The work evaluates extraction, mapping, data integration, cross-source adverse-event structure, and a proposed chatbot architecture. It does not establish patient-facing clinical utility, safety, adherence benefit, or deployment readiness.</p>
+  </section>
+
+  <section id="onepage">
+    <h2>One-page synthesis</h2>
+    <div class="verdict">
+      <strong>Core thesis:</strong> psychiatric medication information systems should not merge regulatory adverse-event reports and patient narratives into one undifferentiated answer stream. The paper proposes a provenance-aware knowledge graph and multi-agent retrieval architecture that keeps FDA/FAERS, WebMD, and Reddit evidence roles separate while using LLMs for extraction, routing, summarization, comparison, and validation.
+    </div>
+    <p>The study builds a large psychiatric medication information corpus from 466,525 information-rich Reddit posts, 60,782 WebMD reviews, and FAERS records from 2005 Q2 through 2025 Q1, mapped against an ATC-N drug dictionary and controlled clinical vocabularies. The authors benchmark nine LLMs for named-entity recognition over physician-annotated data, select GPT-4.1-mini as the pipeline default because it balances accuracy, throughput, and cost, and construct a Neo4j graph with Medication, Condition, SideEffect, and Post nodes linked by treatment, adverse-event, withdrawal, comorbidity, and provenance edges.</p>
+    <p>The strongest evidence is architectural and descriptive: community platforms, especially Reddit and WebMD, are more similar to each other than to FDA/FAERS for several antidepressant adverse-event profiles, and sertraline shows community mentions appearing before FDA dates for many events. The study is not yet a clinical product evaluation. It is best read as a build-useful pattern for provenance-aware clinical RAG and patient education systems, not as proof that a chatbot can safely counsel patients about antidepressants.</p>
+    <div>
+      <span class="tag">Clinical AI</span>
+      <span class="tag">Mental health medication</span>
+      <span class="tag">FAERS</span>
+      <span class="tag">Reddit</span>
+      <span class="tag">WebMD</span>
+      <span class="tag">Knowledge graph</span>
+      <span class="tag">Multi-agent RAG</span>
+      <span class="tag">Provenance</span>
+      <span class="tag">Pharmacovigilance</span>
+      <span class="tag">Patient education</span>
+    </div>
+  </section>
+
+  <section id="question">
+    <h2>Clinical / AI question framed by the paper</h2>
+    <table>
+      <thead><tr><th>Dimension</th><th>Extracted question</th><th>What the paper actually tests</th></tr></thead>
+      <tbody>
+        <tr><td>Population / users</td><td>Patients or caregivers seeking understandable information about psychiatric medication adverse effects, withdrawal, lived experience, and formal safety context.</td><td>Retrospective analysis of public Reddit posts, WebMD reviews, and FAERS records; no prospective patient study.</td></tr>
+        <tr><td>Intervention / system</td><td>Provenance-aware, KG-grounded, multi-agent LLM information-seeking assistant.</td><td>Data pipeline, NER benchmark, entity mapping, source comparison, graph construction, and proposed chatbot workflow.</td></tr>
+        <tr><td>Comparator</td><td>Implicit comparison against ungrounded LLM answers or single-source medication information.</td><td>No head-to-head chatbot comparison against standard patient education, clinician counseling, labels, or commercial chatbots.</td></tr>
+        <tr><td>Outcomes</td><td>Safer and more useful medication information seeking; reduced hallucination/nocebo risk through source separation.</td><td>NER F1, filtering performance, mapping thresholds, cross-source Jaccard/correlation/lead-time patterns, and architecture plausibility.</td></tr>
+        <tr><td>Practice boundary</td><td>Educational retrieval and synthesis aid, not diagnosis or treatment recommendation.</td><td>The paper explicitly leaves clinical utility, response safety, usability, adherence, and decision impact for future prospective testing.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="sections">
+    <h2>Section-by-section condensation</h2>
+
+    <div class="section-summary">
+      <h3>Abstract</h3>
+      <p>The abstract identifies a real safety communication problem: psychiatric medication knowledge is split between formal regulatory adverse-event records and patient-generated narratives. The authors argue that integrating these sources without confusing evidence with anecdote is important because poor contextualization can increase fear, nocebo effects, and non-adherence.</p>
+      <p>The paper reports a provenance-aware multi-agent framework over 466,525 Reddit posts, 60,782 WebMD reviews, and 20 years of FAERS data for nine antidepressants. Key claims include high name-level NER performance for medications and conditions, high community-source concordance, community lead-time for some sertraline adverse events, and a Neo4j graph that preserves source traceability while keeping regulatory facts distinct from patient experience.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Introduction</h3>
+      <p>The introduction frames psychiatric medication education as a high-uncertainty communication problem. Patients often need information about sleep, appetite, concentration, affect, weight, motivation, discontinuation symptoms, and side effects after short clinical encounters. Online forums provide experience-near language but also carry accuracy, representativeness, nocebo, stigma, and adherence risks.</p>
+      <p>The authors position LLMs, knowledge graphs, and multi-agent workflows as a way to separate retrieval, evidence role, synthesis, and validation. Regulatory sources can anchor formal claims, while community narratives can add lived-experience context. The intended system is educational, source-grounded, and safety-constrained, not autonomous clinical decision support.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Methods: drug list construction and data collection</h3>
+      <p>The drug dictionary comes from the WHO ATC system, filtered to the nervous-system branch, yielding 626 generic drug names. The authors used a constrained LLM prompt to expand generic names into brand synonyms, then used the resulting ATC-N dictionary for keyword generation, data collection, and medication normalization.</p>
+      <p>Reddit data were collected from Academic Torrents from June 2005 through April 2025, filtered by ATC-N keywords, deduplicated, language-filtered, and further filtered for information richness, producing 466,525 posts from 1,138,331 cleaned candidates. WebMD reviews were scraped and filtered similarly, leaving 60,782 reviews. FAERS quarterly files from 2005 Q2 through 2025 Q1 were parsed with faers-toolkit, filtered to ATC-N drugs, and aligned by FDA receipt date.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Methods: NER, mapping, and graph construction</h3>
+      <p>The LLM NER prompt extracts medications, dosages, forms, duration, continuation, primary condition, comorbid conditions, side effects, and relations such as TREATS, CAUSES, CAUSES_BY_WITHDRAW, and COMORBID_WITH. Nine LLMs were benchmarked against a physician-annotated gold-standard NER dataset; GPT-4.1-mini was chosen for the main extraction pass because it balanced accuracy, cost, and throughput.</p>
+      <p>Extracted medications map to ATC-N identifiers, conditions to ICD-10 terms, and side effects to MedDRA Preferred Terms using embedding-based nearest-neighbor matching with entity-specific thresholds. Neo4j stores canonical Medication, Condition, SideEffect, and Post nodes. Full post text is kept in a SQLite sidecar database rather than the graph, while MENTIONS edges and supporting post ID lists preserve provenance for evidence-traced retrieval.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Methods: multi-source comparison and chatbot architecture</h3>
+      <p>The comparative analysis aligns FDA, WebMD, and Reddit at the drug–adverse-event level for nine antidepressants. The authors analyze overlap in adverse-event sets, source balance, relative prominence, and first-mention timing across sources. This explicitly treats sources as complementary rather than interchangeable.</p>
+      <p>The chatbot architecture uses parallel NER and intent agents, then a KG query generation agent, source-specific graph queries, a summarization agent, a comparison agent, and a validation agent. Source selection is intent-driven: demographic or epidemiologic questions route more toward structured FAERS/WebMD data, while experiential questions route preferentially toward Reddit.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Results: NER performance</h3>
+      <p>Name-level extraction was strong, but attribute-level extraction was weaker. GPT-4.1-mini had the highest medication-name F1 at 0.969; Claude-Sonnet-4 had the highest primary-condition F1 at 0.973; Deepseek-V3 had the highest side-effect-name F1 at 0.912. Dosage, duration, and frequency were notably harder than entity names.</p>
+      <p>The key methodological implication is that the graph can be relatively reliable for entity presence, but less reliable for precise attributes such as adverse-event duration, frequency, and dose. This matters for patient-facing use because timing, severity, recurrence, and dosage context are often exactly what users need for safe interpretation.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Results: knowledge graph and source similarity</h3>
+      <p>The Reddit-derived KG integrates ontology-grounded psychiatric pharmacotherapy entities from 466,525 posts. The graph uses canonical medication, condition, and side-effect nodes, typed clinical relation edges, and direct post-level provenance. Sertraline is used as a subgraph example linking medication, ICD-10 conditions, MedDRA side effects, and source posts.</p>
+      <p>Across nine antidepressants, WebMD and Reddit usually showed the highest adverse-event overlap. Examples include WebMD–Reddit Jaccard similarity of 0.905 for desvenlafaxine, 0.875 for duloxetine, 0.833 for fluoxetine, 0.805 for paroxetine, and 0.786 for sertraline. FDA remained related but systematically distinct, supporting the authors’ view that community sources add patient-centered salience and timing rather than simply duplicating regulatory data.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Results: sertraline case study</h3>
+      <p>Sertraline had higher overlap between WebMD and Reddit (Jaccard 0.786) than between FDA and WebMD (0.577) or FDA and Reddit (0.558). Frequency-based scatterplots showed the same pattern: Reddit–WebMD correlation was high (r = 0.847), while FDA–Reddit and FDA–WebMD were moderate (r = 0.593 and 0.588).</p>
+      <p>Volcano plots showed that some experiential symptoms, including dry mouth, sexual dysfunction, and panic, appeared more prominent in community comparisons, whereas medically framed events were more enriched in FDA. Lead-time analysis for sertraline was skewed negative, meaning many events appeared earlier in Reddit or WebMD than in FDA, but the authors appropriately avoid claiming causal early detection.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Discussion and limitations</h3>
+      <p>The discussion argues that community and regulatory data should be treated as complementary pharmacovigilance views. Reddit contributes broad experience narratives, WebMD adds semi-structured review context, and FAERS adds formal postmarketing safety data. A provenance-aware graph can keep these roles visible during retrieval and synthesis.</p>
+      <p>Limitations are substantial: weak attribute-level extraction, English-only corpora, residual mapping error, focus on nine antidepressants, and no demonstration of clinical utility, patient usability, response safety, adherence benefit, or decision-making impact. The authors call for broader medication classes, multilingual corpora, and prospective clinician/patient evaluation before deployment claims.</p>
+    </div>
+  </section>
+
+  <section id="methods">
+    <h2>Methods architecture extraction</h2>
+    <h3>Pipeline overview</h3>
+    <pre><code>DATA SOURCES
+  Reddit Academic Torrents
+    - Window: June 2005 to April 2025
+    - Initial cleaned keyword-positive corpus: 1,138,331 posts
+    - Final information-rich corpus: 466,525 posts
+    - Strength: experience-near narratives
+    - Risk: selection bias, public-discourse distortion, variable accuracy
+
+  WebMD reviews
+    - Final corpus: 60,782 reviews
+    - Semi-structured fields: age group, gender, duration of use, reviewer role, rating, review text
+    - Strength: patient/caregiver medication review format
+    - Risk: self-selection and limited verification
+
+  FAERS
+    - Window: 2005 Q2 to 2025 Q1
+    - Source role: formal postmarketing pharmacovigilance reports
+    - Strength: regulatory signal context
+    - Risk: reporting bias, duplicate/variable report quality, no incidence denominator</code></pre>
+
+    <h3>Entity and relation schema</h3>
+    <pre><code>NODES
+  Post
+    - Minimal metadata and source identifier
+    - Full text stored outside graph in SQLite sidecar
+
+  Medication
+    - Canonicalized to ATC-N ingredient-level identifiers
+
+  Condition
+    - Canonicalized to ICD-10 terms
+
+  SideEffect
+    - Canonicalized to MedDRA Preferred Terms
+
+EDGES
+  Post -[:MENTIONS]-> Medication | Condition | SideEffect
+  Medication -[:TREATS]-> Condition
+  Medication -[:CAUSES]-> SideEffect
+  Medication -[:CAUSES_BY_WITHDRAW]-> SideEffect
+  Condition -[:COMORBID_WITH]-> Condition
+
+PROVENANCE MECHANISM
+  - Each relation can carry supporting post_ids
+  - Repeated entity-pair evidence aggregates across posts
+  - Source-specific graphs remain distinguishable for retrieval and comparison</code></pre>
+
+    <h3>Agent workflow</h3>
+    <pre><code>USER QUERY
+  ├─ NER Agent
+  │    └─ Extract medication entities and map to canonical ATC-N IDs
+  │
+  ├─ User Intent Agent
+  │    └─ Classify question type: general AE inquiry, demographic-stratified query,
+  │       longitudinal trend query, experiential-context query, etc.
+  │
+  └─ KG Query Generation Agent
+       ├─ Select source graphs: Reddit KG, WebMD KG, FAERS KG
+       ├─ Generate structured graph queries
+       └─ Retrieve source-specific evidence
+
+SOURCE-SPECIFIC SUMMARIZATION
+  ├─ Reddit summary: lived-experience / narrative context
+  ├─ WebMD summary: semi-structured review context
+  └─ FAERS summary: formal adverse-event report context
+
+COMPARISON AGENT
+  └─ Identify consensus, divergence, source-specific salience, timing differences
+
+VALIDATION AGENT
+  └─ Apply safety rules and source-grounding checks before response generation
+
+FINAL RESPONSE
+  └─ Evidence-grounded educational answer with source attribution</code></pre>
+  </section>
+
+  <section id="results">
+    <h2>Results tables</h2>
+
+    <h3>Table 1. Medication-related NER performance, F1</h3>
+    <table>
+      <thead><tr><th>Model</th><th>Medication</th><th>Dosage</th><th>Dosage form</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td>GPT-5-mini</td><td>0.936</td><td>0.671</td><td>0.994</td><td>Strong name/form extraction; weaker dose.</td></tr>
+        <tr><td>GPT-5-nano</td><td>0.893</td><td>0.523</td><td>0.985</td><td>Cheaper but weak dose extraction.</td></tr>
+        <tr><td><strong>GPT-4.1-mini</strong></td><td><strong>0.969</strong></td><td>0.746</td><td><strong>0.997</strong></td><td>Best medication-name F1 and selected default.</td></tr>
+        <tr><td>GPT-4.1-nano</td><td>0.915</td><td>0.641</td><td>0.848</td><td>Fast but lower-capacity.</td></tr>
+        <tr><td>GPT-4o-mini</td><td>0.902</td><td>0.717</td><td>0.978</td><td>Moderate overall.</td></tr>
+        <tr><td>Claude-Sonnet-4</td><td>0.952</td><td><strong>0.751</strong></td><td>0.991</td><td>Best dosage F1, but costlier.</td></tr>
+        <tr><td>Gemini-2.5-Flash</td><td>0.947</td><td>0.738</td><td>0.984</td><td>Competitive.</td></tr>
+        <tr><td>Deepseek-V3</td><td>0.961</td><td>0.691</td><td>0.953</td><td>Strong medication-name extraction.</td></tr>
+        <tr><td>Qwen3-235b-A22b</td><td>0.936</td><td>0.693</td><td>0.962</td><td>Moderate.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Table 2. Condition-related NER performance, F1</h3>
+    <table>
+      <thead><tr><th>Model</th><th>Condition</th><th>Comorbid</th><th>Diagnosed</th><th>Severity</th><th>Duration</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td>GPT-5-mini</td><td>0.963</td><td>0.862</td><td>0.837</td><td>0.714</td><td>0.357</td><td>Good names; weak duration.</td></tr>
+        <tr><td>GPT-5-nano</td><td>0.959</td><td>0.839</td><td>0.774</td><td>0.375</td><td>0.222</td><td>Weak attributes.</td></tr>
+        <tr><td><strong>GPT-4.1-mini</strong></td><td>0.966</td><td><strong>0.926</strong></td><td>0.839</td><td><strong>0.833</strong></td><td>0.500</td><td>Strong default candidate.</td></tr>
+        <tr><td>GPT-4.1-nano</td><td>0.929</td><td>0.827</td><td>0.692</td><td>0.545</td><td>0.500</td><td>Lower overall.</td></tr>
+        <tr><td>GPT-4o-mini</td><td>0.966</td><td>0.875</td><td>0.860</td><td>0.714</td><td>0.333</td><td>Good names; weak duration.</td></tr>
+        <tr><td>Claude-Sonnet-4</td><td><strong>0.973</strong></td><td>0.925</td><td><strong>0.872</strong></td><td>0.750</td><td><strong>0.562</strong></td><td>Best primary condition and duration.</td></tr>
+        <tr><td>Gemini-2.5-Flash</td><td>0.913</td><td>0.836</td><td>0.840</td><td>0.818</td><td>0.429</td><td>Strong severity, lower condition.</td></tr>
+        <tr><td>Deepseek-V3</td><td>0.965</td><td>0.857</td><td>0.773</td><td>0.818</td><td>0.533</td><td>Good duration relative to peers.</td></tr>
+        <tr><td>Qwen3-235b-A22b</td><td>0.920</td><td>0.882</td><td>0.864</td><td>0.667</td><td>0.438</td><td>Moderate.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Table 3. Side-effect NER performance, F1</h3>
+    <table>
+      <thead><tr><th>Model</th><th>Side effect</th><th>Severity</th><th>Duration</th><th>Frequency</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td>GPT-5-mini</td><td>0.837</td><td>0.690</td><td><strong>0.476</strong></td><td>0.667</td><td>Best duration but still low.</td></tr>
+        <tr><td>GPT-5-nano</td><td>0.715</td><td>0.417</td><td>0.462</td><td>0.200</td><td>Weak.</td></tr>
+        <tr><td><strong>GPT-4.1-mini</strong></td><td>0.858</td><td>0.571</td><td>0.389</td><td>0.714</td><td>Selected despite not leading side-effect F1.</td></tr>
+        <tr><td>GPT-4.1-nano</td><td>0.765</td><td>0.636</td><td>0.300</td><td>0.667</td><td>Lower name extraction.</td></tr>
+        <tr><td>GPT-4o-mini</td><td>0.749</td><td>0.395</td><td>0.188</td><td>0.125</td><td>Poor side-effect attributes.</td></tr>
+        <tr><td>Claude-Sonnet-4</td><td>0.879</td><td>0.732</td><td>0.350</td><td>0.500</td><td>Strong severity.</td></tr>
+        <tr><td>Gemini-2.5-Flash</td><td>0.846</td><td><strong>0.742</strong></td><td>0.333</td><td><strong>0.750</strong></td><td>Best severity/frequency.</td></tr>
+        <tr><td>Deepseek-V3</td><td><strong>0.912</strong></td><td>0.641</td><td>0.429</td><td>0.333</td><td>Best side-effect name F1.</td></tr>
+        <tr><td>Qwen3-235b-A22b</td><td>0.800</td><td>0.514</td><td>0.353</td><td>0.143</td><td>Weak frequency.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Table 4. Pairwise adverse-event profile similarity and source balance</h3>
+    <table>
+      <thead><tr><th>Drug</th><th>Jaccard FDA–WebMD</th><th>Jaccard FDA–Reddit</th><th>Jaccard WebMD–Reddit</th><th>Composition entropy</th><th>Evenness</th><th>Pattern</th></tr></thead>
+      <tbody>
+        <tr><td>Amitriptyline</td><td>0.509</td><td>0.471</td><td>0.723</td><td>0.424</td><td>0.386</td><td>Community sources most concordant.</td></tr>
+        <tr><td>Desvenlafaxine</td><td>0.800</td><td>0.756</td><td><strong>0.905</strong></td><td>0.665</td><td>0.606</td><td>High concordance across all pairs.</td></tr>
+        <tr><td>Duloxetine</td><td>0.638</td><td>0.689</td><td>0.875</td><td>0.324</td><td>0.295</td><td>High community overlap, low balance.</td></tr>
+        <tr><td>Fluoxetine</td><td>0.580</td><td>0.529</td><td>0.833</td><td>0.726</td><td>0.661</td><td>Balanced cross-source representation.</td></tr>
+        <tr><td>Paroxetine</td><td>0.612</td><td>0.540</td><td>0.805</td><td>0.476</td><td>0.433</td><td>Community sources most concordant.</td></tr>
+        <tr><td>Phenelzine</td><td>0.610</td><td>0.549</td><td>0.523</td><td><strong>0.758</strong></td><td><strong>0.690</strong></td><td>More even, less community-dominant overlap.</td></tr>
+        <tr><td>Sertraline</td><td>0.577</td><td>0.558</td><td>0.786</td><td>0.677</td><td>0.616</td><td>Community overlap and useful case study.</td></tr>
+        <tr><td>Venlafaxine</td><td>0.592</td><td>0.667</td><td>0.660</td><td>0.518</td><td>0.471</td><td>FDA–Reddit and WebMD–Reddit similar.</td></tr>
+        <tr><td>Vilazodone</td><td>0.286</td><td>0.756</td><td>0.293</td><td>0.468</td><td>0.426</td><td>Marked asymmetry; source-specific interpretation needed.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="figures">
+    <h2>Figure and exhibit breakdowns</h2>
+
+    <h3>Figure 1 — Multi-agent adverse-event information-seeking architecture</h3>
+    <pre><code>PURPOSE:
+  Show how a user medication query is decomposed into extraction, intent classification,
+  graph retrieval, source-specific summarization, cross-source comparison, and validation.
+
+STRUCTURE:
+  Input:
+    - User query
+
+  Parallel front-end analysis:
+    - NER Agent: extracts medication entities and maps them to canonical identifiers
+    - User Intent Agent: identifies the type of medication information question
+
+  Retrieval planning:
+    - KG Query Generation Agent combines entity and intent outputs
+    - Produces graph query specifications for source-specific KGs
+
+  Evidence sources:
+    - Reddit Knowledge Graph
+    - FAERS Knowledge Graph
+    - WebMD Knowledge Graph
+
+  Synthesis:
+    - Summarization Agent produces source-specific summaries
+    - Comparison Agent identifies convergence/divergence
+    - Validation Agent checks the synthesized answer before final response
+
+INTERPRETATION:
+  This is the paper's most build-useful artifact. It makes source role and evidence path
+  explicit rather than treating retrieval as a single undifferentiated context pile.
+
+LIMITATIONS:
+  The diagram is architectural. It does not show measured chatbot accuracy, usability,
+  safety adjudication, or patient outcomes.</code></pre>
+
+    <h3>Figure 2 — Reddit-derived mental health knowledge graph overview</h3>
+    <pre><code>PURPOSE:
+  Visualize the ontology-grounded Reddit knowledge graph across medications,
+  conditions, side effects, and source posts.
+
+STRUCTURE:
+  Node categories:
+    - Medication
+    - Condition
+    - SideEffect
+    - Post / source-provenance anchors
+
+  Edge categories:
+    - TREATS
+    - CAUSES
+    - CAUSES_BY_WITHDRAW
+    - COMORBID_WITH
+    - MENTIONS
+
+VISUAL PATTERN:
+  The layout highlights dense central regions around commonly discussed psychiatric
+  diagnoses, medications, and adverse effects. Hub nodes correspond to frequently
+  mentioned antidepressants and common mental health conditions.
+
+INTERPRETATION:
+  The graph is designed for evidence-traced retrieval. Its major strength is not only
+  entity linkage but the preservation of post-level provenance.
+
+LIMITATIONS:
+  Network visual density is descriptive. It does not validate edge truth, causality,
+  incidence, or clinical importance.</code></pre>
+
+    <h3>Figure 3 — Sertraline-centered subgraph</h3>
+    <pre><code>PURPOSE:
+  Provide a focused example of how one medication links to co-occurring conditions,
+  MedDRA adverse effects, and supporting Reddit posts.
+
+STRUCTURE:
+  Central medication:
+    - Sertraline
+
+  Linked entities:
+    - ICD-10 conditions
+    - MedDRA Preferred Term adverse effects
+    - Supporting Reddit posts
+
+  Encodings:
+    - Edge thickness proportional to supporting post count
+    - Edge types distinguish treatment, adverse-event, and comorbidity relations
+
+INTERPRETATION:
+  This figure demonstrates how the graph can support drug-centered retrieval and
+  evidence aggregation while preserving traceability to source narratives.
+
+LIMITATIONS:
+  The subgraph is extracted from patient-generated text. Edge thickness reflects mention
+  support, not causal probability, prevalence, or validated risk.</code></pre>
+
+    <h3>Figures 4–5 — Cross-source adverse-event correlations and sertraline frequency scatterplots</h3>
+    <pre><code>FIGURE 4 PURPOSE:
+  Compare pooled adverse-event profile correlations across source pairs for the nine-drug panel.
+
+KEY PATTERN:
+  Reddit vs WebMD has the strongest pooled correlation.
+  FDA vs WebMD and FDA vs Reddit correlations are lower.
+
+FIGURE 5 PURPOSE:
+  Compare normalized adverse-event frequencies for sertraline across source pairs.
+
+SERTRALINE RESULTS:
+  FDA vs Reddit:    r = 0.593
+  FDA vs WebMD:     r = 0.588
+  Reddit vs WebMD:  r = 0.847
+
+INTERPRETATION:
+  The two community-derived sources appear closer to each other than either is to FDA,
+  supporting source-aware integration rather than simple pooling.
+
+LIMITATIONS:
+  Correlation reflects relative adverse-event prominence among reported events. It does
+  not estimate incidence or causal risk.</code></pre>
+
+    <h3>Figure 6 — Sertraline volcano analysis</h3>
+    <pre><code>PURPOSE:
+  Identify adverse events that are disproportionately represented between source pairs.
+
+STRUCTURE:
+  Panels:
+    - FDA vs Reddit
+    - FDA vs WebMD
+    - Reddit vs WebMD
+
+  Axes:
+    - x-axis: log2 odds ratio
+    - y-axis: -log10 false-discovery-rate-adjusted significance
+
+MAIN PATTERN:
+  Most adverse events cluster near the null region, consistent with a shared core profile.
+  A smaller group shows strong source-preferential enrichment.
+
+INTERPRETATION:
+  Community data emphasize some experiential symptoms, while FDA emphasizes some
+  medically framed events. Source differences plausibly reflect reporting incentives,
+  symptom language, and coding practices.
+
+LIMITATIONS:
+  Enrichment is not incidence. It is a reported-frequency contrast conditioned on each
+  source's reporting ecosystem.</code></pre>
+
+    <h3>Figure 7 — Sertraline longitudinal lead time</h3>
+    <pre><code>PURPOSE:
+  Compare first-mention timing across FDA and community sources for sertraline adverse events.
+
+FORMULA:
+  Lead time (days) = first FDA date - min(first WebMD date, first Reddit date)
+
+DIRECTION:
+  Negative value:
+    - Community source mentions the event earlier than FDA receipt date
+  Positive value:
+    - FDA date precedes the first community mention
+
+MAIN PATTERN:
+  Distribution is skewed toward negative values. Many sertraline adverse events appear
+  in community data earlier than in FDA, sometimes by several hundred days.
+
+INTERPRETATION:
+  Community sources may provide earlier patient-centered signal context for some events.
+
+LIMITATIONS:
+  Earlier first mention is not proof of earlier true detection. Administrative delays,
+  coding differences, public awareness, and source coverage can explain timing differences.</code></pre>
+  </section>
+
+  <section id="appendices">
+    <h2>Appendix extraction</h2>
+
+    <div class="section-summary">
+      <h3>Appendix A — Brand synonym expansion prompt</h3>
+      <p>The brand-expansion prompt asks an LLM to return structured XML containing a generic name and zero or more brand-name tags. The prompt includes a nervous-system domain constraint and a “None” sentinel to distinguish no-brand outputs from malformed or off-topic outputs.</p>
+      <p>Appraisal: this is practical for recall, but brand-name expansion by LLM should be audited against trusted drug databases. Brand synonyms are high-impact in clinical retrieval because false positives can pull in wrong medications, and false negatives can miss relevant narratives.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Appendix B — Information-rich post classifier</h3>
+      <p>The authors manually labeled 3,500 Reddit posts using criteria requiring a nervous-system drug, a side effect/adverse event, and enough specific detail about symptoms, timing, dosage, sequence, daily-life impact, or medical attention. About 23.3% of posts were labeled information-rich.</p>
+      <p>A BERT-base-uncased classifier was fine-tuned for three epochs and achieved weighted accuracy 0.866, precision 0.875, recall 0.866, and F1 0.869 on the test set. The information-rich class had lower precision/F1 than the not-information-rich class, so retained data are improved but not clean enough to treat as clinician-validated adverse-event evidence.</p>
+    </div>
+
+    <h3>Table S2. Information-rich filtering classifier</h3>
+    <table>
+      <thead><tr><th>Class</th><th>Support</th><th>Precision</th><th>Recall</th><th>F1</th><th>Implication</th></tr></thead>
+      <tbody>
+        <tr><td>Not information rich</td><td>349</td><td>0.93</td><td>0.87</td><td>0.90</td><td>Good exclusion performance.</td></tr>
+        <tr><td>Information rich</td><td>151</td><td>0.74</td><td>0.85</td><td>0.79</td><td>Useful enrichment, but retained positives still need caution.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-summary">
+      <h3>Appendix C — Medical-doctor annotation interface</h3>
+      <p>The interface shows a full Reddit post with highlighted model spans, a structured JSON preview, and controls for medical doctors to confirm or flag extraction errors. It also lets annotators flag incorrect subfields, which is important because many model errors occur at the attribute level rather than the entity-name level.</p>
+      <p>Appraisal: the interface supports adjudication, but the paper does not provide enough detail to assess inter-annotator agreement, annotation volume by entity type, disagreement resolution rates, or whether the physician gold standard captures ambiguous patient language reliably.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Appendix D — NER prompt</h3>
+      <p>The NER prompt is a single-pass structured extraction prompt that returns medications, conditions, comorbidities, side effects, relations, sentiment, and effectiveness as JSON. It instructs the model to extract only explicit content, use null for missing fields, and avoid paraphrase or inferred data.</p>
+      <p>Appraisal: the null-handling rule is a strong design choice for clinical extraction. However, the prompt still infers dosage form as oral unless another form is explicitly stated, which may be practical but creates a subtle exception to the otherwise conservative extraction policy.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Appendix E — Embedding mapping thresholds</h3>
+      <p>Free-text entities are embedded with text-embedding-3-small, compared by nearest-neighbor retrieval against reference terms, and accepted when the top candidate exceeds a type-specific threshold calibrated on physician-adjudicated labels. Final thresholds are side effects to MedDRA PT τ = 0.68, conditions to ICD-10 τ = 0.56, and comorbid conditions to ICD-10 τ = 0.54.</p>
+      <p>Appraisal: separate thresholds by entity type are appropriate because score distributions differ. The risk is residual semantic over-mapping or under-mapping, especially for patient-described side effects that are colloquial, overlapping, or symptom clusters rather than clean MedDRA terms.</p>
+    </div>
+
+    <h3>Table S3. Efficiency and cost comparison of LLMs for the NER pipeline</h3>
+    <table>
+      <thead><tr><th>Model</th><th>Avg output tokens</th><th>Avg time/request, s</th><th>Cost/question, $</th><th>Estimated total cost, $</th><th>Estimated total time, h</th><th>Role</th></tr></thead>
+      <tbody>
+        <tr><td>GPT-5-mini</td><td>701.7</td><td>0.184</td><td>0.0125</td><td>811</td><td>23.9</td><td>Comparable cost to selected default, slower.</td></tr>
+        <tr><td>GPT-5-nano</td><td>477.0</td><td>0.174</td><td>0.0024</td><td>156</td><td>22.5</td><td>Cheapest but weaker extraction.</td></tr>
+        <tr><td><strong>GPT-4.1-mini</strong></td><td><strong>687.3</strong></td><td><strong>0.066</strong></td><td><strong>0.0120</strong></td><td><strong>777</strong></td><td><strong>8.6</strong></td><td><strong>Selected default.</strong></td></tr>
+        <tr><td>GPT-4.1-nano</td><td>651.2</td><td>0.041</td><td>0.0029</td><td>188</td><td>5.4</td><td>Fastest, lower-capacity extraction.</td></tr>
+        <tr><td>GPT-4o-mini</td><td>614.7</td><td>0.057</td><td>0.0042</td><td>270</td><td>7.3</td><td>Low cost, moderate extraction.</td></tr>
+        <tr><td>Claude-Sonnet-4</td><td>720.2</td><td>0.069</td><td>0.0768</td><td>4,991</td><td>9.0</td><td>Strong but expensive.</td></tr>
+        <tr><td>Gemini-2.5-Flash</td><td>815.6</td><td>0.158</td><td>0.0123</td><td>801</td><td>20.4</td><td>Slower at similar cost.</td></tr>
+        <tr><td>Deepseek-V3</td><td>740.6</td><td>0.140</td><td>0.0054</td><td>349</td><td>18.1</td><td>Moderate cost, strong side-effect names.</td></tr>
+        <tr><td>Qwen3-235b-A22b</td><td>880.2</td><td>0.211</td><td>0.0071</td><td>459</td><td>27.3</td><td>Slowest in table.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-summary">
+      <h3>Appendix G — KG implementation details</h3>
+      <p>The Neo4j ingest process reads JSON/JSONL records containing post identifiers, original text, auxiliary model outputs, structured entities, and relations. Domain entities are canonicalized before insertion and deduplicated using deterministic lowercased whitespace-normalized UIDs.</p>
+      <p>Relations aggregate evidence by storing supporting post_ids for each unique entity-pair/relation triple. The system uses batched Python ingestion with Neo4j MERGE semantics and a SQLite sidecar for raw text, sentiment/effectiveness outputs, and per-post evidence tables. This is a reasonable architecture for keeping graph queries compact while still permitting raw-evidence inspection.</p>
+    </div>
+  </section>
+
+  <section id="evaluation">
+    <h2>Evaluation and appraisal</h2>
+    <div class="verdict">
+      <strong>Verdict: Read first for clinical RAG / pharmacovigilance architecture; do not treat as practice-ready.</strong> The paper is highly relevant to provenance-aware clinical retrieval, agent orchestration, evidence-role separation, and patient-facing medication information design. Its empirical support is strongest for extraction and retrospective source comparison, not for chatbot safety or patient benefit.
+    </div>
+
+    <div class="rating-grid">
+      <div class="mini-card"><div class="label">Relevance</div><div class="score">9 / 10</div><div class="small">Directly intersects clinical pharmacy, medication information, RAG, knowledge graphs, and agent harness design.</div></div>
+      <div class="mini-card"><div class="label">Novelty</div><div class="score">7.5 / 10</div><div class="small">Combination is useful; individual components are familiar. The provenance-aware source-role framing is the main value.</div></div>
+      <div class="mini-card"><div class="label">Method strength</div><div class="score">7 / 10</div><div class="small">Large data sources, annotated NER benchmark, threshold calibration, and explicit architecture; still retrospective and not externally deployed.</div></div>
+      <div class="mini-card"><div class="label">Evidence strength</div><div class="score">6.5 / 10</div><div class="small">Good for descriptive source comparison; insufficient for clinical utility or safety claims.</div></div>
+      <div class="mini-card"><div class="label">External validity</div><div class="score">4.5 / 10</div><div class="small">English-only public platforms and nine antidepressants limit transfer to other populations, languages, and drug classes.</div></div>
+      <div class="mini-card"><div class="label">Implementation value</div><div class="score">8 / 10</div><div class="small">Strong architecture pattern: source-specific KGs, provenance edges, sidecar text store, validation gate, and evidence-role separation.</div></div>
+      <div class="mini-card"><div class="label">Clinical readiness</div><div class="score">3 / 10</div><div class="small">No prospective patient/clinician evaluation, safety adjudication, or outcome measurement.</div></div>
+      <div class="mini-card"><div class="label">Priority</div><div class="score">Read first</div><div class="small">Worth extracting for your RAG/parser/agent harness notes.</div></div>
+    </div>
+
+    <h3>Main strengths</h3>
+    <ul class="tight">
+      <li><strong>Correct safety premise:</strong> the paper does not treat patient narratives as interchangeable with regulatory evidence.</li>
+      <li><strong>Provenance-aware architecture:</strong> post-level MENTIONS edges and source-specific summarization preserve inspectability.</li>
+      <li><strong>Practical schema:</strong> medications, conditions, side effects, relations, and source anchors map well to downstream RAG retrieval.</li>
+      <li><strong>Empirical extraction benchmark:</strong> nine LLMs are compared against physician annotations, and the paper exposes attribute-level weakness rather than hiding it.</li>
+      <li><strong>Good cost-awareness:</strong> model selection considers throughput and operational spend, not only top-line F1.</li>
+      <li><strong>Useful source comparison:</strong> Jaccard, correlation, enrichment, and lead-time analyses give a multi-angle view of source divergence.</li>
+    </ul>
+
+    <h3>Main limitations</h3>
+    <ul class="tight">
+      <li><strong>No prospective user testing:</strong> the chatbot is not shown to improve comprehension, reduce anxiety, support adherence, or avoid unsafe conclusions.</li>
+      <li><strong>Attribute extraction is weak:</strong> side-effect duration, frequency, and dosing attributes remain unreliable, which limits clinical usefulness.</li>
+      <li><strong>No incidence denominator:</strong> Reddit, WebMD, and FAERS cannot estimate adverse-event prevalence or patient-specific risk.</li>
+      <li><strong>Selection and language bias:</strong> English-only public posts/reviews underrepresent many patients and care settings.</li>
+      <li><strong>Mapping error risk:</strong> colloquial symptoms may be over-merged or under-mapped when forced into MedDRA/ICD-10 terms.</li>
+      <li><strong>Deployment details incomplete:</strong> validation-agent safety rules, failure handling, monitoring, evaluation rubric, and clinician escalation are not sufficiently specified for production use.</li>
+      <li><strong>Possible model-era instability:</strong> model costs, latencies, and F1 rankings are time-sensitive and may change with API/model revisions.</li>
+    </ul>
+
+    <div class="warning">
+      <strong>Clinical caution:</strong> community reports should be used as salience and language evidence, not as causal evidence, population incidence, or individualized treatment risk. A patient-facing version would require clinician-reviewed answer policies, source labeling, adverse-event escalation logic, crisis/suicidality guardrails, and prospective safety testing.
+    </div>
+  </section>
+
+  <section id="takeaways">
+    <h2>Implementation and practice takeaways</h2>
+    <div class="takeaway-grid">
+      <div class="mini-card">
+        <div class="label">Build pattern to reuse</div>
+        <div class="value">Source-role separation</div>
+        <p>Tag every retrieved claim as regulatory, clinical-reference, patient narrative, review-platform, or model-derived. Do not let synthesis flatten these roles.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Graph design</div>
+        <div class="value">Entity graph + sidecar text</div>
+        <p>Keep the KG compact with canonical entities and relation edges, while storing raw text and evidence snippets in a searchable sidecar.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Validation target</div>
+        <div class="value">Evidence path, not answer fluency</div>
+        <p>Require final answers to cite source-specific retrieval artifacts and preserve disagreement between sources.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Clinical safety</div>
+        <div class="value">Educational-only boundary</div>
+        <p>Explicitly prevent diagnosis, drug initiation/discontinuation advice, or individualized risk prediction without clinician review.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">NER improvement</div>
+        <div class="value">Attribute extraction is the bottleneck</div>
+        <p>For medication-information workflows, duration, severity, frequency, timing, dose, and discontinuation context need dedicated validation.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Patient-facing design</div>
+        <div class="value">Reduce nocebo risk</div>
+        <p>Present community narratives proportionately: “some users describe...” rather than “this drug causes...” unless formal evidence supports causality.</p>
+      </div>
+    </div>
+
+    <h3>Minimal schema to steal for your own RAG/harness work</h3>
+    <pre><code>claim_id
+answer_span
+source_role: regulatory | patient_narrative | review_platform | clinical_reference | model_inference
+source_name: FAERS | Reddit | WebMD | label | guideline | article | local_policy
+entity_type: medication | condition | side_effect | relation | temporal_signal
+canonical_id: ATC | ICD10 | MedDRA | RxNorm | local_id
+raw_mention
+normalized_term
+relation_type: treats | causes | withdrawal_effect | comorbid_with | mentions
+supporting_artifact_ids: [post_id, report_id, review_id, document_chunk_id]
+retrieval_query
+retrieval_time
+summary_agent_output
+comparison_agent_output
+validation_agent_decision
+safety_label: educational | needs_clinician | urgent_escalation | unsupported</code></pre>
+
+    <h3>What not to overclaim</h3>
+    <ul class="tight">
+      <li>Do not claim Reddit or WebMD detect adverse events earlier in a regulatory sense; the paper shows earlier first mentions for some sertraline events.</li>
+      <li>Do not infer incidence, comparative drug safety, or individualized risk from source frequency.</li>
+      <li>Do not assume high medication-name F1 means safe patient-facing counseling; attribute-level extraction is much weaker.</li>
+      <li>Do not deploy the validation-agent concept without specifying the safety ruleset and measuring failure modes.</li>
+      <li>Do not treat the cost table as durable; model pricing and latency are temporally unstable.</li>
+    </ul>
+  </section>
+
+  <section id="qa">
+    <h2>Quality-control notes</h2>
+    <div class="goodnote">
+      <strong>Most useful contribution:</strong> a provenance-aware architecture for separating patient-experience signals from formal safety evidence in a clinical RAG system.
+    </div>
+    <div class="badnote">
+      <strong>Highest-risk gap:</strong> no prospective evaluation of chatbot outputs with patients or clinicians. The architecture may reduce hallucination risk, but the paper has not shown that it reduces clinical harm, anxiety, nocebo effects, or non-adherence.
+    </div>
+
+    <h3>Final appraisal block</h3>
+    <pre><code>VERDICT:
+  Read first for clinical RAG and pharmacovigilance architecture.
+  Do not use as practice-changing clinical evidence.
+
+BEST USE:
+  - Designing source-aware medication-information retrieval systems
+  - Building KG + sidecar evidence architectures
+  - Creating RAG validation harnesses that distinguish regulatory facts from patient narratives
+  - Thinking through nocebo-aware patient education boundaries
+
+DO NOT USE FOR:
+  - Estimating adverse-event incidence
+  - Ranking antidepressant safety
+  - Patient-specific treatment recommendations
+  - Autonomous psychiatric medication counseling
+  - Claims of deployed chatbot safety or adherence benefit
+
+MAIN STRENGTHS:
+  - Large multi-source data integration
+  - Explicit controlled-vocabulary mapping
+  - Source-specific provenance preservation
+  - NER benchmark with cost/throughput awareness
+  - Multi-angle source comparison
+
+MAIN LIMITATIONS:
+  - Retrospective public-data design
+  - English-only corpora
+  - Weak attribute extraction for duration/frequency/dose context
+  - Mapping and selection bias
+  - No prospective chatbot or clinical outcome evaluation
+
+CONFIDENCE IN APPRAISAL:
+  Moderate-high for architecture and methodological critique.
+  Moderate for quantitative interpretation because full replication details and code/data availability are not established here.</code></pre>
+  </section>
+</main>
+<footer>
+  Reference file generated 2026-06-28 from arXiv:2606.26205v1 using a Summary/Evaluation/Appraisal protocol. This file is a structured appraisal aid, not clinical guidance or a substitute for primary-source review.
+</footer>
+</body>
+</html>

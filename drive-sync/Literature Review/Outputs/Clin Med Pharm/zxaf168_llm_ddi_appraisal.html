@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference Appraisal - LLMs for Clinically Relevant Drug-Drug Interactions</title>
+<style>
+:root{
+  --bg:#f6f8fb; --card:#ffffff; --ink:#16202a; --muted:#536273; --line:#d8e1ec;
+  --accent:#174a7c; --accent2:#0f6b50; --warn:#8a5a00; --bad:#8a1f1f; --soft:#eef5ff;
+  --codebg:#101827; --codefg:#edf4ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#0d2440,#1a5d93);color:#fff;padding:2rem 1.25rem 2.2rem;border-bottom:6px solid #cddff3}
+.wrap{max-width:1120px;margin:0 auto;padding:1.2rem}
+header .wrap{padding:0 1.2rem}
+h1{margin:0 0 .7rem;font-size:clamp(1.8rem,3.3vw,3rem);line-height:1.08;letter-spacing:-.02em}
+.subtitle{font-size:1.05rem;max-width:920px;color:#e9f2ff;margin:.4rem 0 1rem}
+.tagbar{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:1rem}
+.tag{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:.18rem .58rem;font-size:.82rem;font-weight:650}
+nav.toc, section{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(16,36,61,.05);margin:1rem 0;padding:1rem 1.1rem}
+nav.toc h2, section h2{margin:.1rem 0 .7rem;color:#103764;font-size:1.25rem}
+section h3{color:#173f72;margin:1.1rem 0 .45rem;font-size:1.05rem}
+section h4{margin:.9rem 0 .35rem;color:#20374f}
+nav.toc ul{margin:.2rem 0 0;padding-left:1.15rem;columns:2;column-gap:2rem}
+nav.toc li{break-inside:avoid;margin:.25rem 0}
+a{color:#155a9a;text-decoration:none} a:hover{text-decoration:underline}
+.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:.75rem;margin:.75rem 0}
+.mini-card{border:1px solid var(--line);background:#fbfdff;border-radius:12px;padding:.75rem}
+.mini-card b{display:block;color:#20374f;margin-bottom:.18rem}
+.verdict{border-left:6px solid var(--accent2);background:#eefaf5;padding:.95rem 1rem;border-radius:12px;margin:.75rem 0}
+.warning{border-left:6px solid var(--warn);background:#fff8e8;padding:.95rem 1rem;border-radius:12px;margin:.75rem 0}
+.badnote{border-left:6px solid var(--bad);background:#fff0f0;padding:.95rem 1rem;border-radius:12px;margin:.75rem 0}
+.goodnote{border-left:6px solid var(--accent);background:var(--soft);padding:.95rem 1rem;border-radius:12px;margin:.75rem 0}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.93rem;display:block;overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+th,td{border:1px solid var(--line);padding:.5rem .6rem;vertical-align:top;min-width:105px} th{background:#eef3f9;color:#1e395c;text-align:left}
+.small{font-size:.88rem;color:var(--muted)}
+.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:#5d6b7c;font-weight:800;margin-bottom:.25rem}
+.section-summary{border:1px solid var(--line);border-radius:12px;background:#fbfdff;padding:.8rem;margin:.65rem 0}
+.section-summary h3{margin-top:0}
+pre{background:var(--codebg);color:var(--codefg);padding:1rem;border-radius:12px;overflow:auto;border:1px solid #1d304f;font-size:.88rem;line-height:1.45;white-space:pre-wrap}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+.score{font-size:1.35rem;font-weight:800;color:#0f4e78}.score span{font-size:.88rem;color:var(--muted);font-weight:650}
+ul{padding-left:1.2rem} li{margin:.25rem 0}
+footer{color:#5b6674;font-size:.88rem;margin:1rem 0 2rem}
+@media(max-width:760px){nav.toc ul{columns:1}.wrap{padding:.75rem}nav.toc,section{border-radius:12px;padding:.85rem}th,td{font-size:.88rem}}
+@media print{body{background:#fff}header{background:#fff;color:#000;border-bottom:2px solid #000}nav.toc,section{box-shadow:none;break-inside:avoid}.tag{color:#000;border-color:#999;background:#fff}a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker" style="color:#cfe2ff">Summary, Evaluation, and Appraisal Reference</div>
+    <h1>Evaluation of large language models' ability to identify clinically relevant drug-drug interactions and generate high-quality clinical pharmacotherapy recommendations</h1>
+    <p class="subtitle">Reference appraisal of an AJHP practice research report evaluating GPT-4, Gemini 1.5, and Claude 3 on drug-drug interaction identification, clinical relevance assignment, and management recommendations.</p>
+    <div class="tagbar">
+      <span class="tag">Clinical pharmacy</span><span class="tag">Drug-drug interactions</span><span class="tag">LLM evaluation</span><span class="tag">Medication safety</span><span class="tag">Practice research</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#coverage">Coverage manifest</a></li>
+    <li><a href="#sections">Section-by-section condensation</a></li>
+    <li><a href="#tables">Figures and tables</a></li>
+    <li><a href="#aiml">AI/ML and clinical-practice lens</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#takeaways">Implementation takeaways</a></li>
+    <li><a href="#provenance">Provenance</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><b>Source type</b>Journal article; practice research report; experimental LLM benchmark using constructed clinical cases.</div>
+    <div class="mini-card"><b>Journal / citation</b><i>American Journal of Health-System Pharmacy</i>. 2026;83:e494-e500.</div>
+    <div class="mini-card"><b>DOI</b>10.1093/ajhp/zxaf168</div>
+    <div class="mini-card"><b>Publication context</b>Issue dated July 1, 2026. Copyright notice 2025.</div>
+    <div class="mini-card"><b>Authors</b>Aaron Chase; Amoreena Most; Andrea Sikora; Susan E. Smith; John W. Devlin; Shaochen Xu; Tianming Liu; Brian Murray.</div>
+    <div class="mini-card"><b>Evaluated models</b>GPT-4, Gemini 1.5, Claude 3 Haiku.</div>
+    <div class="mini-card"><b>Design</b>Two-phase, zero-shot, prompt-standardized evaluation on 15 expert-created patient medication-regimen cases, each containing one index DDI.</div>
+    <div class="mini-card"><b>Ground truth</b>LexiDrug for DDI identification and rationale; expert panel consensus for clinical relevance and recommendation quality.</div>
+  </div>
+  <div class="warning"><b>Scope warning.</b> This article is useful for understanding LLM failure modes in clinical pharmacotherapy reasoning. It should not be used as evidence that any evaluated model is safe for autonomous medication decision support.</div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="verdict"><b>Core thesis.</b> The evaluated LLMs usually identified intentionally embedded drug-drug interactions in simplified cases, but they overcalled clinical relevance and sometimes generated nonoptimal or potentially harmful management recommendations.</div>
+  <p>The study tests a clinically important distinction: recognizing that two drugs interact is not the same as deciding whether the interaction matters for this patient or how therapy should be modified. Across 15 simplified cases, Claude 3 identified all index DDIs in phase 1, followed by GPT-4 at 14/15 and Gemini 1.5 at 12/15. In phase 2, Gemini 1.5 and Claude 3 identified all index DDIs and GPT-4 identified 13/15. Rationale generation was reported as accurate for all identified index DDIs.</p>
+  <p>The safety signal is in management, not recognition. All models were more likely than clinical experts to classify DDIs as clinically relevant, raising an alert-fatigue analogue for LLM-mediated medication review. Recommendation quality varied: optimal recommendations ranged from 61.5% with GPT-4 to 86.7% with Claude 3. GPT-4 produced 2 potentially harmful recommendations, and Gemini 1.5 produced 1. The paper's most useful contribution is therefore negative and practical: LLMs may be useful as a DDI-recognition layer or drafting aid, but unverified management recommendations remain unsafe.</p>
+  <div class="takeaway-grid">
+    <div class="mini-card"><b>Best use</b>Safety-oriented evidence for why LLM medication-management outputs need deterministic references, calibration, case-level validation, and clinician oversight.</div>
+    <div class="mini-card"><b>Do not use for</b>Model ranking for current deployment, because model versions, products, prompting interfaces, and safety layers change quickly.</div>
+    <div class="mini-card"><b>Most reusable insight</b>Separate DDI detection, relevance calibration, rationale accuracy, and management recommendation quality as distinct evaluation targets.</div>
+    <div class="mini-card"><b>Main constraint</b>Only 15 simplified cases, no repeated sampling, no external case set, no real EHR workflow, and no prompt-sensitivity testing.</div>
+  </div>
+</section>
+
+<section id="coverage">
+  <h2>Coverage manifest</h2>
+  <table>
+    <tr><th>Field</th><th>Decision</th></tr>
+    <tr><td>Source ID</td><td>zxaf168; DOI 10.1093/ajhp/zxaf168</td></tr>
+    <tr><td>Exact title</td><td>Evaluation of large language models' ability to identify clinically relevant drug-drug interactions and generate high-quality clinical pharmacotherapy recommendations</td></tr>
+    <tr><td>Sections/headings</td><td>Abstract; background/introduction; Methods with data source, study design, outcomes, prompts, analysis; Results; Discussion; Limitations integrated into discussion; Conclusion; Data availability; Disclosures; References.</td></tr>
+    <tr><td>Figures</td><td>No main-text figures identified.</td></tr>
+    <tr><td>Tables</td><td>Two main-text tables on page e497: Table 1 for prompt/phase 1 DDI identification and clinical relevance; Table 2 for prompt/phase 2 DDI identification and recommendation assessment. Both are reconstructed below as structured tables.</td></tr>
+    <tr><td>Algorithms/workflows</td><td>Two prompt workflows: phase 1 DDI identification and relevance workflow; phase 2 most-relevant DDI plus management-recommendation workflow.</td></tr>
+    <tr><td>Appendices/supplements</td><td>Online supplementary material and eAppendix are referenced and reportedly contain patient cases and rationales. They were not included in the uploaded PDF and were not appraised here.</td></tr>
+    <tr><td>Omissions</td><td>Case-level eAppendix details and model raw outputs are not available in the uploaded file, limiting error-mode granularity and reproducibility assessment.</td></tr>
+  </table>
+</section>
+
+<section id="sections">
+  <h2>Section-by-section condensation</h2>
+  <div class="section-summary">
+    <h3>Abstract</h3>
+    <p>The abstract frames LLMs as promising but under-evaluated tools for medication regimen assessment. The authors created 15 patient cases with medication regimens containing common DDIs and compared GPT-4, Gemini 1.5, and Claude 3 on DDI identification, clinical relevance assignment, and recommendation quality.</p>
+    <p>Key reported results: Claude 3 identified all DDIs in phase 1; GPT-4 identified 14/15; Gemini 1.5 identified 12/15. All LLMs were significantly more likely than clinical experts to categorize DDIs as clinically relevant. GPT-4 recommendations were optimal in 8/13 cases where it identified the DDI, and 2 GPT-4 recommendations plus 1 Gemini 1.5 recommendation were deemed potentially harmful.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Background / rationale</h3>
+    <p>The introduction distinguishes structured clinical AI tasks, such as diagnosis or report interpretation, from comprehensive medication management. CMM requires judging appropriateness, effectiveness, safety, and feasibility for a patient-specific regimen, often with multiple reasonable paths rather than one clean ground truth.</p>
+    <p>The DDI use case is clinically plausible because DDIs contribute to adverse drug events and are targeted by EHR/CDSS alerts, but alert fatigue and clinical irrelevance limit current systems. The authors argue that LLMs might improve medication management if they can incorporate clinical context and generate individualized recommendations, but this requires evaluation beyond interaction-pair recognition.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Methods - data source and case construction</h3>
+    <p>Three board-certified critical care pharmacists created 15 patient cases. Each case included one intentionally embedded index DDI documented in LexiDrug, plus distractor medications. Cases were simplified to include chief complaint, past medical history, relevant laboratory values, and vital signs.</p>
+    <p>The expert panel determined whether each index DDI was clinically relevant, defined as requiring immediate actionable intervention such as dose change or alternate therapy. The patient cases and DDI rationales were stated to be available in an eAppendix, but that supplement was not present in the uploaded PDF.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Methods - study design and prompts</h3>
+    <p>The study used two separate phases. Phase 1 asked each LLM to identify any DDIs, determine whether identified DDIs were clinically relevant, and provide a rationale. Phase 2 started in a separate LLM session and asked each model to identify the most clinically relevant DDI, justify it, and provide a management recommendation: continue as-is, continue with monitoring, or modify therapy.</p>
+    <p>A single investigator entered all cases and prompts using a consistent process. The authors used standardized zero-shot prompts and the same version of each LLM for all cases. Important reproducibility details remain limited: the article does not provide repeated runs, sampling parameters, precise product build/version identifiers, or prompt-sensitivity analysis.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Methods - outcomes and analysis</h3>
+    <p>The primary outcome was correct identification of the index DDI. Secondary outcomes were correct rationale, correct assignment of clinical relevance, and quality of DDI management recommendation. Recommendation quality was first categorized as potentially harmful versus acceptable, and acceptable recommendations were then evaluated for whether they optimized therapy.</p>
+    <p>Ground truth came from LexiDrug for DDI identification and rationale, and expert consensus for clinical relevance and recommendation assessment. Chi-square testing was used for primary and most secondary outcomes, descriptive statistics for rationale accuracy, R 4.3.0 for analysis, and no sample-size calculation because the work was hypothesis-generating.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Results</h3>
+    <p>Phase 1 showed high DDI recognition but overclassification of clinical relevance. Claude 3 identified 15/15 DDIs, GPT-4 14/15, and Gemini 1.5 12/15. Clinical experts classified 8/15 DDIs as clinically relevant, while the LLMs classified 85.7% to 100% of identified DDIs as clinically relevant, a statistically significant difference versus ground truth.</p>
+    <p>Phase 2 showed that recognition did not guarantee safe or optimal management. GPT-4 correctly identified 13/15 index DDIs, while Gemini 1.5 and Claude 3 identified all 15. Potentially harmful recommendations occurred with GPT-4 in 2/13 cases and Gemini 1.5 in 1/15 case. Optimal recommendations were 8/13 for GPT-4, 12/15 for Gemini 1.5, and 13/15 for Claude 3.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Discussion and limitations</h3>
+    <p>The discussion emphasizes the gap between recognizing DDIs and applying clinical reasoning to manage them. The authors connect LLM overcalling of clinical relevance to the known CDSS problem of excessive alerts. They also highlight two harmful GPT-4 examples: recommending piperacillin/tazobactam instead of meropenem to avoid a valproate-meropenem interaction in ESBL <i>E. coli</i> sepsis, and suggesting monitoring or switching apixaban to rivaroxaban despite phenobarbital induction affecting rivaroxaban as well.</p>
+    <p>Limitations are material. The case count was small; cases were simplified; no prompt engineering, RAG, domain-specific model adaptation, subscription-tier comparisons, repeated runs, explainability, citation behavior, reproducibility, or prompt-sensitivity metrics were evaluated. The study is therefore best read as a controlled warning signal and evaluation template, not as a definitive benchmark or deployment validation.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Conclusion, data availability, disclosures</h3>
+    <p>The conclusion is appropriately cautious: LLMs show promise for DDI identification but have significant limitations when asked to assign clinical relevance or produce management recommendations. The authors suggest the findings may inform future development of LLMs for DDI-related clinical decision support.</p>
+    <p>The article states that underlying data are available in the article and online supplementary material. Disclosures report AHRQ funding for Dr. Sikora and Dr. Smith through R21HS028485 and R01HS029009, and no declared potential conflicts of interest.</p>
+  </div>
+</section>
+
+<section id="tables">
+  <h2>Figures, tables, and workflow extraction</h2>
+  <h3>Visual inventory</h3>
+  <table>
+    <tr><th>Item</th><th>Status</th><th>Extraction</th><th>Appraisal note</th></tr>
+    <tr><td>Figures</td><td>None</td><td>Not applicable</td><td>No graphical evidence beyond tables.</td></tr>
+    <tr><td>Table 1</td><td>Included</td><td>Structured reconstruction below</td><td>Shows high identification but overcalling clinical relevance; denominators are partly dependent on whether the index DDI was first identified.</td></tr>
+    <tr><td>Table 2</td><td>Included</td><td>Structured reconstruction below</td><td>Most important table for safety: potentially harmful and nonoptimal recommendations appear despite correct rationale.</td></tr>
+  </table>
+
+  <h3>Table 1 - LLM performance on prompt 1: DDI identification and assignment of clinical relevance</h3>
+  <table>
+    <tr><th>Result (N = 15 cases)</th><th>GPT-4</th><th>Gemini 1.5</th><th>Claude 3</th><th>Ground truth</th><th>P: model performance</th><th>P: model vs ground truth</th></tr>
+    <tr><td>Index DDI correctly identified</td><td>14 (93.3%)</td><td>12 (80.0%)</td><td>15 (100%)</td><td>NR</td><td>0.14</td><td>0.09</td></tr>
+    <tr><td>Index DDI categorized as clinically relevant</td><td>12 (85.7%)</td><td>12 (100%)</td><td>15 (100%)</td><td>8 (53.3%)</td><td>0.13</td><td>&lt;0.01</td></tr>
+    <tr><td>Identified nonindex DDI</td><td>3 (21.4%)</td><td>2 (13.3%)</td><td>0</td><td>NR</td><td>0.18</td><td>0.09</td></tr>
+    <tr><td>Accurate rationale for index DDI</td><td>14 (100%)</td><td>12 (100%)</td><td>15 (100%)</td><td>NR</td><td>NR</td><td>NR</td></tr>
+  </table>
+  <pre><code>TABLE 1 APPRAISAL
+Rows: DDI identification, clinical relevance classification, nonindex DDI identification, rationale accuracy.
+Columns: GPT-4, Gemini 1.5, Claude 3, ground truth, P values.
+Key pattern: Claude 3 had perfect identification; GPT-4 and Gemini missed some index DDIs. All LLMs that identified DDIs tended to classify them as clinically relevant more often than experts.
+Important statistic: model-vs-ground-truth comparison for clinical relevance was P &lt; 0.01.
+Limits: Small N; no uncertainty intervals; relevance ground truth depends on expert consensus; denominators vary after missed DDI identification; one footnote/denominator in the rendered table is ambiguous for Gemini phase 1.</code></pre>
+
+  <h3>Table 2 - LLM performance on prompt 2: DDI identification and management recommendations</h3>
+  <table>
+    <tr><th>Result (N = 15 cases)</th><th>GPT-4</th><th>Gemini 1.5</th><th>Claude 3</th><th>P: model performance</th><th>P: model vs ground truth</th></tr>
+    <tr><td>Index DDI correctly identified</td><td>13 (86.7%)</td><td>15 (100%)</td><td>15 (100%)</td><td>0.12</td><td>0.10</td></tr>
+    <tr><td>Accurate rationale for index DDI</td><td>13 (100%)</td><td>15 (100%)</td><td>15 (100%)</td><td>NR</td><td>NR</td></tr>
+    <tr><td>Clinical recommendation acceptable</td><td>11 (84.6%)</td><td>14 (93.3%)</td><td>15 (100%)</td><td>0.56</td><td>0.52</td></tr>
+    <tr><td>Clinical recommendation results in potential harm</td><td>2 (15.4%)</td><td>1 (6.7%)</td><td>0</td><td>0.28</td><td>0.21</td></tr>
+    <tr><td>Clinical recommendation optimizes therapy</td><td>8 (61.5%)</td><td>12 (80.0%)</td><td>13 (86.7%)</td><td>0.27</td><td>0.05</td></tr>
+  </table>
+  <pre><code>TABLE 2 APPRAISAL
+Rows: DDI identification, rationale accuracy, acceptable recommendation, harmful recommendation, optimal recommendation.
+Columns: GPT-4, Gemini 1.5, Claude 3, P values.
+Key pattern: Correct DDI identification and correct rationale did not ensure optimal management.
+Safety signal: Potential harm occurred in 2/13 GPT-4 recommendations and 1/15 Gemini 1.5 recommendations.
+Implementation implication: A model can be clinically unsafe even when it identifies the right interaction and explains the mechanism correctly.
+Limits: Recommendation ratings are expert-panel judgments; small N limits statistical comparison; case-level raw outputs are not available in the PDF.</code></pre>
+
+  <h3>Workflow extraction - two prompt phases</h3>
+  <pre><code>WORKFLOW 1 - DDI identification and clinical relevance
+Inputs: Simplified patient case plus medication regimen.
+Process: Ask LLM to identify DDIs, determine clinical relevance, and provide rationale.
+Outputs: DDI list, relevance label, rationale.
+Ground truth: LexiDrug for index DDI and rationale; expert panel for clinical relevance.
+Failure modes: Missed index DDI; extra nonindex DDI; overcalling relevance; accurate mechanism without useful clinical prioritization.
+Human review: Required to adjudicate relevance and avoid alert-fatigue style overclassification.
+Governance needs: Versioned prompts, model build logging, repeated-run stability checks, and expert review of false positives/false negatives.</code></pre>
+  <pre><code>WORKFLOW 2 - Most clinically relevant DDI plus management recommendation
+Inputs: Simplified patient case plus medication regimen in a separate LLM session.
+Process: Ask LLM to identify the most clinically relevant DDI, provide rationale, and recommend continue-as-is, continue with monitoring, or therapy modification.
+Outputs: Single prioritized DDI, rationale, management plan.
+Ground truth: LexiDrug for identification/rationale; expert panel for acceptability, potential harm, and therapy optimization.
+Failure modes: Correct interaction with incorrect substitution; unsafe therapy modification; underweighting infectious diseases or anticoagulation context; incomplete monitoring plan.
+Human review: Mandatory before use in care.
+Governance needs: Hard stops for high-risk drug classes, deterministic drug-reference retrieval, local antimicrobial stewardship logic, anticoagulation interaction checks, and audit trail.</code></pre>
+</section>
+
+<section id="aiml">
+  <h2>AI/ML and clinical-practice lens</h2>
+  <h3>AI/ML appraisal module</h3>
+  <table>
+    <tr><th>Domain</th><th>Extraction</th><th>Appraisal</th></tr>
+    <tr><td>Task</td><td>DDI recognition, relevance classification, rationale generation, and clinical management recommendation.</td><td>Appropriately decomposed into clinically meaningful subtasks.</td></tr>
+    <tr><td>Data</td><td>15 expert-created, simplified patient cases with one index DDI each; distractor medications included.</td><td>Useful controlled set, but too small and synthetic for robust model claims.</td></tr>
+    <tr><td>Models</td><td>GPT-4, Gemini 1.5, Claude 3 Haiku; public/base functionality.</td><td>High clinical interest, but version and sampling details are insufficient for reproducibility.</td></tr>
+    <tr><td>Prompting</td><td>Zero-shot, standardized prompts; two separate phases/sessions.</td><td>Prompt consistency is a strength; no prompt sensitivity or repeated-run stability testing is a major limitation.</td></tr>
+    <tr><td>Metrics</td><td>Index DDI identification, rationale correctness, relevance classification, acceptability, potential harm, therapy optimization.</td><td>Metrics are clinically sensible; no confidence intervals, calibration curves, or case-level error taxonomy.</td></tr>
+    <tr><td>Baselines</td><td>LexiDrug and expert-panel consensus used as ground truth.</td><td>Appropriate for a preliminary clinical benchmark, but no comparison to pharmacists performing same cases under same conditions.</td></tr>
+    <tr><td>Deployment relevance</td><td>Directly relevant to CMM and medication safety tooling.</td><td>Not deployment-ready evidence; needs real-world cases, prospective testing, human-in-the-loop design, and governance.</td></tr>
+  </table>
+  <h3>Clinical-practice translation</h3>
+  <table>
+    <tr><th>Clinical question</th><td>Can general-purpose LLMs identify clinically relevant DDIs and generate high-quality pharmacotherapy recommendations from patient cases?</td></tr>
+    <tr><th>Population/data analogue</th><td>Simplified patient cases with chief complaint, past medical history, relevant labs, vitals, and medication regimen.</td></tr>
+    <tr><th>Comparator</th><td>LexiDrug for DDI identification/rationale; expert-panel consensus for relevance and recommendation quality.</td></tr>
+    <tr><th>Outcome relevance</th><td>Medication safety and pharmacist workflow relevance are high; outcomes are case-based surrogate judgments rather than patient-centered clinical outcomes.</td></tr>
+    <tr><th>Practice bottom line</th><td>Do not allow autonomous LLM therapy changes for DDI management. At most, use LLM output as a draft or second-look signal behind deterministic DDI detection, patient-specific rules, and pharmacist review.</td></tr>
+  </table>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="verdict"><b>Verdict: Read first</b> for clinical-pharmacy AI safety, DDI reasoning, and benchmark design. <b>Do not use for practice</b> as evidence that any model can independently manage DDIs.</div>
+  <div class="rating-grid">
+    <div class="mini-card"><b>Relevance</b><div class="score">9.0 <span>/10</span></div><p>Direct fit for clinical pharmacy, DDI management, AI decision support, and medication-safety workflow design.</p><p class="small"><b>Evidence basis:</b> evaluates LLMs on DDI identification and recommendations. <b>Limit:</b> simplified cases. <b>Would rise:</b> real EHR cases and pharmacist workflow testing. <b>Would fall:</b> if supplement cases are clinically trivial or unrepresentative.</p></div>
+    <div class="mini-card"><b>Novelty</b><div class="score">7.0 <span>/10</span></div><p>More useful than exam-style or pairwise DDI tests because it evaluates patient-context management recommendations.</p><p class="small"><b>Evidence basis:</b> two-phase prompt design and recommendation-quality grading. <b>Limit:</b> small case set and prior literature already covers LLM DDI recognition. <b>Would rise:</b> case-level outputs, error taxonomy, and prospective design. <b>Would fall:</b> if cases duplicate known benchmark items.</p></div>
+    <div class="mini-card"><b>Method strength</b><div class="score">5.5 <span>/10</span></div><p>Structured prompts, expert case construction, and explicit ground-truth sources are strengths, but reproducibility and statistical power are limited.</p><p class="small"><b>Evidence basis:</b> 15 cases, single investigator, zero-shot prompts, chi-square analysis. <b>Limit:</b> no repeated runs, no temperature/build details, no external validation. <b>Would rise:</b> preregistered benchmark, larger case bank, repeated sampling, blinded raters, interrater statistics. <b>Would fall:</b> unblinded or inconsistent adjudication in the supplement.</p></div>
+    <div class="mini-card"><b>Evidence strength</b><div class="score">5.5 <span>/10</span></div><p>The results support a cautionary conclusion but not precise model ranking or deployment claims.</p><p class="small"><b>Evidence basis:</b> observed harmful and nonoptimal recommendations despite correct DDI rationales. <b>Limit:</b> no confidence intervals, small N, model version instability. <b>Would rise:</b> larger external test set with uncertainty reporting and raw outputs. <b>Would fall:</b> major denominator or case-construction problems.</p></div>
+    <div class="mini-card"><b>External validity</b><div class="score">4.0 <span>/10</span></div><p>Generalizability is constrained by simplified synthetic cases, lack of live workflow testing, and rapidly changing LLM products.</p><p class="small"><b>Evidence basis:</b> cases include limited clinical context and no real EHR environment. <b>Limit:</b> no multisite data, no prospective deployment, no current-version assessment. <b>Would rise:</b> multicenter real-case validation with current models. <b>Would fall:</b> if supplement cases lack diversity of DDI mechanisms.</p></div>
+    <div class="mini-card"><b>Implementation value</b><div class="score">7.0 <span>/10</span></div><p>High value as a design warning: evaluate detection, relevance, rationale, and recommendation quality separately, and treat harmful recommendations as a primary safety endpoint.</p><p class="small"><b>Evidence basis:</b> explicit examples of harmful recommendations and structured outcomes. <b>Limit:</b> no implementation architecture. <b>Would rise:</b> proposed guardrails, RAG/reference integration, prospective human factors testing. <b>Would fall:</b> if raw outputs show errors are prompt artifacts rather than model limitations.</p></div>
+  </div>
+  <h3>Main strengths</h3>
+  <ul>
+    <li>Clinically relevant task selection: DDI recognition plus management is closer to pharmacist work than simple drug-pair classification.</li>
+    <li>Ground truth is separated by domain: LexiDrug for interaction identity/rationale and expert consensus for relevance/recommendation quality.</li>
+    <li>The study highlights the clinically important failure mode of correct mechanism with unsafe management.</li>
+    <li>Tables preserve denominator-based outcomes and potential-harm endpoints.</li>
+  </ul>
+  <h3>Main limitations</h3>
+  <ul>
+    <li>Only 15 cases; no sample-size calculation; limited precision and no meaningful subgroup analysis.</li>
+    <li>Cases were simplified and synthetic, not real-world medication profiles with messy EHR context, incomplete histories, active orders, formulary constraints, allergies, microbiology, or local stewardship rules.</li>
+    <li>No repeated runs, temperature control, model build/version pinning, prompt sensitivity, or output reproducibility analysis.</li>
+    <li>Supplement and raw model outputs were not present in the uploaded PDF, limiting independent adjudication of specific errors.</li>
+    <li>The evaluated models and interfaces are time-sensitive; results should not be assumed to represent current or future versions.</li>
+  </ul>
+  <div class="badnote"><b>Safety interpretation.</b> The harmful GPT-4 examples are not minor formatting errors. They represent inappropriate therapy selection despite correct DDI recognition, which is the central hazard for LLM use in medication management.</div>
+</section>
+
+<section id="takeaways">
+  <h2>Implementation and practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><b>For clinical pharmacists</b>Use LLM DDI outputs as untrusted drafts. Verify interaction identity, clinical relevance, and management plan independently.</div>
+    <div class="mini-card"><b>For stewardship</b>Antibiotic substitutions to avoid DDIs must be constrained by syndrome, severity, organism, resistance mechanism, source control, and local guidance.</div>
+    <div class="mini-card"><b>For anticoagulation</b>Enzyme induction interactions need class-level and agent-specific safeguards; switching within the same vulnerable pathway can preserve the hazard.</div>
+    <div class="mini-card"><b>For tool builders</b>Use deterministic DDI databases and local rules as the retrieval/control layer; use LLMs only for summarization or explanation unless prospectively validated.</div>
+    <div class="mini-card"><b>For evaluation</b>Score false positives, false negatives, clinical relevance calibration, rationale correctness, recommendation acceptability, and potential harm separately.</div>
+    <div class="mini-card"><b>For governance</b>Log model version, prompt, retrieved references, patient context used, output, reviewer action, and downstream override/adverse-event signals.</div>
+  </div>
+  <h3>What this should change</h3>
+  <ul>
+    <li>When reviewing LLM-in-pharmacy papers, require recommendation-quality endpoints, not only answer accuracy or DDI recognition.</li>
+    <li>When designing local pilots, build a case bank with high-risk interaction classes and require pharmacist adjudication before any recommendation reaches prescribers.</li>
+    <li>When using LLMs informally, ask for uncertainty and citeable references, but do not treat references or fluent rationales as proof of correct management.</li>
+  </ul>
+  <h3>What this should not change</h3>
+  <ul>
+    <li>Do not relax existing pharmacist verification of DDIs or high-risk therapy changes.</li>
+    <li>Do not replace CDSS or tertiary drug references with a general-purpose chatbot.</li>
+    <li>Do not infer that the best-performing model in this small 2026 article is best for current use without current-version validation.</li>
+  </ul>
+</section>
+
+<section id="provenance">
+  <h2>Provenance and caveats</h2>
+  <table>
+    <tr><th>Evaluated file</th><td>zxaf168.pdf</td></tr>
+    <tr><th>Source title</th><td>Evaluation of large language models' ability to identify clinically relevant drug-drug interactions and generate high-quality clinical pharmacotherapy recommendations</td></tr>
+    <tr><th>Source identifier</th><td>DOI: 10.1093/ajhp/zxaf168</td></tr>
+    <tr><th>Generated</th><td>2026-07-03</td></tr>
+    <tr><th>Caveats</th><td>Appraisal is based on the uploaded 7-page PDF. Online supplementary material/eAppendix and raw model outputs were not included, so case-level auditing is limited. No external web verification was performed because the user-provided source was the primary object for this reference file.</td></tr>
+  </table>
+</section>
+<footer>
+  <div class="wrap" style="padding:0">This HTML file is a source-understanding and appraisal aid. It does not replace the primary article, clinical judgment, institutional policy, or current drug-information resources.</div>
+</footer>
+</main>
+</body>
+</html>

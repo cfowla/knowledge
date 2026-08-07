@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference Appraisal - CLAP: Closed-Loop Training, Evaluation, and Release Control for Domain Agent Post-training</title>
+<style>
+:root{
+  --bg:#f6f8fb;--card:#ffffff;--ink:#15202b;--muted:#526173;--line:#d7e0ea;
+  --accent:#1d4f91;--accent2:#11365f;--good:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;
+  --soft:#eef4fb;--codebg:#0f1725;--codefg:#edf4ff;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#0f243d,#1d4f91);color:#fff;padding:2.4rem 1.25rem 2rem;border-bottom:5px solid #d2e2f5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem} header .wrap{padding:0 1.25rem}
+h1{font-size:clamp(1.65rem,3vw,2.55rem);line-height:1.1;margin:.15rem 0 .7rem;font-weight:800;letter-spacing:-.02em} .subtitle{font-size:1.02rem;max-width:900px;color:#e5eef9;margin:0}
+.badge-row{display:flex;gap:.45rem;flex-wrap:wrap;margin:.85rem 0 0}.tag{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.22rem .55rem;font-size:.82rem;background:rgba(255,255,255,.11);color:#fff}.tag.dark{border-color:#cbd7e6;background:#eef4fb;color:#173f72}
+main{padding:1.25rem 0 2.5rem} section,.toc,.callout{background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:0 1px 5px rgba(16,36,61,.06);margin:0 0 1rem;padding:1rem 1.15rem}section{scroll-margin-top:1rem}
+h2{font-size:1.35rem;color:#0f315f;margin:.1rem 0 .8rem;border-bottom:1px solid var(--line);padding-bottom:.45rem}h3{font-size:1.05rem;color:#173f72;margin:1rem 0 .45rem}h4{font-size:.97rem;margin:.8rem 0 .35rem;color:#24364b}p{margin:.55rem 0}ul,ol{margin:.45rem 0 .65rem;padding-left:1.35rem}li{margin:.25rem 0}.small{font-size:.88rem}.muted{color:var(--muted)}
+.toc ul{columns:2;list-style:none;padding-left:0;margin:.25rem 0}.toc li{break-inside:avoid;margin:.28rem 0}.toc a{text-decoration:none;color:var(--accent)}.toc a:hover{text-decoration:underline}
+.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.7rem}.mini-card{border:1px solid var(--line);border-radius:12px;background:#fbfdff;padding:.75rem}.mini-card strong{display:block;color:#1e395c;margin-bottom:.15rem}.mini-card .score{font-size:1.5rem;font-weight:800;color:#0f315f}
+.verdict{border-left:6px solid var(--accent);background:#eef5ff}.goodnote{border-left:6px solid var(--good);background:#eef9f3}.warning{border-left:6px solid var(--warn);background:#fff8e8}.badnote{border-left:6px solid var(--bad);background:#fff1f1}.callout{padding:.85rem 1rem}.callout strong{color:#173f72}
+table{width:100%;border-collapse:collapse;margin:.65rem 0 1rem;font-size:.92rem;display:block;overflow-x:auto;border:1px solid var(--line);border-radius:10px}th,td{border:1px solid var(--line);padding:.5rem .58rem;vertical-align:top}th{background:#eef3f9;text-align:left;color:#1e395c}td.num{text-align:right;font-variant-numeric:tabular-nums}.section-summary{border:1px solid var(--line);border-radius:12px;background:#fbfdff;padding:.75rem;margin:.65rem 0}.section-summary h3{margin-top:0}.extract{margin:.65rem 0;border:1px solid #1b2e49;border-radius:12px;overflow:hidden}.extract .label{background:#16243a;color:#fff;padding:.55rem .75rem;font-weight:700}.extract pre{margin:0;padding:.85rem;background:var(--codebg);color:var(--codefg);overflow-x:auto;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:.88rem;line-height:1.45}.keyline{display:flex;flex-wrap:wrap;gap:.5rem;margin:.5rem 0}.pill{border:1px solid #cbd7e6;border-radius:999px;padding:.2rem .5rem;background:#f5f8fc;color:#173f72;font-size:.82rem}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem}@media (max-width:760px){.two-col{grid-template-columns:1fr}.toc ul{columns:1}.wrap{padding:0 .75rem}section,.toc,.callout{padding:.85rem}}
+footer{color:var(--muted);font-size:.86rem;margin:1.5rem 0}.check{color:var(--good);font-weight:700}.x{color:var(--bad);font-weight:700}
+@media print{body{background:white}header{background:#fff;color:#000;border-bottom:2px solid #000}.subtitle,.tag{color:#000;border-color:#999;background:#fff}section,.toc,.callout{box-shadow:none;break-inside:avoid}a{color:inherit}.extract pre{white-space:pre-wrap}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="small">Reference HTML - AI/ML systems appraisal</div>
+    <h1>CLAP: Closed-Loop Training, Evaluation, and Release Control for Domain Agent Post-training</h1>
+    <p class="subtitle">A structured appraisal of a six-page arXiv preprint proposing a governance loop for domain-agent post-training, adapter gating, GRPO risk diagnosis, and application-chain replay.</p>
+    <div class="badge-row"><span class="tag">arXiv:2607.01846v1</span><span class="tag">cs.AI</span><span class="tag">Agent / RAG systems</span><span class="tag">Preprint</span><span class="tag">Generated 2026-07-03</span></div>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">1. Metadata</a></li>
+    <li><a href="#synthesis">2. One-page synthesis</a></li>
+    <li><a href="#coverage">3. Source map and coverage manifest</a></li>
+    <li><a href="#section-summaries">4. Section-by-section condensation</a></li>
+    <li><a href="#visuals">5. Figures, tables, workflows, and equations</a></li>
+    <li><a href="#aiml-appraisal">6. AI/ML systems appraisal</a></li>
+    <li><a href="#ratings">7. Appraisal ratings</a></li>
+    <li><a href="#takeaways">8. Implementation takeaways</a></li>
+    <li><a href="#qa">9. QA and provenance</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+  <h2>1. Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><strong>Exact title</strong>CLAP: Closed-Loop Training, Evaluation, and Release Control for Domain Agent Post-training</div>
+    <div class="mini-card"><strong>Authors</strong>Fangfei Li; Chenyang Zhao; Long Wang; Feng Tian; Zhiyue Zheng; Lv Guo</div>
+    <div class="mini-card"><strong>Affiliation</strong>MatrixOrigin; China and USA affiliations reported in the PDF.</div>
+    <div class="mini-card"><strong>Source type</strong>arXiv preprint / AI/ML systems method with small empirical case study.</div>
+    <div class="mini-card"><strong>Date / version</strong>arXiv v1, 2 Jul 2026.</div>
+    <div class="mini-card"><strong>Identifier</strong>arXiv:2607.01846v1 [cs.AI].</div>
+    <div class="mini-card"><strong>Design</strong>Governance-method proposal plus retrospective/offline experiments on five anonymized manufacturing-scenario batches and 100-case application-chain replay.</div>
+    <div class="mini-card"><strong>Domain</strong>Domain agents, RAG, LoRA/QLoRA-style SFT, GRPO risk diagnostics, release gates.</div>
+  </div>
+  <div class="callout warning"><strong>Scope warning:</strong> This source is useful as a governance and evaluation-design reference. It does not establish a generally superior post-training algorithm, and it should not be used as deployment evidence without independent validation, reproducible artifacts, and target-chain testing.</div>
+</section>
+
+<section id="synthesis">
+  <h2>2. One-page synthesis</h2>
+  <div class="callout verdict"><strong>Verdict: Skim deeply.</strong> Preserve the workflow/gating idea and the failure-boundary examples; do not overweight the empirical gains because the evidence is small, anonymized, single-domain, and not reproducibly auditable from the paper alone.</div>
+  <div class="two-col">
+    <div>
+      <h3>Core thesis</h3>
+      <p>The paper argues that domain-agent post-training should be managed as a closed-loop release-control system rather than as a training job that succeeds when loss improves or an offline score rises. CLAP converts business data into SFT samples, GRPO decision-preference samples, holdout sets, diagnostics, and release records; it then gates adapter promotion using quality deltas, factuality risks, KL/reward dynamics, latency, and application-chain replay.</p>
+      <p>The central contribution is operational: <em>assetize -> materialize -> admit -> train -> evaluate -> gate -> app validate -> release/fallback</em>. This framing is relevant for RAG or agent systems where adapters can improve structure or synthesis but fail when used as a retrieval substitute.</p>
+    </div>
+    <div>
+      <h3>Main empirical signal</h3>
+      <p>Across five anonymized manufacturing batches, QLoRA-style LoRA-SFT produced small average gains: overall score +0.0098, pass rate +0.0240, value accuracy +0.0080, evidence accuracy +0.0280, hallucination -0.0080, and wrong facts -0.0060. However, only 3 of 5 batches improved, and batch-level deltas included regressions of -0.0101 and -0.0006.</p>
+      <p>GRPO static admission appeared acceptable, but all five runtime trainings were held for high KL risk. In 100 replay cases on a shared 3B backbone, App-LoRA+RAG improved value, core fields, and answer-evidence matching over base+RAG, while no-RAG variants failed factual extraction and App-LoRA+RAG increased p95 latency from 3799 ms to 4582 ms.</p>
+    </div>
+  </div>
+  <h3>Compressed appraisal</h3>
+  <div class="keyline"><span class="pill">High workflow relevance</span><span class="pill">Low-to-moderate empirical strength</span><span class="pill">No external validation</span><span class="pill">Useful gating vocabulary</span><span class="pill">Not an algorithmic benchmark</span></div>
+  <p><strong>Best use:</strong> Translate its release-control loop into your own agent/RAG evaluation harness: dataset versioning, leakage checks, evidence verifiability, baseline comparison, regression sample capture, application replay, latency gates, fallback records, and rollback decisions.</p>
+  <p><strong>Do not use for:</strong> Claims that CLAP is empirically superior to RAFT, Self-RAG, full fine-tuning, or any production-grade RL recipe. The paper explicitly says it does not test those comparisons.</p>
+</section>
+
+<section id="coverage">
+  <h2>3. Source map and coverage manifest</h2>
+  <div class="extract"><div class="label">SOURCE COVERAGE MANIFEST</div><pre><code>source_id: arXiv:2607.01846v1 [cs.AI]
+exact_title: CLAP: Closed-Loop Training, Evaluation, and Release Control for Domain Agent Post-training
+source_type: arXiv preprint; AI/ML systems method and empirical case study
+date_or_version: v1, 2 Jul 2026
+sections_or_headings:
+  - Abstract
+  - 1. Introduction
+  - 2. Related Work and Positioning
+  - 3. CLAP Method and System Architecture
+    - 3.1 Task and Asset Definition
+    - 3.2 Training Admission and Release Gating
+    - 3.3 Method Modules and Decision Logic
+    - 3.4 System Architecture
+  - 4. Data and Experimental Setup
+    - 4.1 Structured SFT Data
+    - 4.2 Decision GRPO Data
+    - 4.3 Application-chain Evaluation Data
+    - 4.4 Data Version and Configuration
+    - 4.5 Evaluation Metrics
+  - 5. Results
+    - 5.1 Component-level Interpretation
+    - 5.2 Main Base-vs-SFT Results
+    - 5.3 Risk Boundary and Application-chain Ablation Replay
+  - 6. Discussion, Limitations, and Conclusion
+  - References
+figures: 1 main-text figure
+  - Figure 1. CLAP post-training control loop
+  - represented as structured workflow block; no crop needed because the pipeline is simple and reconstructable
+tables: 4 main-text tables
+  - Table 1. CLAP method modules, inputs, outputs, and decision roles
+  - Table 2. Mapping CLAP modules to observed risks and evidence
+  - Table 3. Average structured extraction results over five v3 batches
+  - Table 4. GRPO risk diagnosis and application-chain replay
+algorithms_or_workflows: equations (1)-(3), release-gate logic, CLAP pipeline, Figure 1 control loop
+appendices_or_supplements: none identified in uploaded PDF
+visual_strategy:
+  structured_blocks: Figure 1, Tables 1-4, equations/workflow
+  embedded_crops_or_screenshots: none
+  omitted_with_reason: none; all main-text visual/table/workflow items are represented
+coverage_decision: full main-text coverage; references summarized only as positioning context
+omissions: no supplement available; no code/data repository details found in the PDF</code></pre></div>
+</section>
+
+<section id="section-summaries">
+  <h2>4. Section-by-section condensation</h2>
+  <div class="section-summary"><h3>Abstract</h3><p>The abstract frames CLAP as a closed-loop post-training method for domain agents exposed to noisy business data, uncertain fine-tuning gains, offline/application mismatch, and adapter-release risk. It claims that CLAP converts business data into structured SFT samples, decision-preference samples, holdout sets, risk diagnostics, and release-gate records.</p><p>The quantitative abstract result is deliberately modest: QLoRA-style LoRA-SFT improves mean overall score by 0.0098, pass rate by 0.0240, and evidence accuracy by 0.0280 across five anonymized manufacturing batches, while hallucination and wrong facts decrease. The abstract also reports that only 3/5 batches improve, GRPO shows high KL risks, and RAG remains necessary for factual extraction.</p></div>
+  <div class="section-summary"><h3>1. Introduction</h3><p>The introduction motivates the problem around practical domain agents for data questioning, contract lookup, document QA, and process assistance. It positions RAG as the grounding mechanism and LoRA/QLoRA, instruction tuning, preference optimization, and RLHF as post-training tools that still require target-workflow evaluation.</p><p>The claimed gap is not a new model architecture but a production control problem: raw business traces are noisy, evidence can be incomplete, labels can be unstable, and a completed adapter-training run may not improve the target application. The paper lists four contributions: closed-loop release-control workflow, target/evidence normalization, five-batch base-vs-SFT experiments, and failure-boundary/application-chain evidence against unconditional adapter promotion.</p></div>
+  <div class="section-summary"><h3>2. Related Work and Positioning</h3><p>The related-work section situates CLAP among RAG, SFT/PEFT, DPO/GRPO-style preference optimization, hallucination surveys, human-feedback learning, and tool/agent benchmarking. It explicitly states that RAG helps grounding but does not teach stable output formats or decision preferences, while SFT and preference methods can regress under target/evaluation misalignment.</p><p>The paper narrows its own claim: CLAP does not introduce a new architecture and does not claim superiority over full-parameter fine-tuning, RAFT, or Self-RAG. Its target contribution is a governance system for converting real business data into training assets, diagnosing risks, gating adapter release, and feeding failures into the next iteration.</p></div>
+  <div class="section-summary"><h3>3. CLAP Method and System Architecture</h3><p>CLAP defines a post-training asset set A = {D<sub>sft</sub>, D<sub>grpo</sub>, D<sub>eval</sub>, C, G, R}: supervised data, decision/preference data, holdout evaluation data, configuration, gate rules, and records. Promotion is conditional on candidate quality at least matching the base/previous adapter while risk remains below a threshold.</p><p>The method decomposes control into admission and post-training gates: pre-training checks overlap, target/evidence verifiability, reward variance, and chosen/rejected ordering; post-training compares quality, factual errors, KL, latency, regressions, and application-chain performance. The system architecture separates asset, materialization, training-control, and evaluation/release layers and treats release as a traceable evidence-bundle decision.</p></div>
+  <div class="section-summary"><h3>4. Data and Experimental Setup</h3><p>Structured SFT samples come from RAG document chunks in an anonymized manufacturing setting, with expected JSON fields for entity, metric, period, value, unit, and evidence. The paper reports a v3 normalization step that strips leading numeric values from metric labels, requires expected values and key metric terms to be verifiable in input material, and removes train/eval ID or input overlap.</p><p>GRPO decision samples use business records such as material backlog and quality-loss reports and group a grounded chosen candidate with near-miss and rejected candidates. The main experiment uses five v3 batches, each with 100 holdout samples and 359-360 training samples after cleanup. SFT uses 4-bit loaded base model plus LoRA adapter training, learning rate 2e-5, one epoch, batch size 2, gradient accumulation 8, rank 16, and alpha 32. The application replay uses 100 batch-05 cases with A/B/C/D conditions: base+RAG, App-LoRA+RAG, base-only, and LoRA-only under the same local 3B backbone.</p></div>
+  <div class="section-summary"><h3>5. Results</h3><p>Data validation reports zero holdout leakage, noisy metric labels, and missing evidence after v3 cleanup. SFT improves average structured extraction metrics but the effect sizes are small, with evidence accuracy as the clearest gain (+0.0280) and mixed batch-level results: only batches 03-05 improve in overall score.</p><p>GRPO serves as a failure-boundary study rather than a positive result. Static admission metrics pass all five batches, but runtime KL peaks range from 168.2 to 6712.0, so all five GRPO candidates are held. In application replay, App-LoRA+RAG improves core-fields exact match (0.78 vs 0.71) and answer-evidence exactness (0.45 vs 0.25) over base+RAG but worsens p95 latency by 783 ms; both no-RAG variants have value exact match and core exact match of 0.00.</p></div>
+  <div class="section-summary"><h3>6. Discussion, Limitations, and Conclusion</h3><p>The discussion emphasizes that CLAP is a governance-oriented method, not a new training algorithm. The authors interpret the experiments as evidence that small average SFT gains can coexist with per-batch regressions, static GRPO readiness can coexist with runtime instability, and offline structured gains do not ensure application-chain readiness.</p><p>The stated limitations are material: modest scenario-specific data volume, bounded pre-release replay rather than online traffic, no comparison against full fine-tuning/RAFT/Self-RAG, and GRPO used mainly to expose instability rather than to provide a stable recipe. The conclusion is appropriate when read as a process-control claim, not as a general performance claim.</p></div>
+</section>
+
+<section id="visuals">
+  <h2>5. Figures, tables, workflows, and equations</h2>
+  <div class="extract"><div class="label">EQUATIONS AND DECISION RULES</div><pre><code>Equation (1): Asset definition
+A = {D_sft, D_grpo, D_eval, C, G, R}
+Meaning: CLAP turns raw business data into supervised fine-tuning data, decision/preference data, holdout evaluation data, configuration, gate rules, and records.
+
+Equation (2): Promotion constraint
+promote(M') <= quality(M') >= quality(M) AND risk(M') <= tau
+Meaning: adapter promotion should require non-inferior or improved quality compared with baseline/previous adapter and acceptable measured risk.
+
+Equation (3): Control loop
+assetize -> materialize -> admit -> train -> evaluate -> gate -> app validate -> release/fallback
+Meaning: post-training is a release-control loop, not a single train/eval event.</code></pre></div>
+  <div class="extract"><div class="label">TABLE 1 - CLAP method modules, inputs, outputs, and decision roles</div><pre><code>Purpose: Defines the operational modules of CLAP and their control function.
+Rows/modules:
+  1. Data assetization - input: raw business tables, RAG chunks, feedback signals; output: dataset commits, sample indices, holdout candidates.
+  2. Task materialization - input: data assets and task profiles; output: structured SFT data, decision GRPO data, train/eval splits.
+  3. Training admission - input: sample quality, overlap, reward distribution; output: admit/hold/SFT-only decisions.
+  4. Risk diagnosis - input: training logs, rollout, KL, reward, length; output: early-stop events, warnings, guardrail records.
+  5. Holdout evaluation - input: candidate adapter, baseline, holdout set; output: structured/decision metrics, regressed samples, error types.
+  6. Release gate - input: evaluation results, latency, error rate, baseline delta; output: promote/canary/hold/reject/rollback records.
+  7. Application validation - input: target application chain, RAG context, candidate adapter; output: validation of complementarity between adapter and retrieved evidence.
+Appraisal: The table is useful as an implementation checklist, but it does not specify exact gate thresholds or minimum sample-size requirements.</code></pre></div>
+  <div class="extract"><div class="label">FIGURE 1 - CLAP post-training control loop</div><pre><code>Purpose: Visualizes the post-training asset governance pipeline.
+Structure: Left-to-right pipeline labeled in the figure as "Morpheus Post-Training Asset Governance Pipeline" with the following boxes:
+  Enterprise Data -> Data Governance -> Training Assets -> Post Training -> Diagnostics -> Gate & Release
+Box details:
+  Enterprise Data: tables / RAG chunks / feedback traces
+  Data Governance: target/evidence normalization; overlap checks
+  Training Assets: SFT / GRPO / holdout dataset commits
+  Post Training: LoRA SFT / GRPO recipe controls
+  Diagnostics: holdout; reward / KL guardrail
+  Gate & Release: promote / retain fallback
+Main pattern: The visual emphasizes governance before training, risk diagnosis during/after training, and fallback-aware release.
+Interpretation: The figure supports the paper's release-control framing.
+Limits: The internal label "Morpheus" differs from the paper's CLAP name, suggesting either a reused figure label or a project-name inconsistency. The figure is conceptual and does not add quantitative validation.
+Representation: structured block; no embedded screenshot required.</code></pre></div>
+  <div class="extract"><div class="label">TABLE 2 - Mapping CLAP modules to observed risks and evidence</div><pre><code>Purpose: Links each CLAP module to a risk class found in the experiments.
+Key mappings:
+  Data assetization -> intercepts noisy labels, unverifiable evidence, train/eval leakage -> v3 shows zero overlap/noisy metrics/missing evidence.
+  Task materialization -> avoids mixing SFT and GRPO semantics.
+  Training admission -> catches static-looking RL samples that may still be unsafe; static GRPO passes while KL later becomes abnormal.
+  Runtime diagnosis -> all five GRPO batches expose high KL risk.
+  Holdout gate -> exposes batch 01/02 regressions hidden by average score.
+  App validation -> App-LoRA+RAG improves core/evidence but increases latency; no-RAG still fails.
+Appraisal: Good conceptual risk taxonomy, but not a strict ablation. The paper itself cautions that the table should not be interpreted as optimality evidence for every module.</code></pre></div>
+  <div class="extract"><div class="label">TABLE 3 - Average structured extraction results over five v3 batches</div><pre><code>Rows and values:
+  Overall score: base 0.8371; SFT 0.8469; delta +0.0098
+  Pass rate: base 0.5620; SFT 0.5860; delta +0.0240
+  Field accuracy: base 0.8440; SFT 0.8456; delta +0.0016
+  Value accuracy: base 0.8980; SFT 0.9060; delta +0.0080
+  Evidence accuracy: base 0.6120; SFT 0.6400; delta +0.0280
+  Target match: base 0.8933; SFT 0.8960; delta +0.0027
+  Hallucination: base 0.0260; SFT 0.0180; delta -0.0080
+  Wrong fact: base 0.0800; SFT 0.0740; delta -0.0060
+  P95 latency: base 3082 ms; SFT 2785 ms; delta -297 ms
+Pattern: Mean changes favor SFT, especially evidence accuracy, but the magnitude is small and only 3/5 batches improve overall.
+Appraisal: Denominators are partially clear (5 batches x 100 holdout samples), but uncertainty intervals, statistical tests, raw per-batch tables, and reproducible evaluation code are not reported.</code></pre></div>
+  <div class="extract"><div class="label">TABLE 4 - GRPO risk diagnosis and application-chain replay</div><pre><code>Panel A: GRPO runtime risk
+  Batch 01: KL peak 2127.8; rolling KL 1064.3; Reward0 0.62; RewardT 0.43; diagnosis unstable; gate hold.
+  Batch 02: KL peak 168.2; rolling KL 87.2; Reward0 0.14; RewardT 0.42; diagnosis unstable; gate hold.
+  Batch 03: KL peak 6427.9; rolling KL 3245.4; Reward0 0.52; RewardT 0.48; diagnosis unstable; gate hold.
+  Batch 04: KL peak 646.8; rolling KL 323.8; Reward0 0.58; RewardT 0.40; diagnosis unstable; gate hold.
+  Batch 05: KL peak 6712.0; rolling KL 3816.6; Reward0 0.49; RewardT 0.65; diagnosis unstable; gate hold.
+Interpretation: Static reward/rank admission is insufficient; runtime KL guardrails are necessary.
+
+Panel B: Application-chain replay, same 3B backbone, 100 cases
+  A base+RAG: JSON 0.98; value 0.83; core 0.71; answer-evidence 0.25; retrieval doc/page 0.98; p95 3799 ms.
+  B App-LoRA+RAG: JSON 1.00; value 0.85; core 0.78; answer-evidence 0.45; retrieval doc/page 0.98; p95 4582 ms.
+  C base-only: JSON 1.00; value 0.00; core 0.00; answer-evidence 0.02; retrieval doc/page 0.00; p95 1380 ms.
+  D LoRA-only: JSON 1.00; value 0.00; core 0.00; answer-evidence 0.03; retrieval doc/page 0.00; p95 1599 ms.
+Interpretation: RAG is necessary for factual extraction; the adapter improves synthesis/evidence alignment when paired with RAG but increases latency.</code></pre></div>
+</section>
+
+<section id="aiml-appraisal">
+  <h2>6. AI/ML systems appraisal</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><strong>Task</strong>Control whether a domain-agent post-training adapter should be trained, evaluated, promoted, canaried, held, rejected, or rolled back.</div>
+    <div class="mini-card"><strong>Data</strong>Five anonymized manufacturing-domain v3 structured SFT batches; 100 holdout samples per batch; 359-360 training samples per batch after cleanup; GRPO groups from backlog and quality-loss records; 100 replay cases for application-chain validation.</div>
+    <div class="mini-card"><strong>Method</strong>Target/evidence normalization, train/eval overlap checks, QLoRA-style LoRA-SFT, GRPO admission/risk diagnostics, baseline comparison, and ABCD application replay on a 3B backbone.</div>
+    <div class="mini-card"><strong>Baselines</strong>Base model vs SFT offline; base+RAG vs App-LoRA+RAG vs base-only vs LoRA-only in application replay. No RAFT, Self-RAG, full fine-tuning, larger models, or external datasets tested.</div>
+    <div class="mini-card"><strong>Metrics</strong>Overall score, pass rate, field/value/evidence accuracy, target match, hallucination, wrong facts, p95 latency, JSON parseability, core field exactness, answer-evidence doc/page exactness, retrieval hit metrics, KL/reward risk signals.</div>
+    <div class="mini-card"><strong>Failure analysis</strong>Batch 01/02 regressions, GRPO high-KL failures, no-RAG factual extraction failure, and latency tradeoff are meaningful. Missing: deeper error taxonomy, confidence intervals, sensitivity analysis, online monitoring outcomes, and post-release incidents.</div>
+  </div>
+  <h3>Major strengths</h3>
+  <ul>
+    <li>Correctly frames adapter release as a risk decision requiring baseline comparison, not a training-completion milestone.</li>
+    <li>Separates SFT structure learning from RAG evidence retrieval and demonstrates that adapter-only replay cannot recover factual values.</li>
+    <li>Reports negative or mixed results: only 3/5 SFT batches improve and all GRPO batches are held for KL instability.</li>
+    <li>Preserves operationally relevant metrics such as latency, answer-evidence matching, and regressed samples rather than relying only on an average score.</li>
+  </ul>
+  <h3>Major limitations and red flags</h3>
+  <ul>
+    <li><strong>External validity is weak:</strong> one anonymized manufacturing scenario, modest batch sizes, and no external validation.</li>
+    <li><strong>Reproducibility is limited:</strong> no code, data, prompt templates, gate thresholds, exact base model identity, or evaluation implementation details are provided in the PDF.</li>
+    <li><strong>No statistical uncertainty:</strong> the paper reports point estimates without confidence intervals, hypothesis tests, bootstrap ranges, or per-case distributions.</li>
+    <li><strong>Comparator set is narrow:</strong> it does not compare against full fine-tuning, RAFT, Self-RAG, stronger prompting, rerankers, verifiers, or alternative data cleaning strategies.</li>
+    <li><strong>Potential naming inconsistency:</strong> Figure 1 contains a "Morpheus" pipeline label despite the paper naming the method CLAP.</li>
+  </ul>
+  <div class="callout badnote"><strong>What not to overclaim:</strong> Do not claim CLAP proves LoRA-SFT is broadly effective, that GRPO is unsafe in general, or that this workflow is validated for production deployment. The evidence supports a governance pattern and specific failure modes, not universal algorithm rankings.</div>
+</section>
+
+<section id="ratings">
+  <h2>7. Appraisal ratings</h2>
+  <div class="rating-grid">
+    <div class="mini-card"><strong>Relevance</strong><div class="score">8 / 10</div><p>High fit for agent/RAG evaluation, adapter release gates, and deterministic post-training governance.</p><p class="small muted"><strong>Evidence basis:</strong> paper directly covers RAG, SFT, GRPO, holdout gates, application replay, latency, and fallback records. <strong>Limiting factor:</strong> domain is manufacturing rather than biomedical/scientific curation. <strong>Raise/lower:</strong> higher if mapped to clinical/scientific-agent workflows; lower if only seeking algorithmic novelty.</p></div>
+    <div class="mini-card"><strong>Novelty</strong><div class="score">5 / 10</div><p>Useful synthesis of known governance practices, but limited algorithmic novelty.</p><p class="small muted"><strong>Evidence basis:</strong> authors explicitly do not propose a new architecture or compare against RAFT/Self-RAG. <strong>Limiting factor:</strong> resembles production ML release-control patterns. <strong>Raise/lower:</strong> higher with a novel formal gate policy or open benchmark; lower if treated as a repackaged checklist.</p></div>
+    <div class="mini-card"><strong>Method strength</strong><div class="score">4 / 10</div><p>The setup is coherent but underpowered, anonymized, and under-specified for strong causal or benchmarking claims.</p><p class="small muted"><strong>Evidence basis:</strong> five batches, 100 holdout samples each, explicit baselines in replay, and reported regressions. <strong>Limiting factor:</strong> no uncertainty, code, raw data, or comparator breadth. <strong>Raise/lower:</strong> higher with external datasets, open evaluator, predefined gate thresholds, and stronger baselines.</p></div>
+    <div class="mini-card"><strong>Evidence strength</strong><div class="score">4 / 10</div><p>The results support the release-gating caution but only weakly support general performance claims.</p><p class="small muted"><strong>Evidence basis:</strong> quantitative deltas and GRPO KL signals are internally consistent. <strong>Limiting factor:</strong> no statistical uncertainty or independent replication. <strong>Raise/lower:</strong> higher with confidence intervals, raw per-case results, and independent production replay; lower if metrics are not reproducible.</p></div>
+    <div class="mini-card"><strong>External validity</strong><div class="score">3 / 10</div><p>Generalizability is low because all empirical evidence comes from one anonymized manufacturing scenario.</p><p class="small muted"><strong>Evidence basis:</strong> paper identifies one scenario and bounded pre-release replay. <strong>Limiting factor:</strong> no cross-domain, cross-organization, or online traffic validation. <strong>Raise/lower:</strong> higher with healthcare, legal, finance, software-engineering, and scientific-document testbeds; lower if source data have hidden curation bias.</p></div>
+    <div class="mini-card"><strong>Implementation value</strong><div class="score">6.5 / 10</div><p>The workflow is build-useful as a checklist, but not sufficient as a drop-in implementation spec.</p><p class="small muted"><strong>Evidence basis:</strong> modules, metrics, gates, replay conditions, and failure modes are clearly named. <strong>Limiting factor:</strong> exact schemas, thresholds, code paths, and monitoring policies are absent. <strong>Raise/lower:</strong> higher if paired with an internal dataset registry and evaluation harness; lower if expected to provide runnable infrastructure.</p></div>
+  </div>
+  <h3>Minimal final appraisal block</h3>
+  <table>
+    <tbody>
+      <tr><th>Verdict</th><td>Skim deeply.</td></tr>
+      <tr><th>Best use</th><td>Design inspiration for adapter/RAG release gates, application-chain replay, and regression-aware evaluation.</td></tr>
+      <tr><th>Do not use for</th><td>Algorithmic superiority claims, GRPO general safety claims, or production-readiness evidence without independent validation.</td></tr>
+      <tr><th>Main strengths</th><td>Practical control-loop framing; reports mixed and negative results; emphasizes RAG-adapter complementarity; includes latency and evidence-alignment metrics.</td></tr>
+      <tr><th>Main limitations</th><td>Small anonymized single-domain evidence; no external validation; no code/data; no uncertainty; narrow baselines; conceptual figure/name inconsistency.</td></tr>
+      <tr><th>Confidence in appraisal</th><td>Moderate. The source is short and internally clear, but the lack of reproducibility materials limits confidence in empirical claims.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="takeaways">
+  <h2>8. Implementation takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><strong>Build this</strong>For an internal agent harness, create a release record containing dataset version, train/eval split hashes, overlap checks, baseline metrics, adapter metrics, regressed sample IDs, latency, and fallback decision.</div>
+    <div class="mini-card"><strong>Monitor this</strong>Track evidence accuracy, answer-evidence doc/page agreement, wrong facts, hallucinations, p95 latency, parse failures, and batch/subdomain regressions. A single average score should not drive release.</div>
+    <div class="mini-card"><strong>Gate this</strong>Block promotion for train/eval leakage, unverifiable targets, critical factual regressions, degraded answer-evidence matching, unstable KL/reward/length dynamics, or latency violations.</div>
+    <div class="mini-card"><strong>Do not replace RAG</strong>The replay result supports treating LoRA-SFT as a structure/synthesis layer. It should not be expected to recover factual values without retrieval.</div>
+    <div class="mini-card"><strong>Extend before use</strong>Add external validation, uncertainty estimates, better baselines, ablations over data-cleaning choices, explicit thresholds, and a human review pathway.</div>
+    <div class="mini-card"><strong>Read next</strong>Use the cited RAFT, Self-RAG, LoRA/QLoRA, DPO, RAG, hallucination, and agent benchmark literatures to design stronger comparative experiments.</div>
+  </div>
+  <div class="callout goodnote"><strong>Transferable pattern:</strong> The most reusable idea is not the reported +0.0098 overall gain. It is the insistence that adapter release requires data validation, holdout regression checks, application replay, latency accounting, and rollback/fallback records.</div>
+</section>
+
+<section id="qa">
+  <h2>9. QA and provenance</h2>
+  <h3>Semantic QA checks</h3>
+  <table>
+    <tbody>
+      <tr><th>Source ID/title match</th><td><span class="check">Pass.</span> Title and arXiv ID match uploaded PDF metadata.</td></tr>
+      <tr><th>Required sections represented</th><td><span class="check">Pass.</span> Abstract through discussion/conclusion represented; references not individually appraised.</td></tr>
+      <tr><th>Figures/tables/workflows reconciled</th><td><span class="check">Pass.</span> Figure 1, Tables 1-4, equations (1)-(3), and workflow logic are represented as structured blocks.</td></tr>
+      <tr><th>Internal citation syntax removed</th><td><span class="check">Pass.</span> Artifact uses plain provenance only.</td></tr>
+      <tr><th>Known omissions</th><td>No supplement, code repository, or dataset card was present in the uploaded PDF. No main-text figure or table was intentionally omitted.</td></tr>
+    </tbody>
+  </table>
+  <h3>Provenance</h3>
+  <p><strong>Evaluated source:</strong> 2607.01846v1.pdf, arXiv:2607.01846v1 [cs.AI], version 1 dated 2 Jul 2026.</p>
+  <p><strong>Generated:</strong> 2026-07-03. <strong>Artifact scope:</strong> single-file reference HTML for source understanding and appraisal; not a substitute for primary-source reading or independent validation.</p>
+</section>
+<footer>
+  <p>Self-contained HTML reference file. No external fonts, scripts, stylesheets, or remote images are required.</p>
+</footer>
+</main>
+</body>
+</html>

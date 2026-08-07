@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenRCA 2.0 — Summary, Evaluation, and Appraisal</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --ink: #17202a;
+      --muted: #526173;
+      --line: #d9e0ea;
+      --accent: #1d4f91;
+      --accent2: #7a3e06;
+      --good: #0f6b3b;
+      --warn: #8a5a00;
+      --bad: #8a1f1f;
+      --codebg: #0e1726;
+      --codefg: #edf4ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: linear-gradient(135deg, #10243d, #1d4f91);
+      color: white;
+      padding: 2.2rem 1.25rem 2rem;
+      border-bottom: 5px solid #d2e2f5;
+    }
+    header .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { margin: 0 0 .6rem; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.15; }
+    .subtitle { max-width: 920px; font-size: 1.05rem; color: #dce9f8; margin: 0; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    nav.toc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0 1.25rem;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .06);
+    }
+    nav.toc a { color: var(--accent); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+    .toc-grid { columns: 2; column-gap: 2rem; padding-left: 1.25rem; }
+    section, article.card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .05);
+    }
+    h2 { color: #0f315f; margin: .2rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: .45rem; }
+    h3 { color: #173f72; margin-top: 1.25rem; }
+    h4 { margin: 1rem 0 .35rem; color: #24364b; }
+    .meta-grid, .rating-grid, .takeaway-grid, .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .75rem;
+    }
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .8rem;
+      background: #fbfcff;
+    }
+    .label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .value { font-weight: 650; margin-top: .2rem; }
+    .verdict {
+      border-left: 5px solid var(--accent);
+      background: #eef5ff;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: .6rem 0 1rem;
+    }
+    .warning {
+      border-left: 5px solid var(--warn);
+      background: #fff8e8;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    .badnote {
+      border-left: 5px solid var(--bad);
+      background: #fff1f1;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    .goodnote {
+      border-left: 5px solid var(--good);
+      background: #edf8f2;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    table { width: 100%; border-collapse: collapse; margin: .75rem 0; font-size: .96rem; }
+    th, td { border: 1px solid var(--line); padding: .55rem .65rem; vertical-align: top; }
+    th { background: #eef3f9; text-align: left; color: #1e395c; }
+    .rating-grid .mini-card { min-height: 92px; }
+    .score { font-size: 1.35rem; font-weight: 800; color: var(--accent); }
+    pre {
+      margin: .75rem 0 1.1rem;
+      padding: 1rem;
+      background: var(--codebg);
+      color: var(--codefg);
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #1b2e49;
+      font-size: .88rem;
+      line-height: 1.45;
+      white-space: pre;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .section-summary { border-left: 4px solid #cbd8e8; padding-left: .95rem; margin: .9rem 0 1.2rem; }
+    .section-summary h3 { margin: 0 0 .4rem; }
+    .section-summary p { margin: .4rem 0; }
+    .tag {
+      display: inline-block;
+      border: 1px solid #c9d7e8;
+      background: #f2f6fb;
+      color: #27496d;
+      padding: .15rem .45rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin: .12rem .2rem .12rem 0;
+    }
+    .small { color: var(--muted); font-size: .92rem; }
+    ul.tight li, ol.tight li { margin-bottom: .35rem; }
+    .checklist li { margin-bottom: .45rem; }
+    footer { max-width: 1100px; margin: 0 auto 2rem; color: var(--muted); padding: 0 1.25rem; font-size: .9rem; }
+    @media print {
+      body { background: white; }
+      section, article.card, nav.toc { box-shadow: none; break-inside: avoid; }
+      pre { white-space: pre-wrap; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>OpenRCA 2.0: From Outcome Labels to Causal Process Supervision</h1>
+    <p class="subtitle">Summary, evaluation, and appraisal of an arXiv preprint proposing PAVE and OpenRCA 2.0, a process-level benchmark for LLM root-cause-analysis agents.</p>
+  </div>
+</header>
+<main>
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ol class="toc-grid">
+      <li><a href="#metadata">Source metadata</a></li>
+      <li><a href="#onepage">One-page synthesis</a></li>
+      <li><a href="#section-condensation">Section-by-section condensation</a></li>
+      <li><a href="#visuals">Figures, tables, and exhibits</a></li>
+      <li><a href="#benchmark-design">Benchmark and evaluation design</a></li>
+      <li><a href="#evaluation">Evaluation and appraisal</a></li>
+      <li><a href="#takeaways">Implementation takeaways</a></li>
+      <li><a href="#qa">Quality-control notes</a></li>
+    </ol>
+  </nav>
+
+  <section id="metadata">
+    <h2>Source metadata</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><div class="label">Title</div><div class="value">OpenRCA 2.0: From Outcome Labels to Causal Process Supervision</div></div>
+      <div class="mini-card"><div class="label">Authors</div><div class="value">Aoyang Fang, Yifan Yang, Jin’ao Shang, Qisheng Lu, Junjielung Xu, Rui Wang, Songhan Zhang, Yuzhong Zhang, Boxi Yu, Pinjia He</div></div>
+      <div class="mini-card"><div class="label">Source</div><div class="value">arXiv:2606.27154v1</div></div>
+      <div class="mini-card"><div class="label">Date / status</div><div class="value">Submitted 25 Jun 2026; “work in progress”</div></div>
+      <div class="mini-card"><div class="label">Artifact type</div><div class="value">AI/ML benchmark and evaluation dataset preprint</div></div>
+      <div class="mini-card"><div class="label">Domain</div><div class="value">LLM agents, AIOps, microservice root cause analysis, process supervision</div></div>
+      <div class="mini-card"><div class="label">Primary contribution</div><div class="value">PAVE annotation protocol + OpenRCA 2.0 benchmark with step-wise causal propagation labels</div></div>
+      <div class="mini-card"><div class="label">Scope warning</div><div class="value">Synthetic controlled testbeds; not production-readiness certification for RCA agents</div></div>
+    </div>
+    <p class="small">Reference source: <a href="https://arxiv.org/pdf/2606.27154">https://arxiv.org/pdf/2606.27154</a>. This file summarizes and appraises the preprint, not the released dataset or code artifact independently.</p>
+  </section>
+
+  <section id="onepage">
+    <h2>One-page synthesis</h2>
+    <div class="verdict">
+      <strong>Core thesis:</strong> outcome-only RCA benchmarks let LLM agents appear successful when they name the correct root-cause service but fail to produce a verified causal path from fault to symptom. OpenRCA 2.0 tries to close this gap by supervising the diagnostic process itself: root-cause labels plus step-wise causal propagation graphs.
+    </div>
+    <p>The paper introduces <strong>PAVE</strong>—Path Annotation via Verified Effects—a pipeline that uses information available to the benchmark builder but hidden from the RCA agent: the known fault-injection intervention. Instead of asking annotators or algorithms to infer backward from symptoms, PAVE performs forward verification from the injected cause, admitting a causal path only when it satisfies structural plausibility, statistical deviation from a baseline, and upstream-to-downstream temporal alignment.</p>
+    <p>Applying PAVE yields <strong>OpenRCA 2.0</strong>, a 500-instance benchmark spanning TrainTicket, OpenTelemetry Demo, and DeathStarBench Hotel Reservation. The reported model results show a large gap between service localization and causal grounding: across 11 models, exact root-cause-set recovery averages 20.7%, any correct service is named in 76.0% of cases, but path reachability is only 61.5%. This makes the paper valuable for agent-harness design because it operationalizes a core evaluation principle: score the derivation, not only the final answer.</p>
+    <div>
+      <span class="tag">LLM agents</span>
+      <span class="tag">RCA benchmark</span>
+      <span class="tag">Process supervision</span>
+      <span class="tag">Causal paths</span>
+      <span class="tag">Tool use</span>
+      <span class="tag">SQL evidence</span>
+      <span class="tag">AIOps</span>
+      <span class="tag">Evaluation harness</span>
+    </div>
+  </section>
+
+  <section id="section-condensation">
+    <h2>Section-by-section condensation</h2>
+
+    <div class="section-summary">
+      <h3>Abstract</h3>
+      <p>The abstract frames RCA as a demanding LLM-agent task requiring long-context telemetry interpretation, multi-step reasoning, and tool use. Existing datasets usually label only the originating component, which can reduce evaluation to a final-answer classification task and mask whether the agent’s explanation is causally grounded.</p>
+      <p>PAVE reconstructs causal propagation paths from known fault injections via forward verification. OpenRCA 2.0 contains 500 step-wise annotated instances; across 11 frontier models, exact root-cause-set recovery averages 20.7%, while agents identify at least one correct service in 76.0% of cases but ground it in a verified path in only 61.5%.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>1. Introduction</h3>
+      <p>The introduction argues that microservice failures propagate through networked service graphs, so the initial fault may be remote from the first observed symptom. Prior benchmarks built from fault injection usually treat the injected component as the ground-truth label and score whether the agent names it, leaving the causal derivation unexamined.</p>
+      <p>The authors define <strong>ungrounded diagnosis</strong> as the case where an agent identifies a correct root-cause service but lacks a verified propagation path to the observed failure. The key insight is information asymmetry: benchmark builders know the intervention that started the cascade, so they can verify forward from cause to effects rather than perform the same backward abductive inference required of the agent.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>2. PAVE: Path Annotation via Verified Effects</h3>
+      <p>PAVE models the microservice system as a directed dependency graph over services, pods, and hosts. It consumes the dependency graph, raw telemetry across the injection window, and the recorded intervention, then emits a verified path set. Phase 1 performs structural pruning: telemetry is abstracted into node-type-aware states and candidate paths are generated using propagation rules and constrained DFS over a time-expanded graph.</p>
+      <p>Phase 2 performs causal verification: each candidate path is checked against a pre-injection reference baseline using distributional tests suited to the metric type. A path is admitted only if every node deviates from baseline, every edge conforms to a known propagation rule, and downstream anomaly onset is temporally consistent with upstream causation. This design favors precision over recall by dropping cases or paths that fail the full joint screen.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3. Experiments</h3>
+      <p>The experimental setup uses three distinct microservice systems: TrainTicket, OpenTelemetry Demo, and Hotel Reservation. Fault-injection workloads cover 27 chaos primary kinds across application, resource, network, and pod-level faults. From 8,137 injected runs, the authors filter silent injections, apply PAVE, and curate 500 evaluable instances using stratified selection across system, chaos family, and root service.</p>
+      <p>All evaluated agents share the same ReAct-style tool-augmented architecture, telemetry tools, prompt templates, and structured answer schema. Outcome metrics grade the predicted root-cause set; process metrics grade causal-path quality using Path Reachability, Node F1, Edge F1, and SQL evidence executability. The result is a comparison of model backbones under a fixed investigative harness rather than an uncontrolled comparison of agent frameworks.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3.2 Benchmark utility</h3>
+      <p>The headline result is that service localization substantially overstates diagnostic quality. Average AnySvc is 76.0%, but mean PR is 61.5%; strict exact match is 20.7% and pair-level F1 is 34.1%. This exposes cases where an agent names a correct service but does not connect it to the symptom through a verified propagation path.</p>
+      <p>Process-level graph structure is harder than affected-node identification: mean Edge F1 is 43.4%, while mean Node F1 is 62.2%, a gap of 18.8 percentage points. The top result varies by metric, so the paper argues there is no single dominant model backbone; model choice depends on whether the operational priority is recall, precision, path validity, or evidence executability.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3.3 Failure mode characterization</h3>
+      <p>The authors manually inspect trajectories to identify three recurring failure modes: premature commitment under under-exploration, presence bias toward observable activity, and salience capture by the loudest signal. These map well to real agentic failure modes: stopping early after a plausible root cause, treating missing telemetry as absence of fault, and over-weighting high-volume downstream symptoms.</p>
+      <p>The case study shows Claude naming the correct root-cause service but hallucinating a direct edge that skips intermediate services in the ground-truth path. Outcome-only scoring would count the correct service as a success; process-level scoring exposes the missing causal structure that an on-call engineer would still need.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3.4 Annotation reliability</h3>
+      <p>A two-annotator audit of 100 uniformly sampled instances reports 94% case-level agreement on the validity of the PAVE-produced causal graph. The annotators were paper authors with distributed-system observability expertise, and they judged whether each edge was plausibly causal and whether obvious propagation edges were missing.</p>
+      <p>All six disagreements were one-directional: at least one annotator thought an additional path was plausible, but no included edge was judged implausible. This supports the paper’s precision-favoring claim, but the audit is not independent in the strongest sense because annotators were authors and the sample size is limited.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>4. Related work</h3>
+      <p>The related-work section positions the paper against earlier RCA benchmarks and approaches that treat fault localization as classification or ranking. LLM-based RCA shifts the task toward generative causal explanation, but the benchmark labels have largely remained outcome-only, creating a mismatch between the reasoning ability being claimed and the supervision being used.</p>
+      <p>The authors connect PAVE to causal discovery and process supervision. Unlike observational causal discovery, PAVE uses interventional information from controlled fault injection to transform inference into verification. Unlike process-supervision work in math or code, systems diagnosis lacks a natural proof checker or compiler, so PAVE supplies a domain-specific verification substrate.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>5. Assumptions and threats to validity</h3>
+      <p>The authors state four core input assumptions: a true controlled intervention, a sufficiently complete dependency graph, observable propagation signatures in traces/metrics/logs, and a clean enough pre-injection baseline. If these fail, the benchmark scores should be treated as upper bounds rather than transferable estimates.</p>
+      <p>Internal threats include an incomplete propagation rule vocabulary and permissive per-node anomaly screens. The authors argue that the conjunctive end-to-end gate controls false positives, but external validity remains bounded by controlled synthetic testbeds. Production-scale, service-mesh, serverless, and fully event-driven environments would require recalibration rather than direct score transfer.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>6. Conclusion</h3>
+      <p>The conclusion restates the paper’s main contribution: PAVE turns known fault injections into verified causal-process labels, and OpenRCA 2.0 uses those labels to evaluate whether RCA agents can ground a diagnosis in a path rather than merely name a service.</p>
+      <p>The practical implication is broader than RCA: diagnostic agents need evaluation methods that separate correct localization from correct reasoning. Step-wise causal ground truth raises the trust bar from “right answer” to “right answer for the right, evidence-supported path.”</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Appendices A–H</h3>
+      <p>The appendices provide dataset documentation, testbed topology, root-cause taxonomy, PAVE pipeline details, audit protocol, agent architecture, prompt and schema design, metric definitions, and auxiliary tables. The dataset contains multimodal pre- and post-injection telemetry in parquet format, structured ground-truth labels, and causal graphs; intended uses include process-level evaluation and future process-reward-model training.</p>
+      <p>The most implementation-useful appendix material is the schema and harness design: strict ground-truth causal graphs, strict agent JSON, mandatory executable SQL evidence for every root-cause and propagation-edge claim, investigation/synthesis prompt separation, and deterministic metric definitions. These are directly reusable ideas for broader agent evaluation harnesses.</p>
+    </div>
+  </section>
+
+  <section id="visuals">
+    <h2>Figures, tables, and exhibit breakdowns</h2>
+
+    <h3>Figure 1 — Ungrounded diagnosis example</h3>
+    <pre><code>FIGURE 1 — Correct answer, wrong reason
+
+PURPOSE:
+  Show why outcome-only scoring is insufficient.
+
+STRUCTURE:
+  Intervention:
+    - do(Seat = NetworkDelay)
+    - Window: [t0, t0 + 5 min]
+  Ground-truth path:
+    - Seat → Travel → Order → Gateway
+    - PAVE verified
+  Agent-predicted path:
+    - Seat → Order → Gateway
+    - Travel skipped
+    - Hallucinated direct edge
+
+SCORING CONTRAST:
+  Outcome-only prior work:
+    - Root Cause = Seat
+    - Pass@1 = 1.0
+  Process-level evaluation:
+    - Path Reachability = False
+    - Edge precision/coverage poor because one required edge chain is missing
+
+INTERPRETATION:
+  The agent can localize the root service while failing the causal derivation.
+  This is the paper's central failure mode: ungrounded diagnosis.</code></pre>
+
+    <h3>Figure 2 — RCA setting</h3>
+    <pre><code>FIGURE 2 — Microservice RCA setting
+
+PURPOSE:
+  Define what the agent sees and what the benchmark builder knows.
+
+PANEL A — System graph:
+  - Services: Gateway, Order, Travel, Seat, MySQL
+  - Infrastructure: pods and node
+  - Horizontal channel: service → service RPC
+  - Vertical channel: infrastructure → service resource contention
+  - Example injection: NetworkDelay at Seat
+
+PANEL B — Observed telemetry:
+  - Traces: call chains and span durations/statuses
+  - Metrics: time-series such as Seat p99 latency
+  - Logs: text events such as upstream timeout and connection reset
+
+KEY DISTINCTION:
+  Agent observes telemetry and reasons backward.
+  PAVE knows the intervention and verifies forward.</code></pre>
+
+    <h3>Figure 3 — Coarse-to-fine PAVE verification</h3>
+    <pre><code>FIGURE 3 — From cluttered observation graph to verified causal chain
+
+INPUT:
+  - Raw possible propagation graph
+  - Every observed anomaly and potential edge retained
+  - Includes noisy benign anomalies, e.g., Route
+
+PHASE 1 — Structural Pruning:
+  Question: Could this edge happen?
+  Gate: dependency topology + propagation rule set
+  Result: impossible edges are removed, but structurally possible noisy nodes may remain
+
+PHASE 2 — Causal Verification:
+  Question: Did this anomaly carry the signal?
+  Gate: baseline-relative deviation + temporal order
+  Result: baseline-like noisy nodes are dropped
+
+OUTPUT:
+  - Verified chain: Seat → Travel → Order
+  - Injections with no surviving chain are discarded
+  - Released artifact is the union of verified chains</code></pre>
+
+    <h3>Figure 4 — Spurious causal reasoning case</h3>
+    <pre><code>FIGURE 4 — Hallucinated direct edge despite correct root service
+
+GROUND TRUTH:
+  ts-basic-service
+    → ts-travel2-service
+    → ts-travel-service
+    → ts-route-plan-service
+    → ts-travel-plan-service
+    → ts-ui-dashboard
+
+LLM PREDICTION:
+  ts-basic-service
+    → ts-route-plan-service
+    → ts-travel-plan-service
+    → ts-ui-dashboard
+
+ERROR:
+  - Correct root service named
+  - Intermediate services skipped
+  - Direct edge hallucinated
+  - Reported Edge F1 = 44.4%
+
+INTERPRETATION:
+  Outcome metrics reward partial localization.
+  Process metrics reveal that the graph is operationally incomplete.</code></pre>
+
+    <h3>Table 1 — OpenRCA 2.0 by system</h3>
+    <table>
+      <thead>
+        <tr><th>Property</th><th>TrainTicket</th><th>OTel Demo</th><th>Hotel Reservation</th><th>Total</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Services</td><td>44</td><td>15</td><td>9</td><td>—</td></tr>
+        <tr><td>Implementation</td><td>Java/REST</td><td>Polyglot/gRPC + Kafka</td><td>Go/gRPC</td><td>—</td></tr>
+        <tr><td>Evaluable instances</td><td>320</td><td>38</td><td>142</td><td>500</td></tr>
+        <tr><td>Distinct chaos primary kinds</td><td>25</td><td>9</td><td>5</td><td>27</td></tr>
+        <tr><td>Mean longest propagation path</td><td>3.0</td><td>2.5</td><td>2.1</td><td>2.7</td></tr>
+        <tr><td>Average causal edges / instance</td><td>10.1</td><td>3.0</td><td>2.7</td><td>7.5</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Table 2 — Pooled model evaluation</h3>
+    <pre><code>TABLE 2 — Outcome and process evaluation, n = 500, percentages
+
+BEST / NOTABLE VALUES:
+  - Best EM: Gemini 3.1 Pro, 29.4
+  - Best F1: Gemini 3.1 Pro, 43.8
+  - Best Precision: Gemini 3.1 Pro, 50.4
+  - Best Recall: Gemini 3.1 Pro, 40.7
+  - Best AnySvc: Claude Opus 4.7, 82.6
+  - Best PR: Qwen3.6-Max, 71.8
+  - Best Node F1: Gemini 3.1 Pro, 67.9
+  - Best Edge F1: GLM 5.1, 50.4
+  - Best SQL Exec: Gemini 3.1 Pro, 98.8
+
+AVERAGE PATTERN REPORTED BY AUTHORS:
+  - Mean EM: 20.7%
+  - Mean pair-level F1: 34.1%
+  - Mean AnySvc: 76.0%
+  - Mean PR: 61.5%
+  - Mean Node F1: 62.2%
+  - Mean Edge F1: 43.4%
+  - Node/edge gap: 18.8 pp
+
+INTERPRETATION:
+  Models often find at least one correct service, but directed causal edges lag.
+  Outcome-only scoring compresses fault-kind errors and reasoning-path errors into one misleading signal.</code></pre>
+
+    <h3>Table 3 — Differentiation from prior RCA benchmarks</h3>
+    <table>
+      <thead>
+        <tr><th>Benchmark</th><th># Systems</th><th># Instances</th><th>Outcome labels</th><th>Process labels</th><th>SLO surface</th><th>LLM eval</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>OpenRCA 1.0</td><td>3</td><td>335</td><td>Yes</td><td>No</td><td>Implicit</td><td>Yes</td></tr>
+        <tr><td>AIOpsLab</td><td>2</td><td>48</td><td>Yes</td><td>Partial</td><td>Implicit</td><td>Yes</td></tr>
+        <tr><td>RCAEval</td><td>3</td><td>735</td><td>Yes</td><td>No</td><td>Not reported</td><td>No</td></tr>
+        <tr><td>Stratus</td><td>3</td><td>Not fixed</td><td>Yes</td><td>No</td><td>Implicit</td><td>Yes</td></tr>
+        <tr><td>Fang et al.</td><td>1</td><td>8,137</td><td>Yes</td><td>No</td><td>Implicit</td><td>No</td></tr>
+        <tr><td><strong>OpenRCA 2.0</strong></td><td>3</td><td>500</td><td>Yes</td><td><strong>Yes</strong></td><td><strong>Explicit</strong></td><td>Yes</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Tables 4–6 — Label schema, fault taxonomy, and observable vocabulary</h3>
+    <pre><code>GROUND-TRUTH LABEL SCHEMA:
+  service       target microservice
+  pod           target Kubernetes pod
+  container     target container
+  function      target code function/handler for code-level faults
+  span          target trace span for HTTP faults
+  metric        anomalous golden signal
+
+FAULT TYPE TAXONOMY:
+  PodChaos:
+    - PodKill, PodFailure, ContainerKill
+  StressChaos:
+    - CPUStress, MemoryStress
+  HTTPChaos:
+    - Request/response abort, delay, body/path/method/status mutation
+  DNSChaos:
+    - DNSError, DNSRandom
+  NetworkChaos:
+    - Delay, loss, duplicate, corrupt, bandwidth, partition
+  TimeChaos:
+    - TimeSkew
+  JVMChaos:
+    - Latency, return mutation, exception, GC, CPU/memory stress, MySQL latency/exception
+
+OBSERVABLE LABEL DESIGN:
+  Raw chaos APIs are collapsed into labels matching telemetry-observable signatures.
+  This prevents penalizing the agent for not distinguishing injection mechanisms that look identical in released telemetry.</code></pre>
+
+    <h3>Table 7 — Propagation rule set</h3>
+    <pre><code>RULE SET R — Major categories
+
+Vertical: Container / Pod → Span
+  - Resource contention: CPU/memory stress affects co-located services/spans
+  - Process termination: restart/unavailability causes missing/error/timeout signatures
+
+First-hop: Service → Span
+  - Latency inheritance
+  - Error inheritance
+
+Horizontal: Span → Span
+  - Callee slowdown
+  - Error propagation
+  - Missing callee
+  - Retry-induced wait
+  - Infra fault relay
+  - JVM injection bypass
+
+Cross-channel: Span → Pod → Span
+  - Shared-pod or JVM-resource mechanisms affecting sibling paths
+
+APPRAISAL:
+  The rule set makes causal admissibility inspectable and deterministic, but it can silently exclude mechanisms outside the authors' vocabulary.</code></pre>
+
+    <h3>Appendix Tables 8–10 — Auxiliary evaluation</h3>
+    <pre><code>TABLE 8 — Per-system breakdown:
+  - Expands pooled Table 2 by TrainTicket, OTel Demo, and Hotel Reservation.
+  - Difficulty varies strongly by system.
+  - Example from authors' discussion:
+      Claude Opus 4.7 on Hotel Reservation: AnySvc 99.3, EM 54.9
+      Claude Opus 4.7 on TrainTicket: AnySvc 75.3, EM 15.6
+  - Interpretation: path depth and service count materially change difficulty.
+
+TABLE 9 — HIT-anchored PR:
+  - Requires service and fault-kind match before path check.
+  - Strictly upper-bounded by Recall.
+  - Main table uses AnySvc-anchored PR so path quality can vary independently from fault-kind classification.
+
+TABLE 10 — Partial GPT coverage:
+  - GPT-5.4: n = 114, EM 18.4, F1 22.5, AnySvc 85.1, PR 58.8, Node F1 68.1, Edge F1 45.8
+  - GPT-5.5: n = 32, EM 15.6, F1 19.8, AnySvc 90.6, PR 87.5, Node F1 70.9, Edge F1 53.3
+  - Authors explicitly caution these are budget-limited partial results and should not be compared directly to Table 2.</code></pre>
+  </section>
+
+  <section id="benchmark-design">
+    <h2>Benchmark and evaluation design extraction</h2>
+    <h3>PAVE pipeline</h3>
+    <pre><code>INPUTS:
+  G: dependency graph over services, pods, hosts, spans
+  O(t): raw telemetry over normal and abnormal windows
+  do(vroot): recorded intervention with target, fault type, window, parameters
+
+PHASE 1 — STRUCTURAL PRUNING:
+  1. Project raw telemetry to discrete states using node-type-aware abstraction Ψ.
+  2. Use propagation rules R to admit only mechanism-plausible transitions.
+  3. Run constrained DFS over a time-expanded heterogeneous graph.
+  4. Output Πcand, a candidate path set.
+
+PHASE 2 — CAUSAL VERIFICATION:
+  1. Establish a pre-injection reference baseline.
+  2. Apply metric-specific deviation tests:
+       - Z-score detector for approximately Gaussian CPU/memory metrics
+       - Percentile detector for heavy-tailed counts/errors
+       - Adaptive latency detector for request-latency metrics
+  3. Accept a path only if:
+       - every node is anomalous vs baseline
+       - every edge conforms to R
+       - downstream onset follows upstream onset
+  4. Output Π*, the verified path set.
+
+DESIGN BIAS:
+  High precision, lower recall.
+  Borderline weakly supported paths are intentionally excluded.</code></pre>
+
+    <h3>Agent architecture</h3>
+    <pre><code>CONTROL FLOW:
+  START
+    → llm_call
+    → if tool_calls: tool_node → llm_call → ...
+    → compress_rca_findings
+    → END
+
+TOOLS:
+  list_tables_in_directory
+    - discover parquet files and metadata
+  get_schema
+    - inspect columns, types, row counts
+  query_parquet_files
+    - execute SQL over parquet files
+  think_tool
+    - record interim reasoning and next investigative step
+
+BUDGET:
+  - recommended ~50 tool calls
+  - hard cap 100 tool calls
+  - all models share tool definitions and retry logic
+
+IMPORTANT DESIGN CHOICE:
+  Investigation prompt withholds final JSON schema.
+  Synthesis prompt converts accumulated evidence into strict JSON.
+  This separates evidence collection from answer packaging.</code></pre>
+
+    <h3>Ground-truth and agent-answer schema</h3>
+    <pre><code>GROUND-TRUTH CausalGraph:
+  nodes[]:
+    component
+    state[]
+    timestamp
+  edges[]:
+    source
+    target
+  root_causes[]:
+    component
+    state[]
+    timestamp
+  alarm_nodes[]:
+    component
+
+AGENT AgentRCAOutput:
+  root_causes[]:
+    service
+    fault_kind
+    evidence[]
+      kind: metric | trace | log
+      sql: executable DuckDB SQL
+      claim: ≤20-word assertion
+
+  propagation[]:
+    from
+    to
+    evidence[]
+      kind
+      sql
+      claim
+
+CONTRACT RULES:
+  - service names must exist in data
+  - one entry per distinct root cause
+  - every root cause requires at least one evidence item
+  - every propagation edge requires at least one evidence item
+  - SQL must be SELECT-only, single-statement, executable against mounted parquets
+  - no topology graph is given to the agent</code></pre>
+
+    <h3>Metric stack</h3>
+    <pre><code>OUTCOME METRICS:
+  EM:
+    exact match of predicted root-cause set to ground truth
+  Precision / Recall / F1:
+    mean scores over service + fault_kind pairs
+  AnySvc:
+    at least one predicted root-cause service is correct, ignoring fault kind
+
+PROCESS METRICS:
+  Path Reachability (PR):
+    AnySvc is true AND predicted graph has a path from a correct root-cause service to a ground-truth alarm node
+  Node F1:
+    affected-service set overlap
+  Edge F1:
+    directed causal-edge set overlap
+  SQL Exec:
+    proportion of evidence SQL statements that execute and return ≥1 row
+
+DIAGNOSTIC VALUE:
+  AnySvc - PR gap estimates ungrounded diagnosis rate.
+  Node F1 - Edge F1 gap estimates how much easier service identification is than causal ordering.</code></pre>
+  </section>
+
+  <section id="evaluation">
+    <h2>Evaluation and appraisal</h2>
+    <div class="verdict">
+      <strong>Verdict: Read first for agent-evaluation harness design; read soon for general LLM/RAG workflow evaluation.</strong> The paper is highly relevant if you are building deterministic evaluation for agentic systems because it gives a concrete template for moving from outcome labels to inspectable process labels.
+    </div>
+
+    <h3>Ratings</h3>
+    <div class="rating-grid">
+      <div class="mini-card"><div class="label">Relevance</div><div class="score">9.0 / 10</div><div class="small">Strong fit for LLM agents, tool-use evaluation, deterministic harnesses, causal workflows, and structured output validation.</div></div>
+      <div class="mini-card"><div class="label">Novelty</div><div class="score">8.0 / 10</div><div class="small">The core idea is not “process supervision” in general, but its RCA-specific operationalization is useful and well-framed.</div></div>
+      <div class="mini-card"><div class="label">Method strength</div><div class="score">7.5 / 10</div><div class="small">Good controlled setup, shared agent harness, explicit metrics, and audit; limited by synthetic testbeds and author-only audit.</div></div>
+      <div class="mini-card"><div class="label">Evidence strength</div><div class="score">7.0 / 10</div><div class="small">The reported pattern is coherent and quantitatively supported, but external validation and independent replication are pending.</div></div>
+      <div class="mini-card"><div class="label">External validity</div><div class="score">5.5 / 10</div><div class="small">Useful for testbed RCA and harness design; production transfer should be calibrated, not assumed.</div></div>
+      <div class="mini-card"><div class="label">Implementation value</div><div class="score">8.5 / 10</div><div class="small">Schemas, prompt separation, SQL evidence, graph metrics, and process labels are directly reusable design patterns.</div></div>
+      <div class="mini-card"><div class="label">Reproducibility posture</div><div class="score">7.0 / 10</div><div class="small">Strong stated plan with seeds, reproduce script, schemas, manifests, and future release; full public artifact status depends on acceptance/release.</div></div>
+      <div class="mini-card"><div class="label">Clinical/workflow analogy value</div><div class="score">8.0 / 10</div><div class="small">Not clinical, but very applicable to evaluating diagnostic reasoning chains in safety-sensitive workflows.</div></div>
+    </div>
+
+    <h3>Main strengths</h3>
+    <ul class="tight">
+      <li><strong>Clear evaluation target:</strong> separates root-cause localization from causal-path grounding.</li>
+      <li><strong>Process labels:</strong> provides node/edge causal graphs rather than only outcome labels.</li>
+      <li><strong>Controlled annotation advantage:</strong> exploits known interventions to verify forward instead of asking annotators to infer backward.</li>
+      <li><strong>Deterministic scoring:</strong> schema-based graph metrics and SQL executability reduce reliance on subjective LLM-as-judge evaluation.</li>
+      <li><strong>Tool-use realism:</strong> agents query traces, logs, and metrics through tools rather than answering from a static text prompt.</li>
+      <li><strong>Failure-mode clarity:</strong> premature commitment, presence bias, and salience capture are actionable design targets.</li>
+    </ul>
+
+    <h3>Main limitations</h3>
+    <ul class="tight">
+      <li><strong>Synthetic/testbed envelope:</strong> the benchmark covers controlled systems and injected faults, not production incident diversity.</li>
+      <li><strong>Precision-favoring ground truth:</strong> false positives may be low, but weak real paths may be excluded, affecting recall-sensitive evaluation.</li>
+      <li><strong>Rule-set dependence:</strong> propagation mechanisms outside the authored rule vocabulary may be silently pruned.</li>
+      <li><strong>Author-only audit:</strong> manual reliability is useful but not equivalent to independent external annotation.</li>
+      <li><strong>No train/dev/test split:</strong> the dataset is positioned for evaluation; training on it risks leakage unless future splits or governance are added.</li>
+      <li><strong>Model-era volatility:</strong> frontier-model rankings are less durable than the benchmark design pattern.</li>
+    </ul>
+
+    <h3>Bottom-line appraisal</h3>
+    <div class="goodnote">
+      <strong>Best use:</strong> Use this paper as a design reference for agent benchmarks that need to score reasoning paths, not only final outputs. The most reusable parts are PAVE’s forward-verification logic, the ground-truth/agent schema separation, mandatory executable evidence, and the outcome/process metric split.
+    </div>
+    <div class="warning">
+      <strong>Do not use for:</strong> Production certification of RCA agents, broad claims about all cloud systems, or durable ranking of model vendors. The paper is stronger as a harness architecture and benchmark-methods contribution than as proof that any specific model is operationally reliable.
+    </div>
+
+    <h3>Independent appraisal by claim</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Support</th><th>Appraisal</th></tr></thead>
+      <tbody>
+        <tr><td>Outcome-only RCA scoring hides ungrounded diagnoses.</td><td>Strong: AnySvc vs PR gap and case studies directly support this.</td><td>Credible and broadly generalizable as an evaluation principle.</td></tr>
+        <tr><td>PAVE produces high-precision causal-process labels.</td><td>Moderate-to-strong: conjunctive gates and 100-case audit support precision.</td><td>Likely useful, but independent audit and release replication would strengthen it.</td></tr>
+        <tr><td>OpenRCA 2.0 is the first cross-system RCA benchmark with step-wise causal annotations for LLM agents.</td><td>Plausible within cited comparisons.</td><td>Accept as scoped to the authors’ comparison table; watch for newer or parallel work.</td></tr>
+        <tr><td>LLM RCA agents commonly identify services better than causal edges.</td><td>Strong within this benchmark: Node F1 exceeds Edge F1 for every model.</td><td>Likely true beyond this dataset, but magnitude will depend on system and telemetry.</td></tr>
+        <tr><td>Scores transfer to production RCA.</td><td>Not claimed strongly; authors caution against direct transfer.</td><td>Should require local calibration and incident replay before operational use.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="takeaways">
+    <h2>Implementation and practice takeaways</h2>
+    <div class="takeaway-grid">
+      <div class="mini-card">
+        <div class="label">Build pattern</div>
+        <div class="value">Score reasoning artifacts, not just answers</div>
+        <p>For any diagnostic agent, require a structured path: hypothesis, evidence, intermediate states, causal edges, and final conclusion.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Schema pattern</div>
+        <div class="value">Separate ground truth from answer contract</div>
+        <p>Ground truth can be rich; agent output should be strict, smaller, and mechanically scoreable.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Evidence pattern</div>
+        <div class="value">Require executable evidence</div>
+        <p>Every root cause and edge should carry a re-runnable query, citation, log reference, or deterministic evidence pointer.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Prompt pattern</div>
+        <div class="value">Separate investigation from synthesis</div>
+        <p>Let the agent collect evidence before forcing JSON. Then synthesize into a strict contract.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Metric pattern</div>
+        <div class="value">Use paired outcome/process metrics</div>
+        <p>Track final-answer accuracy separately from graph/path/evidence fidelity.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Safety pattern</div>
+        <div class="value">Detect “correct answer, wrong reason”</div>
+        <p>In safety-sensitive workflows, an answer without a valid path should not receive full credit.</p>
+      </div>
+    </div>
+
+    <h3>How this maps to a general agent harness</h3>
+    <pre><code>GENERALIZED HARNESS TEMPLATE
+
+CASE PACKAGE:
+  input_context/
+  available_tools/
+  hidden_gold_process/
+  allowed_output_schema/
+  evidence_validation_rules/
+
+AGENT RUN:
+  1. Investigate with tools.
+  2. Record intermediate evidence.
+  3. Emit strict structured output.
+  4. Attach evidence to every claim and edge.
+
+JUDGE:
+  1. Validate schema.
+  2. Re-run or resolve evidence pointers.
+  3. Score final answer.
+  4. Score process graph/path.
+  5. Score evidence support.
+  6. Report failure taxonomy.
+
+REPORT:
+  - correct final answer + valid process
+  - correct final answer + invalid process
+  - incorrect final answer + partial process
+  - unsupported claims
+  - missing evidence
+  - invalid evidence execution</code></pre>
+
+    <h3>Direct next steps for a builder</h3>
+    <ol class="tight">
+      <li>Adopt a two-layer metric model: <strong>outcome</strong> and <strong>process</strong>.</li>
+      <li>Define a minimal causal graph schema for your task domain before collecting cases.</li>
+      <li>Require evidence objects to be machine-checkable wherever possible.</li>
+      <li>Track ungrounded success explicitly: correct final answer but failed path/evidence.</li>
+      <li>Build a failure taxonomy aligned with intervention targets: premature commitment, missing negative evidence, salience bias, hallucinated edge, unsupported claim.</li>
+      <li>Use a small independently audited calibration set before trusting automated labels.</li>
+    </ol>
+  </section>
+
+  <section id="qa">
+    <h2>Quality-control notes</h2>
+    <div class="goodnote">
+      <strong>High-confidence extraction:</strong> the major claims, metrics, figures, tables, schemas, and limitations are represented. The most important reusable content is preserved in structured blocks.
+    </div>
+    <div class="warning">
+      <strong>Residual uncertainty:</strong> this appraisal is based on the arXiv preprint PDF and screenshots of visual pages, not on independent execution of the benchmark, released code, or dataset artifacts. Claims about reproducibility and release should be rechecked after public artifact release.
+    </div>
+    <h3>Minimal final appraisal block</h3>
+    <pre><code>FINAL APPRAISAL BLOCK
+
+Verdict:
+  Read first for agent evaluation and deterministic harness design.
+
+Best use:
+  Designing benchmarks where the answer must be supported by a validated reasoning path.
+
+Do not use for:
+  Production certification of RCA agents or broad model-vendor ranking.
+
+Main strengths:
+  - Step-wise causal labels instead of outcome-only labels
+  - Process metrics that expose correct-answer/wrong-reason cases
+  - Strict schemas and executable SQL evidence
+  - Useful prompt/harness design separation
+
+Main limitations:
+  - Synthetic controlled testbeds
+  - Rule-set and baseline dependence
+  - Author-only reliability audit
+  - Future public release / replication still matters
+
+Implementation takeaways:
+  - Require structured causal paths
+  - Validate evidence mechanically
+  - Score output and derivation separately
+  - Report ungrounded diagnoses as a first-class failure mode
+
+Confidence in appraisal:
+  Moderate-high for benchmark design; moderate for empirical generalization.</code></pre>
+  </section>
+</main>
+<footer>
+  Reference HTML generated from arXiv:2606.27154 using a Summary/Evaluation/Appraisal protocol. This is a secondary appraisal for research triage and implementation planning, not an independent benchmark replication.
+</footer>
+</body>
+</html>

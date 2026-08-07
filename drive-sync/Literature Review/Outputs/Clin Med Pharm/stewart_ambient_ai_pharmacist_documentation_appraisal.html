@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Using an Ambient AI Tool to Document Clinical Pharmacist Patient Encounters - Reference Appraisal</title>
+<style>
+:root{
+  --bg:#f6f8fb;--card:#ffffff;--ink:#17202a;--muted:#566579;--line:#d9e2ee;
+  --accent:#1d4f91;--accent2:#0f315f;--good:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;
+  --softblue:#eef5ff;--softgreen:#eefaf3;--softwarn:#fff7e6;--softbad:#fff1f1;
+  --codebg:#0e1726;--codefg:#edf4ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#10243d,#1d4f91);color:#fff;padding:2rem 1rem 1.75rem;border-bottom:5px solid #d2e2f5}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1rem}
+header h1{font-size:clamp(1.55rem,3.4vw,2.7rem);line-height:1.12;margin:.1rem 0 .7rem;font-weight:850;letter-spacing:-.02em}
+header p{max-width:900px;color:#e6eef8;margin:.4rem 0 0;font-size:1rem}
+.badge-row{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:1rem}
+.tag{display:inline-block;border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:.22rem .55rem;font-size:.82rem;font-weight:650}
+main{max-width:1120px;margin:1.25rem auto 3rem;padding:0 1rem}
+section,nav.toc{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:1rem 0;padding:1.05rem 1.15rem;box-shadow:0 1px 5px rgba(16,36,61,.06)}
+h2{font-size:1.35rem;color:#0f315f;margin:.15rem 0 .85rem;letter-spacing:-.01em}
+h3{font-size:1.08rem;color:#173f72;margin:1.1rem 0 .45rem}
+h4{font-size:1rem;color:#24364b;margin:1rem 0 .35rem}
+p{margin:.55rem 0}.muted{color:var(--muted)}
+nav.toc ul{columns:2;list-style:none;padding:0;margin:.3rem 0}.toc li{break-inside:avoid;margin:.35rem 0}.toc a{color:var(--accent2);text-decoration:none;font-weight:650}.toc a:hover{text-decoration:underline}
+.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin:.75rem 0}
+.three-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:.75rem 0}.mini-card{border:1px solid var(--line);background:#fbfdff;border-radius:12px;padding:.85rem}.mini-card strong{color:#20364f}.mini-card p{margin:.35rem 0 0}
+.verdict{border-left:6px solid var(--accent);background:var(--softblue);padding:.9rem 1rem;border-radius:12px;margin:.8rem 0}.goodnote{border-left:6px solid var(--good);background:var(--softgreen);padding:.85rem 1rem;border-radius:12px;margin:.75rem 0}.warning{border-left:6px solid var(--warn);background:var(--softwarn);padding:.85rem 1rem;border-radius:12px;margin:.75rem 0}.badnote{border-left:6px solid var(--bad);background:var(--softbad);padding:.85rem 1rem;border-radius:12px;margin:.75rem 0}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.94rem;border:1px solid var(--line);background:#fff}th,td{border:1px solid var(--line);padding:.55rem .65rem;vertical-align:top}th{background:#eef3f9;text-align:left;color:#1e395c}td.num{text-align:right;font-variant-numeric:tabular-nums}
+.score{font-size:1.55rem;font-weight:850;color:#0f315f}.score small{font-size:.8rem;color:var(--muted);font-weight:650}.section-summary{border:1px solid var(--line);border-radius:13px;padding:.8rem .9rem;margin:.75rem 0;background:#fbfdff}.section-summary h3{margin-top:.05rem}.section-summary p:last-child{margin-bottom:.05rem}
+pre{margin:.75rem 0 1rem;padding:1rem;background:var(--codebg);color:var(--codefg);border-radius:12px;overflow:auto;border:1px solid #1b2e49;font-size:.88rem;line-height:1.45;white-space:pre-wrap}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}.pill{display:inline-block;border:1px solid #cbd8e8;background:#f2f6fb;border-radius:999px;padding:.18rem .48rem;font-size:.8rem;color:#29445f;font-weight:650;margin:.1rem .15rem .1rem 0}.small{font-size:.88rem}.footer{font-size:.88rem;color:var(--muted)}
+@media (max-width:760px){nav.toc ul{columns:1}.meta-grid,.rating-grid,.takeaway-grid,.three-grid{grid-template-columns:1fr}section,nav.toc{padding:.9rem}.wrap,main{padding:0 .75rem}}
+@media print{body{background:#fff}header{background:#fff;color:#000;border-bottom:2px solid #000}header p,.tag{color:#000}.tag{border-color:#999;background:#fff}section,nav.toc{box-shadow:none;break-inside:avoid}a{color:#000;text-decoration:none}pre{white-space:pre-wrap}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Using an Ambient Artificial Intelligence Tool to Document Clinical Pharmacist Patient Encounters</h1>
+    <p>Reference appraisal of a retrospective observational implementation study of Microsoft Dragon Copilot / Nuance DAX use by ambulatory care clinical pharmacists at a federally qualified health center.</p>
+    <div class="badge-row">
+      <span class="tag">Practice advancement research</span><span class="tag">Clinical pharmacy workflow</span><span class="tag">Ambient AI documentation</span><span class="tag">Retrospective pre-post</span><span class="tag">FQHC setting</span>
+    </div>
+  </div>
+</header>
+<main>
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#coverage">Coverage manifest</a></li>
+    <li><a href="#question">Workflow question / PICO-style frame</a></li>
+    <li><a href="#sections">Section condensation</a></li>
+    <li><a href="#tables">Tables and workflow extraction</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#implementation">Implementation takeaways</a></li>
+    <li><a href="#qa">Semantic QA</a></li>
+    <li><a href="#provenance">Provenance</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><strong>Exact title</strong><p>Using an Ambient Artificial Intelligence Tool to Document Clinical Pharmacist Patient Encounters: Real-World Evidence From a Federally Qualified Health Center</p></div>
+    <div class="mini-card"><strong>Authors</strong><p>Morgan P. Stewart; Kathryn P. Lin; April Hinds; Sara Linedecker-Smith; Karen Welch; Aida Garza</p></div>
+    <div class="mini-card"><strong>Source</strong><p>Journal of the American College of Clinical Pharmacy. 2026;9:e70242.</p></div>
+    <div class="mini-card"><strong>Identifier</strong><p>DOI: 10.1002/jac5.70242</p></div>
+    <div class="mini-card"><strong>Article type / design</strong><p>Research report; retrospective observational pre-post implementation study with nonuser contextual comparator.</p></div>
+    <div class="mini-card"><strong>Dates</strong><p>Received Jan 15, 2026; revised May 19, 2026; accepted May 21, 2026; journal year 2026.</p></div>
+    <div class="mini-card"><strong>Setting</strong><p>Federally qualified health center in Austin, Texas; ambulatory care clinical pharmacists across 10 clinics.</p></div>
+    <div class="mini-card"><strong>Intervention</strong><p>Ambient AI documentation tool: Microsoft Dragon Copilot / Nuance Dragon Ambient eXperience (DAX).</p></div>
+  </div>
+  <div class="warning"><strong>Scope warning.</strong> This is early workflow evidence, not a clinical outcomes study, safety validation, regulatory assessment, note-quality audit, or cost-effectiveness analysis. It should inform local pilot design and monitoring, not justify unmonitored deployment or clinical practice changes by itself.</div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="verdict"><strong>Bottom line:</strong> DAX use was associated with a short-term reduction in pharmacists' EHR note time, but the study is small, single-system, observational, and underpowered for productivity or patient-outcome claims. Best use: a practical implementation signal for ambulatory care pharmacy AI-scribe pilots.</div>
+  <div class="three-grid">
+    <div class="mini-card"><strong>Core thesis</strong><p>Ambient AI documentation can reduce clinical pharmacist documentation burden in ambulatory care workflows that resemble primary care documentation and ordering workflows.</p></div>
+    <div class="mini-card"><strong>Main empirical signal</strong><p>Nine DAX users had a 31.17% relative reduction in median minutes spent in notes per day over the 2-month pre/post window: 38.5 to 26.5 minutes, p=0.04.</p></div>
+    <div class="mini-card"><strong>Main caveat</strong><p>The study cannot establish causality or durable productivity gain because users volunteered, sample size was very small, follow-up was short, and nonusers were a descriptive comparator rather than a formal control group.</p></div>
+  </div>
+  <p><span class="pill">Read soon</span><span class="pill">Workflow-relevant</span><span class="pill">Hypothesis-generating</span><span class="pill">Do not overclaim capacity</span></p>
+  <p>The most useful element is the operational framing: pharmacists performed comprehensive medication management under collaborative practice agreements, with documentation, orders, labs, refills, and inbasket work similar to other ambulatory clinicians. The paper therefore expands ambient AI documentation literature into clinical pharmacy, a group previously absent from early AI-scribe evaluations.</p>
+  <p>The result most likely to generalize is directionality of documentation-time relief in documentation-heavy ambulatory pharmacy visits. The result least ready for decision-making is increased clinical capacity: visits/month rose by about 33 visits per 1.0 FTE among users but did not reach conventional statistical significance, and longer 3- and 6-month post hoc windows did not show significant productivity effects.</p>
+</section>
+
+<section id="coverage">
+  <h2>Coverage manifest</h2>
+<pre><code>SOURCE COVERAGE MANIFEST
+source_id: DOI 10.1002/jac5.70242
+exact_title: Using an Ambient Artificial Intelligence Tool to Document Clinical Pharmacist Patient Encounters: Real-World Evidence From a Federally Qualified Health Center
+source_type: Journal research report; retrospective observational implementation study
+date_or_version: JACCP 2026;9:e70242; accepted May 21, 2026
+sections_or_headings: Abstract; Background; Methods; Results; Discussion; Conclusion; Author contributions; Funding; Conflicts of interest; Data availability; References; Appendix A
+figures: No substantive figures identified. Page 1 contains journal/branding images only, not evidentiary figures.
+tables: Table 1; Table 2; Appendix Table A1; Appendix Table A2
+algorithms_or_workflows: No formal algorithm figure; implementation/evaluation workflow can be reconstructed from Methods.
+appendices_or_supplements: Appendix A with 3-month and 6-month pre/post outcome tables.
+visual_strategy:
+  structured_blocks: Table 1, Table 2, Appendix Table A1, Appendix Table A2, reconstructed implementation/evaluation workflow
+  embedded_crops_or_screenshots: none needed; table content was recoverable from text
+  omitted_with_reason: journal branding images omitted as non-evidentiary
+coverage_decision: Include all main-text and appendix tables because they affect interpretation of baseline balance, primary 2-month results, and durability of the signal.
+omissions: No evidentiary figures or workflows omitted.</code></pre>
+</section>
+
+<section id="question">
+  <h2>Workflow question / PICO-style frame</h2>
+  <table>
+    <tr><th>Element</th><th>Appraisal extraction</th></tr>
+    <tr><td>Population</td><td>Ambulatory care clinical pharmacists at a federally qualified health center; 15 pharmacists in the system, with 9 DAX users and 4 nonusers included in analysis after exclusions.</td></tr>
+    <tr><td>Intervention</td><td>Access to and use of DAX ambient AI documentation for pharmacist patient encounters, implemented on a rolling basis from December 2024 to September 2025.</td></tr>
+    <tr><td>Comparator</td><td>Within-user 2-month preimplementation period; non-DAX users evaluated over the same calendar periods as contextual comparators for temporal trends.</td></tr>
+    <tr><td>Outcomes</td><td>EHR efficiency: time in notes per day, time in notes per appointment, time in clinical review. Productivity: clinical encounters/month, documented interventions/month, inbasket tasks/month, normalized to 1.0 FTE.</td></tr>
+    <tr><td>Clinical/practice question</td><td>Can ambient AI documentation reduce note burden and possibly create capacity in ambulatory care pharmacist workflows without worsening measured workflow productivity?</td></tr>
+    <tr><td>Decision relevance</td><td>Relevant to pharmacy departments considering AI-scribe pilots, pharmacist documentation redesign, EHR burden reduction, or ambulatory access expansion.</td></tr>
+  </table>
+</section>
+
+<section id="sections">
+  <h2>Section condensation</h2>
+  <div class="section-summary">
+    <h3>Abstract</h3>
+    <p>The study addresses EHR documentation burden among ambulatory care clinical pharmacists and tests whether an ambient AI documentation tool can reduce note-writing time. The authors compare 2 months before and after DAX implementation for pharmacist users, with nonusers evaluated over the same calendar windows for context.</p>
+    <p>The reported primary signal is a statistically significant reduction in median time spent documenting notes per day among 9 DAX users: 38.5 to 26.5 minutes, p=0.04. Visits per 1.0 FTE increased by about 33/month in DAX users and 17/month in nonusers, but these productivity changes were not statistically significant.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Background</h3>
+    <p>The background frames clinical pharmacy documentation as a major ambulatory workload and draws analogy to primary care providers, where EHR time and documentation burden are linked to inefficiency and burnout. Ambient AI scribes are described as tools that listen to clinician-patient conversations and generate draft notes for clinician review.</p>
+    <p>The local practice setting matters: pharmacists at the FQHC conduct comprehensive medication management under collaborative practice agreements, sign prescriptions under approving physicians' names, order labs, manage chronic conditions, complete refill work, and handle inbasket tasks. This makes the setting a plausible test case for whether physician-facing ambient documentation tools translate to pharmacist workflows.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Methods</h3>
+    <p>This was a retrospective observational pre-post study. DAX was implemented on a rolling basis, with pharmacists volunteering for access but implementation order assigned by a randomized waitlist lottery. The main analytic window was the 2 months immediately before and after each user's implementation date, chosen because it was the longest consistent period available across users at analysis.</p>
+    <p>EHR efficiency data came from Epic Signal; DAX usage frequency came from a custom Power BI report; productivity data came from standardized monthly team reports. Months with less than 80% of expected scheduled days and pharmacists without usable data were excluded. Time-based workflow metrics were analyzed with Wilcoxon signed-rank tests, and productivity metrics were analyzed with paired t-tests after normalization to 1.0 FTE.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Results</h3>
+    <p>Of 15 pharmacists, 10 were DAX users and 5 were nonusers; 9 DAX users and 4 nonusers were included. Baseline characteristics were similar on mean FTE and visits/month per 1.0 FTE. DAX users had baseline median note time/day of 38.5 minutes compared with 44.75 among nonusers; average DAX use covered 46.23% of encounters in the 2-month postimplementation window.</p>
+    <p>The only statistically significant primary finding was reduced median minutes in notes/day among DAX users: -12 minutes/day, -31.17%, p=0.04. Time in notes per appointment decreased from 4.75 to 4.10 minutes but was not significant. Visits/month per 1.0 FTE rose from 181.29 to 214.30 among DAX users, p=0.07, and from 180.95 to 198.08 among nonusers, p=0.08.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Discussion</h3>
+    <p>The authors interpret the 2-month reduction in note time as evidence that ambient listening technology can improve documentation efficiency for clinical pharmacists. They also suggest the nonsignificant increase in visits may represent clinically meaningful capacity in underserved settings if replicated and scaled.</p>
+    <p>The discussion appropriately warns about hallucinations, transcription errors, omissions, misinterpretation, and inaccurate summarization. It notes that all users were required to review and edit AI-generated notes before sign-off. The authors also emphasize that inbasket and intervention metrics fluctuate with learners, message volume, patient volume, and administrative duties, limiting inference from the short window.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Limitations</h3>
+    <p>The main limitations are small sample size, single FQHC setting, short 2-month observation window, volunteer-user selection bias, low early utilization, and lack of formal causal comparison against nonusers. The randomized waitlist timing partially mitigates but does not remove selection bias because the decision to volunteer for DAX was not randomized.</p>
+    <p>Longer 3- and 6-month analyses did not show significant findings, partly because sample sizes fell to 7 and 6 DAX users, respectively. The study also did not assess patient outcomes, note accuracy, clinician burnout, patient satisfaction, cost-benefit, privacy/security performance, or downstream safety events.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Conclusion</h3>
+    <p>The authors conclude that DAX use reduced note documentation time and may support increased clinical capacity in ambulatory care pharmacy. They position the work as early implementation evidence showing feasibility and measurable workflow impact.</p>
+    <p>The conclusion is reasonable for feasibility and short-term workflow signal, but stronger claims about capacity, outcomes, or broad deployment require larger multicenter designs, longer follow-up, stronger control methods, and direct measurement of note quality, safety, cost, and patient/provider experience.</p>
+  </div>
+</section>
+
+<section id="tables">
+  <h2>Tables and workflow extraction</h2>
+  <h3>TABLE 1 - Clinical pharmacist demographics and baseline characteristics</h3>
+<pre><code>Purpose: Establish comparability between DAX users, nonusers, and all analyzed pharmacists.
+Rows: Years in practice postresidency; mean FTE; baseline visits/month per 1.0 FTE; baseline median minutes in notes/day; time with fourth-year pharmacy students; DAX encounter usage.
+Columns: DAX users (n=9), non-DAX users (n=4), all pharmacists (n=13).
+Key values:
+  - Years postresidency: DAX 11.2 (SD 4.97), non-DAX 11.5 (SD 4), all 11.3 (SD 4.17).
+  - Mean FTE: DAX 0.68, non-DAX 0.69, all 0.68.
+  - Baseline visits/month per 1.0 FTE: DAX 181.29, non-DAX 180.95, all 181.19.
+  - Baseline median notes/day: DAX 38.50 minutes, non-DAX 44.75 minutes, all 41.00 minutes.
+  - Time with fourth-year pharmacy students: DAX 16.67%, non-DAX 23.44%, all 18.75%.
+  - Average encounters with DAX usage: 46.23% among DAX users.
+Pattern: Baseline productivity and FTE were similar, but nonusers had higher baseline note time and more learner exposure.
+Appraisal: Small n prevents meaningful balance testing. Learner exposure and baseline documentation style remain plausible confounders.
+Representation: structured block.</code></pre>
+
+  <h3>TABLE 2 - Primary outcomes for 2-month pre- and post-DAX rollout</h3>
+<pre><code>Purpose: Main evidence table for short-term workflow and productivity effects.
+Rows: Notes/day, notes/appointment, clinical review time, visits/month/FTE, interventions/month/FTE, inbasket metric/month/FTE for DAX users and nonusers.
+Columns: 2-month pre-DAX, 2-month post-DAX, absolute change, percent change, p value.
+Key DAX-user values:
+  - Minutes in notes/day: 38.50 to 26.50; -12.00; -31.17%; p=0.04.
+  - Minutes in notes/appointment: 4.75 to 4.10; -0.65; -13.68%; p=0.10.
+  - Minutes in clinical review: 26.50 to 27.50; +1.00; +3.77%; p=0.28.
+  - Visits/month/FTE: 181.29 to 214.30; +33.01; +18.21%; p=0.07.
+  - Interventions/month/FTE: 459.03 to 466.70; +7.67; +1.67%; p=0.73.
+  - Inbasket metric/month/FTE: 174.22 to 145.42; -28.80; -16.53%; p=0.54.
+Key nonuser context:
+  - Minutes in notes/day increased from 44.75 to 47.25; +5.59%.
+  - Visits/month/FTE increased from 180.95 to 198.08; +9.47%; p=0.08.
+Pattern: The main statistically significant signal is a DAX-user reduction in notes/day; capacity-related outcomes trend favorable but are underpowered and nonsignificant.
+Appraisal: Supports short-term documentation-efficiency signal, not causal productivity improvement. Non-DAX time metrics were not meaningfully statistically tested because n=4.
+Representation: structured block.</code></pre>
+
+  <h3>APPENDIX TABLE A1 - Primary outcomes for 3-month pre- and post-DAX rollout</h3>
+<pre><code>Purpose: Test whether the 2-month signal persists in a longer window, at the cost of smaller DAX-user sample size.
+DAX users: n=7. Non-DAX users: n=4.
+Key DAX-user values:
+  - Minutes in notes/day: 30.67 to 24.67; -6.00; -19.56%; p=0.18.
+  - Minutes in notes/appointment: 4.63 to 3.77; -0.86; -18.57%; p=0.11.
+  - Minutes in clinical review: 23.00 to 26.67; +3.67; +15.96%; p=0.15.
+  - Visits/month/FTE: 183.73 to 195.65; +11.92; +6.49%; p=0.53.
+  - Inbasket metric/month/FTE: 210.74 to 170.67; -40.07; -19.01%; p=0.51.
+Pattern: Direction of documentation time reduction persists, but the magnitude is smaller and not statistically significant.
+Appraisal: The appendix weakens claims of durable statistically demonstrated benefit while remaining compatible with an underpowered effect.
+Representation: structured block.</code></pre>
+
+  <h3>APPENDIX TABLE A2 - Primary outcomes for 6-month pre- and post-DAX rollout</h3>
+<pre><code>Purpose: Further durability check in the smallest longer-term DAX-user subset.
+DAX users: n=6. Non-DAX users: n=4.
+Key DAX-user values:
+  - Minutes in notes/day: 29.00 to 21.33; -7.67; -26.45%; p=0.15.
+  - Minutes in notes/appointment: 4.40 to 3.85; -0.55; -12.5%; p=0.16.
+  - Minutes in clinical review: 23.17 to 24.09; +0.92; +3.97%; p=0.06.
+  - Visits/month/FTE: 190.53 to 189.83; -0.70; -0.37%; p=0.97.
+  - Inbasket metric/month/FTE: 231.83 to 191.24; -40.59; -17.51%; p=0.44.
+Pattern: Documentation-time direction remains favorable, but no productivity gain persists; clinical review time trends upward but remains statistically uncertain.
+Appraisal: Strong caution against interpreting the 2-month visit increase as a durable capacity finding.
+Representation: structured block.</code></pre>
+
+  <h3>WORKFLOW - DAX implementation and evaluation process reconstructed from Methods</h3>
+<pre><code>Inputs:
+  - Pharmacists volunteering for DAX access.
+  - Randomized waitlist lottery determining implementation order.
+  - Epic Signal workflow metrics.
+  - Power BI DAX-use report.
+  - Standardized monthly productivity reports.
+Process / decision rules:
+  1. Roll out DAX access to individual pharmacists between Dec 2024 and Sep 2025.
+  2. For each DAX user, define the 2 months before and after implementation as primary windows.
+  3. Evaluate non-DAX users during matching calendar periods for context.
+  4. Exclude months with fewer than 80% expected scheduled days and pharmacists lacking data capture.
+  5. Normalize productivity metrics to 1.0 FTE.
+  6. Analyze time metrics with Wilcoxon signed-rank tests and productivity metrics with paired t-tests.
+Outputs:
+  - Documentation time, clinical review time, visit volume, intervention volume, and inbasket metrics.
+Failure modes:
+  - Volunteer-user selection bias.
+  - Low DAX uptake during early adjustment.
+  - Learner and clinic-demand confounding.
+  - Short follow-up and small n.
+  - Metrics do not capture note accuracy, clinical quality, burnout, or patient experience.
+Human review:
+  - Pharmacists reviewed and edited AI-generated notes before sign-off.
+Governance:
+  - Reported governance is limited to clinician review/edit before sign-off. The paper does not provide detailed audit trails, monitoring triggers, note-quality surveillance, privacy controls, or escalation policies.
+Representation: structured block.</code></pre>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="verdict"><strong>Verdict: Read soon.</strong> This is highly relevant for clinical pharmacy AI documentation workflows and worth preserving, but the evidence is too small and local to support broad deployment claims without additional controls and monitoring.</div>
+  <div class="rating-grid">
+    <div class="mini-card"><div class="score">8.5 <small>/10</small></div><strong>Relevance</strong><p>Directly matches clinical pharmacy workflow, ambulatory documentation burden, EHR efficiency, and AI-scribe implementation interests. Evidence basis: pharmacist-specific DAX implementation in an FQHC. Limiting factor: ambulatory FQHC only. Would rise with inpatient, specialty pharmacy, and health-system replication.</p></div>
+    <div class="mini-card"><div class="score">7.5 <small>/10</small></div><strong>Novelty</strong><p>Novel because prior ambient AI documentation literature largely centered physicians and advanced practice providers, not pharmacists. Evidence basis: explicit pharmacist cohort and pharmacy workflow framing. Limiting factor: tool and outcome design are not technically novel. Would rise with deeper pharmacist-specific note-quality or workflow redesign analysis.</p></div>
+    <div class="mini-card"><div class="score">4.5 <small>/10</small></div><strong>Method strength</strong><p>Useful real-world pre-post design, but small sample, volunteer uptake, short window, and descriptive comparator substantially limit causal inference. Evidence basis: 9 DAX users, 4 nonusers, 2-month main window, post hoc longer windows. Limiting factor: nonrandomized adoption and underpowering. Would rise with randomized stepped-wedge or difference-in-differences design.</p></div>
+    <div class="mini-card"><div class="score">4.5 <small>/10</small></div><strong>Evidence strength</strong><p>The note-time reduction is supported, but productivity, capacity, and clinical-benefit claims remain hypothesis-generating. Evidence basis: statistically significant 2-month notes/day change with nonsignificant productivity outcomes and nonsignificant longer windows. Limiting factor: no uncertainty beyond p values and limited sample. Would rise with confidence intervals, power planning, and patient-centered outcomes.</p></div>
+    <div class="mini-card"><div class="score">3.5 <small>/10</small></div><strong>External validity</strong><p>Generalizability is narrow because the study occurred in one FQHC with a specific collaborative-practice pharmacy model and one commercial ambient AI product. Evidence basis: single health center system, 10 clinics, localized workflow. Limiting factor: setting-specific staffing, reimbursement, patient complexity, EHR configuration, and team culture. Would rise with multicenter replication.</p></div>
+    <div class="mini-card"><div class="score">6.5 <small>/10</small></div><strong>Implementation value</strong><p>Good for pilot planning because it identifies feasible metrics, early uptake issues, and governance need for pharmacist review. Evidence basis: Epic Signal, Power BI usage capture, FTE-normalized productivity, and explicit note review requirement. Limiting factor: sparse operational detail on training, consent, note auditing, privacy, cost, and monitoring. Would rise with implementation toolkit and quality/safety dashboard.</p></div>
+  </div>
+
+  <h3>Main strengths</h3>
+  <ul>
+    <li>Addresses a specific evidence gap: ambient AI documentation for clinical pharmacists rather than only physicians or advanced practice providers.</li>
+    <li>Uses real-world EHR-derived efficiency metrics rather than only self-report.</li>
+    <li>Normalizes productivity metrics to 1.0 FTE, important because pharmacists had variable direct patient-care FTE.</li>
+    <li>Includes contemporaneous nonuser context and longer post hoc windows, which make the interpretation more cautious.</li>
+    <li>Explicitly acknowledges generative AI documentation risks and requires clinician review before sign-off.</li>
+  </ul>
+
+  <h3>Main limitations</h3>
+  <ul>
+    <li>Very small analytic sample: 9 DAX users and 4 nonusers.</li>
+    <li>Volunteer-user selection bias: willingness to use DAX may correlate with documentation burden, technology comfort, productivity goals, or workflow style.</li>
+    <li>Nonuser comparison was contextual rather than a causal comparator.</li>
+    <li>Short primary follow-up; longer 3- and 6-month analyses were smaller and nonsignificant.</li>
+    <li>No direct assessment of note accuracy, hallucination rate, omission rate, patient outcomes, patient satisfaction, pharmacist burnout, cost, billing, or compliance.</li>
+    <li>Mean DAX usage was only 46.23% of encounters during the first 2 months, so exposure was partial and early-adoption dependent.</li>
+  </ul>
+
+  <h3>Bias and confounding appraisal</h3>
+  <table>
+    <tr><th>Domain</th><th>Risk</th><th>Reason</th></tr>
+    <tr><td>Selection bias</td><td>Moderate to high</td><td>Users volunteered for access; randomized waitlist timing mitigates timing bias but not adoption bias.</td></tr>
+    <tr><td>Temporal confounding</td><td>Moderate</td><td>Clinic demand, staffing, learners, and administrative duties can fluctuate across 2-month windows.</td></tr>
+    <tr><td>Measurement bias</td><td>Moderate</td><td>Epic Signal and monthly productivity reports are pragmatic but may not capture quality, after-hours work nuances, or documentation complexity.</td></tr>
+    <tr><td>Performance bias</td><td>Moderate</td><td>Early users may change behavior because they know they are adopting a new tool.</td></tr>
+    <tr><td>Outcome substitution</td><td>High for clinical impact</td><td>Documentation time and visit counts are workflow proxies, not patient-centered outcomes or safety measures.</td></tr>
+  </table>
+
+  <div class="badnote"><strong>Do not use for:</strong> claiming ambient AI scribes improve pharmacist clinical outcomes, reduce burnout, pay for themselves, safely replace human documentation review, or generalize to inpatient, oncology, transplant, anticoagulation, or specialty pharmacy without additional validation.</div>
+  <div class="goodnote"><strong>Best use:</strong> citation and design reference for a local pilot: define baseline EHR documentation burden, measure tool utilization, normalize productivity to clinical FTE, require note review, and pair efficiency metrics with quality/safety monitoring.</div>
+</section>
+
+<section id="implementation">
+  <h2>Implementation / practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><strong>What can change now</strong><p>Use the paper to justify a monitored pilot or business case for ambient AI documentation in ambulatory care pharmacy, especially where pharmacists perform comprehensive medication management and write encounter notes.</p></div>
+    <div class="mini-card"><strong>What should not change yet</strong><p>Do not expand staffing assumptions, appointment templates, reimbursement models, or productivity targets based on this study alone.</p></div>
+    <div class="mini-card"><strong>Minimum pilot metrics</strong><p>Notes/day, notes/appointment, pajama-time if available, clinical review time, visits/FTE, intervention volume, inbasket volume, DAX-use percentage, note edit burden, error/omission rate, and pharmacist/patient satisfaction.</p></div>
+    <div class="mini-card"><strong>Safety controls</strong><p>Require pharmacist review before sign-off; audit a sample of AI-generated notes; track hallucinations, medication-list errors, dosing/frequency omissions, assessment-plan mismatches, and patient consent/refusal.</p></div>
+    <div class="mini-card"><strong>Governance needs</strong><p>Define consent workflow, storage/transcription handling, privacy review, vendor risk assessment, downtime procedure, documentation ownership, escalation path, and periodic quality reporting.</p></div>
+    <div class="mini-card"><strong>Research next step</strong><p>Run a stepped-wedge or difference-in-differences multicenter study with longer follow-up, note-quality adjudication, cost analysis, burnout measures, and clinical outcomes such as A1c or blood pressure control where appropriate.</p></div>
+  </div>
+  <h3>Local pharmacy implementation checklist</h3>
+  <ul>
+    <li>Start with a small cohort of pharmacists with high documentation burden and comparable visit types.</li>
+    <li>Collect at least 8-12 weeks of preimplementation EHR and productivity baseline data.</li>
+    <li>Predefine whether success means less documentation time, more access, less after-hours work, improved note quality, or lower burnout.</li>
+    <li>Separate efficiency endpoints from clinical quality endpoints; do not let a time-saving endpoint imply clinical benefit.</li>
+    <li>Track tool utilization by encounter type because low utilization can obscure true effect and identify where the tool does not fit.</li>
+    <li>Build a pharmacist-specific note-quality rubric that checks medication reconciliation, indication, dose, route, frequency, monitoring, labs, assessment, plan, follow-up, and patient counseling.</li>
+  </ul>
+</section>
+
+<section id="qa">
+  <h2>Semantic QA</h2>
+  <table>
+    <tr><th>Check</th><th>Status</th></tr>
+    <tr><td>Exact source title and DOI included</td><td>Pass</td></tr>
+    <tr><td>Source type and design classified without overstating strength</td><td>Pass</td></tr>
+    <tr><td>Main text tables reconciled</td><td>Pass - Table 1 and Table 2 included as structured blocks</td></tr>
+    <tr><td>Appendix tables considered</td><td>Pass - Appendix Tables A1 and A2 included because they affect durability interpretation</td></tr>
+    <tr><td>Figures/workflows reconciled</td><td>Pass - no evidentiary figures; reconstructed workflow from Methods included</td></tr>
+    <tr><td>Claims separated from appraisal</td><td>Pass</td></tr>
+    <tr><td>Scores include rationale, evidence basis, limiting factor, and what would improve rating</td><td>Pass</td></tr>
+    <tr><td>Clinical/practice caution stated</td><td>Pass</td></tr>
+    <tr><td>Internal chat/file citation syntax excluded from artifact</td><td>Pass</td></tr>
+  </table>
+</section>
+
+<section id="provenance">
+  <h2>Provenance</h2>
+  <p><strong>Evaluated source:</strong> Stewart MP, Lin KP, Hinds A, Linedecker-Smith S, Welch K, Garza A. <em>Using an Ambient Artificial Intelligence Tool to Document Clinical Pharmacist Patient Encounters: Real-World Evidence From a Federally Qualified Health Center</em>. Journal of the American College of Clinical Pharmacy. 2026;9:e70242. DOI: 10.1002/jac5.70242.</p>
+  <p><strong>Evaluated file:</strong> JACCP JOURNAL OF THE AMERICAN COLLEGE OF CLINICAL PHARMACY - 2026 - Stewart - Using an Ambient Artificial Intelligence.pdf</p>
+  <p><strong>Generated:</strong> July 3, 2026.</p>
+  <p class="footer">This reference file is a structured summary and appraisal for source understanding. It does not replace primary-source review, institutional AI governance, privacy/security review, or local clinical documentation policy.</p>
+</section>
+</main>
+</body>
+</html>

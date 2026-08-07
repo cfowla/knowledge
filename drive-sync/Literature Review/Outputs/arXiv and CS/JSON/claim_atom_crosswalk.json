@@ -1,0 +1,114 @@
+[
+  {
+    "claim_area": "Training design and corpus",
+    "atom_ids": [
+      "dc6f49f3-5203-4f7b-bbc3-0349840fdc09",
+      "262ebb0e-8ebb-4bdb-96d3-85c5059576fe",
+      "54358b10-405e-4e05-b0de-b60b987da97f",
+      "380a9b6c-c633-45f3-b5f4-c244e95af7c0",
+      "9e41d36b-4471-4f73-b87e-8ff2f2171f79",
+      "cb6f7857-fbba-4dbb-98e4-ad376a1b08a6",
+      "00335a1f-4c67-42b2-859f-4706530e8c23",
+      "ddb2a051-1718-442f-9c81-c9db4ceeee75",
+      "7ccdd2e3-2ff6-41d6-9883-14063581cffc"
+    ],
+    "atom_count": 9,
+    "statements": [
+      "The study evaluated whether an author-compiled ophthalmic guideline table could provide all instance-level labels needed to train a multi-turn telephone triage agent.",
+      "The authors compiled American Academy of Ophthalmology-informed guidance into a 70-row operational triage table.",
+      "Each generated profile cited a nonempty rule-row set and inherited the most severe tier among the cited rows.",
+      "The primary training corpus contained 3,000 synthetic multi-turn dialogues with a median of 11 nurse turns.",
+      "The 3,000-dialogue corpus contained 625 emergent, 746 urgent, and 1,629 routine dialogues.",
+      "Class-weighted resampling with weights 2.0, 1.5, and 1.0 produced 3,998 training exposures.",
+      "The GAO-Triage intervention was full-parameter supervised fine-tuning of a 9B backbone for three epochs with nurse-token cross-entropy and caller-token masking.",
+      "The operational reference included 42 emergent, 47 urgent, and 112 routine cases.",
+      "Providing the 70-row rule table to GPT-5.5 yielded 67.7% agreement versus 75.1% without the table."
+    ]
+  },
+  {
+    "claim_area": "Primary effectiveness",
+    "atom_ids": [
+      "c8772b07-2d65-4f88-b14f-49b3ad544d4d",
+      "7ee8fbd2-766f-4cff-ba5a-2d42f190804e",
+      "5fccf5a2-cd5d-4ea6-aedb-69cca4d3e7ee",
+      "32e4b5c0-7a12-4678-81b1-302657a3c57b",
+      "a1ccae67-eb98-4e87-9209-43fac06e0bbd",
+      "15a575da-e9a1-4776-9b2f-d0cf9a611b5f"
+    ],
+    "atom_count": 6,
+    "statements": [
+      "GAO-Triage achieved 74.1% exact agreement with the operational reference versus 61.7% for the untuned 9B backbone.",
+      "Among 42 emergent-reference cases, GAO-Triage recall was 69.0% versus 9.5% for the untuned 9B backbone.",
+      "Severe under-triage decreased descriptively from 24 cases with the base model to 17 cases with GAO-Triage.",
+      "A second same-recipe random seed achieved 73.1% agreement and 78.6% emergent recall.",
+      "Under a second patient simulator, emergent recall was 71.4% for GAO-Triage versus 7.1% for the base model.",
+      "Most comparisons relied on one random seed and one patient simulator, and the design was underpowered for paired differences below roughly 10 percentage points."
+    ]
+  },
+  {
+    "claim_area": "Mechanism and controls",
+    "atom_ids": [
+      "ed852895-0aa2-4b65-af1b-304e0432e6a3",
+      "49ac2d62-2a72-4d0e-b177-379761e5d323",
+      "25ed64f1-13b0-40cd-af69-829a3fd0556e",
+      "b4c11772-6a3f-47bf-8763-f94c5229c50d"
+    ],
+    "atom_count": 4,
+    "statements": [
+      "Permuting dialogue-label assignments collapsed the model to routine predictions for all 201 cases, with 55.7% agreement and 0% emergent and urgent recall.",
+      "Removing or replacing the 160 tagged one-fact boundary dialogues changed agreement by at most 2 of 201 cases.",
+      "Approximately 19% of earlier rationale fields asserted findings that the caller had not supplied.",
+      "Label repair neutralized 491 symptom-family/tier contradictions and corrected 91 dialogues with three mutually inconsistent labels."
+    ]
+  },
+  {
+    "claim_area": "Comparator and post-training results",
+    "atom_ids": [
+      "4200b213-5517-4c95-973c-cd74ccbb2197",
+      "7ccdd2e3-2ff6-41d6-9883-14063581cffc",
+      "9504a4b3-e2cf-4759-81bd-3a5dfc1871d4"
+    ],
+    "atom_count": 3,
+    "statements": [
+      "Outcome-GRPO achieved 45.3% agreement and ended without a disposition in 80 of 201 dialogues.",
+      "Providing the 70-row rule table to GPT-5.5 yielded 67.7% agreement versus 75.1% without the table.",
+      "On Oxford-40, a trained precursor achieved 62.5% agreement, the untuned backbone 50.0%, and GPT-5.5 82.5%."
+    ]
+  },
+  {
+    "claim_area": "Validity, leakage, and ethics",
+    "atom_ids": [
+      "e084527b-119d-4abc-9385-e3c81730ac20",
+      "22076b7e-4edc-4512-85c0-42336fc9cc3f",
+      "0b3513c8-89cc-4c14-9b12-2e427138db8d",
+      "be006d68-3dc4-4730-af52-f5196b6574ba",
+      "15a575da-e9a1-4776-9b2f-d0cf9a611b5f",
+      "bc4bc151-671a-47bd-9dc9-49fb1e01db7f",
+      "b9146d54-dcfb-4187-92fb-8f4cfa7f919c",
+      "7df652eb-d55a-4ccb-bfc7-96d48beeaa24"
+    ],
+    "atom_count": 8,
+    "statements": [
+      "The 70-row operational policy was benchmark-informed, lacked independent clinician validation, and was not mapped to source passages.",
+      "The benchmark informed rule-table revision, corpus development, model selection, and reference adjudication, limiting the evaluation to policy conformance rather than held-out clinical generalization.",
+      "Historical evaluation runs were invalidated because a complete-profile heuristic could overwrite model verdicts using hidden case data.",
+      "An exact-template audit across 5,427 historical case-runs found 19 to 44 overwritten cases per run.",
+      "Most comparisons relied on one random seed and one patient simulator, and the design was underpowered for paired differences below roughly 10 percentage points.",
+      "Known paraphrase clusters and lexical-overlap findings did not establish isolation or decontamination of training data from benchmark content.",
+      "The external Oxford-40 test was small, static rather than interactive, used differing prompts, and had a 57.5% constant-emergent baseline.",
+      "The study retained no platform agreement, acquisition record, or de-identification audit for the public-post-derived data, and no IRB review was sought."
+    ]
+  },
+  {
+    "claim_area": "Conclusions and prerequisites",
+    "atom_ids": [
+      "9aedff33-6d4f-4546-9569-a34592129847",
+      "bbd3548f-dcf5-4b00-a695-476652ac4e13"
+    ],
+    "atom_count": 2,
+    "statements": [
+      "The authors concluded that guideline compilation can substitute for per-instance annotation for policy-conformance training when annotated conversations are scarce.",
+      "The authors stated that independent multi-clinician labels and an interactive external benchmark are prerequisites for a clinical claim."
+    ]
+  }
+]

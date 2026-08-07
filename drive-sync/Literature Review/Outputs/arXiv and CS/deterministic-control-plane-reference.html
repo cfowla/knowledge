@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reference: A Deterministic Control Plane for LLM Coding Agents</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --ink: #17202a;
+      --muted: #526173;
+      --line: #d9e0ea;
+      --accent: #1d4f91;
+      --accent2: #7a3e06;
+      --good: #0f6b3b;
+      --warn: #8a5a00;
+      --bad: #8a1f1f;
+      --codebg: #0e1726;
+      --codefg: #edf4ff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: linear-gradient(135deg, #10243d, #1d4f91);
+      color: white;
+      padding: 2.2rem 1.25rem 2rem;
+      border-bottom: 5px solid #d2e2f5;
+    }
+    header .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { margin: 0 0 .6rem; font-size: clamp(1.65rem, 3vw, 2.55rem); line-height: 1.15; }
+    .subtitle { max-width: 930px; font-size: 1.05rem; color: #dce9f8; margin: 0; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    nav.toc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0 1.25rem;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .06);
+    }
+    nav.toc a { color: var(--accent); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+    .toc-grid { columns: 2; column-gap: 2rem; padding-left: 1.25rem; }
+    section, article.card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .05);
+    }
+    h2 { color: #0f315f; margin: .2rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: .45rem; }
+    h3 { color: #173f72; margin-top: 1.25rem; }
+    h4 { margin: 1rem 0 .35rem; color: #24364b; }
+    .meta-grid, .rating-grid, .takeaway-grid, .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .75rem;
+    }
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .8rem;
+      background: #fbfcff;
+    }
+    .label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .value { font-weight: 650; margin-top: .2rem; }
+    .verdict {
+      border-left: 5px solid var(--accent);
+      background: #eef5ff;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: .6rem 0 1rem;
+    }
+    .warning {
+      border-left: 5px solid var(--warn);
+      background: #fff8e8;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    .badnote {
+      border-left: 5px solid var(--bad);
+      background: #fff1f1;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    .goodnote {
+      border-left: 5px solid var(--good);
+      background: #edf8f2;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+    }
+    table { width: 100%; border-collapse: collapse; margin: .75rem 0; font-size: .96rem; }
+    th, td { border: 1px solid var(--line); padding: .55rem .65rem; vertical-align: top; }
+    th { background: #eef3f9; text-align: left; color: #1e395c; }
+    .rating-grid .mini-card { min-height: 92px; }
+    .score { font-size: 1.35rem; font-weight: 800; color: var(--accent); }
+    pre {
+      margin: .75rem 0 1.1rem;
+      padding: 1rem;
+      background: var(--codebg);
+      color: var(--codefg);
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #1b2e49;
+      font-size: .88rem;
+      line-height: 1.45;
+      white-space: pre;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .section-summary { border-left: 4px solid #cbd8e8; padding-left: .95rem; margin: .9rem 0 1.2rem; }
+    .section-summary h3 { margin: 0 0 .4rem; }
+    .section-summary p { margin: .4rem 0; }
+    .tag {
+      display: inline-block;
+      border: 1px solid #c9d7e8;
+      background: #f2f6fb;
+      color: #27496d;
+      padding: .15rem .45rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin: .12rem .2rem .12rem 0;
+    }
+    .small { color: var(--muted); font-size: .92rem; }
+    ul.tight li, ol.tight li { margin-bottom: .35rem; }
+    .checklist li { margin-bottom: .45rem; }
+    footer { max-width: 1100px; margin: 0 auto 2rem; color: var(--muted); padding: 0 1.25rem; font-size: .9rem; }
+    .nowrap { white-space: nowrap; }
+    @media print {
+      body { background: white; }
+      section, article.card, nav.toc { box-shadow: none; break-inside: avoid; }
+      pre { white-space: pre-wrap; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>A Deterministic Control Plane for LLM Coding Agents</h1>
+    <p class="subtitle">Summary, evaluation, and appraisal reference file for Padmaraj Madatha’s arXiv preprint on governing LLM coding-agent configurations, permissions, traceability, and prompt drift with deterministic controls above existing harnesses.</p>
+  </div>
+</header>
+<main>
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ol class="toc-grid">
+      <li><a href="#metadata">Source metadata</a></li>
+      <li><a href="#synthesis">One-page synthesis</a></li>
+      <li><a href="#section-condensation">Section condensation</a></li>
+      <li><a href="#visuals">Figures, tables, and exhibits</a></li>
+      <li><a href="#aiml-appraisal">AI/ML systems appraisal</a></li>
+      <li><a href="#evaluation">Evaluation and appraisal</a></li>
+      <li><a href="#takeaways">Implementation takeaways</a></li>
+      <li><a href="#qa">Quality-control notes</a></li>
+    </ol>
+  </nav>
+
+  <section id="metadata">
+    <h2>Source metadata</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><div class="label">Title</div><div class="value">A Deterministic Control Plane for LLM Coding Agents</div></div>
+      <div class="mini-card"><div class="label">Author</div><div class="value">Padmaraj Madatha</div></div>
+      <div class="mini-card"><div class="label">Source</div><div class="value">arXiv:2606.26924v1</div></div>
+      <div class="mini-card"><div class="label">Submitted</div><div class="value">25 Jun 2026</div></div>
+      <div class="mini-card"><div class="label">Length</div><div class="value">45 pages; 9 figures; 13 tables</div></div>
+      <div class="mini-card"><div class="label">Subjects</div><div class="value">Software Engineering; Artificial Intelligence; Cryptography and Security</div></div>
+      <div class="mini-card"><div class="label">Artifact availability</div><div class="value">Zenodo DOI 10.5281/zenodo.20780913; arXiv ancillary files</div></div>
+      <div class="mini-card"><div class="label">Document type</div><div class="value">Preprint; systems architecture + conformance testing + empirical prevalence study</div></div>
+    </div>
+    <p class="small">Scope warning: this file summarizes and appraises a preprint. The paper verifies enforcement properties on injected violations and measures public-repository prevalence signals; it does not demonstrate developer productivity, reduced defects, or field security outcomes.</p>
+  </section>
+
+  <section id="synthesis">
+    <h2>One-page synthesis</h2>
+    <div class="verdict">
+      <strong>Core thesis:</strong> the configuration-and-process layer around LLM coding agents should be treated as governed software infrastructure. The paper argues that agent rules, permission declarations, prompts, trace records, and workflow gates need deterministic controls because the harness/model pair should not be trusted to govern itself.
+    </div>
+    <p>The paper identifies a “thin governance surface” in modern coding harnesses: IDE-integrated agents can read, write, execute shell commands, use MCP tools, and act across a codebase, but the files that steer them are usually natural-language markdown or YAML artifacts with weak provenance, weak permission enforcement, little cross-tool portability, and no guaranteed requirement-to-test trace. Rel(AI)Build is presented as a deterministic control plane above the harness, not as a replacement for Cursor, Claude Code, Copilot, Codex, Windsurf, OpenCode, or Kiro.</p>
+    <p>The strongest empirical contribution is the prevalence study: 10,008 public GitHub repositories and 6,145 agent config files show substantial exact duplicate propagation, shallow version-control depth, and very sparse declared permission boundaries. The strongest architecture contribution is the mapping from each observed governance gap to a simple deterministic mechanism: SHA-256 addressing, HMAC-stamped lockfiles, hash-chained audit logs, tiered permissions, attack-derived command/path blocklists, a phase state machine, trace artifacts, a canonical-to-target compiler, and Jaccard drift triage.</p>
+    <div class="warning"><strong>Bottom line:</strong> read as a build-oriented control-plane pattern, not as proof that Rel(AI)Build improves engineering productivity or security in the field. The architecture is valuable because it separates deterministic governance from probabilistic LLM behavior; the evidence remains early-stage.</div>
+    <div>
+      <span class="tag">LLM coding agents</span>
+      <span class="tag">Agent governance</span>
+      <span class="tag">Prompt supply chain</span>
+      <span class="tag">Deterministic guardrails</span>
+      <span class="tag">Permission tiers</span>
+      <span class="tag">Traceability</span>
+      <span class="tag">Jaccard drift</span>
+      <span class="tag">Harness portability</span>
+    </div>
+  </section>
+
+  <section id="section-condensation">
+    <h2>Section condensation</h2>
+
+    <div class="section-summary">
+      <h3>Abstract</h3>
+      <p>The abstract frames the central risk: coding harnesses give agents broad file and shell access, but their steering layer—rules files, agent definitions, and IDE-specific markdown—is generally unmanaged. The prevalence study’s most robust finding is exact duplicate propagation of agent configurations across independent repositories, suggesting that prompts and agent rules circulate like undeclared shared components.</p>
+      <p>The proposed remedy is a deterministic control plane called Rel(AI)Build. It content-addresses agent definitions, stamps lockfiles, writes hash-chained logs, enforces tiered permissions and attack-derived blocklists before LLM invocation, gates feature work through a phase machine, compiles canonical definitions to seven targets, and uses Jaccard similarity to detect prompt drift. The abstract explicitly limits its claim: conformance tests show mechanisms enforce stated invariants, while developer outcomes remain future work.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>1. Introduction</h3>
+      <p>The introduction describes agent configuration as a high-authority but low-governance artifact. Agent rules may encode architectural conventions, dependency preferences, tool permissions, and process expectations, yet they are often copied, edited casually, trusted without provenance, and injected into context for tools that can write files or execute commands. The paper separates three recurring gaps: unmanaged configuration, unbounded execution, and non-portable expertise across harness dialects.</p>
+      <p>The thesis is deliberately narrow: RBAC, sandboxing, orchestration, stage gates, and supply-chain controls are not new. The claimed contribution is applying deterministic, tool-agnostic governance to the layer surrounding coding agents. The contribution list is useful because it distinguishes architectural mechanisms from empirical activities and states a determinism boundary: install-time gates and state transitions are deterministic; trace linkage still depends on cooperative agent behavior.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>2. Background and related work</h3>
+      <p>The background positions Rel(AI)Build beside, not inside, coding harnesses and orchestration frameworks. Cursor, Claude Code, Copilot, Aider, Codex, Windsurf, and related tools differ in configuration files, context scoping, native augmentation, and runtime enforcement, but share a thin configuration interface. Multi-agent frameworks such as LangGraph, CrewAI, AutoGen, SWE-Agent, and OpenHands focus on orchestration or autonomous issue resolution, whereas this paper focuses on governance of prompts, permissions, and process artifacts that steer existing IDE-integrated harnesses.</p>
+      <p>The paper grounds its design in several established traditions: least privilege and capability-based security, policy-as-code, infrastructure-as-code, supply-chain security, SBOM framing, SLSA-style integrity, stage-gate workflow governance, formal workflow verification, and tamper-evident logging. This related-work section is methodologically useful because it avoids claiming novelty for the individual control primitives and instead argues for their composition around agent definitions.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3. System architecture</h3>
+      <p>Rel(AI)Build divides the control plane into three planes: authoring/distribution, compilation, and runtime governance. The authoring layer stores canonical agents, skills, knowledge shards, profiles, and workflows with content hashes; the compilation layer normalizes Markdown+YAML and emits target-specific IDE formats; the runtime-governance layer exposes deterministic CLI/MCP helpers for phase advancement, delegation receipts, trace updates, permission checks, blocklists, lockfiles, audit logs, and drift detection.</p>
+      <p>The section’s important implementation choice is modularity. The Node.js reference implementation makes the CLI the authoritative governance path while also exposing MCP operations inside the IDE. Persistent artifacts include <code>phase-state.json</code>, <code>trace.json</code>, <code>spec.md</code>, <code>handoff.md</code>, a per-project lockfile, and an audit log. This artifact model is one of the most reusable pieces for independent harness design.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>4. Governance mechanisms</h3>
+      <p>The governance section is the technical core. Agent definitions are managed like software dependencies using SHA-256 content addressing, HMAC-stamped lockfiles, and hash-chained JSONL audit logs. Permission tiers define fail-closed tool allowlists and path scoping; scribe agents are path-restricted with traversal defense, while operations and specialist tiers receive controlled shell/tool capabilities. Attack-derived regular-expression blocklists cover patterns such as auto-confirmed package execution, pipe-to-shell installs, detached process spawning, persistence paths, and git configuration/hook manipulation.</p>
+      <p>The later subsections add tokenization normalization, Jaccard similarity drift zones, an eight-phase lifecycle with four human review gates, a three-iteration auto-fix cap, security-scan gates, and acceptance-criterion traceability. The strongest caveat is stated in the traceability subsection: file-to-AC linkage is cooperative. If an agent edits files without calling <code>trace-update</code>, the control plane detects scope creep at the next drift check but cannot prevent the edit before it lands.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>5. Threat model and compliance framing</h3>
+      <p>The threat model assumes adversaries may influence task inputs, shared agent-system directories through pull requests, dependency suggestions, or workspace content in untrusted repositories. Seven threats are mapped to deterministic mitigations: prompt injection, privilege escalation, context poisoning, credential leakage, uncontrolled recursion, confused deputy behavior, and workspace trust/git-hook injection.</p>
+      <p>The section is careful about residual risk. Prompt injection remains medium risk because a malicious instruction that appears AC-compliant could pass automated checks and rely on human review. Context poisoning and workspace trust are reduced but not eliminated. The compliance subsection maps mechanisms to NIST AI RMF functions and argues that agent configurations can be understood as SBOM-like artifacts because they propagate across repositories as undeclared shared components.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>6. Implementation conformance testing</h3>
+      <p>The conformance study asks whether the reference implementation rejects constructed bad inputs. The corpus contained 237 canonical agent definitions across 14 technology stacks and seven target IDE formats. Violations were injected by tampering with resource content after checksum recording, adding disallowed tools to low-privilege agents, and constructing shell/path strings intended to match the blocklist.</p>
+      <p>All 237 definitions compiled across targets. The injected violations were caught by their matching gates: 10 integrity tampering cases, 15 over-privileged declarations, and 20 synthetic blocklist strings. This is useful as implementation assurance but not as effectiveness evidence; the paper correctly notes that hand-written detectors catching hand-constructed inputs do not estimate real-world attack detection, usability, or developer outcomes.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>7. Empirical prevalence study</h3>
+      <p>The prevalence study analyzes 10,008 public GitHub repositories across 9,357 organizations, with 373 ingestion failures. It measures version-control depth, exact and near clone propagation, credential patterns, and permission-scope declarations. File-level metrics are treated as primary for maintenance depth because repository-level summaries can understate copied config-file behavior.</p>
+      <p>Key results: 58.45% of AI agent config files had exactly one commit; 74.26% had two or fewer commits; exact duplicates appeared in 18.75% of tracked config paths raw and 10.06% fork-adjusted; 75.51% of clone pairs crossed organizational boundaries; approximately 3.18% of repositories had a credential-pattern hit; only 31 of 6,145 agent config files had true-positive explicit permission declarations. The duplicate-propagation result is the most robust; permission and credential results are more fragile because parser and regex validation remain limited.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>8. Limitations</h3>
+      <p>The limitations section is unusually important because it defines the trust boundary. The system does not solve prompt injection, does not provide adversarial-grade signing with the default local HMAC, does not prevent unregistered edits before they land, does not secure model-provider infrastructure, and does not verify semantic correctness of generated code. Blocklists require active maintenance and cover known incidents, not novel attack families.</p>
+      <p>Runtime enforcement also varies by substrate. Claude Code has explicit session-start tool allowlist and hook behavior; Cursor offers partial runtime coverage through scoping and shell hooks; several targets may declare permissions without enforcing them at runtime. Therefore, the compiler can preserve declared governance intent, but organizations still need independent validation of each harness’s actual enforcement behavior.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>9. Future work</h3>
+      <p>Future work focuses on three missing validation layers. First, the Jaccard drift thresholds need calibration against behavioral change: does HIGH drift predict task-success degradation or risk increase? Second, the developer study needs randomized cohorts, controlled harnesses, pinned environments, and a bare-harness comparator to measure time-to-merge, post-merge bugs, review burden, and scope creep.</p>
+      <p>Third, the corpus analysis needs expansion, multi-threshold sensitivity for near-clone detection, improved fork metadata, and manual validation of credential-scanner hits. These are the right next steps because they separate architectural plausibility from empirical claims about safety, productivity, and prevalence.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>10. Conclusion and data availability</h3>
+      <p>The conclusion restates that coding-agent configuration and process artifacts lack the governance discipline applied to application code and CI/CD pipelines. Rel(AI)Build demonstrates that supply-chain integrity, pre-execution permissions, blocklists, and phase-gated traceability can be implemented as deterministic controls above existing harnesses.</p>
+      <p>The authors provide a dataset, SQLite store, analysis pipeline, figures, article source, and ancillary files through Zenodo and arXiv. This improves reproducibility for the prevalence portion, although the reference implementation’s field behavior still requires controlled studies.</p>
+    </div>
+  </section>
+
+  <section id="visuals">
+    <h2>Figures, tables, and exhibits</h2>
+
+    <h3>Figure breakdowns</h3>
+    <pre><code>FIGURE 1 — Thin-governance gap
+
+PURPOSE:
+  Show that runtime augmentation improves agent execution while leaving governance risks beside the harness.
+
+STRUCTURE:
+  Inputs/context:
+    - Developer/org, code index/retrieval, MCP/tools/memory, files, shell, dependencies.
+  Harness path:
+    - Config rules steer a harness agent with broad authority.
+  Ungoverned red risk surfaces:
+    - Config integrity/provenance
+    - Permission scope
+    - Process/traceability
+    - Prompt drift
+    - Dangerous commands
+
+INTERPRETATION:
+  The figure motivates a control plane outside the LLM/harness loop. It is conceptual, not empirical.</code></pre>
+
+    <pre><code>FIGURE 2 — Deterministic control-plane architecture
+
+PURPOSE:
+  Summarize Rel(AI)Build as layered governance above unchanged harness/model substrates.
+
+LAYERS:
+  1. Authoring & Distribution:
+     - Canonical registry: agents, skills, knowledge, profiles, workflows.
+     - checksums.json: SHA-256 per resource.
+     - CLI/MCP server: install, search, govern, verify.
+  2. Compilation:
+     - Tokenization normalizer.
+     - Prompt-cache ordering: static content first.
+     - Platform transformer: emits seven IDE formats.
+  3. Runtime Governance:
+     - Tiered permission enforcement.
+     - Command/path blocklist.
+     - HMAC-stamped lockfile.
+     - Append-only hashed audit log.
+     - Phase-state machine and gates.
+     - AC traceability with spec_hash.
+     - Tokenization drift detector.
+  4. Substrate:
+     - Harnesses: Cursor, Claude Code, Copilot, Codex, Windsurf, OpenCode, Kiro.
+     - Models: Claude, GPT, Gemini.
+
+INTERPRETATION:
+  The key design move is independence: governance logic is deterministic code and the harness/model are not modified.</code></pre>
+
+    <pre><code>FIGURE 3 — Agent-definition install pipeline
+
+PURPOSE:
+  Show how installation blocks tampering and credential leakage before transformed IDE files are written.
+
+FLOW:
+  1. Fetch resource from registry with expected SHA-256.
+  2. Recompute SHA-256.
+     - If mismatch: abort install; context-poisoning blocked.
+     - If verified: continue.
+  3. Run credential scan across 13 patterns.
+     - If pattern found: abort install; credential leakage blocked.
+     - If clean: continue.
+  4. Write transformed IDE files.
+  5. Stamp HMAC over lock data.
+  6. Append action/user/timestamp/details with SHA-256 to audit log.
+
+APPRAISAL:
+  Good defense-in-depth for accidental/tamper detection, but default HMAC is not adversarial-grade against same-user compromise.</code></pre>
+
+    <pre><code>FIGURE 4 — Tokenization drift risk zones
+
+PURPOSE:
+  Visualize Jaccard similarity thresholds for prompt drift triage.
+
+ZONES:
+  HIGH:
+    - J &lt; 0.60
+    - CI block / alert.
+  MEDIUM:
+    - 0.60–0.79
+    - Flag for review.
+  LOW:
+    - J ≥ 0.80
+    - Nominal.
+
+BASELINE:
+  Last human-reviewed prompt.
+
+LIMITATIONS:
+  Thresholds are operating defaults, not calibrated to behavioral-change outcomes. Single-token injections in long prompts may remain LOW risk by this metric.</code></pre>
+
+    <pre><code>FIGURE 5 — Deterministic phase-gated lifecycle
+
+PURPOSE:
+  Show sequential phases and human review gates for bounded feature work.
+
+PHASES:
+  Phase 0: Spec
+    - Gate: spec-reviewer receipt for M/L tiers.
+    - HITL-1 review.
+  Phase 1: Design
+    - HITL-2 review.
+  Phase 3: Implement
+  Phase 4: Test
+    - ≤3 fix iterations.
+  Phase 5: Review
+    - ≤3 iterations.
+  Phase 7: Security
+    - HITL-3 review.
+  Phase 8: Finalize
+    - HITL-4 review.
+
+INVARIANTS:
+  - A phase cannot start until the prior phase has ended.
+  - Ending a phase that never started is blocked.
+  - Auto-fix loops cap at three before human escalation.
+  - Delegation and security-scan gates block end-phase when required evidence is absent.</code></pre>
+
+    <pre><code>FIGURE 6 — Requirement → file → test traceability
+
+PURPOSE:
+  Show how an approved spec maps acceptance criteria to implementing files and verifying tests.
+
+STRUCTURE:
+  spec.md:
+    - Content-addressed using SHA-256.
+  AC-001:
+    - Files: a.ts, b.ts.
+    - Tests: a.test.ts; verified.
+  AC-002:
+    - Files: c.ts.
+    - Tests: pending.
+  Out-of-scope file:
+    - changed file z.ts is not linked to any AC.
+    - Spec-drift warning: scope creep.
+
+CRITICAL LIMITATION:
+  File-to-AC linkage requires agent cooperation via trace-update. Detection is post-hoc, not preventive.</code></pre>
+
+    <pre><code>FIGURE 7 — Threat → deterministic control mapping
+
+PURPOSE:
+  Connect seven threat classes to primary deterministic controls.
+
+THREATS AND CONTROLS:
+  T1 Prompt injection:
+    - HITL review gates + AC-scope flagging.
+  T2 Privilege escalation:
+    - Fail-closed tier allowlists + traversal defense.
+  T3 Context poisoning:
+    - SHA-256 install gate + HMAC lockfile + hash-chained audit.
+  T4 Credential leakage:
+    - 13-pattern scanner + OS keychain retrieval.
+  T5 Uncontrolled recursion:
+    - Three-iteration cap + phase state machine.
+  T6 Confused deputy:
+    - Attack-derived command/path blocklist.
+  T7 Workspace trust / git-hook injection:
+    - Pre-exec runtime hooks + git-ops constraints.
+
+APPRAISAL:
+  The mapping is clear and implementation-oriented. Prompt injection and workspace-trust risks remain residual, not solved.</code></pre>
+
+    <pre><code>FIGURE 8 — Raw lifetime version-control depth
+
+PURPOSE:
+  Compare lifetime commit depth for AI agent configs versus GitHub Actions workflows.
+
+KEY VALUES:
+  AI agent configs:
+    - n = 6,145.
+    - Median = 1 commit.
+    - Exactly 1 commit = 58.45%.
+    - ≤2 commits = 74.26%.
+  GitHub Actions workflows:
+    - n = 24,436.
+    - Median = 7 commits.
+    - Exactly 1 commit = 14.07%.
+    - ≤2 commits = 24.31%.
+
+INTERPRETATION:
+  Agent config files appear much shallower in revision history, but raw comparison is confounded by file age.</code></pre>
+
+    <pre><code>FIGURE 9 — Age-normalized version-control rate
+
+PURPOSE:
+  Bound the artifact-age confound by reporting commits per month.
+
+VALUES:
+  All files:
+    - AI configs: median 0.4 commits/month, n = 6,145.
+    - Actions workflows: median 0.6 commits/month, n = 24,436.
+  Cohort first committed ≥ 2024-01-01:
+    - AI configs: median 0.4 commits/month, n = 6,144.
+    - Actions workflows: median 0.75 commits/month, n = 15,852.
+
+INTERPRETATION:
+  Age normalization narrows but does not eliminate the maintenance gap. The finding is plausible but still observational.</code></pre>
+
+    <h3>Key table breakdowns</h3>
+    <table>
+      <thead><tr><th>Table</th><th>Purpose</th><th>High-value details</th><th>Appraisal</th></tr></thead>
+      <tbody>
+        <tr><td>Table 1</td><td>Evidence mapping</td><td>Separates conformance tests, prevalence evidence, and DRIFT vignette from claims not made.</td><td>Strong framing; reduces claim inflation.</td></tr>
+        <tr><td>Table 1b</td><td>Gaps → prevalence proxies</td><td>Gap 1: duplicate propagation, commit depth, credential patterns. Gap 2: not statically observable. Gap 3: multi-dialect paths and permission absence.</td><td>Useful, but permission proxy is fragile.</td></tr>
+        <tr><td>Table 2</td><td>Harness configuration surfaces</td><td>Compares Cursor, Claude Code, Copilot, Aider, Codex, Windsurf and their config files, permissions, context scoping, augmentation, and enforcement.</td><td>Important but time-sensitive because harness formats evolve rapidly.</td></tr>
+        <tr><td>Table 3</td><td>Permission tiers</td><td>Readonly, scribe, operations, specialist, orchestrator with increasing tool/MCP/shell authority.</td><td>Implementation-useful; should be adapted to local risk tiers.</td></tr>
+        <tr><td>Table 4</td><td>Blocklist patterns</td><td>Maps patterns to incident classes including CI/CD script hijack, dependency pivot, Codecov-style pipe-to-shell, detached spawn, persistence paths, and git-hook injection.</td><td>Good starting point; requires active maintenance.</td></tr>
+        <tr><td>Table 5 / 5b</td><td>Jaccard near-clone and injection sensitivity</td><td>Default near-clone threshold J ≥ 0.80; prompt-drift risk defaults at 0.60/0.80; targeted token injection table shows limits.</td><td>Honest that thresholds are operational defaults, not behavioral validation.</td></tr>
+        <tr><td>Table 6</td><td>Threats and mitigations</td><td>Seven threats mapped to OWASP categories, controls, and residual risk.</td><td>Good control taxonomy; residual risks are appropriately not hidden.</td></tr>
+        <tr><td>Table 7</td><td>NIST AI RMF alignment</td><td>Maps GOVERN, MAP, MEASURE, MANAGE to permissions, threat model, drift detection, trace coverage, and phase gates.</td><td>Useful for governance translation, not proof of compliance.</td></tr>
+        <tr><td>Table 8</td><td>Agent Configuration SBOM</td><td>Maps NTIA SBOM elements to agent registry owner, agent identifier, semantic version/content hash, dependencies, SHA-256, unique ID, and audit timestamp.</td><td>One of the most practically reusable sections.</td></tr>
+        <tr><td>Table 10</td><td>Prevalence study results</td><td>Primary numeric results for commit depth, duplicates, cross-org clones, credential patterns, and permission coverage.</td><td>Strongest empirical table; credential/permission rows need validation caution.</td></tr>
+        <tr><td>Table 11</td><td>Version-control depth and age-normalized rates</td><td>Shows raw and age-adjusted maintenance differences between AI configs and CI/CD workflows.</td><td>Good confound handling for a preprint; still observational.</td></tr>
+        <tr><td>Table 13</td><td>DRIFT vignette</td><td>Governed-arm Phase-8 review surfaces AC-018 implementation-without-test-trace before merge.</td><td>Mechanism illustration only; N=1 and no comparative effectiveness claim.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="aiml-appraisal">
+    <h2>AI/ML systems appraisal add-on</h2>
+    <pre><code>TASK
+  Evaluated problem:
+    Govern LLM coding-agent configurations, permissions, process state, traceability, and prompt drift outside the probabilistic harness/model loop.
+  Real-use representativeness:
+    High conceptual relevance for teams using Cursor, Claude Code, Copilot, Codex-like agents, or MCP-enabled coding workflows.
+
+DATA
+  Conformance corpus:
+    237 canonical agent definitions, 14 technology stacks, seven target IDE formats.
+  Prevalence corpus:
+    10,008 public GitHub repositories; 6,145 AI agent config files; 24,436 GitHub Actions workflow files.
+  External validation:
+    No field deployment validation or randomized developer outcome study.
+  Leakage/contamination concerns:
+    Not a model benchmark; main concern is sampling/selection bias and parser validity, not model-training leakage.
+
+METHOD
+  Architecture:
+    Deterministic control plane above existing harnesses.
+  Controls:
+    SHA-256 content addressing, HMAC lockfile, hash-chained audit log, permission tiers, command/path blocklists, phase-state machine, trace.json, Jaccard drift detector, canonical-to-target compiler.
+  Baselines:
+    Bare harnesses are conceptually contrasted, but controlled baseline comparisons are not performed.
+  Ablations:
+    No ablation study measuring individual control contributions to developer outcomes.
+
+METRICS
+  Conformance:
+    Injected violations caught by corresponding gates.
+  Prevalence:
+    Duplicate propagation, commit depth, age-normalized revision rate, permission declaration coverage, credential-pattern hits.
+  Human evaluation:
+    Future work; no controlled user/developer study.
+  Runtime cost/latency:
+    Not measured.
+
+FAILURES / LIMITS
+  Prompt injection:
+    Reduced but not solved.
+  Traceability:
+    Cooperative and post-hoc detectable; not pre-edit preventive.
+  Harness portability:
+    Compiler preserves declared intent, but runtime enforcement differs by target.
+  Blocklists:
+    Known-incident coverage only; require maintenance.
+  Drift:
+    Jaccard thresholds are not calibrated to behavior.
+
+BOTTOM LINE
+  Build-useful and governance-useful. Not yet deployment-effectiveness evidence.</code></pre>
+  </section>
+
+  <section id="evaluation">
+    <h2>Evaluation and appraisal</h2>
+    <div class="verdict">
+      <strong>Verdict: Read first for agent-harness governance and deterministic control-plane design.</strong> Do not read it as evidence that the proposed system improves productivity, catches real attacks at high sensitivity, or generalizes uniformly across all coding harnesses.
+    </div>
+    <div class="rating-grid">
+      <div class="mini-card"><div class="label">Relevance</div><div class="score">9/10</div><div class="small">Very high for LLM workflow governance, coding-agent harness design, RAG/agent control surfaces, and deterministic evaluation.</div></div>
+      <div class="mini-card"><div class="label">Novelty</div><div class="score">7/10</div><div class="small">Individual controls are established; the contribution is packaging them around agent definitions and process state.</div></div>
+      <div class="mini-card"><div class="label">Method strength</div><div class="score">6.5/10</div><div class="small">Strong architecture decomposition and useful prevalence study; no controlled field outcome evaluation.</div></div>
+      <div class="mini-card"><div class="label">Evidence strength</div><div class="score">6/10</div><div class="small">Duplicate propagation evidence is solid; permission and credential findings are more fragile; conformance tests are limited.</div></div>
+      <div class="mini-card"><div class="label">External validity</div><div class="score">5.5/10</div><div class="small">Public GitHub corpus and rapidly changing harness interfaces limit generalizability.</div></div>
+      <div class="mini-card"><div class="label">Implementation value</div><div class="score">8.5/10</div><div class="small">High practical value as a design checklist for agent control planes and local harness hardening.</div></div>
+    </div>
+
+    <h3>Major strengths</h3>
+    <ul class="tight">
+      <li><strong>Determinism is correctly scoped:</strong> the paper does not ask an LLM to police an LLM. It uses ordinary code for hashing, permission checks, blocklists, state transitions, and drift scoring.</li>
+      <li><strong>Good separation of claims:</strong> architecture, conformance tests, prevalence study, and the DRIFT vignette are not blended into one overstated evaluation.</li>
+      <li><strong>Buildable artifact model:</strong> <code>phase-state.json</code>, <code>trace.json</code>, lockfiles, audit logs, canonical registry entries, and compiler targets provide concrete implementation hooks.</li>
+      <li><strong>Reusable security framing:</strong> treating agent definitions as supply-chain artifacts is a strong conceptual move for enterprise agent governance.</li>
+      <li><strong>Transparent limitations:</strong> the paper explicitly states that prompt injection, cooperative trace linkage, runtime enforcement disparities, and developer outcomes remain unresolved.</li>
+    </ul>
+
+    <h3>Major limitations</h3>
+    <ul class="tight">
+      <li><strong>Outcome evidence is absent:</strong> no randomized developer study, no measured productivity benefit, no defect reduction, no incident reduction, and no real-world attack-detection estimate.</li>
+      <li><strong>Traceability depends on the agent:</strong> the AC/file/test trace is auditable but not fully enforceable before edits occur unless paired with stronger file-system or git-layer controls.</li>
+      <li><strong>Runtime enforcement varies by target:</strong> compiling a permission declaration does not guarantee the receiving IDE or CLI harness will enforce it.</li>
+      <li><strong>Drift thresholds are unvalidated:</strong> Jaccard zones are useful for triage, but the relationship between lexical drift and agent behavior is not established.</li>
+      <li><strong>Prevalence proxy fragility:</strong> exact duplicate propagation is robust, but credential and permission findings depend on regex/parsing assumptions and limited validation.</li>
+    </ul>
+
+    <h3>Bottom-line appraisal</h3>
+    <table>
+      <thead><tr><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td>Is it worth reading?</td><td>Yes. It is directly relevant for anyone designing safer LLM coding-agent workflows or deterministic controls around AI-assisted software work.</td></tr>
+        <tr><td>How much should we trust it?</td><td>Moderately for the architecture and duplicate-propagation prevalence signal; cautiously for permission/credential prevalence and any implied operational benefit.</td></tr>
+        <tr><td>What is it best used for?</td><td>A blueprint for control-plane components: canonical registry, content hashes, lockfile/audit trail, permission tiers, blocklists, phase gates, trace artifacts, and harness compilation.</td></tr>
+        <tr><td>What should it not be used for?</td><td>It should not be used as proof of productivity gains, real attack prevention, prompt-injection solution, or uniform permission enforcement across coding tools.</td></tr>
+        <tr><td>Confidence in appraisal</td><td>Moderate. The paper is transparent about scope, but the artifact could change after peer review and the implementation claims need independent replication.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="takeaways">
+    <h2>Implementation and practice takeaways</h2>
+    <div class="takeaway-grid">
+      <div class="mini-card">
+        <div class="label">Build first</div>
+        <div class="value">Canonical agent registry</div>
+        <p>Create one canonical definition for each agent with explicit fields for role, allowed tools, file scopes, model profile, skills, knowledge shards, and version/content hash.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Guard first</div>
+        <div class="value">Pre-execution checks</div>
+        <p>Fail closed before the harness runs: hash mismatch, over-privileged tool declarations, disallowed paths, dangerous shell patterns, credential patterns, and missing required receipts.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Trace explicitly</div>
+        <div class="value">Requirement → file → test</div>
+        <p>Use a structured trace artifact for acceptance criteria, implementing files, verifying tests, and status. Treat missing trace as a blockable release defect.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Do not overtrust</div>
+        <div class="value">Cooperative trace is weak</div>
+        <p>Pair agent-reported trace updates with git-diff reconciliation, test discovery, code-owner checks, or file-system policy enforcement where possible.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Portability</div>
+        <div class="value">Compile, then verify</div>
+        <p>Compiling to multiple harness formats is useful, but each emitted target needs parser-recovery tests and runtime enforcement validation.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Drift</div>
+        <div class="value">Use as triage only</div>
+        <p>Jaccard drift can identify large lexical changes, but it will miss small high-impact tokens and should not be treated as semantic safety assurance.</p>
+      </div>
+    </div>
+
+    <h3>Suggested harness-control checklist</h3>
+    <pre><code>LOCAL AGENT CONTROL PLANE CHECKLIST
+
+SOURCE CONTROL
+  [ ] Canonical agent definitions are versioned.
+  [ ] Each definition has SHA-256 content hash.
+  [ ] Dependency-like relationships are explicit: skills, knowledge, profiles, workflows.
+
+INSTALL GATES
+  [ ] Hash mismatch blocks install.
+  [ ] Credential patterns block install or require explicit override.
+  [ ] Permission tier violations fail compilation.
+  [ ] Path traversal and out-of-scope writes fail closed.
+
+RUNTIME GATES
+  [ ] Shell commands pass pre-exec blocklist.
+  [ ] File writes pass path policy.
+  [ ] High-risk git operations are separated and reviewed.
+  [ ] Security scan is recorded before phase closure after file-writing delegations.
+
+PROCESS STATE
+  [ ] Phase state is persisted in a machine-readable file.
+  [ ] Start/end ordering is enforced by code.
+  [ ] Delegation receipts are required for relevant phases.
+  [ ] Auto-fix loops have a hard cap and escalation path.
+
+TRACEABILITY
+  [ ] Each AC links to changed files and verifying tests.
+  [ ] Unlinked changed files trigger scope-creep warnings.
+  [ ] Missing test traces block finalization or merge.
+  [ ] Human review gates review trace completeness, not just code diffs.
+
+PORTABILITY
+  [ ] Canonical definitions compile to each target harness.
+  [ ] Target parser-recovery confirms permissions and paths survived compilation.
+  [ ] Runtime enforcement is tested per harness, not assumed.</code></pre>
+
+    <div class="goodnote"><strong>Most transferable idea:</strong> keep LLM agency inside a deterministic wrapper. Even if the exact Rel(AI)Build implementation is not adopted, the artifact model—canonical definitions, hashes, lockfiles, audit logs, phase state, trace files, blocklists, and per-target verification—is immediately useful for custom coding-agent harness design.</div>
+  </section>
+
+  <section id="qa">
+    <h2>Quality-control notes</h2>
+    <table>
+      <thead><tr><th>Protocol requirement</th><th>Status in this reference file</th></tr></thead>
+      <tbody>
+        <tr><td>Source metadata included</td><td>Yes: title, author, arXiv ID, date, source type, subject areas, artifact DOI.</td></tr>
+        <tr><td>Section summaries limited</td><td>Yes: each major section is condensed into no more than two paragraphs.</td></tr>
+        <tr><td>Figures/tables separated</td><td>Yes: nine figures and major tables are decomposed in structured blocks or table rows.</td></tr>
+        <tr><td>Claims separated from appraisal</td><td>Yes: summary sections report author claims; evaluation section gives independent appraisal.</td></tr>
+        <tr><td>Limitations explicit</td><td>Yes: trace cooperation, prompt injection, substrate enforcement, drift calibration, and outcome evidence are highlighted.</td></tr>
+        <tr><td>Implementation takeaways included</td><td>Yes: checklist and build priorities are provided.</td></tr>
+      </tbody>
+    </table>
+    <div class="badnote"><strong>Main risk of misuse:</strong> treating deterministic control-plane conformance as evidence of real-world agent safety. The paper is a strong architectural proposal and preliminary empirical motivation, not a complete validation study.</div>
+  </section>
+</main>
+<footer>
+  Generated as a single-file reference HTML using the Summary, Evaluation, and Appraisal protocol. Source evaluated: arXiv:2606.26924, “A Deterministic Control Plane for LLM Coding Agents.”
+</footer>
+</body>
+</html>

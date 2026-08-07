@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GroundEval — Reference Appraisal</title>
+<style>
+:root{
+  --bg:#f5f7fb;--card:#ffffff;--ink:#17202a;--muted:#526173;--line:#d9e0ea;
+  --accent:#1d4f91;--accent2:#0f315f;--good:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;
+  --codebg:#0e1726;--codefg:#edf4ff;--soft:#eef5ff;--soft2:#f2f7f3;--softwarn:#fff7e5;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#10243d,#1d4f91);color:white;padding:2.2rem 1.25rem 2rem;border-bottom:5px solid #d2e2f5}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.25rem}
+header .wrap{padding:0 1.25rem}
+h1{font-size:clamp(1.7rem,3.2vw,2.8rem);line-height:1.1;margin:.2rem 0 .65rem;font-weight:800}
+.subtitle{font-size:1.02rem;max-width:900px;color:#e8f1ff;margin:0}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.badge,.tag{display:inline-flex;align-items:center;border-radius:999px;padding:.25rem .6rem;font-size:.82rem;font-weight:700;letter-spacing:.01em}
+.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff}
+.tag{background:#eef3f9;border:1px solid #d7e0eb;color:#20364f;margin:.15rem .18rem .15rem 0}
+main.wrap{padding:1.25rem}
+section,nav.toc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1rem 1.1rem;margin:1rem 0;box-shadow:0 1px 4px rgba(16,36,61,.05)}
+section h2,nav h2{margin:.1rem 0 .75rem;color:var(--accent2);font-size:1.35rem}
+h3{margin:1rem 0 .45rem;color:#173f72;font-size:1.08rem}
+h4{margin:.8rem 0 .35rem;color:#24364b;font-size:1rem}
+a{color:var(--accent)}
+.toc ol{columns:2;column-gap:2rem;margin:.2rem 0;padding-left:1.2rem}
+.toc li{break-inside:avoid;margin:.25rem 0}
+.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:.7rem}
+.mini-card{grid-column:span 4;background:#fbfcff;border:1px solid var(--line);border-radius:12px;padding:.75rem}
+.mini-card.wide{grid-column:span 6}.mini-card.full{grid-column:1 / -1}
+.label{font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:800;margin-bottom:.2rem}.value{font-weight:650}
+.verdict{border-left:5px solid var(--accent);background:var(--soft)}
+.goodnote{border-left:5px solid var(--good);background:var(--soft2)}
+.warning{border-left:5px solid var(--warn);background:var(--softwarn)}
+.badnote{border-left:5px solid var(--bad);background:#fff0f0}
+.callout{padding:.8rem .9rem;border-radius:12px;margin:.75rem 0;border-top:1px solid rgba(0,0,0,.03);border-right:1px solid rgba(0,0,0,.03);border-bottom:1px solid rgba(0,0,0,.03)}
+.section-summary{border:1px solid var(--line);border-radius:12px;padding:.85rem;margin:.75rem 0;background:#fbfcff}
+.table-wrap{overflow-x:auto;margin:.75rem 0}
+table{width:100%;border-collapse:collapse;font-size:.94rem;background:white;border:1px solid var(--line)}
+th,td{border:1px solid var(--line);padding:.5rem .58rem;vertical-align:top}th{background:#eef3f9;color:#1e395c;text-align:left}
+.score{font-size:1.25rem;font-weight:850;color:var(--accent2)}
+pre{background:var(--codebg);color:var(--codefg);padding:.9rem;border-radius:12px;overflow-x:auto;border:1px solid #1b2e49;font-size:.88rem;line-height:1.45;white-space:pre-wrap}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+p code,li code,td code{background:#eef3f9;color:#17202a;border:1px solid #d7e0eb;border-radius:5px;padding:.05rem .25rem}
+ul,ol{padding-left:1.25rem}.compact li{margin:.18rem 0}.two-col{columns:2;column-gap:1.7rem}.small{font-size:.9rem;color:var(--muted)}
+footer{color:var(--muted);font-size:.9rem;padding:1rem 0 2rem}
+@media (max-width:800px){.toc ol,.two-col{columns:1}.mini-card,.mini-card.wide{grid-column:1 / -1}main.wrap{padding:.8rem}}
+@media print{body{background:white}header{background:white;color:#111;border-bottom:2px solid #111}.subtitle,.badge{color:#111}.badge{border:1px solid #999;background:white}section,nav.toc{box-shadow:none;break-inside:avoid}a{color:#111}pre{white-space:pre-wrap}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>GroundEval: A Deterministic Replacement for LLM-as-Judge in Stateful Agent Evaluation</h1>
+    <p class="subtitle">Protocol-based reference synthesis and appraisal of an AI/ML agent-evaluation preprint. Focus: task contracts, evidence-path validity, stateful agents, deterministic scoring, and implementation usefulness.</p>
+    <div class="badges">
+      <span class="badge">arXiv:2606.22737v2</span><span class="badge">AI/ML systems lens</span><span class="badge">Agent evaluation</span><span class="badge">Reference HTML</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#coverage">Coverage manifest</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#source-map">Source map</a></li>
+    <li><a href="#section-summaries">Section condensation</a></li>
+    <li><a href="#visuals">Figures, tables, and workflows</a></li>
+    <li><a href="#aiml-lens">AI/ML systems lens</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#takeaways">Implementation takeaways</a></li>
+    <li><a href="#qa">QA and provenance</a></li>
+  </ol>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card wide"><div class="label">Exact title</div><div class="value">GroundEval: A Deterministic Replacement for LLM-as-Judge in Stateful Agent Evaluation</div></div>
+    <div class="mini-card"><div class="label">Author</div><div class="value">Jeffrey Flynt</div></div>
+    <div class="mini-card"><div class="label">Source type</div><div class="value">arXiv preprint; AI/ML benchmark/evaluation framework; software-adjacent technical report</div></div>
+    <div class="mini-card"><div class="label">Identifier</div><div class="value">arXiv:2606.22737v2; DOI: 10.48550/arXiv.2606.22737</div></div>
+    <div class="mini-card"><div class="label">Version/date</div><div class="value">v2, arXiv PDF dated 2 Jul 2026; generation date 3 Jul 2026</div></div>
+    <div class="mini-card"><div class="label">Domain</div><div class="value">Stateful agent evaluation; evidence-grounded evaluation; RAG/tool-use governance</div></div>
+    <div class="mini-card"><div class="label">Reported code</div><div class="value">github.com/tenurehq/groundeval, as listed in the paper. Repository contents were not audited in this artifact.</div></div>
+    <div class="mini-card full warning"><div class="label">Scope warning</div><div class="value">This file appraises the paper as a design-and-evaluation claim. It does not validate the released code, reproduce the experiments, or establish GroundEval as a general replacement for LLM-as-judge outside the tested stateful-agent validity setting.</div></div>
+  </div>
+</section>
+
+<section id="coverage">
+  <h2>Coverage manifest</h2>
+  <div class="table-wrap"><table>
+    <tbody>
+      <tr><th>Source ID</th><td>arXiv:2606.22737v2</td></tr>
+      <tr><th>Sections/headings</th><td>Abstract; 1 Introduction; 2 Background and Related Work; 3 Framework Overview; 4 Formal Properties; 5 Evaluation Tracks; 6 Scoring; 7 Experimental Setup; 8 Results; 9 Discussion; 10 Limitations; 11 Conclusion; References.</td></tr>
+      <tr><th>Figures</th><td>Four main-text figures: GroundEval pipeline; Perspective visibility cone; Counterfactual causal verification; same-response judge vs trace-check comparison.</td></tr>
+      <tr><th>Tables</th><td>Six main-text tables: state-invalid correctness failure classes; track weights; compliance multipliers; worked-example failure map; answer/trajectory scores; unadjusted vs compliance-adjusted scores.</td></tr>
+      <tr><th>Algorithms/workflows/equations</th><td>Observe Mode contract workflow; three evaluation tracks; dual answer/trajectory scoring; compliance-adjusted score equation.</td></tr>
+      <tr><th>Appendices/supplements</th><td>None present in the uploaded PDF.</td></tr>
+      <tr><th>Visual strategy</th><td>All figures and tables are represented as structured blocks/tables. No embedded screenshots were required because the visual logic is recoverable from captions and rendered inspection.</td></tr>
+      <tr><th>Known omissions</th><td>No main-text section, figure, table, or equation omitted. References are summarized by functional contribution rather than rewritten as a full bibliography.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="callout verdict"><strong>Verdict: Read first for deterministic agent-evaluation architecture; do not treat as broadly validated benchmark evidence.</strong> The paper is directly relevant to agent/RAG evaluation, trace auditing, and regression gates for tools operating over private, time-bounded, access-controlled evidence.</div>
+  <p><strong>Core thesis.</strong> GroundEval argues that stateful agents can be wrong even when their final answers are factually plausible or label-correct, because the answer may not be validly reachable under the actor’s time, access, subsystem, search-space, or causal constraints. The proposed alternative to prose-only LLM-as-judge is a deterministic contract that scores observable agent behavior: searches, fetches, citations, tool traces, timestamps, permissions, and structured final-answer fields.</p>
+  <p><strong>Framework.</strong> The evaluation has three tracks. <em>Perspective</em> checks whether an actor could have known a fact at a time under role/subsystem access. <em>Counterfactual</em> checks whether a claimed causal relation is supported by configured event links and join conditions rather than topical or temporal proximity. <em>Silence</em> checks whether an agent searched the expected evidence space before claiming absence. Each run receives answer and trajectory scores, then a compliance-adjusted score penalizes actor-gate, subsystem, and horizon violations.</p>
+  <p><strong>Evidence presented.</strong> The evaluation uses a synthetic OrgForge enterprise corpus with nine subsystems, 72 actors, eight roles, 22,530 events over 60 days, 25 causal link types, 19 silence pair types, and 96 generated questions. The tested model is DeepSeek-V4-Pro at temperature 0 in two conditions: tool mode and zero-shot no-artifact mode. The main result is not high absolute agent performance; it is the diagnostic gap between plausible final answers and invalid evidence paths, including a Silence example where prose-only LLM judges scored a wrong response 0.90 and 0.85 while GroundEval scored the answer 0.000 because the required artifact was never fetched.</p>
+  <p><strong>Main limitation.</strong> The paper is compelling as a design pattern and failure taxonomy, but the empirical evidence is narrow: one synthetic corpus family, one evaluated model, no external domain replication, no human adjudication study of contract quality, no ablation of contract components, and limited reporting on code reproducibility or integration friction beyond adapter requirements.</p>
+  <div class="badges" aria-label="Tags"><span class="tag">state-invalid correctness</span><span class="tag">trajectory validity</span><span class="tag">access control</span><span class="tag">temporal leakage</span><span class="tag">verified absence</span><span class="tag">causal joins</span><span class="tag">synthetic enterprise corpus</span></div>
+</section>
+
+<section id="source-map">
+  <h2>Source map</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Source section</th><th>Function in paper</th><th>Load-bearing details</th></tr></thead>
+    <tbody>
+      <tr><td>Abstract</td><td>States problem, proposed deterministic framework, three failure tracks, and judge-vs-trace example.</td><td>Two LLM judges score a plausible response at 0.85 or higher; GroundEval scores 0.000 when trace shows missing required retrieval.</td></tr>
+      <tr><td>Introduction</td><td>Defines state-invalid correctness and contributions.</td><td>Validity depends on allowed knowledge, time, access, search obligations, citations, and causal state, not just final-answer truth.</td></tr>
+      <tr><td>Related work</td><td>Positions GroundEval relative to LLM-as-judge, process supervision, trajectory benchmarks, RAG attribution, and long-term memory benchmarks.</td><td>Claims existing work evaluates preference, reasoning steps, tool mechanics, or attribution, while GroundEval adds state validity.</td></tr>
+      <tr><td>Framework overview</td><td>Describes Observe Mode, framework adapters, contract drafting, human review, validation, and scoring pipeline.</td><td>Contract declares boundaries and obligations, not an expected exact trajectory.</td></tr>
+      <tr><td>Formal properties</td><td>Defines deterministic scope and falsifiability.</td><td>Answer and trajectory scores are deterministic functions of ground truth/configuration and recorded traces; style and subjective quality are out of scope.</td></tr>
+      <tr><td>Evaluation tracks</td><td>Defines Perspective, Counterfactual, Silence, and leakage controls.</td><td>Tracks target visibility cones, causal join conditions, absence search-space coverage, and shortcut-resistant question generation.</td></tr>
+      <tr><td>Scoring</td><td>Gives dual answer/trajectory model, track weights, and compliance adjustment.</td><td>Perspective 0.40/0.60; Counterfactual 0.50/0.50; Silence 0.30/0.70 answer/trajectory weights; compliance multiplier <code>(1 − v)^2</code>.</td></tr>
+      <tr><td>Experimental setup</td><td>Defines corpus, model, modes, and metrics.</td><td>Synthetic enterprise scenario; 96 questions; DeepSeek-V4-Pro at temperature 0; tool and zero-shot modes.</td></tr>
+      <tr><td>Results</td><td>Provides three worked failures and aggregate scores.</td><td>Shows shallow retrieval, attendance-permission confusion, causal-topic confusion, and weak aggregate scores.</td></tr>
+      <tr><td>Discussion, limitations, conclusion</td><td>Frames authoring gradient, integration requirements, observability boundaries, and future work.</td><td>Adapter required; contract quality depends on observed runs and reviewer coverage; black-box agents with no inspectable tool interface cannot be evaluated.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="section-summaries">
+  <h2>Section condensation</h2>
+  <div class="section-summary"><h3>Abstract</h3><p>The abstract frames GroundEval as a deterministic alternative to LLM-as-judge for stateful agents that operate over real context. It targets evidence-path validity: what the agent searched, fetched, cited, and was allowed to access.</p><p>The central example establishes the paper’s diagnostic value: a plausible negative answer receives high prose-only judge scores, but a trace check shows the agent never retrieved the required artifact, producing a deterministic answer score of 0.000. The abstract identifies three tracks: Silence, Perspective, and Counterfactual.</p></div>
+  <div class="section-summary"><h3>1. Introduction</h3><p>The introduction defines the problem as state governance rather than ordinary reasoning failure. A model can produce the correct label while using future evidence, inaccessible evidence, another user’s memory, an unsearched absence space, or unsupported causal evidence.</p><p>The paper contributes a task-contract model, three reusable tracks, dual answer/trajectory scoring, and deterministic scoring guarantees for observable behavior. The key concept is <em>state-invalid correctness</em>: an answer can be true but invalid because it was not reachable under the evaluation state.</p></div>
+  <div class="section-summary"><h3>2. Background and related work</h3><p>The related-work section distinguishes GroundEval from LLM-as-judge methods such as MT-Bench, Chatbot Arena, and G-Eval; process-supervision work; trajectory/tool-use benchmarks; RAG attribution metrics; and long-term memory benchmarks. The argument is that these methods often assess preference, plausibility, tool mechanics, retrieval faithfulness, or memory recall without enforcing actor-specific time/access constraints.</p><p>This positioning is plausible but partly author-framed. The paper cites relevant benchmark and RAG evaluation work, but it does not empirically compare against state-aware alternatives beyond the prose-only judge demonstration.</p></div>
+  <div class="section-summary"><h3>3. Framework overview</h3><p>GroundEval uses Observe Mode to run an agent under its native framework, record tools/evidence/final answer, and draft a task contract. A human reviews and corrects the contract, which then defines required checks, allowed evidence, temporal boundaries, access constraints, answer schemas, and scoring obligations.</p><p>The design separates domain state from scorer logic: event logs, artifact corpora, access policies, and evaluation configuration carry domain meaning. A validator checks for structural defects such as causal specs with no links, silence specs with empty search spaces, missing artifact IDs, or roles with no accessible subsystems.</p></div>
+  <div class="section-summary"><h3>4. Formal properties</h3><p>The paper states three properties: answer scores are judge-independent functions of ground truth; trajectory scores are deterministic for identical traces and configurations; and the framework has bounded scope limited to evidence-path violations.</p><p>This section correctly narrows the claim. GroundEval does not score style, persuasion, creativity, subjective quality, or hidden chain-of-thought. It evaluates externally observable behavior only.</p></div>
+  <div class="section-summary"><h3>5. Evaluation tracks</h3><p>Perspective checks whether an actor could have known a fact under time and role/subsystem constraints. Counterfactual checks cause-effect relationships using configured event types, maximum gaps, mechanism aliases, and join conditions. Silence checks whether absence claims are justified by coverage of declared search spaces.</p><p>The leakage controls are a major strength: the question prose generator is not given ground-truth labels, questions are rejected for answer-leaking strings or artifact identifiers, per-actor/per-event caps reduce shortcuts, and deterministic templates provide fallback when validation fails.</p></div>
+  <div class="section-summary"><h3>6. Scoring</h3><p>GroundEval separates final-answer correctness from trajectory validity. Track-specific weighting reflects task intent: Perspective and Silence emphasize path validity, while Counterfactual weights answer and trajectory evenly.</p><p>The compliance-adjusted score multiplies the weighted score by <code>(1 − v)^2</code>, where <code>v</code> aggregates actor-gate, subsystem, and horizon violations. This makes governance violations a multiplicative penalty rather than a detail hidden inside an answer score.</p></div>
+  <div class="section-summary"><h3>7. Experimental setup</h3><p>The evaluation uses an OrgForge-generated synthetic enterprise scenario: nine subsystems, 72 actors, eight roles, 22,530 events over 60 days, 25 causal link types, and 19 silence pair types. It generates 96 questions: 30 Perspective, 27 Counterfactual, and 39 Silence.</p><p>The tested model is DeepSeek-V4-Pro at temperature 0. Tool mode allows fetch/search calls with recorded violations; zero-shot no-artifact mode supplies only the question and no corpus access, functioning as an answer-score floor rather than a trajectory baseline.</p></div>
+  <div class="section-summary"><h3>8. Results</h3><p>The worked examples are the strongest part of the paper. They show three qualitatively distinct errors: a Silence false absence caused by not fetching <code>CONF-PROD-002</code>; a Perspective permission failure where co-attendance is mistaken for subsystem access; and a Counterfactual failure where topical dissimilarity overrides a join-linked causal chain.</p><p>Aggregate gated results are low: answer scores are 0.214 for Perspective, 0.063 for Counterfactual, and 0.359 for Silence; trajectory scores are 0.637, 0.357, and 0.421, respectively. The overall compliance-adjusted score is 0.350. These numbers primarily demonstrate diagnostic visibility, not mature agent performance.</p></div>
+  <div class="section-summary"><h3>9. Discussion</h3><p>The discussion argues that contract authoring scales with the observed operating surface rather than manual specification. The framework can draft contracts from observed runs, then validation and human review prevent structurally unusable drafts from becoming scoring artifacts.</p><p>Integration depends on framework adapters. The paper reports direct CrewAI support and Microsoft Agent Framework capture through OpenTelemetry spans. For unsupported frameworks, an adapter must record observed runs without gating or replacing tool results.</p></div>
+  <div class="section-summary"><h3>10. Limitations</h3><p>The limitations are material and appropriately stated. GroundEval requires an adapter, and it only captures evidence exposed through instrumented tool calls. Evidence embedded in prompts before runtime, or used outside the adapter’s visibility, cannot be evaluated.</p><p>Draft quality also depends on the observed run. A single happy-path run may fail to expose subsystems, preconditions, or checks that should appear in the contract; the human reviewer must notice and add them. This is a central operational risk.</p></div>
+  <div class="section-summary"><h3>11. Conclusion</h3><p>The conclusion restates the main claim: for stateful agents, the evidence path is part of the answer. A response that is true but unreachable under access, temporal, causal, or search-space constraints is state-invalid.</p><p>The paper’s strongest future-work need is not another prose argument against LLM judges; it is broader replicated evaluation, contract-quality measurement, adapter coverage, and reproducible code-level evidence.</p></div>
+</section>
+
+<section id="visuals">
+  <h2>Figures, tables, workflows, and equations</h2>
+  <h3>Figure inventory</h3>
+  <pre><code>FIGURE 1 — GroundEval pipeline
+Purpose: Shows end-to-end flow from observed agent run to deterministic scoring.
+Structure: Observe → draft contract → human review/correction → reviewed contract + machine-readable state → question generator → agent under evaluation → structured answer/tool trace → deterministic scorer → answer, trajectory, compliance-adjusted scores.
+Main pattern: Evaluation centers on reviewed state contracts and recorded traces rather than a judge reading final prose.
+Limits: Diagram is conceptual; it does not quantify authoring burden or adapter complexity.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 2 — Visibility cone in Perspective track
+Purpose: Visualizes temporal horizon and role/access boundary.
+Structure: Time axis with T_query at March 5 and T_leak at March 12; allowed in-horizon valid document; blocked future horizon; blocked privilege/role boundary.
+Main pattern: GroundEval treats actor knowledge as constrained by both time and access.
+Limits: Simplified schematic; real systems require reliable timestamps, access policies, and artifact provenance.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 3 — Causal mechanisms in Counterfactual track
+Purpose: Contrasts prose-judge causal illusion with structural verification.
+Structure: Panel A shows temporal adjacency between Ticket Opened and DB Outage leading to Agent Answer; panel B requires a join condition such as ticket_id before GroundEval credits the causal link.
+Main pattern: The framework penalizes post hoc or topical causal explanations without configured event-link support.
+Limits: Join conditions must be correctly authored; missing or wrong joins can make the deterministic score misleading.
+Representation: Structured block.</code></pre>
+  <pre><code>FIGURE 4 — Same response, two verdicts
+Purpose: Demonstrates the difference between prose-only judging and trace checking.
+Structure: Left branch: LLM judge sees prose only and gives high scores (0.90, 0.85). Right branch: GroundEval sees trace, checks required artifact CONF-PROD-002, finds it was not fetched, and assigns answer score 0.000.
+Main pattern: Plausibility and validity diverge when the judge lacks access to the required search-space contract and tool trace.
+Limits: Single illustrative example; broader judge comparisons are not reported.
+Representation: Structured block.</code></pre>
+
+  <h3>Table 1 — State-invalid correctness failure classes</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Failure class</th><th>Example</th><th>Why final-answer scoring misses it</th><th>GroundEval signal</th></tr></thead>
+    <tbody>
+      <tr><td>Temporal leakage</td><td>Uses a March 12 artifact for a March 5 question.</td><td>Answer can be factually true in full world state.</td><td>Horizon violation.</td></tr>
+      <tr><td>Permission leakage</td><td>Uses a sales-only CRM record for an engineer.</td><td>Cited fact can be correct but inaccessible.</td><td>Actor or subsystem violation.</td></tr>
+      <tr><td>Invalid absence</td><td>Says no postmortem exists after only searching Jira.</td><td>Negative answer can be true but insufficiently checked.</td><td>Search-space coverage.</td></tr>
+      <tr><td>Invalid causality</td><td>Treats an effect as cause of an earlier outcome.</td><td>Explanation can sound plausible.</td><td>Cause/effect ID and direction.</td></tr>
+      <tr><td>Ungrounded citation</td><td>Cites an accessible but irrelevant artifact.</td><td>Citation can look credible.</td><td>Evidence overlap.</td></tr>
+      <tr><td>Cross-user memory leak</td><td>Retrieves another user’s memory to answer correctly.</td><td>Remembered fact can be true.</td><td>Visibility-cone violation.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Table 2 — Default track weights</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Track</th><th>Answer weight</th><th>Trajectory weight</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>Perspective</td><td>0.40</td><td>0.60</td><td>Epistemic validity depends heavily on allowed evidence path.</td></tr>
+      <tr><td>Counterfactual</td><td>0.50</td><td>0.50</td><td>Causal answer and evidence grounding matter comparably.</td></tr>
+      <tr><td>Silence</td><td>0.30</td><td>0.70</td><td>Absence claims depend most on adequate search.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Scoring equation and Table 3 — Compliance multiplier</h3>
+  <pre><code>S_adj = [w_a × S_answer + w_t × S_traj] × (1 − v)^2
+
+where v aggregates actor-gate, subsystem, and horizon violations across recorded tool calls.</code></pre>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Violation rate v</th><th>Multiplier (1 − v)^2</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>0%</td><td>1.00</td><td>No compliance penalty.</td></tr>
+      <tr><td>25%</td><td>0.56</td><td>Moderate governance violations materially reduce score.</td></tr>
+      <tr><td>50%</td><td>0.25</td><td>Combined score is quartered.</td></tr>
+      <tr><td>75%</td><td>0.06</td><td>Model is effectively disqualified regardless of answer accuracy.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Table 4 — Worked examples mapped to GroundEval signals</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Track</th><th>Answer failure</th><th>Trajectory failure</th><th>Signal</th></tr></thead>
+    <tbody>
+      <tr><td>Silence</td><td>Claims absence despite artifact existing in declared search space.</td><td>Never fetches required artifact; coverage = 0.</td><td>Search-space coverage; answer 0.000, trajectory 0.273.</td></tr>
+      <tr><td>Counterfactual</td><td>Claims no causal link despite join condition in retrieved artifact.</td><td>Ignores downstream artifact IDs listed in fetched ticket.</td><td>Mechanism and event-ID scoring; answer 0.062, trajectory 0.637.</td></tr>
+      <tr><td>Perspective</td><td>Claims actor could have known despite blocked subsystem for role.</td><td>Fetches role-inaccessible artifacts throughout trace.</td><td>Actor-gate violation count; answer 0.000, trajectory 0.384, violations = 7.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Tables 5 and 6 — Aggregate results</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Track</th><th>Zero-shot answer score</th><th>Gated answer score</th><th>Gated trajectory score</th></tr></thead>
+    <tbody>
+      <tr><td>Perspective</td><td>0.200</td><td>0.214</td><td>0.637</td></tr>
+      <tr><td>Counterfactual</td><td>0.220</td><td>0.063</td><td>0.357</td></tr>
+      <tr><td>Silence</td><td>0.487</td><td>0.359</td><td>0.421</td></tr>
+    </tbody>
+  </table></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Track</th><th>Unadjusted combined</th><th>Violation rate v</th><th>S_adj</th></tr></thead>
+    <tbody>
+      <tr><td>Perspective</td><td>0.468</td><td>0.124</td><td>0.359</td></tr>
+      <tr><td>Counterfactual</td><td>0.210</td><td>0.000</td><td>0.210</td></tr>
+      <tr><td>Silence</td><td>0.403</td><td>0.000</td><td>0.403</td></tr>
+      <tr><td>Overall</td><td>0.369</td><td>0.026</td><td>0.350</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="aiml-lens">
+  <h2>AI/ML systems lens</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Dimension</th><th>Assessment</th></tr></thead>
+    <tbody>
+      <tr><td>Task definition</td><td>Evaluate whether a stateful agent’s answer is validly grounded in allowed, time-bounded, role-accessible evidence and required search spaces.</td></tr>
+      <tr><td>Data/corpus</td><td>Synthetic OrgForge enterprise corpus with event logs, artifacts, access policies, roles, causal links, silence pairs, and generated questions.</td></tr>
+      <tr><td>Datasets/splits/leakage controls</td><td>No conventional train/test split. Question-generation leakage controls include withholding labels from prose generation, rejecting leaked identifiers/ground-truth strings, capping actor/event frequencies, balancing cases, and shuffling.</td></tr>
+      <tr><td>Baselines/comparators</td><td>Zero-shot no-artifact condition for answer-score floor; prose-only LLM judges in one illustrative example; no systematic benchmark against multiple agent models or existing state-aware evaluators.</td></tr>
+      <tr><td>Metrics</td><td>Answer score, trajectory score, compliance-adjusted score, actor-gate violation rate, subsystem violation rate, horizon violation rate, Silence search-space coverage, Counterfactual causal-direction and event-ID accuracy, Perspective subcase breakdown.</td></tr>
+      <tr><td>Tool use/state/verifier design</td><td>Adapter observes fetch/search calls and returned evidence; reviewed contract supplies state constraints; deterministic scorer checks trace against event log, artifact corpus, access policy, and configured track obligations.</td></tr>
+      <tr><td>Ablations</td><td>Not reported in enough depth. The paper does not isolate the contribution of each track feature, compliance exponent, question-leakage controls, or contract validation stage.</td></tr>
+      <tr><td>Compute/cost</td><td>Model identity and temperature are reported; runtime, cost, hardware, and scorer overhead are not meaningfully quantified.</td></tr>
+      <tr><td>Reproducibility</td><td>Code availability is reported, but this artifact did not audit installation, tests, corpus generation scripts, or exact reproduction commands.</td></tr>
+      <tr><td>Failure analysis</td><td>Strong qualitative failure analysis through three worked examples; limited quantitative breakdown beyond aggregate track-level scores and violation rates.</td></tr>
+      <tr><td>Generalization</td><td>Concept generalizes well to agent environments with tool traces, permissions, timestamps, and event logs; empirical validation remains limited to synthetic enterprise simulation.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="callout verdict"><strong>Bottom line:</strong> High-value architecture paper for trace-based agent evaluation. Evidence strength is capped by synthetic-only validation, single-model testing, limited baselines, and no independent reproduction.</div>
+  <div class="rating-grid">
+    <div class="mini-card wide"><div class="label">Relevance</div><div class="score">9.0 / 10</div><p>Direct fit for agent harnesses, RAG evaluation, deterministic evaluation, scientific curation, and workflow governance.</p><p class="small"><strong>Evidence basis:</strong> Tracks map to common operational failures in tool-using agents. <strong>Limiter:</strong> Not aimed at general creative or preference evaluation. <strong>Would raise/lower:</strong> Raise with broader enterprise integrations; lower if user need is ordinary text-quality judging.</p></div>
+    <div class="mini-card wide"><div class="label">Novelty</div><div class="score">7.5 / 10</div><p>The state-invalid correctness framing and contract-over-trace scoring are useful and sharper than generic trajectory evaluation.</p><p class="small"><strong>Evidence basis:</strong> Integrates access, time, absence search, and causal joins into deterministic scoring. <strong>Limiter:</strong> Many ingredients exist separately in RAG, attribution, and tool-use benchmarks. <strong>Would raise/lower:</strong> Raise with formal comparison to state-aware predecessors; lower if implementation is mostly a re-packaging of OrgForge contracts.</p></div>
+    <div class="mini-card wide"><div class="label">Method strength</div><div class="score">5.5 / 10</div><p>The design is coherent and inspectable, but empirical testing is narrow and lacks systematic ablations or multi-model validation.</p><p class="small"><strong>Evidence basis:</strong> Deterministic scoring properties, declared corpus, metrics, and worked examples are clear. <strong>Limiter:</strong> Synthetic corpus, one agent model, limited comparator structure. <strong>Would raise/lower:</strong> Raise with ablations, multiple agents, multiple corpora, and code-level reproduction; lower if contracts require heavy manual tuning.</p></div>
+    <div class="mini-card wide"><div class="label">Evidence strength</div><div class="score">4.5 / 10</div><p>The case studies convincingly show a blind spot, but they do not prove frequency, generality, or superiority across real deployments.</p><p class="small"><strong>Evidence basis:</strong> Three worked failures plus aggregate scores over 96 synthetic questions. <strong>Limiter:</strong> No confidence intervals, no repeated seeds, no external validation, no systematic LLM-judge comparison. <strong>Would raise/lower:</strong> Raise with preregistered evaluation suites and external logs; lower if examples are cherry-picked from many runs.</p></div>
+    <div class="mini-card wide"><div class="label">External validity</div><div class="score">3.5 / 10</div><p>The conceptual target is broadly relevant, but the demonstrated results are tied to one synthetic enterprise generator and adapter-visible tool traces.</p><p class="small"><strong>Evidence basis:</strong> OrgForge scenario is rich, but still synthetic. <strong>Limiter:</strong> Real enterprise data, messy permissions, prompt-injected evidence, and partial observability are not tested. <strong>Would raise/lower:</strong> Raise with real-world case studies across frameworks; lower in black-box agents with no inspectable calls.</p></div>
+    <div class="mini-card wide"><div class="label">Implementation value</div><div class="score">7.0 / 10</div><p>The paper offers a practical template for building regression gates around search coverage, access boundaries, time horizons, and causal joins.</p><p class="small"><strong>Evidence basis:</strong> Contract model, track definitions, trace scoring, and compliance adjustment are concrete. <strong>Limiter:</strong> Adapter and contract-review burden are incompletely measured. <strong>Would raise/lower:</strong> Raise with turnkey adapters and examples; lower if code lacks usable fixtures or validation diagnostics.</p></div>
+  </div>
+  <h3>Main strengths</h3>
+  <ul class="compact">
+    <li>Separates factual correctness from valid reachability under state constraints.</li>
+    <li>Scores observable traces instead of hidden reasoning or model-authored rationales.</li>
+    <li>Includes three reusable failure modes that map to practical agent safety and governance problems.</li>
+    <li>Uses compliance-adjusted scoring to prevent high answer accuracy from masking governance violations.</li>
+    <li>Provides concrete worked examples where prose-only judging fails.</li>
+  </ul>
+  <h3>Main limitations</h3>
+  <ul class="compact">
+    <li>Single synthetic corpus family and one evaluated model constrain evidence strength.</li>
+    <li>Contract quality depends on observed runs and human reviewer completeness.</li>
+    <li>Framework only evaluates observable, adapter-captured tool behavior.</li>
+    <li>No systematic human validation of whether generated contracts reflect real task obligations.</li>
+    <li>No robust cost, latency, setup, or maintenance analysis for production integration.</li>
+    <li>No strong evidence that the exact compliance exponent or track weights are optimal.</li>
+  </ul>
+  <h3>Confidence in appraisal</h3>
+  <p><strong>Moderate.</strong> The uploaded PDF is complete and internally coherent, and all main figures/tables were inspected. Confidence is limited by lack of code execution/reproduction and lack of external validation data in the paper.</p>
+</section>
+
+<section id="takeaways">
+  <h2>Implementation and practice takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card wide goodnote"><div class="label">Build-useful idea</div><p>For any agent that answers from private or time-bounded context, store a machine-checkable task contract beside the test: allowed actor, as-of time, accessible subsystems, required search spaces, expected structured answer fields, and valid evidence artifacts.</p></div>
+    <div class="mini-card wide goodnote"><div class="label">Regression gate</div><p>Use answer score and trajectory score separately. A correct answer with a bad evidence path should fail a governance gate even when the final prose looks right.</p></div>
+    <div class="mini-card wide warning"><div class="label">Adapter requirement</div><p>This approach needs trace observability. Agents that receive hidden prompt context, use uninstrumented retrieval, or operate through black-box tools cannot be reliably evaluated without additional instrumentation.</p></div>
+    <div class="mini-card wide warning"><div class="label">Contract-review burden</div><p>Do not rely on a single observed run to draft contracts. Use representative workflows and review for missing subsystems, absence spaces, causal joins, and role/time boundaries.</p></div>
+    <div class="mini-card wide badnote"><div class="label">Do not overclaim</div><p>Do not describe GroundEval as a universal replacement for LLM-as-judge. It replaces judge scoring only for state-validity failures that can be expressed in a contract and observed in a trace.</p></div>
+    <div class="mini-card wide badnote"><div class="label">Do not use for</div><p>Do not use this evidence alone to select a production benchmark, validate an agent safety program, or compare general model quality across unrelated tasks.</p></div>
+  </div>
+  <h3>Concrete local use cases</h3>
+  <ul class="compact">
+    <li><strong>RAG audit:</strong> Require every negative answer to cover declared repositories before crediting absence.</li>
+    <li><strong>Clinical/enterprise document agent:</strong> Encode role, patient/document scope, timestamp, and source system into test contracts.</li>
+    <li><strong>Scientific paper triage agent:</strong> Penalize claims based on abstracts only when methods/results/figures were required by the task contract.</li>
+    <li><strong>Tool-use harness:</strong> Track searches and fetches as first-class scoring objects, not logs only used for debugging.</li>
+  </ul>
+  <h3>What would make this paper stronger</h3>
+  <ul class="compact">
+    <li>Run multiple agent models and multiple frameworks, not one model under one synthetic setup.</li>
+    <li>Report variance across generated corpora and random seeds.</li>
+    <li>Add ablations for each track component, compliance exponent, and contract validation stage.</li>
+    <li>Benchmark against existing trajectory/RAG evaluators on matched state-validity tasks.</li>
+    <li>Audit the released code with reproduction instructions, fixtures, and expected outputs.</li>
+    <li>Evaluate human contract-author agreement and reviewer workload.</li>
+  </ul>
+</section>
+
+<section id="qa">
+  <h2>QA and provenance</h2>
+  <div class="table-wrap"><table>
+    <tbody>
+      <tr><th>HTML target</th><td>One self-contained HTML file with embedded CSS; no external scripts, fonts, stylesheets, or remote images.</td></tr>
+      <tr><th>Source used</th><td>Uploaded PDF: <code>2606.22737v2.pdf</code>.</td></tr>
+      <tr><th>Primary identifier</th><td>arXiv:2606.22737v2; DOI 10.48550/arXiv.2606.22737.</td></tr>
+      <tr><th>Visual/table accounting</th><td>4/4 figures and 6/6 tables included as structured blocks or HTML tables.</td></tr>
+      <tr><th>Workflow/equation accounting</th><td>Observe-contract-question-scoring workflow and compliance-adjusted scoring equation included.</td></tr>
+      <tr><th>Generated</th><td>3 Jul 2026.</td></tr>
+      <tr><th>Caveat</th><td>This is a source appraisal and structured reference. It is not a reproduction study, code audit, or formal peer review.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer>
+  <div>Reference artifact generated from the uploaded source using the integrated summary, evaluation, and appraisal protocol.</div>
+</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BINEVAL — Summary, Evaluation, and Appraisal</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --ink: #17202a;
+      --muted: #526173;
+      --line: #d9e0ea;
+      --accent: #1d4f91;
+      --accent2: #7a3e06;
+      --good: #0f6b3b;
+      --warn: #8a5a00;
+      --bad: #8a1f1f;
+      --codebg: #0e1726;
+      --codefg: #edf4ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: linear-gradient(135deg, #10243d, #1d4f91);
+      color: white;
+      padding: 2.2rem 1.25rem 2rem;
+      border-bottom: 5px solid #d2e2f5;
+    }
+    header .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { margin: 0 0 .6rem; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.15; }
+    .subtitle { max-width: 940px; font-size: 1.05rem; color: #dce9f8; margin: 0; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    nav.toc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0 1.25rem;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .06);
+    }
+    nav.toc a { color: var(--accent); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+    .toc-grid { columns: 2; column-gap: 2rem; padding-left: 1.25rem; }
+    section, article.card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .05);
+    }
+    h2 { color: #0f315f; margin: .2rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: .45rem; }
+    h3 { color: #173f72; margin-top: 1.25rem; }
+    h4 { margin: 1rem 0 .35rem; color: #24364b; }
+    .meta-grid, .rating-grid, .takeaway-grid, .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .75rem;
+    }
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .8rem;
+      background: #fbfcff;
+    }
+    .label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .value { font-weight: 650; margin-top: .2rem; }
+    .verdict {
+      border-left: 5px solid var(--accent);
+      background: #eef5ff;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: .6rem 0 1rem;
+    }
+    .warning {
+      border-left: 5px solid var(--warn);
+      background: #fff8e8;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      margin: .75rem 0;
+    }
+    .badnote {
+      border-left: 5px solid var(--bad);
+      background: #fff1f1;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      margin: .75rem 0;
+    }
+    .goodnote {
+      border-left: 5px solid var(--good);
+      background: #edf8f2;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      margin: .75rem 0;
+    }
+    table { width: 100%; border-collapse: collapse; margin: .75rem 0; font-size: .96rem; }
+    th, td { border: 1px solid var(--line); padding: .55rem .65rem; vertical-align: top; }
+    th { background: #eef3f9; text-align: left; color: #1e395c; }
+    .rating-grid .mini-card { min-height: 92px; }
+    .score { font-size: 1.35rem; font-weight: 800; color: var(--accent); }
+    pre {
+      margin: .75rem 0 1.1rem;
+      padding: 1rem;
+      background: var(--codebg);
+      color: var(--codefg);
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #1b2e49;
+      font-size: .88rem;
+      line-height: 1.45;
+      white-space: pre;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .section-summary { border-left: 4px solid #cbd8e8; padding-left: .95rem; margin: .9rem 0 1.2rem; }
+    .section-summary h3 { margin: 0 0 .4rem; }
+    .section-summary p { margin: .4rem 0; }
+    .tag {
+      display: inline-block;
+      border: 1px solid #c9d7e8;
+      background: #f2f6fb;
+      color: #27496d;
+      padding: .15rem .45rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin: .12rem .2rem .12rem 0;
+    }
+    .small { color: var(--muted); font-size: .92rem; }
+    ul.tight li, ol.tight li { margin-bottom: .35rem; }
+    .checklist li { margin-bottom: .45rem; }
+    footer { max-width: 1100px; margin: 0 auto 2rem; color: var(--muted); padding: 0 1.25rem; font-size: .9rem; }
+    @media print {
+      body { background: white; }
+      section, article.card, nav.toc { box-shadow: none; break-inside: avoid; }
+      pre { white-space: pre-wrap; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Ask, Don’t Judge: Binary Questions for Interpretable LLM Evaluation and Self-Improvement</h1>
+    <p class="subtitle">Summary, evaluation, and appraisal reference file for BINEVAL: an interpretable LLM evaluation framework that decomposes scoring criteria into atomic yes/no questions and reuses question-level failures for prompt improvement.</p>
+  </div>
+</header>
+<main>
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ol class="toc-grid">
+      <li><a href="#metadata">Source metadata</a></li>
+      <li><a href="#onepage">One-page synthesis</a></li>
+      <li><a href="#method-map">Method map</a></li>
+      <li><a href="#sections">Section-by-section condensation</a></li>
+      <li><a href="#experiments">Experimental design and results</a></li>
+      <li><a href="#figures-tables">Figures, tables, and exhibits</a></li>
+      <li><a href="#appraisal">Evaluation and appraisal</a></li>
+      <li><a href="#implementation">Implementation takeaways</a></li>
+      <li><a href="#quality">Quality-control notes</a></li>
+      <li><a href="#sources">Source grounding</a></li>
+    </ol>
+  </nav>
+
+  <section id="metadata">
+    <h2>Source metadata</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><div class="label">Title</div><div class="value">Ask, Don’t Judge: Binary Questions for Interpretable LLM Evaluation and Self-Improvement</div></div>
+      <div class="mini-card"><div class="label">Authors</div><div class="value">Sangwoo Cho; Kushal Chawla; Pengshan Cai; Zefang Liu; Chenyang Zhu; Shi-Xiong Zhang; Sambit Sahu</div></div>
+      <div class="mini-card"><div class="label">Source</div><div class="value">arXiv:2606.27226v1</div></div>
+      <div class="mini-card"><div class="label">Submitted</div><div class="value">25 Jun 2026</div></div>
+      <div class="mini-card"><div class="label">Venue / note</div><div class="value">Accepted to the 2nd Workshop on Compositional Learning at ICML 2026</div></div>
+      <div class="mini-card"><div class="label">Subjects</div><div class="value">Artificial Intelligence; Computation and Language</div></div>
+      <div class="mini-card"><div class="label">Source type</div><div class="value">AI/ML preprint; evaluation-method and prompt-optimization paper</div></div>
+      <div class="mini-card"><div class="label">Primary method</div><div class="value">Training-free LLM-as-judge decomposition into generated binary questions</div></div>
+      <div class="mini-card"><div class="label">Core datasets</div><div class="value">SummEval, Topical-Chat, QAGS, IFBench</div></div>
+      <div class="mini-card"><div class="label">Appraisal verdict</div><div class="value">Read first / implement selectively</div></div>
+    </div>
+    <p class="small">Scope warning: this file summarizes and appraises the preprint as a method for LLM evaluation and prompt iteration. It does not independently reproduce the experiments, inspect code, or validate the reported results beyond the paper text and visuals.</p>
+  </section>
+
+  <section id="onepage">
+    <h2>One-page synthesis</h2>
+    <div class="verdict">
+      <strong>Core thesis:</strong> BINEVAL replaces opaque holistic LLM judgments with multiple small binary checks. A meta-prompt converts a task prompt into atomic evaluation questions, an evaluator answers each question independently with a yes/no verdict and explanation, and the resulting question-level scores are aggregated into dimension-level and overall scores. The same failed-question traces can then guide prompt updates.
+    </div>
+    <p>The paper’s strongest contribution is not simply “LLM judge but with checklists.” Its useful idea is that evaluation should produce a structured diagnostic artifact: what was checked, which checks passed, which checks failed, why they failed, and how those failures map to score dimensions. This is highly relevant for RAG, agent harnesses, scientific curation, parser validation, and prompt-regression testing because it shifts evaluation from a single scalar score to an inspectable evidence surface.</p>
+    <p>Empirically, BINEVAL performs best where evaluation criteria can be decomposed into concrete claim-level or constraint-level properties. It does well on factual consistency and hallucination-sensitive summarization evaluation, remains competitive on dialogue-quality evaluation, and gives useful prompt-update signals. The method is weaker when human judgments are holistic or subjective, when generated questions omit important criteria, when repeated prompt rewriting causes prompt bloat, or when failures reflect a model’s computational limits rather than instruction clarity.</p>
+    <div>
+      <span class="tag">LLM-as-judge</span>
+      <span class="tag">binary evaluation</span>
+      <span class="tag">prompt optimization</span>
+      <span class="tag">RAG evaluation</span>
+      <span class="tag">agent harnesses</span>
+      <span class="tag">interpretable scoring</span>
+      <span class="tag">question decomposition</span>
+      <span class="tag">test-set caution</span>
+    </div>
+  </section>
+
+  <section id="method-map">
+    <h2>Method map</h2>
+    <div class="section-summary">
+      <h3>BINEVAL evaluation pipeline</h3>
+      <p>BINEVAL starts with a task prompt <em>T</em>. A task-agnostic meta-prompt first summarizes the task into explicit requirements, then decomposes each requirement into one or more binary questions. The questions can be grouped by evaluation dimensions such as coherence, consistency, fluency, relevance, naturalness, engagingness, or groundedness.</p>
+      <p>For an input <em>x</em>, generated output <em>y</em>, and binary question <em>q<sub>i</sub></em>, the evaluator model returns a binary verdict <em>f<sub>E</sub>(x,y,q<sub>i</sub>) ∈ {0,1}</em> and a natural-language explanation. Dimension scores are means over questions assigned to that dimension; the overall score is the mean over all questions. Scores can be linearly rescaled to match 1–5 or 0–1 benchmark scales.</p>
+    </div>
+
+    <pre><code>BINEVAL CORE STRUCTURE
+
+INPUTS:
+  T = task prompt or evaluation specification
+  x = source input / document / dialogue context / instruction
+  y = generated output to evaluate
+  M = meta-prompt for question generation
+  E = evaluator LLM
+
+QUESTION GENERATION:
+  1. Summarize T into explicit requirements R = {r1, ..., rK}
+  2. Decompose each requirement into binary questions Q = {q1, ..., qN}
+  3. Assign questions to dimensions D, e.g. consistency, coherence, fluency, relevance
+
+EVALUATION:
+  for each q_i:
+    verdict_i = f_E(x, y, q_i) ∈ {0, 1}
+    explanation_i = short natural-language rationale
+
+SCORING:
+  S_d(x,y) = mean verdict across questions in dimension d
+  S(x,y)   = mean verdict across all questions
+  optional scaling: S'(x,y) = S(x,y) × (b - a) + a</code></pre>
+
+    <div class="section-summary">
+      <h3>Cross-model prompt update</h3>
+      <p>The cross-model update loop treats a stronger source evaluator as a reference and a target evaluator as the model to improve. Both answer the same binary questions. Disagreements identify exact criteria where the target differs from the source, and a note-taker LLM extracts generalized lessons from those disagreements.</p>
+      <p>After deduplication, an updater LLM edits relevant substrings in the target evaluator prompt. The process repeats until target dimension scores match the source within a tolerance or meet/exceed the source. The practical value is migration and alignment: if a team moves an evaluator from one model family to another, binary disagreements provide a more specific transfer signal than aggregate score mismatch.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Self prompt update</h3>
+      <p>The self-update loop uses the same question-level failures to improve a generator prompt. The model generates outputs, BINEVAL evaluates them, failed questions and explanations are converted into lessons, and those lessons are deduplicated and applied to the generation prompt. The loop terminates when no failures remain or the iteration cap is reached.</p>
+      <p>This works best when the failure is promptable: formatting, sentence-structure, keyword, or instruction-following issues. It is less effective for failures that require reliable internal computation, such as counting, ratio enforcement, lexical filtering, or exact repetition constraints.</p>
+    </div>
+  </section>
+
+  <section id="sections">
+    <h2>Section-by-section condensation</h2>
+
+    <div class="section-summary">
+      <h3>Abstract</h3>
+      <p>The abstract frames LLM evaluation as a bottleneck: human evaluation is slow and costly, lexical metrics underperform on open-ended generation, and holistic LLM judges produce opaque scores. BINEVAL addresses this by decomposing evaluation criteria into atomic binary questions, answering them independently, and aggregating them into interpretable multi-dimensional scores.</p>
+      <p>The authors report that BINEVAL matches or exceeds UniEval and G-Eval on SummEval, Topical-Chat, and QAGS, with particular strength on factual consistency. They also claim that question-level feedback improves evaluator and generation prompts under self-update and cross-model update settings.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Introduction</h3>
+      <p>The introduction argues that modern LLMs have made generation easier than evaluation. A single score does not reveal whether a poor answer failed because of factual inconsistency, missing information, irrelevance, incoherence, or poor fluency. BINEVAL’s premise is to ask several narrow, checkable questions rather than request one broad judgment.</p>
+      <p>The contribution list is clear: a task-agnostic framework for binary-question evaluation, competitive performance without task-specific training, iterative prompt improvement, and debug-friendly scores grounded in individual verdicts and explanations.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Related work</h3>
+      <p>The paper positions BINEVAL against lexical and embedding metrics, generation-based metrics, LLM-as-judge systems, multi-dimensional evaluators, atomic decomposition methods, and prompt optimization. It identifies a gap between holistic LLM judging and decomposed factual verification: prior systems often decompose generated content into facts, whereas BINEVAL decomposes the evaluation criteria themselves.</p>
+      <p>UniEval is the closest methodological predecessor because it formulates evaluation as Boolean question answering, but UniEval uses a fine-tuned T5-based evaluator. BINEVAL differs by generating task-specific question sets through prompting and using general LLM evaluators without task-specific training.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Method</h3>
+      <p>The method has three parts: binary question generation, binary evaluation/scoring, and iterative prompt optimization. Question generation first converts the task prompt into explicit requirements, then decomposes each requirement into yes/no questions with violation examples. Questions are grouped by dimensions, allowing separate dimension-level scores.</p>
+      <p>The scoring function is intentionally simple: each question receives 1 for yes and 0 for no, dimension scores are averages, and the overall score is the average over all questions. Interpretability comes from preserving the question text, binary verdict, and explanation rather than from the aggregate score alone.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Experimental setup</h3>
+      <p>The authors evaluate BINEVAL in two parts. Part I measures correlation between automated evaluation scores and human judgments on SummEval, Topical-Chat, and QAGS using Spearman, Kendall, and Pearson correlations. SummEval contains 100 CNN/DailyMail source articles summarized by 16 models, Topical-Chat contains 60 dialogue responses from 6 dialogue models, and QAGS evaluates hallucination/consistency with 235 CNN/DailyMail and 239 XSum samples.</p>
+      <p>Part II evaluates iterative prompt updating on SummEval evaluator-prompt optimization and IFBench generation-prompt optimization. The reported experiments use gpt-oss-120b and Claude Sonnet 4, temperature 0, and averages over two runs.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Results</h3>
+      <p>On SummEval, BINEVAL (Claude) has the best average Spearman/Kendall correlation and leads on coherence, consistency, and fluency, with the strongest advantage on consistency. Relevance is the main exception: G-Eval (GPT-4) is better, suggesting that some broader semantic judgments may resist overly granular decomposition.</p>
+      <p>On Topical-Chat, BINEVAL transfers beyond summarization and achieves the strongest average correlation, particularly on naturalness and engagingness. On QAGS, factual-consistency decomposition is most valuable: BINEVAL (Claude) has the strongest average correlations, and BINEVAL (gpt-oss) substantially outperforms gpt-oss variants of G-Eval and UniEval.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Iterative prompt update</h3>
+      <p>On SummEval evaluator-prompt updating, both self-update and cross-model update improve three of four dimensions. Self-update improves average Spearman from .440 to .515; cross-model update improves from .451 to .520. Relevance does not improve, and the authors attribute this to over-decomposition that makes the evaluator stricter than human annotators.</p>
+      <p>On IFBench, generation self-update gives a small peak improvement in strict accuracy from 34.6% to 38.0%, but performance collapses to 26.1% by iteration 4. Cross-model update does not improve. Category analysis shows improvements in format and sentence constraints but not in count, ratio, words, or repeat constraints, demonstrating the boundary between promptable failures and model capability limits.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Why decomposition works</h3>
+      <p>The authors identify three mechanisms: complexity reduction, variance reduction by aggregating multiple weakly correlated binary classifiers, and coverage of distinct failure modes. Pairwise phi-correlation matrices show that some question sets capture partially independent subcriteria, which can reduce variance and improve coverage.</p>
+      <p>Consistency is the most instructive case. It has weaker variance-reduction structure because factuality questions correlate with each other, but it still shows strong gains. The authors interpret this as evidence that complexity reduction—turning a broad factuality score into concrete claim-level checks—is often enough to improve judgment quality.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>Discussion, limitations, conclusion, and impact statement</h3>
+      <p>The discussion states the main boundary condition: BINEVAL works best for concrete criteria such as factual consistency and less reliably for subjective qualities that humans judge holistically. It also increases computational cost because it must generate questions and answer each question, and prompt updating adds note-taking, deduplication, and prompt rewriting.</p>
+      <p>The conclusion frames BINEVAL as task-agnostic, training-free, interpretable, and extensible to agentic and multi-turn settings. The impact statement notes that evaluator models can inherit biases and blind spots from the underlying models, so high-stakes use requires human oversight.</p>
+    </div>
+  </section>
+
+  <section id="experiments">
+    <h2>Experimental design and results</h2>
+    <h3>Benchmark map</h3>
+    <table>
+      <thead>
+        <tr><th>Benchmark</th><th>Task / target</th><th>Human signal</th><th>Paper’s use</th><th>Appraisal</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SummEval</td><td>News summarization quality</td><td>1–5 Likert ratings on fluency, coherence, consistency, relevance</td><td>Primary multi-dimensional evaluation-quality test</td><td>Appropriate and well-established; still summarization-specific.</td></tr>
+        <tr><td>Topical-Chat</td><td>Dialogue response quality</td><td>Human ratings across dialogue-quality dimensions</td><td>Transfer test beyond summarization</td><td>Useful but small at 60 dialogue responses.</td></tr>
+        <tr><td>QAGS</td><td>Summary factual consistency / hallucination</td><td>Consistency ratings for CNN/DM and XSum samples</td><td>Stress test for factuality decomposition</td><td>Strong fit to BINEVAL’s core mechanism.</td></tr>
+        <tr><td>IFBench</td><td>Instruction-following constraints</td><td>Executable strict accuracy checks</td><td>Prompt-update test for generation prompts</td><td>Useful because it exposes promptability vs capability limits.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Key quantitative results</h3>
+    <table>
+      <thead>
+        <tr><th>Result area</th><th>Reported outcome</th><th>Interpretation</th><th>Caveat</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SummEval</td><td>BINEVAL (Claude) average Spearman/Kendall: 0.563 / 0.491; best on coherence, consistency, fluency.</td><td>Best overall alignment with human ratings among reported methods.</td><td>Relevance remains weaker than G-Eval (GPT-4).</td></tr>
+        <tr><td>SummEval consistency</td><td>BINEVAL (Claude): 0.655 / 0.615.</td><td>Most persuasive evidence that factuality benefits from decomposition.</td><td>Questions within consistency are correlated; not all gains are from independent voting.</td></tr>
+        <tr><td>Topical-Chat</td><td>BINEVAL (Claude) average Spearman/Kendall: 0.632 / 0.525.</td><td>Decomposition transfers to dialogue quality, especially naturalness and engagingness.</td><td>Small benchmark; subjective dimensions remain model- and question-quality dependent.</td></tr>
+        <tr><td>QAGS</td><td>BINEVAL (Claude) strongest average Pearson/Spearman/Kendall: 0.604 / 0.620 / 0.534.</td><td>Strongest support for BINEVAL as a factual-consistency evaluator.</td><td>External generalization to long-form RAG and agent traces is not tested.</td></tr>
+        <tr><td>Evaluator prompt update</td><td>Self-update average Spearman: .440 → .515; cross-model: .451 → .520.</td><td>Question-level failures can serve as useful prompt-improvement signals.</td><td>Best iteration is selected by early stopping on test performance, which weakens generalization claims.</td></tr>
+        <tr><td>IFBench generation update</td><td>Self-update peaks at 38.0% from 34.6%, then collapses to 26.1%; cross-model does not improve.</td><td>Prompt updates help only for instruction-clarity failures.</td><td>Repeated updates can degrade performance through instruction overload.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warning">
+      <strong>Methodological caution:</strong> the paper reports many correlations but does not provide a full independent reproducibility package in the visible text, confidence intervals for every major comparison, or an external deployment-style evaluation. Treat the results as promising and directionally credible, not as proof that BINEVAL is a universal evaluator.
+    </div>
+  </section>
+
+  <section id="figures-tables">
+    <h2>Figures, tables, and exhibit breakdowns</h2>
+
+    <h3>Tables 1–4: Main results and prompt-update results</h3>
+    <pre><code>TABLE 1 — SummEval summary-level Spearman/Kendall correlations
+
+PURPOSE:
+  Compare BINEVAL against lexical, embedding, learned, and LLM-judge baselines.
+
+KEY VALUES:
+  - BINEVAL (Claude): average 0.563 / 0.491.
+  - BINEVAL (Claude) consistency: 0.655 / 0.615.
+  - G-Eval (GPT-4) relevance: 0.547 / 0.433, the best relevance result.
+  - UniEval (gpt-oss) fluency: 0.000 / 0.000.
+
+PATTERN:
+  BINEVAL is strongest overall and especially strong on factual consistency.
+  Relevance is the main exception, supporting the authors' warning that
+  broad semantic judgments may not always decompose cleanly.
+
+APPRAISAL:
+  Strong primary evidence for the paper. Missing statistical uncertainty
+  and independent reproducibility details limit certainty.</code></pre>
+
+    <pre><code>TABLE 2 — Evaluator prompt update on SummEval
+
+PURPOSE:
+  Test whether binary-question failures can improve evaluator prompts.
+
+KEY VALUES:
+  Self-update:
+    - Coherence: .521 → .610 (+.089)
+    - Consistency: .477 → .568 (+.091)
+    - Fluency: .255 → .375 (+.119)
+    - Relevance: .505 → .505 (+.000)
+    - Average: .440 → .515 (+.075)
+
+  Cross-model:
+    - Coherence: .524 → .594 (+.070)
+    - Consistency: .501 → .637 (+.136)
+    - Fluency: .246 → .318 (+.072)
+    - Relevance: .532 → .532 (+.000)
+    - Average: .451 → .520 (+.070)
+
+INTERPRETATION:
+  Binary disagreement is useful feedback for evaluator prompt refinement,
+  especially for factual consistency in cross-model transfer.
+
+LIMITATION:
+  Best iteration is selected by early stopping on test performance, so this
+  is a useful demonstration but not a clean held-out optimization result.</code></pre>
+
+    <pre><code>TABLES 3–4 — IFBench generation prompt update
+
+TABLE 3 VALUES:
+  - Self-update: 34.6 → 36.8 → 34.6 → 38.0 → 26.1; peak 38.0 (+3.4 pp)
+  - Cross-model: 35.9 → 33.8; peak 35.9 (+0.0)
+  - Baseline: 35.5
+
+TABLE 4 VALUES:
+  - Format: 52 → 69 (+17 pp)
+  - Sentence: 25 → 42 (+17 pp)
+  - Count: 63 → 63; degrades with more instructions
+  - Ratio: 22 → 22; no change
+  - Words: 16 → 20; marginal improvement
+  - Repeat: 17 → 17; no change
+
+INTERPRETATION:
+  Prompt feedback helps where the model can already perform the task but
+  needs clearer instruction. It does not create reliable counting, ratio,
+  or exact lexical-control ability.</code></pre>
+
+    <h3>Figures 1–3: Distributional behavior and decomposition mechanism</h3>
+    <pre><code>FIGURE 1 — Per-dimension score distributions on SummEval
+
+PURPOSE:
+  Show whether automated evaluator score distributions resemble human distributions.
+
+STRUCTURE:
+  Four violin-plot panels: coherence, consistency, fluency, relevance.
+  Methods include human, BINEVAL variants, UniEval variants, and G-Eval variants.
+
+KEY PATTERN:
+  BINEVAL (Claude) most closely matches human shape on consistency and
+  remains competitive on coherence and fluency. UniEval and G-Eval show
+  narrower or compressed distributions; gpt-oss variants tend to be more conservative.
+
+APPRAISAL:
+  Useful because it evaluates calibration/discrimination, not only correlation.
+  It supports the claim that BINEVAL preserves more meaningful score variation.</code></pre>
+
+    <pre><code>FIGURE 2 — Per-system average-score distributions on SummEval
+
+PURPOSE:
+  Assess system-level ordering across 16 summarization systems.
+
+STRUCTURE:
+  Violin plots by summarization system, sorted by human mean.
+
+KEY PATTERN:
+  BINEVAL (Claude) best tracks the human ordering and keeps wider within-system
+  variation; weaker baselines flatten midrange distinctions.
+
+APPRAISAL:
+  Supports practical evaluator selection. For model/prompt comparison, preserving
+  rank order and midrange discrimination matters more than matching a single mean.</code></pre>
+
+    <pre><code>FIGURE 3 — Pairwise phi-correlation matrices across SummEval question sets
+
+PURPOSE:
+  Explain why multiple binary questions can outperform one holistic judgment.
+
+NUMERIC DETAILS:
+  - Mean off-diagonal phi across all dimensions: 0.38.
+  - Relevance mean phi: 0.20; 80% of pairs |phi| &lt; 0.3.
+  - Coherence mean phi: 0.28; 64% of pairs |phi| &lt; 0.3.
+  - Fluency mean phi: 0.39.
+  - Consistency mean phi: 0.58; zero weak pairs.
+
+INTERPRETATION:
+  Some dimensions gain by aggregating partially independent checks. Consistency
+  improves despite correlated questions, implying that simplifying the factuality
+  judgment itself is valuable.</code></pre>
+
+    <h3>Figure 4: Case-study failure of holistic judging</h3>
+    <pre><code>FIGURE 4 — SummEval consistency case study
+
+PURPOSE:
+  Demonstrate how holistic methods miss subtle factual errors.
+
+SOURCE EXCERPT:
+  A Russian SU-27 conducted a barrel roll over a U.S. RC-135U.
+  The Pentagon called the intercept unsafe and unprofessional.
+  The Russian Defense Ministry said the jet was scrambled to identify the aircraft.
+
+SYSTEM SUMMARY ERRORS:
+  - Misattributes Russia's stated purpose to the Pentagon.
+  - Adds a fabricated external URL.
+  - Conflates the Pentagon's account with Russia's account.
+
+METHOD SCORES:
+  - Human: 2.0
+  - BINEVAL (Claude): 1.57; catches 4 of 7 errors
+  - BINEVAL (gpt-oss): 3.0; catches 2 of 7 errors
+  - G-Eval (gpt-oss): 5.0; surface-plausible holistic judgment
+  - UniEval (gpt-oss): 5.0; single Boolean consistency question passes
+
+INTERPRETATION:
+  This is the best explanatory figure in the paper. It shows exactly why
+  decomposed criteria are safer than plausible-sounding holistic judgment.</code></pre>
+
+    <h3>Appendix exhibits: Algorithm 1 and additional results</h3>
+    <pre><code>ALGORITHM 1 — Iterative Prompt Update via Binary Question Disagreement
+
+INPUTS:
+  Source evaluator E_src
+  Target evaluator E_tgt with initial prompt P_E^(0)
+  Binary questions Q = {q1 ... qN}
+  Test data {(x_j, y_j)}
+  Note-taker LLM L_note
+  Updater LLM L_update
+  Tolerance epsilon; max iterations T
+
+PROCESS:
+  1. Evaluate each test item with source and target evaluator.
+  2. Check convergence by dimension-level score differences.
+  3. Identify question-level disagreements.
+  4. Extract lessons from disagreements.
+  5. Semantically deduplicate lessons into lesson memory.
+  6. Update the target evaluator prompt by replacing relevant substrings.
+  7. Return the updated prompt.
+
+APPRAISAL:
+  Mechanistically useful. The risky part is not the loop itself, but reliance
+  on LLM-generated lessons, semantic deduplication, and substring replacement,
+  each of which needs trace logging and regression tests in production.</code></pre>
+
+    <pre><code>FIGURES 7–8 — Topical-Chat distributions
+
+PURPOSE:
+  Show whether BINEVAL transfers to dialogue-quality evaluation.
+
+KEY PATTERN:
+  BINEVAL (Claude) most closely tracks human distributions across naturalness,
+  coherence, engagingness, and groundedness. UniEval (T5) shows ceiling effects;
+  UniEval (gpt-oss) is nearly flat; BINEVAL (gpt-oss) remains more discriminative
+  than other gpt-oss baselines.
+
+APPRAISAL:
+  Good transfer evidence, but the benchmark is small and subjective criteria
+  still depend heavily on question-generation quality.</code></pre>
+
+    <pre><code>FIGURES 9–10 — QAGS distributions and scatter plots
+
+PURPOSE:
+  Evaluate factual-consistency scoring against human ratings.
+
+KEY PATTERN:
+  BINEVAL (Claude) shows the clearest positive trend against human scores on
+  both CNN/DM and XSum. BINEVAL (gpt-oss) follows the pattern with more dispersion.
+  UniEval compresses many predictions into an upper band; gpt-oss G-Eval is weak
+  or nearly flat in some settings.
+
+APPRAISAL:
+  Strong support for BINEVAL as a factual consistency evaluator. The most valuable
+  practical implication is not just higher correlation but better use of the score range.</code></pre>
+
+    <pre><code>TABLES 9–12 — Auto-generated binary questions for SummEval
+
+PURPOSE:
+  Show the actual question banks used for coherence, consistency, fluency, and relevance.
+
+REPRESENTATIVE QUESTIONS:
+  Coherence:
+    - Does the summary have a well-defined structure?
+    - Are sentences arranged in a sensible and logical order?
+    - Does the summary cover the key points of the news article?
+
+  Consistency:
+    - Are all statements entailed by or supported by the source?
+    - Is the summary free of factual errors?
+    - Is the summary free of fabricated facts?
+    - Are named entities accurately represented?
+    - Are causal relationships and event sequences consistent?
+
+  Fluency:
+    - Is the summary free of grammatical, spelling, and punctuation errors?
+    - Does the summary use natural word choices?
+    - Does it read smoothly and remain easy to understand?
+
+  Relevance:
+    - Does the summary address the main topic?
+    - Does it include important information without redundancy or irrelevance?
+
+APPRAISAL:
+  These tables are implementation-useful. They show how to seed a question-bank
+  schema for local evaluation, then measure yes-rate spread and question correlation.</code></pre>
+  </section>
+
+  <section id="appraisal">
+    <h2>Evaluation and appraisal</h2>
+    <div class="verdict">
+      <strong>Verdict: Read first / implement selectively.</strong> This is highly relevant to LLM evaluation, RAG answer grading, agent harness design, and parser-output validation. The method is sufficiently concrete to prototype, but not mature enough to use as a sole judge in high-stakes or production settings without human review, held-out validation, cost controls, and regression monitoring.
+    </div>
+
+    <h3>Ratings</h3>
+    <div class="rating-grid">
+      <div class="mini-card"><div class="label">Relevance</div><div class="score">9.2 / 10</div><div class="small">Directly relevant to deterministic appraisal, RAG evaluation, prompt testing, and agent harness diagnostics.</div></div>
+      <div class="mini-card"><div class="label">Novelty</div><div class="score">7.4 / 10</div><div class="small">Combines known decomposition and LLM judging patterns into a practical training-free framework.</div></div>
+      <div class="mini-card"><div class="label">Method strength</div><div class="score">7.2 / 10</div><div class="small">Reasonable benchmark coverage and baselines; some limitations in reproducibility and optimization protocol.</div></div>
+      <div class="mini-card"><div class="label">Evidence strength</div><div class="score">7.3 / 10</div><div class="small">Quantitatively persuasive on SummEval/QAGS; weaker for general deployment claims.</div></div>
+      <div class="mini-card"><div class="label">External validity</div><div class="score">6.2 / 10</div><div class="small">Tested across summarization and dialogue, but not messy RAG, clinical, regulatory, or multi-turn agent workflows.</div></div>
+      <div class="mini-card"><div class="label">Implementation value</div><div class="score">8.6 / 10</div><div class="small">The question-bank, binary verdict, explanation, and score aggregation pattern is immediately buildable.</div></div>
+    </div>
+
+    <h3>Main strengths</h3>
+    <ul class="tight">
+      <li><strong>Excellent diagnostic granularity:</strong> failed binary questions are more actionable than one scalar score.</li>
+      <li><strong>Good fit for factuality:</strong> claim support, hallucination, entity accuracy, and causal fidelity map naturally to yes/no checks.</li>
+      <li><strong>Training-free design:</strong> no task-specific fine-tuning is required, making the method easy to prototype.</li>
+      <li><strong>Useful prompt-optimization signal:</strong> disagreements and failures can be transformed into lessons for prompt updates.</li>
+      <li><strong>Distributional awareness:</strong> the paper evaluates score distribution shape and system ordering, not only average correlation.</li>
+    </ul>
+
+    <h3>Main limitations</h3>
+    <ul class="tight">
+      <li><strong>Question quality is a single point of failure:</strong> missing criteria produce falsely high scores, and over-specific questions can over-penalize acceptable outputs.</li>
+      <li><strong>Linear aggregation may be wrong:</strong> averaging satisfied questions assumes equal weight and approximate linearity between question pass rate and human quality.</li>
+      <li><strong>Subjective dimensions remain difficult:</strong> relevance and some dialogue-quality features may not reduce cleanly to binary checks.</li>
+      <li><strong>Cost increases:</strong> question generation plus per-question evaluation requires more model calls and token processing than a holistic judge.</li>
+      <li><strong>Prompt updates can degrade:</strong> IFBench results show instruction overload and collapse after repeated rewriting.</li>
+      <li><strong>Reproducibility is incomplete from the visible paper alone:</strong> robust adoption would require prompts, generated question banks, code, data splits, and exact model/version details.</li>
+      <li><strong>Test-set early stopping concern:</strong> selecting the best prompt-update iteration on test performance makes the prompt-optimization gains less clean as generalization evidence.</li>
+    </ul>
+
+    <h3>Do and do not use for</h3>
+    <table>
+      <thead><tr><th>Use for</th><th>Do not use for</th></tr></thead>
+      <tbody>
+        <tr><td>Building transparent evaluation rubrics for summaries, RAG answers, extracted tables, parser outputs, prompt regressions, and agent traces.</td><td>Replacing human review in clinical, regulatory, legal, financial, or high-impact deployment decisions.</td></tr>
+        <tr><td>Generating failure-specific feedback for prompt or workflow improvement.</td><td>Assuming that all dimensions can be decomposed into equally weighted yes/no checks.</td></tr>
+        <tr><td>Comparing candidate prompts or models when you need interpretable reasons for differences.</td><td>Letting an LLM silently generate and answer questions without logging, audit, or held-out validation.</td></tr>
+        <tr><td>Factuality, citation support, entity preservation, format compliance, and explicit constraint checks.</td><td>Deep subjective quality assessment where holistic reader judgment is the intended gold standard.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="implementation">
+    <h2>Implementation and practice takeaways</h2>
+    <div class="goodnote">
+      <strong>Highest-value adoption:</strong> implement a small BINEVAL-style layer for your parser/RAG/agent harness, but keep the question generator deterministic or semi-deterministic where possible. Use LLM generation for candidate questions, then curate and version the final question bank.
+    </div>
+
+    <h3>Minimal local implementation pattern</h3>
+    <pre><code>BINEVAL-MINI FOR PAPER / RAG / PARSER EVALUATION
+
+Artifact under evaluation:
+  - summary
+  - extracted abstract
+  - extracted table
+  - RAG answer
+  - agent final answer
+  - prompt-generated clinical/scientific appraisal
+
+Question bank schema:
+  question_id: stable string
+  dimension: faithfulness | coverage | structure | relevance | citation | safety | format
+  question_text: yes/no check where yes = success
+  failure_example: concise negative case
+  required_evidence: source span, retrieved chunk, table cell, citation, tool log, or page range
+  weight: default 1.0 unless curated otherwise
+  severity: minor | moderate | major | blocker
+
+Evaluation record:
+  artifact_id
+  source_id
+  evaluator_model
+  question_bank_version
+  verdicts: [{question_id, yes_no, explanation, evidence_pointer}]
+  dimension_scores
+  overall_score
+  failed_blockers
+  audit_notes</code></pre>
+
+    <h3>Suggested first question bank for scientific-paper summaries</h3>
+    <pre><code>DIMENSION: FAITHFULNESS
+  Q1. Are all core claims in the summary supported by the source text?
+  Q2. Does the summary avoid adding unstated results, implications, or capabilities?
+  Q3. Are model, dataset, benchmark, and method names preserved correctly?
+  Q4. Are numerical results copied or rounded accurately?
+  Q5. Are limitations represented without softening or omission?
+
+DIMENSION: COVERAGE
+  Q6. Does the summary include the paper's primary task or research question?
+  Q7. Does it include the main method or architecture?
+  Q8. Does it include the core experimental setup and baselines?
+  Q9. Does it include the most important results by dimension or dataset?
+  Q10. Does it include the main limitations and failure modes?
+
+DIMENSION: STRUCTURE
+  Q11. Are section headings preserved or mapped cleanly?
+  Q12. Are figures, tables, workflows, and algorithms represented separately?
+  Q13. Are appraisal statements separated from author claims?
+  Q14. Are implementation takeaways clearly labeled as inference or recommendation?
+
+DIMENSION: EVIDENCE PATH
+  Q15. Does each factual claim have a source pointer or retrievable evidence?
+  Q16. Are claims about absent information backed by searched sections or tables?
+  Q17. Does the answer avoid citing irrelevant or merely adjacent evidence?</code></pre>
+
+    <h3>Workflow recommendations</h3>
+    <ol class="tight">
+      <li><strong>Start with curated dimensions:</strong> use faithfulness, coverage, structure, citation support, and implementation safety before adding nuanced dimensions.</li>
+      <li><strong>Version the question bank:</strong> every evaluation score should record the exact question version, model, prompt, and source artifact.</li>
+      <li><strong>Measure question behavior:</strong> track yes-rate spread, inter-question correlation, repeated-failure frequency, and disagreement with human spot checks.</li>
+      <li><strong>Do not over-decompose relevance:</strong> use fewer, broader relevance questions unless human review shows missed cases.</li>
+      <li><strong>Use blockers:</strong> if a summary fabricates a result, misses a major limitation, or cites unsupported evidence, allow a single failed critical question to cap the final score.</li>
+      <li><strong>Keep prompt updates bounded:</strong> summarize lessons into short rules; do not append every failure as a new instruction.</li>
+    </ol>
+
+    <h3>Where this fits your AI/LLM workflow</h3>
+    <div class="takeaway-grid">
+      <div class="mini-card"><div class="label">Parser validation</div><div class="value">Check whether extracted title, abstract, sections, tables, and figures are preserved and mapped to a stable schema.</div></div>
+      <div class="mini-card"><div class="label">RAG answer grading</div><div class="value">Ask binary support questions for every answer claim, not just “is the answer good?”</div></div>
+      <div class="mini-card"><div class="label">Agent harnesses</div><div class="value">Score final outputs plus evidence paths: fetched source, cited chunk, accessible context, and missing-search claims.</div></div>
+      <div class="mini-card"><div class="label">Prompt regression</div><div class="value">Use stable binary questions to detect when prompt changes break one dimension while improving another.</div></div>
+    </div>
+  </section>
+
+  <section id="quality">
+    <h2>Quality-control notes</h2>
+    <h3>Claims that are well supported by the paper</h3>
+    <ul class="tight">
+      <li>BINEVAL’s decomposition improves interpretability by tying scores to question-level verdicts and explanations.</li>
+      <li>BINEVAL performs particularly well on factual consistency, especially compared with holistic or single-question evaluators.</li>
+      <li>Question-level failures can improve prompts when the underlying task failure is instruction-sensitive.</li>
+      <li>Repeated prompt rewriting can degrade performance when lessons accumulate into bloated or conflicting instructions.</li>
+    </ul>
+
+    <h3>Claims that remain under-established</h3>
+    <ul class="tight">
+      <li>That BINEVAL generalizes cleanly to long-context RAG, clinical summaries, regulatory review, or multi-turn agents.</li>
+      <li>That LLM-generated question banks are stable enough without curation and versioning.</li>
+      <li>That unweighted linear averaging is the right aggregation rule across all dimensions.</li>
+      <li>That cross-model prompt update improves weaker evaluators under clean held-out evaluation rather than test-set iteration selection.</li>
+      <li>That cost/latency is acceptable at production scale.</li>
+    </ul>
+
+    <div class="badnote">
+      <strong>Primary risk if implemented naively:</strong> a polished BINEVAL score can still be wrong if the question bank is incomplete, misweighted, or too literal. The framework makes evaluation inspectable; it does not make evaluation automatically correct.
+    </div>
+
+    <h3>Final appraisal block</h3>
+    <pre><code>FINAL APPRAISAL
+
+Verdict:
+  Read first / implement selectively.
+
+Best use:
+  Transparent evaluation rubrics for LLM outputs, scientific-paper summaries,
+  RAG answers, prompt regression tests, and agent evidence-path diagnostics.
+
+Do not use for:
+  Unsupervised high-stakes judging, clinical decision support, or any domain where
+  missing criteria can cause harm and no human review is present.
+
+Main strengths:
+  - Interpretable question-level verdicts.
+  - Strong fit for factuality and explicit constraint checking.
+  - Practical prompt-improvement signal.
+  - Useful distributional analysis beyond average correlation.
+
+Main limitations:
+  - Question quality and aggregation assumptions are fragile.
+  - Subjective relevance can be over-decomposed.
+  - Prompt updates can cause instruction bloat and degradation.
+  - Reproducibility and external deployment evidence are incomplete.
+
+Implementation takeaway:
+  Build BINEVAL-mini as a logged, versioned evaluation layer with curated questions,
+  blocker failures, and human spot checks. Do not rely on fully automated question
+  generation as the final rubric.
+
+Confidence in appraisal:
+  Moderate-high for summarization/factuality evaluation; moderate for prompt
+  optimization; low-moderate for broad deployment generalization.</code></pre>
+  </section>
+
+  <section id="sources">
+    <h2>Source grounding</h2>
+    <table>
+      <thead>
+        <tr><th>Source</th><th>Use in this file</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="https://arxiv.org/abs/2606.27226">arXiv abstract page</a></td><td>Metadata, submission date, authors, subject categories, abstract-level claims.</td><td>Submitted 25 Jun 2026; arXiv:2606.27226v1.</td></tr>
+        <tr><td><a href="https://arxiv.org/pdf/2606.27226">arXiv PDF</a></td><td>Full-text summary, method equations, benchmark setup, results tables, figure and appendix breakdowns.</td><td>22-page PDF inspected directly, including tables and figures.</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Generated as a standalone reference HTML file using a Summary/Evaluation/Appraisal structure with source metadata, one-page synthesis, section condensation, visual/table decomposition, appraisal ratings, and implementation takeaways.</p>
+  </section>
+</main>
+<footer>
+  Reference generated for arXiv:2606.27226, “Ask, Don’t Judge: Binary Questions for Interpretable LLM Evaluation and Self-Improvement.” This file is a structured summary and appraisal, not a reproduction of the paper or an independent experimental replication.
+</footer>
+</body>
+</html>

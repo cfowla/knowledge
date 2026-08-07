@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reference Appraisal: Temporal Validity in Retrieval Memory</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --ink: #17202a;
+      --muted: #526173;
+      --line: #d9e0ea;
+      --accent: #1d4f91;
+      --accent2: #7a3e06;
+      --good: #0f6b3b;
+      --warn: #8a5a00;
+      --bad: #8a1f1f;
+      --codebg: #0e1726;
+      --codefg: #edf4ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: linear-gradient(135deg, #10243d, #1d4f91);
+      color: white;
+      padding: 2.2rem 1.25rem 2rem;
+      border-bottom: 5px solid #d2e2f5;
+    }
+    header .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { margin: 0 0 .6rem; font-size: clamp(1.7rem, 3vw, 2.55rem); line-height: 1.15; }
+    .subtitle { max-width: 940px; font-size: 1.05rem; color: #dce9f8; margin: 0; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    nav.toc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0 1.25rem;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .06);
+    }
+    nav.toc a { color: var(--accent); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+    .toc-grid { columns: 2; column-gap: 2rem; padding-left: 1.25rem; }
+    section, article.card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 4px rgba(16, 36, 61, .05);
+    }
+    h2 { color: #0f315f; margin: .2rem 0 1rem; border-bottom: 1px solid var(--line); padding-bottom: .45rem; }
+    h3 { color: #173f72; margin-top: 1.25rem; }
+    h4 { margin: 1rem 0 .35rem; color: #24364b; }
+    .meta-grid, .rating-grid, .takeaway-grid, .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .75rem;
+    }
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: .8rem;
+      background: #fbfcff;
+    }
+    .label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .value { font-weight: 650; margin-top: .2rem; }
+    .verdict {
+      border-left: 5px solid var(--accent);
+      background: #eef5ff;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: .6rem 0 1rem;
+    }
+    .warning {
+      border-left: 5px solid var(--warn);
+      background: #fff8e8;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      margin: .75rem 0;
+    }
+    .badnote {
+      border-left: 5px solid var(--bad);
+      background: #fff1f1;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      margin: .75rem 0;
+    }
+    .goodnote {
+      border-left: 5px solid var(--good);
+      background: #edf8f2;
+      padding: .9rem 1rem;
+      border-radius: 10px;
+      margin: .75rem 0;
+    }
+    table { width: 100%; border-collapse: collapse; margin: .75rem 0; font-size: .96rem; }
+    th, td { border: 1px solid var(--line); padding: .55rem .65rem; vertical-align: top; }
+    th { background: #eef3f9; text-align: left; color: #1e395c; }
+    .rating-grid .mini-card { min-height: 92px; }
+    .score { font-size: 1.35rem; font-weight: 800; color: var(--accent); }
+    pre {
+      margin: .75rem 0 1.1rem;
+      padding: 1rem;
+      background: var(--codebg);
+      color: var(--codefg);
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid #1b2e49;
+      font-size: .88rem;
+      line-height: 1.45;
+      white-space: pre;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .section-summary { border-left: 4px solid #cbd8e8; padding-left: .95rem; margin: .9rem 0 1.2rem; }
+    .section-summary h3 { margin: 0 0 .4rem; }
+    .section-summary p { margin: .4rem 0; }
+    .tag {
+      display: inline-block;
+      border: 1px solid #c9d7e8;
+      background: #f2f6fb;
+      color: #27496d;
+      padding: .15rem .45rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      margin: .12rem .2rem .12rem 0;
+    }
+    .small { color: var(--muted); font-size: .92rem; }
+    ul.tight li, ol.tight li { margin-bottom: .35rem; }
+    .checklist li { margin-bottom: .45rem; }
+    footer { max-width: 1100px; margin: 0 auto 2rem; color: var(--muted); padding: 0 1.25rem; font-size: .9rem; }
+    @media print {
+      body { background: white; }
+      section, article.card, nav.toc { box-shadow: none; break-inside: avoid; }
+      pre { white-space: pre-wrap; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Temporal Validity in Retrieval Memory</h1>
+    <p class="subtitle">Summary, evaluation, and appraisal of “Eliminating Stale-Fact Errors for AI Agents over Evolving Knowledge” — a deterministic supersession layer for RAG-style agent memory.</p>
+  </div>
+</header>
+<main>
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ol class="toc-grid">
+      <li><a href="#metadata">Source metadata</a></li>
+      <li><a href="#onepage">One-page synthesis</a></li>
+      <li><a href="#section-summaries">Section-by-section condensation</a></li>
+      <li><a href="#architecture">Architecture and workflow extraction</a></li>
+      <li><a href="#tables">Tables, exhibits, and benchmark details</a></li>
+      <li><a href="#prompts">Prompt and reproducibility extraction</a></li>
+      <li><a href="#evaluation">Evaluation and appraisal</a></li>
+      <li><a href="#takeaways">Implementation takeaways</a></li>
+      <li><a href="#bottom-line">Bottom line</a></li>
+    </ol>
+  </nav>
+
+  <section id="metadata">
+    <h2>Source metadata</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><div class="label">Title</div><div class="value">Temporal Validity in Retrieval Memory: Eliminating Stale-Fact Errors for AI Agents over Evolving Knowledge</div></div>
+      <div class="mini-card"><div class="label">Author</div><div class="value">Neeraj Yadav</div></div>
+      <div class="mini-card"><div class="label">Source</div><div class="value">arXiv:2606.26511v1</div></div>
+      <div class="mini-card"><div class="label">Submitted</div><div class="value">25 Jun 2026</div></div>
+      <div class="mini-card"><div class="label">Source type</div><div class="value">Preprint / technical report / benchmark paper</div></div>
+      <div class="mini-card"><div class="label">Field</div><div class="value">LLM memory, RAG, agent systems, temporal knowledge</div></div>
+      <div class="mini-card"><div class="label">Length</div><div class="value">21 pages; 5 main tables; appendices with full result matrices, benchmark examples, prompt hashes, and ablations</div></div>
+      <div class="mini-card"><div class="label">Core method</div><div class="value">Deterministic supersession over normalized subject–relation keys, backed by a bi-temporal ledger</div></div>
+    </div>
+    <p class="small">Scope warning: this reference summarizes and appraises the preprint as an AI/ML systems artifact. It should be treated as a promising mechanism-level result, not yet as independently replicated evidence of deployment-ready agent memory.</p>
+  </section>
+
+  <section id="onepage">
+    <h2>One-page synthesis</h2>
+    <div class="verdict">
+      <strong>Core thesis:</strong> similarity-only RAG is structurally unable to decide which of two near-identical but temporally conflicting facts is current. MemStrata addresses this by storing facts like RAG for static recall, but retiring stale values when a newer assertion has the same normalized subject–relation key and a different object.
+    </div>
+    <p>The paper frames memory staleness as a temporal-validity problem rather than a retrieval-ranking problem. Its key empirical move is to show that embedding similarity does not cleanly distinguish duplicates from contradictions: value flips can be more similar to the original fact than true paraphrases. The proposed system therefore moves contradiction handling out of the similarity layer and into a structural write-time rule: when a single mutable value changes for the same subject–relation pair, the old row is closed in a bi-temporal ledger and the new row becomes active.</p>
+    <p>The main claim is narrow but useful: in structured, marker-free evolving-code benchmarks, deterministic supersession preserves static recall while removing stale values before retrieval. The reported results are strong for the targeted failure mode: temporal_v6 reaches 0.95–1.00 accuracy on evolving tasks where naive or advanced RAG reaches 0.20–0.47, and stale-fact errors fall to approximately zero in the tested settings. The main limitation is equally important: the method depends on reliable extraction and canonicalization of value-bearing facts. On messier free-prose contradictions, the paper reports that extraction—not ledger design—is the gating factor.</p>
+    <div>
+      <span class="tag">Agent memory</span>
+      <span class="tag">Temporal RAG</span>
+      <span class="tag">Stale-fact errors</span>
+      <span class="tag">Bi-temporal ledger</span>
+      <span class="tag">Deterministic supersession</span>
+      <span class="tag">Marker-free benchmarks</span>
+      <span class="tag">Local-first evaluation</span>
+    </div>
+  </section>
+
+  <section id="section-summaries">
+    <h2>Section-by-section condensation</h2>
+
+    <div class="section-summary">
+      <h3>Abstract</h3>
+      <p>The abstract states the paper’s central problem: RAG memory can recall accumulated knowledge but lacks a temporal model. When a function name, configuration value, dependency version, or API endpoint changes, old and new facts remain highly similar in embedding space, so a retrieval system can surface both without knowing which is current.</p>
+      <p>MemStrata is presented as a temporal-validity memory layer that keeps RAG-like recall for static facts but uses deterministic subject–relation–object supersession to retire stale values. The headline results are static parity, 0.95–1.00 evolving-task accuracy, approximately zero stale-fact error, and RAG-like retrieval latency because the read path does not call an LLM.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>1. Introduction</h3>
+      <p>The introduction positions persistent agent memory as the practical bottleneck for coding assistants, research assistants, and operations assistants that accumulate knowledge over many sessions. It distinguishes recall depth from currency: a memory system can retrieve relevant facts and still be unsafe if it retrieves both obsolete and current versions of the same fact.</p>
+      <p>The paper’s contribution list is clear: a similarity-calibration result, a temporal-validity architecture, a stale-fact-error result, and a marker-free evaluation protocol. The introduction also constrains the claim by acknowledging that the evolving benchmarks are structured single-value templates and that robust extraction from messy natural language is future work.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>2. Related Work</h3>
+      <p>The related-work section separates MemStrata from long-term agent-memory systems, graph/hypergraph RAG, temporal databases, temporal knowledge graphs, and verification-augmented RAG. The distinction is that most memory and graph-retrieval systems improve recall, organization, or multi-hop access over largely static corpora, while MemStrata targets fact currency under knowledge evolution.</p>
+      <p>The temporal database discussion is important: the paper does not claim to invent bi-temporality. It borrows the valid-time/transaction-time pattern and applies it to LLM-agent memory. The appraisal-relevant point is that the novelty lies in integration with retrieval memory and deterministic write-time supersession, not in the ledger primitive itself.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3. The Staleness Problem and Why Similarity Cannot Solve It</h3>
+      <p>This section argues that similarity-based update rules fail because duplicates, contradictions, merges, and novel facts cannot be safely separated by cosine distance alone. A value flip such as port 8000 to port 8080 is often a smaller semantic edit than a genuine paraphrase, so the contradiction can sit closer to the original than a duplicate.</p>
+      <p>The practical conclusion is that staleness handling should be structural: if an incoming fact shares the same normalized subject–relation key but has a different object, the newer object supersedes the older one. This is a strong design insight for agent memory systems, but it depends on having a reliable extraction and canonicalization layer that can produce stable keys across paraphrases.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>4. The MemStrata Architecture</h3>
+      <p>MemStrata sits between an agent and its language model. Its write path first removes exact duplicates, then applies a deterministic assertion path to clean single-value triples. If the normalized subject–relation key already has an active value, a different object closes the old validity interval and opens a new one. Non-triple prose falls back to a surprise gate rather than being forced into the deterministic path.</p>
+      <p>The read path retrieves over active facts and assertions, filters out superseded rows, and packs original source sentences rather than reconstructed triples. The architecture deliberately retains distinct non-contradictory facts to preserve static recall. This “retain, then supersede” design is the important compromise: it avoids lossy compression while bounding growth only where contradictory versions would otherwise accumulate.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>5. Experiments</h3>
+      <p>The evaluation is local and deterministic: a 7B answer model, 3B judge models, a 768-dimensional embedder, fixed seed, temperature zero, and no network. Conditions include no memory, naive RAG, advanced RAG with reranking, gate-based variants, a lossy temporal ablation, full temporal_v6, and an inferability-prefilter variant. Benchmarks include two static tasks and four marker-free evolving tasks.</p>
+      <p>The experiments report answer accuracy, stale-fact-error rate, conditional fabrication, active-fact count, compression, and mean/p95 retrieval latency. The central results are: cosine similarity is near-chance for the duplicate/contradiction separation task; temporal_v6 matches RAG on static benchmarks; temporal_v6 dominates on evolving benchmarks; stale-fact errors drop to near zero; and LLM-rerank/verify baselines pay much higher latency without solving currency.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>6. Discussion</h3>
+      <p>The discussion argues that RAG remains appropriate for static knowledge, but that evolving knowledge requires an explicit temporal mechanism. It treats the stale-fact-error rate as the key structural result: when RAG is forced to answer, it sometimes commits to a superseded value because both values are present and retrieval similarity does not encode currency.</p>
+      <p>The ablation logic is useful. Aggressive merging harms static recall, while retaining everything without supersession collapses evolving accuracy. The paper’s preferred design occupies the middle: retain non-contradictory memory like RAG, but retire contradicted values through deterministic supersession. This section also reinforces the marker-free benchmark invariant as a guard against inflated baselines.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>7. Limitations</h3>
+      <p>The limitations are unusually direct. The evolving benchmarks are structured, marker-free, and mostly single-value templates. The paper reports high supersession reliability on clean code-mutation tasks but much weaker extraction on a messier free-prose contradiction benchmark, which was excluded from main results because it measured extraction failure more than supersession.</p>
+      <p>Other limits are ingestion-order-as-time, single-judge noise, small benchmark sizes, and a single local 7B answer model. These limits do not invalidate the mechanism, but they sharply constrain generalization. The main unresolved engineering problem is not the ledger; it is robust, auditable extraction of stable subjects, relations, and mutable objects from heterogeneous real-world text.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>8. Conclusion and reproducibility statement</h3>
+      <p>The conclusion restates the paper’s core claim: for agents over evolving knowledge, the major memory failure is currency rather than recall. MemStrata stores like RAG for static recall but uses deterministic supersession over a bi-temporal ledger to remove contradicted values before retrieval.</p>
+      <p>The reproducibility statement is a strength: the paper describes deterministic runs, fixed seeds, no-network enforcement, released harnesses, prompt hashes, datasets, calibration data, logs, and unit tests for the marker-free invariant. Independent replication would still be needed to verify robustness outside the author’s harness and synthetic benchmark regime.</p>
+    </div>
+  </section>
+
+  <section id="architecture">
+    <h2>Architecture and workflow extraction</h2>
+
+    <h3>MemStrata write path</h3>
+    <pre><code>WORKFLOW: WRITE PATH — TEMPORAL VALIDITY MEMORY
+
+INPUT:
+  - Incoming user/agent turn or extracted candidate fact.
+  - Existing memory rows, including active assertions and retired assertions.
+
+STEP 1 — Exact duplicate short-circuit:
+  - Normalize text.
+  - Hash normalized string.
+  - Drop verbatim repeats without invoking a model or similarity decision.
+
+STEP 2 — Deterministic assertion path:
+  - Attempt to express the candidate as a clean value-bearing triple:
+      subject: stable thing the value belongs to
+      relation: stable predicate or linking phrase
+      object: one concrete mutable value
+  - Normalize the (subject, relation) key.
+  - Search active assertions for that key.
+
+DECISION RULE:
+  - No active key: store as novel active assertion.
+  - Same key + same object: treat as duplicate/reinforcement.
+  - Same key + different object: close old validity interval and open new active assertion.
+
+LEDGER ACTION:
+  - Retired row remains stored.
+  - valid_to is set.
+  - superseded_by links old assertion to new assertion.
+
+FALLBACK:
+  - Non-triple prose falls to a surprise-gate path.
+  - Near-duplicate non-contradictory facts are retained rather than compressed away.
+
+KEY DESIGN PROPERTY:
+  - No cosine threshold and no LLM judge decides supersession on the deterministic assertion path.</code></pre>
+
+    <h3>MemStrata read path</h3>
+    <pre><code>WORKFLOW: READ PATH — CURRENT-FACT RETRIEVAL
+
+INPUT:
+  - User query.
+  - Active facts and active assertions.
+  - Retired/superseded facts remain in ledger but are not surfaced for normal current-state retrieval.
+
+PROCESS:
+  1. Embed the query.
+  2. Retrieve top-k active facts/assertions by cosine similarity.
+  3. Apply deterministic staleness filter:
+       - Drop rows whose validity interval is closed.
+       - Keep currently valid rows.
+  4. Pack original source sentences rather than terse reconstructed triples.
+  5. Send packed context to answer model.
+
+OUTPUT:
+  - Current answer context with stale values removed before generation.
+
+LATENCY IMPLICATION:
+  - No LLM runs on the read path.
+  - Reported latency remains near the embedding/retrieval floor (~2.1 s in this harness).</code></pre>
+
+    <h3>Temporal memory schema implied by the paper</h3>
+    <pre><code>FACT / ASSERTION ROW
+
+id: unique row identifier
+source_text: original source sentence or turn fragment
+subject: canonical stable entity or thing
+relation: canonical predicate / relation
+object: mutable asserted value
+valid_from: when the assertion became valid in the memory system
+valid_to: null if active; timestamp/order index if retired
+transaction_time: when the memory row was recorded
+superseded_by: id of newer row, if retired
+status: active | superseded | duplicate | fallback_fact
+extraction_path: deterministic_triple | text_gate | exact_duplicate
+source_turn_id: provenance pointer
+hash: normalized text hash for exact duplicate detection</code></pre>
+
+    <div class="warning">
+      <strong>Implementation implication:</strong> the paper’s mechanism is only deterministic after the fact has been expressed as a stable subject–relation–object assertion. In production, the extraction/canonicalization layer needs its own evaluation harness, conflict audit trail, retry policy, and human-review fallback.
+    </div>
+  </section>
+
+  <section id="tables">
+    <h2>Tables, exhibits, and benchmark details</h2>
+    <p>The paper contains no conventional figures. Its main visual evidence is five result tables plus appendix matrices. The table breakdowns below preserve the load-bearing quantitative evidence and appraisal meaning.</p>
+
+    <h3>Table 1 — Per-class cosine similarity to original fact</h3>
+    <table>
+      <thead><tr><th>Label</th><th>n</th><th>Mean cosine</th><th>Min</th><th>Max</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td>duplicate</td><td>32</td><td>0.7998</td><td>0.4888</td><td>1.000</td><td>True duplicates are similar, but not safely separable.</td></tr>
+        <tr><td>contradict</td><td>22</td><td>0.8119</td><td>0.5335</td><td>1.000</td><td>Contradictions are slightly more similar than duplicates on average.</td></tr>
+        <tr><td>merge</td><td>22</td><td>0.9381</td><td>0.8842</td><td>0.9855</td><td>Merge cases cluster high; not the key contradiction hazard.</td></tr>
+        <tr><td>novel</td><td>22</td><td>0.4773</td><td>0.4077</td><td>0.6145</td><td>Novel facts separate more clearly from stored facts.</td></tr>
+      </tbody>
+    </table>
+    <pre><code>TABLE 1 APPRAISAL
+
+Purpose:
+  Demonstrate that similarity cannot safely distinguish duplicate from contradiction.
+
+Key value:
+  AUROC for separating duplicates from the rest: ~0.5926.
+  Maximum precision at any duplicate threshold: ~0.667.
+
+Main pattern:
+  Contradictions can be more embedding-similar to an original fact than duplicates.
+
+Supports:
+  The move away from similarity-threshold-based automatic update rules.
+
+Does not establish:
+  That every temporal RAG variant must fail; it establishes failure for similarity-only or similarity-centered currency detection.</code></pre>
+
+    <h3>Table 2 — Answer accuracy: static versus evolving benchmarks</h3>
+    <table>
+      <thead><tr><th>Benchmark</th><th>naive_rag</th><th>advanced_rag</th><th>v6</th><th>temporal_v6_lossy</th><th>temporal_v6</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Static: domain</strong></td><td>0.86</td><td>0.86</td><td>0.80</td><td>0.62</td><td><strong>0.82</strong></td></tr>
+        <tr><td><strong>Static: locomo</strong></td><td>0.30</td><td>0.30</td><td>0.13</td><td>0.13</td><td><strong>0.30</strong></td></tr>
+        <tr><td><strong>Evolving: code_mutation</strong></td><td>0.43</td><td>0.47</td><td>0.57</td><td>0.80</td><td><strong>1.00</strong></td></tr>
+        <tr><td><strong>Evolving: config_migration</strong></td><td>0.25</td><td>0.25</td><td>0.65</td><td>1.00</td><td><strong>1.00</strong></td></tr>
+        <tr><td><strong>Evolving: dependency_bump</strong></td><td>0.20</td><td>0.20</td><td>0.60</td><td>1.00</td><td><strong>1.00</strong></td></tr>
+        <tr><td><strong>Evolving: api_evolution</strong></td><td>0.40</td><td>0.40</td><td>0.35</td><td>0.95</td><td><strong>0.95</strong></td></tr>
+      </tbody>
+    </table>
+    <pre><code>TABLE 2 APPRAISAL
+
+Purpose:
+  Test whether temporal supersession preserves static recall while improving evolving-memory answers.
+
+Pattern:
+  - Static: temporal_v6 roughly ties naive/advanced RAG.
+  - Evolving: temporal_v6 reaches 0.95–1.00.
+  - Lossy temporal variant harms static recall, showing that aggressive compression is not free.
+
+Most important comparison:
+  temporal_v6 versus naive/advanced RAG on evolving benchmarks.
+
+Limitation:
+  Evolving benchmarks are structured and small. Real-world extraction and entity canonicalization are not resolved by this table.</code></pre>
+
+    <h3>Table 3 — Stale-fact-error rate, abstention-allowed versus forced-answer</h3>
+    <table>
+      <thead><tr><th>Benchmark</th><th>naive_rag allow / forced</th><th>temporal_v6 allow / forced</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td>code_mutation</td><td>0.10 / 0.40</td><td><strong>0.03 / 0.03</strong></td><td>RAG stale commitment is exposed when abstention is disabled.</td></tr>
+        <tr><td>config_migration</td><td>0.05 / 0.35</td><td><strong>0.00 / 0.00</strong></td><td>Deterministic supersession removes obsolete configuration values.</td></tr>
+        <tr><td>dependency_bump</td><td>0.05 / 0.15</td><td><strong>0.00 / 0.00</strong></td><td>Lower RAG error likely benefits from version-number surface cues.</td></tr>
+        <tr><td>api_evolution</td><td>0.30 / 0.35</td><td><strong>0.00 / 0.00</strong></td><td>Endpoint/signature restructuring strongly penalizes non-temporal RAG.</td></tr>
+      </tbody>
+    </table>
+    <pre><code>TABLE 3 APPRAISAL
+
+Purpose:
+  Measure the specific failure class: answering with the superseded value.
+
+Key result:
+  Forced-answer RAG serves stale values 15–40% of the time.
+  temporal_v6 is ~0% in this benchmark suite.
+
+Why forced-answer matters:
+  Abstention can hide stale-fact failure by refusing to answer rather than choosing incorrectly.
+
+Implementation lesson:
+  Agent-memory evaluation should report both accuracy and stale-fact-error, with and without abstention.</code></pre>
+
+    <h3>Tables 4–5 — Retrieval latency</h3>
+    <pre><code>STATIC BENCHMARK LATENCY (ms)
+
+Mean retrieval latency:
+  domain: naive_rag 2103.4 | advanced_rag 17985.8 | temporal_v6 2111.4 | v6 16997.0
+  locomo: naive_rag 2131.8 | advanced_rag 18251.7 | temporal_v6 2133.7 | v6 17309.4
+
+P95 retrieval latency:
+  domain: naive_rag 2120.0 | advanced_rag 18400.1 | temporal_v6 2132.0 | v6 23895.5
+  locomo: naive_rag 2151.4 | advanced_rag 18653.2 | temporal_v6 2150.2 | v6 20638.9
+
+EVOLVING BENCHMARK LATENCY (ms)
+
+Mean retrieval latency:
+  code_mutation: naive_rag 2134.7 | advanced_rag 17907.9 | temporal_v6 2110.3 | v6 15835.9
+  config_migration: naive_rag 2119.4 | advanced_rag 18021.7 | temporal_v6 2111.6 | v6 15509.6
+  dependency_bump: naive_rag 2110.8 | advanced_rag 18088.9 | temporal_v6 2099.4 | v6 15969.5
+  api_evolution: naive_rag 2111.3 | advanced_rag 18220.7 | temporal_v6 2107.4 | v6 15904.4
+
+P95 retrieval latency:
+  code_mutation: naive_rag 2172.7 | advanced_rag 18035.2 | temporal_v6 2125.7 | v6 18765.6
+  config_migration: naive_rag 2124.5 | advanced_rag 18240.5 | temporal_v6 2124.3 | v6 16596.4
+  dependency_bump: naive_rag 2126.1 | advanced_rag 18299.3 | temporal_v6 2107.8 | v6 21181.8
+  api_evolution: naive_rag 2129.1 | advanced_rag 18372.9 | temporal_v6 2113.0 | v6 18910.5</code></pre>
+    <pre><code>LATENCY APPRAISAL
+
+Purpose:
+  Show that temporal_v6 avoids the LLM-rerank/verify cost on the read path.
+
+Pattern:
+  - naive_rag, v6_no_verify, and temporal_v6 cluster around ~2.1 s.
+  - advanced_rag and LLM verification variants cluster around ~16–18 s mean latency, with higher p95 tails.
+
+Interpretation:
+  temporal_v6 gains temporal validity without adding read-path model calls.
+
+Caveat:
+  Absolute latency depends on local hardware, embedder, implementation, and storage backend. The more durable result is the relative pattern: deterministic read-path filtering is cheaper than LLM-based reranking or verification.</code></pre>
+
+    <h3>Appendix result matrices — what they add</h3>
+    <table>
+      <thead><tr><th>Appendix block</th><th>What it preserves</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>A.1 main matrix</td><td>Eight conditions across six benchmarks for accuracy, fabrication, attempted answers, memory size, pack tokens, stale-fact error, compression, and latency.</td><td>Allows rechecking whether the headline result is an isolated metric artifact.</td></tr>
+        <tr><td>A.2 forced-answer supplement</td><td>naive_rag, advanced_rag, and temporal_v6 on four evolving benchmarks without abstention.</td><td>Exposes stale commitment hidden by abstention.</td></tr>
+        <tr><td>A.3 cosine calibration</td><td>Cosine distributions and threshold sweeps for duplicate and novel handling.</td><td>Supports the claim that threshold tuning cannot safely solve duplicate/contradiction separation.</td></tr>
+        <tr><td>B benchmark construction</td><td>Marker-free invariant and first examples from code mutation, configuration migration, dependency bump, and API evolution.</td><td>Defines the benchmark’s anti-cheating property and the scope of the structured templates.</td></tr>
+        <tr><td>C prompts and hashes</td><td>Prompt files, SHA-256 hashes, extractor design, gate judge, verifier, and judge separation.</td><td>Improves reproducibility and makes prompt-mediated extraction auditable.</td></tr>
+        <tr><td>D ablations</td><td>Lossy versus retain design and retain-everything without supersession.</td><td>Brackets the causal mechanism: over-merging harms static recall; no supersession harms temporal validity.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Benchmark construction exhibit</h3>
+    <pre><code>MARKER-FREE EVOLVING BENCHMARK INVARIANT
+
+Scenario structure:
+  1. State-A turn asserts a value.
+  2. State-B turn asserts the same fact with only the mutable value changed.
+  3. Question asks for the current value.
+  4. Gold answer is the State-B value.
+
+Forbidden textual cues:
+  - old
+  - new
+  - current
+  - previous
+  - deprecated
+  - legacy
+  - outdated
+  - synonyms or explicit staleness markers
+
+Currency signal:
+  - Ingestion order only.
+
+Benchmarks:
+  code_mutation: function renames, endpoint moves, config/import/dependency changes; 30 scenarios.
+  config_migration: configuration value changes; 20 scenarios.
+  dependency_bump: package or platform version upgrades; 20 scenarios.
+  api_evolution: endpoint, parameter, and signature restructuring; 20 scenarios.
+
+Static controls:
+  domain: 50 project-fact QA items with no contradictions.
+  locomo: 30 questions over a 100-turn dialogue sample with no contradictions.
+
+Quarantined benchmark:
+  fair_contradiction free-prose benchmark was excluded from main results because extraction reliability dropped substantially and measured extraction quality rather than supersession.</code></pre>
+  </section>
+
+  <section id="prompts">
+    <h2>Prompt and reproducibility extraction</h2>
+    <p>The appendices include prompt hashes and prompt designs rather than relying on high-level descriptions. This is an important reproducibility feature because the method’s practical reliability depends on extraction, judging, and verification prompts behaving consistently.</p>
+
+    <h3>Extractor prompt design — condensed</h3>
+    <pre><code>DETERMINISTIC TRIPLE EXTRACTOR — ROLE IN SYSTEM
+
+Goal:
+  Convert one factual statement into a subject–relation–object triple when it contains one concrete mutable value.
+
+Triple semantics:
+  subject: stable thing the mutable value belongs to; must not contain the value.
+  relation: short linking phrase, such as is / is named / is set to.
+  object: one concrete value that could change over time.
+
+Return behavior:
+  - Return a triple when the statement has exactly one concrete mutable value.
+  - Return a negative/non-triple object for preferences, decisions, prose, or multi-value statements.
+
+Critical engineering rule:
+  Old and new statements that differ only by value must map to the same subject and relation, otherwise deterministic supersession cannot engage.</code></pre>
+
+    <h3>Multi-value extractor — condensed</h3>
+    <pre><code>MULTI-VALUE EXTRACTOR — ROLE IN SYSTEM
+
+Goal:
+  Convert one statement into a list of triples, one per mutable value.
+
+Use case:
+  Handles statements that contain several values, such as multiple ports, endpoints, paths, dependency versions, or configuration parameters.
+
+Risk addressed:
+  Single-value extraction fails when the real input contains multiple changeable slots.
+
+Current status in paper:
+  Mentioned as a flag-gated prompt; broader extraction robustness remains future work.</code></pre>
+
+    <h3>Gate judge and verifier — condensed</h3>
+    <pre><code>TEXT-GATE JUDGE — FALLBACK ONLY
+
+Scope:
+  Used for candidate memory facts that do not enter the deterministic assertion path.
+
+Possible labels:
+  duplicate | merge | contradict | novel
+
+Important design note:
+  This judge should not override deterministic supersession for clean value-bearing triples.
+
+LLM RELEVANCE VERIFIER — BASELINE, NOT TEMPORAL_v6 READ PATH
+
+Scope:
+  Determines whether candidate memories should be shown for a query.
+
+Why it matters:
+  The verifier baseline tests whether LLM checking can substitute for temporal validity.
+
+Reported outcome:
+  It does not solve staleness because it lacks a temporal signal and adds latency.</code></pre>
+
+    <div class="goodnote">
+      <strong>Reproducibility strength:</strong> the paper reports deterministic execution, fixed seeds, temperature-zero calls, no-network enforcement, prompt hashes, dataset hashes, run logs, and marker-free invariant tests. That is substantially better reporting than many agent-memory benchmark papers.
+    </div>
+  </section>
+
+  <section id="evaluation">
+    <h2>Evaluation and appraisal</h2>
+    <div class="verdict">
+      <strong>Verdict:</strong> Read first for agent memory, RAG harness design, and deterministic evaluation work. The mechanism is simple, plausible, and directly relevant to persistent memory systems. Treat the benchmark results as mechanism-level evidence under structured conditions, not as proof of broad deployment robustness.
+    </div>
+
+    <h3>Ratings</h3>
+    <div class="rating-grid">
+      <div class="mini-card"><div class="label">Relevance</div><div class="score">9/10</div><div class="small">Highly relevant to agent memory, RAG evaluation, temporal context, and parser/extractor harness design.</div></div>
+      <div class="mini-card"><div class="label">Novelty</div><div class="score">7/10</div><div class="small">The ledger primitive is established, but the RAG-memory framing and stale-fact-error evaluation are useful and well targeted.</div></div>
+      <div class="mini-card"><div class="label">Method strength</div><div class="score">7/10</div><div class="small">Good ablation logic and deterministic reporting; limited by small synthetic/template benchmarks and one local model setup.</div></div>
+      <div class="mini-card"><div class="label">Evidence strength</div><div class="score">6.5/10</div><div class="small">Strong for the tested structured failure mode; not yet strong for messy natural-language or production memory.</div></div>
+      <div class="mini-card"><div class="label">External validity</div><div class="score">5/10</div><div class="small">Bounded by extraction fragility, code-centric templates, ingestion-order time, and lack of real longitudinal deployment data.</div></div>
+      <div class="mini-card"><div class="label">Implementation value</div><div class="score">9/10</div><div class="small">Gives a concrete schema and evaluation pattern that can be implemented immediately in a prototype memory harness.</div></div>
+    </div>
+
+    <h3>Main strengths</h3>
+    <ul class="tight">
+      <li><strong>Clear problem decomposition:</strong> the paper separates recall from currency, which is the right frame for persistent agent memory.</li>
+      <li><strong>Mechanism-level simplicity:</strong> deterministic supersession over subject–relation keys is easier to audit than prompt-only contradiction handling.</li>
+      <li><strong>Good evaluation invariant:</strong> marker-free evolving benchmarks prevent baselines from reading textual staleness hints.</li>
+      <li><strong>Useful metric:</strong> stale-fact-error rate captures a failure mode that ordinary answer accuracy can obscure.</li>
+      <li><strong>Ablation logic:</strong> lossy temporal memory and retain-everything memory bracket the method and clarify why “retain, then supersede” matters.</li>
+      <li><strong>Reproducibility posture:</strong> prompt hashes, deterministic settings, datasets, logs, and unit tests are valuable for independent audit.</li>
+    </ul>
+
+    <h3>Main limitations</h3>
+    <ul class="tight">
+      <li><strong>Structured benchmarks:</strong> the central results are on clean single-value templates, not messy real conversations, documentation, or longitudinal code repositories.</li>
+      <li><strong>Extraction is the bottleneck:</strong> the paper itself reports substantially weaker extraction on a quarantined free-prose contradiction benchmark.</li>
+      <li><strong>Time is simplified:</strong> ingestion order stands in for temporal validity; real use needs explicit timestamps, valid_from semantics, retroactive corrections, and as-of-time retrieval.</li>
+      <li><strong>Small scale:</strong> benchmarks have tens of items each and run with one local answer-model family; larger models or larger corpora could shift baseline behavior.</li>
+      <li><strong>Overbroad title/subtitle risk:</strong> “RAG cannot match by construction” is too broad unless “RAG” is restricted to similarity-only retrieval without temporal metadata or supersession logic.</li>
+      <li><strong>Single-source/product concern:</strong> the author/product/repository identity is visible in the draft; independent replication would matter before treating the result as settled.</li>
+    </ul>
+
+    <h3>Claim calibration</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Appraisal</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Similarity cannot safely separate duplicates from contradictions.</td><td><strong>Well supported for the calibration setup.</strong></td><td>The cosine distribution and threshold sweeps directly support the concern.</td></tr>
+        <tr><td>Deterministic supersession eliminates stale-fact errors.</td><td><strong>Supported in structured benchmarks.</strong></td><td>Stale values are removed before retrieval when extraction produces stable keys.</td></tr>
+        <tr><td>No static recall cost.</td><td><strong>Mostly supported in this setup.</strong></td><td>temporal_v6 roughly ties RAG; the lossy ablation confirms compression can harm recall.</td></tr>
+        <tr><td>RAG cannot avoid stale-fact errors by construction.</td><td><strong>Overbroad unless qualified.</strong></td><td>Similarity-only RAG cannot solve this; RAG augmented with temporal metadata, versioned facts, or supersession becomes a different system.</td></tr>
+        <tr><td>General temporal-context memory beyond code.</td><td><strong>Plausible but not established.</strong></td><td>The ledger design generalizes, but extraction and temporal semantics are not validated broadly.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>AI/ML appraisal add-on</h3>
+    <pre><code>AI/ML APPRAISAL
+
+TASK:
+  Maintain current factual memory for agents when facts evolve over time.
+
+DATA:
+  Two static benchmarks and four marker-free evolving benchmarks.
+  Main evolving tasks are structured single-value templates.
+
+METHOD:
+  - RAG-like storage for static facts.
+  - Deterministic supersession for clean value-bearing triples.
+  - Bi-temporal ledger for retired facts.
+  - Active-only retrieval for current-state answers.
+
+BASELINES:
+  no_memory, naive_rag, advanced_rag with reranking, surprise-gate variants, verifier variants, lossy temporal ablation, retain-everything ablation.
+
+METRICS:
+  Answer accuracy, stale-fact-error rate, conditional fabrication, memory size, pack tokens, compression, mean and p95 retrieval latency.
+
+FAILURE ANALYSIS:
+  Strong attention to stale-fact error and ablations; limited real-world error taxonomy.
+
+REPRODUCIBILITY:
+  Good reported release posture: prompts, hashes, datasets, harness, logs, deterministic settings.
+
+DEPLOYMENT READINESS:
+  Prototype/build-useful, not deployment-proven.</code></pre>
+  </section>
+
+  <section id="takeaways">
+    <h2>Implementation and practice takeaways</h2>
+    <div class="takeaway-grid">
+      <div class="mini-card">
+        <div class="label">Build</div>
+        <div class="value">Add temporal-validity rows to memory</div>
+        <p>Store active and retired assertions with valid_from, valid_to, transaction_time, superseded_by, source text, and extraction provenance.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Evaluate</div>
+        <div class="value">Measure stale-fact error separately</div>
+        <p>Do not rely on answer accuracy alone. Report whether the model served a superseded value, abstained, fabricated, or answered correctly.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Benchmark</div>
+        <div class="value">Use marker-free evolving tests</div>
+        <p>Construct state-A/state-B pairs without old/new/current/deprecated/legacy markers so baselines cannot exploit textual hints.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Extract</div>
+        <div class="value">Test canonicalization aggressively</div>
+        <p>Stable subject–relation keys are the failure point. Evaluate paraphrases, multi-value sentences, malformed updates, aliases, and entity merges.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Avoid</div>
+        <div class="value">Do not over-merge for compression</div>
+        <p>The paper’s lossy ablation shows that compressing near-duplicates can destroy static recall. Retire contradictions; retain distinct detail.</p>
+      </div>
+      <div class="mini-card">
+        <div class="label">Monitor</div>
+        <div class="value">Audit supersession decisions</div>
+        <p>Log every retired fact, active replacement, extraction path, and reason. Provide manual review for high-impact or low-confidence contradictions.</p>
+      </div>
+    </div>
+
+    <h3>Prototype checklist for a RAG/agent harness</h3>
+    <ul class="checklist">
+      <li>Add an <code>assertions</code> table distinct from raw memory chunks.</li>
+      <li>Represent mutable facts as <code>(subject, relation, object)</code> with stable keys.</li>
+      <li>Store original text alongside extracted triples; pack original text at read time.</li>
+      <li>Close validity intervals rather than deleting superseded facts.</li>
+      <li>Support current-state retrieval and future <code>as_of_time</code> retrieval separately.</li>
+      <li>Build unit tests that reject stale textual markers in evolving-memory benchmarks.</li>
+      <li>Run forced-answer evaluations to expose stale commitment hidden by abstention.</li>
+      <li>Report latency separately for embedding, retrieval, filtering, packing, and model calls.</li>
+      <li>Evaluate extractor reliability before claiming memory reliability.</li>
+      <li>Use human review or constrained rules before applying supersession to clinical, legal, regulatory, or safety-critical facts.</li>
+    </ul>
+
+    <div class="warning">
+      <strong>Clinical/operational caution:</strong> the temporal-validity architecture is attractive for domains with changing facts, including policies, drug data, guidelines, formularies, configurations, and operational procedures. But in safety-sensitive settings, fact extraction and supersession must be auditable, source-grounded, date-aware, and reversible. Do not let an LLM silently retire clinical facts without provenance and review controls.
+    </div>
+  </section>
+
+  <section id="bottom-line">
+    <h2>Bottom-line appraisal</h2>
+    <pre><code>FINAL APPRAISAL BLOCK
+
+Verdict:
+  Read first.
+
+Best use:
+  Design reference for temporal-validity memory in RAG/agent systems; benchmark template for stale-fact-error evaluation; implementation pattern for retaining static recall while retiring contradicted values.
+
+Do not use for:
+  Claims that all RAG variants categorically cannot handle temporal validity; proof of deployment-ready memory over messy natural-language contradictions; clinical or safety-sensitive fact-retirement automation without additional controls.
+
+Main strengths:
+  - Sharp distinction between recall and currency.
+  - Deterministic, auditable supersession mechanism.
+  - Marker-free evaluation invariant.
+  - Stale-fact-error metric and forced-answer supplement.
+  - Useful ablations showing why both retention and supersession matter.
+
+Main limitations:
+  - Structured single-value benchmarks.
+  - Extraction/canonicalization fragility.
+  - Ingestion order used as the currency signal.
+  - One local model/harness setup and small benchmark sizes.
+  - Broad rhetorical framing should be narrowed to similarity-only RAG.
+
+Implementation takeaways:
+  - Add temporal assertion rows to memory systems.
+  - Separate raw memory chunks from canonical mutable assertions.
+  - Retire stale values rather than deleting them.
+  - Evaluate stale-fact errors separately from answer accuracy.
+  - Build marker-free evolving benchmarks and forced-answer tests.
+  - Treat extraction quality as the gating metric.
+
+Confidence in appraisal:
+  Moderate-high for the structured mechanism and benchmark interpretation.
+  Moderate-low for broader claims about real-world longitudinal memory until independently replicated on messier data.</code></pre>
+  </section>
+</main>
+<footer>
+  Source evaluated: arXiv:2606.26511v1, “Temporal Validity in Retrieval Memory: Eliminating Stale-Fact Errors for AI Agents over Evolving Knowledge.” Generated as a single-file reference HTML using the Summary, Evaluation, and Appraisal protocol. This appraisal separates author claims from independent assessment and should be updated if later versions, code releases, or replications change the evidence base.
+</footer>
+</body>
+</html>

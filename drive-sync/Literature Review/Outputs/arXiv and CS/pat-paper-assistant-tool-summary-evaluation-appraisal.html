@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Towards Automating Scientific Review with Google's Paper Assistant Tool - Summary, Evaluation, and Appraisal</title>
+  <style>
+    :root{
+      --bg:#f7f8fb;--card:#ffffff;--ink:#17202a;--muted:#526173;--line:#d9e0ea;
+      --accent:#1d4f91;--accent2:#0f315f;--good:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;
+      --codebg:#0e1726;--codefg:#edf4ff;--soft:#eef5ff;--shadow:0 1px 4px rgba(16,36,61,.06)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+    .hero{background:linear-gradient(135deg,#10243d,#1d4f91);color:white;border-bottom:5px solid #d2e2f5}
+    .wrap{max-width:1120px;margin:0 auto;padding:1.25rem}
+    .hero .wrap{padding:2.1rem 1.25rem 1.9rem}
+    h1{font-size:clamp(1.65rem,3.2vw,2.65rem);line-height:1.1;margin:.2rem 0 .7rem;font-weight:800;letter-spacing:-.02em}
+    .subtitle{max-width:920px;color:#e9f3ff;font-size:1.05rem;margin:.35rem 0 0}
+    .badges{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+    .tag{display:inline-flex;align-items:center;gap:.25rem;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.11);color:white;border-radius:999px;padding:.28rem .58rem;font-size:.82rem;font-weight:700;white-space:nowrap}
+    .tag.light{background:#eef3f9;color:#173f72;border-color:#d7e0eb}
+    .toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;margin:1rem 0 1.25rem;box-shadow:var(--shadow)}
+    .toc strong{color:var(--accent2)}
+    .toc ul{columns:2;list-style:none;padding:0;margin:.65rem 0 0}
+    .toc li{break-inside:avoid;margin:.25rem 0}
+    a{color:var(--accent)}
+    a:not(:hover){text-decoration:none}
+    section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.15rem 1.25rem;margin:1rem 0;box-shadow:var(--shadow)}
+    h2{color:var(--accent2);font-size:1.35rem;margin:.1rem 0 .9rem;line-height:1.2}
+    h3{color:#173f72;margin:1.05rem 0 .45rem;font-size:1.05rem}
+    h4{color:#24364b;margin:.85rem 0 .35rem;font-size:.98rem}
+    p{margin:.62rem 0}
+    .muted{color:var(--muted)}
+    .meta-grid,.rating-grid,.takeaway-grid,.synthesis-grid{display:grid;gap:.75rem}
+    .meta-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .synthesis-grid{grid-template-columns:1.2fr 1fr}
+    .rating-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .takeaway-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .mini-card{border:1px solid var(--line);border-radius:12px;padding:.8rem .9rem;background:#fbfcfe}
+    .mini-card strong{display:block;color:#24364b;margin-bottom:.2rem}
+    .verdict,.warning,.goodnote,.badnote{border-radius:14px;padding:1rem 1.05rem;margin:.8rem 0;border:1px solid var(--line)}
+    .verdict{background:#eef5ff;border-left:6px solid var(--accent)}
+    .warning{background:#fff7e8;border-left:6px solid var(--warn)}
+    .goodnote{background:#eefaf2;border-left:6px solid var(--good)}
+    .badnote{background:#fff0f0;border-left:6px solid var(--bad)}
+    .section-summary{border-top:1px solid var(--line);padding-top:.8rem;margin-top:.8rem}
+    .section-summary:first-of-type{border-top:0;padding-top:0;margin-top:0}
+    table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.92rem;border:1px solid var(--line)}
+    th,td{border:1px solid var(--line);padding:.52rem .6rem;vertical-align:top;text-align:left}
+    th{background:#eef3f9;color:#1e395c;font-weight:750}
+    td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+    pre{margin:.75rem 0 1.05rem;padding:1rem;background:var(--codebg);color:var(--codefg);border-radius:12px;overflow:auto;border:1px solid #1b2e49;font-size:.88rem;line-height:1.45;white-space:pre-wrap}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+    .score{font-size:1.55rem;font-weight:850;color:#0f315f;line-height:1}
+    .score small{font-size:.85rem;color:var(--muted);font-weight:700}
+    .rating-card{border:1px solid var(--line);border-radius:12px;padding:.9rem;background:#fbfcfe}
+    .rating-card h3{margin:0 0 .35rem;display:flex;justify-content:space-between;gap:.75rem;align-items:baseline}
+    .compact-list{margin:.45rem 0 .2rem;padding-left:1.15rem}
+    .compact-list li{margin:.28rem 0}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+    .footer{color:#526173;font-size:.9rem;padding:1rem 0 2rem}
+    @media (max-width:850px){.meta-grid,.rating-grid,.takeaway-grid,.synthesis-grid,.two-col{grid-template-columns:1fr}.toc ul{columns:1}.wrap{padding:.9rem}section{padding:1rem}}
+    @media print{body{background:white}.hero{background:#10243d;color:white}section,.toc,.mini-card,.rating-card{box-shadow:none}a{color:inherit}pre{white-space:pre-wrap}}
+  </style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>Towards Automating Scientific Review with Google&rsquo;s Paper Assistant Tool</h1>
+    <p class="subtitle">Summary, Evaluation, and Appraisal reference file for an arXiv technical report on PAT, an agentic manuscript review system, its SPOT benchmark case study, STOC/ICML pilot deployments, and a taxonomy for AI roles in peer review.</p>
+    <div class="badges">
+      <span class="tag">AI/ML systems</span>
+      <span class="tag">Scientific review automation</span>
+      <span class="tag">Agentic verification</span>
+      <span class="tag">arXiv:2606.28277v1</span>
+      <span class="tag">Generated 2026-06-29</span>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ul>
+      <li><a href="#metadata">1. Metadata</a></li>
+      <li><a href="#coverage">2. Coverage manifest</a></li>
+      <li><a href="#synthesis">3. One-page synthesis</a></li>
+      <li><a href="#sections">4. Section condensation</a></li>
+      <li><a href="#visuals">5. Figures and tables</a></li>
+      <li><a href="#ai-ml">6. AI/ML systems lens</a></li>
+      <li><a href="#appraisal">7. Evaluation and appraisal</a></li>
+      <li><a href="#takeaways">8. Implementation takeaways</a></li>
+      <li><a href="#provenance">9. Provenance</a></li>
+    </ul>
+  </nav>
+
+  <section id="metadata">
+    <h2>1. Metadata</h2>
+    <div class="meta-grid">
+      <div class="mini-card"><strong>Title</strong>Towards Automating Scientific Review with Google&rsquo;s Paper Assistant Tool</div>
+      <div class="mini-card"><strong>Authors</strong>Rajesh Jayaram; Drew Tyler; David Woodruff; Corinna Cortes; Yossi Matias; Vahab Mirrokni; Vincent Cohen-Addad</div>
+      <div class="mini-card"><strong>Affiliations</strong>Google Research; Google Research &amp; Carnegie Mellon University for David Woodruff</div>
+      <div class="mini-card"><strong>Source type</strong>arXiv technical report / preprint</div>
+      <div class="mini-card"><strong>Date and version</strong>arXiv v1, 26 Jun 2026; PDF metadata creation 29 Jun 2026</div>
+      <div class="mini-card"><strong>Identifier</strong>arXiv:2606.28277v1; DOI: 10.48550/arXiv.2606.28277</div>
+      <div class="mini-card"><strong>Domain</strong>AI-assisted peer review, scientific verification, agentic review systems</div>
+      <div class="mini-card"><strong>Design</strong>System description plus focused benchmark case study plus author survey from conference pilots</div>
+      <div class="mini-card"><strong>Scope warning</strong>This is an internally authored report about a proprietary Google tool. It supports conceptual and workflow learning, not independent proof that PAT should influence acceptance decisions.</div>
+    </div>
+  </section>
+
+  <section id="coverage">
+    <h2>2. Coverage manifest</h2>
+<pre><code>SOURCE COVERAGE MANIFEST
+source_id: arXiv:2606.28277v1
+title: Towards Automating Scientific Review with Google's Paper Assistant Tool
+source_type: arXiv technical report / preprint
+version_date: 26 Jun 2026
+sections: Abstract; 1 Introduction; 2 Paper Assistant Tool; 2.1 SPOT case study; 3 STOC/ICML experimental programs; 3.1 quantitative author feedback; 3.2 qualitative author feedback; 4 roles of AI automation in peer review; 5 conclusion and future outlook; references
+figures: Figure 1, PAT four-stage system architecture
+tables: Table 1 conference submissions 2020-2026; Table 2 SPOT math/CS equation/proof verification accuracy; Table 3 STOC vs. ICML pilot survey results
+algorithms_or_workflows: PAT segmentation -> adaptive budgeting -> deep review -> global synthesis; four-role taxonomy for AI in peer review
+appendices_or_supplements: none identified in the uploaded PDF
+coverage_decision: all main-text sections, the sole figure, and all three tables are included; references are not expanded except where they support reported claims
+omissions: no appendices; no independent source verification of external claims or conference statistics was performed for this artifact</code></pre>
+  </section>
+
+  <section id="synthesis">
+    <h2>3. One-page synthesis</h2>
+    <div class="verdict"><strong>Core thesis.</strong> The paper argues that AI-generated scientific output is creating a validation bottleneck, and that AI systems should be deployed to help verify manuscripts before and during peer review. Google&rsquo;s Paper Assistant Tool (PAT) is presented as an inference-scaled, agentic review system that segments manuscripts, allocates compute by complexity, performs deep section-level review, and synthesizes grounded critiques.</div>
+    <div class="synthesis-grid">
+      <div class="mini-card">
+        <strong>What the paper contributes</strong>
+        <p>Its main contribution is a packaged account of PAT plus a policy taxonomy for AI in peer review. Empirically, the paper reports a focused SPOT benchmark evaluation on 26 math/CS papers with 29 equation/proof errors, where PAT reached 89.7% detection accuracy versus 55.2% for a zero-shot Gemini 3.1 Pro baseline and 21.1% for the original SPOT SOTA comparison. Operationally, it reports pilot use in STOC 2026 and ICML 2026 pre-submission programs, covering more than 4,700 manuscripts.</p>
+      </div>
+      <div class="mini-card">
+        <strong>Why it matters</strong>
+        <p>For scientific curation, agent harnesses, RAG, and deterministic evaluation workflows, the paper is useful because it turns &ldquo;LLM reviewer&rdquo; into an explicit architecture: segment, budget, review, synthesize, deduplicate, severity-check, and ground claims. The most reusable part is not the product claim itself, but the orchestration pattern and the governance taxonomy.</p>
+      </div>
+      <div class="mini-card">
+        <strong>Key limitation</strong>
+        <p>The evidence is promising but not independent. PAT is proprietary, powered by unreleased or advanced Gemini/Deep Think variants, and evaluated by authors affiliated with the tool developer. The benchmark subset is small and filtered; the survey evidence is self-selected author feedback rather than blinded reviewer or publication-outcome validation.</p>
+      </div>
+      <div class="mini-card">
+        <strong>Best use</strong>
+        <p>Read as a high-relevance design and policy artifact for AI-assisted scientific review. Do not treat it as sufficient evidence for autonomous review decisions, acceptance recommendations, clinical/scientific truth adjudication, or deployment without independent validation and audit controls.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sections">
+    <h2>4. Section condensation</h2>
+
+    <div class="section-summary">
+      <h3>Abstract</h3>
+      <p>The abstract frames AI-assisted scientific generation as a scaling problem for peer review: hypothesis generation, coding, pattern discovery, and mathematical proof assistance are accelerating, while verification remains human-bounded. The authors propose a four-level taxonomy of AI-human collaboration in scientific evaluation to organize policy and deployment decisions.</p>
+      <p>PAT is introduced as an agentic manuscript review and verification framework. The paper claims that inference scaling enables deeper review than a single model call, with a reported 34 percentage-point improvement over zero-shot recall for mathematical errors in a SPOT benchmark subset, and describes pre-submission author pilots at STOC and ICML that identified critical errors and substantive improvement opportunities.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>1. Introduction: The Scientific Validation Bottleneck</h3>
+      <p>The introduction argues that the scientific method now faces a verification bottleneck: AI can help produce more research artifacts, but dense proof checking, experiment validation, and manuscript review still require scarce expert attention. The authors use conference submission growth as a motivating signal: combined ICLR, ICML, and NeurIPS submissions rose from 17,051 in 2020 to 45,354 in 2025, with a 2026 combined estimate of 73,883.</p>
+      <p>The paper does not prove that AI caused the submission surge, but cites evidence of AI-assisted writing in computer science and biomedical abstracts. The authors position PAT as a response to this imbalance, with an emphasis on objective error detection rather than subjective rankings, and preview the policy concern that publication decisions have career consequences if control shifts from human experts to AI agents.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>2. The Paper Assistant Tool: Automating the Scientific Verification Process</h3>
+      <p>PAT is described as an agentic reviewing and validation system powered by Gemini Deep Think. It is specialized for mathematical/logical errors and computer-science manuscript feedback, but the authors state that it does not currently produce subjective rankings or accept/reject judgments. The section contrasts PAT with a single full-paper LLM call and with naive Pass@k sampling.</p>
+      <p>The authors argue that single calls are limited by effective context and thinking-token budget, while Pass@k increases recall at the cost of many false positives and redundant coverage. PAT instead segments the manuscript into logical components, dynamically allocates compute by segment complexity, sends segments to specialized Deep Review agents while preserving full-paper context, and uses a synthesis agent for deduplication, severity checking, and search grounding.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>2.1 Case Study: Verification of Retracted Papers in the SPOT Benchmark</h3>
+      <p>The case study evaluates PAT on a filtered subset of the SPOT benchmark: math and computer science papers containing equation/proof errors, yielding 26 papers and 29 errors. Each system generates a detailed error report, which is graded with an automated LLM-based grader that judges logical equivalence to the ground-truth error; the authors report that a human reviewer audited every autograder judgment.</p>
+      <p>The reported detection accuracy was 21.1% for original SPOT SOTA, 55.2% for Gemini 3.1 Pro zero-shot, and 89.7% for PAT with Gemini 3.1 Pro. The authors emphasize that their numbers are not directly comparable to the original SPOT paper because their grader is logic-aware rather than exact-keyword based. The section includes a qualitative example in which PAT allegedly found a counterexample to a false complete-contractivity claim that the zero-shot baseline accepted.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3. PAT Experimental Programs at STOC and ICML</h3>
+      <p>The pilot deployments offered PAT reviews to authors before formal submission deadlines: STOC 2026 in November 2025 and ICML 2026 in January 2026. The tool was used only as a pre-submission author aid, corresponding to the paper&rsquo;s Role 1 category, and not as part of formal peer review. The STOC deployment emphasized mathematical rigor in theory-heavy papers, while the ICML deployment broadened to experimental critique, confounding, missing comparisons, and missing experiments.</p>
+      <p>Across both pilots, more than 4,700 submissions were reviewed. The section states that both deployments were powered by an advanced Gemini 2.5 Deep Think version. This is operationally important but also a reproducibility limitation: external readers cannot recreate the pipeline, cost profile, model behavior, or review calibration from the paper alone.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3.1 Quantitative Author Feedback for PAT Experimental Programs</h3>
+      <p>Survey feedback was largely favorable. In the STOC cohort (n=124), 97% would use PAT again, 85.1% reported improved clarity/readability, 92.7% found it very or mostly helpful, and 55.8% found feedback mostly or all grounded. In the ICML cohort (n=733), corresponding values were 92.1%, 87.0%, 90.7%, and 64.8%.</p>
+      <p>The most consequential survey outcomes were substantive revision signals: 11.6% of STOC respondents and 35.4% of ICML respondents reported substantive theory gaps, while 31% of ICML respondents reported running new experiments after PAT feedback. These are high-impact workflow claims, but they are based on author self-report after voluntary tool exposure rather than independent adjudication of whether PAT&rsquo;s critiques were correct or whether revised papers improved acceptance quality.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>3.2 Qualitative Author Feedback for PAT Experimental Programs</h3>
+      <p>The qualitative section reports author cases in which PAT detected severe algorithmic or proof issues, as well as smaller but rigor-relevant mathematical typos such as missing absolute values, reversed inequalities, overloaded notation, and off-by-one errors. The examples support the paper&rsquo;s claim that an AI reviewer can find issues that are tedious or easy for humans to miss.</p>
+      <p>The same section is also the clearest source-level limitation statement. Reported failure modes included date hallucinations and outdated knowledge cutoffs, PDF parsing issues, and false claims that a proof or argument is incorrect due to model reasoning failure or misunderstanding. The authors state that improved search and parsing have addressed the first two categories, but the third remains inherent to LLM-based systems and under active work.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>4. Categorization of Roles of AI Automation in Peer Review</h3>
+      <p>The taxonomy separates AI use into escalating levels of agency: Role 1 uses AI as a tool for authors before submission; Role 2 uses AI as a tool for reviewers while preserving human responsibility for the final review; Role 3 uses AI as a supporting reviewer producing full-length objective reviews; Role 3.5 adds ratings or acceptance recommendations; Role 4 envisions total AI automation of peer review.</p>
+      <p>The taxonomy is the paper&rsquo;s strongest governance contribution. It distinguishes low-stakes pre-submission assistance from systems that directly affect acceptance, and it surfaces failure modes such as hallucinated reviewer critiques, hidden AI use by reviewers, human overreliance, unfairness from access to compute, centralized AI viewpoints, and adversarial gaming of review agents. The authors argue that explicit policies are preferable to unmanaged covert AI use.</p>
+    </div>
+
+    <div class="section-summary">
+      <h3>5. Conclusion and Future Outlook</h3>
+      <p>The conclusion recaps PAT as an inference-scaled agentic review pipeline that can identify theoretical, logical, and empirical flaws and improve manuscripts before submission. The authors present PAT as suitable today for author and reviewer support, and anticipate eventual movement toward AI supporting-reviewer roles under human area-chair supervision.</p>
+      <p>The paper closes with a cautionary governance stance: human editors and the scientific community remain responsible for integrity even if AI accelerates validation. It identifies open challenges around accountability boundaries, reviewer deskilling, equitable compute access, algorithmic bias, and adversarial gaming. These caveats materially limit the paper&rsquo;s implications for fully automated review.</p>
+    </div>
+  </section>
+
+  <section id="visuals">
+    <h2>5. Figures and tables</h2>
+
+    <h3>Figure 1 - System architecture of PAT</h3>
+<pre><code>Purpose: Show PAT's four-stage inference-scaling pipeline.
+Structure: Input manuscript -> Stage 1 document segmentation -> Stage 2 adaptive budgeting -> light/medium/high thinking tracks -> Stage 3 deep review -> Stage 4 global synthesis -> PAT review.
+Variables/groups: Segments correspond to logical manuscript components such as introduction, theory, methodology, experiments, and conclusion; compute is partitioned by complexity.
+Numeric details: No quantitative measurements in the figure; categories are Light, Medium, and High Thinking.
+Main pattern: PAT does not rely on a single full-document call; it orchestrates segmented review and synthesis.
+Interpretation: The core design principle is targeted reasoning allocation plus deduplication/grounding to reduce both missed errors and Pass@k-style false-positive burden.
+Limits: The figure is architectural and does not specify prompts, token budgets, cost, latency, exact routing criteria, calibration, or audit logging.</code></pre>
+
+    <h3>Table 1 - Submissions to flagship AI conferences, 2020-2026</h3>
+    <table>
+      <thead><tr><th>Year</th><th class="num">ICLR</th><th class="num">ICML</th><th class="num">NeurIPS</th><th class="num">Combined sum</th><th class="num">YoY increase</th></tr></thead>
+      <tbody>
+        <tr><td>2020</td><td class="num">2,594</td><td class="num">4,990</td><td class="num">9,467</td><td class="num">17,051</td><td class="num">-</td></tr>
+        <tr><td>2021</td><td class="num">3,014</td><td class="num">5,513</td><td class="num">9,122</td><td class="num">17,649</td><td class="num">+3.51%</td></tr>
+        <tr><td>2022</td><td class="num">3,422</td><td class="num">5,630</td><td class="num">10,411</td><td class="num">19,463</td><td class="num">+10.28%</td></tr>
+        <tr><td>2023</td><td class="num">4,955</td><td class="num">6,538</td><td class="num">12,345</td><td class="num">23,838</td><td class="num">+22.48%</td></tr>
+        <tr><td>2024</td><td class="num">7,304</td><td class="num">9,653</td><td class="num">15,671</td><td class="num">32,628</td><td class="num">+36.87%</td></tr>
+        <tr><td>2025</td><td class="num">11,672</td><td class="num">12,107</td><td class="num">21,575</td><td class="num">45,354</td><td class="num">+39.00%</td></tr>
+        <tr><td>2026</td><td class="num">19,809</td><td class="num">24,371</td><td class="num">29,703 est.</td><td class="num">73,883 est.</td><td class="num">+62.90% est.</td></tr>
+      </tbody>
+    </table>
+<pre><code>Pattern: Combined submissions increased more than fourfold from 2020 to the 2026 estimate.
+Appraisal: This supports the bottleneck argument but does not prove AI causality. The 2026 NeurIPS figure is estimated, and the table mixes reported and estimated values.</code></pre>
+
+    <h3>Table 2 - Verification accuracy on the SPOT math/CS equation and proof subset</h3>
+    <table>
+      <thead><tr><th>Verification method</th><th class="num">Detection accuracy</th></tr></thead>
+      <tbody>
+        <tr><td>Original SPOT SOTA</td><td class="num">21.1%</td></tr>
+        <tr><td>Gemini 3.1 Pro zero-shot</td><td class="num">55.2%</td></tr>
+        <tr><td>PAT with Gemini 3.1 Pro</td><td class="num"><strong>89.7%</strong></td></tr>
+      </tbody>
+    </table>
+<pre><code>Rows: Three verification approaches.
+Columns: Method and detection accuracy.
+Key values: PAT 89.7%; zero-shot Gemini 3.1 Pro 55.2%; original SPOT SOTA 21.1%.
+Pattern: PAT substantially outperforms the single-generation baseline on this filtered subset.
+Appraisal: The result is central but narrow. The subset has 26 papers and 29 errors, uses a logic-aware grader not directly comparable to original SPOT scoring, and depends on proprietary model/system components.</code></pre>
+
+    <h3>Table 3 - Comparative survey results, STOC vs. ICML pilot programs</h3>
+    <table>
+      <thead><tr><th>Survey question</th><th class="num">STOC cohort (n=124)</th><th class="num">ICML cohort (n=733)</th></tr></thead>
+      <tbody>
+        <tr><td>Would use PAT again</td><td class="num">97%</td><td class="num">92.1%</td></tr>
+        <tr><td>Improved paper clarity or readability</td><td class="num">85.1%</td><td class="num">87.0%</td></tr>
+        <tr><td>Believe PAT has education value</td><td class="num">75.2%</td><td class="num">83.9%</td></tr>
+        <tr><td>Very or mostly helpful</td><td class="num">92.7%</td><td class="num">90.7%</td></tr>
+        <tr><td>Feedback mostly or all grounded</td><td class="num">55.8%</td><td class="num">64.8%</td></tr>
+        <tr><td>Identified substantive theory gaps</td><td class="num">11.6%</td><td class="num">35.4%</td></tr>
+        <tr><td>Ran new experiments</td><td class="num">-</td><td class="num">31%</td></tr>
+      </tbody>
+    </table>
+<pre><code>Pattern: Authors reported high usefulness and reuse intent, with substantial claims of theory-gap detection and new experiments.
+Appraisal: High practical signal, but survey evidence is author-reported and likely subject to response bias. The grounding rates also show that a substantial minority did not experience feedback as mostly/all factual.</code></pre>
+  </section>
+
+  <section id="ai-ml">
+    <h2>6. AI/ML systems lens</h2>
+    <div class="two-col">
+      <div class="mini-card"><strong>Task</strong>Full-manuscript scientific review and verification, especially detection of mathematical, logical, theoretical, and experimental flaws.</div>
+      <div class="mini-card"><strong>Data / evaluation</strong>SPOT filtered math/CS equation-proof subset: 26 papers, 29 errors; STOC survey n=124; ICML survey n=733; more than 4,700 pilot manuscript reviews.</div>
+      <div class="mini-card"><strong>Method</strong>Agentic inference scaling: document segmentation, adaptive budget allocation, specialized Deep Review agents with full-paper context, and global synthesis with deduplication, severity checking, and search grounding.</div>
+      <div class="mini-card"><strong>Baselines</strong>Single zero-shot Gemini 3.1 Pro report; original SPOT SOTA as contextual comparison, with non-identical grading.</div>
+      <div class="mini-card"><strong>Metrics</strong>Detection accuracy/recall for ground-truth SPOT errors; author-reported usefulness, groundedness, clarity improvement, theory-gap identification, and new experiments.</div>
+      <div class="mini-card"><strong>Reproducibility</strong>Low. The paper provides architecture and outcomes but not runnable code, prompts, model weights, routing thresholds, token budgets, costs, latency, calibration curves, or blinded independent audits.</div>
+      <div class="mini-card"><strong>Failure modes</strong>Date hallucinations, outdated knowledge, PDF parsing issues, false claims that proofs/arguments are wrong, reviewer overreliance, hidden AI use, adversarial gaming, centralized viewpoint bias.</div>
+      <div class="mini-card"><strong>Bottom line</strong>Build-useful as an orchestration pattern; benchmark-useful as a signal that inference scaling can improve review recall; not deployment-sufficient for autonomous peer-review authority.</div>
+    </div>
+  </section>
+
+  <section id="appraisal">
+    <h2>7. Evaluation and appraisal</h2>
+    <div class="verdict"><strong>Verdict: Read first</strong> for AI-assisted scientific review, agent harness design, and research curation workflows. Treat the empirical claims as promising internal evidence, not as independent validation.</div>
+    <div class="rating-grid">
+      <div class="rating-card">
+        <h3>Relevance <span class="score">9<small>/10</small></span></h3>
+        <p><strong>Rationale:</strong> Directly matches AI/ML, agentic review, scientific curation, and evaluation workflow interests.</p>
+        <p><strong>Evidence basis:</strong> The paper describes a manuscript-review agent, benchmark evaluation, conference pilots, and a peer-review governance taxonomy.</p>
+        <p><strong>Raise/lower:</strong> Would rise with released implementation details; would fall if the interest is clinical practice rather than research-infrastructure design.</p>
+      </div>
+      <div class="rating-card">
+        <h3>Novelty <span class="score">8<small>/10</small></span></h3>
+        <p><strong>Rationale:</strong> The architecture and taxonomy synthesize emerging ideas into a concrete large-scale scientific-review product frame.</p>
+        <p><strong>Evidence basis:</strong> PAT&rsquo;s segmentation, adaptive budgeting, deep review, and synthesis pipeline goes beyond generic LLM review prompts.</p>
+        <p><strong>Raise/lower:</strong> Would rise with new technical algorithms or open benchmarks; would fall if comparable systems already demonstrate the same pipeline independently.</p>
+      </div>
+      <div class="rating-card">
+        <h3>Method strength <span class="score">6<small>/10</small></span></h3>
+        <p><strong>Rationale:</strong> The SPOT case study and pilot surveys provide useful evidence but remain internally conducted, narrow, and only partly controlled.</p>
+        <p><strong>Evidence basis:</strong> The benchmark subset has 26 papers/29 errors, a zero-shot baseline, and human-audited grading; the pilots provide real-world scale but self-reported outcomes.</p>
+        <p><strong>Raise/lower:</strong> Would rise with blinded external validation, stronger baselines, ablations, cost/latency data, and prospective outcome measures; would fall if grader leakage or selection bias were shown.</p>
+      </div>
+      <div class="rating-card">
+        <h3>Evidence strength <span class="score">6<small>/10</small></span></h3>
+        <p><strong>Rationale:</strong> The data support that PAT can find important issues in some settings, but not that it is broadly reliable or safe for consequential review decisions.</p>
+        <p><strong>Evidence basis:</strong> PAT reports 89.7% detection on a focused SPOT subset and favorable author surveys, but grounding rates were only 55.8%-64.8% mostly/all grounded.</p>
+        <p><strong>Raise/lower:</strong> Would rise with calibration, false-positive rates, independent human adjudication, and publication-quality outcomes; would fall with high unverified critique burden.</p>
+      </div>
+      <div class="rating-card">
+        <h3>External validity <span class="score">5<small>/10</small></span></h3>
+        <p><strong>Rationale:</strong> The reported settings are computer science, theory, and ML; generalization to other scientific domains, non-English manuscripts, clinical literature, and humanities is unclear.</p>
+        <p><strong>Evidence basis:</strong> STOC and ICML are high-profile CS venues, and SPOT filtering excludes multimodal and many non-proof error types.</p>
+        <p><strong>Raise/lower:</strong> Would rise with cross-domain trials and multilingual/parser stress tests; would fall if performance depends heavily on Google-specific infrastructure or venue-specific paper styles.</p>
+      </div>
+      <div class="rating-card">
+        <h3>Implementation value <span class="score">7<small>/10</small></span></h3>
+        <p><strong>Rationale:</strong> The workflow design is highly reusable for internal review tools, but implementation details are incomplete.</p>
+        <p><strong>Evidence basis:</strong> The pipeline, failure modes, and governance roles translate well to RAG/agent harness planning.</p>
+        <p><strong>Raise/lower:</strong> Would rise with prompts, schemas, routing rules, severity rubrics, cost envelopes, and monitoring playbooks; would fall if the tool only works with unreleased model capabilities.</p>
+      </div>
+    </div>
+
+    <div class="warning"><strong>Independent appraisal.</strong> The paper is strategically important but should be read with sponsorship bias in mind. Google authors evaluate a Google tool, use proprietary model variants, and report favorable pilot results without full independent replication. The strongest durable contribution is the review-automation architecture and taxonomy, not the precise headline performance number.</div>
+  </section>
+
+  <section id="takeaways">
+    <h2>8. Implementation / practice takeaways</h2>
+    <div class="takeaway-grid">
+      <div class="mini-card">
+        <strong>Build</strong>
+        <ul class="compact-list">
+          <li>Use a segmented manuscript map before model review.</li>
+          <li>Allocate compute by section complexity and risk.</li>
+          <li>Separate issue detection, severity assessment, deduplication, and final synthesis.</li>
+          <li>Use retrieval/search grounding for references, theorem names, prior work, and factual context.</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <strong>Monitor</strong>
+        <ul class="compact-list">
+          <li>False-positive critique burden per paper.</li>
+          <li>Groundedness of every claimed error.</li>
+          <li>Parser failures, missing figures/tables, and citation/reference hallucinations.</li>
+          <li>Reviewer overreliance and adversarial author behavior.</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <strong>Avoid</strong>
+        <ul class="compact-list">
+          <li>Do not use a single LLM call as a full-paper arbiter.</li>
+          <li>Do not let AI-generated critiques become unchallengeable reviewer claims.</li>
+          <li>Do not infer acceptance quality from author satisfaction alone.</li>
+          <li>Do not deploy autonomous review without audit trails, appeal paths, and independent validation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Practical translation for scientific curation and RAG/agent harnesses</h3>
+    <p>For a personal or institutional paper-review harness, the paper suggests a concrete pattern: parse the PDF, create a coverage manifest, route high-density methods/results/proof sections to deeper reasoning passes, require localized evidence for every critique, then synthesize into a report with deduplication and confidence/severity labels. This maps well to deterministic evaluation: each critique should include source location, claim type, evidence basis, uncertainty, and a human-verification requirement.</p>
+    <p>For clinical or practice-facing review systems, the same architecture can help detect missing denominators, unsupported claims, inconsistent dosing/eligibility statements, and weak comparator logic, but it should remain an assistant layer. Clinical recommendations, safety judgments, and policy changes require guideline/regulatory verification and accountable human review.</p>
+
+    <div class="goodnote"><strong>Bottom line.</strong> Use this source as a design reference for AI-assisted review workflows and as a governance prompt for how much agency to grant AI in peer review. Do not use it as proof that AI reviewers are ready to replace human peer review.</div>
+  </section>
+
+  <section id="provenance">
+    <h2>9. Provenance and caveats</h2>
+    <p><strong>Primary source:</strong> Uploaded PDF, <em>Towards Automating Scientific Review with Google&rsquo;s Paper Assistant Tool</em>, arXiv:2606.28277v1, 26 Jun 2026, DOI 10.48550/arXiv.2606.28277.</p>
+    <p><strong>Artifact scope:</strong> This reference summarizes and appraises the uploaded source only. External claims, conference statistics, model availability, and cited studies were not independently re-verified against the web for this artifact.</p>
+    <p><strong>Generation note:</strong> Created as a single-file HTML reference using a Summary, Evaluation, and Appraisal structure with AI/ML systems appraisal, visual/table extraction, and implementation takeaways.</p>
+  </section>
+
+  <div class="footer">Generated 2026-06-29. No external scripts, fonts, or images are embedded.</div>
+</main>
+</body>
+</html>

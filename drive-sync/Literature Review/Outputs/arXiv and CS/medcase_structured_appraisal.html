@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reference Appraisal - MedCase-Structured</title>
+<style>
+:root{
+  --bg:#f6f8fb;--card:#ffffff;--ink:#16202a;--muted:#536274;--line:#d9e2ec;
+  --accent:#1d4f91;--accent2:#10243d;--good:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;
+  --soft:#eef5ff;--soft2:#f3f6fa;--codebg:#0e1726;--codefg:#edf4ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;padding:2.2rem 1.25rem 2rem;border-bottom:5px solid #d2e2f5}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.1rem}
+header .wrap{padding:0 1.1rem}
+h1{font-size:clamp(1.7rem,3vw,2.55rem);line-height:1.12;margin:0 0 .75rem;font-weight:800}
+.subtitle{max-width:920px;color:#eaf2ff;font-size:1.05rem;margin:.5rem 0 0}
+.badges{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+.badge,.tag{display:inline-block;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:.24rem .6rem;font-size:.82rem;font-weight:650}
+main{max-width:1180px;margin:1.25rem auto;padding:0 1.1rem 2rem}
+section,nav.toc{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:1rem 0;padding:1rem 1.1rem;box-shadow:0 1px 4px rgba(16,36,61,.06)}
+h2{margin:.15rem 0 .75rem;color:#0f315f;font-size:1.45rem}
+h3{margin:1.05rem 0 .45rem;color:#173f72;font-size:1.1rem}
+h4{margin:.8rem 0 .3rem;color:#24364b;font-size:1rem}
+p{margin:.55rem 0}
+ul,ol{padding-left:1.35rem} li{margin:.25rem 0}
+a{color:var(--accent)}
+.toc ul{columns:2;list-style:none;padding-left:0;margin:.4rem 0}
+.toc li{break-inside:avoid;margin:.2rem 0}
+.toc a{text-decoration:none;color:#173f72;font-weight:650}
+.meta-grid,.rating-grid,.takeaway-grid,.two-grid,.three-grid{display:grid;gap:.75rem}
+.meta-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.rating-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.takeaway-grid,.three-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.two-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mini-card{border:1px solid var(--line);border-radius:13px;background:#fbfdff;padding:.75rem}
+.mini-card strong{display:block;color:#1e395c;margin-bottom:.25rem}
+.verdict,.warning,.badnote,.goodnote{border-radius:13px;padding:.85rem 1rem;margin:.75rem 0;border-left:5px solid}
+.verdict{background:#eef5ff;border-left-color:var(--accent)}
+.warning{background:#fff8e8;border-left-color:var(--warn)}
+.badnote{background:#fff0f0;border-left-color:var(--bad)}
+.goodnote{background:#edf8f1;border-left-color:var(--good)}
+.small{font-size:.9rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.93rem;border:1px solid var(--line);display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:.5rem .6rem;vertical-align:top;text-align:left}
+th{background:#eef3f9;color:#1e395c;font-weight:750}
+.score{font-weight:800;color:#0f315f;white-space:nowrap}
+.kpi{font-size:1.5rem;font-weight:850;color:#0f315f;line-height:1.1}
+.kpi-label{font-size:.82rem;color:var(--muted);margin-top:.15rem}
+pre{background:var(--codebg);color:var(--codefg);border-radius:12px;border:1px solid #1b2e49;padding:.9rem;overflow-x:auto;white-space:pre-wrap;line-height:1.42;font-size:.88rem}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+.section-summary{border:1px solid var(--line);background:#fbfdff;border-radius:13px;padding:.75rem;margin:.75rem 0}
+.section-summary h3{margin-top:0}
+.inline-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin:.5rem 0}
+.inline-tags .tag{background:#eef3f9;color:#173f72;border-color:#d7e0eb}
+footer{max-width:1180px;margin:0 auto 2rem;padding:0 1.1rem;color:var(--muted);font-size:.9rem}
+hr{border:0;border-top:1px solid var(--line);margin:1rem 0}
+@media(max-width:800px){.toc ul{columns:1}.meta-grid,.rating-grid,.takeaway-grid,.two-grid,.three-grid{grid-template-columns:1fr}main{padding:0 .75rem 1.5rem}.wrap{padding:0 .75rem}}
+@media print{body{background:#fff}section,nav.toc{box-shadow:none;break-inside:avoid}header{background:#fff;color:#000;border-bottom:2px solid #000}.subtitle{color:#222}.badge{color:#000;border-color:#999;background:#fff}a{color:#000}pre{white-space:pre-wrap}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>MedCase-Structured: Reference Evaluation and Appraisal</h1>
+    <p class="subtitle">Protocol-based appraisal of an arXiv dataset and benchmark paper on converting clinician-authored diagnostic case narratives into terminology-grounded HL7 FHIR R4 bundles for structured diagnostic reasoning evaluation.</p>
+    <div class="badges">
+      <span class="badge">AI/ML benchmark</span><span class="badge">FHIR</span><span class="badge">clinical reasoning</span><span class="badge">synthetic data</span><span class="badge">dataset paper</span>
+    </div>
+  </div>
+</header>
+<main>
+<nav class="toc" id="toc">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#coverage">Coverage manifest</a></li>
+    <li><a href="#section-summary">Section condensation</a></li>
+    <li><a href="#visuals">Figures, tables, workflows</a></li>
+    <li><a href="#aiml">AI/ML appraisal lens</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#takeaways">Implementation takeaways</a></li>
+    <li><a href="#qa">QA and provenance</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><strong>Exact title</strong>MedCase-Structured: A Text-to-FHIR Dataset for Benchmarking Diagnostic Reasoning in Clinically Realistic EHR Settings</div>
+    <div class="mini-card"><strong>Authors</strong>Valentina Bui Muti; Eugénie Dulout; Ziquan Fu</div>
+    <div class="mini-card"><strong>Source / identifier</strong>arXiv:2605.30295v3 [cs.CL], dated 1 Jul 2026</div>
+    <div class="mini-card"><strong>Source type</strong>Preprint; dataset paper; benchmark/methods paper</div>
+    <div class="mini-card"><strong>Design</strong>Synthetic data generation pipeline plus diagnostic accuracy benchmark comparing plain-text cases with structured FHIR bundles</div>
+    <div class="mini-card"><strong>Domain</strong>Clinical NLP, health informatics, LLM evaluation, EHR interoperability, FHIR R4</div>
+  </div>
+  <div class="warning"><strong>Scope warning.</strong> This is not clinical-practice evidence and does not validate any CDSS for patient care. It evaluates model behavior on synthetic, case-report-derived FHIR bundles and should be treated as benchmark and methods evidence.</div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="verdict"><strong>Core thesis.</strong> The paper argues that LLM-based clinical decision support should be evaluated on deployment-aligned structured EHR inputs, not only on narrative text, and introduces MedCase-Structured: 1,732 diagnosis-masked, terminology-grounded FHIR R4 bundles generated from MedCaseReasoning cases.</div>
+  <div class="three-grid">
+    <div class="mini-card"><div class="kpi">1,732</div><div class="kpi-label">valid released FHIR bundles</div></div>
+    <div class="mini-card"><div class="kpi">97.1%</div><div class="kpi-label">success among 1,784 processed cases</div></div>
+    <div class="mini-card"><div class="kpi">81.8%</div><div class="kpi-label">concept-level terminology coverage overall</div></div>
+  </div>
+  <p>The central contribution is a staged text-to-FHIR generation pipeline: LLM extraction without codes, terminology retrieval and reranking against SNOMED CT, LOINC, RxNorm, and CVX, LLM-based FHIR synthesis, validator-guided repair, deterministic post-processing, and diagnosis leakage filtering. The resulting dataset is intended for structured diagnostic reasoning benchmarks rather than full longitudinal EHR simulation.</p>
+  <p>The most important empirical finding is a consistent accuracy drop when evaluated models receive structured FHIR input rather than the corresponding plain-text case descriptions. Across the reported model/prompt settings, the absolute decrease ranges from 2.73 to 12.73 percentage points. This supports the narrow claim that input representation matters, but the study does not establish clinical safety, deployment readiness, or real-EHR generalizability.</p>
+  <div class="inline-tags"><span class="tag">Best use: benchmark design</span><span class="tag">Not for: practice change</span><span class="tag">Main limitation: synthetic case-report data</span><span class="tag">Key risk: benchmark leakage / judge dependence</span></div>
+</section>
+
+<section id="coverage">
+  <h2>Coverage manifest</h2>
+  <table>
+    <tbody>
+      <tr><th>Source ID</th><td>arXiv:2605.30295v3</td></tr>
+      <tr><th>Exact title</th><td>MedCase-Structured: A Text-to-FHIR Dataset for Benchmarking Diagnostic Reasoning in Clinically Realistic EHR Settings</td></tr>
+      <tr><th>Sections / headings</th><td>Abstract; 1 Introduction; 2 Related Work; 3 Method; 3.1 Extraction; 3.2 Terminology Grounding; 3.3 FHIR Synthesis and Validation; 3.4 Diagnosis Hiding; 4 MedCase-Structured; 4.1 Dataset; 4.2 Pipeline Failure Modes; 4.3 Evaluation; 5 Conclusion; Impact Statement; References; Appendix A sample; Appendix B Experimental Setup; B.1 Diagnostic Reasoning Prompt; B.2 Judge Prompt.</td></tr>
+      <tr><th>Main-text figures</th><td>Figure 1: Overview of MedCase-Structured generation and evaluation pipeline. Represented as a structured workflow block.</td></tr>
+      <tr><th>Main-text tables</th><td>Tables 1-5. All represented as structured table extraction blocks with key values.</td></tr>
+      <tr><th>Algorithms / workflows</th><td>Text-to-FHIR pipeline; terminology grounding and validation; diagnosis hiding; diagnostic evaluation and LLM-judge scoring. Represented as structured workflow blocks.</td></tr>
+      <tr><th>Appendices / supplements</th><td>Appendix A truncated FHIR bundle sample; Appendix B experimental setup and prompts. Included because they affect reproducibility and benchmark interpretation.</td></tr>
+      <tr><th>Omissions</th><td>No main-text figure, table, or appendix item is omitted. References are not individually appraised.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="section-summary">
+  <h2>Section condensation</h2>
+  <div class="section-summary">
+    <h3>Abstract</h3>
+    <p>The abstract frames the gap as inadequate evaluation of clinical LLMs in structured EHR-congruent formats. The authors propose a reusable pipeline that generates terminology-grounded HL7 FHIR R4 bundles from unstructured clinical text while reducing hallucinated codes and enforcing structural and semantic consistency.</p>
+    <p>Applied to MedCaseReasoning, the pipeline yields MedCase-Structured: 1,732 synthetic FHIR bundles derived from clinician-authored diagnostic cases. The headline result is lower diagnostic accuracy for LLMs on structured FHIR inputs compared with plain text, presented as evidence that deployment-aligned benchmarking is necessary.</p>
+  </div>
+  <div class="section-summary">
+    <h3>1. Introduction</h3>
+    <p>The introduction argues that EHR data are attractive inputs for CDSS but are heterogeneous, privacy-constrained, and increasingly represented through standards such as HL7 FHIR. Existing benchmarks and datasets either use unstructured text, fixed retrospective EHR data, or synthetic records that lack the fine-grained control needed to stress-test reasoning.</p>
+    <p>The authors position MedCase-Structured as a bridge between narrative diagnostic case reports and interoperable FHIR-style evaluation inputs. The key premise is that reasoning over coded resources is qualitatively different from reasoning over semantically continuous prose, so plain-text clinical benchmarks can overstate readiness for EHR-native use.</p>
+  </div>
+  <div class="section-summary">
+    <h3>2. Related Work</h3>
+    <p>The paper distinguishes itself from rule-based clinical information extraction, LLM-based text-to-FHIR tools such as FHIR-GPT and Infherno, and synthetic EHR generators such as Synthea. Those systems primarily reconstruct records or generate module-driven synthetic patients rather than produce controllable diagnostic benchmark cases.</p>
+    <p>It also contrasts MedCase-Structured with EHRStruct and FHIR-AgentBench, which evaluate LLMs on structured EHR/FHIR tasks but operate on fixed datasets. The authors claim novelty in controllable, text-driven generation of clinically realistic FHIR records designed for diagnostic reasoning evaluation.</p>
+  </div>
+  <div class="section-summary">
+    <h3>3. Method</h3>
+    <p>The method uses fixed-stage LLM calls rather than dynamic agentic tool use. GPT-5.4-mini is reported for extraction, Gemini 3.5 Flash for candidate reranking, and Claude Sonnet 4-5 for FHIR synthesis and semantic leak detection. Extraction and reranking use JSON-schema-constrained outputs; synthesis and leak detection use token caps of 64K and 4K, respectively; generation for the pipeline uses temperature 0.</p>
+    <p>The workflow separates concept extraction from code assignment. Concepts are embedded with SapBERT, retrieved from FAISS indexes of terminology preferred terms, reranked with source-quote context, validated for code-system and semantic-axis compatibility, then synthesized into FHIR R4 resources. FHIR schema checks, invariants, formatting checks, consistency checks, repair loops, and deterministic post-processing are used to improve structural validity.</p>
+  </div>
+  <div class="section-summary">
+    <h3>3.1 Extraction</h3>
+    <p>The first LLM stage converts free-text cases into a typed intermediate representation containing demographics, symptoms, findings, vitals, labs, medications, procedures, history, and the primary diagnosis. It retains a verbatim quote for every extracted item, which supports traceability during grounding and validation.</p>
+    <p>Pertinent negatives are explicitly flagged to prevent incorrect assertion as positive findings. The primary diagnosis is captured separately to allow configurable hiding during benchmark creation.</p>
+  </div>
+  <div class="section-summary">
+    <h3>3.2 Terminology Grounding</h3>
+    <p>Extracted concepts are routed to target terminologies: SNOMED CT, LOINC, RxNorm, and CVX. Candidate retrieval uses SapBERT embeddings with a FAISS index, followed by an LLM reranker that can select a candidate or reject all candidates based on the source quote.</p>
+    <p>Deterministic checks enforce resource-compatible terminology and SNOMED semantic-axis constraints. Concepts that cannot be acceptably grounded remain as free text. This protects against invalid codes but also leaves 18.2% of distinct concepts uncoded in the final dataset.</p>
+  </div>
+  <div class="section-summary">
+    <h3>3.3 FHIR Synthesis and Validation</h3>
+    <p>The synthesis stage assembles grounded intermediate data into HL7 FHIR R4 resources, including Patient and Encounter plus clinical resource types relevant to diagnostic case context. The paper emphasizes diagnostic-case representation rather than comprehensive longitudinal EHR reconstruction.</p>
+    <p>Validation includes FHIR R4 schema conformance, FHIR invariants, formatting checks, and clinical consistency checks. Validation errors are fed back to the synthesis model for up to three repair attempts, followed by deterministic post-processing for missing resources, unit normalization, dates, and status fields.</p>
+  </div>
+  <div class="section-summary">
+    <h3>3.4 Diagnosis Hiding</h3>
+    <p>The dataset supports four diagnosis handling modes: NONE, HIDDEN, EXPLICIT, and FULL. NONE removes all diagnostic conclusions; HIDDEN removes the primary diagnosis; EXPLICIT retains only patient-stated conditions; FULL retains all extracted diagnoses.</p>
+    <p>In the diagnosis-suppressed modes, code and substring filters are followed by an LLM semantic scan over narrative fields to remove residual leakage through abbreviations, implied conclusions, and synonyms. The approach is useful but not a formal guarantee against all leakage.</p>
+  </div>
+  <div class="section-summary">
+    <h3>4. MedCase-Structured</h3>
+    <p>The dataset is built from MedCaseReasoning, an open-access collection of approximately 14,500 diagnostic cases from public case reports. Cases are excluded when they are non-human, include multiple patients, or require imaging details unsupported by the generator.</p>
+    <p>Of 14,489 original cases across train, validation, and test splits, only 1,784 are processed after exclusions, and 1,732 succeed. This is a high conversion rate among processed cases but a narrow retained subset of the original corpus.</p>
+  </div>
+  <div class="section-summary">
+    <h3>4.2 Pipeline Failure Modes</h3>
+    <p>Terminology coverage is the dominant limitation. Across 20,794 distinct extracted concepts, 3,775 are never coded and remain text-only. RxNorm has the lowest concept-level coverage at 74.5%, followed by LOINC at 77.6%, SNOMED CT at 83.5%, and CVX at 94.7%.</p>
+    <p>Separately, 52 processed cases are excluded because at least one extracted clinical element is dropped during grounding or validation. In 42 cases, the element could not be grounded to a semantic-axis-compatible code; in 10 cases, an assigned code failed FHIR or terminology validation.</p>
+  </div>
+  <div class="section-summary">
+    <h3>4.3 Evaluation</h3>
+    <p>The evaluation compares model accuracy on the FHIR-based MedCase-Structured dataset against corresponding plain-text MedCaseReasoning questions. The reported models are GPT-5.4, Gemini-3.1-Pro, and Claude-Opus-4.6, tested with zero-shot, one-shot, and five-shot prompting over three runs.</p>
+    <p>All settings show lower mean accuracy on FHIR inputs than on plain text. The largest reported drop is GPT-5.4 five-shot, from 70.91% on text to 58.18% on FHIR, a 12.73-point decrease. Few-shot examples do not reliably close the representation gap.</p>
+  </div>
+  <div class="section-summary">
+    <h3>5. Conclusion and Impact Statement</h3>
+    <p>The conclusion restates the contribution as a reusable clinical narrative-to-FHIR pipeline and a synthetic benchmark for structured diagnostic reasoning. The authors argue that structured FHIR inputs introduce additional reasoning challenges and that CDSS benchmarks should use deployment-aligned data formats.</p>
+    <p>The impact statement is appropriately cautious: synthetic data can improve controlled evaluation but does not replace real-world clinical validation. The stated limitations include limited FHIR resource coverage, incomplete temporal modeling, lack of imaging support, and unresolved terminology-grounding challenges.</p>
+  </div>
+</section>
+
+<section id="visuals">
+  <h2>Figures, tables, workflows, and appendices</h2>
+  <h3>FIGURE 1 - Overview of MedCase-Structured</h3>
+  <pre><code>Purpose: Show the end-to-end generation and evaluation pipeline.
+Structure/panels:
+  A. Free-text clinical cases -> LLM entity extraction -> terminology grounding -> LLM FHIR synthesis -> rule-based post-processing -> synthetic HL7 FHIR R4 bundles.
+  B. Example extraction and grounding step showing rejection of a name-matched but semantically invalid code.
+  C. Diagnosis-masked bundles are passed to an EHR-integrated CDSS for predicted diagnosis, then compared with the MedCase ground-truth diagnosis.
+Numeric details: None in the figure itself.
+Main pattern: The design separates extraction, grounding, synthesis, post-processing, and evaluation.
+Interpretation: The figure supports the paper's claim that the benchmark is structured and deployment-aligned rather than plain-text only.
+Limits: It is a conceptual workflow diagram; it does not quantify residual leakage, grounding accuracy, or human validation.
+Representation: Structured block.</code></pre>
+
+  <h3>TABLE 1 - Code-system preference and accepted SNOMED CT axis per FHIR resource</h3>
+  <pre><code>Rows: Condition; Observation for symptoms/findings, labs/tests, and social context; Procedure; MedicationRequest; Immunization; AllergyIntolerance; FamilyMemberHistory; DiagnosticReport.
+Columns: Vocabulary preference, FHIR resource, accepted SNOMED axis.
+Key values:
+  - Condition uses SNOMED CT and accepts disorder, finding, situation, morphologic abnormality.
+  - Lab/test observations prefer LOINC with SNOMED fallback and accept finding, disorder, morphologic abnormality, observable entity.
+  - MedicationRequest uses RxNorm; Immunization uses CVX.
+  - Procedure uses SNOMED CT procedure axis.
+Pattern: The pipeline applies resource-specific terminology preferences and semantic-axis constraints.
+Appraisal: This is a strength because it directly addresses hallucinated or semantically invalid codes. It is also a source of exclusion because some extracted concepts are dropped when no compatible code is available.
+Representation: Structured block.</code></pre>
+
+  <h3>TABLE 2 - MedCaseReasoning conversion outcomes across splits</h3>
+  <table>
+    <thead><tr><th>Split</th><th>Original total</th><th>Imaging excluded</th><th>Subject excluded</th><th>Incomplete bundles</th><th>Success cases</th></tr></thead>
+    <tbody>
+      <tr><td>Test</td><td>897</td><td>769</td><td>17</td><td>1</td><td>110</td></tr>
+      <tr><td>Validation</td><td>500</td><td>428</td><td>7</td><td>2</td><td>63</td></tr>
+      <tr><td>Train</td><td>13,092</td><td>11,262</td><td>222</td><td>49</td><td>1,559</td></tr>
+      <tr><th>Total</th><th>14,489</th><th>12,459</th><th>246</th><th>52</th><th>1,732</th></tr>
+    </tbody>
+  </table>
+  <p class="small"><strong>Pattern:</strong> The released dataset is valid for 97.1% of processed cases, but processed cases represent only 1,784 of 14,489 original cases after exclusion of imaging-dependent and subject-incompatible cases.</p>
+
+  <h3>TABLE 3 - Terminology coverage in MedCase-Structured</h3>
+  <table>
+    <thead><tr><th>Terminology</th><th>Resource-level N</th><th>Resource coverage</th><th>Concept-level N</th><th>Concept coverage</th><th>Distinct codes</th></tr></thead>
+    <tbody>
+      <tr><td>SNOMED CT</td><td>19,517</td><td>85.0%</td><td>15,573</td><td>83.5%</td><td>4,619</td></tr>
+      <tr><td>LOINC</td><td>15,562</td><td>90.0%</td><td>3,903</td><td>77.6%</td><td>1,753</td></tr>
+      <tr><td>RxNorm</td><td>3,681</td><td>84.7%</td><td>1,280</td><td>74.5%</td><td>634</td></tr>
+      <tr><td>CVX</td><td>46</td><td>93.5%</td><td>38</td><td>94.7%</td><td>24</td></tr>
+      <tr><th>Overall</th><th>38,806</th><th>87.0%</th><th>20,794</th><th>81.8%</th><th>7,030</th></tr>
+    </tbody>
+  </table>
+  <p class="small"><strong>Appraisal:</strong> Coverage is strong enough for a benchmark dataset, but uncoded concepts remain common enough to affect downstream reasoning and comparability.</p>
+
+  <h3>TABLE 4 - Sources of uncoded concept gaps</h3>
+  <table>
+    <thead><tr><th>Terminology</th><th>Never-coded concepts</th><th>% of unique concepts</th><th>Dominant gap categories</th></tr></thead>
+    <tbody>
+      <tr><td>SNOMED CT</td><td>2,571</td><td>16.5%</td><td>Dermatologic/morphologic findings; normal exam findings; axis-mismatched symptoms</td></tr>
+      <tr><td>LOINC</td><td>875</td><td>22.4%</td><td>Specialty examinations; pathology stains; qualitative serologies</td></tr>
+      <tr><td>RxNorm</td><td>327</td><td>25.5%</td><td>Drug-class mentions without an ingredient; non-RxNorm substances; missing ingredients</td></tr>
+      <tr><td>CVX</td><td>2</td><td>5.3%</td><td>Negligible</td></tr>
+      <tr><th>Total</th><th>3,775</th><th>18.2%</th><th>Text-only residual concepts</th></tr>
+    </tbody>
+  </table>
+  <p class="small"><strong>Pattern:</strong> Medication and lab concepts are less fully normalized than immunization concepts. These gaps matter because coded-vs-text representation can change what a model perceives as salient.</p>
+
+  <h3>TABLE 5 - Diagnostic accuracy on text vs FHIR inputs</h3>
+  <table>
+    <thead><tr><th>Model / setting</th><th>MCR text accuracy</th><th>MCS FHIR accuracy</th><th>Delta MCS - MCR</th></tr></thead>
+    <tbody>
+      <tr><td>GPT-5.4 zero-shot</td><td>69.39</td><td>57.37</td><td>-12.02</td></tr>
+      <tr><td>GPT-5.4 one-shot</td><td>67.27</td><td>55.45</td><td>-11.82</td></tr>
+      <tr><td>GPT-5.4 five-shot</td><td>70.91</td><td>58.18</td><td>-12.73</td></tr>
+      <tr><td>Gemini-3.1-Pro zero-shot</td><td>53.03</td><td>42.42</td><td>-10.61</td></tr>
+      <tr><td>Gemini-3.1-Pro one-shot</td><td>48.18</td><td>45.45</td><td>-2.73</td></tr>
+      <tr><td>Gemini-3.1-Pro five-shot</td><td>46.36</td><td>40.91</td><td>-5.45</td></tr>
+      <tr><td>Claude-Opus-4.6 zero-shot</td><td>61.82</td><td>54.55</td><td>-7.27</td></tr>
+      <tr><td>Claude-Opus-4.6 one-shot</td><td>61.82</td><td>56.82</td><td>-5.00</td></tr>
+      <tr><td>Claude-Opus-4.6 five-shot</td><td>61.37</td><td>56.30</td><td>-5.07</td></tr>
+    </tbody>
+  </table>
+  <p class="small"><strong>Appraisal:</strong> The table strongly supports the narrow representation-gap claim. It is weaker for broad model ranking because no uncertainty intervals, statistical tests, detailed error taxonomy, or independent human adjudication are reported.</p>
+
+  <h3>APPENDIX A - Truncated FHIR bundle sample</h3>
+  <pre><code>Purpose: Demonstrate the released JSON structure.
+Included resources: Patient, Encounter, and multiple Condition resources in the displayed segment.
+Example content: Synthetic male patient; ambulatory encounter; right-elbow erythema, burning sensation, and stinging sensation represented as SNOMED-coded Condition resources with body-site coding and severity text.
+Reproducibility value: Useful for understanding output shape and resource linkage.
+Limit: The listing is truncated and does not validate full resource coverage, leakage suppression, or clinical fidelity.</code></pre>
+
+  <h3>APPENDIX B - Experimental setup and prompts</h3>
+  <pre><code>Prompting setup:
+  - Commercial API endpoints from OpenAI, Google, and Anthropic.
+  - Reasoning parameters: medium.
+  - Maximum generation tokens: 800.
+  - Temperature: 1.0 for evaluation.
+  - Few-shot cases: randomly sampled from training split for each run.
+Judging setup:
+  - Claude Sonnet 4.6 used as LLM judge.
+  - Judge compares predicted diagnosis to ground-truth diagnosis and returns a binary clinical-equivalence decision.
+Appraisal:
+  - The prompt is simple and reproducible in structure.
+  - The use of an LLM judge without reported human audit, inter-rater comparison, or uncertainty estimates limits confidence in fine-grained accuracy differences.</code></pre>
+</section>
+
+<section id="aiml">
+  <h2>AI/ML systems appraisal lens</h2>
+  <div class="two-grid">
+    <div class="mini-card"><strong>Task definition</strong>Benchmark diagnostic reasoning from structured FHIR R4 bundles derived from clinical case narratives, compared with matched plain-text diagnostic cases.</div>
+    <div class="mini-card"><strong>Data</strong>Source corpus is MedCaseReasoning. Released dataset has 1,732 successful FHIR bundles after excluding imaging-dependent, non-human, multi-patient, and incomplete cases.</div>
+    <div class="mini-card"><strong>Splits</strong>Original train/validation/test splits are retained after conversion, with success counts of 1,559 train, 63 validation, and 110 test cases.</div>
+    <div class="mini-card"><strong>Leakage controls</strong>Primary diagnosis is separated during extraction; diagnosis-hiding modes and LLM semantic leak scanning are used. No formal leakage audit results are reported.</div>
+    <div class="mini-card"><strong>Baselines</strong>Matched comparison against original plain-text MedCaseReasoning cases; models tested across zero-shot, one-shot, and five-shot settings.</div>
+    <div class="mini-card"><strong>Metrics</strong>Mean diagnostic accuracy across three runs, with LLM-judge binary equivalence to ground truth. No confidence intervals, calibration metrics, latency, or cost metrics are reported.</div>
+    <div class="mini-card"><strong>Reproducibility</strong>Dataset availability is stated. Pipeline details are substantive at a conceptual level, but commercial model versions, provider defaults, curated terminology store, and judge dependence limit independent reproducibility.</div>
+    <div class="mini-card"><strong>Failure analysis</strong>Terminology gaps and conversion failures are quantified. Model diagnostic error modes on FHIR input are not deeply categorized.</div>
+  </div>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="verdict"><strong>Verdict: Read soon.</strong> The paper is worth reading for AI/ML clinical benchmark design, EHR-native evaluation, and FHIR representation pitfalls. It should not be used as clinical validation or as decisive evidence about any model's deployment safety.</div>
+  <table>
+    <thead><tr><th>Dimension</th><th>Score</th><th>Rationale</th><th>Evidence basis</th><th>What would raise / lower the score</th></tr></thead>
+    <tbody>
+      <tr><td>Relevance</td><td class="score">8.5 / 10</td><td>Highly aligned with clinical AI evaluation, structured EHR inputs, and benchmark construction.</td><td>FHIR R4 bundles, CDSS framing, diagnostic reasoning benchmark, terminology-grounded pipeline.</td><td>Would rise with real EHR validation and broader clinical workflow tasks; would fall if dataset access or schema details were insufficient for reuse.</td></tr>
+      <tr><td>Novelty</td><td class="score">7.5 / 10</td><td>The text-to-FHIR diagnostic benchmark framing is distinctive, though it builds on existing case datasets and known terminology-grounding methods.</td><td>Claims controllable FHIR generation from MedCaseReasoning with deployment-aligned evaluation and matched text-vs-FHIR comparisons.</td><td>Would rise with open pipeline code, stronger comparison to prior FHIR benchmarks, and new task families; would fall if similar datasets already cover the same diagnostic use case.</td></tr>
+      <tr><td>Method strength</td><td class="score">6.5 / 10</td><td>The pipeline is thoughtfully staged and includes validation/repair, but lacks human validation, detailed leakage audit, and external real-EHR testing.</td><td>Separation of extraction and grounding, terminology checks, semantic-axis constraints, FHIR validation, conversion statistics.</td><td>Would rise with manual audit samples, inter-rater clinical validation, open terminology store details, and ablations of each pipeline stage; would fall with evidence of residual diagnostic leakage or invalid bundles.</td></tr>
+      <tr><td>Evidence strength</td><td class="score">5.5 / 10</td><td>The data support the representation-gap claim, but uncertainty reporting and adjudication robustness are limited.</td><td>All reported model/settings show lower MCS than MCR accuracy; three-run means reported; LLM judge used for binary equivalence.</td><td>Would rise with confidence intervals, statistical tests, blinded human adjudication, error taxonomy, and contamination checks; would fall if judge disagreement or case leakage materially changed accuracy.</td></tr>
+      <tr><td>External validity</td><td class="score">4.5 / 10</td><td>Generalizability is constrained by synthetic case-report-derived bundles, heavy exclusions, no imaging, limited resource scope, and no real EHR deployment data.</td><td>Only 1,732 of 14,489 original cases released; imaging-dependent cases excluded; authors state limited resource and longitudinal support.</td><td>Would rise with multi-institutional real FHIR samples, longitudinal EHR trajectories, imaging support, and prospective CDSS testing; would fall if released cases overrepresent narrow case-report phenotypes.</td></tr>
+      <tr><td>Implementation value</td><td class="score">7.0 / 10</td><td>Useful for benchmark builders and model-evaluation workflows, but not sufficient for clinical implementation.</td><td>Dataset release stated; prompts and pipeline stages described; tables quantify conversion, coverage, and diagnostic performance.</td><td>Would rise with executable code, validator fixtures, dataset card details, cost/latency estimates, and governance checklists; would fall if dataset licensing or access restrictions limit practical reuse.</td></tr>
+    </tbody>
+  </table>
+  <h3>Main strengths</h3>
+  <ul>
+    <li>Directly addresses the mismatch between plain-text clinical benchmarks and structured EHR deployment contexts.</li>
+    <li>Uses terminology-aware validation rather than allowing unconstrained LLM-generated clinical codes.</li>
+    <li>Quantifies conversion outcomes, terminology coverage, uncoded gaps, and matched text-vs-FHIR accuracy differences.</li>
+    <li>Includes experimental prompts and a FHIR bundle sample, improving interpretability of the benchmark setup.</li>
+  </ul>
+  <h3>Main limitations</h3>
+  <ul>
+    <li>Case-report-derived synthetic data are not equivalent to real EHR data and do not capture full longitudinal workflow complexity.</li>
+    <li>Large exclusion of imaging-dependent cases narrows the diagnostic spectrum.</li>
+    <li>Terminology coverage gaps leave 18.2% of distinct concepts text-only.</li>
+    <li>Evaluation relies on an LLM judge, lacks uncertainty intervals, and provides limited model error analysis.</li>
+    <li>Diagnosis leakage detection is described but not quantified with an independent audit.</li>
+  </ul>
+  <div class="badnote"><strong>Do not overclaim.</strong> The paper shows that FHIR representation can reduce LLM diagnostic accuracy in this synthetic benchmark. It does not prove that FHIR is inherently worse for clinical reasoning, that any specific model is unsafe, or that benchmark performance predicts bedside CDSS behavior.</div>
+</section>
+
+<section id="takeaways">
+  <h2>Implementation and research takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><strong>Use as a stress test</strong>Run candidate clinical LLMs on both narrative and FHIR representations of matched cases to measure representation sensitivity before any workflow pilot.</div>
+    <div class="mini-card"><strong>Audit terminology grounding</strong>Track coded, text-only, rejected, and axis-mismatched concepts by resource type; do not treat valid JSON as clinically valid content.</div>
+    <div class="mini-card"><strong>Separate leakage checks</strong>Use independent review for diagnosis leakage, especially abbreviations, synonyms, inferred conclusions, and diagnosis-bearing resource text.</div>
+    <div class="mini-card"><strong>Require human adjudication</strong>Pair LLM-judge accuracy with clinician review for representative samples and all disputed or high-impact cases.</div>
+    <div class="mini-card"><strong>Add real-world validation</strong>Before operational use, test on local FHIR exports, noisy EHR timelines, medication histories, lab panels, imaging text, and incomplete records.</div>
+    <div class="mini-card"><strong>Govern benchmark drift</strong>Freeze model versions, prompts, few-shot examples, terminology snapshots, validator versions, and judge prompts for reproducible comparisons.</div>
+  </div>
+  <h3>Practice translation</h3>
+  <p><strong>Clinical practice change:</strong> none. This source is useful for AI evaluation and informatics design, not for patient-care recommendations.</p>
+  <p><strong>Build-useful next step:</strong> incorporate a similar dual-format evaluation into any local clinical LLM testing harness: same case, same target answer, text vs FHIR input, blinded adjudication, and error taxonomy for lost context, coding gaps, temporal reasoning, and leakage.</p>
+</section>
+
+<section id="qa">
+  <h2>QA and provenance</h2>
+  <table>
+    <tbody>
+      <tr><th>Output target</th><td>One self-contained HTML file with embedded CSS and no external scripts, fonts, stylesheets, or remote images.</td></tr>
+      <tr><th>Coverage QA</th><td>All main-text figures and tables accounted for; Appendix A and B included because they affect interpretation and reproducibility.</td></tr>
+      <tr><th>Appraisal timing</th><td>Ratings assigned after section mapping, table extraction, figure extraction, workflow extraction, and limitations review.</td></tr>
+      <tr><th>Evaluated file</th><td>2605.30295v3.pdf</td></tr>
+      <tr><th>Source identifier</th><td>arXiv:2605.30295v3 [cs.CL], version dated 1 Jul 2026</td></tr>
+      <tr><th>Generation date</th><td>2026-07-03</td></tr>
+      <tr><th>Caveat</th><td>This appraisal is based on the uploaded PDF and does not independently verify model release notes, dataset hosting status, or external citations beyond the paper text.</td></tr>
+    </tbody>
+  </table>
+</section>
+</main>
+<footer>
+  Reference HTML generated from the uploaded PDF using a structured summary, evaluation, and appraisal protocol. This file is intended for source understanding, critique, and reuse, not clinical decision-making.
+</footer>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boussina 2026 SEP-1 AI Feedback — Clinical Practice Appraisal</title>
+<style>
+:root{
+  --bg:#f6f8fb;--card:#ffffff;--ink:#17202a;--muted:#526173;--line:#d9e0ea;
+  --accent:#1d4f91;--accent2:#10345f;--good:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;
+  --codebg:#0e1726;--codefg:#edf4ff;--softblue:#eef5ff;--softwarn:#fff6df;--softbad:#fff1f1;--softgood:#ecf8f0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#10243d,#1d4f91);color:#fff;padding:2.4rem 1.25rem 2.2rem;border-bottom:5px solid #d2e2f5}
+.wrap{max-width:1160px;margin:0 auto;padding:1.1rem}
+header .wrap{padding:0 1.1rem}
+h1{font-size:clamp(1.65rem,3vw,2.55rem);line-height:1.12;margin:.25rem 0 .75rem;font-weight:850;max-width:980px}
+.subtitle{font-size:1.05rem;max-width:960px;opacity:.95;margin:0}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.25rem;margin:1rem 0 1.25rem;box-shadow:0 1px 4px rgba(16,36,61,.06)}
+nav.toc a{color:var(--accent2);text-decoration:none;font-weight:650}
+nav.toc a:hover{text-decoration:underline}
+nav.toc ul{columns:2;gap:2.2rem;margin:.4rem 0 0;padding-left:1.2rem}
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.2rem 1.3rem;margin:1rem 0;box-shadow:0 1px 4px rgba(16,36,61,.05)}
+h2{color:#0f315f;font-size:1.35rem;margin:.1rem 0 1rem;border-bottom:1px solid var(--line);padding-bottom:.55rem}
+h3{color:#173f72;margin:1.1rem 0 .45rem;font-size:1.08rem}
+h4{margin:.8rem 0 .35rem;color:#23384f}
+p{margin:.55rem 0}
+ul,ol{margin:.5rem 0 .8rem;padding-left:1.35rem} li{margin:.25rem 0}
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.94rem;display:block;overflow-x:auto;border:1px solid var(--line)}
+th,td{border:1px solid var(--line);padding:.55rem .65rem;vertical-align:top} th{background:#eef3f9;color:#1e395c;text-align:left}
+.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.75rem;margin:.75rem 0}
+.mini-card{border:1px solid var(--line);border-radius:12px;background:#fbfcfe;padding:.8rem}.mini-card b{color:#1f3e63}.mini-card .label{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.035em;color:var(--muted);font-weight:800;margin-bottom:.2rem}
+.verdict,.warning,.badnote,.goodnote{border-radius:13px;padding:.9rem 1rem;margin:.8rem 0;border-left:6px solid var(--accent);background:var(--softblue)}
+.warning{border-left-color:var(--warn);background:var(--softwarn)}.badnote{border-left-color:var(--bad);background:var(--softbad)}.goodnote{border-left-color:var(--good);background:var(--softgood)}
+.tag{display:inline-block;background:#eef3f9;border:1px solid #d7e0eb;color:#173f72;border-radius:999px;padding:.12rem .5rem;margin:.12rem;font-size:.82rem;font-weight:700}
+pre{background:var(--codebg);color:var(--codefg);padding:1rem;border-radius:12px;overflow:auto;border:1px solid #1b2e49;line-height:1.45;font-size:.88rem;white-space:pre-wrap}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}.muted{color:var(--muted)}.score{font-size:1.4rem;font-weight:850;color:#0f315f}.small{font-size:.9rem}.no-top{margin-top:0}
+footer{color:var(--muted);font-size:.9rem;padding:1.5rem 0 2.5rem}
+@media (max-width:700px){nav.toc ul{columns:1}.wrap{padding:.8rem}section{padding:1rem}table{font-size:.88rem}}
+@media print{body{background:#fff}header{background:#fff;color:#000;border-bottom:2px solid #000}section,nav.toc{box-shadow:none;break-inside:avoid}a{color:#000}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Medical Record Abstraction for Quality Improvement in Sepsis Care Using Artificial Intelligence</h1>
+    <p class="subtitle">Clinical-practice reference appraisal of Boussina et al., JAMA Network Open 2026: cluster randomized trial of AI-enabled near-real-time SEP-1 abstraction and physician feedback.</p>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <strong>Contents</strong>
+  <ul>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#manifest">Coverage manifest</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#pico">PICO and clinical question</a></li>
+    <li><a href="#section-summary">Section-by-section condensation</a></li>
+    <li><a href="#visuals">Figures and tables</a></li>
+    <li><a href="#validity">Validity appraisal</a></li>
+    <li><a href="#practice">Clinical-practice translation</a></li>
+    <li><a href="#pharmacy">Pharmacist-facing implications</a></li>
+    <li><a href="#implementation">Implementation constraints</a></li>
+    <li><a href="#ratings">Ratings and verdict</a></li>
+    <li><a href="#references">Provenance and references</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+<h2>1. Metadata</h2>
+<div class="meta-grid">
+  <div class="mini-card"><span class="label">Exact title</span><b>Medical Record Abstraction for Quality Improvement in Sepsis Care Using Artificial Intelligence: A Cluster Randomized Trial</b></div>
+  <div class="mini-card"><span class="label">Citation</span>Boussina A, Allison C, Quintero K, et al. <i>JAMA Network Open</i>. 2026;9(6):e2611885.</div>
+  <div class="mini-card"><span class="label">Identifier</span>doi:10.1001/jamanetworkopen.2026.11885; ClinicalTrials.gov: NCT07581340</div>
+  <div class="mini-card"><span class="label">Publication date</span>June 25, 2026; accepted March 18, 2026.</div>
+  <div class="mini-card"><span class="label">Design</span>Single-blind, unstratified, physician-level cluster randomized trial in 2 academic emergency departments.</div>
+  <div class="mini-card"><span class="label">Domain</span>Health informatics, quality improvement, emergency sepsis care, LLM-enabled audit and feedback.</div>
+  <div class="mini-card"><span class="label">Intervention</span>Near-real-time LLM-based SEP-1 abstraction at discharge plus targeted physician feedback.</div>
+  <div class="mini-card"><span class="label">Comparator</span>Standard SEP-1 feedback process based on routine CMS sampling and delayed review.</div>
+</div>
+<div class="warning"><b>Scope warning.</b> This is a quality-measure and workflow study, not a therapeutic sepsis trial. It supports consideration of AI-assisted SEP-1 abstraction and targeted feedback in comparable quality programs. It does <b>not</b> establish that changing fluid, antibiotic, lactate, or vasopressor management through this system improves mortality, ICU admission, antimicrobial appropriateness, kidney outcomes, or fluid-related harm.</div>
+</section>
+
+<section id="manifest">
+<h2>2. Source coverage manifest</h2>
+<pre><code>SOURCE COVERAGE MANIFEST
+source_id: Boussina_2026_JAMA_Network_Open_e2611885
+exact_title: Medical Record Abstraction for Quality Improvement in Sepsis Care Using Artificial Intelligence: A Cluster Randomized Trial
+source_type: Peer-reviewed original investigation / health informatics / cluster randomized trial
+date_or_version: Published June 25, 2026; study conducted December 13, 2024 to July 8, 2025
+sections_or_headings: Abstract; Introduction; Methods; Results; Discussion; Limitations; Conclusions; Article information; References
+figures: Figure 1 AI-driven learning health system intervention; Figure 2 CONSORT flow diagram
+tables: Table 1 Patient characteristics; Table 2 SEP-1 compliance variables
+algorithms_or_workflows: LLM SEP-1 abstraction workflow; feedback workflow; human adjudication workflow
+appendices_or_supplements: Supplement 1 protocol/SAP; Supplement 2 iterative improvements/eTables/eFigure; Supplement 3 data sharing statement listed but not included in uploaded PDF
+visual_strategy:
+  structured_blocks: Figure 1, Figure 2, Table 1, Table 2, LLM/feedback workflow
+  embedded_crops_or_screenshots: none; main figure/table content was recoverable from text
+  omitted_with_reason: supplementary eTables/eFigure not appraised because supplementary files were not provided in the uploaded PDF
+coverage_decision: All main-text figures and tables are represented as structured evidence blocks. Supplementary content is acknowledged as unavailable.
+omissions: No main-text omission.</code></pre>
+</section>
+
+<section id="synthesis">
+<h2>3. One-page synthesis</h2>
+<div class="verdict"><b>Core thesis.</b> AI-enabled near-real-time abstraction of SEP-1 performance, paired with individualized physician feedback, improved SEP-1 compliance at 2 UCSD emergency departments, primarily through a documentation-sensitive crystalloid-fluid component. The trial did not show improvement in 30-day mortality or ICU admission.</div>
+<p>The study randomized 66 attending emergency physicians and analyzed 301 CMS SEP-1–eligible patient encounters: 121 in the control group and 180 in the intervention group. SEP-1 compliance increased from 70.1% in control to 82.9% with the intervention. The adjusted absolute improvement was 13.0 percentage points (95% CI, 2.5%-23.4%); the odds ratio was 2.10 (95% CI, 1.15-3.81; P=.02). LLM determination agreed with expert review in 92% of cases.</p>
+<p>The load-bearing nuance is that the largest difference was fewer failures for the crystalloid-fluid component: 16 of 121 control encounters (13.2%) vs 3 of 180 intervention encounters (1.7%). Actual documented administration of at least 30 mL/kg fluid among relevant cases was numerically higher but not statistically significant: 38 of 57 (66.7%) vs 54 of 73 (74.0%); OR 1.42 (95% CI, 0.67-3.04; P=.36). Mortality was 10.7% vs 13.9% (OR 1.34; P=.43), and ICU admission was 20.7% vs 20.0% (OR 0.96; P=.89).</p>
+<div class="badnote"><b>Clinical action warning.</b> Evidence is insufficient to change bedside sepsis treatment, fluid thresholds, antimicrobial spectrum, lactate-monitoring policy, or renal/hepatic dosing practices based on this trial. The defensible action is operational: evaluate whether AI-assisted abstraction and feedback can improve local quality-measure reliability, documentation, and timeliness without distorting clinical judgment.</div>
+<div>
+  <span class="tag">SEP-1</span><span class="tag">cluster randomized trial</span><span class="tag">LLM abstraction</span><span class="tag">audit and feedback</span><span class="tag">sepsis quality reporting</span><span class="tag">documentation-sensitive outcome</span>
+</div>
+</section>
+
+<section id="pico">
+<h2>4. PICO and clinical question</h2>
+<table>
+<thead><tr><th>Element</th><th>Extraction</th><th>Clinical-practice interpretation</th></tr></thead>
+<tbody>
+<tr><td>Population</td><td>Attending emergency physicians at 2 UCSD academic EDs who worked at least 3 ED shifts/month; patient-level analysis included ED encounters meeting CMS severe sepsis or septic shock SEP-1 criteria with ED time zero.</td><td>Most applicable to ED sepsis quality programs in academic or EHR-integrated systems with existing SEP-1 infrastructure and a sepsis program capable of adjudication and feedback.</td></tr>
+<tr><td>Intervention</td><td>Llama 3.1 8B instruct model with 3-run test-time scaling and majority voting abstracted SEP-1 performance at discharge. Intervention physicians received standardized pass emails or targeted feedback for noncompliance, sometimes with a phone call from sepsis leadership.</td><td>This is not autonomous clinical decision support. It is AI-assisted audit and feedback with human review and operational leadership.</td></tr>
+<tr><td>Comparator</td><td>Standard SEP-1 feedback: routine quality reporting review of sampled cases, typically 3 to 4 months after discharge.</td><td>The control represents delayed administrative feedback, not a robust real-time human-only feedback program.</td></tr>
+<tr><td>Outcomes</td><td>Primary: overall SEP-1 compliance. Secondary: LLM-expert agreement, 30-day mortality, ICU admission.</td><td>The primary outcome is a process/quality metric. Patient-centered outcomes were measured but the trial was not powered to detect mortality benefit.</td></tr>
+<tr><td>Clinical question</td><td>In ED sepsis quality programs, does AI-enabled near-real-time SEP-1 abstraction with targeted feedback improve SEP-1 performance compared with standard delayed review?</td><td>Answer: yes for process compliance in this setting; no demonstrated patient-centered benefit.</td></tr>
+</tbody>
+</table>
+<div class="goodnote"><b>Recommendation strength for operational use.</b> Conditional/weak recommendation to pilot in comparable institutions with human review, governance, and monitoring. Evidence quality is moderate for improving SEP-1 compliance in a similar academic ED setting; evidence quality is very low to insufficient for changing therapeutic sepsis care.</div>
+</section>
+
+<section id="section-summary">
+<h2>5. Section-by-section condensation</h2>
+<h3>Abstract</h3>
+<p>The abstract frames manual hospital quality reporting as costly, slow, and poorly suited to real-time improvement. The objective was to test whether LLM-enabled near-real-time quality measurement and feedback could improve CMS SEP-1 performance.</p>
+<p>The reported result was a 13.0 percentage-point absolute improvement in SEP-1 compliance, from 70.1% in control to 82.9% in intervention, with 92% LLM-expert agreement. No significant difference was observed in ICU admission or 30-day mortality.</p>
+
+<h3>Introduction</h3>
+<p>The introduction positions SEP-1 as a high-burden, financially relevant quality metric whose manual abstraction is slow, expensive, and variable. The authors cite quality-reporting burden estimates exceeding 100,000 person-hours and more than $5 million annually for a single acute care hospital, and describe SEP-1 as a complex 63-step measure with poor interrater reliability.</p>
+<p>The key gap is not whether LLMs can abstract SEP-1 in retrospective evaluation, but whether scaled, timely abstraction can drive measurable improvement in quality performance. The premise is operationally plausible: faster individualized audit and feedback can make quality-measure failures actionable before habits and documentation practices drift.</p>
+
+<h3>Methods</h3>
+<p>The trial ran from December 13, 2024, through July 8, 2025, in 2 UCSD EDs. All 66 eligible attending emergency physicians were randomized to intervention or control. Patient encounters were included when they met CMS severe sepsis or septic shock criteria with ED time zero; 99 of 400 sepsis-diagnosis encounters were excluded for not meeting CMS criteria or having sepsis onset outside the ED.</p>
+<p>The LLM system used Llama 3.1 8B instruct with 3 independent runs and majority voting. Three experienced SEP-1 adjudicators reviewed in-measure cases for agreement. The primary outcome was SEP-1 compliance; analysis used mixed-effects logistic regression with intervention group as fixed effect and physician random intercept to account for clustered patient encounters.</p>
+
+<h3>Results</h3>
+<p>The analyzed patient population had median age 64.3 years; 56.8% were male; 17.3% had chronic kidney disease; 17.3% had chronic heart failure. The final analysis included 23 control physicians with 121 patients and 30 intervention physicians with 180 patients after exclusions for changed clinical duties or no SEP-1–eligible encounters.</p>
+<p>SEP-1 compliance improved from 82 of 117 control cases (70.1%) to 145 of 175 intervention cases (82.9%); adjusted OR 2.10 (95% CI, 1.15-3.81; P=.02). Fluid-component noncompletion fell from 16 of 121 (13.2%) to 3 of 180 (1.7%), while ICU admission and 30-day mortality were not significantly different.</p>
+
+<h3>Discussion</h3>
+<p>The authors interpret the intervention as evidence that generative AI can improve hospital quality-metric performance when embedded into an audit-and-feedback loop. They emphasize timeliness, individual-level feedback, engaged leadership, and documentation improvement as likely mechanisms.</p>
+<p>The discussion appropriately separates SEP-1 compliance from clinical benefit. The authors state that the study was not powered for mortality, that SEP-1 survival benefit remains debated, and that improved compliance may reflect better documentation of appropriate fluid exceptions rather than actual therapeutic change.</p>
+
+<h3>Limitations</h3>
+<p>The main limitations are imbalance in patient encounters between arms, 2-site academic health system setting, short 7-month period, and uncertain external generalizability. Resident physicians often provided care but were not part of the feedback system, which could dilute or misattribute behavioral effects.</p>
+<p>Additional practical limitations for implementation include dependency on local EHR data quality, local SEP-1 adjudication expertise, prompt/model version control, false-positive/false-negative monitoring, and the risk that optimizing a process measure can unintentionally incentivize overdocumentation or less individualized care.</p>
+
+<h3>Conclusions</h3>
+<p>The authors conclude that AI-enabled abstraction with near-real-time personalized feedback significantly improved SEP-1 process compliance versus standard delayed feedback. The strongest supported inference is operational: AI can shorten the quality-measure feedback loop.</p>
+<p>The unsupported inference would be clinical: the trial does not demonstrate that the AI feedback system improves survival, reduces ICU admission, improves antimicrobial appropriateness, or safely changes fluid resuscitation. Further multicenter studies with patient-centered and safety outcomes are required before clinical-care claims are justified.</p>
+</section>
+
+<section id="visuals">
+<h2>6. Figures, tables, and workflow extraction</h2>
+<h3>Figure 1 — Flow diagram of AI-driven learning health system intervention</h3>
+<pre><code>Purpose:
+  Contrast usual SEP-1 feedback with AI-enabled feedback.
+Structure/panels:
+  Control arm: attending workup → sepsis diagnosis → small CMS sample → external nonclinical review about 3 months after discharge.
+  Intervention arm: attending workup → sepsis diagnosis → SEP-1 AI report generated at discharge → feedback to clinician if compliant or noncompliant.
+Variables/actors:
+  ED attending physicians, patients with sepsis, external vendor review, LLM abstraction, sepsis program feedback.
+Main pattern:
+  The intervention changes feedback timing and scale: all eligible intervention-arm encounters were evaluated near discharge rather than a small delayed sample.
+Interpretation:
+  The trial tests a workflow intervention, not a bedside model that recommends therapy.
+Limits:
+  Does not specify downtime handling, false-result escalation, alert fatigue controls, governance dashboard, or pharmacist/ID stewardship integration.
+Representation:
+  Structured block; no screenshot needed.</code></pre>
+
+<h3>Figure 2 — CONSORT flow diagram</h3>
+<pre><code>Purpose:
+  Track physician-level eligibility, randomization, and analysis inclusion.
+Key counts:
+  83 physicians assessed for eligibility.
+  17 excluded for working fewer than 3 ED shifts/month.
+  66 randomized: 33 control, 33 intervention.
+  Control exclusions after randomization: 3 no longer worked in ED; 7 had no SEP-1 eligible encounters.
+  Intervention exclusions after randomization: 1 no longer worked in ED; 2 had no SEP-1 eligible encounters.
+  Final analysis: 23 control physicians / 121 patients; 30 intervention physicians / 180 patients.
+Interpretation:
+  Randomization occurred at physician level, but patient encounter volume differed between arms.
+Limits:
+  Post-randomization exclusions and unequal encounter counts reduce balance and external confidence, although the mixed-effects model accounted for clustering.
+Representation:
+  Structured block; no screenshot needed.</code></pre>
+
+<h3>Table 1 — Patient characteristics</h3>
+<table>
+<thead><tr><th>Characteristic</th><th>Control</th><th>Intervention</th><th>Practice-relevant note</th></tr></thead>
+<tbody>
+<tr><td>Patients</td><td>121</td><td>180</td><td>More encounters in intervention arm.</td></tr>
+<tr><td>Patients per physician</td><td>Median 5.0 (IQR 3.0-7.8), range 1-12</td><td>Median 6.0 (IQR 3.3-7.0), range 1-16</td><td>Small per-physician denominators limit stable individual performance estimates.</td></tr>
+<tr><td>Age</td><td>63.1 years (IQR 51.30-77.51)</td><td>64.6 years (IQR 51.10-75.03)</td><td>Older adult sepsis population.</td></tr>
+<tr><td>Female / male</td><td>56 (46.3%) / 65 (53.7%)</td><td>74 (41.1%) / 106 (58.9%)</td><td>No major sex imbalance.</td></tr>
+<tr><td>Chronic heart failure</td><td>24 (19.8%)</td><td>28 (15.6%)</td><td>Relevant to fluid-bolus documentation exceptions and fluid-overload risk.</td></tr>
+<tr><td>Chronic kidney disease</td><td>25 (20.7%)</td><td>27 (15.0%)</td><td>Relevant to fluid and antimicrobial dosing considerations; no renal subgroup outcome reported.</td></tr>
+<tr><td>Site</td><td>Jacobs 67 (55.4%); Hillcrest 54 (44.6%)</td><td>Jacobs 116 (64.4%); Hillcrest 64 (35.6%)</td><td>Single health-system, 2-site academic setting.</td></tr>
+</tbody>
+</table>
+
+<h3>Table 2 — SEP-1 compliance variables and outcomes</h3>
+<table>
+<thead><tr><th>Variable</th><th>Control</th><th>Intervention</th><th>Effect</th><th>Clinical interpretation</th></tr></thead>
+<tbody>
+<tr><td>Overall SEP-1 compliance</td><td>82/117 (70.1%)</td><td>145/175 (82.9%)</td><td>OR 2.10 (95% CI 1.15-3.81); P=.02</td><td>Process metric improved.</td></tr>
+<tr><td>Blood culture collection missed</td><td>1 (0.8%)</td><td>4 (2.2%)</td><td>OR 2.44; P=.52</td><td>No significant improvement; low event count.</td></tr>
+<tr><td>Broad-spectrum or other antibiotic administration missed</td><td>6 (5.0%)</td><td>8 (4.4%)</td><td>OR 0.89; P=.84</td><td>No significant antibiotic-process effect detected.</td></tr>
+<tr><td>Initial lactate collection missed</td><td>0</td><td>0</td><td>Not applicable</td><td>Ceiling effect.</td></tr>
+<tr><td>Crystalloid-fluid administration component missed</td><td>16 (13.2%)</td><td>3 (1.7%)</td><td>OR 0.11 (95% CI 0.03-0.39); P&lt;.001</td><td>Main driver; documentation-sensitive and not equivalent to proven patient benefit.</td></tr>
+<tr><td>Fluid volume ≥30 mL/kg</td><td>38/57 (66.7%)</td><td>54/73 (74.0%)</td><td>OR 1.42 (95% CI 0.67-3.04); P=.36</td><td>Numerically higher but statistically nonsignificant.</td></tr>
+<tr><td>ICU admission</td><td>25 (20.7%)</td><td>36 (20.0%)</td><td>OR 0.96; P=.89</td><td>No detected patient-centered improvement.</td></tr>
+<tr><td>30-day mortality</td><td>13 (10.7%)</td><td>25 (13.9%)</td><td>OR 1.34; P=.43</td><td>No mortality benefit; trial not powered for mortality.</td></tr>
+<tr><td>Septic shock</td><td>28 (23.1%)</td><td>34 (18.9%)</td><td>OR 0.70; P=.21</td><td>Baseline clinical-severity differences possible.</td></tr>
+</tbody>
+</table>
+
+<h3>Workflow / algorithm — LLM SEP-1 abstraction and feedback</h3>
+<pre><code>Inputs:
+  EHR documentation, clinical encounter diagnosis, CMS SEP-1 criteria, sepsis time zero, discharge timing.
+Process / decision rules:
+  Llama 3.1 8B instruct model used prior prompts; 3 runs with majority voting; expert adjudicators reviewed in-measure cases.
+Outputs:
+  SEP-1 pass/fail/out-of-measure determination; noncompliance rationale; targeted physician feedback.
+Human review:
+  Three SEP-1-experienced study team members adjudicated cases; sepsis program medical director sometimes provided phone feedback.
+Failure modes:
+  Misclassification from incomplete documentation; clinical-diagnosis vs billing-diagnosis discordance; prompt/model drift; documentation optimization without care improvement; overemphasis on fluid metric in CHF/CKD.
+Governance required for practice:
+  Human-in-the-loop review, version control, audit trail, regular false-positive/false-negative review, protected clinical exceptions, antimicrobial stewardship oversight, and monitoring of patient-centered safety outcomes.</code></pre>
+</section>
+
+<section id="validity">
+<h2>7. Validity appraisal</h2>
+<table>
+<thead><tr><th>Domain</th><th>Assessment</th><th>Implication</th></tr></thead>
+<tbody>
+<tr><td>Randomization</td><td>Physician-level cluster randomization was appropriate because the intervention targeted physician feedback behavior.</td><td>Reduces contamination at encounter level, but physicians within the same ED could still influence each other.</td></tr>
+<tr><td>Blinding</td><td>Reported as single-blind; intervention physicians necessarily received feedback. Patient-level outcome ascertainment likely relied on EHR data.</td><td>Primary outcome is documentation/process sensitive and could be influenced by awareness of feedback.</td></tr>
+<tr><td>Comparator adequacy</td><td>Comparator was usual delayed quality reporting, not an equally intensive near-real-time human feedback system.</td><td>Observed benefit may reflect timeliness and targeted leadership contact rather than AI-specific value alone.</td></tr>
+<tr><td>Outcome hierarchy</td><td>Primary endpoint was SEP-1 compliance; secondary outcomes included LLM-expert agreement, ICU admission, and 30-day mortality.</td><td>Strongest inference is process improvement; clinical outcome inference is weak.</td></tr>
+<tr><td>Statistical approach</td><td>Mixed-effects logistic regression accounted for clustering by physician; ICC 0.018 indicated minimal clustering.</td><td>Reasonable analysis for design, but small per-physician case counts limit individual-level precision.</td></tr>
+<tr><td>Missing data / exclusions</td><td>Post-randomization exclusions occurred for changed clinical duties and no eligible encounters. Encounter counts were unequal.</td><td>Imbalance affects external confidence, though not enough to negate the process-signal finding.</td></tr>
+<tr><td>Measurement validity</td><td>LLM-expert agreement was 92%; 91.7% of included cases later received a sepsis, severe sepsis, or septic shock billing diagnosis.</td><td>Encouraging but local; external validation and ongoing monitoring are required before reliance elsewhere.</td></tr>
+<tr><td>Conflicts / funding</td><td>Multiple authors disclosed relationships with Clairyon Inc or related AI entities; funding included NIH grants and institutional support.</td><td>Does not invalidate results, but independent replication is important for procurement and policy decisions.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="practice">
+<h2>8. Clinical-practice translation</h2>
+<h3>Recommendation strength and evidence quality</h3>
+<table>
+<thead><tr><th>Question</th><th>Recommendation</th><th>Evidence quality</th><th>Rationale</th></tr></thead>
+<tbody>
+<tr><td>Should a hospital pilot AI-assisted SEP-1 abstraction and near-real-time feedback?</td><td>Conditional yes, in an EHR-integrated quality program with human review, governance, and monitoring.</td><td>Moderate for local process improvement; low for generalizability.</td><td>Cluster RCT with statistically significant SEP-1 improvement, but only 2 academic EDs and short follow-up.</td></tr>
+<tr><td>Should clinicians change sepsis fluid or antibiotic decisions because of this article?</td><td>No.</td><td>Insufficient.</td><td>No mortality, ICU, antimicrobial appropriateness, renal, respiratory, or fluid-harm benefit demonstrated.</td></tr>
+<tr><td>Should AI abstraction replace human SEP-1 adjudication?</td><td>No as a standalone replacement; consider human-in-the-loop abstraction.</td><td>Low to moderate.</td><td>LLM agreement was high but not perfect; local calibration and failure review are needed.</td></tr>
+<tr><td>Should SEP-1 compliance be treated as a patient-centered outcome?</td><td>No.</td><td>Moderate confidence.</td><td>SEP-1 is a process measure, and contemporary evidence remains contested regarding direct survival benefit.</td></tr>
+</tbody>
+</table>
+
+<h3>Population and exclusions relevant to practice</h3>
+<ul>
+<li><b>Included:</b> adult ED encounters meeting CMS severe sepsis or septic shock inclusion criteria with ED sepsis time zero, under attending emergency physicians randomized in the trial.</li>
+<li><b>Excluded from patient analysis:</b> encounters with sepsis diagnosis that did not meet CMS criteria or had sepsis onset outside the ED.</li>
+<li><b>Excluded from physician analysis:</b> physicians who no longer worked in the ED after randomization or had no SEP-1 eligible encounters.</li>
+<li><b>Underrepresented / unresolved:</b> nonacademic EDs, community hospitals without informatics support, inpatient-onset sepsis, pediatric sepsis, small hospitals with low SEP-1 volumes, and sites without local SEP-1 adjudication expertise.</li>
+</ul>
+
+<h3>Dosing, monitoring, contraindications, interactions, renal/hepatic considerations</h3>
+<table>
+<thead><tr><th>Clinical item</th><th>What the article provides</th><th>Practice interpretation</th></tr></thead>
+<tbody>
+<tr><td>Crystalloid-fluid volume</td><td>SEP-1 fluid-component compliance improved, and documented ≥30 mL/kg fluid was numerically higher but nonsignificant.</td><td>Do not use this article to mandate fluids outside clinical judgment. Contemporary sepsis guidance suggests at least 30 mL/kg crystalloid within 3 hours for sepsis-induced hypoperfusion or septic shock, with low-certainty evidence and individual-patient context.</td></tr>
+<tr><td>Fluid type</td><td>Not evaluated.</td><td>Use current sepsis guidance and local policy. This trial does not compare balanced crystalloids vs saline, albumin, colloids, or deresuscitation strategies.</td></tr>
+<tr><td>Antibiotic selection and dose</td><td>Only SEP-1 antibiotic administration completion was measured; no specific agents, renal adjustment, hepatic adjustment, PK/PD strategy, source-specific therapy, or de-escalation outcome was reported.</td><td>Antimicrobial decisions remain governed by source, severity, allergies, renal/hepatic function, local antibiogram, cultures, and stewardship review. No dosing change follows from this trial.</td></tr>
+<tr><td>Therapeutic drug monitoring</td><td>Not evaluated.</td><td>No change to vancomycin, aminoglycoside, beta-lactam TDM, or other antimicrobial monitoring protocols.</td></tr>
+<tr><td>Contraindications / precautions</td><td>CHF and CKD were present in both arms, but no subgroup safety results were reported.</td><td>For CHF, CKD, ESRD, cirrhosis, pulmonary edema risk, or fluid-unresponsive shock, documentation of individualized fluid decisions remains clinically important. This trial does not quantify safety of increased fluids in these groups.</td></tr>
+<tr><td>Drug interactions</td><td>Not applicable.</td><td>No pharmacologic intervention or drug-comparator interaction was studied.</td></tr>
+<tr><td>Renal/hepatic considerations</td><td>CKD prevalence was reported; hepatic disease and renal/hepatic dosing outcomes were not reported.</td><td>Renal/hepatic dose adjustment remains outside the evidence generated by this article.</td></tr>
+</tbody>
+</table>
+
+<h3>Safety signals</h3>
+<ul>
+<li>No statistically significant difference in 30-day mortality or ICU admission was detected.</li>
+<li>The trial did not report fluid overload, pulmonary edema, mechanical ventilation, acute kidney injury, vasopressor duration, Clostridioides difficile infection, nephrotoxicity, antimicrobial overuse, or broad-spectrum days of therapy.</li>
+<li>The most important safety concern is behavioral: optimizing SEP-1 compliance could push clinicians toward documentation or treatment choices that satisfy the metric without improving patient-centered outcomes.</li>
+</ul>
+</section>
+
+<section id="pharmacy">
+<h2>9. Pharmacist-facing implications</h2>
+<div class="takeaway-grid">
+  <div class="mini-card"><span class="label">High-yield use</span><b>Near-real-time feedback loop.</b><br>Use the concept to identify sepsis-bundle misses while the case is still reviewable, not months later.</div>
+  <div class="mini-card"><span class="label">Stewardship guardrail</span><b>Separate compliance from appropriateness.</b><br>Antibiotic-timing compliance should not override spectrum choice, de-escalation, allergy assessment, renal dosing, or source-control review.</div>
+  <div class="mini-card"><span class="label">Fluid caution</span><b>Protect individualized exceptions.</b><br>CHF/CKD patients require defensible documentation and bedside reassessment, not metric-driven automatic fluid escalation.</div>
+  <div class="mini-card"><span class="label">Documentation opportunity</span><b>Make clinical reasoning explicit.</b><br>When fluids are limited, document rationale, reassessment, perfusion markers, and alternative hemodynamic plan.</div>
+  <div class="mini-card"><span class="label">Operational build</span><b>Pair AI review with pharmacist/QI queues.</b><br>Flag antibiotic delay, broad-spectrum mismatch, culture timing, renal-dose mismatch, and de-escalation opportunities.</div>
+  <div class="mini-card"><span class="label">Do not overbuild</span><b>Not a bedside autonomous agent.</b><br>The studied system reviewed records and fed back performance; it did not prove safe direct ordering or autonomous sepsis management.</div>
+</div>
+</section>
+
+<section id="implementation">
+<h2>10. Implementation constraints and governance</h2>
+<table>
+<thead><tr><th>Implementation domain</th><th>Required guardrail</th><th>Reason</th></tr></thead>
+<tbody>
+<tr><td>Data access</td><td>Reliable extraction of ED notes, orders, medication administration, lactates, blood cultures, vitals, time zero, discharge time, and exclusions.</td><td>SEP-1 abstraction is highly sensitive to timing and documentation.</td></tr>
+<tr><td>Model governance</td><td>Version pinning, prompt versioning, majority-vote or verifier strategy, regression tests, and periodic recalibration after EHR/template changes.</td><td>Model drift and documentation-template changes can silently alter performance.</td></tr>
+<tr><td>Human review</td><td>SEP-1 nurse/quality specialist/physician adjudication for edge cases and periodic random audit of AI results.</td><td>92% agreement still implies clinically meaningful disagreement in a high-stakes quality program.</td></tr>
+<tr><td>Clinical safety</td><td>Monitor fluid overload, AKI, ventilation, ICU transfer, vasopressor delay, antimicrobial overuse, C. difficile infection, and mortality.</td><td>Process compliance can improve while patient-centered safety worsens or stays unchanged.</td></tr>
+<tr><td>Stewardship</td><td>Include antimicrobial stewardship and pharmacy review in feedback design.</td><td>SEP-1 antibiotic completion is not the same as optimal antimicrobial selection, dose, duration, or de-escalation.</td></tr>
+<tr><td>Equity / bias</td><td>Audit performance across sites, language, race/ethnicity, documentation style, comorbidity, and clinician group.</td><td>Documentation and diagnosis patterns differ across populations and can affect abstraction accuracy.</td></tr>
+<tr><td>Feedback design</td><td>Provide case-specific rationale, actionable documentation guidance, and a way to dispute or correct AI determinations.</td><td>Audit and feedback works best when individualized, credible, actionable, and trusted.</td></tr>
+<tr><td>Procurement</td><td>Require transparent validation, security review, uptime plan, privacy review, and local cost-benefit analysis.</td><td>The trial does not supply full cost, latency, support, or reproducibility details for all environments.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="ratings">
+<h2>11. Appraisal ratings and verdict</h2>
+<div class="rating-grid">
+  <div class="mini-card"><span class="label">Relevance</span><div class="score">9/10</div><p>Strong fit for clinical informatics, sepsis QI, and pharmacist-adjacent workflow design. Evidence basis: directly studies acute-care quality feedback. Limiting factor: ED-focused SEP-1 use case.</p></div>
+  <div class="mini-card"><span class="label">Novelty</span><div class="score">8/10</div><p>Novel prospective test of LLM-enabled quality abstraction linked to behavior change. Evidence basis: cluster RCT rather than retrospective benchmark only. Limiting factor: audit-and-feedback mechanism is established.</p></div>
+  <div class="mini-card"><span class="label">Method strength</span><div class="score">7/10</div><p>Randomized clustered design with appropriate modeling. Evidence basis: physician-level randomization and mixed-effects analysis. Limiting factor: 2 sites, unequal encounters, short follow-up, and delayed-feedback comparator.</p></div>
+  <div class="mini-card"><span class="label">Evidence strength</span><div class="score">7/10 process; 2/10 clinical</div><p>Good evidence for SEP-1 compliance improvement; inadequate evidence for patient benefit. Evidence basis: significant primary process outcome and nonsignificant mortality/ICU outcomes.</p></div>
+  <div class="mini-card"><span class="label">External validity</span><div class="score">4/10</div><p>Generalizability is limited. Evidence basis: single academic health system, 2 EDs, local sepsis program, local LLM implementation, and no independent external validation.</p></div>
+  <div class="mini-card"><span class="label">Implementation value</span><div class="score">8/10</div><p>High operational value for designing an AI-assisted quality feedback pilot. Evidence basis: clear workflow, model choice, majority-vote strategy, feedback mechanism, and measurable endpoint. Limiting factor: incomplete cost, uptime, and governance details.</p></div>
+</div>
+<div class="verdict"><b>Verdict: Read first for AI-enabled clinical quality workflow design; do not use for direct sepsis pharmacotherapy changes.</b> Best use is as a template for near-real-time, human-reviewed abstraction and individualized audit/feedback. Do not use it as evidence that SEP-1 compliance itself improves mortality or that AI-directed sepsis care is ready for autonomous clinical deployment.</div>
+<h3>What should change in practice</h3>
+<ul>
+<li>Hospitals with high SEP-1 abstraction burden should consider a governed pilot of AI-assisted abstraction and near-real-time feedback.</li>
+<li>Sepsis committees should evaluate whether delayed retrospective feedback can be replaced or supplemented with near-real-time case feedback.</li>
+<li>Pharmacy and stewardship teams should be included in feedback design to prevent antibiotic timing metrics from encouraging unnecessary spectrum, duration, or dosing errors.</li>
+<li>Documentation of fluid exceptions in CHF, CKD, ESRD, pulmonary edema risk, and other fluid-sensitive states should be made explicit and auditable.</li>
+</ul>
+<h3>What should not change in practice</h3>
+<ul>
+<li>Do not change empiric antibiotic selection, dosing, monitoring, renal/hepatic adjustment, or de-escalation protocols based on this trial.</li>
+<li>Do not use AI-generated SEP-1 compliance as a substitute for bedside assessment, source control, antimicrobial stewardship, or hemodynamic reassessment.</li>
+<li>Do not infer mortality benefit, ICU avoidance, AKI reduction, or fluid safety from the reported process improvement.</li>
+<li>Do not deploy without human review, appeal workflow, model versioning, and safety monitoring.</li>
+</ul>
+<p><b>Confidence in appraisal:</b> moderate for interpreting the study’s process-quality effect; low for external implementation performance; very low for any patient-centered clinical effect.</p>
+</section>
+
+<section id="references">
+<h2>12. Provenance and selected practice-context references</h2>
+<p><b>Evaluated source:</b> Boussina A, Allison C, Quintero K, Jain S, VanDenBerg C, Hogarth M, et al. Medical Record Abstraction for Quality Improvement in Sepsis Care Using Artificial Intelligence: A Cluster Randomized Trial. <i>JAMA Network Open</i>. 2026;9(6):e2611885. doi:10.1001/jamanetworkopen.2026.11885.</p>
+<p><b>Evaluated file:</b> boussina_2026_oi_260362_1781722311.45081.pdf.</p>
+<p><b>Current-practice context checked:</b> CMS QualityNet Inpatient Specifications Manual version 5.18a for 2026 discharges; Surviving Sepsis Campaign adult guidelines 2026; joint IDSA/ACEP/PIDS/SHEA/SHM/SIDP position paper on SEP-1 and pay-for-performance; Ford et al. 2025 systematic review on SEP-1 compliance and mortality.</p>
+<ol>
+<li>Centers for Medicare &amp; Medicaid Services / QualityNet. Hospital Inpatient Specifications Manuals. Version 5.18a: discharges 01/01/2026 through 12/31/2026. https://qualitynet.cms.gov/inpatient/specifications-manuals</li>
+<li>Prescott HC, et al. Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2026. Society of Critical Care Medicine. https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026</li>
+<li>Rhee C, Strich JR, Chiotos K, et al. Improving Sepsis Outcomes in the Era of Pay-for-Performance and Electronic Quality Measures: A Joint IDSA/ACEP/PIDS/SHEA/SHM/SIDP Position Paper. <i>Clinical Infectious Diseases</i>. 2024;78(3):505-513. doi:10.1093/cid/ciad447.</li>
+<li>Ford JS, Morrison JC, Kyaw M, et al. The Effect of Severe Sepsis and Septic Shock Management Bundle (SEP-1) Compliance and Implementation on Mortality Among Patients With Sepsis: A Systematic Review. <i>Annals of Internal Medicine</i>. 2025;178(4):543-557. doi:10.7326/ANNALS-24-02426.</li>
+</ol>
+<p class="muted">Generated July 1, 2026. This reference file is for appraisal and workflow translation. It does not replace primary-source review, local sepsis policy, antimicrobial stewardship review, or clinical judgment.</p>
+</section>
+<footer>
+  <div class="wrap">Single-file HTML artifact; no external scripts, fonts, or images.</div>
+</footer>
+</main>
+</body>
+</html>
