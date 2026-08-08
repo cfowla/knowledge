@@ -1,0 +1,5122 @@
+{
+  "source_metadata": {
+    "title": "MACRO: Markov Chain Routing of Transformer Layers",
+    "authors": [
+      "Paweł Batorski",
+      "Abtin Pourhadi",
+      "Akylgali Aitaza",
+      "Przemysław Spurek",
+      "Paul Swoboda"
+    ],
+    "source_type": "arXiv preprint",
+    "arxiv_id": "2608.05872v1",
+    "arxiv_category": "cs.CL",
+    "date": "2026-08-06",
+    "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+    "input_file": "2608.05872v1.pdf",
+    "input_document_sha256": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86"
+  },
+  "atom_counts_by_type": {
+    "author_conclusion": 3,
+    "limitation": 2,
+    "method": 19,
+    "other": 2,
+    "qualitative_result": 7,
+    "quantitative_result": 28,
+    "study_objective": 1
+  },
+  "atom_count_total": 62,
+  "atoms": [
+    {
+      "atom_id": "1459d8d7-8538-5aca-af3a-fc8d93a5357a",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The study proposes MACRO to learn task-specific alternative execution routes through frozen LLM transformer layers in order to improve task accuracy without modifying model weights.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "MACRO",
+        "dynamic-layer-routing",
+        "frozen-LLM"
+      ]
+    },
+    {
+      "atom_id": "76c04ad4-f612-5f77-afdd-5b8f25ccf6b2",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "MACRO represents layer routing as a context-dependent Markov policy over layer index, computation-budget phase, incoming layer displacement, and operator context.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "Markov-policy",
+        "state-space"
+      ]
+    },
+    {
+      "atom_id": "a08ebf90-17b4-533c-93df-d595be1129fa",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "The Markov policy is global and task-specific rather than input-dependent; its state space has size L × 3 × (2r+2) × 2.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "Markov-policy",
+        "task-specific-route"
+      ]
+    },
+    {
+      "atom_id": "94628059-bffb-5e9d-bb6e-27616ba8509e",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "MACRO permits three action families: local layer moves that can skip, repeat, or revisit layers; add-and-apply operations that combine a prior hidden state with the current state before a local layer; and Rejoin, which resumes the standard suffix.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "action-space",
+        "skip",
+        "repeat",
+        "residual-add",
+        "rejoin"
+      ]
+    },
+    {
+      "atom_id": "4dc7ae38-0999-5089-b603-4013b90e4d57",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "Feasibility masks remove invalid routing actions, including out-of-range layer moves, programs exceeding the route-length budget, and references to hidden states that have not yet been produced.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "feasibility-mask",
+        "routing-validity"
+      ]
+    },
+    {
+      "atom_id": "17000afe-907b-594a-99db-4add822eb399",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "Each routed program step receives its own attention-cache slot, so revisiting a block uses a distinct key/value history and a route with T applied steps has the cache and decoding cost of a T-block network with tied weights.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "KV-cache",
+        "compute-cost"
+      ]
+    },
+    {
+      "atom_id": "e566b962-1351-5eea-b36e-5d67f8130632",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "The initial routing distribution is a forward-biased prior in which the unmodified sequential network is the most likely route, while local deviations and add operations receive smaller exploration mass.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "policy-initialization",
+        "forward-bias"
+      ]
+    },
+    {
+      "atom_id": "ee82be80-4ffe-56e9-b197-01f15d8f773e",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "At each search iteration, MACRO samples candidate programs, scores them by accuracy on the current training subset plus replay examples, converts scores to elite or soft-elite weights, and updates the transition table by weighted maximum likelihood with pseudo-count smoothing.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "estimation-of-distribution",
+        "CEM",
+        "replay-buffer"
+      ]
+    },
+    {
+      "atom_id": "fe568b54-ed24-57b1-a01d-9105be2b34e8",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "The benchmark data are split into disjoint training, validation, and test subsets; routing search uses training and validation data, while the test set is reserved for final evaluation.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "data-split",
+        "held-out-test"
+      ]
+    },
+    {
+      "atom_id": "2745319b-ea8a-57aa-b84e-f77f4829fa21",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "To reduce search overfitting, the training set is partitioned across search iterations and each iteration evaluates candidate routes on a fresh subset augmented by a replay buffer containing a sampled fraction of prior subsets.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "overfitting-control",
+        "replay-buffer"
+      ]
+    },
+    {
+      "atom_id": "57951f77-1193-5ab8-8268-77c30a3f1894",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "After learning, MACRO uses exact top-k Viterbi decoding under the masked Markov policy to produce high-probability valid route programs, then selects the validation-best execution-distinct candidate with training accuracy and route length as tie-breakers.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "Viterbi",
+        "validation-selection"
+      ]
+    },
+    {
+      "atom_id": "d2edda68-5f1f-57d9-af82-7449527a92a8",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "The exact top-k decoder operates over the augmented state including current layer, budget phase, incoming delta, and operator context so paths with different future continuations are not incorrectly merged.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "exact-decoding",
+        "Viterbi"
+      ]
+    },
+    {
+      "atom_id": "e04cc77e-ad02-539a-bc3c-e7dbd2d74b2e",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "The main evaluation covers 13 reasoning and knowledge benchmarks: GSM8K, MATH500, OpenBookQA, MedQA, SciQ, MMLU-Pro, SVAMP, ASDiv, MAWPS, GSM8K-Hard, GSM8K-Plus, multistep-arithmetic, and object counting.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmarks",
+        "evaluation"
+      ]
+    },
+    {
+      "atom_id": "64e3fc36-ca82-5583-b2d0-05f1e332e50e",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "The main reported models are Qwen3-1.7B, Qwen3-4B, Qwen3-8B, 4-bit Qwen3-14B, 4-bit Mixtral-8x7B-Instruct-v0.1, and DeepSeek-R1-Distill-Llama-8B, with Llama-3.2-3B-Instruct reported in Appendix A.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "models",
+        "evaluation"
+      ]
+    },
+    {
+      "atom_id": "11794531-40f5-5649-a419-1434d841c608",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "For each model-benchmark-seed run, the authors request 1,000 training examples and a held-out validation split; standard runs use 100 validation examples and baseline-anchored 4-bit/non-Qwen runs use 200, with smaller datasets split proportionally.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "sample-split",
+        "experimental-details"
+      ]
+    },
+    {
+      "atom_id": "568e3a53-8a3a-50b9-b9d6-f71a18249b77",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "Generation uses deterministic greedy decoding with temperature 0, top-p 1.0, top-k 0, up to 400 thinking tokens, and up to 128 answer tokens, with completed seeds drawn from {1, 2, 42}.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "generation-settings",
+        "seeds"
+      ]
+    },
+    {
+      "atom_id": "099524bb-c38e-59fc-b2d7-8784dea7d2a9",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "Main MACRO searches use 10 iterations and 30 candidate programs per iteration, replay fraction 0.1, local move radius 5, a six-state hidden-history window for add operations with coefficient 1.0, and a top-five elite set.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "hyperparameters",
+        "route-search"
+      ]
+    },
+    {
+      "atom_id": "aaf0d1e0-5ccb-5e59-b330-6b7acb048b4e",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "The main MACRO policy initializes local/Rejoin exploration mass at εloc=0.2 and add-operation mass at εop=0.0867, and uses α=0.0397, β=1.8262, and sampling temperature 1.0.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "hyperparameters",
+        "route-search"
+      ]
+    },
+    {
+      "atom_id": "f3313b79-dbc6-52bb-b709-cc34e4bf6475",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "Statistical significance is assessed at the benchmark level after averaging seed-level MACRO-minus-baseline differences within each benchmark, using one-sided Wilcoxon signed-rank tests with Holm correction across six models and cluster-bootstrap confidence intervals over benchmarks.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "statistics",
+        "Wilcoxon",
+        "Holm",
+        "bootstrap"
+      ]
+    },
+    {
+      "atom_id": "64be98a6-a127-5be0-aa9e-fee42655a8e6",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across the evaluated open-weight models and benchmarks, MACRO improved average accuracy by 5.0 percentage points over the unrouted baseline.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Six shared model settings across the main benchmark evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Average benchmark accuracy difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "5.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "+5.0% average accuracy improvement over the unrouted baselines"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main-result",
+        "accuracy"
+      ]
+    },
+    {
+      "atom_id": "81a44992-9fb0-52e3-9177-5cd2e670a2c8",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across six shared model settings, MACRO exceeded Dr.LLM mean accuracy by 7.2 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 1",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Six shared model settings across the main benchmark evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Dr.LLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Prior dynamic routing baseline"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean benchmark accuracy difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "7.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main-result",
+        "Dr.LLM",
+        "accuracy"
+      ]
+    },
+    {
+      "atom_id": "749ed67a-5e96-550c-bafd-62605add81e1",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "MACRO reduced route-search time per benchmark from 14.8 hours for Dr.LLM to 1.6 hours, reported as a 9.4-fold reduction.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 1",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Six shared model settings across the main benchmark evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Dr.LLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Prior dynamic routing baseline"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Route-search time per benchmark",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "fold reduction in search time",
+        "estimate": "9.4",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "1.6",
+            "unit": "hours/benchmark"
+          },
+          {
+            "arm_label": "Dr.LLM",
+            "event_count": null,
+            "sample_size": null,
+            "value": "14.8",
+            "unit": "hours/benchmark"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main-result",
+        "search-cost"
+      ]
+    },
+    {
+      "atom_id": "26323950-e29e-507e-9c8b-13ae13a214d9",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-1.7B, MACRO improved mean accuracy over the baseline by 12.68 percentage points; the 95% benchmark-bootstrap confidence interval was [6.70, 21.38] and the Holm-corrected one-sided Wilcoxon p-value was 7.3e-4.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "Qwen3-1.7B",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "13 benchmark-level accuracy differences for Qwen3-1.7B",
+        "sample_size": 13,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean test accuracy difference across benchmarks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "12.68",
+        "interval": {
+          "lower": "6.7",
+          "upper": "21.38",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": "0.00073",
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.35",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "63.03",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "W/T/L=13/0/0"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "accuracy",
+        "statistical-significance",
+        "Qwen3-1.7B"
+      ]
+    },
+    {
+      "atom_id": "fed1d277-76e9-5b7a-94e6-9f246283e86d",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-4B, MACRO improved mean accuracy over the baseline by 1.50 percentage points; the 95% benchmark-bootstrap confidence interval was [0.62, 2.51] and the Holm-corrected one-sided Wilcoxon p-value was 2.0e-3.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "Qwen3-4B",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "13 benchmark-level accuracy differences for Qwen3-4B",
+        "sample_size": 13,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean test accuracy difference across benchmarks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "1.5",
+        "interval": {
+          "lower": "0.62",
+          "upper": "2.51",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": "0.0020",
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "72.62",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "74.12",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "W/T/L=9/4/0"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "accuracy",
+        "statistical-significance",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "68a5b70c-b8ff-58ba-9acf-6896e00f4630",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-8B, MACRO improved mean accuracy over the baseline by 0.76 percentage points; the 95% benchmark-bootstrap confidence interval was [0.33, 1.25] and the Holm-corrected one-sided Wilcoxon p-value was 2.0e-3.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "Qwen3-8B",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "13 benchmark-level accuracy differences for Qwen3-8B",
+        "sample_size": 13,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean test accuracy difference across benchmarks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "0.76",
+        "interval": {
+          "lower": "0.33",
+          "upper": "1.25",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": "0.0020",
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "75.59",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "76.35",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "W/T/L=11/2/0"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "accuracy",
+        "statistical-significance",
+        "Qwen3-8B"
+      ]
+    },
+    {
+      "atom_id": "3fa602b1-1b8d-5605-ab1a-0a42aa96fdda",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-14B (4-bit), MACRO improved mean accuracy over the baseline by 0.78 percentage points; the 95% benchmark-bootstrap confidence interval was [0.33, 1.31] and the Holm-corrected one-sided Wilcoxon p-value was 2.0e-3.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "Qwen3-14B (4-bit)",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "13 benchmark-level accuracy differences for Qwen3-14B (4-bit)",
+        "sample_size": 13,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean test accuracy difference across benchmarks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "0.78",
+        "interval": {
+          "lower": "0.33",
+          "upper": "1.31",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": "0.0020",
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "78.52",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "79.29",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "W/T/L=10/3/0"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "accuracy",
+        "statistical-significance",
+        "Qwen3-14B (4-bit)"
+      ]
+    },
+    {
+      "atom_id": "e6a3ec42-3398-5ca4-97cd-80b850b5d65b",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Mixtral-8x7B (4-bit), MACRO improved mean accuracy over the baseline by 1.33 percentage points; the 95% benchmark-bootstrap confidence interval was [0.86, 1.91] and the Holm-corrected one-sided Wilcoxon p-value was 7.3e-4.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "Mixtral-8x7B (4-bit)",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "13 benchmark-level accuracy differences for Mixtral-8x7B (4-bit)",
+        "sample_size": 13,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean test accuracy difference across benchmarks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "1.33",
+        "interval": {
+          "lower": "0.86",
+          "upper": "1.91",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": "0.00073",
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "62.1",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "63.43",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "W/T/L=13/0/0"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "accuracy",
+        "statistical-significance",
+        "Mixtral-8x7B (4-bit)"
+      ]
+    },
+    {
+      "atom_id": "6a07cc46-b3c8-5930-a340-65f91b233aa6",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For DeepSeek-R1-Distill-Llama-8B, MACRO improved mean accuracy over the baseline by 13.04 percentage points; the 95% benchmark-bootstrap confidence interval was [5.07, 22.00] and the Holm-corrected one-sided Wilcoxon p-value was 2.0e-3.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "DeepSeek-R1-Distill-Llama-8B",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "13 benchmark-level accuracy differences for DeepSeek-R1-Distill-Llama-8B",
+        "sample_size": 13,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean test accuracy difference across benchmarks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "13.04",
+        "interval": {
+          "lower": "5.07",
+          "upper": "22.0",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": "0.0020",
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "42.87",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "55.91",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "W/T/L=11/2/0"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "accuracy",
+        "statistical-significance",
+        "DeepSeek-R1-Distill-Llama-8B"
+      ]
+    },
+    {
+      "atom_id": "16542a6f-cdbb-5890-af8c-bf46e020c055",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "For each of the six main models in Table 3, the benchmark-level MACRO effect was statistically significant after Holm correction, no benchmark was classified as degraded, and every 95% confidence interval excluded zero.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "statistical-significance",
+        "consistency"
+      ]
+    },
+    {
+      "atom_id": "090b86e3-71f0-5c68-b6e8-8c72152c3019",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Llama-3.2-3B-Instruct, MACRO improved mean benchmark accuracy by 0.35 percentage points over baseline, with a 95% bootstrap confidence interval of [0.03, 0.79] and one-sided Wilcoxon p=0.033.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table A.1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix A",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "13 benchmarks for Llama-3.2-3B-Instruct",
+        "sample_size": 13,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean test accuracy difference across benchmarks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "0.35",
+        "interval": {
+          "lower": "0.03",
+          "upper": "0.79",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": "0.033",
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "65.87",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "66.2",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "accuracy",
+        "Llama-3.2-3B-Instruct"
+      ]
+    },
+    {
+      "atom_id": "9f68f05e-32f6-545d-91dd-b64ad7762f74",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3-1.7B, the no delta state ablation produced an average accuracy of 62.54%, a 0.49-point decrease from the full-state MACRO average of 63.03%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": "No delta",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B over 13 benchmarks",
+        "sample_size": 13,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "No delta",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full MACRO state",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Average benchmark accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference vs full state (percentage points)",
+        "estimate": "-0.49",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No delta",
+            "event_count": null,
+            "sample_size": null,
+            "value": "62.54",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Full state",
+            "event_count": null,
+            "sample_size": null,
+            "value": "63.03",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "state-space"
+      ]
+    },
+    {
+      "atom_id": "ed9da8e2-af57-5e80-88b9-c6ed8ed27f39",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3-1.7B, the no op context state ablation produced an average accuracy of 61.48%, a 1.55-point decrease from the full-state MACRO average of 63.03%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": "No op context",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B over 13 benchmarks",
+        "sample_size": 13,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "No op context",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full MACRO state",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Average benchmark accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference vs full state (percentage points)",
+        "estimate": "-1.55",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No op context",
+            "event_count": null,
+            "sample_size": null,
+            "value": "61.48",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Full state",
+            "event_count": null,
+            "sample_size": null,
+            "value": "63.03",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "state-space"
+      ]
+    },
+    {
+      "atom_id": "c8f85bac-d359-5294-beef-f801ac6e950b",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3-1.7B, the no phase state ablation produced an average accuracy of 59.56%, a 3.47-point decrease from the full-state MACRO average of 63.03%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": "No phase",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B over 13 benchmarks",
+        "sample_size": 13,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "No phase",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full MACRO state",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Average benchmark accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference vs full state (percentage points)",
+        "estimate": "-3.47",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No phase",
+            "event_count": null,
+            "sample_size": null,
+            "value": "59.56",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Full state",
+            "event_count": null,
+            "sample_size": null,
+            "value": "63.03",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "state-space"
+      ]
+    },
+    {
+      "atom_id": "513795e0-7056-595c-b107-55ac40d0f1e7",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "The state-space ablation showed the largest performance loss when budget phase was removed, indicating that routing decisions were most sensitive to the computation-budget phase among the tested state factors.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "budget-phase"
+      ]
+    },
+    {
+      "atom_id": "168fecf8-424d-5c0e-a2c1-4b34eca3bdd3",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Accuracy was reported as essentially flat across the tested selection-sharpness β values, whereas elite count was more consequential; m=1 was significantly worse than the authors’ setting and m=12 reduced selectivity.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 4",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "hyperparameter-analysis",
+        "robustness"
+      ]
+    },
+    {
+      "atom_id": "11af6528-dae7-5cdb-aa8a-c9c9a311dda7",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the Qwen3-1.7B logit-lens example for SVAMP, the figure reports a 15.4-log-probability-unit advantage for the correct answer at the final readout under the MACRO route relative to the baseline trajectory.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 5",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B SVAMP logit-lens example",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Correct-answer log-probability at final readout",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "logit lens",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "log-probability difference",
+        "estimate": "15.4",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "mechanistic-interpretability",
+        "logit-lens",
+        "SVAMP"
+      ]
+    },
+    {
+      "atom_id": "d2ba5715-ab8e-58e6-b731-cafa2f011370",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the Qwen3-1.7B logit-lens example for OpenBookQA, the figure reports a 14.0-log-probability-unit advantage for the correct answer at the final readout under the MACRO route relative to the baseline trajectory.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 5",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B OpenBookQA logit-lens example",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Correct-answer log-probability at final readout",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "logit lens",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "log-probability difference",
+        "estimate": "14.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "mechanistic-interpretability",
+        "logit-lens",
+        "OpenBookQA"
+      ]
+    },
+    {
+      "atom_id": "4ab05599-8568-5721-bb08-f9f13a4150a9",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the Qwen3-1.7B logit-lens example for GSM8K, the figure reports a 9.8-log-probability-unit advantage for the correct answer at the final readout under the MACRO route relative to the baseline trajectory.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 5",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B GSM8K logit-lens example",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Correct-answer log-probability at final readout",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "logit lens",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "log-probability difference",
+        "estimate": "9.8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "mechanistic-interpretability",
+        "logit-lens",
+        "GSM8K"
+      ]
+    },
+    {
+      "atom_id": "dcb2acfe-a2cb-5d15-ad6c-186643ab43b9",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the Qwen3-1.7B logit-lens example for MATH500, the figure reports a 7.5-log-probability-unit advantage for the correct answer at the final readout under the MACRO route relative to the baseline trajectory.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 5",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B MATH500 logit-lens example",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Correct-answer log-probability at final readout",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "logit lens",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "log-probability difference",
+        "estimate": "7.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "mechanistic-interpretability",
+        "logit-lens",
+        "MATH500"
+      ]
+    },
+    {
+      "atom_id": "42ccb416-4b72-51e4-a71a-271cae59aecd",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "The authors’ logit-lens analysis suggests that the standard forward pass can internally represent the correct answer and later suppress it, whereas MACRO can preserve the correct-answer signal through the final readout.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "mechanistic-interpretability",
+        "logit-lens"
+      ]
+    },
+    {
+      "atom_id": "9e2b8ecd-c54f-5c80-bda7-73e221b1b4c0",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the one-model/one-route experiment, the shared MACRO route changed Qwen3-1.7B mean in-domain accuracy from 71.50% to 74.29%, a +2.79-point difference.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": "Qwen3-1.7B",
+        "table_column": "in-domain",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B in-domain benchmark set",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean in-domain accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "2.79",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.5",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO shared route",
+            "event_count": null,
+            "sample_size": null,
+            "value": "74.29",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "route-transfer",
+        "shared-route",
+        "in-domain",
+        "Qwen3-1.7B"
+      ]
+    },
+    {
+      "atom_id": "c18dd8f0-988a-528e-bc1f-f81567d8ec4f",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the one-model/one-route experiment, the shared MACRO route changed Qwen3-1.7B mean out-of-domain accuracy from 30.98% to 40.00%, a +9.02-point difference.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": "Qwen3-1.7B",
+        "table_column": "out-of-domain",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B out-of-domain benchmark set",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean out-of-domain accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "9.02",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "30.98",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO shared route",
+            "event_count": null,
+            "sample_size": null,
+            "value": "40.0",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "route-transfer",
+        "shared-route",
+        "out-of-domain",
+        "Qwen3-1.7B"
+      ]
+    },
+    {
+      "atom_id": "dec0d880-543f-5d39-9ac0-35ca30970ef3",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the one-model/one-route experiment, the shared MACRO route changed Qwen3-4B mean in-domain accuracy from 83.77% to 84.07%, a +0.30-point difference.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": "Qwen3-4B",
+        "table_column": "in-domain",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-4B in-domain benchmark set",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean in-domain accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "0.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "83.77",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO shared route",
+            "event_count": null,
+            "sample_size": null,
+            "value": "84.07",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "route-transfer",
+        "shared-route",
+        "in-domain",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "53dfbe41-899d-5c8c-89c6-17a3ded40c47",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the one-model/one-route experiment, the shared MACRO route changed Qwen3-4B mean out-of-domain accuracy from 56.09% to 57.21%, a +1.12-point difference.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": "Qwen3-4B",
+        "table_column": "out-of-domain",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-4B out-of-domain benchmark set",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean out-of-domain accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "1.12",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "56.09",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO shared route",
+            "event_count": null,
+            "sample_size": null,
+            "value": "57.21",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "route-transfer",
+        "shared-route",
+        "out-of-domain",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "1a14d85d-41b5-56dc-acd2-fb77a506e446",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "method",
+      "canonical_statement": "The one-model/one-route experiment trains a single shared policy on eight in-domain benchmarks and evaluates the selected route on those held-out test splits plus five out-of-domain benchmarks.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "route-transfer",
+        "shared-route"
+      ]
+    },
+    {
+      "atom_id": "4a17b6c3-8342-5c94-bf0d-6829833b5888",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Cross-benchmark transfer is strongest on the diagonal but non-diagonal transfer occurs, especially among related mathematical-reasoning tasks, which the authors interpret as evidence that some routes encode reusable computation rather than only benchmark-specific effects.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 6",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "route-transfer",
+        "generalization"
+      ]
+    },
+    {
+      "atom_id": "22cb5309-f173-51ca-a164-93e04596a16c",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-1.7B on GSM8K, the selected MACRO route increased accuracy from 43.44% to 69.52% (+26.08 points) while increasing executed layer applications from 28 to 33.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table B.1",
+        "table_row": "Qwen3-1.7B / GSM8K",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix B",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B GSM8K test evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "GSM8K test accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "26.08",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "43.44",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "69.52",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "best-route",
+        "GSM8K",
+        "Qwen3-1.7B",
+        "layer-count:28-to-33"
+      ]
+    },
+    {
+      "atom_id": "dbf112c8-761d-50e3-a2a2-59dc3d64d3c4",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-1.7B on multistep arithmetic, the selected MACRO route increased accuracy from 26.00% to 91.00% (+65.00 points) while using 30 rather than 28 layer applications.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table B.1",
+        "table_row": "Qwen3-1.7B / MS-Arith",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix B",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B multistep-arithmetic test evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Multistep-arithmetic test accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "65.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "26.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "91.0",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "best-route",
+        "MS-Arith",
+        "Qwen3-1.7B",
+        "layer-count:28-to-30"
+      ]
+    },
+    {
+      "atom_id": "81f33c50-6dff-52a2-844e-3ae8f7810750",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For DeepSeek-R1-Distill-Llama-8B on ASDiv, the selected MACRO route increased accuracy from 46.23% to 86.79% (+40.57 points), with layer applications changing 32→43.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table B.2",
+        "table_row": "DeepSeek-R1-Distill-Llama-8B / ASDiv",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix B",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "DeepSeek-R1-Distill-Llama-8B ASDiv test evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "ASDiv test accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "40.57",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "46.23",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "86.79",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "best-route",
+        "ASDiv",
+        "DeepSeek-R1-Distill-Llama-8B",
+        "layer-count:32→43"
+      ]
+    },
+    {
+      "atom_id": "4cff99e6-7042-5f85-8780-b6c321572b44",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For DeepSeek-R1-Distill-Llama-8B on MS-Arith, the selected MACRO route increased accuracy from 36.67% to 86.67% (+50.00 points), with layer applications changing 32→42.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table B.2",
+        "table_row": "DeepSeek-R1-Distill-Llama-8B / MS-Arith",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix B",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "DeepSeek-R1-Distill-Llama-8B MS-Arith test evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "MS-Arith test accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "50.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "36.67",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "86.67",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "best-route",
+        "MS-Arith",
+        "DeepSeek-R1-Distill-Llama-8B",
+        "layer-count:32→42"
+      ]
+    },
+    {
+      "atom_id": "f0d7f1c4-20f6-5014-bb57-dfc65dee7a2b",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For DeepSeek-R1-Distill-Llama-8B on Obj-Count, the selected MACRO route increased accuracy from 34.00% to 70.00% (+36.00 points), with layer applications changing 32→33.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table B.2",
+        "table_row": "DeepSeek-R1-Distill-Llama-8B / Obj-Count",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix B",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "DeepSeek-R1-Distill-Llama-8B Obj-Count test evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Obj-Count test accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference (percentage points)",
+        "estimate": "36.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Baseline",
+            "event_count": null,
+            "sample_size": null,
+            "value": "34.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MACRO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "70.0",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "best-route",
+        "Obj-Count",
+        "DeepSeek-R1-Distill-Llama-8B",
+        "layer-count:32→33"
+      ]
+    },
+    {
+      "atom_id": "31d6e254-4606-5aaf-b74b-8961c243db9c",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Selected nonstandard routes use local move actions across all model families, while add operations appear more selectively and are more frequent in the smallest and distilled models.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table B.5",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix B",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "route-composition",
+        "add-operation",
+        "local-move"
+      ]
+    },
+    {
+      "atom_id": "aa281eba-2011-5881-a8a4-e9852cfbba3e",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3-1.7B across 13 benchmarks, MACRO routes increased mean per-item decoding latency by 16.1% relative to the standard route.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure D.1",
+        "supplement": "Appendix D",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B inference profiling across 13 benchmarks; 64 test items per benchmark",
+        "sample_size": 13,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Per-item decoding latency overhead",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "relative latency overhead (%)",
+        "estimate": "16.1",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "inference-cost",
+        "latency",
+        "Qwen3-1.7B"
+      ]
+    },
+    {
+      "atom_id": "7ecf634f-d799-5fee-aacc-531bf6f46a8e",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3-1.7B across 13 benchmarks, MACRO routes increased mean peak GPU memory by 4.6%, corresponding to 335 MB, relative to the standard route.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure D.1",
+        "supplement": "Appendix D",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": {
+        "label": "Qwen3-1.7B inference profiling across 13 benchmarks; 64 test items per benchmark",
+        "sample_size": 13,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MACRO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Task-specific Markov layer-routing policy"
+        },
+        {
+          "concept": {
+            "text": "Unrouted baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Standard sequential transformer execution"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Peak GPU memory overhead",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "relative peak-memory overhead (%)",
+        "estimate": "4.6",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "335 MB mean additional peak memory"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "inference-cost",
+        "GPU-memory",
+        "Qwen3-1.7B"
+      ]
+    },
+    {
+      "atom_id": "166f85c4-146a-5dbb-93da-bf6da2968c89",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Inference overhead varied by selected route length and could be negligible or negative when the selected route stayed close to or shorter than the standard forward pass.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix D",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "inference-cost",
+        "route-length"
+      ]
+    },
+    {
+      "atom_id": "776c756c-1ef8-5206-832a-3d351c33e602",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors conclude that MACRO is a lightweight dynamic routing method that outperforms the unrouted base model and Dr.LLM across the evaluated benchmarks and LLM models.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "author-conclusion",
+        "dynamic-layer-routing"
+      ]
+    },
+    {
+      "atom_id": "74c8016f-285b-548c-90b8-86fb37608f7d",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors argue that their mechanistic evidence is more consistent with routing improving exposure of an already-computed answer than with routing creating the reasoning itself.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "author-conclusion",
+        "mechanistic-interpretability"
+      ]
+    },
+    {
+      "atom_id": "292d9ca1-562f-5fe3-923b-936016e65ebd",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors propose more extensive input-dependent dynamic routing as a future direction for flexible test-time scaling.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "future-work",
+        "test-time-scaling"
+      ]
+    },
+    {
+      "atom_id": "cce07024-4ff9-551e-bc55-9ff8fde91ed2",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "limitation",
+      "canonical_statement": "The mechanistic interpretability evidence is explicitly described by the authors as limited and does not establish why routing improves performance.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "mechanistic-interpretability"
+      ]
+    },
+    {
+      "atom_id": "cbb609ea-9a28-5c31-9dc3-876b90af5548",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "limitation",
+      "canonical_statement": "Route-transfer results are mostly strongest on the route’s source benchmark, indicating substantial task specificity despite some off-diagonal transfer.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 6",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "route-transfer",
+        "task-specificity"
+      ]
+    },
+    {
+      "atom_id": "9dcf6065-af41-55a6-ba52-8228b877e8be",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "other",
+      "canonical_statement": "The paper states that the MACRO code is publicly available at the authors’ GitHub repository.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "code-availability",
+        "reproducibility"
+      ]
+    },
+    {
+      "atom_id": "3941c82c-61d2-5bf6-a297-35bb369a26cb",
+      "publication_id": "a001b707-22fe-5f75-b94f-c1a73247dc37",
+      "atom_kind": "other",
+      "canonical_statement": "The authors state that large language models were used only for editing, grammar, presentation, and implementation-code support, and that substantive technical contributions, experimental design, analyses, interpretations, and final research judgments were made by the authors.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "other",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "ChatGPT Literature Review @ATOM",
+        "extracted_at": "2026-08-08T07:44:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "ATOM macro / LiteratureAtom schema 1.0",
+        "input_document_hash": "a8339f4c0fba87a08e4f328d88d32d9048090a27df982dcbee9078a558876f86",
+        "extraction_run_id": "f7bdf775-7e68-5f95-a0d9-c7f79df6cc0f",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:44:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "LLM-assistance",
+        "disclosure"
+      ]
+    }
+  ],
+  "validation_report": {
+    "pydantic_model": "LiteratureAtom schema_version 1.0",
+    "structural_validation": {
+      "valid_count": 62,
+      "error_count": 0,
+      "errors": []
+    },
+    "json_schema_validation": {
+      "error_count": 0,
+      "errors": []
+    },
+    "sufficiency_validation": {
+      "valid_count": 62,
+      "error_count": 0,
+      "warning_count": 0,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "extraction_limitations": [
+    "Extraction prioritizes independently reviewable, load-bearing methods, aggregate findings, ablations, transfer results, representative route results, inference-cost findings, conclusions, and disclosures; it does not atomize every numeric cell in Tables 2 and B.1-B.4.",
+    "Most canonical statements are normalized paraphrases and are therefore marked normalized_from_source rather than directly_reported.",
+    "The schema has no dedicated fields for model architecture, benchmark identity, route strings, compute hardware, or software/code availability; those details are retained in canonical statements, source anchors, original_result_text where applicable, and tags.",
+    "No explicit funding disclosure, conflict-of-interest statement, or standalone data-availability statement was identified in the supplied preprint text; no such atoms were invented.",
+    "All atoms remain needs_review because no human reviewer verification was performed."
+  ]
+}

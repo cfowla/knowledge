@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA — Healthcare Utilization and Impact of Antifungal Stewardships Within Respiratory Care Settings</title>
+<style>
+:root {
+  --bg:#f6f8fb; --card:#ffffff; --ink:#17202a; --muted:#5b6878; --line:#d8e0ea;
+  --accent:#1d4f91; --accent2:#173f72; --good:#0f6b3b; --warn:#8a5a00; --bad:#8a1f1f;
+  --soft:#eef4fb; --goodbg:#edf8f2; --warnbg:#fff7e8; --badbg:#fff0f0; --codebg:#0e1726; --codefg:#edf4ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.56}
+header{background:linear-gradient(135deg,#10243d,#1d4f91);color:#fff;padding:2.7rem 1.2rem 2.4rem;border-bottom:5px solid #cfe0f4}
+.wrap{max-width:1160px;margin:0 auto;padding:0 1.15rem}
+header h1{margin:0;max-width:980px;font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.08}
+header p{max-width:900px;margin:.85rem 0 0;color:#e7eef8}
+.kicker{text-transform:uppercase;letter-spacing:.11em;font-weight:800;font-size:.77rem;color:#c8d9ef;margin-bottom:.6rem}
+main.wrap{padding-top:1.2rem;padding-bottom:2rem}
+nav.toc, section{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 5px rgba(16,36,61,.05);margin:1rem 0;padding:1.1rem 1.25rem}
+nav.toc h2, section>h2{margin:.05rem 0 .85rem;color:#0f315f;font-size:1.3rem}
+nav.toc ul{columns:2;gap:2rem;margin:.4rem 0;padding-left:1.25rem}
+nav.toc li{margin:.25rem 0}
+a{color:var(--accent);text-decoration-thickness:.08em;text-underline-offset:.15em}
+.meta-grid,.rating-grid,.takeaway-grid,.two-col,.three-col{display:grid;gap:.8rem}
+.meta-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.rating-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.takeaway-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}
+.three-col{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mini-card{border:1px solid var(--line);border-radius:11px;padding:.85rem .95rem;background:#fbfcfe}
+.mini-card h3{margin:0 0 .35rem;color:var(--accent2);font-size:1rem}
+.mini-card p{margin:.18rem 0}
+.label{font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:800}
+.value{font-weight:650}
+.verdict,.warning,.badnote,.goodnote{border-radius:11px;padding:.9rem 1rem;margin:.8rem 0}
+.verdict{border-left:5px solid var(--accent);background:#eef5ff}
+.warning{border-left:5px solid var(--warn);background:var(--warnbg)}
+.badnote{border-left:5px solid var(--bad);background:var(--badbg)}
+.goodnote{border-left:5px solid var(--good);background:var(--goodbg)}
+.section-summary{border-top:1px solid var(--line);padding:.9rem 0 .25rem}
+.section-summary:first-of-type{border-top:0}
+.section-summary h3{margin:.1rem 0 .4rem;color:var(--accent2)}
+.section-summary p{margin:.42rem 0}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.7rem 0 0}
+.tag{display:inline-block;border:1px solid #cbd7e7;background:#f1f6fc;color:#173f72;border-radius:999px;padding:.2rem .55rem;font-size:.8rem;font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:.89rem;margin:.7rem 0}
+th,td{border:1px solid var(--line);padding:.5rem .55rem;vertical-align:top}
+th{background:#eef3f9;color:#1e395c;text-align:left;position:sticky;top:0}
+.table-wrap{overflow-x:auto;border-radius:10px}
+.muted{color:var(--muted);font-size:.87em}
+.grade{font-weight:800;white-space:nowrap}
+.grade.moderate{color:#7a4e00}
+.grade.low{color:#7b2830}
+.grade.very-low{color:#8a1f1f}
+pre{background:var(--codebg);color:var(--codefg);border-radius:11px;padding:1rem;overflow:auto;white-space:pre-wrap;line-height:1.45}
+.flow{display:grid;grid-template-columns:1fr auto 1fr;gap:.65rem;align-items:center;margin:.8rem 0}
+.flow .box{border:1px solid #aebfd4;background:#f7fbff;border-radius:9px;padding:.7rem;text-align:center}
+.flow .arrow{font-size:1.35rem;color:var(--accent);font-weight:900}
+.score{font-size:1.5rem;font-weight:850;color:#0f315f}
+.rating{border:1px solid var(--line);border-radius:11px;padding:.9rem;background:#fbfcfe}
+.rating h3{margin:0;display:flex;justify-content:space-between;gap:.5rem;color:var(--accent2);font-size:1rem}
+.rating p{margin:.35rem 0;font-size:.91rem}
+.rating strong{color:#26384e}
+ul.tight{margin:.35rem 0;padding-left:1.15rem}
+ul.tight li{margin:.26rem 0}
+footer{color:var(--muted);font-size:.85rem;padding:0 0 2rem}
+.small{font-size:.88rem}
+hr{border:0;border-top:1px solid var(--line);margin:1rem 0}
+@media(max-width:850px){
+  .meta-grid,.rating-grid,.takeaway-grid,.two-col,.three-col{grid-template-columns:1fr}
+  nav.toc ul{columns:1}
+  .flow{grid-template-columns:1fr}
+  .flow .arrow{transform:rotate(90deg);text-align:center}
+}
+@media print{
+  body{background:#fff}
+  header{background:#fff;color:#000;border-bottom:2px solid #000;padding:1rem 0}
+  header p,.kicker{color:#333}
+  nav.toc,section{box-shadow:none;break-inside:avoid}
+  th{position:static}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">Summary · Evaluation · Appraisal</div>
+    <h1>Healthcare Utilization and Impact of Antifungal Stewardships Within Respiratory Care Settings: A Systematic Literature Review</h1>
+    <p>Source-grounded appraisal of Aldossary &amp; Shah, <em>Mycopathologia</em> (2021), emphasizing antifungal stewardship, respiratory-care applicability, therapeutic drug monitoring, multidisciplinary care, and evidence limitations.</p>
+  </div>
+</header>
+
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#clinical-question">Clinical question / PICO</a></li>
+    <li><a href="#coverage">Coverage and source map</a></li>
+    <li><a href="#sections">Section condensation</a></li>
+    <li><a href="#visuals">Figures and tables</a></li>
+    <li><a href="#systematic-review">Systematic-review appraisal</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#takeaways">Implementation / practice takeaways</a></li>
+    <li><a href="#provenance">Provenance and caveats</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+<h2>Metadata</h2>
+<div class="meta-grid">
+  <div class="mini-card"><div class="label">Exact title</div><div class="value">Healthcare Utilization and Impact of Antifungal Stewardships Within Respiratory Care Settings: A Systematic Literature Review</div></div>
+  <div class="mini-card"><div class="label">Authors</div><div class="value">Salma Aldossary; Anand Shah</div></div>
+  <div class="mini-card"><div class="label">Source</div><div class="value"><em>Mycopathologia</em> 186:673–684 (2021)</div></div>
+  <div class="mini-card"><div class="label">Published</div><div class="value">15 May 2021</div></div>
+  <div class="mini-card"><div class="label">Identifier</div><div class="value"><a href="https://doi.org/10.1007/s11046-021-00547-z">doi:10.1007/s11046-021-00547-z</a></div></div>
+  <div class="mini-card"><div class="label">Source type / design</div><div class="value">Systematic literature review; PRISMA-guided qualitative synthesis</div></div>
+</div>
+<div class="warning"><strong>Scope warning.</strong> This review is useful for mapping antifungal-stewardship concepts and the scarcity of respiratory-specific evidence. It does not establish a validated respiratory antifungal-stewardship protocol, and most included evidence comes from invasive fungal disease—especially Candida-focused hospital populations—rather than chronic pulmonary fungal disease.</div>
+</section>
+
+<section id="synthesis">
+<h2>One-page synthesis</h2>
+<div class="verdict"><strong>Core thesis:</strong> antifungal stewardship appears capable of improving antifungal selection, use, diagnostics, therapeutic drug monitoring, toxicity management, and expenditure in hospital practice, but the evidence directly addressing chronic respiratory fungal disease is sparse and low certainty.</div>
+
+<div class="two-col">
+  <div class="mini-card">
+    <h3>What the review found</h3>
+    <ul class="tight">
+      <li>The search retrieved 3229 records from Medline (987), Embase (1761), and GlobalHealth (481).</li>
+      <li>The main Results text and PRISMA figure report 29 included records; the abstract reports 28.</li>
+      <li>Figure 1 separates 27 records focused on invasive fungal disease from only 2 focused on chronic respiratory disease.</li>
+      <li>The Results text states 25 of 29 articles focused on Candida-related invasive fungal disease and 14 included populations with chronic respiratory illness, but only two specifically studied chronic respiratory fungal infection/pulmonary aspergillosis.</li>
+      <li>Eleven articles were summarized as showing more appropriate antifungal use and less overuse/misuse without worsening care or outcomes.</li>
+    </ul>
+  </div>
+  <div class="mini-card">
+    <h3>Respiratory-specific signal</h3>
+    <ul class="tight">
+      <li><strong>Nwankwo et al.:</strong> prospective 18-month cohort, 178 patients; CPA was 32% of the cohort; 285 stewardship recommendations; therapeutic azole dosing increased; monthly antifungal expenditure fell 44% with no reported deleterious outcome.</li>
+      <li><strong>Browne et al.:</strong> multidisciplinary review of 32 chronic-lung-infection cases, 13 categorized as complex fungal lung infection; team included respiratory physicians, infectious diseases, microbiology, and two pharmacists; TDM was implemented and the review reports a significant reduction in resistance development.</li>
+      <li>Both respiratory-focused studies are characterized by the review as low/very-low certainty evidence.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="badnote"><strong>Main constraint:</strong> the review’s directness is substantially weaker than its title implies. Most evidence concerns candidemia, ICU/invasive fungal disease, diagnostic stewardship, or antifungal use in broader hospital populations. The paper itself repeatedly states that robust evidence for chronic respiratory antifungal stewardship is lacking.</div>
+
+<div class="tags">
+  <span class="tag">antifungal stewardship</span><span class="tag">respiratory care</span><span class="tag">CPA</span><span class="tag">ABPA</span><span class="tag">Aspergillus</span><span class="tag">Candida</span><span class="tag">TDM</span><span class="tag">multidisciplinary team</span><span class="tag">diagnostic stewardship</span><span class="tag">azole resistance</span>
+</div>
+</section>
+
+<section id="clinical-question">
+<h2>Clinical question / PICO</h2>
+<div class="meta-grid">
+  <div class="mini-card"><h3>Population</h3><p>Intended focus: patients with chronic respiratory disease and fungal infection, allergy, or sensitization. Actual included evidence: heterogeneous hospital populations, predominantly invasive fungal disease and Candida-focused cohorts.</p></div>
+  <div class="mini-card"><h3>Intervention</h3><p>Antifungal stewardship, including multidisciplinary review, pharmacist/ID involvement, therapeutic drug monitoring, diagnostic stewardship, rapid diagnostics, susceptibility testing, and standardized antifungal-use practices.</p></div>
+  <div class="mini-card"><h3>Comparator</h3><p>Variable and often implicit: pre-intervention care, usual care, no specialist consultation, or no stewardship intervention. Several studies were observational without a strong concurrent comparator.</p></div>
+  <div class="mini-card"><h3>Outcomes</h3><p>Antifungal appropriateness/use, expenditure, therapeutic exposure, diagnostic speed, toxicity, mortality/morbidity, and resistance-related outcomes.</p></div>
+  <div class="mini-card"><h3>Review question</h3><p>What evidence exists for the use and impact of antifungal stewardship within chronic respiratory disease care?</p></div>
+  <div class="mini-card"><h3>Answer supported by this source</h3><p>Potential benefit is plausible and repeatedly observed in broader invasive-fungal-disease stewardship, but direct respiratory evidence is too limited to define efficacy or a standard implementation model.</p></div>
+</div>
+</section>
+
+<section id="coverage">
+<h2>Coverage and source map</h2>
+<div class="two-col">
+  <div class="mini-card">
+    <h3>Mapped main-text structure</h3>
+    <ul class="tight">
+      <li>Abstract</li>
+      <li>Introduction</li>
+      <li>Methodology</li>
+      <li>Results
+        <ul>
+          <li>Disease area of focus</li>
+          <li>Quality of study analysis</li>
+          <li>Reported outcomes</li>
+        </ul>
+      </li>
+      <li>Discussion</li>
+      <li>Conclusion</li>
+      <li>References</li>
+    </ul>
+  </div>
+  <div class="mini-card">
+    <h3>Visual / supplemental inventory</h3>
+    <ul class="tight">
+      <li><strong>Figure 1:</strong> PRISMA flow diagram — represented below as a structured reconstruction.</li>
+      <li><strong>Table 1:</strong> Included study characteristics — represented below as a structured reconstruction of all visible study rows.</li>
+      <li><strong>Algorithms/workflows:</strong> none in the main text.</li>
+      <li><strong>Supplementary information:</strong> cited for the search strategy and included-study references, but not present in the uploaded PDF; therefore not appraised directly.</li>
+    </ul>
+  </div>
+</div>
+<div class="warning"><strong>Coverage limitation:</strong> because the supplementary search strategy is not contained in the uploaded PDF, reproducibility of the full database query cannot be checked here. The main-text figure and table are fully reconciled below.</div>
+</section>
+
+<section id="sections">
+<h2>Section condensation</h2>
+
+<div class="section-summary">
+<h3>Abstract</h3>
+<p>The review frames fungal infection and sensitization as common and clinically important in bronchiectasis, COPD, and cystic fibrosis, where prolonged antifungal exposure may occur. The stated gap is that antifungal stewardship has expanded in invasive fungal disease but is poorly defined in chronic respiratory care.</p>
+<p>The authors report a PRISMA-guided search of Medline, Embase, and GlobalHealth for 1949–2020, with CASP/GRADE assessment and qualitative synthesis. The abstract reports 28 included papers and only two Aspergillus-focused studies; this count conflicts with the 29 records reported in the Results and PRISMA figure.</p>
+</div>
+
+<div class="section-summary">
+<h3>Introduction</h3>
+<p>The background describes a spectrum of Aspergillus-related respiratory disease—from sensitization and ABPA to CPA and invasive disease—and emphasizes prolonged triazole exposure, emerging triazole resistance, toxicity, and the role of therapeutic drug monitoring. Stewardship is positioned as a means to optimize indication, drug selection, PK/PD exposure, duration, route, toxicity, and resistance risk.</p>
+<p>The respiratory rationale is clinically coherent within the source, but several background citations are not obviously aligned with the statements they support when cross-checked against the paper’s own reference list; for example, references 11 and 12 are cited after a TDM/PK-PD stewardship statement although their listed titles concern ESBL bloodstream-infection risk factors and benzodiazepine/wine use, respectively. This is an internal citation-integrity concern.</p>
+</div>
+
+<div class="section-summary">
+<h3>Methodology</h3>
+<p>The authors describe a PRISMA-based systematic literature review searching Medline via Ovid, Embase, and GlobalHealth for publications from 1949 through 2020. Eligible papers implemented antifungal stewardship with reported outcomes or reported clinical outcomes of antifungal TDM. Exclusions included non-English papers, case reports, and narrative/systematic reviews. Covidence was used for screening.</p>
+<p>Because populations, interventions, and outcomes differed, the review used descriptive summary and qualitative synthesis rather than meta-analysis. The paper says included studies were assessed with GRADE and mentions CASP in the abstract, but the main text does not provide a reproducible per-domain risk-of-bias assessment, detailed CASP results, or explicit upgrade/downgrade reasoning for the GRADE labels.</p>
+</div>
+
+<div class="section-summary">
+<h3>Results — disease area and directness</h3>
+<p>The search yielded 3229 records. After duplicate removal, screening, and exclusions, Figure 1 reports 29 final records: 27 focused on invasive fungal disease and only 2 on chronic respiratory disease. The narrative states 25 of 29 articles were predominantly Candida/invasive-fungal-disease studies, while 14 included some patients with chronic respiratory illness.</p>
+<p>The two specifically respiratory-focused studies were Nwankwo et al. and Browne et al. This creates the review’s central finding: antifungal-stewardship evidence exists, but the direct evidence base for chronic pulmonary fungal disease is extremely small relative to the broader hospital stewardship literature.</p>
+</div>
+
+<div class="section-summary">
+<h3>Results — respiratory-specific studies</h3>
+<p>Nwankwo et al. is summarized as an 18-month prospective cohort of 178 patients at a tertiary cardio-pulmonary hospital. A mycologist and pharmacist provided weekly stewardship rounds, a multidisciplinary meeting twice weekly, and an outpatient clinic. CPA represented 32% of underlying fungal disease. The programme generated 285 specific recommendations, increased therapeutic azole dosing, and reduced monthly antifungal expenditure by 44% without a reported deleterious clinical outcome.</p>
+<p>Browne et al. used a complex lung-infection multidisciplinary team comprising three respiratory physicians, an infectious-diseases specialist, a microbiologist, and two pharmacists. The team met six times in 12 months, discussed 32 cases, and classified 13 as complex fungal lung infection (including SAIA, CPA, CPA/ABPA overlap, and ABPA/bacterial-infection overlap). TDM was implemented; the review reports a significant reduction in resistance development but does not provide the effect size in its narrative.</p>
+</div>
+
+<div class="section-summary">
+<h3>Results — quality and outcomes</h3>
+<p>The majority of included studies were observational and classified as low or very-low evidence. The Results section says three studies reached moderate GRADE quality; Table 1 visibly labels Menichetti, Swoboda, and Reed as moderate. The Discussion later says four studies reached moderate grade evidence, creating another internal inconsistency.</p>
+<p>Eleven articles were summarized as supporting more appropriate antifungal use and less overuse/misuse without worsening quality of care or outcomes. Rapid diagnostics such as T2 Candida and MALDI-TOF were associated with faster diagnosis and reduced inappropriate antifungal use. Multidisciplinary stewardship was associated with less hepatotoxicity and lower 30-day in-hospital mortality in candidaemia in some included studies. These signals are not pooled and arise from heterogeneous study designs and populations.</p>
+</div>
+
+<div class="section-summary">
+<h3>Discussion</h3>
+<p>The authors interpret the broader invasive-fungal-disease literature as supportive of antifungal stewardship for optimizing therapy, reducing toxicity, and possibly improving mortality-related outcomes. Protocolized indication/dose review and TDM are emphasized. They explicitly state that whether optimized long-term therapy reduces acquisition or development of antifungal resistance remains unclear.</p>
+<p>For chronic respiratory care, the authors emphasize the absence of a robust evidence base, variability in diagnosis and management, and the need for prospective work. They also note that no included paper evaluated stewardship effects on fungal sensitization control, despite antifungal use in allergic respiratory disease such as ABPA.</p>
+</div>
+
+<div class="section-summary">
+<h3>Conclusion</h3>
+<p>The review concludes that antifungal stewardship is a logical extension of antimicrobial stewardship and appears beneficial in invasive fungal disease, but its application and evidence base remain limited in chronic respiratory disease despite prolonged antifungal exposure and resistance concerns.</p>
+<p>The source’s most defensible conclusion is therefore a research and implementation gap rather than proof of respiratory-specific effectiveness: further work is needed to define resistance drivers and determine the impact of antifungal stewardship in chronic respiratory populations.</p>
+</div>
+</section>
+
+<section id="visuals">
+<h2>Figures, tables, and visual evidence</h2>
+
+<h3>Figure 1 — PRISMA flow diagram of search and selection process</h3>
+<div class="flow">
+  <div class="box"><strong>Identification</strong><br>Medline 987<br>Embase 1761<br>GlobalHealth 481<br><strong>Total 3229</strong></div>
+  <div class="arrow">→</div>
+  <div class="box">Records after duplicates removed<br><strong>n = 2419</strong></div>
+  <div class="box">Records screened<br><strong>n = 2419</strong></div>
+  <div class="arrow">→</div>
+  <div class="box">Irrelevant records excluded<br><strong>n = 1490</strong></div>
+  <div class="box">Records for abstract screening<br><strong>n = 929</strong></div>
+  <div class="arrow">→</div>
+  <div class="box">Excluded at abstract stage<br><strong>n = 656</strong></div>
+  <div class="box">Full-text screening<br><strong>n = 273</strong></div>
+  <div class="arrow">→</div>
+  <div class="box">Records included in final review<br><strong>n = 29</strong></div>
+</div>
+<pre>Abstract-screen exclusions (n=656)
+• 388 — no focus on antifungal agents or antifungal stewardship
+• 101 — wrong outcomes
+• 59  — wrong study design
+• 47  — systematic review or meta-analysis
+• 32  — not available
+• 12  — wrong patient population
+• 8   — wrong intervention
+• 9   — case report
+
+Final review allocation:
+• 27 records — invasive fungal disease
+• 2 records  — chronic respiratory disease</pre>
+<div class="warning"><strong>Figure appraisal:</strong> the arithmetic in the flow diagram is internally coherent from 2419 screened → 929 abstracts → 273 full texts → 29 final records. However, the abstract states 28 included papers, so the source has a count discrepancy outside the figure.</div>
+
+<h3>Table 1 — Included study characteristics</h3>
+<p class="small">Structured reconstruction of all <strong>28 visible study rows</strong> in Table 1 across the uploaded PDF. The source narrative and Figure 1 state 29 included records. Key columns are preserved; wording is condensed for readability.</p>
+<div class="table-wrap">
+<table>
+<thead><tr>
+  <th>Study</th><th>Design</th><th>Fungal type</th><th>Intervention / duration</th><th>Population / setting</th><th>Chronic respiratory patients</th><th>Reported outcome</th><th>GRADE</th>
+</tr></thead>
+<tbody>
+<tr>
+      <td>Shah et al. [28]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Invasive/diagnostic testing<br><span class="muted">48 h–24 days</span></td>
+      <td>Immunocompetent adults in medical and surgical ICUs</td>
+      <td>Yes</td>
+      <td>Respiratory-tract fungal testing did not add diagnostic value.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Mondain et al. [29]</td>
+      <td>Prospective observational</td>
+      <td>Invasive aspergillosis and candidaemia</td>
+      <td>Multifaceted antifungal-stewardship discussion<br><span class="muted">48 h–2 weeks</span></td>
+      <td>French teaching tertiary-care hospital</td>
+      <td>Yes</td>
+      <td>Programme described as feasible, sustainable, and well accepted.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>López-Medrano et al. [31]</td>
+      <td>Intervention; non-randomized uncontrolled before–after</td>
+      <td>Candida species</td>
+      <td>Antimicrobial-stewardship intervention<br><span class="muted">1–2 years</span></td>
+      <td>University Hospital 12 de Octubre, 1300-bed hospital</td>
+      <td>Yes</td>
+      <td>Primary reported outcome was reduced antifungal expenditure.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Alfandari et al. [20]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Multidisciplinary collaborative antifungal use in haematology<br><span class="muted">4–5 days</span></td>
+      <td>Allograft and acute-leukaemia induction patients; Lille Regional Teaching Hospital</td>
+      <td>No</td>
+      <td>Reduced antifungal consumption, stabilized IFI incidence, and lower IFI-related mortality were reported.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Muñoz et al. [32]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Educational and bedside intervention<br><span class="muted">2 years</span></td>
+      <td>Hospitalized patients with invasive candidiasis and invasive aspergillosis</td>
+      <td>Yes</td>
+      <td>Reduced defined daily doses and antifungal expenditure.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Vissichelli et al. [2]</td>
+      <td>Retrospective</td>
+      <td>Aspergillus species</td>
+      <td>Review of bronchoalveolar-lavage results<br><span class="muted">2 years</span></td>
+      <td>Autologous haematopoietic stem-cell transplant recipients</td>
+      <td>Yes</td>
+      <td>Antifungal therapy was more likely to be escalated or changed.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Whitney et al. [24]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Antifungal susceptibility testing / stewardship<br><span class="muted">5–6 days</span></td>
+      <td>Adult inpatients receiving amphotericin B, echinocandins, IV fluconazole, flucytosine, or voriconazole; St George’s tertiary referral hospital</td>
+      <td>Yes</td>
+      <td>Expenditure initially fell, then rose to 20% above baseline over a 5-year period.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Hamada et al. [33]</td>
+      <td>Retrospective</td>
+      <td>N/A</td>
+      <td>Voriconazole trough concentration monitoring<br><span class="muted">4 days</span></td>
+      <td>Hospitalized patients receiving voriconazole at five Japanese hospitals</td>
+      <td>No</td>
+      <td>Reduced incidence of hepatotoxicity.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Shah et al. [34]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Fluconazole or echinocandin administration / de-escalation assessment<br><span class="muted">5 ± 2 days</span></td>
+      <td>Hospitalized patients with candidaemia</td>
+      <td>No</td>
+      <td>Fewer than 40% of echinocandin-treated patients with fluconazole-susceptible organisms were de-escalated to fluconazole.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Gurram et al. [43]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Bronchoalveolar-lavage diagnostic stewardship<br><span class="muted">6–12 months</span></td>
+      <td>Immunocompromised adults undergoing bronchoscopy with an immunocompromised-host protocol</td>
+      <td>Yes</td>
+      <td>Candida in bronchoscopy cultures was unlikely to prompt intervention.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Rautemaa-Richardson et al. [35]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Diagnostics-driven review of antifungal therapy<br><span class="muted">4 months</span></td>
+      <td>Patients prescribed micafungin for suspected/proven invasive candidosis; UK tertiary referral teaching hospital</td>
+      <td>Yes</td>
+      <td>Number of patients treated for invasive candidiasis decreased.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Mondain et al. [30]</td>
+      <td>Prospective observational</td>
+      <td>Candida species</td>
+      <td>Systematic evaluation<br><span class="muted">2–5 days</span></td>
+      <td>Teaching tertiary-care hospital</td>
+      <td>No</td>
+      <td>Improved quality of care with stable antifungal use and cost.</td>
+      <td><span class="grade very-low">Very low</span></td>
+    </tr>
+<tr>
+      <td>Antworth et al. [36]</td>
+      <td>Single-centre quasi-experimental</td>
+      <td>Candida species</td>
+      <td>Comprehensive candidaemia care bundle<br><span class="muted">3 days</span></td>
+      <td>Patients with candidaemia in a 930-bed academic hospital</td>
+      <td>No</td>
+      <td>Improved management of candidaemia.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Menichetti et al. [21]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Infectious-diseases consultation<br><span class="muted">30 days</span></td>
+      <td>Patients with documented candidaemia at Pisa tertiary-care university hospital</td>
+      <td>No</td>
+      <td>Lower 30-day in-hospital mortality with infectious-diseases consultation versus without consultation.</td>
+      <td><span class="grade moderate">Moderate</span></td>
+    </tr>
+<tr>
+      <td>Swoboda et al. [19]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Standardized antifungal-therapy practice<br><span class="muted">45 days</span></td>
+      <td>ICU patients with fungal recovery from any site and/or systemic antifungal exposure</td>
+      <td>No</td>
+      <td>Significant decrease in antifungal use and costs.</td>
+      <td><span class="grade moderate">Moderate</span></td>
+    </tr>
+<tr>
+      <td>Browne et al. [9]</td>
+      <td>Retrospective</td>
+      <td>Table labels Candida species; narrative focuses on Aspergillus-associated lung disease</td>
+      <td>Complex lung-infection multidisciplinary meeting<br><span class="muted">6–12 months</span></td>
+      <td>Hospitalized patients with suspected fungal lung disease</td>
+      <td>Yes</td>
+      <td>Refined diagnosis of Aspergillus-associated lung disease and improved triazole stewardship.</td>
+      <td><span class="grade very-low">Very low</span></td>
+    </tr>
+<tr>
+      <td>Reed et al. [37]</td>
+      <td>Quasi-experimental</td>
+      <td>Candida species</td>
+      <td>ASP pharmacist intervention<br><span class="muted">1–2 years</span></td>
+      <td>Ohio State Wexner Medical Center, 1229-bed teaching hospital</td>
+      <td>Yes</td>
+      <td>Microbiology notification plus ASP pharmacist intervention increased timely effective antifungal therapy in candidaemia.</td>
+      <td><span class="grade moderate">Moderate</span></td>
+    </tr>
+<tr>
+      <td>Veringa et al. [38]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Therapeutic drug monitoring of anti-infective drugs<br><span class="muted">1–2 days</span></td>
+      <td>Inpatients</td>
+      <td>No</td>
+      <td>TDM was reported to play an important role in treatment optimization.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Morris et al. [4]</td>
+      <td>Phased multisite cohort</td>
+      <td>Candida species</td>
+      <td>Antimicrobial stewardship<br><span class="muted">3–5 days</span></td>
+      <td>Academic ICUs in Toronto, Canada</td>
+      <td>Yes</td>
+      <td>Sustained improvements in antimicrobial consumption and cost.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Pfaller &amp; Castanheira [39]</td>
+      <td>Prospective</td>
+      <td>Candida species</td>
+      <td>Rapid diagnostic testing and antifungal stewardship<br><span class="muted">24 h / 7 days</span></td>
+      <td>Hospitalized individuals</td>
+      <td>No</td>
+      <td>Improved awareness of candidiasis and diagnostic efforts.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Märtson et al. [40]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Posaconazole therapeutic drug monitoring<br><span class="muted">1–3 years</span></td>
+      <td>Patients with haematological malignancies; University Medical Center Groningen</td>
+      <td>No</td>
+      <td>Adequate posaconazole exposure in 64%; dose was the only reported significant covariate in longitudinal analysis.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Kawaguchi et al. [41]</td>
+      <td>Single-centre observational</td>
+      <td>Candida species</td>
+      <td>Antifungal-stewardship programme<br><span class="muted">1–3 years</span></td>
+      <td>Patients receiving systemic antifungals; Osaka City University Hospital (980-bed tertiary teaching hospital)</td>
+      <td>Yes</td>
+      <td>Appropriate selection increased while antifungal use and cost decreased; improved candidaemia prognosis was reported.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Ito-Takeichi et al. [42]</td>
+      <td>Single-institution prospective cohort</td>
+      <td>Candida species</td>
+      <td>1,3-β-D-glucan monitoring within stewardship<br><span class="muted">1–2 days</span></td>
+      <td>Inpatients receiving IV antifungals at Gifu University Hospital (614 beds)</td>
+      <td>No</td>
+      <td>Parenteral antifungal use was significantly reduced.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Cavalieri et al. [46]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>MALDI-TOF mass spectrometry / Vitek 2 with stewardship<br><span class="muted">1–2 days</span></td>
+      <td>Hospitalized patients</td>
+      <td>Yes</td>
+      <td>Microbial identification and susceptibility results were reported an average 18 h faster.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Steuber et al. [18]</td>
+      <td>Single-centre retrospective observational</td>
+      <td>Candida species</td>
+      <td>T2 Candida Panel<br><span class="muted">3 years</span></td>
+      <td>Patients with positive or negative T2CP in a 971-bed community hospital</td>
+      <td>No</td>
+      <td>Antifungal optimization occurred in 54% of patients with an antifungal order at testing.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+<tr>
+      <td>Hashemi et al. [45]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Disc diffusion and micro-dilution susceptibility testing<br><span class="muted">N/A</span></td>
+      <td>Clinical Candida isolates</td>
+      <td>No</td>
+      <td>Reported highest susceptibility to caspofungin and amphotericin B; among azoles, miconazole, econazole, then fluconazole.</td>
+      <td><span class="grade very-low">Very low</span></td>
+    </tr>
+<tr>
+      <td>Chabavizadeh et al. [44]</td>
+      <td>Retrospective</td>
+      <td>Candida species</td>
+      <td>Ganoderma lucidum alcoholic extract<br><span class="muted">N/A</span></td>
+      <td>Patients with candidaemia in specialized hospitals in Tehran</td>
+      <td>No</td>
+      <td>Authors proposed Ganoderma lucidum for future antifungal study.</td>
+      <td><span class="grade very-low">Very low</span></td>
+    </tr>
+<tr>
+      <td>Nwankwo et al. [17]</td>
+      <td>Prospective</td>
+      <td>Aspergillus species</td>
+      <td>Antifungal-stewardship team impact assessment<br><span class="muted">18 months</span></td>
+      <td>Chronic-lung-disease inpatients and outpatients with fungal infection</td>
+      <td>Yes</td>
+      <td>CPA was the commonest infection; monthly antifungal expenditure and use fell after AFS without reported increase in mortality/morbidity.</td>
+      <td><span class="grade low">Low</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="badnote">
+<strong>Table/source reconciliation issues:</strong>
+<ul class="tight">
+  <li>Figure 1 and Results state 29 included records; the abstract states 28, and Table 1 visibly contains 28 study rows.</li>
+  <li>Results state three moderate-GRADE studies; Discussion states four; Table 1 visibly labels three as moderate.</li>
+  <li>Browne et al. is labeled “Candida species” in Table 1 although the narrative describes its focus as complex Aspergillus-associated lung disease. This may be a table-classification error, but the source does not resolve it.</li>
+</ul>
+</div>
+</section>
+
+<section id="systematic-review">
+<h2>Systematic-review appraisal module</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Domain</th><th>Source-derived finding</th><th>Appraisal</th></tr></thead>
+<tbody>
+<tr><td>Databases</td><td>Medline via Ovid, Embase, GlobalHealth.</td><td>Three bibliographic databases provide reasonable breadth, but no additional grey-literature strategy is described in the main text.</td></tr>
+<tr><td>Publication window</td><td>1949–2020.</td><td>Broad historical window; exact search execution date is not reported in the main text.</td></tr>
+<tr><td>Search strategy</td><td>Designed to identify antifungal or antimicrobial stewardship; detailed strategy placed in supplementary information.</td><td>Supplement is not in the uploaded PDF, so query reproducibility cannot be assessed here.</td></tr>
+<tr><td>Eligibility</td><td>AFS implementation with outcomes or clinical outcomes of antifungal TDM; excluded non-English, case reports, narrative/systematic reviews.</td><td>Criteria are stated, though restriction to English may narrow capture.</td></tr>
+<tr><td>Screening</td><td>Covidence used; PRISMA flow provided.</td><td>Flow counts are detailed, but number of independent screeners, adjudication procedures, and duplicate data-extraction procedures are not reported in the main text.</td></tr>
+<tr><td>Risk / quality assessment</td><td>GRADE used; CASP mentioned in abstract.</td><td>Per-domain CASP findings and explicit GRADE upgrade/downgrade reasoning are not presented in the main text.</td></tr>
+<tr><td>Heterogeneity</td><td>Interventions, populations, and outcomes differed.</td><td>Authors appropriately chose descriptive/qualitative synthesis rather than pooling; this also limits quantitative effect estimation.</td></tr>
+<tr><td>Publication bias</td><td>Not reported.</td><td>Cannot assess direction or magnitude of publication bias from this source.</td></tr>
+<tr><td>Meta-analysis / pooled effects</td><td>Not performed.</td><td>No pooled effect size, heterogeneity statistic, or summary estimate is available.</td></tr>
+<tr><td>Directness to chronic respiratory disease</td><td>Only two records specifically focused on chronic respiratory fungal disease; 27/29 in Figure 1 were categorized as invasive fungal disease.</td><td>Major limitation. The review is more useful as a map of transferable stewardship methods than as proof of respiratory-specific effectiveness.</td></tr>
+<tr><td>Certainty</td><td>Most studies low/very low; three moderate studies visible in Table 1.</td><td>Supports cautious, hypothesis-generating implementation conclusions rather than strong causal claims.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="appraisal">
+<h2>Evaluation and appraisal</h2>
+<div class="verdict">
+  <strong>Verdict: Read soon.</strong> Best used as a field map and a pointer to the Nwankwo and Browne respiratory-focused experiences. Do not use it as sufficient evidence for a standardized chronic-respiratory antifungal-stewardship protocol or as proof that stewardship reduces resistance or mortality in that population.
+</div>
+
+<div class="rating-grid">
+  <div class="rating">
+    <h3>Relevance <span class="score">9/10</span></h3>
+    <p><strong>Rationale:</strong> directly addresses antifungal stewardship in respiratory-care settings and highlights pharmacist, TDM, diagnostic, and MDT components.</p>
+    <p><strong>Evidence basis:</strong> stated review question plus two respiratory-specific studies.</p>
+    <p><strong>Principal limiter:</strong> most included evidence is not respiratory-specific.</p>
+    <p><strong>Would raise/lower:</strong> more directly respiratory-focused comparative studies would raise the score; a narrower interest outside pulmonary fungal disease would lower it.</p>
+  </div>
+  <div class="rating">
+    <h3>Novelty <span class="score">7/10</span></h3>
+    <p><strong>Rationale:</strong> the paper consolidates a poorly defined niche and clearly exposes an evidence gap.</p>
+    <p><strong>Evidence basis:</strong> review identifies only two studies directly focused on chronic respiratory fungal disease.</p>
+    <p><strong>Principal limiter:</strong> much of the included evidence is established stewardship practice from candidemia/invasive fungal disease rather than new respiratory evidence.</p>
+    <p><strong>Would raise/lower:</strong> formal synthesis of additional respiratory cohorts or novel outcome frameworks would raise it.</p>
+  </div>
+  <div class="rating">
+    <h3>Method strength <span class="score">4/10</span></h3>
+    <p><strong>Rationale:</strong> PRISMA framing, three databases, explicit eligibility, and a flow diagram are strengths, but reproducibility and quality-assessment detail are incomplete in the uploaded main text.</p>
+    <p><strong>Evidence basis:</strong> qualitative synthesis, supplementary search strategy, GRADE/CASP statements.</p>
+    <p><strong>Principal limiter:</strong> count inconsistencies, missing detailed risk-of-bias output, inaccessible search supplement, and no reported duplicate-review procedures in the main text.</p>
+    <p><strong>Would raise/lower:</strong> registered protocol, reproducible search, duplicate screening/extraction, explicit risk-of-bias domains, and reconciled study counts would raise it.</p>
+  </div>
+  <div class="rating">
+    <h3>Evidence strength <span class="score">4/10</span></h3>
+    <p><strong>Rationale:</strong> the direction of effect is often favorable, but the evidence is mainly observational, heterogeneous, low/very-low certainty, and not pooled.</p>
+    <p><strong>Evidence basis:</strong> Table 1 GRADE labels; two respiratory-specific studies; reported utilization/toxicity/mortality signals.</p>
+    <p><strong>Principal limiter:</strong> weak causal inference and sparse patient-centered respiratory outcomes.</p>
+    <p><strong>Would raise/lower:</strong> prospective controlled respiratory studies with effect sizes, uncertainty, standardized outcomes, and resistance endpoints would raise it.</p>
+  </div>
+  <div class="rating">
+    <h3>External validity <span class="score">4/10</span></h3>
+    <p><strong>Rationale:</strong> included settings are heterogeneous, but direct generalizability to chronic pulmonary aspergillosis, ABPA, bronchiectasis, COPD, or CF is limited.</p>
+    <p><strong>Evidence basis:</strong> Figure 1: only 2 of 29 records categorized as chronic respiratory disease.</p>
+    <p><strong>Principal limiter:</strong> predominance of Candida/invasive-fungal-disease hospital cohorts.</p>
+    <p><strong>Would raise/lower:</strong> multisite respiratory cohorts across outpatient and inpatient settings would raise it.</p>
+  </div>
+  <div class="rating">
+    <h3>Implementation value <span class="score">7/10</span></h3>
+    <p><strong>Rationale:</strong> useful components recur across the evidence: pharmacist/ID/mycology review, TDM, rapid diagnostics, de-escalation, protocolized therapy, and cost/use monitoring.</p>
+    <p><strong>Evidence basis:</strong> Table 1 plus Nwankwo/Browne programme descriptions.</p>
+    <p><strong>Principal limiter:</strong> the review cannot specify which bundle, cadence, thresholds, or outcomes should constitute a standard respiratory AFS programme.</p>
+    <p><strong>Would raise/lower:</strong> a reproducible respiratory implementation bundle with comparative outcomes would raise it.</p>
+  </div>
+</div>
+
+<div class="three-col">
+  <div class="goodnote"><strong>Main strengths</strong><br>High topic relevance; clear identification of the respiratory evidence gap; useful inventory of stewardship modalities; preserves concrete signals such as 44% expenditure reduction and 285 recommendations in Nwankwo et al.</div>
+  <div class="badnote"><strong>Main limitations</strong><br>Very sparse direct respiratory evidence; predominantly observational low-certainty studies; no pooled effects; internal count/GRADE inconsistencies; citation/table anomalies; supplementary search strategy unavailable in the uploaded source.</div>
+  <div class="warning"><strong>Confidence in appraisal: moderate.</strong><br>The full main-text PDF, Figure 1, and Table 1 were reviewed. Confidence is reduced because the cited supplementary search material was not included with the uploaded PDF.</div>
+</div>
+</section>
+
+<section id="takeaways">
+<h2>Implementation / practice takeaways</h2>
+<div class="takeaway-grid">
+  <div class="mini-card"><h3>Build around reviewable decisions</h3><p>Useful stewardship targets in this literature include indication confirmation, diagnostic interpretation, drug selection/de-escalation, dose/exposure optimization, duration, toxicity, and resistance surveillance.</p></div>
+  <div class="mini-card"><h3>Make TDM central when exposure is uncertain</h3><p>The source repeatedly treats TDM as a core optimization tool, especially for triazoles. The respiratory examples use TDM within multidisciplinary review rather than as an isolated laboratory process.</p></div>
+  <div class="mini-card"><h3>Use multidisciplinary respiratory expertise</h3><p>The two directly relevant programmes combine respiratory medicine with pharmacy and microbiology/mycology/ID expertise. This is a more defensible takeaway than any specific drug algorithm.</p></div>
+  <div class="mini-card"><h3>Measure both utilization and clinical outcomes</h3><p>Cost and antifungal-use reductions are common outcomes, but future respiratory programmes should also track toxicity, treatment success, hospitalization, mortality, resistance, and patient-centered outcomes.</p></div>
+  <div class="mini-card"><h3>Separate invasive-fungal evidence from chronic pulmonary evidence</h3><p>Do not automatically generalize candidemia or ICU stewardship results to CPA, ABPA, bronchiectasis, COPD, or CF. Use broader evidence to generate intervention components, not to claim respiratory efficacy.</p></div>
+  <div class="mini-card"><h3>Research gap worth targeting</h3><p>Prospective, multisite chronic-respiratory stewardship studies with standardized diagnostic definitions, azole TDM targets, resistance endpoints, clinical outcomes, and implementation fidelity would directly address the gap identified by this review.</p></div>
+</div>
+
+<div class="verdict"><strong>Bottom line:</strong> the paper supports antifungal stewardship as a promising, rational framework for respiratory fungal care, but its strongest contribution is demonstrating how little direct evidence existed. Use it to design questions, stewardship components, and a reading list—not as a stand-alone practice standard.</div>
+</section>
+
+<section id="provenance">
+<h2>Provenance and caveats</h2>
+<p><strong>Evaluated source:</strong> Aldossary S, Shah A. <em>Healthcare Utilization and Impact of Antifungal Stewardships Within Respiratory Care Settings: A Systematic Literature Review.</em> Mycopathologia. 2021;186:673–684. doi:10.1007/s11046-021-00547-z.</p>
+<p><strong>Evaluated file:</strong> 11046_2021_Article_547.pdf. <strong>Generation date:</strong> 2026-08-08.</p>
+<p><strong>Coverage:</strong> full uploaded main-text PDF, including Figure 1 and all visible rows of Table 1. The paper’s cited online supplementary information was not contained in the uploaded PDF and was not used to fill gaps.</p>
+<p><strong>Interpretive boundary:</strong> statements labeled as findings reflect the source; appraisal statements are independent evaluation based on internal consistency, directness, study design, reported certainty, and completeness of the uploaded material. No external evidence was used to update the 2021 review.</p>
+</section>
+</main>
+
+<footer class="wrap">
+Generated as a single self-contained HTML reference artifact under the project Summary–Evaluation–Appraisal protocol.
+</footer>
+</body>
+</html>

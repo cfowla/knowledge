@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA — Developing interactive learning interfaces for teaching AI in health professions education using generative AI tools</title>
+<style>
+:root {
+  --bg:#f4f6f8; --card:#ffffff; --ink:#17212b; --muted:#5b6877; --line:#d9e0e7;
+  --accent:#173f72; --accent2:#e8f0fa; --good:#12613d; --goodbg:#eaf6ef;
+  --warn:#7b5300; --warnbg:#fff6dc; --bad:#842b2b; --badbg:#fff0f0;
+  --code:#111b27; --codeink:#edf4fb;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.58;
+}
+header {
+  background:linear-gradient(135deg,#102a49,#1f558d);
+  color:white; padding:3.2rem 1.25rem 2.7rem;
+}
+.wrap { max-width:1120px; margin:0 auto; }
+header h1 { margin:0 0 .8rem; font-size:clamp(2rem,4vw,3.25rem); line-height:1.08; }
+header p { max-width:880px; margin:.35rem 0; color:#eaf2fb; }
+.kicker { text-transform:uppercase; letter-spacing:.11em; font-size:.78rem; font-weight:800; }
+main { max-width:1120px; margin:0 auto; padding:1.25rem; }
+nav.toc, section {
+  background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:1.25rem 1.4rem; margin:1rem 0; box-shadow:0 1px 4px rgba(15,38,64,.045);
+}
+nav.toc h2, section h2 { margin:.1rem 0 .7rem; color:var(--accent); }
+nav.toc ul { columns:2; gap:2rem; padding-left:1.2rem; }
+nav.toc a { color:var(--accent); text-decoration:none; }
+nav.toc a:hover { text-decoration:underline; }
+h3 { color:#204f82; margin:1.35rem 0 .45rem; }
+h4 { margin:1rem 0 .35rem; color:#314154; }
+p { margin:.65rem 0; }
+.muted { color:var(--muted); }
+.meta-grid, .rating-grid, .takeaway-grid, .two-col {
+  display:grid; gap:.85rem;
+}
+.meta-grid { grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+.rating-grid { grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); }
+.takeaway-grid { grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+.two-col { grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); }
+.mini-card {
+  border:1px solid var(--line); border-radius:12px; padding:.9rem 1rem; background:#fbfcfd;
+}
+.mini-card strong { display:block; color:#22374d; margin-bottom:.2rem; }
+.verdict, .warning, .badnote, .goodnote {
+  border-radius:12px; padding:1rem 1.05rem; margin:.85rem 0;
+}
+.verdict { border-left:6px solid var(--accent); background:var(--accent2); }
+.warning { border-left:6px solid var(--warn); background:var(--warnbg); }
+.badnote { border-left:6px solid var(--bad); background:var(--badbg); }
+.goodnote { border-left:6px solid var(--good); background:var(--goodbg); }
+.tag {
+  display:inline-block; border:1px solid #bfd0e2; background:#eef4fb; color:#274e76;
+  padding:.17rem .48rem; border-radius:999px; font-size:.82rem; margin:.15rem .15rem .15rem 0;
+}
+.section-summary {
+  border-top:1px solid var(--line); padding-top:.75rem; margin-top:.85rem;
+}
+pre {
+  background:var(--code); color:var(--codeink); border-radius:12px; padding:1rem;
+  overflow:auto; white-space:pre-wrap; line-height:1.45; font-size:.9rem;
+}
+table { width:100%; border-collapse:collapse; margin:.8rem 0; font-size:.94rem; }
+th, td { border:1px solid var(--line); padding:.55rem .65rem; vertical-align:top; }
+th { background:#eef3f8; text-align:left; color:#1d3f61; }
+.score { font-size:1.45rem; font-weight:800; color:var(--accent); }
+.small { font-size:.9rem; }
+ul { padding-left:1.25rem; }
+li { margin:.3rem 0; }
+footer {
+  max-width:1120px; margin:0 auto 2rem; padding:0 1.25rem; color:var(--muted); font-size:.9rem;
+}
+@media (max-width:700px) {
+  nav.toc ul { columns:1; }
+}
+@media print {
+  body { background:white; }
+  header { background:white; color:black; padding:0 0 1rem; border-bottom:2px solid #333; }
+  header p { color:#333; }
+  nav.toc, section { box-shadow:none; break-inside:avoid; }
+  a { color:inherit; text-decoration:none; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">Summary · Evaluation · Appraisal</div>
+    <h1>Developing interactive learning interfaces for teaching AI in health professions education using generative AI tools</h1>
+    <p>Reference appraisal of Washington et al., <em>npj Digital Medicine</em> (2026) 9:609. DOI: 10.1038/s41746-026-03124-0.</p>
+    <p class="small">Source type: Comment / instructional-design viewpoint. Evidence lens: AI-enabled health professions education.</p>
+  </div>
+</header>
+
+<main>
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">Metadata & scope</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#coverage">Coverage manifest</a></li>
+    <li><a href="#sections">Section condensation</a></li>
+    <li><a href="#visuals">Figures & workflow</a></li>
+    <li><a href="#aiml">AI/ML systems lens</a></li>
+    <li><a href="#appraisal">Evaluation & appraisal</a></li>
+    <li><a href="#takeaways">Implementation takeaways</a></li>
+    <li><a href="#provenance">Provenance & limitations</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+  <h2>Metadata & scope</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><strong>Exact title</strong>Developing interactive learning interfaces for teaching AI in health professions education using generative AI tools</div>
+    <div class="mini-card"><strong>Authors</strong>Peter Washington; Anoop Muniyappa; Chen Liang; Kushith Reddy Hanmandla; Harshil Shah; Pierre Martin; Rishi Kadakia; Christian Burke; Sandrijn Van Schaik; Christy Boscardin</div>
+    <div class="mini-card"><strong>Journal / citation</strong><em>npj Digital Medicine</em>. 2026;9:609.</div>
+    <div class="mini-card"><strong>Identifier</strong>DOI 10.1038/s41746-026-03124-0</div>
+    <div class="mini-card"><strong>Source type</strong>Comment / conceptual instructional-design article with illustrative interface demonstrations and informal classroom experience.</div>
+    <div class="mini-card"><strong>Dates stated in PDF</strong>Received 18 March 2026; accepted 3 August 2026. Exact online publication date is not stated in the evaluated PDF.</div>
+    <div class="mini-card"><strong>Data</strong>No datasets were generated or analyzed.</div>
+    <div class="mini-card"><strong>Competing interests</strong>Authors declare no competing interests.</div>
+  </div>
+  <div class="warning">
+    <strong>Scope warning.</strong> This paper proposes and illustrates an educational strategy; it does not test whether AI-generated interactive interfaces improve learner knowledge, retention, calibration, clinical decision-making, or patient outcomes. The authors explicitly describe the design principles as experience-informed rather than empirically validated.
+  </div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="verdict">
+    <strong>Core thesis.</strong> Generative AI can lower the technical barrier for health professions educators to build interactive web-based simulations and visualizations that make abstract AI concepts manipulable. The educational value, however, depends on educator facilitation, careful interface design, and systematic verification of generated logic, concepts, and data.
+  </div>
+  <p>The article targets a specific gap between emerging AI-literacy competencies and practical pedagogy. Rather than using generative AI mainly to teach conventional medical content, the authors propose using it to teach how AI itself behaves—for example, how changing a prediction threshold shifts sensitivity and specificity. Their preferred instructional frame is Kolb’s experiential learning cycle: concrete experience, reflective observation, abstract conceptualization, and active experimentation.</p>
+  <p>The paper is strongest as a design memo and failure-analysis document. It gives concrete examples of useful interfaces, explicitly documents errors produced during generation, identifies cognitive-load problems, and recommends prompt specificity, minimal interfaces, unit-test-like checks, and expert verification. It is weak as evidence of educational efficacy: there is no prospective learner study, comparator, sample size, outcome metric, statistical analysis, or external validation. The appropriate use is therefore <strong>build guidance and hypothesis generation</strong>, not proof that the approach improves education.</p>
+  <div>
+    <span class="tag">health professions education</span>
+    <span class="tag">AI literacy</span>
+    <span class="tag">generative AI</span>
+    <span class="tag">experiential learning</span>
+    <span class="tag">interactive simulation</span>
+    <span class="tag">cognitive load</span>
+    <span class="tag">human verification</span>
+    <span class="tag">unit testing</span>
+  </div>
+</section>
+
+<section id="coverage">
+  <h2>Coverage manifest</h2>
+  <pre><code>SOURCE COVERAGE MANIFEST
+source_id: s41746-026-03124-0 / DOI 10.1038/s41746-026-03124-0
+exact_title: Developing interactive learning interfaces for teaching AI in health professions education using generative AI tools
+source_type: Comment / instructional-design viewpoint
+date_or_version: 2026; accepted 2026-08-03
+
+sections_or_headings:
+  - opening summary
+  - The push for AI literacy in healthcare
+  - The potential of generative AI to create interactive educational experiences for AI literacy in HPE
+  - Understanding the role of educator facilitation through an AI-generated sensitivity-specificity simulation tool
+  - Limitations and risks of generative AI-based interactive educational interfaces
+      * Content correctness risks
+      * Interface and cognitive load risks
+      * Burden on educators
+  - Design principles for generating interactive educational experiences with AI
+  - Data availability
+  - Acknowledgements / author contributions / competing interests / additional information
+
+figures:
+  - Figure 1: sensitivity-specificity interactive interface
+  - Figure 2: Kolb experiential-learning cycle applied to the simulator
+  - Figure 3: maladaptive AI-generated educational interface
+  - Figure 4: extraneous-load / cluttered fairness interface
+
+tables: none
+
+algorithms_or_workflows:
+  - Figure 2 four-stage instructional workflow
+
+appendices_or_supplements:
+  - Supplementary material is referenced by the paper and reportedly contains prompts,
+    interface descriptions, AAMC alignment, and functional demos.
+  - Supplementary material was not included in the evaluated upload and is not appraised here.
+
+visual_strategy:
+  structured_blocks:
+    - Figures 1–4
+    - Figure 2 additionally decomposed as a workflow
+  embedded_crops_or_screenshots: none
+  omitted_with_reason: none from the main text
+
+coverage_decision:
+  - All main-text figures and the central workflow are represented below.
+  - No main-text tables exist.
+  - Supplementary demos/prompts are outside the accessible source package.</code></pre>
+</section>
+
+<section id="sections">
+  <h2>Section condensation</h2>
+
+  <div class="section-summary">
+    <h3>Opening summary</h3>
+    <p>The authors argue that health professions education must prepare learners to use AI safely and propose a practical teaching strategy for non-technical audiences: use generative AI to rapidly create interactive simulations, dynamic visualizations, and case-based interfaces through which learners can manipulate AI concepts rather than only read about them.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>The push for AI literacy in healthcare</h3>
+    <p>The paper frames AI literacy as increasingly necessary for clinicians who interpret diagnostic algorithms, use clinical decision support, and communicate with technical teams. It cites the AAMC’s 2025 AI competencies for medical educators, particularly the domain of understanding AI fundamentals, statistical properties, data approaches, strengths, and weaknesses.</p>
+    <p>The identified pedagogic gap is not a missing competency list but a missing method for teaching technical concepts to learners without computer-science backgrounds. The authors position generative AI as a way to make these concepts concrete by producing manipulable interfaces at low programming cost.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>The potential of generative AI to create interactive educational experiences for AI literacy in HPE</h3>
+    <p>The authors distinguish their proposal from the broader literature on using generative AI for curriculum generation, personalized learning, simulated patients, assessment, and educational resources. Their target is narrower: using AI-generated interfaces to teach quantitative and engineering-oriented ideas such as probabilistic model outputs, performance metrics, interpretable-model behavior, and operating-point changes on ROC curves.</p>
+    <p>The pedagogic rationale is experiential learning. The paper maps interactive manipulation to Kolb’s four-stage cycle and emphasizes that experience alone is insufficient: educator support, participation, and guided reflection are needed to convert interaction into transferable understanding. The authors note related use of experiential learning in HPE and engineering/AI education but state they are unaware of published applications specifically to teaching AI within HPE.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Educator facilitation through an AI-generated sensitivity-specificity simulation</h3>
+    <p>Using a short ChatGPT prompt, the authors created a browser-based binary prediction-model simulator in which learners change a decision threshold and observe sensitivity, specificity, true/false positives, and true/false negatives. The clinical teaching point is that model behavior depends on the operating threshold and that improving sensitivity generally costs specificity, with concrete implications such as sepsis-alert false alarms versus missed cases.</p>
+    <p>The lesson is explicitly staged through Kolb’s cycle: begin with a clinical case and value judgment about false negatives versus false positives; explore the simulator; verbalize the general threshold trade-off; then return to the interface to make and test predictions. The authors assign the educator a central role in contextualization and facilitation, allowing freer learner experimentation mainly at the final stage.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Limitations and risks: content correctness</h3>
+    <p>The authors report encountering multiple hallucinations while developing the supplementary interfaces, including incorrect formulas, wrong or implausible data points, incorrect simulation logic, and misleading visualizations. Figure 3 illustrates a faulty decision-tree visualization in which terminal classifications were structurally wrong, plus a decision-boundary display whose background shading did not change meaningfully across the boundary.</p>
+    <p>The key safety claim is that reliable correction requires enough domain knowledge to recognize the problem. The authors therefore argue against unsupervised learner generation of these tools and recommend expert review and stress testing before classroom use. They also caution that retrieval-augmented generation may constrain an LLM to reference material but does not eliminate hallucination.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Limitations and risks: interface and cognitive load</h3>
+    <p>A recurring generation failure was visual and informational excess. Without explicit instructions to minimize the interface, generated artifacts tended to include more controls, metrics, and visual detail than the learning objective required. The authors interpret this using cognitive load theory: unnecessary interface elements increase extraneous load and consume working-memory capacity that could instead support productive conceptual processing.</p>
+    <p>The design implication is not to remove intrinsic difficulty but to calibrate it and reduce presentation-induced load. Figure 4 is presented as a concrete example of an overbuilt fairness-metrics interface whose visual density obscures the central lesson.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Limitations and risks: burden on educators</h3>
+    <p>The technology lowers the barrier to building interactive software but does not eliminate expert work. Each tool still needs specification, error detection, verification, iterative refinement, and pedagogic alignment; these tasks recur for every module and scale with curriculum size.</p>
+    <p>The authors therefore reject a simple labor-saving interpretation. Their safe-use model redistributes educator effort toward specification, testing, review, and facilitation rather than necessarily reducing total effort.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Design principles for generating interactive educational experiences with AI</h3>
+    <p>The authors recommend: specify the learning objective, interaction flow, hard constraints, and exclusions; explicitly request a simple, minimal interface; create unit-test-like checks for expected behaviors and edge cases; verify all generated educational concepts; and verify the illustrative data used by the interface. Their examples include checking that threshold changes alter performance metrics correctly, fairness calculations produce expected edge-case values, and visualization branches correspond to intended model logic.</p>
+    <p>These recommendations are explicitly experience-informed, based on interface development, informal classroom use by the first author, and supervision of students creating interfaces. They are not presented as empirically validated instructional design standards. The paper closes by calling for prospective evaluation of whether this approach improves learning outcomes.</p>
+  </div>
+
+  <div class="section-summary">
+    <h3>Data availability and disclosures</h3>
+    <p>No datasets were generated or analyzed. The authors acknowledge support for a UCSF AI and Education Faculty Catalyst Program, declare no competing interests, and disclose use of ChatGPT to refine manuscript phrasing while stating that the ideas are the authors’ own.</p>
+  </div>
+</section>
+
+<section id="visuals">
+  <h2>Figures & workflow</h2>
+
+  <h3>Figure 1 — Interactive sensitivity-specificity simulation</h3>
+  <pre><code>Purpose:
+  Teach how an AI/prediction model converts a continuous risk score into an alert
+  through a selected threshold, and how threshold choice trades sensitivity against specificity.
+
+Structure:
+  - simulated patient points
+  - decision-threshold slider
+  - real-time sensitivity and specificity display
+  - true-positive / false-positive / true-negative / false-negative categories
+
+Observed example:
+  The screenshot on page 2 shows an illustrative threshold of 0.35 with
+  sensitivity 44% and specificity 35%. These values are demonstration values,
+  not empirical model-performance results.
+
+Main teaching pattern:
+  Moving the threshold changes false alarms and missed cases; the interface is meant
+  to make the trade-off experiential rather than purely declarative.
+
+Interpretive limit:
+  The figure demonstrates a teaching mechanism, not learner effectiveness or model validity.
+
+Representation:
+  Structured block; no screenshot embedded.</code></pre>
+
+  <h3>Figure 2 — Kolb cycle applied to the simulator</h3>
+  <pre><code>WORKFLOW / INSTRUCTIONAL CYCLE
+
+1. Concrete experience
+   → discuss a clinical case and the relative cost of false negatives vs false positives
+
+2. Reflective observation
+   → manipulate the threshold and observe sensitivity/specificity behavior
+
+3. Abstract conceptualization
+   → formulate the general rule that a single threshold governs the trade-off
+     and that no setting maximizes both metrics simultaneously
+
+4. Active experimentation
+   → make a prediction about the effect of a threshold change, test it,
+     and feed the result into the next cycle
+
+Human role:
+  Educator facilitation is central through contextualization, questioning, and guided reflection.
+  The final experimentation stage can be more learner-directed.
+
+Representation:
+  Structured workflow reconstruction.</code></pre>
+
+  <h3>Figure 3 — Maladaptive interface generated by ChatGPT</h3>
+  <pre><code>Purpose:
+  Demonstrate that plausible-looking generated educational interfaces can be conceptually wrong.
+
+Panel A:
+  A heart-disease decision-tree visualization produced incorrect terminal logic;
+  the authors state that almost all bottom nodes pointed to "no heart disease,"
+  which does not reflect how the depicted tree should branch.
+
+Panel B:
+  A decision boundary was drawn, but the background shading did not meaningfully
+  distinguish the two sides of the boundary, undermining the intended visual explanation.
+
+Main pattern:
+  Errors can be subtle enough that a novice may not detect them.
+
+Appraisal:
+  This is useful qualitative failure evidence, but it is anecdotal and not a systematic error-rate study.
+
+Representation:
+  Structured block.</code></pre>
+
+  <h3>Figure 4 — Extraneous load in an AI-generated fairness interface</h3>
+  <pre><code>Purpose:
+  Show how generative AI can overproduce metrics, controls, panels, and visual detail.
+
+Structure:
+  A dense fairness dashboard with group-specific threshold controls, point displays,
+  confusion-matrix counts, and multiple fairness metrics.
+
+Main pattern:
+  The interface contains substantially more information than is needed for a single
+  teaching objective, illustrating the authors' concern about extraneous cognitive load.
+
+Interpretation:
+  Minimalism must be specified deliberately; otherwise visual completeness can work
+  against instructional clarity.
+
+Representation:
+  Structured block.</code></pre>
+</section>
+
+<section id="aiml">
+  <h2>AI/ML systems lens</h2>
+  <div class="two-col">
+    <div class="mini-card"><strong>Task</strong>Generate interactive educational interfaces that let HPE learners manipulate AI concepts such as decision thresholds, diagnostic-performance trade-offs, decision trees, and fairness metrics.</div>
+    <div class="mini-card"><strong>Data</strong>No study dataset. Interface examples use simulated/illustrative data. The authors report that generated data points themselves sometimes required correction.</div>
+    <div class="mini-card"><strong>Method</strong>Natural-language prompting of commercial generative-AI systems to create HTML/web interfaces, followed by iterative human review and classroom-oriented instructional design.</div>
+    <div class="mini-card"><strong>Models / versions reported</strong>The paper reports a sensitivity-specificity interface generated with a “ChatGPT 5” prompt and a faulty decision-tree example generated by “ChatGPT 5.2.” These labels are source-reported and were not externally verified in this appraisal.</div>
+    <div class="mini-card"><strong>Metrics</strong>No learning outcomes, model benchmarks, calibration, latency, cost, or formal human-evaluation metrics are reported.</div>
+    <div class="mini-card"><strong>Baselines / comparators</strong>No randomized or quasi-experimental comparison with static figures, conventional teaching, manually coded interfaces, or other AI tools.</div>
+    <div class="mini-card"><strong>Failures</strong>Incorrect formulas, simulation logic, generated data, decision-tree structure, misleading visualizations, and excessive interface complexity.</div>
+    <div class="mini-card"><strong>Bottom line</strong>Conceptual and build-useful. Not benchmark-useful or deployment-validating evidence.</div>
+  </div>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation & appraisal</h2>
+  <div class="verdict">
+    <strong>Verdict: Skim deeply.</strong> High-value design and failure-analysis ideas justify extracting the workflow and safeguards, but the paper does not warrant evidentiary weight comparable with an evaluated educational intervention.
+  </div>
+
+  <div class="rating-grid">
+    <div class="mini-card">
+      <strong>Relevance</strong><div class="score">8/10</div>
+      <p><b>Rationale:</b> Directly relevant to teaching AI concepts in health professions education and to safe generation of interactive instructional tools.</p>
+      <p><b>Evidence basis:</b> Concrete HPE examples, AAMC competency framing, and clinically oriented simulations.</p>
+      <p><b>Principal limit:</b> Narrow educational use case and no outcomes study.</p>
+      <p><b>Would change:</b> Broader relevance would increase with tested curricula across professions and institutions.</p>
+    </div>
+
+    <div class="mini-card">
+      <strong>Novelty</strong><div class="score">7/10</div>
+      <p><b>Rationale:</b> The distinctive contribution is using generative AI not merely to deliver medical education, but to rapidly build interfaces for teaching how AI systems behave.</p>
+      <p><b>Evidence basis:</b> Threshold, decision-tree, and fairness-interface examples organized around experiential learning.</p>
+      <p><b>Principal limit:</b> Components—interactive learning, no-code generation, Kolb, and cognitive-load principles—are individually established concepts.</p>
+      <p><b>Would change:</b> Novelty would rise with a reproducible design framework or validated toolchain beyond illustrative examples.</p>
+    </div>
+
+    <div class="mini-card">
+      <strong>Method strength</strong><div class="score">2/10</div>
+      <p><b>Rationale:</b> This is a Comment with demonstrations and informal experience, not a controlled educational study.</p>
+      <p><b>Evidence basis:</b> No defined cohort, comparator, prospective protocol, endpoints, statistics, or formal qualitative method.</p>
+      <p><b>Principal limit:</b> Experience-informed observations cannot estimate educational effect.</p>
+      <p><b>Would change:</b> A preregistered multi-site trial or rigorous mixed-methods evaluation would substantially raise the score.</p>
+    </div>
+
+    <div class="mini-card">
+      <strong>Evidence strength</strong><div class="score">3/10</div>
+      <p><b>Rationale:</b> The paper directly supports that the authors encountered specific interface failures, but only indirectly supports claims about educational benefit.</p>
+      <p><b>Evidence basis:</b> Demonstrated examples of hallucinations and clutter; cited educational theory and prior reviews.</p>
+      <p><b>Principal limit:</b> No learner outcomes, uncertainty estimates, or causal evidence.</p>
+      <p><b>Would change:</b> Replicated improvements in knowledge, transfer, retention, or calibration against appropriate controls would raise the score.</p>
+    </div>
+
+    <div class="mini-card">
+      <strong>External validity</strong><div class="score">3/10</div>
+      <p><b>Rationale:</b> The concepts are plausibly portable, but the article does not test portability.</p>
+      <p><b>Evidence basis:</b> Examples span several AI concepts and are situated in HPE, with informal use across some lectures.</p>
+      <p><b>Principal limit:</b> No multi-institution, multi-profession, learner-level, or deployment evaluation.</p>
+      <p><b>Would change:</b> Independent replication across programs, learner levels, and AI topics would increase confidence.</p>
+    </div>
+
+    <div class="mini-card">
+      <strong>Implementation value</strong><div class="score">8/10</div>
+      <p><b>Rationale:</b> The article supplies a compact, actionable set of design and verification practices that can immediately inform prototyping.</p>
+      <p><b>Evidence basis:</b> Prompt specificity, minimal-UI requirement, unit-test-like checks, concept verification, data verification, and educator facilitation.</p>
+      <p><b>Principal limit:</b> Supplementary prompts and demos were not available in the evaluated upload, and the recommendations are not empirically validated.</p>
+      <p><b>Would change:</b> A tested checklist, reference implementation, reusable validation suite, and measured educator workload would raise the score.</p>
+    </div>
+  </div>
+
+  <div class="goodnote">
+    <strong>Main strengths.</strong> Narrow and useful thesis; explicit failure examples instead of promotional framing; integration of experiential learning and cognitive-load theory; concrete safety-oriented design rules; clear acknowledgment that expert oversight remains necessary.
+  </div>
+  <div class="badnote">
+    <strong>Main limitations.</strong> No empirical learning evaluation; no comparator; no sample size or learner characteristics; no measurement of educator burden; no systematic failure-rate characterization; demonstrations depend on source-reported commercial model behavior; supplementary prompts and functional demos were unavailable for this appraisal.
+  </div>
+  <p><strong>Confidence in appraisal: high</strong> for judging the paper’s evidentiary maturity and main design claims because the full 5-page Comment and all four main-text figures were available. Confidence is <strong>moderate</strong> for judging reproducibility because the supplementary material was not part of the evaluated upload.</p>
+</section>
+
+<section id="takeaways">
+  <h2>Implementation takeaways</h2>
+  <div class="takeaway-grid">
+    <div class="mini-card"><strong>Build around one learning objective</strong>Define the concept and the exact learner action before asking an LLM to generate interface code.</div>
+    <div class="mini-card"><strong>Constrain the interface aggressively</strong>Specify a minimal, simple interaction surface; visual completeness is not the goal.</div>
+    <div class="mini-card"><strong>Treat generated teaching tools like software</strong>Create explicit behavioral checks for thresholds, branches, calculations, edge cases, and expected output changes.</div>
+    <div class="mini-card"><strong>Verify concepts and data separately</strong>Correct logic does not guarantee correct labels, formulas, or demonstration data; each layer requires review.</div>
+    <div class="mini-card"><strong>Keep expert facilitation in the loop</strong>The proposed pedagogy depends on guided interpretation and reflection, not learner exposure to an interface alone.</div>
+    <div class="mini-card"><strong>Do not equate faster prototyping with lower workload</strong>Generation shifts work toward specification, review, testing, and iterative refinement.</div>
+  </div>
+
+  <h3>What to use now</h3>
+  <ul>
+    <li>The four-stage case → explore → conceptualize → test cycle as an instructional-design template.</li>
+    <li>The authors’ verification checklist as a pre-deployment safety heuristic.</li>
+    <li>The distinction between intrinsic learning difficulty and avoidable interface-induced cognitive load.</li>
+    <li>Unit-test thinking for educational simulations, especially calculations and decision logic.</li>
+  </ul>
+
+  <h3>What not to overclaim</h3>
+  <ul>
+    <li>That AI-generated interfaces improve learning outcomes.</li>
+    <li>That they reduce faculty workload.</li>
+    <li>That RAG or prompting can reliably prevent hallucinations.</li>
+    <li>That novice learners can safely generate and use such tools without expert review.</li>
+    <li>That the specific commercial-model examples generalize to other versions, tools, or future systems.</li>
+  </ul>
+
+  <h3>Most useful next evidence</h3>
+  <ul>
+    <li>Prospective comparison against static teaching materials or manually authored interactive tools.</li>
+    <li>Pre/post knowledge plus delayed retention and transfer testing.</li>
+    <li>Structured measurement of hallucination/error rates before and after expert verification.</li>
+    <li>Educator time-on-task and revision burden.</li>
+    <li>Multi-site testing across learner levels and health professions.</li>
+  </ul>
+</section>
+
+<section id="provenance">
+  <h2>Provenance & extraction limitations</h2>
+  <div class="meta-grid">
+    <div class="mini-card"><strong>Evaluated source</strong>s41746-026-03124-0.pdf</div>
+    <div class="mini-card"><strong>Source identifier</strong>https://doi.org/10.1038/s41746-026-03124-0</div>
+    <div class="mini-card"><strong>Governing appraisal protocol</strong>summary-evaluation-appraisal-protocol-v4-compact.md</div>
+    <div class="mini-card"><strong>Generated</strong>2026-08-07</div>
+  </div>
+  <p class="muted">This appraisal is grounded in the uploaded 5-page article. No external web verification was used. The paper’s supplementary material was referenced but not included in the accessible source package, so its prompts, functional demos, and competency-alignment details were not independently inspected.</p>
+</section>
+</main>
+
+<footer>
+  SEA reference artifact. Summary and appraisal are distinct from the source authors’ claims. This file is intended to support source understanding and critical review, not to substitute for the primary article.
+</footer>
+</body>
+</html>

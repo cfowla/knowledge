@@ -1,0 +1,5147 @@
+{
+  "activated_macro": "@ATOM",
+  "source_metadata": {
+    "file_name": "2608.06370v1.pdf",
+    "title": "The Bitter Lesson of Tool Calling",
+    "authors": [
+      "Ishan Patel",
+      "Sahil Sen",
+      "Elias Lumer",
+      "Vamse Kumar Subbiah"
+    ],
+    "organization": "Commercial Technology and Innovation Office, PricewaterhouseCoopers, U.S.A",
+    "source_type": "arXiv preprint",
+    "arxiv_id": "2608.06370v1",
+    "category": "cs.CL",
+    "date": "2026-08-06",
+    "pages": 11,
+    "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+    "input_document_sha256": "dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4"
+  },
+  "atom_counts": {
+    "total": 54,
+    "by_atom_kind": {
+      "author_conclusion": 1,
+      "comparator_description": 1,
+      "data_availability": 1,
+      "intervention_description": 1,
+      "limitation": 4,
+      "method": 5,
+      "outcome_definition": 1,
+      "population_description": 2,
+      "qualitative_result": 3,
+      "quantitative_result": 34,
+      "study_objective": 1
+    },
+    "by_assertion_origin": {
+      "normalized_from_source": 54
+    }
+  },
+  "validation_report": {
+    "structural_validation": {
+      "model": "LiteratureAtom (literature.py)",
+      "schema_contract": "literature_atom.schema.json",
+      "schema_matches_model_json_schema_exactly": true,
+      "valid_atoms": 54,
+      "errors": []
+    },
+    "sufficiency_validation": {
+      "validator": "validate_literature_atom_sufficiency (literature_atoms.py)",
+      "valid_atoms": 54,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "atoms": [
+    {
+      "atom_id": "d621000e-ced9-5af8-98bc-168e6fa8d396",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The study evaluates whether programmatic tool calling can replace native JSON tool calling without sacrificing tool-calling accuracy, including under chaining, parallel fan-out, and context-rot conditions.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "we empirically compare programmatic tool calling (PTC) to native JSON tool calling across 14 language models on BFCL v4",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "tool-calling",
+        "benchmark",
+        "PTC",
+        "JSON"
+      ]
+    },
+    {
+      "atom_id": "ec403916-1a4b-5e8b-bd4e-9ad54af428cf",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "intervention_description",
+      "canonical_statement": "In the programmatic tool-calling condition, models receive typed Python stubs corresponding one-to-one with function schemas, write a Python script that calls the stubs, and have the script executed in a native shell subprocess.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 1",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "The model writes a Python script that imports this module and calls the appropriate functions.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "PTC",
+        "typed-stubs",
+        "subprocess"
+      ]
+    },
+    {
+      "atom_id": "a514c674-2f1b-532f-aa44-a768f66d1f53",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "comparator_description",
+      "canonical_statement": "In the JSON tool-calling reference condition, function schemas are provided as JSON tool definitions and the model emits structured JSON tool-call objects through the tool-calling API.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 1",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "The model outputs a structured JSON object at each function call.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "JSON-tool-calling",
+        "baseline"
+      ]
+    },
+    {
+      "atom_id": "eeea2044-c0b1-5fca-a178-0ddab11a2a03",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "outcome_definition",
+      "canonical_statement": "An entry is scored correct only when the produced set of function calls matches the ground-truth calls after normalized string comparison that strips punctuation and lowercases values.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "matches C* under the benchmark’s normalized string comparison, which strips punctuation and lowercases all values before matching",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": {
+        "concept": {
+          "text": "Entry-level tool-calling correctness",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "All required function calls and arguments match ground truth after normalized string comparison.",
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "scoring",
+        "BFCL-v4"
+      ]
+    },
+    {
+      "atom_id": "dc883f63-596a-5d85-bf07-52e0e65ac684",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "population_description",
+      "canonical_statement": "The main evaluation uses a representative 309-entry BFCL v4 subset spanning eight task categories, sampled proportionally to mirror the full benchmark with per-category minimums for smaller categories.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "309 representative entries drawn from eight task categories",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Representative BFCL v4 subset spanning eight task categories",
+        "sample_size": 309,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "BFCL-v4",
+        "benchmark-sample"
+      ]
+    },
+    {
+      "atom_id": "581b3ad6-10f8-5f81-a60b-d89fd5f2628d",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "method",
+      "canonical_statement": "The deterministic scorer reports the fraction of entries for which every required function call is present and correctly parameterized; syntax or runtime errors in the PTC subprocess score zero correct calls, and no entries are skipped.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "When the shell subprocess raises a syntax or runtime error, the entry is scored as zero correct calls. No entries are skipped or excluded",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "scoring",
+        "deterministic"
+      ]
+    },
+    {
+      "atom_id": "6682120f-ea45-5a96-aed1-a814a5cae28e",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "method",
+      "canonical_statement": "The chaining ablation contains 52 entries with chain lengths from 2 to 20, weighted toward longer chains; 17 entries have chain length at least 6 and 10 have chain length at least 13.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "The chaining subset (n = 52) was optimized to cover the full range of chain lengths (nchain = 2–20)",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Chaining ablation entries with chain lengths 2–20",
+        "sample_size": 52,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "chaining",
+        "ablation"
+      ]
+    },
+    {
+      "atom_id": "fe4082de-0706-5d5b-9261-e55baf7198ac",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "method",
+      "canonical_statement": "The parallelism ablation reports 32 enumeration-type entries with fan-out counts of 7, 9, 11, 13, 15, 20, 30, and 48, and adds Claude Sonnet 5 probes at N=60, 70, 72, 75, and 100.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "The parallelism subset (n = 32) covers fan-out counts of 7 to 48 (7, 9, 11, 13, 15, 20, 30, 48)",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Parallelism enumeration-type ablation entries",
+        "sample_size": 32,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "parallelism",
+        "fan-out",
+        "ablation"
+      ]
+    },
+    {
+      "atom_id": "0c4ff8c0-81f4-5c8a-95ea-7cdb6e0fbf45",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "method",
+      "canonical_statement": "The context-rot ablation compares a filtered condition containing only relevant function schemas with a flood condition containing 128 total schemas, including relevant functions plus unrelated decoys; each condition contains 31 entries.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "flood (128 total schemas, including the relevant functions plus corpus decoys drawn from unrelated domains)",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Context-rot ablation entries per condition",
+        "sample_size": 31,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "context-rot",
+        "context-flooding",
+        "ablation"
+      ]
+    },
+    {
+      "atom_id": "17d9c696-3b53-5302-9306-06abfc7a96e4",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "population_description",
+      "canonical_statement": "The evaluation covers 14 language models from Anthropic and OpenAI released across approximately 20 months, and all models are run at temperature 0.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "We evaluate 14 models spanning two families and 20 months of releases",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Language models from Anthropic and OpenAI",
+        "sample_size": 14,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "models",
+        "temperature-0"
+      ]
+    },
+    {
+      "atom_id": "898c4299-c965-58ad-a0b2-9c80ddf54130",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "method",
+      "canonical_statement": "Results use 95% Wilson confidence intervals; because ablation samples are small, individual-model ablation results are treated as directional, pairwise comparisons are not corrected for multiple testing, and no individual-model significance claim is made.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Pairwise per-model comparisons are not corrected for multiple testing. We make no claim that any individual model result is statistically significant in isolation.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "statistics",
+        "confidence-intervals",
+        "multiplicity"
+      ]
+    },
+    {
+      "atom_id": "a815e5aa-93d7-597b-8ec5-c3a88279e212",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "data_availability",
+      "canonical_statement": "The paper states that the complete entry ID lists for the main evaluation and ablation subsets are released with the evaluation harness.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "The complete entry ID lists are released with the evaluation harness.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "evaluation-harness",
+        "entry-ids"
+      ]
+    },
+    {
+      "atom_id": "90144010-36c3-5a63-a8ec-d5a85c7b2e6b",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Programmatic tool calling matched or exceeded each model’s JSON tool-calling baseline in 11 of 14 models on the 309-entry BFCL v4 subset.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Across all 14 models, 11 match or exceed baseline accuracy under programmatic tool calling.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Evaluated language models on the 309-entry BFCL v4 subset",
+        "sample_size": 14,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Models with PTC accuracy at least as high as their JSON baseline",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "count of models",
+        "estimate": "11",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC matched or exceeded JSON baseline",
+            "event_count": 11,
+            "sample_size": 14,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main-result",
+        "BFCL-v4"
+      ]
+    },
+    {
+      "atom_id": "9f71c36f-9279-53ae-b531-20b9839ebe21",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For GPT-5.6-Sol on the 309-entry BFCL v4 subset, JSON tool-calling accuracy was 72.2% and PTC accuracy was 82.8%, corresponding to a reported absolute PTC-minus-JSON change of 10.6 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "GPT-5.6-Sol",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "GPT-5.6-Sol 72.2 5.0 82.8 4.2",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "309 BFCL v4 entries evaluated with GPT-5.6-Sol",
+        "sample_size": 309,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "BFCL v4 exact entry-level accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Fraction of entries where every required function call is present and correctly parameterized.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute PTC-minus-JSON accuracy change (percentage points)",
+        "estimate": "10.6",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "82.8",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "72.2",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-2",
+        "GPT-5.6-Sol"
+      ]
+    },
+    {
+      "atom_id": "d1889f23-5ba4-5e20-8d5e-79220bf1a7dd",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For GPT-5.6-Terra on the 309-entry BFCL v4 subset, JSON tool-calling accuracy was 73.5% and PTC accuracy was 84.1%, corresponding to a reported absolute PTC-minus-JSON change of 10.6 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "GPT-5.6-Terra",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "GPT-5.6-Terra 73.5 4.9 84.1 4.1",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "309 BFCL v4 entries evaluated with GPT-5.6-Terra",
+        "sample_size": 309,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "BFCL v4 exact entry-level accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Fraction of entries where every required function call is present and correctly parameterized.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute PTC-minus-JSON accuracy change (percentage points)",
+        "estimate": "10.6",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "84.1",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "73.5",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-2",
+        "GPT-5.6-Terra"
+      ]
+    },
+    {
+      "atom_id": "e631cc94-16f7-54ba-bb88-dbdc8c1126e0",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Claude Sonnet 4.6 on the 309-entry BFCL v4 subset, JSON tool-calling accuracy was 80.9% and PTC accuracy was 87.4%, corresponding to a reported absolute PTC-minus-JSON change of 6.5 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "Claude Sonnet 4.6",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Claude Sonnet 4.6 80.9 4.4 87.4 3.7",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "309 BFCL v4 entries evaluated with Claude Sonnet 4.6",
+        "sample_size": 309,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "BFCL v4 exact entry-level accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Fraction of entries where every required function call is present and correctly parameterized.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute PTC-minus-JSON accuracy change (percentage points)",
+        "estimate": "6.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "87.4",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "80.9",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-2",
+        "Claude Sonnet 4.6"
+      ]
+    },
+    {
+      "atom_id": "508fa348-56a6-56c0-a14b-3d593112cfe0",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Claude Opus 4.8 on the 309-entry BFCL v4 subset, JSON tool-calling accuracy was 84.8% and PTC accuracy was 84.8%, corresponding to a reported absolute PTC-minus-JSON change of 0.0 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "Claude Opus 4.8",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Claude Opus 4.8 84.8 4.0 84.8 4.0",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "309 BFCL v4 entries evaluated with Claude Opus 4.8",
+        "sample_size": 309,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "BFCL v4 exact entry-level accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Fraction of entries where every required function call is present and correctly parameterized.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute PTC-minus-JSON accuracy change (percentage points)",
+        "estimate": "0.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "84.8",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "84.8",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-2",
+        "Claude Opus 4.8"
+      ]
+    },
+    {
+      "atom_id": "4cf8aba3-c693-5b02-bbbd-0effce1d099d",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For GPT-4o on the 309-entry BFCL v4 subset, JSON tool-calling accuracy was 81.9% and PTC accuracy was 55.0%, corresponding to a reported absolute PTC-minus-JSON change of -26.9 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "GPT-4o",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "GPT-4o 81.9 4.3 55.0 5.5",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "309 BFCL v4 entries evaluated with GPT-4o",
+        "sample_size": 309,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "BFCL v4 exact entry-level accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Fraction of entries where every required function call is present and correctly parameterized.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute PTC-minus-JSON accuracy change (percentage points)",
+        "estimate": "-26.9",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "55.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "81.9",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-2",
+        "GPT-4o"
+      ]
+    },
+    {
+      "atom_id": "51eb8bb4-2fda-559d-bcc0-82f0264de7c5",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For GPT-4.1 on the 309-entry BFCL v4 subset, JSON tool-calling accuracy was 81.9% and PTC accuracy was 62.1%, corresponding to a reported absolute PTC-minus-JSON change of -19.8 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "GPT-4.1",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "GPT-4.1 81.9 4.3 62.1 5.4",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "309 BFCL v4 entries evaluated with GPT-4.1",
+        "sample_size": 309,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "BFCL v4 exact entry-level accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Fraction of entries where every required function call is present and correctly parameterized.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute PTC-minus-JSON accuracy change (percentage points)",
+        "estimate": "-19.8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "62.1",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "81.9",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-2",
+        "GPT-4.1"
+      ]
+    },
+    {
+      "atom_id": "57e812c6-419a-595a-bab5-833f5a96d8d1",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For GPT-5.4-mini on the 309-entry BFCL v4 subset, JSON tool-calling accuracy was 79.3% and PTC accuracy was 55.0%, corresponding to a reported absolute PTC-minus-JSON change of -24.3 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "GPT-5.4-mini",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "GPT-5.4-mini 79.3 4.5 55.0 5.5",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "309 BFCL v4 entries evaluated with GPT-5.4-mini",
+        "sample_size": 309,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "BFCL v4 exact entry-level accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Fraction of entries where every required function call is present and correctly parameterized.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute PTC-minus-JSON accuracy change (percentage points)",
+        "estimate": "-24.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "55.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "79.3",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-2",
+        "GPT-5.4-mini"
+      ]
+    },
+    {
+      "atom_id": "30d1684c-e767-599e-a0c6-41bce548fce9",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "All five evaluated Anthropic models matched or exceeded their JSON baseline under PTC, with reported absolute deltas ranging from 0.0 to 6.5 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "All five Anthropic models ... match or exceed baseline accuracy under programmatic tool calling, with deltas ranging from 0.0 to 6.5 percentage absolute.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Evaluated Anthropic models",
+        "sample_size": 5,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Anthropic models with PTC accuracy at least as high as JSON baseline",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "count of models",
+        "estimate": "5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Anthropic models matching or exceeding baseline",
+            "event_count": 5,
+            "sample_size": 5,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Anthropic",
+        "model-generation"
+      ]
+    },
+    {
+      "atom_id": "05d82cc8-d66a-5f88-bb5b-cacc9b75b6c9",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "All three GPT-5.6 variants had higher PTC accuracy than their JSON baselines, with reported absolute improvements from 4.2 to 10.6 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "the three newest GPT-5.6 variants are all positive (absolute improvements of 4.2% to 10.6% over baseline)",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Evaluated GPT-5.6 variants",
+        "sample_size": 3,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "GPT-5.6 variants with PTC accuracy above JSON baseline",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "count of models",
+        "estimate": "3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "GPT-5.6 variants above baseline",
+            "event_count": 3,
+            "sample_size": 3,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "GPT-5.6",
+        "model-generation"
+      ]
+    },
+    {
+      "atom_id": "bc5ac7ef-86c3-5b5c-9719-51333350659e",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For the BFCL v4 overall subset category (n=309), mean accuracy across the 14 models was 78.6% for JSON tool calling and 77.0% for PTC.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": "overall subset",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "overall subset 309 78.6 ... 77.0",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Fourteen-model macro-average for BFCL v4 overall subset category",
+        "sample_size": 14,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean BFCL v4 accuracy across 14 models",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Macro-average of model accuracies for the stated BFCL v4 category.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean accuracy percentage",
+        "estimate": "77.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "77.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "78.6",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-6",
+        "overall subset"
+      ]
+    },
+    {
+      "atom_id": "a2fe08be-e834-55bc-96f5-14a90b4449a0",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For the BFCL v4 simple_python category (n=40), mean accuracy across the 14 models was 86.1% for JSON tool calling and 89.5% for PTC.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": "simple_python",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "simple_python 40 86.1 ... 89.5",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Fourteen-model macro-average for BFCL v4 simple_python category",
+        "sample_size": 14,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean BFCL v4 accuracy across 14 models",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Macro-average of model accuracies for the stated BFCL v4 category.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean accuracy percentage",
+        "estimate": "89.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "89.5",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "86.1",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-6",
+        "simple_python"
+      ]
+    },
+    {
+      "atom_id": "a7bbac08-7dae-5fcf-931a-01233efc1eaf",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For the BFCL v4 multiple category (n=20), mean accuracy across the 14 models was 95.4% for JSON tool calling and 93.9% for PTC.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": "multiple",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "multiple 20 95.4 ... 93.9",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Fourteen-model macro-average for BFCL v4 multiple category",
+        "sample_size": 14,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean BFCL v4 accuracy across 14 models",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Macro-average of model accuracies for the stated BFCL v4 category.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean accuracy percentage",
+        "estimate": "93.9",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "93.9",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "95.4",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-6",
+        "multiple"
+      ]
+    },
+    {
+      "atom_id": "9f59ceb2-e756-5065-8736-14a55fc26782",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For the BFCL v4 parallel category (n=40), mean accuracy across the 14 models was 85.5% for JSON tool calling and 71.4% for PTC.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": "parallel",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "parallel 40 85.5 ... 71.4",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Fourteen-model macro-average for BFCL v4 parallel category",
+        "sample_size": 14,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean BFCL v4 accuracy across 14 models",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Macro-average of model accuracies for the stated BFCL v4 category.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean accuracy percentage",
+        "estimate": "71.4",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.4",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "85.5",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-6",
+        "parallel"
+      ]
+    },
+    {
+      "atom_id": "388f9864-6cec-5996-80f6-6b5495afa348",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For the BFCL v4 live_multiple category (n=96), mean accuracy across the 14 models was 73.1% for JSON tool calling and 83.0% for PTC.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": "live_multiple",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "live_multiple 96 73.1 ... 83.0",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Fourteen-model macro-average for BFCL v4 live_multiple category",
+        "sample_size": 14,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean BFCL v4 accuracy across 14 models",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Macro-average of model accuracies for the stated BFCL v4 category.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean accuracy percentage",
+        "estimate": "83.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "83.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "73.1",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-6",
+        "live_multiple"
+      ]
+    },
+    {
+      "atom_id": "7b6e0c7d-1c70-5bfc-8399-aac30b1f0476",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For the BFCL v4 live_parallel category (n=24), mean accuracy across the 14 models was 66.1% for JSON tool calling and 56.8% for PTC.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": "live_parallel",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "live_parallel 24 66.1 ... 56.8",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Fourteen-model macro-average for BFCL v4 live_parallel category",
+        "sample_size": 14,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean BFCL v4 accuracy across 14 models",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Macro-average of model accuracies for the stated BFCL v4 category.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean accuracy percentage",
+        "estimate": "56.8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "56.8",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "66.1",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-6",
+        "live_parallel"
+      ]
+    },
+    {
+      "atom_id": "83b22f24-13ed-500a-a71f-4bbb70b31a70",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "The three older OpenAI models that underperformed under PTC (GPT-4o, GPT-4.1, and GPT-5.4-mini) repeatedly emitted literal \"\\n\" character sequences instead of real newlines in multiline Python scripts, producing subprocess syntax errors.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "The models produce code with literal \\n escape sequences in multiline scripts rather than real newlines, causing the subprocess to fail with a syntax error",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "failure-mode",
+        "newline-encoding"
+      ]
+    },
+    {
+      "atom_id": "8e2e06aa-cd36-5c24-a99d-09b1bbbc4878",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The reported PTC accuracy advantage on sequential tasks increased with chain length and reached an 18.8-percentage-point absolute gap over JSON tool calling at chain lengths of at least 12.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "introduction",
+        "page": "2",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "reaching an 18.8% absolute gap over JSON tool calling at lengths ≥ 12",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Sequential chaining tasks with chain length at least 12",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Absolute PTC-minus-JSON chaining accuracy gap",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy gap (percentage points)",
+        "estimate": "18.8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "chaining",
+        "chain-length"
+      ]
+    },
+    {
+      "atom_id": "12fd7014-f903-5601-9a8f-f35d7ab6b6b0",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the 52-entry chaining ablation, Claude Sonnet 5 had 80.8% JSON accuracy and 96.2% PTC accuracy.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "Claude Sonnet 5",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Claude Sonnet 5 80.8 ... 96.2",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "52 chaining-ablation entries evaluated with Claude Sonnet 5",
+        "sample_size": 52,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Chaining-ablation exact entry-level accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Accuracy on 52 chaining entries with chain lengths 2–20.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy percentage",
+        "estimate": "96.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "96.2",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "80.8",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-3",
+        "chaining",
+        "Claude Sonnet 5"
+      ]
+    },
+    {
+      "atom_id": "bdc53b5c-a744-513b-8a58-260f3dd12df8",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the 52-entry chaining ablation, Claude Opus 4.8 had 80.8% JSON accuracy and 94.2% PTC accuracy.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "Claude Opus 4.8",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Claude Opus 4.8 80.8 ... 94.2",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "52 chaining-ablation entries evaluated with Claude Opus 4.8",
+        "sample_size": 52,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Chaining-ablation exact entry-level accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Accuracy on 52 chaining entries with chain lengths 2–20.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy percentage",
+        "estimate": "94.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "94.2",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "80.8",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-3",
+        "chaining",
+        "Claude Opus 4.8"
+      ]
+    },
+    {
+      "atom_id": "4dc3b099-1ba2-5761-a876-d1baa1846bf2",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the 52-entry chaining ablation, GPT-4.1 had 98.1% JSON accuracy and 40.4% PTC accuracy.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "GPT-4.1",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "GPT-4.1 98.1 ... 40.4",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "52 chaining-ablation entries evaluated with GPT-4.1",
+        "sample_size": 52,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Chaining-ablation exact entry-level accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Accuracy on 52 chaining entries with chain lengths 2–20.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy percentage",
+        "estimate": "40.4",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "40.4",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "98.1",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-3",
+        "chaining",
+        "GPT-4.1"
+      ]
+    },
+    {
+      "atom_id": "3ca102e3-513d-5bd6-84ee-00188509068c",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "PTC matched or exceeded the JSON baseline for 13 of 14 models on the 32-entry parallelism ablation.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Programmatic tool calling matches or exceeds baseline accuracy for 13 of 14 models on the parallelism ablation",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Evaluated models on the 32-entry parallelism ablation",
+        "sample_size": 14,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Models with PTC parallelism accuracy at least as high as JSON baseline",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "count of models",
+        "estimate": "13",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Models matching or exceeding baseline",
+            "event_count": 13,
+            "sample_size": 14,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "parallelism",
+        "main-result"
+      ]
+    },
+    {
+      "atom_id": "00dd776e-b8a3-53fa-bd8f-2e30abaf759a",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the 32-entry parallelism ablation, GPT-5 had 71.9% JSON enumeration accuracy and 96.9% PTC enumeration accuracy.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": "GPT-5",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "GPT-5 71.9 ... 96.9",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "32 parallelism-ablation entries evaluated with GPT-5",
+        "sample_size": 32,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Parallelism-ablation enumeration accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Fraction of enumeration-type entries where all required fan-out calls were issued.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "enumeration accuracy percentage",
+        "estimate": "96.9",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "96.9",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.9",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-4",
+        "parallelism",
+        "GPT-5"
+      ]
+    },
+    {
+      "atom_id": "aefdac18-29bc-5efb-a286-7e33045fd9dc",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the 32-entry parallelism ablation, GPT-4.1 had 96.9% JSON enumeration accuracy and 90.6% PTC enumeration accuracy.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": "GPT-4.1",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "GPT-4.1 96.9 ... 90.6",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "32 parallelism-ablation entries evaluated with GPT-4.1",
+        "sample_size": 32,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Parallelism-ablation enumeration accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": "Fraction of enumeration-type entries where all required fan-out calls were issued.",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "enumeration accuracy percentage",
+        "estimate": "90.6",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "90.6",
+            "unit": "%"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "96.9",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Table-4",
+        "parallelism",
+        "GPT-4.1"
+      ]
+    },
+    {
+      "atom_id": "0bc83726-416d-5b47-9df5-15dc7c52f2e7",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The reported token-cost crossover between PTC and JSON tool calling occurs at approximately N=26 fan-out calls; below this point PTC is more expensive because of fixed system-prompt overhead.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Token costs cross over at N ≈ 26. Below this threshold programmatic tool calling is more expensive due to its fixed system-prompt overhead.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Parallel fan-out tasks near the token-cost crossover",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Fan-out count at token-cost crossover",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "fan-out count N",
+        "estimate": "26",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "token-cost",
+        "fan-out"
+      ]
+    },
+    {
+      "atom_id": "f27b5381-67db-5cd6-8c37-ace7162b1889",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "At fan-out N=30, JSON tool calling used 3,559 tokens and PTC used 3,380 tokens.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "At N = 30, JSON tool calling uses 3,559 tokens versus 3,380 for programmatic tool calling.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Parallel fan-out condition at N=30",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Token count",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "token count",
+        "estimate": "3380",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "3380",
+            "unit": "tokens"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "3559",
+            "unit": "tokens"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "token-cost",
+        "fan-out-N30"
+      ]
+    },
+    {
+      "atom_id": "ac62f591-e844-5d0f-acfc-693c714e121c",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "At fan-out N=48, JSON tool calling used 5,097 tokens and PTC used 3,535 tokens.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "At N = 48, the gap widens to 5,097 versus 3,535.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Parallel fan-out condition at N=48",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Token count",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "token count",
+        "estimate": "3535",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "3535",
+            "unit": "tokens"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "5097",
+            "unit": "tokens"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "token-cost",
+        "fan-out-N48"
+      ]
+    },
+    {
+      "atom_id": "5126ac01-5540-5a4e-bd66-7934198b9633",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across 14 models in the context-rot ablation, the mean accuracy change from filtered to flood was -2.3 percentage points for JSON tool calling, +5.5 points for PTC, and -32.0 points for the filesystem-discovery reference condition.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": "Mean Δ",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Mean Δ −2.3 +5.5 −32.0",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Fourteen evaluated models in the context-rot ablation",
+        "sample_size": 14,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Filesystem-discovery condition",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean absolute accuracy change from filtered to flood",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy change (percentage points)",
+        "estimate": "5.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "5.5",
+            "unit": "percentage points"
+          },
+          {
+            "arm_label": "JSON tool calling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "-2.3",
+            "unit": "percentage points"
+          },
+          {
+            "arm_label": "Filesystem discovery",
+            "event_count": null,
+            "sample_size": null,
+            "value": "-32.0",
+            "unit": "percentage points"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "context-rot",
+        "Table-5"
+      ]
+    },
+    {
+      "atom_id": "f27c99d8-fbdc-50a7-bf9d-30582824874e",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Claude Sonnet 5 JSON enumeration accuracy was 100% through fan-out N=70.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Enumeration accuracy is 100% at N ≤ 70",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Claude Sonnet 5 targeted fan-out probe at N=70",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Enumeration accuracy on targeted fan-out probes",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "enumeration accuracy percentage",
+        "estimate": "100",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "JSON",
+            "event_count": null,
+            "sample_size": null,
+            "value": "100",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "fan-out-probe",
+        "Claude Sonnet 5",
+        "JSON",
+        "N=70"
+      ]
+    },
+    {
+      "atom_id": "8159f334-a6e3-515c-bb34-baf137b702d0",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Claude Sonnet 5 JSON enumeration accuracy was 75% at fan-out N=72.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "drops to 75% at N = 72",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Claude Sonnet 5 targeted fan-out probe at N=72",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Enumeration accuracy on targeted fan-out probes",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "enumeration accuracy percentage",
+        "estimate": "75",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "JSON",
+            "event_count": null,
+            "sample_size": null,
+            "value": "75",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "fan-out-probe",
+        "Claude Sonnet 5",
+        "JSON",
+        "N=72"
+      ]
+    },
+    {
+      "atom_id": "fd4c8f17-8a2e-53e6-a34e-d064f5eb3833",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Claude Sonnet 5 JSON enumeration accuracy was 0% at fan-out N=100.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "reaches 0% at N = 100",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Claude Sonnet 5 targeted fan-out probe at N=100",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Enumeration accuracy on targeted fan-out probes",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "enumeration accuracy percentage",
+        "estimate": "0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "JSON",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "fan-out-probe",
+        "Claude Sonnet 5",
+        "JSON",
+        "N=100"
+      ]
+    },
+    {
+      "atom_id": "4ca725fb-d4ae-54ae-81b4-2aa475b37920",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Claude Sonnet 5 PTC enumeration accuracy was 100% at fan-out N=72.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Programmatic tool calling maintains 100% enumeration accuracy at both N = 72 and N = 100.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Claude Sonnet 5 targeted fan-out probe at N=72",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Enumeration accuracy on targeted fan-out probes",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "enumeration accuracy percentage",
+        "estimate": "100",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "100",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "fan-out-probe",
+        "Claude Sonnet 5",
+        "PTC",
+        "N=72"
+      ]
+    },
+    {
+      "atom_id": "a42cb3ac-f619-5f7d-a23f-4b855800a80f",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Claude Sonnet 5 PTC enumeration accuracy was 100% at fan-out N=100.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Programmatic tool calling maintains 100% enumeration accuracy at both N = 72 and N = 100.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "Claude Sonnet 5 targeted fan-out probe at N=100",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Enumeration accuracy on targeted fan-out probes",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "enumeration accuracy percentage",
+        "estimate": "100",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PTC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "100",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "fan-out-probe",
+        "Claude Sonnet 5",
+        "PTC",
+        "N=100"
+      ]
+    },
+    {
+      "atom_id": "08253369-dde0-5ecc-8de3-e6e5fa0377c4",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "GPT-5.6-Sol maintained 100% JSON baseline enumeration accuracy through fan-out N=100.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "GPT-5.6-Sol, which holds 100% baseline enumeration accuracy through N = 100",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "GPT-5.6-Sol targeted fan-out probe at N=100",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Enumeration accuracy on targeted fan-out probes",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "enumeration accuracy percentage",
+        "estimate": "100",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "JSON",
+            "event_count": null,
+            "sample_size": null,
+            "value": "100",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "fan-out-probe",
+        "GPT-5.6-Sol",
+        "JSON",
+        "N=100"
+      ]
+    },
+    {
+      "atom_id": "900c3601-a079-5068-af2a-a0e0d41f0e0b",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "In aggregation tasks, some models produced correct aggregate answers from parametric world knowledge without executing all enumeration calls; the authors therefore treat enumeration accuracy as the primary measure of tool-execution fidelity.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Several models produce the correct aggregation answer by drawing on parametric world knowledge rather than executing the enumeration calls.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "aggregation",
+        "enumeration",
+        "metric-validity"
+      ]
+    },
+    {
+      "atom_id": "d56b9fbf-a2a9-580f-910f-2d5ce6f002be",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "PTC completed chaining entries faster than JSON tool calling for 13 of 14 models, with reported per-entry PTC-to-baseline latency ratios ranging from 0.32 to 0.96.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "for 13 of 14 models, with per-entry latency ratios ranging from 0.32 to 0.96 of baseline",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "latency",
+        "chaining"
+      ]
+    },
+    {
+      "atom_id": "8240affd-1b03-55d0-9ea4-c26e84e201a5",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "GPT-5 was the latency exception in the chaining analysis, running at 2.8 times baseline latency under PTC.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "GPT-5 is the exception, running at 2.8× baseline latency under programmatic tool calling.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": {
+        "label": "GPT-5 chaining-ablation entries",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Programmatic tool calling (PTC)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Native JSON tool calling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "PTC-to-JSON wall-clock latency ratio",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "latency ratio",
+        "estimate": "2.8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "latency",
+        "GPT-5"
+      ]
+    },
+    {
+      "atom_id": "df2f582f-ac8c-5ce9-9c81-a4f9b4c52be2",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors conclude that programmatic tool calling is a viable and reliable alternative to JSON tool calling, with relative performance tracking model generation and with advantages in high fan-out and context-rot settings.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "These results demonstrate that programmatic tool calling is a viable and reliable alternative to JSON tool calling",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "author-conclusion",
+        "PTC"
+      ]
+    },
+    {
+      "atom_id": "2b54c9f6-e482-5bb1-aa54-139f631f35fb",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "limitation",
+      "canonical_statement": "BFCL v4 in this evaluation uses echo-return stubs that return their arguments instead of executing real APIs, so the study measures argument-serialization accuracy rather than end-to-end tool-use correctness and may not generalize to chains that depend on actual return values.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "other",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "BFCL v4 uses echo-return stubs. Each function returns its arguments verbatim rather than executing real API calls.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "external-validity",
+        "echo-stubs"
+      ]
+    },
+    {
+      "atom_id": "bc2c1e7c-b79f-5506-9b03-102f28376774",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "limitation",
+      "canonical_statement": "The ablation conditions contain only 31 to 52 entries, producing wide confidence intervals; the authors state that individual-model results should be interpreted as directional and reserve stronger interpretation for aggregate cross-model patterns.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "other",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "the ablation entry counts are small (n = 31–52 per condition), so individual model results carry wide confidence intervals and should be read as directional",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "sample-size",
+        "precision"
+      ]
+    },
+    {
+      "atom_id": "94393ab2-42b3-57d9-9e0f-ff46c78ba261",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "limitation",
+      "canonical_statement": "Although the deterministic scorer avoids BFCL v4’s LLM-judge path, the evaluation may still inherit noise from benchmark ground-truth labels.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "other",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "the benchmark’s ground-truth labels may still contain noise that our scorer inherits.",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "benchmark-validity",
+        "label-noise"
+      ]
+    },
+    {
+      "atom_id": "cf463d1e-af3b-5739-b21a-ee4886f956d7",
+      "publication_id": "798702bc-bf15-5a0b-b74f-c509662c12ea",
+      "atom_kind": "limitation",
+      "canonical_statement": "PTC has fixed input-token overhead because its instruction template is embedded as prose; on the chaining ablation it used 1.5 times the input tokens of JSON tool calling, although this overhead reversed at high fan-out, and output-token counts did not differ across paradigms.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "other",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "On the chaining ablation, programmatic tool calling uses 1.5× the input tokens of JSON tool calling. This overhead reverses at high fan-out",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt:@ATOM",
+        "extracted_at": "2026-08-08T07:49:23.248862Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-08",
+        "prompt_version": "Literature Review project @ATOM macro",
+        "input_document_hash": "sha256:dbcc5bde9195a9e507949a992329ae2f37992435d291601e327ebf594e5d5ad4",
+        "extraction_run_id": "d98a4c36-0082-5b54-90c4-dbd5e8fcb205",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-08T07:49:23.248862Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "token-overhead",
+        "cost"
+      ]
+    }
+  ],
+  "extraction_limitations": [
+    "Atoms were extracted from the uploaded 11-page arXiv preprint; no external verification was performed because @VERIFY was not activated.",
+    "No funding disclosure or conflict-of-interest statement was found in the accessible main-text PDF, so no funding_disclosure or conflict_of_interest atoms were created.",
+    "The paper states that evaluation entry ID lists are released with an evaluation harness, but the PDF does not provide a repository URL in the extracted text; the data_availability atom therefore records only what is stated.",
+    "Latency results reported as a range (0.32–0.96 of baseline across 13 models) were preserved in a qualitative_result atom because the current QuantitativeResult schema requires a single central estimate.",
+    "Figure 1 and Figure 2 were visually inspected; atoms were not duplicated when the same assertion was already represented by the corresponding methods/results text or table.",
+    "The source contains internal numerical/wording inconsistencies: the abstract and Table 2 support a 10.6-percentage-point GPT-5.6 improvement while the conclusion says 10.7%, and Section 5.1 says all five Anthropic models match or exceed baseline across all three ablations despite Table 3 showing lower PTC chaining accuracy for Claude Haiku 4.5 and Claude Sonnet 4.5. Atoms use the directly tabulated values and avoid propagating the inconsistent broader claim.",
+    "All extracted atoms are marked needs_review; validation establishes structural and atom-kind sufficiency, not factual verification against independent sources."
+  ]
+}

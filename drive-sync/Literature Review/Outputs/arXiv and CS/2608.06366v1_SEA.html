@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA - Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --ink:#172033; --muted:#5b687c; --line:#d9e1ec;
+  --accent:#1f4f87; --accent2:#0c6b58; --warn:#8a5b05; --bad:#8b2f36; --good:#1c6b42;
+  --code:#101826; --codefg:#eaf0f8; --soft:#edf3fa; --soft2:#eef8f5;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15.5px/1.58 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px 56px}
+header{background:linear-gradient(135deg,#102845,#1f4f87);color:white;padding:44px 0 38px;border-bottom:5px solid #c9d8eb}
+header .wrap{padding-bottom:0}
+h1{font-size:clamp(2rem,4vw,3.25rem);line-height:1.08;margin:0 0 14px;letter-spacing:-.03em}
+.subtitle{max-width:900px;font-size:1.08rem;color:#dfeaf7;margin:0}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.badge,.tag{display:inline-block;border-radius:999px;padding:4px 9px;font-size:.78rem;font-weight:700;letter-spacing:.01em}
+.badge{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);color:white}
+.tag{background:#e8eff8;color:#24466f;border:1px solid #d2deed;margin:2px 3px 2px 0}
+nav.toc{margin:22px 0 18px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:0 2px 9px rgba(22,43,72,.05)}
+nav.toc strong{display:block;margin-bottom:7px;color:#173e6c}
+nav.toc a{color:var(--accent);text-decoration:none;margin-right:14px;display:inline-block;padding:3px 0}
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:18px 0;padding:22px 24px;box-shadow:0 2px 10px rgba(17,38,65,.045)}
+h2{color:#163f70;margin:0 0 14px;font-size:1.55rem}
+h3{color:#234f7f;margin:20px 0 8px;font-size:1.16rem}
+h4{color:#304968;margin:15px 0 6px}
+p{margin:8px 0 12px}
+ul,ol{margin:8px 0 13px;padding-left:1.3rem} li{margin:4px 0}
+.meta-grid,.rating-grid,.takeaway-grid,.two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.rating-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.takeaway-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mini-card{border:1px solid var(--line);background:#fbfcfe;border-radius:12px;padding:13px 14px}
+.mini-card b{display:block;color:#263f5d;margin-bottom:3px}
+.verdict,.warning,.badnote,.goodnote{border-radius:12px;padding:13px 15px;margin:12px 0;border:1px solid}
+.verdict{background:#edf4ff;border-color:#bfd2ea;color:#183f6d}
+.warning{background:#fff8e8;border-color:#ead29b;color:#6f4b00}
+.badnote{background:#fff1f1;border-color:#e5bcbc;color:#772b31}
+.goodnote{background:#eef8f2;border-color:#bfdec9;color:#225a39}
+.section-summary{border-left:4px solid #b9cce3;padding:4px 0 4px 14px;margin:13px 0}
+.source-claim{font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#49627f}
+.appraisal-label{font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#7d3f46}
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top;text-align:left}
+th{background:#edf3f9;color:#28496c;font-weight:750}
+tr:nth-child(even) td{background:#fbfcfe}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--code);color:var(--codefg);border-radius:12px;padding:14px 16px;overflow:auto;border:1px solid #1d2a3f;font:13px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace}
+code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.inline-code{background:#edf1f6;border:1px solid #dce3ec;border-radius:5px;padding:1px 4px}
+details{border:1px solid var(--line);border-radius:12px;margin:10px 0;background:#fcfdff}
+summary{cursor:pointer;padding:11px 13px;font-weight:750;color:#264d78}
+details>div{padding:0 13px 13px}
+.score{font-size:1.55rem;font-weight:850;color:#153f6d}
+.muted{color:var(--muted)}
+.kicker{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#58718f;margin-bottom:5px}
+hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+a{color:var(--accent)}
+.small{font-size:.86rem}
+.footer{color:var(--muted);font-size:.86rem;margin-top:20px}
+@media(max-width:800px){.meta-grid,.rating-grid,.takeaway-grid,.two-col{grid-template-columns:1fr}.wrap{padding-left:14px;padding-right:14px}section{padding:18px 16px}table{font-size:.85rem}}
+@media print{body{background:white}.wrap{max-width:none}section,nav.toc{box-shadow:none;break-inside:avoid}details>div{display:block!important}summary{list-style:none}a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker" style="color:#c9d8eb">Summary · Evaluation · Appraisal</div>
+    <h1>Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering</h1>
+    <p class="subtitle">Technical appraisal of an ML4H 2026 / arXiv preprint describing nMAS, a rubric-grounded, evidence-linked pipeline for heart-failure EHR feature engineering.</p>
+    <div class="badges"><span class="badge">arXiv:2608.06366v1</span><span class="badge">6 Aug 2026</span><span class="badge">AI/ML systems lens</span><span class="badge">Research-use only</span></div>
+  </div>
+</header>
+<div class="wrap">
+<nav class="toc"><strong>Contents</strong>
+<a href="#metadata">Metadata</a><a href="#synthesis">One-page synthesis</a><a href="#source-map">Coverage</a><a href="#sections">Section condensation</a><a href="#visuals">Figures & tables</a><a href="#appraisal">Appraisal</a><a href="#takeaways">Implementation takeaways</a><a href="#provenance">Provenance</a>
+</nav>
+
+<section id="metadata">
+<h2>Metadata</h2>
+<div class="meta-grid">
+  <div class="mini-card"><b>Exact title</b>Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering</div>
+  <div class="mini-card"><b>Source type</b>Preprint / pilot clinical feature-engineering and machine-learning evaluation; submitted to Machine Learning for Health (ML4H) 2026, unspecified track.</div>
+  <div class="mini-card"><b>Authors</b>Soorya Ram Shimgekar; Michelle Hu; Dorisa Shehi; Daniel Kang; Roy Ka-Wei Lee; Koustuv Saha; Christian Poellabauer; Christopher Lee; Sajeev Singh; Piyum Zonooz; Navin Kumar; Zeeshan Ahmed; Priyadarshini Kachroo.</div>
+  <div class="mini-card"><b>Date / version</b>arXiv v1, 6 Aug 2026.</div>
+  <div class="mini-card"><b>Identifiers</b>arXiv:2608.06366v1 · DOI: 10.48550/arXiv.2608.06366.</div>
+  <div class="mini-card"><b>Study design</b>Single-cohort pilot feature-engineering study using 500 source-described “dummy” heart-failure records across nine EHR tables; internal repeated stratified cross-validation for HFrEF/HFpEF phenotyping; LLM audit, LLM construct-validity grading, comparator, and ablations.</div>
+</div>
+<div class="warning"><b>Scope warning.</b> The paper evaluates data transformation, internal consistency, and within-cohort phenotype classification. It does not establish prospective clinical benefit, safe autonomous decision support, external validity, or patient-outcome improvement.</div>
+</section>
+
+<section id="synthesis">
+<h2>One-page synthesis</h2>
+<div class="verdict"><b>Verdict: Read soon — build-useful, not deployment-useful.</b> The strongest contribution is the architecture: explicit missingness handling, deterministic rubric execution, evidence traces, bounded LLM auditing, and versioned clinical knowledge. The predictive gains are much less convincing as evidence of generalizable phenotyping because the cohort is small/dummy, validation is internal, phenotype-related inputs feed composite features, and the source itself acknowledges possible feature-label overlap.</div>
+<div class="two-col">
+<div class="mini-card"><b>Core thesis</b>Clinical EHR feature engineering can be automated while preserving auditability by separating deterministic data processing and scoring from bounded language-model tasks and by retaining provenance from every composite feature to source variables and supporting references.</div>
+<div class="mini-card"><b>What was built</b>Stage 1 produces 132 cleaned/merged patient-level columns from nine EHR tables. Stage 2 adds 70 rubric-scored or derived columns, including disease severity, cardiovascular risk, comorbid burdens, gaps, care-review outputs, and evidence traces; all 500 rows are reported as audited by Qwen 2.5-1.5B-Instruct.</div>
+<div class="mini-card"><b>Main quantitative result</b>Adding aggregated features increased mean AUROC from 0.895 to 0.963 for HFrEF and 0.870 to 0.910 for HFpEF in 5-fold stratified CV repeated 10 times.</div>
+<div class="mini-card"><b>Independent quality check</b>A Claude Opus 4.8 rubric-based construct-validity assessment scored all engineered feature categories at 81.5% of maximum overall; care recommendations scored only 38.5% and gap features 60.6%.</div>
+<div class="mini-card"><b>Most reusable design idea</b>Treat the clinical rubric as versioned content separate from the transformation engine. Keep missing values missing, return explicit availability flags, and preserve component-level provenance rather than allowing an LLM to generate unrestricted summaries.</div>
+<div class="mini-card"><b>Central validity problem</b>The phenotyping evaluation is partly circular: phenotype-related evidence is used inside engineered features and the labels are also defined from EF/phenotype status. Care-gap eligibility is itself phenotype-dependent. The authors acknowledge this as potential feature-label overlap.</div>
+</div>
+<div class="badnote"><b>High-impact internal inconsistencies.</b> The main methods state that phenotype is dictated by ICD-derived values rather than diagnosis names and that diagnosis-code fallback is used when EF is absent; the Results section says diagnosis-name fallback was required and Figure 6 reports <span class="inline-code">HFpEF_by_diagnosis_name</span>. The paper also repeatedly describes the 500-patient cohort as “dummy,” while the Claude comparator prompt calls the same source a “real, de-identified, single-institution EHR export.” These conflicts affect reproducibility and interpretation of the reported evaluation.</div>
+<p><span class="tag">EHR feature engineering</span><span class="tag">multi-agent systems</span><span class="tag">heart failure</span><span class="tag">clinical AI</span><span class="tag">auditable pipelines</span><span class="tag">label leakage</span><span class="tag">provenance</span></p>
+</section>
+
+<section id="source-map">
+<h2>Coverage manifest and source map</h2>
+<table>
+<thead><tr><th>Item</th><th>Coverage decision</th><th>Representation</th></tr></thead>
+<tbody>
+<tr><td>Main sections</td><td>Abstract; Introduction; Related Work; Data; Method; Results; Discussion; References</td><td>Condensed below; references treated as source-reported support, not independently verified.</td></tr>
+<tr><td>Main-text Figure 1</td><td>Included</td><td>Structured workflow reconstruction.</td></tr>
+<tr><td>Main-text Tables 1–2</td><td>Included</td><td>HTML tables preserving key values.</td></tr>
+<tr><td>Method workflows</td><td>Included</td><td>Structured blocks: standardization/deduplication, aggregation, scoring, LLM audit, condition discovery, QA, model evaluation.</td></tr>
+<tr><td>Appendix A.1–A.12</td><td>Included because it materially affects reproducibility, leakage assessment, and performance interpretation.</td><td>Tables 3–17 and Figures 2–7 summarized/reconstructed; long prompt text condensed without changing operative constraints.</td></tr>
+<tr><td>Source visuals</td><td>No embedded screenshots required.</td><td>All load-bearing figures/tables were legible in rendered pages and could be faithfully represented as structured HTML/code blocks.</td></tr>
+<tr><td>Omissions</td><td>Individual bibliography entries are not restated.</td><td>The bibliography is not independently verified under this run; no external web research was used.</td></tr>
+</tbody></table>
+</section>
+
+<section id="sections">
+<h2>Section-by-section condensation</h2>
+<div class="section-summary"><h3>Abstract</h3><div class="source-claim">Source summary</div><p>The authors frame EHR feature engineering as a large operational burden and propose nMAS, an evidence-linked, rubric-grounded system for automated heart-failure feature engineering. On 500 dummy records across nine EHR tables, the system produced 132 structured and 70 aggregated features with structural, rubric, and provenance checks plus restricted-LLM auditing.</p><p>The abstract reports AUROC gains from 0.895→0.963 for HFrEF and 0.870→0.910 for HFpEF and an 81.5% normalized score from an independent LLM-based construct-validity rubric. It appropriately notes single-institution evaluation and the need for external validation.</p></div>
+
+<div class="section-summary"><h3>1. Introduction</h3><div class="source-claim">Source summary</div><p>The introduction distinguishes simple EHR extraction from clinically meaningful feature construction. Heart-failure phenotyping is presented as a representative hard case because it requires longitudinal integration of diagnoses, medications, laboratory measurements, procedures, imaging, and guideline-defined EF categories.</p><p>The stated objective is primarily feasibility: determine whether automated feature engineering can produce structurally valid, rubric-compliant, clinically coherent, evidence-traceable patient-level features. Predictive performance is explicitly secondary.</p></div>
+
+<div class="section-summary"><h3>2. Related Work</h3><div class="source-claim">Source summary</div><p>The paper contrasts nMAS with single-modality extraction systems, disease-agnostic preprocessing frameworks such as FIDDLE/MIMIC-Extract/OHDSI, code-based comorbidity indices, schema-driven LLM feature generation, and agentic score construction. The claimed gap is disease-specific, guideline-grounded composite feature engineering with auditable links back to source evidence.</p><p>The novelty claim is architectural rather than algorithmic: combine reusable EHR normalization/aggregation with versioned clinical rubrics and provenance-preserving execution instead of either generic preprocessing or unrestricted LLM reasoning.</p></div>
+
+<div class="section-summary"><h3>3. Data</h3><div class="source-claim">Source summary</div><p>The evaluation uses 500 patients described as dummy records drawn from an aggregated cohort modeled on a cardiovascular program serving a minoritized population. Inclusion required a documented HF diagnosis; no other inclusion/exclusion criteria were applied. Nine source tables cover demographics/core diagnoses, other diagnoses, medications, echocardiography, surgery, internal labs, external labs, EF flowsheet records, and social history.</p><p>The source combines coded fields with free text. This is methodologically relevant because the pipeline uses both deterministic pattern extraction and structured aggregation. The cohort later shows very sparse numeric EF availability (15/500, 3.0%).</p></div>
+
+<div class="section-summary"><h3>4. Method — workflow and Stage 1</h3><div class="source-claim">Source summary</div><p>An Achievability Agent checks whether required inputs exist; unsupported features are reported as unsupported rather than inferred. A Query Parser routes requests to extraction or feature-engineering pipelines. Feature engineering then standardizes strings/nulls/IDs/datetimes, deduplicates on event-specific keys, independently aggregates each source to the patient level, and merges summaries into one row per patient.</p><p>Temporal aggregation produces counts, first/latest timestamps, flags, and lab summaries. EF ranges are parsed into low/high/midpoint values. Missing continuous variables remain missing and receive explicit availability indicators rather than being set to zero. This is one of the strongest design choices in the paper.</p></div>
+
+<div class="section-summary"><h3>4. Method — clinical feature engineering and rubric</h3><div class="source-claim">Source summary</div><p>Raw codes/text are converted into interpretable flags, then a versioned rubric transforms Stage 1 variables into scores, labels, counts, and evidence-linked composites. The rubric was initially assembled with Qwen 2.5-1.5B-Instruct from recent literature, then reviewed and approved by a professional cardiologist. The authors explicitly state that point values are an interpretable engineering design informed by literature, not coefficients directly estimated from published studies.</p><p>Seven weighted domains use summed points capped at 100 and mapped to low (&lt;25), medium (25–54), or high (≥55); HF phenotype uses separate categorical logic. The taxonomy is not fully stable across the paper: Table 3 describes eight point-based categories, while the construct-validity appendix grades 11 categories, including behavioral risk, gaps, and care.</p></div>
+
+<div class="section-summary"><h3>4. Method — bounded LLM audit and condition discovery</h3><div class="source-claim">Source summary</div><p>Each candidate row is audited locally by Qwen 2.5-1.5B-Instruct. The model receives patient evidence, the candidate row, and a whitelist of correctable fields. It may modify numeric scores/counts, selected labels, and flags, but cannot modify evidence-trace JSON, explanations, or patient identifiers. Unparseable responses are logged and leave deterministic values unchanged.</p><p>A separate condition-discovery stage is constrained to 13 pre-specified candidate conditions. The LLM may select existing evidence-bearing columns and explain relevance, but may not invent conditions, columns, rules, thresholds, or patient diagnoses. This is a bounded cataloging task rather than open-ended diagnostic inference.</p></div>
+
+<div class="section-summary"><h3>4. Method — QA and model evaluation</h3><div class="source-claim">Source summary</div><p>The QA harness checks unique IDs, valid joins, mutually exclusive phenotype indicators, missingness preservation, selected rubric formulas, monotonic scoring behavior, evidence traceability, and provenance. For downstream evaluation, XGBoost predicts HFrEF vs phenotype-unknown and HFpEF vs phenotype-unknown. Baseline features are cleaned/merged structured variables; aggregated models add composite features.</p><p>Models use fixed hyperparameters and 5-fold stratified CV repeated 10 times, reusing identical fold assignments for paired baseline/aggregated comparisons. Global TreeSHAP is reported. A Claude Opus 4.8 construct-validity rubric grades engineered components, and additional comparator/ablation experiments probe feature design.</p></div>
+
+<div class="section-summary"><h3>5. Results</h3><div class="source-claim">Source summary</div><p>Stage 1 produced exactly one row per patient and 132 columns. Stage 2 generated 70 additional columns; all 500 rows were reported as audited. EF was numerically available in only 3.0% of patients, BNP/NT-proBNP in 30.8%, and troponin in 85.8%. The Results section states that diagnosis-name fallback was therefore required for phenotype assignment.</p><p>Aggregated features improved all three reported metrics in both phenotype tasks. HFrEF AUROC increased by 0.068 and HFpEF by 0.040. Composite features occupied 6/10 top SHAP positions for HFrEF and 2/10 for HFpEF. The construct-validity grade was 81.5% overall, but care recommendations scored 38.5%, gap features 60.6%, and demographic vulnerability 63.1%.</p></div>
+
+<div class="section-summary"><h3>6. Discussion, limitations, and future work</h3><div class="source-claim">Source summary</div><p>The authors argue that the principal value is reusable, auditable data preparation rather than autonomous CDS. They highlight separation of knowledge representation from execution and propose that other chronic-disease rubrics could be substituted without rebuilding the extraction/audit infrastructure.</p><p>The paper acknowledges a dummy single-institution cohort, no external validation, phenotype-unknown rather than non-HF controls, no prospective outcomes, regular-expression limitations, partial clinician review, and potential feature-label overlap. It recommends multi-institutional, temporally separated validation with clinician-adjudicated phenotypes and prospective workflow evaluation before broader use.</p></div>
+</section>
+
+<section id="visuals">
+<h2>Figures, tables, workflows, and appendix evidence</h2>
+<h3>Figure 1 — nMAS feature-engineering workflow</h3>
+<pre>Input document ─┐
+                ├─> Achievability Agent <─ Scoring rubric
+User request ───┘           │
+                         Query Parser
+                      ┌──────┴──────┐
+        Feature Extraction         Feature Engineering
+          (rule/LLM based)          ├─ Deterministic layer
+                                    │   ├─ Rule-based extraction
+                                    │   └─ Rule-defined scoring
+                                    ├─ LLM layer
+                                    │   ├─ Feature validation
+                                    │   └─ Comorbid condition discovery
+                                    ├─ Automated validation
+                                    └─ Extraction output</pre>
+<div class="appraisal-label">Appraisal</div><p>The architecture cleanly constrains the LLM around a deterministic core. The figure supports the paper's auditability claim better than it supports any claim of clinical validity.</p>
+
+<h3>Table 1 — development cohort</h3>
+<table><thead><tr><th>Characteristic</th><th>Value</th></tr></thead><tbody>
+<tr><td>Total patients</td><td>500</td></tr><tr><td>Male / female / unspecified</td><td>256 (51.2%) / 243 (48.6%) / 1 (0.2%)</td></tr><tr><td>Mean BMI</td><td>29.99 (n=266)</td></tr><tr><td>Chronic kidney disease</td><td>227 (45.4%)</td></tr><tr><td>Diabetes</td><td>208 (41.6%)</td></tr><tr><td>Coronary artery disease</td><td>202 (40.4%)</td></tr><tr><td>Atrial fibrillation</td><td>175 (35.0%)</td></tr><tr><td>Numeric EF available</td><td>15 (3.0%)</td></tr><tr><td>BNP / NT-proBNP available</td><td>154 (30.8%)</td></tr><tr><td>Troponin available</td><td>429 (85.8%)</td></tr>
+</tbody></table>
+<div class="appraisal-label">Appraisal</div><p>The 3% numeric-EF availability is a load-bearing limitation: most phenotype assignment cannot be anchored to direct EF measurements, and the paper's fallback logic is internally inconsistent.</p>
+
+<h3>Table 2 — repeated cross-validated performance</h3>
+<table><thead><tr><th>Task</th><th>Feature set</th><th>Accuracy</th><th>AUROC</th><th>F1</th></tr></thead><tbody>
+<tr><td rowspan="2">HFrEF</td><td>Baseline</td><td>0.776 ± 0.065</td><td>0.895 ± 0.046</td><td>0.776 ± 0.063</td></tr><tr><td>Aggregated</td><td>0.896 ± 0.049</td><td>0.963 ± 0.028</td><td>0.894 ± 0.052</td></tr>
+<tr><td rowspan="2">HFpEF</td><td>Baseline</td><td>0.752 ± 0.056</td><td>0.870 ± 0.042</td><td>0.758 ± 0.058</td></tr><tr><td>Aggregated</td><td>0.809 ± 0.061</td><td>0.910 ± 0.040</td><td>0.812 ± 0.059</td></tr>
+</tbody></table>
+<div class="appraisal-label">Appraisal</div><p>The magnitude is substantial, especially for HFrEF, but the estimates are internal resampling results on a small dummy cohort and do not isolate generalizable signal from target-adjacent composite features or documentation intensity.</p>
+
+<details open><summary>Appendix A.1 / Table 3 — scoring rubric</summary><div>
+<p>Eight point-based categories are described. Scores sum component points, cap at 100, then map to low/medium/high cutoffs where applicable.</p>
+<table><thead><tr><th>Feature</th><th>Representative component logic</th></tr></thead><tbody>
+<tr><td>Disease severity</td><td>EF midpoint &lt;30: 35; 30–40: 25; 40–50: 10; missing EF inferred from diagnosis: 8; BNP max ≥900: 20 or 300–899: 10; abnormal troponin 3 each (max 24); procedures 2 each (max 12); LVAD 18; CKD 6.</td></tr>
+<tr><td>Cardiovascular risk</td><td>Continuous age and BP weights plus CAD 10, diabetes 8, CKD 8, hypertension 6, hyperlipidemia 5, current tobacco 8/former 3, daily alcohol 3.</td></tr>
+<tr><td>Kidney burden</td><td>CKD 35, AKI 25, creatinine abnormality/count/latest thresholds, electrolyte abnormalities, diabetes/hypertension context.</td></tr>
+<tr><td>Lung burden</td><td>COPD 35, sleep apnea 25, current tobacco 12/former 5, BMI ≥35: 8 or 30–34.9: 4.</td></tr>
+<tr><td>Metabolic burden</td><td>Diabetes 25, obesity 20, hyperlipidemia 10, hypertension 8, BMI and glucose thresholds/abnormality counts.</td></tr>
+<tr><td>Blood burden</td><td>Anemia 35; hemoglobin abnormality count and latest hemoglobin thresholds; CKD context 5.</td></tr>
+<tr><td>Brain-health risk</td><td>Age ≥75: 8; hypertension 12; diabetes 10; hyperlipidemia 8; sleep apnea 5; current tobacco 8; daily alcohol 5.</td></tr>
+<tr><td>Demographic vulnerability</td><td>Non-English language 35; Hispanic/Latino 15; unknown/declined ethnicity 10; Black/African American race 15; other/unknown/declined race 10.</td></tr>
+</tbody></table>
+<div class="appraisal-label">Appraisal</div><p>The rubric is transparent and auditable, but the weights are engineering judgments, not calibrated coefficients. Sensitive demographic attributes are explicitly separated conceptually from biological risk, yet demographic-adjusted gap features later become highly important in HFrEF SHAP results.</p>
+</div></details>
+
+<details><summary>Figure 2 — representative versioned rubric JSON</summary><div><pre>{
+  "disease_severity": {
+    "ef_points": [
+      {"condition": "ef_midpoint < 30", "points": 35},
+      {"condition": "30 <= ef_midpoint <= 40", "points": 25}
+    ],
+    "severity_cutoffs": {"medium_min": 25, "high_min": 55}
+  },
+  "cardiovascular_risk": {
+    "continuous_components": {
+      "age": {"minimum_age": 35, "maximum_age": 95, "maximum_points": 45}
+    }
+  },
+  "medical_grounding": {"references": [{"journal": "JACC: Heart Failure", "year": 2024, "doi": "10.1016/j.jchf.2024.02.020"}]}
+}</pre><p>The figure demonstrates the intended separation of rubric content from execution logic and explicit linkage of references to components.</p></div></details>
+
+<details><summary>Tables 4–7 — Stage 1 source schema, deduplication, aggregation, and signal engineering</summary><div>
+<table><thead><tr><th>Table</th><th>Key content</th><th>Appraisal</th></tr></thead><tbody>
+<tr><td>4 — source tables</td><td>Nine domains: PatientBase, OtherDiagnosis, Medications, EchoProcs, Surgery, LabsComponents, LabsExternal, EjectionFraction, SocialHx.</td><td>Good schema transparency; still institution-specific field naming.</td></tr>
+<tr><td>5 — dedup keys</td><td>PatientBase and SocialHx enforce one row/patient; event tables use patient + event identifiers/timestamps/component/value.</td><td>Explicit keys improve reproducibility and prevent inflated counts.</td></tr>
+<tr><td>6 — aggregates</td><td>Medication counts/classes; lab counts/abnormal counts/max/latest; surgery counts/type flags; echo counts/timestamps.</td><td>Clear patient-level temporal aggregation, though no common prediction index date is defined.</td></tr>
+<tr><td>7 — reasoning layer</td><td>ICD/name pattern flags; ordered tobacco/alcohol categories; biomarker/therapy flags; HF phenotype mappings.</td><td>Practical, but regex/pattern logic is vulnerable to institutional terminology drift.</td></tr>
+</tbody></table>
+</div></details>
+
+<details><summary>Table 8 — XGBoost configuration</summary><div><table><thead><tr><th>Hyperparameter</th><th>Value</th></tr></thead><tbody><tr><td>max_depth</td><td>3</td></tr><tr><td>n_estimators</td><td>100</td></tr><tr><td>learning_rate</td><td>0.05</td></tr><tr><td>gamma</td><td>1.0</td></tr><tr><td>min_child_weight</td><td>3</td></tr><tr><td>subsample</td><td>0.8</td></tr><tr><td>colsample_bytree</td><td>0.8</td></tr></tbody></table><p>Using the same fixed configuration across feature sets is appropriate for isolating feature-set differences, although it does not replace external validation.</p></div></details>
+
+<details><summary>Table 9 / Figure 3 — LLM auditor constraints</summary><div>
+<p><b>Correctable:</b> numeric scores/counts/indices/frequencies, indicator/availability flags, and a fixed set of classifications/urgency labels. <b>Protected:</b> evidence traces (<span class="inline-code">*_json</span>), narrative explanations, and patient identifier.</p>
+<pre>Use ONLY patient data and rubric logic.
+Return {"valid": true} when correct.
+Otherwise return only minimal corrections.
+Never return *_json or *_explanation fields.
+Correction keys must come from correctable_fields.
+JSON only.</pre>
+<div class="appraisal-label">Appraisal</div><p>This is a strong guardrail pattern. However, the paper does not report how many rows/fields were corrected, how often parsing failed, or whether LLM corrections improved agreement with clinician review.</p>
+</div></details>
+
+<details><summary>Figures 4–5 — comorbid condition discovery</summary><div><p>The model is asked to create one catalog row for a pre-specified condition using only the rubric payload and existing final-dataset columns. It cannot diagnose patients, invent conditions, columns, papers, thresholds, or rules. The anemia example selects diagnosis, hemoglobin, CKD, and blood/kidney burden columns.</p><div class="appraisal-label">Appraisal</div><p>This is better described as constrained metadata discovery than clinical diagnosis. That narrow scope reduces hallucination risk and is appropriate for research tooling.</p></div></details>
+
+<details><summary>Tables 10–11 — LLM construct-validity rubric and results</summary><div>
+<table><thead><tr><th>Dimension</th><th>Points</th><th>What it evaluates</th></tr></thead><tbody>
+<tr><td>External validation evidence</td><td>0–3</td><td>Presence of predictor/proxy in externally validated multivariable models.</td></tr><tr><td>Predictor construction risk</td><td>0–3</td><td>Timing, consistency, and label-leakage risk.</td></tr><tr><td>Definition/reporting transparency</td><td>0–2</td><td>Reproducibility from documented implementation.</td></tr><tr><td>EHR source data quality</td><td>0–3</td><td>Conformance, completeness, and plausibility.</td></tr><tr><td>Evidence population/outcome validity</td><td>0–2</td><td>Applicability of supporting evidence.</td></tr></tbody></table>
+<table><thead><tr><th>Feature category</th><th>Normalized score</th></tr></thead><tbody>
+<tr><td>Blood comorbidities</td><td>93.8%</td></tr><tr><td>Cardiovascular risk</td><td>93.4%</td></tr><tr><td>Brain comorbidities</td><td>91.3%</td></tr><tr><td>Kidney comorbidities</td><td>90.6%</td></tr><tr><td>Behavioral risk</td><td>89.5%</td></tr><tr><td>Lung comorbidities</td><td>88.5%</td></tr><tr><td>Metabolic comorbidities</td><td>85.5%</td></tr><tr><td>Disease severity</td><td>74.6%</td></tr><tr><td>Demographic vulnerability</td><td>63.1%</td></tr><tr><td>Gap features</td><td>60.6%</td></tr><tr><td>Care recommendations</td><td>38.5%</td></tr><tr><td><b>Overall</b></td><td><b>81.5%</b></td></tr>
+</tbody></table>
+<div class="appraisal-label">Appraisal</div><p>The rubric is thoughtful, but the score is model-graded, not a validated clinical endpoint. The paper reports no human inter-rater reliability or clinician adjudication of the Claude grades. The evaluator had access to pipeline metadata and literature search, so “independent” primarily means a different model, not an independent validation study.</p>
+</div></details>
+
+<details><summary>Figures 6–7 — example composite outputs</summary><div>
+<pre>{
+  "severity": "high",
+  "severity_score": 55.0,
+  "hf_classification": "HFpEF_by_diagnosis_name",
+  "hf_classification_source": "DXNAMES",
+  "drivers": ["diagnosis-text phenotype because EF is missing", "elevated BNP/NT-proBNP", "abnormal troponin burden", "CKD"]
+}</pre>
+<pre>{
+  "medications": [{"recommendation": "review statin therapy documentation for CAD", "evidence_column": "med_statin"}],
+  "labs": ["review potassium monitoring availability", "review creatinine monitoring availability", "review sodium monitoring availability"],
+  "urgency": "high",
+  "recommendation_gap_count": 4
+}</pre>
+<div class="appraisal-label">Appraisal</div><p>Figure 6 directly conflicts with the methods text that says ICD-derived phenotype takes precedence over diagnosis names. Figure 7 appropriately frames output as documentation review rather than prescriptive treatment advice.</p>
+</div></details>
+
+<details><summary>Table 12 — SHAP feature importance</summary><div>
+<table><thead><tr><th>Task</th><th>Highest-ranked features (mean |SHAP|)</th></tr></thead><tbody>
+<tr><td>HFrEF</td><td>Demographic vulnerability adjusted gap 0.597; disease severity adjusted gap 0.456; HF GDMT medication class count 0.425; medication gap count 0.342; care gap count 0.322; cardiovascular risk adjusted gap 0.307; behavior-aware care gap 0.229; other diagnosis count 0.169; medication order count 0.169; AF diagnosis 0.141.</td></tr>
+<tr><td>HFpEF</td><td>Disease severity score 0.715; troponin abnormal count 0.172; troponin max 0.158; other diagnosis count 0.142; systolic BP 0.136; surgery count 0.117; disease-severity adjusted gap 0.116; weight 0.116; BNP latest 0.111; BNP max 0.090.</td></tr>
+</tbody></table>
+<div class="appraisal-label">Appraisal</div><p>The dominant HFrEF importance of demographic- and gap-adjusted features is a warning signal. It may reflect care/documentation patterns and phenotype-dependent rules, not independent biological discrimination. No subgroup fairness or calibration analysis is reported.</p>
+</div></details>
+
+<details><summary>Appendix A.9 — Claude comparator</summary><div><p>Claude Opus 4.8 received the raw nine-table schema, dataset description, and a general feature-engineering task, with web search allowed. It was not given the proposed rubric or feature schema. The model generated a patient-level CSV, documentation, and Python code in a single run.</p><p>The paper qualitatively reports that the comparator emphasized direct clinical variables, ICD-derived phenotype/acuity, GDMT counts, an ICD-adapted Charlson index, lab abnormalities, and utilization features. It argues that some suffered label-leakage and construct-validity concerns.</p><div class="badnote"><b>Comparator reporting gap.</b> The appendix does not provide the comparator's actual model-performance or construct-validity numbers, despite saying the comparator was evaluated with the same pipeline. This limits interpretation of the claimed advantage over a general-purpose LLM.</div><div class="badnote"><b>Data-description conflict.</b> The comparator prompt calls the input “a real, de-identified, single-institution EHR export,” while the main study repeatedly describes a 500-patient dummy cohort and Table 1 says values are dummy data for illustration.</div></div></details>
+
+<details><summary>Tables 13–15 — ablation design and results</summary><div>
+<p>Eight ablation types include category removal, single-feature removal, equal/random weights, no/uniform modifiers, no missingness guardrails, and direct-evidence-only features. Repeated-CV comparisons use the Nadeau–Bengio corrected resampled paired t-test.</p>
+<table><thead><tr><th>Rubric modification</th><th>HFrEF ΔAUROC (p)</th><th>HFpEF ΔAUROC (p)</th></tr></thead><tbody>
+<tr><td>Equal-weight rubric</td><td>-0.060 (0.0059)</td><td>-0.041 (0.0007)</td></tr><tr><td>Random-weight rubric</td><td>-0.058 (0.0070)</td><td>-0.040 (0.0010)</td></tr><tr><td>No modifiers</td><td>-0.001 (0.748)</td><td>-0.000 (0.779)</td></tr><tr><td>Uniform modifiers</td><td>-0.000 (0.936)</td><td>-0.001 (0.928)</td></tr><tr><td>No missingness guardrails</td><td>+0.001 (0.749)</td><td>+0.007 (0.607)</td></tr><tr><td>Direct evidence only</td><td>-0.065 (0.0037)</td><td>-0.040 (0.0003)</td></tr>
+</tbody></table>
+<table><thead><tr><th>Removed category</th><th>HFrEF ΔAUROC</th><th>HFpEF ΔAUROC</th></tr></thead><tbody>
+<tr><td>Care gap features</td><td>-0.039</td><td>-0.003</td></tr><tr><td>Disease severity</td><td>-0.000</td><td>-0.033</td></tr><tr><td>Brain comorbid burden</td><td>+0.001</td><td>-0.002</td></tr><tr><td>Recurrence/redundancy</td><td>-0.001</td><td>-0.001</td></tr><tr><td>Metabolic comorbid burden</td><td>-0.001</td><td>-0.001</td></tr><tr><td>Demographic vulnerability</td><td>-0.001</td><td>-0.000</td></tr><tr><td>Kidney comorbid burden</td><td>-0.000</td><td>-0.000</td></tr><tr><td>Lung comorbid burden</td><td>-0.001</td><td>+0.001</td></tr><tr><td>Blood comorbid burden</td><td>+0.001</td><td>+0.001</td></tr><tr><td>Cardiovascular risk</td><td>+0.000</td><td>+0.001</td></tr><tr><td>Behavioral risk</td><td>-0.001</td><td>+0.003</td></tr>
+</tbody></table>
+<div class="appraisal-label">Appraisal</div><p>Equal/random weights and direct-evidence-only ablations do support the claim that the specific composite construction changes performance. They do not prove the clinical correctness of the weights because the target can be partially encoded by the same clinical evidence and gap logic.</p>
+</div></details>
+
+<details><summary>Tables 16–17 — individual feature ablations</summary><div><p>For HFrEF, no single removed feature changes AUROC by more than -0.002; for HFpEF, removing <span class="inline-code">feature_disease_severity_score</span> reduces AUROC by 0.033, while other individual effects are small (mostly -0.003 to 0.000).</p><div class="appraisal-label">Appraisal</div><p>The HFrEF pattern implies distributed/redundant signal across correlated composite features. For HFpEF, disease severity is a dominant single contributor, which is unsurprising because severity includes phenotype-related evidence.</p></div></details>
+</section>
+
+<section id="appraisal">
+<h2>Evaluation and appraisal</h2>
+<div class="rating-grid">
+<div class="mini-card"><div class="score">9/10</div><b>Relevance</b><span class="small"><b>Rationale:</b> Directly addresses auditable clinical EHR feature engineering and bounded agentic workflows.<br><b>Evidence basis:</b> End-to-end architecture, provenance, QA, and composite-feature pipeline.<br><b>Principal limit:</b> Heart-failure-specific pilot and unstable source descriptions.<br><b>Would raise:</b> Multi-domain replication with reusable code/content contracts.</span></div>
+<div class="mini-card"><div class="score">8/10</div><b>Novelty</b><span class="small"><b>Rationale:</b> The combination of versioned clinical rubrics, deterministic execution, evidence traces, and constrained LLM auditing is practically distinctive.<br><b>Evidence basis:</b> Architecture and appendix prompts/rubric.<br><b>Principal limit:</b> Components are individually familiar; novelty is mainly integration.<br><b>Would raise:</b> Demonstrated superiority over strong disease-specific feature-engineering baselines.</span></div>
+<div class="mini-card"><div class="score">5/10</div><b>Method strength</b><span class="small"><b>Rationale:</b> Strong internal QA, paired repeated CV, ablations, and transparent hyperparameters are offset by small dummy data, internal validation only, unclear phenotype fallback, and target-adjacent features.<br><b>Evidence basis:</b> Methods, Tables 2, 8, 13–17.<br><b>Principal limit:</b> Potential leakage/circularity.<br><b>Would raise:</b> Prospective protocol, fixed index times, adjudicated labels, temporal/external validation, leakage audit.</span></div>
+<div class="mini-card"><div class="score">4/10</div><b>Evidence strength</b><span class="small"><b>Rationale:</b> Results establish technical feasibility and internal discrimination, not clinical validity.<br><b>Evidence basis:</b> 500-patient repeated-CV study and LLM construct-validity score.<br><b>Principal limit:</b> No independent clinical outcome validation; comparator results incompletely reported.<br><b>Would raise:</b> Real multi-site data, independent human validation, calibration, error analysis, and external performance.</span></div>
+<div class="mini-card"><div class="score">2/10</div><b>External validity</b><span class="small"><b>Rationale:</b> No external site, temporal holdout, or prospective validation; source describes dummy single-institution data.<br><b>Evidence basis:</b> Explicit limitations section.<br><b>Principal limit:</b> Site/schema/language dependence.<br><b>Would raise:</b> Multi-institution datasets with varied EHR schemas and patient populations.</span></div>
+<div class="mini-card"><div class="score">8/10</div><b>Implementation value</b><span class="small"><b>Rationale:</b> Dedup keys, aggregation rules, rubric examples, prompts, hyperparameters, QA checks, and failure constraints provide substantial build guidance.<br><b>Evidence basis:</b> Appendix A.1–A.12.<br><b>Principal limit:</b> No complete runnable repository or audit-rate reporting in the evaluated source.<br><b>Would raise:</b> Public versioned rubric/code, fixtures, tests, correction statistics, and schema adapters.</span></div>
+</div>
+
+<h3>Critical issues</h3>
+<table><thead><tr><th>Issue</th><th>Why it matters</th><th>Severity</th></tr></thead><tbody>
+<tr><td>Feature-label overlap / circularity</td><td>Engineered severity and gap features can contain EF/phenotype-related evidence, while labels are defined from phenotype evidence. Care-gap eligibility is explicitly tied to HFrEF logic.</td><td><b>High</b></td></tr>
+<tr><td>Phenotype fallback inconsistency</td><td>Methods emphasize ICD-derived fallback, but Results and Figure 6 use diagnosis-name fallback. With only 3% numeric EF, this affects most of the cohort.</td><td><b>High</b></td></tr>
+<tr><td>Dummy vs real-data conflict</td><td>Main text/Table 1 describe dummy data; comparator prompt says real de-identified EHR export. Provenance and evaluation realism are therefore unclear.</td><td><b>High</b></td></tr>
+<tr><td>Phenotype-unknown comparator class</td><td>The model may learn documentation intensity or availability rather than true physiology; this is not equivalent to HF diagnosis or prospective phenotyping.</td><td><b>High</b></td></tr>
+<tr><td>No external / temporal validation</td><td>Repeated CV estimates internal consistency, not transportability across institutions or time.</td><td><b>High</b></td></tr>
+<tr><td>LLM construct-validity score is not a clinical gold standard</td><td>Claude grades an author-designed rubric from pipeline metadata; no independent clinician adjudication or inter-rater agreement is reported.</td><td>Moderate</td></tr>
+<tr><td>Comparator incompletely quantified</td><td>The appendix describes a general-purpose LLM comparator but does not show its numeric performance or construct-validity results.</td><td>Moderate</td></tr>
+<tr><td>Auditor effectiveness not quantified</td><td>No correction rate, parse-failure rate, before/after accuracy, or clinician-reviewed error taxonomy is reported for Qwen auditing.</td><td>Moderate</td></tr>
+<tr><td>Fairness / sensitive-attribute concern</td><td>Demographic vulnerability adjusted gap is the top HFrEF SHAP feature; no subgroup calibration/fairness analysis is provided.</td><td>Moderate–high</td></tr>
+</tbody></table>
+
+<h3>What the evidence supports</h3>
+<div class="goodnote"><b>Supported:</b> The authors demonstrate a coherent architecture for converting fragmented EHR exports into one-row-per-patient structured data with explicit missingness, versioned rubric execution, evidence traces, bounded LLM tasks, automated checks, and internally improved classification metrics on their pilot dataset.</div>
+<div class="badnote"><b>Not supported:</b> The paper does not establish that the composite scores are clinically calibrated risk scores, that the AUROC gains will transfer to real external cohorts, that the LLM auditor improves safety, that care recommendations are suitable for practice, or that the system improves patient outcomes.</div>
+
+<h3>AI/ML systems lens</h3>
+<table><thead><tr><th>Dimension</th><th>Assessment</th></tr></thead><tbody>
+<tr><td>Task</td><td>Automated EHR feature engineering plus within-HF cohort phenotyping, not disease diagnosis.</td></tr>
+<tr><td>Data</td><td>500 single-institution-modeled/dummy records; nine EHR tables; very sparse numeric EF; no external split.</td></tr>
+<tr><td>Method</td><td>Deterministic preprocessing/scoring + Qwen-assisted rubric generation/audit + constrained condition catalog + XGBoost evaluation.</td></tr>
+<tr><td>Metrics</td><td>Accuracy, AUROC, F1, SHAP; repeated stratified CV; corrected resampled paired t-test for ablations.</td></tr>
+<tr><td>Leakage controls</td><td>Some acknowledgment, but no full temporal/causal leakage audit; target-adjacent composite features remain.</td></tr>
+<tr><td>Baselines</td><td>Cleaned structured baseline and one general-purpose Claude comparator; comparator numeric results not shown.</td></tr>
+<tr><td>Reproducibility</td><td>Good methodological detail in appendix, but no complete runnable artifact/codebase is presented in the source.</td></tr>
+<tr><td>Failures</td><td>Potential regex misses and LLM parse failures noted; empirical error rates not reported.</td></tr>
+<tr><td>Deployment relevance</td><td>Conceptual/build-useful. Insufficient for autonomous clinical deployment.</td></tr>
+</tbody></table>
+</section>
+
+<section id="takeaways">
+<h2>Implementation / practice takeaways</h2>
+<div class="takeaway-grid">
+<div class="mini-card"><b>Adopt</b>Keep the deterministic clinical logic, provenance, and missingness semantics outside the LLM. Use the model only for tightly bounded tasks with whitelisted outputs.</div>
+<div class="mini-card"><b>Adopt</b>Version the clinical rubric independently from the execution engine so evidence updates do not require rewriting the pipeline.</div>
+<div class="mini-card"><b>Adopt</b>Deduplicate before aggregation and preserve availability indicators so “unmeasured” is never silently converted into “normal.”</div>
+<div class="mini-card"><b>Strengthen</b>Define an explicit prediction/index time and ensure every feature is computed only from information available before that time.</div>
+<div class="mini-card"><b>Strengthen</b>Separate phenotype-defining variables from predictors when evaluating predictive utility. Run a leakage-free model that excludes EF-derived, diagnosis-derived, and phenotype-gated gap features.</div>
+<div class="mini-card"><b>Strengthen</b>Report auditor correction rate, invalid-response rate, false-correction rate, before/after rule agreement, and clinician adjudication on a stratified sample.</div>
+<div class="mini-card"><b>Strengthen</b>Evaluate real multi-institutional EHRs with temporal holdouts, clinician-adjudicated phenotype labels, non-HF controls where appropriate, calibration, and subgroup performance.</div>
+<div class="mini-card"><b>Strengthen</b>Keep race/ethnicity/language variables in an explicit equity-audit pathway unless there is a clearly justified prediction use. Test whether adjusted-gap features encode access/documentation disparities.</div>
+<div class="mini-card"><b>Do not overclaim</b>The rubric weights are design choices, not validated clinical risk coefficients, and the care-review output is not a treatment recommendation engine.</div>
+</div>
+<div class="verdict"><b>Bottom line.</b> The paper is most valuable as a systems-design reference for evidence-linked clinical feature engineering. Its architecture is worth borrowing. Its performance numbers should be treated as preliminary internal feasibility evidence until the phenotype definition, data provenance, leakage controls, external validation, and auditor effectiveness are resolved.</div>
+</section>
+
+<section id="provenance">
+<h2>Provenance and evaluation scope</h2>
+<p><b>Evaluated source:</b> <i>Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering</i>, arXiv:2608.06366v1, submitted to ML4H 2026, 6 Aug 2026. DOI 10.48550/arXiv.2608.06366. Evaluated file: <span class="inline-code">2608.06366v1.pdf</span>.</p>
+<p><b>Generation date:</b> 7 Aug 2026.</p>
+<p><b>Grounding:</b> This appraisal uses the supplied preprint as the primary evidence source and the project Summary, Evaluation, and Appraisal protocol as the governing appraisal framework. No external literature verification or web research was performed. References and guideline claims in the paper are therefore treated as source-reported, not independently confirmed.</p>
+<p class="footer">This artifact supports source understanding and appraisal. It does not replace primary-source reading, clinical judgment, regulatory review, local policy, or prospective validation.</p>
+</section>
+</div>
+</body>
+</html>

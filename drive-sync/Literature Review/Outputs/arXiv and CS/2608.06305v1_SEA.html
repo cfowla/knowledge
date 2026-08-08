@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA — Beyond Top-K: Replacing Black-Box Retrieval with Interpretable Agentic Operations</title>
+<style>
+:root{
+  --bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#5b6878;--line:#d8e0eb;
+  --accent:#234f8f;--accent2:#0e6f6a;--good:#17683a;--warn:#8a5a00;--bad:#8a2830;
+  --soft:#eef4fb;--soft2:#eef8f6;--code:#101827;--codefg:#edf4ff;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}
+a{color:var(--accent)}.wrap{max-width:1180px;margin:auto;padding:26px}
+header{background:linear-gradient(135deg,#142d50,#23558f 62%,#27716e);color:#fff;padding:44px 0 34px;border-bottom:5px solid #bcd0e8}
+header .wrap{padding-top:0;padding-bottom:0}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:700;opacity:.82}
+h1{font-size:clamp(2rem,4.4vw,3.45rem);line-height:1.08;margin:.45rem 0 .7rem;max-width:1050px}.subtitle{font-size:1.05rem;max-width:900px;color:#e9f1fa;margin:0}
+nav.toc,section,.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 3px 14px rgba(21,43,72,.06)}
+nav.toc{padding:18px 22px;margin:24px 0}.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 18px}.toc a{text-decoration:none;font-weight:650}
+section{padding:24px;margin:18px 0}h2{margin:0 0 16px;color:#143d6a;font-size:1.55rem}h3{color:#1c4b7f;margin:1.35rem 0 .55rem}h4{margin:1.1rem 0 .35rem;color:#2f4055}
+p{margin:.55rem 0 1rem}.muted{color:var(--muted)}.small{font-size:.9rem}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.meta-grid,.rating-grid,.takeaway-grid,.two-col,.three-col{display:grid;gap:14px}.meta-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.two-col{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}.three-col{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.rating-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.takeaway-grid{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.mini-card,.rating,.callout,.visual{border:1px solid var(--line);border-radius:12px;padding:15px;background:#fff}.mini-card b,.rating b{display:block;color:#173e6c;margin-bottom:4px}.rating .score{font-size:1.55rem;font-weight:800;color:var(--accent)}
+.verdict{border-left:6px solid var(--good);background:#eff8f2}.warning{border-left:6px solid var(--warn);background:#fff8e9}.badnote{border-left:6px solid var(--bad);background:#fff1f2}.goodnote{border-left:6px solid var(--accent2);background:var(--soft2)}.core{border-left:6px solid var(--accent);background:var(--soft)}
+table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:.93rem}th,td{border:1px solid var(--line);padding:8px 10px;vertical-align:top}th{background:#edf3fa;text-align:left;color:#1b3f68}.num{text-align:right;font-variant-numeric:tabular-nums}.nowrap{white-space:nowrap}
+pre{background:var(--code);color:var(--codefg);border-radius:12px;padding:15px;overflow:auto;white-space:pre-wrap;line-height:1.45;border:1px solid #24324a}.tag{display:inline-block;padding:3px 8px;border-radius:999px;background:#e9f0f9;color:#234f8f;font-size:.78rem;font-weight:700;margin:2px 4px 2px 0}
+.bar{height:10px;background:#e6edf5;border-radius:10px;overflow:hidden;margin-top:8px}.bar span{display:block;height:100%;background:linear-gradient(90deg,#275c99,#2d817d)}
+.visual{background:#fbfdff}.visual h4{margin-top:0}.representation{font-size:.82rem;color:var(--muted);font-style:italic}.section-summary{padding:14px 0;border-top:1px solid #edf0f5}.section-summary:first-of-type{border-top:0}
+strong.claim{color:#0c5f59}strong.limit{color:#7e3036}.kpi{font-size:1.9rem;font-weight:800;color:#1a4e83}.kpi-label{font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+ul.tight li{margin:.28rem 0}.foot{color:var(--muted);font-size:.86rem;text-align:center;padding:12px 0 34px}
+@media(max-width:700px){.wrap{padding:14px}section{padding:17px}header{padding:30px 0 24px}table{display:block;overflow-x:auto}}
+@media print{body{background:#fff}.wrap{max-width:none}nav.toc{display:none}section,.card{box-shadow:none;break-inside:avoid}a{color:inherit;text-decoration:none}header{background:#fff;color:#000;border-bottom:2px solid #000}.subtitle{color:#333}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Summary · Evaluation · Appraisal</div>
+    <h1>Beyond Top-K: Replacing Black-Box Retrieval with Interpretable Agentic Operations</h1>
+    <p class="subtitle">Source-faithful review of Tamang, Vyas &amp; Hazarika, arXiv:2608.06305v1. Focus: long structured-document retrieval, RAG interfaces, auditability, conversion fidelity, benchmark design, and implementation value.</p>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <strong>Contents</strong>
+  <div class="toc-grid">
+    <a href="#metadata">Metadata &amp; scope</a><a href="#synthesis">One-page synthesis</a><a href="#coverage">Coverage manifest</a><a href="#sections">Section condensation</a>
+    <a href="#visuals">Figures, tables &amp; workflows</a><a href="#evaluation">Evaluation &amp; appraisal</a><a href="#takeaways">Implementation takeaways</a><a href="#provenance">Provenance &amp; QA</a>
+  </div>
+</nav>
+
+<section id="metadata">
+<h2>Metadata &amp; scope</h2>
+<div class="meta-grid">
+  <div class="mini-card"><b>Exact title</b>Beyond Top-K: Replacing Black-Box Retrieval with Interpretable Agentic Operations</div>
+  <div class="mini-card"><b>Authors</b>Sagar Tamang; Ayush Vyas; Tabarakul Hazarika</div>
+  <div class="mini-card"><b>Source type</b>AI/ML preprint; retrieval-system benchmark and implementation paper</div>
+  <div class="mini-card"><b>Identifier</b>arXiv:2608.06305v1 [cs.AI]</div>
+  <div class="mini-card"><b>Date/version</b>arXiv page mark: 6 Aug 2026; manuscript text: “Preprint. August 7, 2026.”</div>
+  <div class="mini-card"><b>Design</b>Paired comparison of retrieval interfaces on one 780-page converted financial report using a 51-question author-built benchmark and one generator backbone</div>
+  <div class="mini-card"><b>Primary testbed</b>Gujarat Finance Accounts 2024–25, Volume I; 780 printed pages, 19,198 non-empty converted lines, 86.8% table rows</div>
+  <div class="mini-card"><b>Systems</b>READ, READ ablations, dense retrieval, BM25, hybrid RRF + reranker, agentic vector retrieval; oracle/long-context listed as comparison systems</div>
+</div>
+<div class="callout warning" style="margin-top:16px"><b>Scope warning.</b> The paper provides strong evidence about this specific converted financial report and benchmark. It does not establish that READ is superior across document classes, converters, models, or corpora. The authors explicitly limit the claim to long structured documents whose meaning depends on inherited layout context.</div>
+</section>
+
+<section id="synthesis">
+<h2>One-page synthesis</h2>
+<div class="callout core"><b>Core thesis.</b> The paper argues that fixed, pre-query chunking is a poor retrieval primitive for exactness-critical structured documents when numbers inherit meaning from distant headers. READ replaces chunk → embed → top-k with deterministic normalized lexical search, structural navigation, and bounded line-span reads, allowing the agent to choose evidence boundaries after seeing the document.</div>
+<div class="three-col" style="margin-top:15px">
+  <div class="mini-card"><div class="kpi">58.8%</div><div class="kpi-label">READ accuracy, n=51</div></div>
+  <div class="mini-card"><div class="kpi">35.3%</div><div class="kpi-label">Best tuned dense accuracy</div></div>
+  <div class="mini-card"><div class="kpi">51.0%</div><div class="kpi-label">BM25 accuracy</div></div>
+  <div class="mini-card"><div class="kpi">23.5 pp</div><div class="kpi-label">READ lead vs best tuned dense</div></div>
+  <div class="mini-card"><div class="kpi">86.8%</div><div class="kpi-label">Document lines that are table rows</div></div>
+  <div class="mini-card"><div class="kpi">13 lines</div><div class="kpi-label">Median distance to governing unit header</div></div>
+</div>
+<h3>What the authors show</h3>
+<p><strong class="claim">Document structure creates a measurable retrieval hazard.</strong> The source report contains 58,791 numeric tokens but only 15,960 distinct numeric values (3.68× repetition). Figures inherit unit labels from headers a median 13 lines above them (p90 26; maximum 143). Fixed-size chunking therefore often separates a value from the unit/year context that makes it interpretable.</p>
+<p>A table-aware chunker largely solves the unit problem at 2,000 characters, reducing unitless numeric chunks from 18.0% to 0.3%. It does <em>not</em> solve fiscal-year inheritance: 27.2–30.1% of numeric chunks remain yearless across the entire 800–4,000 character sweep. The authors interpret the flat residue as a structural consequence of partitioning before the query is known rather than a simple tuning defect.</p>
+<h3>Main comparative result</h3>
+<p>On 51 verified questions with gemini-2.5-pro, READ scores 58.8% versus 15.7% for the matched dense k=8 baseline (difference +43.1 percentage points; Holm-corrected exact McNemar p=2×10<sup>−5</sup>). Dense tuning to k=16 raises dense accuracy to 35.3%; READ still leads by 23.5 points (95% CI 5.9–39.2; p<sub>Holm</sub>=0.017). An agent using the same loop but a top-k vector-search tool reaches 27.5%, supporting the narrower inference that interface design—not iteration alone—drives the observed gap.</p>
+<div class="callout goodnote"><b>Important boundary.</b> BM25 reaches 51.0% and is statistically indistinguishable from READ (+7.8 points, p=1.00 after correction). The evidence therefore separates embedding-based from embedding-free retrieval on this benchmark; it does <strong>not</strong> establish that agentic search beats lexical retrieval.</div>
+<h3>Where READ helps—and where it does not</h3>
+<p>The largest separation occurs in single-figure lookup: READ 70.8% versus dense 12.5%. Dense fails to surface gold evidence on 13 questions, compared with 4 for READ; dense also abstains on 11 answerable questions, compared with 1 for READ. However, READ is not the most grounded system: its mechanical groundedness is 58.0%, below BM25 (67.3%) and hybrid (72.0%). The full READ operation set is also not clearly optimal: both no-outline and naive-grep ablations score 66.7%, although neither difference from READ is statistically significant.</p>
+<h3>Cost and operational trade-off</h3>
+<p>READ is the most expensive reported system at $0.058/question and the slowest at 31.4 s/question, versus dense at $0.023 and 12.7 s. BM25 costs $0.020/question—roughly one third of READ—for a 7.8-point accuracy difference that the benchmark cannot resolve. The authors therefore ground READ’s practical case in auditability and failure legibility rather than in the cost–accuracy frontier.</p>
+<div class="callout badnote"><b>Primary evidence limitation.</b> One document, one PDF converter, one model backbone, 51 questions, and an author-built benchmark that expanded non-blind during experimentation. The source reports these limitations candidly; they materially restrict external validity and make independent replication the key next test.</div>
+</section>
+
+<section id="coverage">
+<h2>Coverage manifest</h2>
+<table>
+<thead><tr><th>Item</th><th>Source mapping / decision</th><th>Representation</th></tr></thead>
+<tbody>
+<tr><td>Source ID</td><td>arXiv:2608.06305v1</td><td>Metadata block</td></tr>
+<tr><td>Sections</td><td>Abstract; 1 Introduction; 2 Related Work (2.1–2.4); 3 Two Retrieval Interfaces; 4 The Setting, Measured (4.1–4.3); 5 READ (5.1–5.3); 6 Evaluation Protocol (6.1–6.3); 7 Pilot Observations; 8 Results (8.1–8.5); 9 Limitations; 10 Conclusion</td><td>Condensed below</td></tr>
+<tr><td>Main-text figures</td><td>Figures 1–4</td><td>All reconstructed as structured blocks/tables; no screenshot required</td></tr>
+<tr><td>Main-text tables</td><td>Tables 1–10</td><td>All represented as structured tables or compact structured summaries</td></tr>
+<tr><td>Workflows / algorithms</td><td>Dense top-k interface; READ search/outline/read loop; normalized grep; table-aware chunker; benchmark validation; paired evaluation; example trajectories</td><td>Structured workflow blocks</td></tr>
+<tr><td>Appendices</td><td>A Converter Comparison; B Implementation Details; C Benchmark Details; D Dense-RAG Sweep; E Example Trajectories</td><td>Included because they materially affect reproducibility, baseline fairness, interpretation, or failure analysis</td></tr>
+<tr><td>Appendix figure/table inventory</td><td>Figure 5; Tables 11–14</td><td>All included in structured form</td></tr>
+<tr><td>Omissions</td><td>Full references are not reproduced; individual citation entries do not change the paper’s empirical interpretation. No visual was omitted from the main text.</td><td>Explicit omission</td></tr>
+</tbody>
+</table>
+<div class="callout warning"><b>Visual strategy.</b> The paper’s figures are primarily schematics, distributions, bar charts, and a small accuracy heatmap whose load-bearing values are explicitly stated in captions/tables. Structured reconstruction preserves the quantitative content without embedding page screenshots.</div>
+</section>
+
+<section id="sections">
+<h2>Section-by-section condensation</h2>
+<div class="section-summary"><h3>Abstract</h3><p>The abstract frames chunk-and-embed top-k retrieval as structurally unsound for financial statements, audit reports, and regulatory returns because numeric values often inherit units and fiscal years from nonlocal headers. It introduces READ: normalized lexical search, structural navigation, and bounded span reads exposed over MCP, with each trajectory functioning as a replayable audit trail.</p><p>The headline benchmark result is READ 58.8% versus dense 15.7% on 51 questions (p<sub>Holm</sub>=2×10<sup>−5</sup>), or versus tuned dense 35.3% with a 23.5-point margin (p<sub>Holm</sub>=0.017). The abstract explicitly limits the stronger claim because BM25 is statistically indistinguishable from READ.</p></div>
+<div class="section-summary"><h3>1. Introduction</h3><p>The introduction identifies the conventional RAG contract—offline partitioning, dense embedding, and similarity-ranked top-k retrieval—as the target of critique. The motivating task asks for the difference between Fiscal Deficit and Revenue Surplus in one financial statement; the operands lie 47 lines apart and the answer is not printed, requiring both retrieval and arithmetic.</p><p>The paper’s contributions are measurement of the document conditions, a steelmanned table-aware chunker, the READ interface, normalized lexical matching for converted PDFs, a quantified conversion-fidelity ceiling, and an evaluation protocol with independent exact-answer, LLM-judge, and groundedness signals.</p></div>
+<div class="section-summary"><h3>2. Related Work</h3><p>The review situates READ against dense/sparse RAG, long-context QA, spreadsheet retrieval, agentic tool use, and direct corpus interaction. The authors emphasize that prior direct-corpus comparisons largely concern multi-document corpora or clean text, whereas this study focuses on one long, highly tabular converted PDF where structure within a file and conversion artifacts matter.</p><p>The framing does not claim retrieval itself is obsolete. Instead, the paper contrasts increasingly elaborate structure-aware indexing with leaving the document intact and exposing deterministic operations that let the model choose what to inspect.</p></div>
+<div class="section-summary"><h3>3. Two Retrieval Interfaces</h3><p>Interface A is embedding-mediated top-k: fixed offline chunks are embedded and selected by cosine similarity. The paper highlights lossy projection, a fixed retrieval budget, opacity of selection, and a structured-document failure: unit or fiscal-year inheritance is not guaranteed to be preserved inside a chunk.</p><p>Interface B exposes deterministic SEARCH, OUTLINE, and READ operations over line-addressed text. The agent searches, uses structure to orient, reads a bounded span, and widens or refines as needed. Because operations are pure functions of the document and arguments, trajectories are replayable; groundedness can be checked against text actually surfaced.</p></div>
+<div class="section-summary"><h3>4. The Setting, Measured</h3><p>The testbed is the 780-page Gujarat Finance Accounts 2024–25, Volume I, converted to Markdown with pymupdf4llm after comparison with alternatives. The resulting corpus has 19,198 non-empty lines, 16,664 table rows (86.8%), 58,791 numeric tokens, 15,960 distinct numeric tokens, and 3.68× numeric repetition.</p><p>Unit declarations may sit far above the values they govern: median 13 lines, p90 26, maximum 143. Fixed-size chunking leaves 67.4% of numeric chunks unitless at 800 characters and 18.0% at 2,000. Table-aware chunking cuts the 2,000-character unitless rate to 0.3%, but 27–30% of numeric chunks still lack a fiscal-year header across all tested sizes.</p></div>
+<div class="section-summary"><h3>5. READ</h3><p>READ is implemented as a read-only MCP server over Markdown exposing list, outline, grep, and read. Calls are jailed to a root directory and hard-capped; read returns at most 400 lines. No embeddings, vector index, or learned retriever component are used.</p><p>Normalized grep is motivated by PDF conversion artifacts: digit grouping, table-cell splits, emphasis markers, repeated headers, and statement-number variants. The source reports 4,685 rows with a spurious leading empty column, 32,404 emphasis markers welded to tokens, 1,719 words split across cells, 1,032 repeated page headers, and 14,269 grouped numbers. The paper separately quantifies conversion damage and labels affected questions “conversion limited” so retriever accuracy is not confounded with irreversible source-text corruption.</p></div>
+<div class="section-summary"><h3>6. Evaluation Protocol</h3><p>Systems share the same generator backbone, answer format, and accounting. READ ablations isolate normalized matching and outline access; AgenticVec provides the critical control for iteration versus interface. Retrieval baselines use the table-aware chunker and local BAAI/bge-base-en-v1.5 embeddings; hybrid adds reciprocal-rank fusion and a cross-encoder reranker.</p><p>The 51 questions span lookup, aggregation, arithmetic, navigation, unanswerable, and conversion-limited categories. Gold answers are manually transcribed then mechanically checked for presence, table-column consistency via arithmetic identities, and derived-answer nonoccurrence. Metrics include deterministic exact-figure accuracy, a fixed LLM judge, mechanical groundedness, hallucination on unanswerables, page evidence coverage, calls, tokens, cost, and latency; comparisons use paired exact McNemar tests, bootstrap confidence intervals, and Holm correction.</p></div>
+<div class="section-summary"><h3>7. Pilot Observations</h3><p>A two-question pilot is explicitly treated as noninferential. On the motivating arithmetic question, dense retrieval repeatedly failed to surface both operands while READ located both and computed Rs.30,021.95 crore. The pilot also revealed substantially higher READ token usage.</p><p>A notable methodological incident involved an apparent provenance error that was later traced to the authors’ own section-attribution parser. They include the retraction to illustrate how analysis-layer bugs can manufacture plausible model-behavior findings and why raw-line inspection matters.</p></div>
+<div class="section-summary"><h3>8. Results</h3><p>READ scores 58.8%. Against matched k=8 dense retrieval at 15.7%, the difference is +43.1 points (p<sub>Holm</sub>=0.00002); against agentic RAG 27.5%, +31.4 (p=0.012); against hybrid 29.4%, +29.4 (p=0.016). BM25 at 51.0% is not significantly different. READ’s no-outline and naive-grep ablations each reach 66.7%, also not significantly different.</p><p>The lookup category drives the dense gap (READ 70.8%, dense 12.5%). Dense never surfaces gold evidence on 13 questions and abstains on 11 answerable questions; READ does so on 4 and 1, respectively. READ is more expensive and slower, and its groundedness is lower than BM25/hybrid. A dense sweep raises the best dense accuracy to 35.3% at 2,000 characters, k=16, but READ still leads significantly by 23.5 points.</p></div>
+<div class="section-summary"><h3>9. Limitations</h3><p>The authors identify one document, one backbone, 51 questions, one converter, author construction of the benchmark, benchmark growth during experimentation, limited power for small differences, variable agentic cost, and lexical dependence on surface vocabulary. They also explicitly state that READ is not the most grounded system.</p><p>The benchmark’s expansion was not blind: additional batches were added after coverage defects were observed, and the authors knew those changes would stress areas where chunk retrieval was weak. Although questions were drafted before running them, this design history increases risk of benchmark alignment with the proposed method.</p></div>
+<div class="section-summary"><h3>10. Conclusion</h3><p>The conclusion restates the narrow claim: for long structured documents whose meaning depends on inherited layout context, fixing a partition before the query is known can be the wrong primitive. READ turns retrieval into a deterministic, auditable procedure and materially outperforms the dense baselines tested on this document.</p><p>The authors do not claim embeddings are obsolete. Their strongest defensible empirical conclusion is that embedding-free retrieval—READ or BM25—works substantially better than dense retrieval on this specific benchmark, while READ’s additional value over BM25 remains unresolved.</p></div>
+<div class="section-summary"><h3>Appendices A–E</h3><p>The appendices materially strengthen interpretability of the study. Appendix A documents converter selection; B specifies operations, matching normalization, chunker mechanics, and decoding controls; C gives benchmark composition and annotation checks; D steelmans dense retrieval with a chunk-size/k sweep; E shows dense and READ trajectories on the motivating question.</p><p>These details also expose important residual uncertainty: converter ratings are author judgments on one document, some dense settings were not measured, and the full READ stack is not shown to outperform simpler ablations or BM25.</p></div>
+</section>
+
+<section id="visuals">
+<h2>Figures, tables &amp; workflows</h2>
+
+<div class="visual"><h4>Figure 1 — Two retrieval interfaces over the same document</h4><p><b>Purpose:</b> contrasts chunk → embed → top-k with READ’s grep → outline → read loop. <b>Numeric callout:</b> 15.7% dense versus 58.8% READ on the matched main comparison; tuned dense 35.3% remains 23.5 points behind.</p><pre>Conventional RAG: document → fixed chunks → embeddings → top-k → generator
+READ:             intact document → normalized grep / outline / bounded read ↺ → cited answer</pre><div class="representation">Representation: structured schematic; figure values preserved.</div></div>
+
+<div class="visual"><h4>Figure 2 — Distance from numeric row to governing unit header</h4><p>Distribution of inherited unit context. Median 13 lines, p90 26, maximum 143. The load-bearing implication is that short chunks can contain a number without the unit declaration that determines whether it is lakh or crore.</p><div class="representation">Representation: structured distribution summary; histogram not reproduced pixel-for-pixel.</div></div>
+
+<div class="visual"><h4>Figure 3 &amp; Table 2 — Context destroyed by chunking</h4>
+<table><thead><tr><th rowspan="2">Chunk chars</th><th colspan="2">Fixed-size</th><th colspan="2">Table-aware</th></tr><tr><th>Unitless</th><th>Yearless</th><th>Unitless</th><th>Yearless</th></tr></thead><tbody>
+<tr><td>800</td><td>67.4%</td><td>73.8%</td><td>14.7%</td><td>30.1%</td></tr>
+<tr><td>1,500</td><td>36.3%</td><td>55.8%</td><td>1.0%</td><td>28.7%</td></tr>
+<tr><td>2,000</td><td>18.0%</td><td>45.9%</td><td>0.3%</td><td>28.9%</td></tr>
+<tr><td>2,500</td><td>11.6%</td><td>43.5%</td><td>0.2%</td><td>28.3%</td></tr>
+<tr><td>4,000</td><td>5.4%</td><td>40.5%</td><td>0.4%</td><td>27.2%</td></tr>
+</tbody></table><p><b>Main pattern:</b> table-aware header carryover nearly eliminates unitless chunks, but the yearless residue remains roughly flat.</p><div class="representation">Representation: Figure 3 reconstructed from Table 2 values.</div></div>
+
+<div class="visual"><h4>Table 1 — Corpus profile</h4>
+<table><tbody>
+<tr><th>Printed pages</th><td>780</td><th>Recoverable folio pages</th><td>745</td></tr>
+<tr><th>Non-empty lines</th><td>19,198</td><th>Characters</th><td>1,683,730</td></tr>
+<tr><th>Statement/section headers</th><td>189</td><th>Table rows</th><td>16,664</td></tr>
+<tr><th>Table-row fraction</th><td>86.8%</td><th>Columns p50 / p90</th><td>7 / 10</td></tr>
+<tr><th>Numeric tokens</th><td>58,791</td><th>Distinct numeric tokens</th><td>15,960</td></tr>
+<tr><th>Numeric repetition</th><td>3.68×</td><th></th><td></td></tr>
+</tbody></table></div>
+
+<div class="visual"><h4>Table 3 — Matching sensitivity</h4>
+<table><thead><tr><th>Probe</th><th>Kind</th><th>Normalized</th><th>Literal</th></tr></thead><tbody>
+<tr><td>48964.89</td><td>Ungrouped figure</td><td>✓</td><td>✗</td></tr><tr><td>Statement Subject</td><td>Split across cells</td><td>✓</td><td>✗</td></tr>
+<tr><td>48,964.89</td><td>As printed</td><td>✓</td><td>✓</td></tr><tr><td>Fiscal Deficit inside emphasis</td><td>Phrase</td><td>✓</td><td>✓</td></tr>
+<tr><td>fiscal deficit</td><td>Lowercase</td><td>✓</td><td>✓</td></tr><tr><td>Statement No. 17</td><td>Statement number</td><td>✓</td><td>✓</td></tr><tr><td>Co-operation</td><td>Row label</td><td>✓</td><td>✓</td></tr>
+</tbody></table><p>Normalization is specifically load-bearing for digit grouping and words split across table cells; it does not explain all lexical matches.</p></div>
+
+<div class="visual"><h4>Table 4 — Conversion damage</h4>
+<table><thead><tr><th>Damage class</th><th class="num">Count</th></tr></thead><tbody>
+<tr><td>Suspect bare integer (missing decimal)</td><td class="num">174</td></tr><tr><td>Orphaned separator cell</td><td class="num">139</td></tr><tr><td>Word split across cells</td><td class="num">133</td></tr><tr><td>Detached separator (owner identified)</td><td class="num">22</td></tr><tr><td>Decimal detached from digits</td><td class="num">15</td></tr><tr><th>Total instances</th><th class="num">483</th></tr><tr><td>Table rows affected</td><td class="num">440 (2.6%)</td></tr><tr><td>Numeric rows affected</td><td class="num">381 (3.0%)</td></tr><tr><td>Numeric rows with magnitude error</td><td class="num">11 (0.09%)</td></tr>
+</tbody></table><p>The paper treats conversion damage as a ceiling shared by every retriever, not as a retriever-specific failure.</p></div>
+
+<div class="visual"><h4>Table 5 — Systems under comparison</h4>
+<table><thead><tr><th>System</th><th>Description / role</th></tr></thead><tbody>
+<tr><td>READ</td><td>Agent + list/outline/grep/read</td></tr><tr><td>READ<sub>lit</sub></td><td>Literal grep ablation</td></tr><tr><td>READ<sub>−out</sub></td><td>grep + read only ablation</td></tr><tr><td>Dense</td><td>Chunk → embed → top-k</td></tr><tr><td>BM25</td><td>Sparse top-k</td></tr><tr><td>Hybrid</td><td>RRF(dense, BM25) + cross-encoder</td></tr><tr><td>AgenticVec</td><td>Agent + vector-search tool</td></tr><tr><td>Oracle</td><td>Chunks overlapping gold lines</td></tr><tr><td>LongCtx</td><td>Whole document in context</td></tr>
+</tbody></table></div>
+
+<div class="visual"><h4>Table 6 — Pilot on motivating question</h4>
+<table><thead><tr><th>Backbone</th><th>System</th><th>Turns</th><th>Input tokens</th><th>Outcome</th></tr></thead><tbody><tr><td>2.5-pro</td><td>READ</td><td>4</td><td>9,428</td><td>Correct</td></tr><tr><td>2.5-pro</td><td>Dense</td><td>1</td><td>6,702</td><td>Abstained</td></tr><tr><td>3.6-flash</td><td>READ</td><td>7</td><td>58,320</td><td>Correct†</td></tr><tr><td>3.6-flash</td><td>Dense</td><td>1</td><td>6,702</td><td>Abstained</td></tr></tbody></table><p class="small">†The paper retracts an initially alleged provenance error as an analysis-code bug. The pilot is n=2 and is explicitly not treated as inferential evidence.</p></div>
+
+<div class="visual"><h4>Table 7 — Accuracy, groundedness, hallucination, and cost</h4>
+<table><thead><tr><th>System</th><th>Accuracy</th><th>95% CI</th><th>Grounded</th><th>Hallucination on 5 unanswerables</th><th>$/question</th></tr></thead><tbody>
+<tr><td>No-outline</td><td>66.7%</td><td>[53.0, 78.0]</td><td>66.7%</td><td>40%</td><td>$0.040</td></tr>
+<tr><td>Naive-grep</td><td>66.7%</td><td>[53.0, 78.0]</td><td>60.4%</td><td>0%</td><td>$0.043</td></tr>
+<tr><td>READ</td><td>58.8%</td><td>[45.2, 71.2]</td><td>58.0%</td><td>40%</td><td>$0.058</td></tr>
+<tr><td>BM25</td><td>51.0%</td><td>[37.7, 64.1]</td><td>67.3%</td><td>40%</td><td>$0.020</td></tr>
+<tr><td>Hybrid</td><td>29.4%</td><td>[18.7, 43.0]</td><td>72.0%</td><td>60%</td><td>$0.022</td></tr>
+<tr><td>Agentic RAG</td><td>27.5%</td><td>[17.1, 40.9]</td><td>42.6%</td><td>0%</td><td>$0.050</td></tr>
+<tr><td>Dense</td><td>15.7%</td><td>[8.2, 28.0]</td><td>47.9%</td><td>80%</td><td>$0.023</td></tr>
+</tbody></table></div>
+
+<div class="visual"><h4>Table 8 — Paired comparisons against READ</h4>
+<table><thead><tr><th>Comparator</th><th>Δ accuracy (pp)</th><th>95% CI</th><th>Holm-corrected p</th></tr></thead><tbody>
+<tr><td>Dense</td><td>+43.1</td><td>[27.5, 56.9]</td><td>0.00002</td></tr><tr><td>Agentic RAG</td><td>+31.4</td><td>[13.7, 49.0]</td><td>0.012</td></tr><tr><td>Hybrid</td><td>+29.4</td><td>[11.8, 47.1]</td><td>0.016</td></tr><tr><td>BM25</td><td>+7.8</td><td>[−9.8, 25.5]</td><td>1.00</td></tr><tr><td>Naive-grep</td><td>−7.8</td><td>[−23.5, 7.8]</td><td>1.00</td></tr><tr><td>No-outline</td><td>−7.8</td><td>[−21.6, 5.9]</td><td>1.00</td></tr>
+</tbody></table></div>
+
+<div class="visual"><h4>Figure 4 &amp; Table 9 — Accuracy by category</h4>
+<table><thead><tr><th>System</th><th>Lookup (24)</th><th>Arithmetic (9)</th><th>Aggregation (5)</th><th>Navigation (6)</th><th>Conversion-limited (2)</th><th>Unanswerable (5)</th></tr></thead><tbody>
+<tr><td>No-outline</td><td>70.8</td><td>33.3</td><td>100.0</td><td>83.3</td><td>50.0</td><td>60.0</td></tr><tr><td>Naive-grep</td><td>75.0</td><td>33.3</td><td>60.0</td><td>66.7</td><td>50.0</td><td>100.0</td></tr><tr><td>READ</td><td>70.8</td><td>44.4</td><td>40.0</td><td>50.0</td><td>50.0</td><td>60.0</td></tr><tr><td>BM25</td><td>62.5</td><td>33.3</td><td>20.0</td><td>66.7</td><td>0.0</td><td>60.0</td></tr><tr><td>Hybrid</td><td>20.8</td><td>0.0</td><td>60.0</td><td>66.7</td><td>50.0</td><td>40.0</td></tr><tr><td>Agentic RAG</td><td>16.7</td><td>11.1</td><td>20.0</td><td>50.0</td><td>0.0</td><td>100.0</td></tr><tr><td>Dense</td><td>12.5</td><td>11.1</td><td>0.0</td><td>50.0</td><td>0.0</td><td>20.0</td></tr>
+</tbody></table><div class="representation">Representation: Figure 4 reconstructed from Table 9 values; all percentages preserved.</div></div>
+
+<div class="visual"><h4>Table 10 — Failure taxonomy</h4>
+<table><thead><tr><th>System</th><th>Never surfaced</th><th>Abstained on answerable</th><th>Ungrounded</th></tr></thead><tbody>
+<tr><td>READ</td><td>4</td><td>1</td><td>11</td></tr><tr><td>Naive-grep</td><td>6</td><td>0</td><td>9</td></tr><tr><td>No-outline</td><td>5</td><td>0</td><td>7</td></tr><tr><td>BM25</td><td>7</td><td>7</td><td>8</td></tr><tr><td>Dense</td><td>13</td><td>11</td><td>14</td></tr><tr><td>Hybrid</td><td>15</td><td>12</td><td>5</td></tr><tr><td>Agentic RAG</td><td>5</td><td>8</td><td>21</td></tr>
+</tbody></table></div>
+
+<div class="visual"><h4>Table 11 — Converter comparison (Appendix A)</h4>
+<table><thead><tr><th>Backend</th><th>Verdict</th><th>Primary failure mode</th></tr></thead><tbody>
+<tr><td>pymupdf4llm</td><td>Chosen</td><td>Keeps table columns aligned; accepts known leading-empty-column and ToC defects</td></tr><tr><td>cloudconvert</td><td>Rejected</td><td>Collapses whole tables into large &lt;br&gt;-joined cells</td></tr><tr><td>markitdown</td><td>Rejected</td><td>Severs row labels from figures</td></tr><tr><td>docling</td><td>Unrated</td><td>Did not complete due reported memory/commit-limit failures</td></tr>
+</tbody></table><p class="small">The authors explicitly characterize these ratings as their judgment on one document, not a general converter benchmark.</p></div>
+
+<div class="visual"><h4>Table 12 — Benchmark composition (Appendix C)</h4>
+<table><thead><tr><th>Category</th><th>n</th><th>What it tests</th></tr></thead><tbody>
+<tr><td>Lookup</td><td>24</td><td>One printed figure from a named row/column</td></tr><tr><td>Arithmetic</td><td>9</td><td>Derived value not printed in the document</td></tr><tr><td>Navigation</td><td>6</td><td>Statement/page/unit structure</td></tr><tr><td>Aggregation</td><td>5</td><td>Combine multiple printed figures</td></tr><tr><td>Unanswerable</td><td>5</td><td>Correctly decline</td></tr><tr><td>Conversion limited</td><td>2</td><td>Evidence damaged by conversion</td></tr><tr><th>Total</th><th>51</th><th></th></tr>
+</tbody></table></div>
+
+<div class="visual"><h4>Figure 5 &amp; Table 13 — Dense-RAG sweep</h4>
+<table><thead><tr><th>Chunk chars</th><th>k=4</th><th>k=8</th><th>k=16</th></tr></thead><tbody><tr><td>2,000</td><td>17.6%</td><td>17.6%†</td><td><b>35.3%</b></td></tr><tr><td>4,000</td><td>19.6%</td><td>21.6%</td><td>29.4%</td></tr></tbody></table><p>Depth is the stronger lever. The best measured dense setting is 2,000 characters, k=16. †The main Table 7 run at nominally the same k=8 setting scored 15.7%; the paper attributes the one-question difference to generator nondeterminism.</p><div class="representation">Representation: Figure 5 heatmap reconstructed as its 2×3 numeric grid.</div></div>
+
+<div class="visual"><h4>Table 14 — READ vs every dense configuration</h4>
+<table><thead><tr><th>Dense setting</th><th>READ Δ (pp)</th><th>95% CI</th><th>p<sub>Holm</sub></th></tr></thead><tbody>
+<tr><td>2,000, k=16</td><td>+23.5</td><td>[5.9, 39.2]</td><td>0.017</td></tr><tr><td>4,000, k=16</td><td>+29.4</td><td>[11.8, 47.1]</td><td>0.012</td></tr><tr><td>4,000, k=8</td><td>+37.3</td><td>[19.6, 53.0]</td><td>0.0009</td></tr><tr><td>4,000, k=4</td><td>+39.2</td><td>[23.5, 54.9]</td><td>0.0005</td></tr><tr><td>2,000, k=4</td><td>+41.2</td><td>[23.5, 58.8]</td><td>0.0005</td></tr><tr><td>2,000, k=8</td><td>+41.2</td><td>[23.5, 56.9]</td><td>0.0003</td></tr>
+</tbody></table></div>
+
+<h3>Workflow / algorithm reconstructions</h3>
+<div class="two-col">
+<div class="visual"><h4>READ operational loop</h4><pre>1. Hypothesize a lexical anchor
+2. normalized GREP(query)
+3. inspect structural location / OUTLINE
+4. READ(start_line, end_line)
+5. verify unit/year/context
+6. answer OR refine and repeat
+7. cite exact line spans</pre><p><b>Failure modes:</b> vocabulary mismatch, conversion damage, wasted operations, agent reasoning beyond evidence. <b>Governance property:</b> deterministic tool calls can be replayed.</p></div>
+<div class="visual"><h4>Normalized matching</h4><pre>Base: Unicode NFKC → strip emphasis → case fold
+Spaced shadow: cell boundaries → spaces → collapse whitespace
+Squashed shadow: remove cell boundaries + whitespace + thousands commas
+Match if query occurs in either shadow; return original line numbers.</pre><p>Designed to recover searches such as <span class="mono">48964.89</span> against printed <span class="mono">48,964.89</span> and words split across table cells.</p></div>
+<div class="visual"><h4>Table-aware chunker</h4><pre>Pack lines to target chunk size
+At each boundary:
+  scan backward ≤200 lines
+  recover nearest unit declaration
+  recover nearest fiscal-year / as-at header
+  prepend recovered context under seed budget
+Always advance forward; chunker version participates in index cache key.</pre><p>This is a steelman for dense/hybrid baselines, not part of READ.</p></div>
+<div class="visual"><h4>Benchmark admission checks</h4><pre>1. Presence: expected figure/operand near declared gold line
+2. Column mapping: validate source rows using table arithmetic identity
+3. Derived-answer check: reject arithmetic question if answer appears anywhere in corpus
+Only validated questions enter scoring.</pre><p>Thirteen drafted questions had not cleared these checks and were excluded.</p></div>
+<div class="visual"><h4>Paired evaluation</h4><pre>Same 51 questions → each system
+Signals:
+  deterministic exact-figure accuracy
+  fixed LLM judge
+  mechanical groundedness
+Additional: hallucination, evidence coverage, cost, latency
+Inference: paired exact McNemar + paired bootstrap CI + Holm correction</pre></div>
+<div class="visual"><h4>Appendix E — motivating trajectories</h4><pre>Dense: one top-k=8 retrieval → only Revenue Surplus surfaced → abstains
+READ: 8 operations → searches statement + operands → reads two bounded spans →
+      Fiscal Deficit 48,964.89 crore
+      Revenue Surplus 18,942.94 crore
+      difference 30,021.95 crore</pre><p>Reported trade-off: dense 11 s / $0.021 vs READ 49 s / $0.097 for this example.</p></div>
+</div>
+</section>
+
+<section id="evaluation">
+<h2>Evaluation &amp; appraisal</h2>
+<div class="callout verdict"><b>Verdict: Read first</b> for work on long-document RAG, agentic search, retrieval auditability, or structured-PDF QA. The paper is most valuable as a methodological warning and design case study, not as a general proof that agentic lexical retrieval should replace embeddings.</div>
+<div class="rating-grid" style="margin-top:15px">
+<div class="rating"><b>Relevance</b><div class="score">9/10</div><p><strong>Rationale:</strong> Directly addresses RAG failure modes, agent interfaces, evidence traceability, and long structured documents.</p><p><strong>Evidence basis:</strong> Full system/interface comparison, failure taxonomy, groundedness, cost, and appendix-level implementation detail.</p><p><strong>Limiting factor:</strong> Domain is narrow: one financial report.</p><p><strong>Would raise/lower:</strong> Multi-domain replication would raise; failure on other structured corpora would lower.</p></div>
+<div class="rating"><b>Novelty</b><div class="score">7/10</div><p><strong>Rationale:</strong> Direct corpus interaction and lexical agent search are not new, but the quantified unit-inheritance failure, conversion ceiling, and exactness-critical single-document framing add useful specificity.</p><p><strong>Evidence basis:</strong> Sections 4–5 plus comparisons to prior grep/direct-corpus work.</p><p><strong>Limiting factor:</strong> The paper itself cites closely related direct-corpus and grep-based agentic retrieval work.</p><p><strong>Would raise/lower:</strong> Strong cross-domain evidence for the structural mechanism would raise; showing the same gains are captured entirely by conventional sparse retrieval would lower.</p></div>
+<div class="rating"><b>Method strength</b><div class="score">7/10</div><p><strong>Rationale:</strong> Strong baseline steelmanning, critical AgenticVec control, paired tests, Holm correction, ablations, deterministic gold checks, and explicit failure analysis.</p><p><strong>Evidence basis:</strong> Sections 6–8 and Appendices B–D.</p><p><strong>Limiting factor:</strong> Small n, one backbone, one document, author-built benchmark, non-blind benchmark growth.</p><p><strong>Would raise/lower:</strong> Frozen preregistered benchmark, independent annotation, multiple models/documents, and full replication would raise materially.</p></div>
+<div class="rating"><b>Evidence strength</b><div class="score">6/10</div><p><strong>Rationale:</strong> Evidence strongly supports “dense is worse here,” including after tuning, but does not support “READ is better than lexical retrieval” or broad generalization.</p><p><strong>Evidence basis:</strong> Significant paired READ-vs-dense differences; null READ-vs-BM25 result; wide category-level intervals.</p><p><strong>Limiting factor:</strong> 51 questions and narrow benchmark origin.</p><p><strong>Would raise/lower:</strong> Independent replication and consistent gains across corpora would raise; failure to reproduce the dense gap would lower sharply.</p></div>
+<div class="rating"><b>External validity</b><div class="score">3/10</div><p><strong>Rationale:</strong> The paper explicitly tests one Indian government financial report, one converter, and one tool-capable backbone.</p><p><strong>Evidence basis:</strong> Section 9 limitations and source-specific corpus/conversion analyses.</p><p><strong>Limiting factor:</strong> No cross-document, cross-converter, cross-model, or out-of-domain validation.</p><p><strong>Would raise/lower:</strong> Replication on filings, guidelines, contracts, clinical reports, spreadsheets, and other converters would raise; strong dependence on this document’s layout would keep it low.</p></div>
+<div class="rating"><b>Implementation value</b><div class="score">8/10</div><p><strong>Rationale:</strong> The paper provides concrete operations, normalization rules, chunker behavior, failure categories, cost/latency data, and example trajectories.</p><p><strong>Evidence basis:</strong> Sections 5–8 and Appendices A–E.</p><p><strong>Limiting factor:</strong> Release/reproducibility claims were not independently verified in this review, and the simplest winning configuration remains uncertain.</p><p><strong>Would raise/lower:</strong> Reproducible code plus independent benchmark reruns would raise; implementation ambiguity or nonreproducible results would lower.</p></div>
+</div>
+<h3>Strengths</h3>
+<ul class="tight"><li>Measures the document properties that motivate the method instead of relying only on intuition.</li><li>Builds a table-aware chunker to avoid arguing against a weak dense baseline, then separately tunes retrieval depth.</li><li>Includes a same-agent top-k control to isolate iteration from interface design.</li><li>Separates conversion-limited failures from retriever failures.</li><li>Uses deterministic gold validation and mechanical groundedness in addition to an LLM judge.</li><li>Reports negative or inconvenient findings: BM25 parity, stronger ablations, lower READ groundedness, higher cost, and benchmark-development concerns.</li></ul>
+<h3>Critical limitations / red flags</h3>
+<ul class="tight"><li><strong>Benchmark authorship and drift:</strong> the system authors also built the benchmark, which expanded after observing coverage defects; the authors knew those additions targeted regions where chunk retrieval is weak.</li><li><strong>Single-source evaluation:</strong> no evidence that the result transfers beyond this financial report or converter.</li><li><strong>Small sample:</strong> 51 questions leave modest differences unresolved, especially READ versus BM25 and ablations.</li><li><strong>Groundedness tension:</strong> READ’s auditability argument is not accompanied by superior groundedness.</li><li><strong>Cost:</strong> READ is slowest and most expensive among reported systems.</li><li><strong>Unmeasured configuration space:</strong> dense chunk sizes below 2,000 were not completed; long-context/oracle results are not central in the reported main table.</li></ul>
+<h3>What the evidence supports</h3>
+<div class="two-col"><div class="callout goodnote"><b>Supported</b><ul class="tight"><li>On this benchmark, dense embedding retrieval performs substantially worse than READ and BM25.</li><li>Chunk boundaries can destroy inherited unit/year context in this specific converted financial document.</li><li>A same-loop agent with vector top-k does not recover READ’s performance.</li><li>PDF conversion artifacts create a measurable ceiling that should be separated from retrieval failures.</li></ul></div><div class="callout badnote"><b>Not supported</b><ul class="tight"><li>Agentic search is generally superior to lexical BM25.</li><li>Embeddings are obsolete or dense retrieval is broadly weak.</li><li>READ is the best configuration even within this study; two ablations score higher.</li><li>The reported result generalizes to other documents, domains, converters, or models.</li></ul></div></div>
+</section>
+
+<section id="takeaways">
+<h2>Implementation / research takeaways</h2>
+<div class="takeaway-grid">
+<div class="mini-card"><b>1. Profile the corpus before choosing retrieval.</b>Measure tabularity, numeric duplication, header inheritance, repeated page furniture, and conversion defects. The paper’s central argument depends on corpus structure, not on a universal retrieval ranking.</div>
+<div class="mini-card"><b>2. Treat chunking as a semantic transformation.</b>Test whether chunks preserve units, dates, fiscal-year headers, row labels, and other inherited context. “Chunk size” alone is not a sufficient quality control.</div>
+<div class="mini-card"><b>3. Always include a strong sparse baseline.</b>BM25 captures most of the observed gain at much lower cost. An agentic method should not be called superior without beating it or demonstrating a distinct operational advantage.</div>
+<div class="mini-card"><b>4. Normalize converted text deliberately.</b>Digit grouping and table-cell splits can break literal search. Normalization should preserve original line addresses so evidence remains citable.</div>
+<div class="mini-card"><b>5. Log exact retrieval trajectories.</b>Record tool calls, arguments, returned spans, and final citations. This lets reviewers distinguish search failure, reasoning failure, conversion damage, and analysis-harness bugs.</div>
+<div class="mini-card"><b>6. Separate structural and conversion ceilings.</b>A retrieval benchmark over PDFs should identify questions whose source text was already damaged by conversion instead of attributing those failures to the retriever.</div>
+<div class="mini-card"><b>7. Steelman baselines and tune retrieval depth.</b>The paper’s own dense sweep more than doubles dense accuracy. Baseline tuning can materially alter the apparent effect size.</div>
+<div class="mini-card"><b>8. Evaluate more than answer accuracy.</b>Groundedness, abstention on answerable questions, false answers to unanswerable probes, evidence coverage, cost, and latency reveal failure modes accuracy alone hides.</div>
+<div class="mini-card"><b>9. Freeze the benchmark before final comparison.</b>The paper’s candid description of benchmark growth is a useful warning: coverage repair after observing system weaknesses can introduce method-aligned test distributions even without directly tuning on answers.</div>
+</div>
+<div class="callout core" style="margin-top:16px"><b>Best use:</b> design input for long structured-document QA systems, especially when auditability and exact numeric provenance matter. <b>Do not use for:</b> a blanket decision to replace vector search or embeddings across RAG systems.</div>
+</section>
+
+<section id="provenance">
+<h2>Provenance &amp; semantic QA</h2>
+<div class="meta-grid">
+<div class="mini-card"><b>Evaluated source</b><span class="mono">2608.06305v1.pdf</span></div>
+<div class="mini-card"><b>Source identifier</b><a href="https://arxiv.org/abs/2608.06305">arXiv:2608.06305v1</a></div>
+<div class="mini-card"><b>Generation date</b>2026-08-07</div>
+<div class="mini-card"><b>External verification</b>Not performed; this artifact is grounded in the supplied primary source.</div>
+<div class="mini-card"><b>Confidence in appraisal</b>Moderate-high for internal interpretation of the paper; moderate for claims about real-world generalizability because no independent replication/code execution was performed.</div>
+<div class="mini-card"><b>Protocol note</b>The governing project file is named <span class="mono">summary-evaluation-appraisal-protocol-v4-compact.md</span>, while its internal heading identifies “Integrated Compact v3.” This artifact followed the supplied governing file’s operational requirements.</div>
+</div>
+<h3>QA checks</h3>
+<ul class="tight"><li>Exact source title, authors, identifier, and version/date represented.</li><li>Main sections 1–10 condensed; appendices A–E represented.</li><li>Main-text Figures 1–4 and Tables 1–10 reconciled; Appendix Figure 5 and Tables 11–14 included because they affect interpretation/reproducibility.</li><li>Structured representations preserve the paper’s load-bearing numeric values and workflows.</li><li>Summary claims are separated from independent appraisal.</li><li>Ratings were assigned after extraction and include rationale, evidence basis, limiting factor, and conditions that would change the score.</li><li>No internal chat/file citation syntax, remote CSS, remote scripts, or remote images are embedded.</li></ul>
+<div class="callout warning"><b>Review boundary.</b> This HTML is a secondary appraisal artifact. It does not replace reading the paper, inspecting the released implementation, or independently reproducing the benchmark.</div>
+</section>
+<div class="foot">Summary, Evaluation, and Appraisal artifact · generated from the supplied preprint · 2026-08-07</div>
+</main>
+</body>
+</html>
