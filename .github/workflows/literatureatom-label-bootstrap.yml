@@ -1,0 +1,29 @@
+name: LiteratureAtoms Label Bootstrap
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/scripts/ensure-literatureatom-labels.sh"
+      - ".github/workflows/literatureatom-label-bootstrap.yml"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  ensure-labels:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Ensure LiteratureAtoms labels exist
+        shell: bash
+        run: bash .github/scripts/ensure-literatureatom-labels.sh
