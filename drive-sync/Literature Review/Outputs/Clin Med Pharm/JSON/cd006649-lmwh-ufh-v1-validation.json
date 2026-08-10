@@ -1,0 +1,96 @@
+{
+  "run_id": "cd006649-lmwh-ufh-v1",
+  "source": {
+    "source_id": "CD006649",
+    "title": "Anticoagulation for the initial treatment of venous thromboembolism in people with cancer",
+    "source_type": "Cochrane intervention review / systematic review of randomized controlled trials",
+    "publication_id": "745823b6-f2ae-54f3-9d86-3c65f7eca409",
+    "doi": "10.1002/14651858.CD006649.pub8",
+    "input_document": "CD006649.pdf",
+    "input_document_hash": "sha256:e8f43bfc7dde9f14f54c72fdda0afce83cf64e1f39d26cc18b251046ccabbd0d",
+    "source_pages_inspected": [
+      "PDF 5-6 / article 3-4: Summary of Findings 1",
+      "PDF 17-18 / article 15-16: effects, discussion, authors conclusions",
+      "PDF 51-52 / article 49-50: Analyses 1.1 and 1.2 forest plots",
+      "Relevant Characteristics of Studies entries from PDF 29-45 were consulted as contextual cross-checks via the prior studybase run; no characteristic cell was re-extracted as a new atom."
+    ],
+    "scaffold": "cd006649-pass00-global.md plus the user-quoted LMWH-vs-UFH batch guidance"
+  },
+  "governing_sources": [
+    "literature.py",
+    "literature_atoms.py",
+    "literature_atom.schema.json",
+    "README(2).md",
+    "example_atom.json",
+    "large-source-ATOM-SEA.md"
+  ],
+  "atom_count": 27,
+  "atom_counts_by_kind": {
+    "author_conclusion": 3,
+    "limitation": 1,
+    "other": 3,
+    "qualitative_result": 5,
+    "quantitative_result": 7,
+    "subgroup_result": 8
+  },
+  "atom_counts_by_assertion_origin": {
+    "directly_reported": 1,
+    "normalized_from_source": 26
+  },
+  "validation": {
+    "pydantic_structural_validation": {
+      "valid": true,
+      "error_count": 0,
+      "errors": []
+    },
+    "json_schema_validation": {
+      "valid": true,
+      "error_count": 0,
+      "errors": []
+    },
+    "sufficiency_validation": {
+      "valid": true,
+      "error_count": 0,
+      "warning_count": 0,
+      "issues": []
+    }
+  },
+  "duplicate_review": {
+    "exact_duplicate_count": 0,
+    "exact_duplicates": [],
+    "cross_batch_note": "Comparison-specific quantitative atoms were intentionally deferred from the general and studybase runs. A semantic duplicate review should still be repeated after all CD006649 batches are merged."
+  },
+  "source_inconsistencies_requiring_human_review": [
+    {
+      "issue": "GRADE certainty language differs within the review for LMWH versus UFH.",
+      "locations": [
+        "Summary of Findings 1 / Abstract / Plain Language Summary: low certainty for mortality and recurrent VTE",
+        "Discussion, Quality of the evidence (article p. 16 / PDF p. 18): moderate certainty for all tested LMWH-versus-UFH outcomes"
+      ],
+      "handling": "Both source assertions were preserved. The structured Summary of Findings ratings were not silently overwritten by the Discussion wording."
+    },
+    {
+      "issue": "Breddin 2001 cancer-subgroup denominators differ across source locations.",
+      "locations": [
+        "Results narrative (article p. 12 / PDF p. 14): 83 people with cancer",
+        "Characteristics table (article p. 28 / PDF p. 30; prior studybase extraction): 137 people with cancer",
+        "Analysis 1.1 and 1.2 forest plots (article pp. 49-50 / PDF pp. 51-52): 84 LMWH + 41 UFH = 125 participants in each Breddin row"
+      ],
+      "handling": "Forest-plot event counts and denominators were preserved exactly in secondary-reported subgroup-result atoms and tagged breddin_count_review_needed; no reconciliation was invented."
+    }
+  ],
+  "schema_gaps": [
+    "LiteratureAtom schema version 1.0 is oriented to primary literature, while CD006649 is a systematic review.",
+    "GRADE certainty has no dedicated structured field; certainty and downgrading reasons are preserved in OTHER atoms and tags.",
+    "Meta-analysis heterogeneity has no dedicated result object; I² is represented conservatively as a QUANTITATIVE_RESULT with outcome and comparison context.",
+    "Forest-plot study rows are secondary reports of trial cancer-subgroup results; SUBGROUP_RESULT atoms are anchored to the Cochrane review and tagged secondary_reported_trial, not treated as primary-study extractions.",
+    "The schema has no structured field for forest-plot study weights, so weights are not normalized into atom context."
+  ],
+  "extraction_limitations": [
+    "Pass 0 was used only as scaffold/routing context; atoms were extracted from the original CD006649 source locations for this batch.",
+    "The batch preserves pooled relative effects, absolute effects, GRADE statements, heterogeneity, forest-plot study rows, missing outcomes, sensitivity analysis, and author interpretation for LMWH versus UFH.",
+    "The mortality sensitivity-analysis participant denominator was not reported in the inspected narrative and was not calculated from heterogeneous secondary sources.",
+    "Individual primary publications were not read; trial-row atoms remain secondary-reported results from the Cochrane forest plots.",
+    "All atoms are machine-extracted and marked needs_review; structural/schema/sufficiency validation does not constitute human source-fidelity verification."
+  ]
+}

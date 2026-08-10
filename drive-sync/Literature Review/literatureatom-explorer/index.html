@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LiteratureAtom Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <h1>LiteratureAtom Explorer</h1>
+        <p class="subtitle">Local, schema-aware JSON review for LiteratureAtom extraction runs.</p>
+      </div>
+      <div class="header-actions">
+        <button id="loadBtn" class="button primary" type="button">Add JSON files</button>
+        <input id="fileInput" type="file" accept=".json,application/json" multiple hidden>
+        <button id="clearBtn" class="button" type="button" disabled>Clear workspace</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Drop JSON files or choose files">
+        <div class="drop-inner">
+          <strong>Drop atom and validation JSON files here</strong>
+          <span>or choose multiple files. Processing stays in this browser.</span>
+        </div>
+      </section>
+
+      <section id="workspace" class="workspace hidden" aria-live="polite">
+        <div class="workspace-summary">
+          <div>
+            <strong id="workspaceTitle">Workspace</strong>
+            <span id="workspaceMeta"></span>
+          </div>
+          <div id="healthBadge" class="health-badge"></div>
+        </div>
+
+        <nav class="tabs" aria-label="Workspace sections">
+          <button class="tab active" data-tab="overview" type="button">Overview</button>
+          <button class="tab" data-tab="atoms" type="button">Atoms</button>
+          <button class="tab" data-tab="validation" type="button">Validation</button>
+          <button class="tab" data-tab="batches" type="button">Batches</button>
+        </nav>
+
+        <section id="tab-overview" class="tab-panel active">
+          <div id="overviewCards" class="metric-grid"></div>
+
+          <div class="two-column">
+            <section class="panel">
+              <div class="panel-heading">
+                <h2>Atom types</h2>
+              </div>
+              <div id="kindSummary" class="summary-list"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-heading">
+                <h2>Data health</h2>
+              </div>
+              <div id="healthSummary"></div>
+            </section>
+          </div>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <h2>Extraction runs</h2>
+            </div>
+            <div id="overviewBatches" class="batch-list"></div>
+          </section>
+        </section>
+
+        <section id="tab-atoms" class="tab-panel">
+          <div class="toolbar">
+            <div class="search-wrap">
+              <label for="searchInput">Search</label>
+              <input id="searchInput" type="search" placeholder="Statements, tags, source, population, outcome…">
+            </div>
+
+            <div class="filter-wrap">
+              <label for="runFilter">Run</label>
+              <select id="runFilter"><option value="">All runs</option></select>
+            </div>
+
+            <div class="filter-wrap">
+              <label for="kindFilter">Kind</label>
+              <select id="kindFilter"><option value="">All kinds</option></select>
+            </div>
+
+            <div class="filter-wrap">
+              <label for="pageFilter">Page</label>
+              <input id="pageFilter" type="text" placeholder="e.g. 30 or 30-41">
+            </div>
+
+            <div class="filter-wrap">
+              <label for="tagFilter">Tag</label>
+              <input id="tagFilter" type="text" placeholder="tag">
+            </div>
+
+            <div class="filter-wrap">
+              <label for="reviewFilter">Review</label>
+              <select id="reviewFilter"><option value="">All</option></select>
+            </div>
+
+            <div class="toolbar-actions">
+              <button id="columnsBtn" class="button" type="button">Columns</button>
+              <button id="resetFiltersBtn" class="button" type="button">Reset</button>
+              <div class="export-menu">
+                <button id="exportBtn" class="button" type="button" aria-expanded="false">Export</button>
+                <div id="exportMenu" class="menu hidden">
+                  <button data-export="json" type="button">Filtered JSON</button>
+                  <button data-export="visible-json" type="button">Visible columns JSON</button>
+                  <button data-export="csv" type="button">Visible columns CSV</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="active-filter-row">
+            <label class="check-label"><input id="quantOnly" type="checkbox"> Has quantitative result</label>
+            <label class="check-label"><input id="populationOnly" type="checkbox"> Has population</label>
+            <span id="filteredCount" class="muted"></span>
+          </div>
+
+          <div class="table-shell">
+            <table id="atomTable">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="pagination">
+            <div>
+              <label for="pageSize">Rows</label>
+              <select id="pageSize">
+                <option>25</option>
+                <option selected>50</option>
+                <option>100</option>
+              </select>
+            </div>
+            <span id="pageStatus"></span>
+            <div class="page-actions">
+              <button id="prevPage" class="button compact" type="button">Previous</button>
+              <button id="nextPage" class="button compact" type="button">Next</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="tab-validation" class="tab-panel">
+          <div class="validation-controls">
+            <label for="validationRun">Validation report</label>
+            <select id="validationRun"></select>
+          </div>
+          <div id="validationView"></div>
+        </section>
+
+        <section id="tab-batches" class="tab-panel">
+          <div id="batchView" class="batch-list detailed"></div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div id="columnsModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="columnsTitle">
+    <div class="modal">
+      <div class="modal-heading">
+        <div>
+          <h2 id="columnsTitle">Visible columns</h2>
+          <p>Select and reorder fields used in the atom table.</p>
+        </div>
+        <button class="icon-button" data-close="columnsModal" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="modal-actions">
+        <button id="defaultColumnsBtn" class="button compact" type="button">Restore defaults</button>
+        <button id="selectAllColumnsBtn" class="button compact" type="button">Select all</button>
+        <button id="clearColumnsBtn" class="button compact" type="button">Clear</button>
+      </div>
+      <div id="columnGroups" class="column-groups"></div>
+    </div>
+  </div>
+
+  <aside id="detailDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-heading">
+      <div>
+        <span id="drawerEyebrow" class="eyebrow"></span>
+        <h2 id="drawerTitle">Atom detail</h2>
+      </div>
+      <button id="closeDrawer" class="icon-button" type="button" aria-label="Close">×</button>
+    </div>
+    <div id="drawerBody" class="drawer-body"></div>
+  </aside>
+  <div id="drawerBackdrop" class="drawer-backdrop hidden"></div>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

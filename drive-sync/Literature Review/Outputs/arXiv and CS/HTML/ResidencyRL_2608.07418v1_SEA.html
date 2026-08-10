@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEA — ResidencyRL: Reinforcement Learning in Simulated Clinical Environments</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#17202a;--muted:#526173;--line:#d9e0ea;--accent:#1d4f91;--accent2:#6d3fc0;--good:#0f6b3b;--warn:#8a5a00;--bad:#8a1f1f;--codebg:#0e1726;--codefg:#edf4ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}
+header{background:linear-gradient(135deg,#10243d,#1d4f91 62%,#5a3ca0);color:white;padding:2.7rem 1.25rem 2.2rem;border-bottom:6px solid #d2e2f5}header .wrap{max-width:1180px;margin:auto}header h1{font-size:clamp(1.85rem,4vw,3rem);line-height:1.1;margin:0 0 .75rem}header p{max-width:980px;margin:.25rem 0;color:#eaf1fb}.badge{display:inline-block;padding:.25rem .55rem;border:1px solid #bed2ec;border-radius:999px;background:rgba(255,255,255,.10);font-size:.82rem;margin:.2rem .3rem .2rem 0}
+.wrap{max-width:1180px;margin:auto;padding:1.25rem}nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.15rem 1.25rem;margin:1rem 0;box-shadow:0 1px 5px rgba(16,36,61,.05)}nav.toc a{color:var(--accent);text-decoration:none}nav.toc ul{columns:2;column-gap:2rem;padding-left:1.2rem}nav.toc li{break-inside:avoid;margin:.25rem 0}
+h2{color:#0f315f;margin:.1rem 0 .85rem;font-size:1.55rem}h3{color:#173f72;margin:1.15rem 0 .45rem}h4{color:#24364b;margin:.9rem 0 .35rem}p{margin:.55rem 0 .85rem}.muted{color:var(--muted)}
+.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem}.mini-card{border:1px solid var(--line);border-radius:11px;padding:.8rem;background:#fbfcfe}.mini-card b{display:block;color:#294666;margin-bottom:.2rem}
+.verdict,.warning,.badnote,.goodnote{border-radius:11px;padding:.9rem 1rem;margin:.8rem 0}.verdict{border-left:5px solid var(--accent);background:#eef5ff}.warning{border-left:5px solid var(--warn);background:#fff8e8}.badnote{border-left:5px solid var(--bad);background:#fff1f1}.goodnote{border-left:5px solid var(--good);background:#eefaf3}
+.tag{display:inline-block;background:#edf2f8;border:1px solid #d7e0eb;color:#314c6b;padding:.18rem .45rem;border-radius:999px;font-size:.8rem;margin:.15rem .2rem .15rem 0}
+table{width:100%;border-collapse:collapse;margin:.7rem 0 1rem;font-size:.93rem}th,td{border:1px solid var(--line);padding:.52rem .6rem;vertical-align:top}th{background:#eef3f9;color:#1e395c;text-align:left}td.num{font-variant-numeric:tabular-nums;white-space:nowrap}pre{background:var(--codebg);color:var(--codefg);border-radius:11px;padding:1rem;overflow:auto;white-space:pre-wrap;line-height:1.48}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.section-summary{border-top:1px solid #e5eaf1;padding-top:.35rem;margin-top:.7rem}.score{font-size:1.5rem;font-weight:800;color:#163e70}.score small{font-size:.78rem;color:var(--muted);font-weight:600}.nowrap{white-space:nowrap}.kpi{font-size:1.55rem;font-weight:800;color:#173f72}.kpi-sub{color:var(--muted);font-size:.83rem}.foot{font-size:.85rem;color:var(--muted)}
+@media(max-width:700px){nav.toc ul{columns:1}.wrap{padding:.8rem}section{padding:1rem}table{font-size:.85rem}}
+@media print{body{background:white}header{background:white;color:black;border-bottom:2px solid #333;padding:1rem 0}header p{color:#333}.badge{border-color:#aaa;color:#333}nav.toc,section{box-shadow:none;break-inside:auto}a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>ResidencyRL: Reinforcement Learning in Simulated Clinical Environments</h1>
+<p>Summary, Evaluation, and Appraisal (SEA) of arXiv:2608.07418v1. The paper trains a Gemini 3.5 Flash clinical agent with long-horizon multi-turn reinforcement learning in simulated patient encounters and evaluates transfer across telehealth, longitudinal care, oncology, and external agent benchmarks.</p>
+<div><span class="badge">Preprint · 7 Aug 2026</span><span class="badge">Clinical AI / agentic RL</span><span class="badge">Simulated multi-turn encounters</span><span class="badge">Human + automated evaluation</span></div>
+</div></header>
+<div class="wrap">
+<nav class="toc" aria-label="Table of contents"><h2>Contents</h2><ul>
+<li><a href="#metadata">Metadata & scope</a></li><li><a href="#synthesis">One-page synthesis</a></li><li><a href="#coverage">Coverage manifest</a></li><li><a href="#methods">Methods</a></li><li><a href="#results">Results</a></li><li><a href="#sections">Section-by-section condensation</a></li><li><a href="#visuals">Figures, tables & workflows</a></li><li><a href="#appendices">High-value appendices</a></li><li><a href="#appraisal">Evaluation & appraisal</a></li><li><a href="#takeaways">Implementation takeaways</a></li><li><a href="#provenance">Provenance & caveats</a></li>
+</ul></nav>
+
+<section id="metadata"><h2>Metadata & scope</h2>
+<div class="meta-grid">
+<div class="mini-card"><b>Exact title</b>ResidencyRL: Reinforcement Learning in Simulated Clinical Environments</div>
+<div class="mini-card"><b>Source type</b>arXiv preprint / AI systems and benchmark study</div>
+<div class="mini-card"><b>Identifier</b>arXiv:2608.07418v1 [cs.AI]</div>
+<div class="mini-card"><b>Date / version</b>7 Aug 2026 · v1</div>
+<div class="mini-card"><b>Organizations</b>Google DeepMind; Google Research; clinical collaborators at Houston Methodist, Trinity Health, Stanford Oncology Partners, and St. Luke Hospital</div>
+<div class="mini-card"><b>Funding / competing interests</b>Funded by Alphabet Inc. and/or a subsidiary; Alphabet employees may own stock as standard compensation.</div>
+</div>
+<p><b>Authors:</b> Valentin Liévin; Samuel Schmidgall; Tim Strother; Alex Bijamov; Akshay Goel; Anil Palepu; Chunjong Park; Vahid Balazadeh; Min Woo Sun; Marius Guerard; Justin Chen; Dave Steiner; Vikram Dhillon; Ibrahim Azar; Akhil Mehta; Nicholas Spetsieris; Shilpan Shah; Maen Abdelrahim; Amit Dahiya; Yun Liu; Katherine Chou; Yossi Matias; Avinatan Hassidim; Dale R. Webster; Quoc V. Le; Raia Hadsell; Joelle Barral; Carey Radebaugh; Aleksandra Faust; Shekoofeh Azizi; Mike Schaekermann; Po-Hsuan Cameron Chen; Tao Tu; David Racz; Lin Yang</p>
+<div class="warning"><b>Scope warning.</b> This study evaluates training and performance in simulated or benchmark clinical environments. It does <b>not</b> establish real-world clinical efficacy, patient-level safety, or deployment readiness. The authors explicitly call for prospective validation with real patients and workflows.</div>
+<p><span class="tag">Gemini 3.5 Flash</span><span class="tag">GRPO</span><span class="tag">patient simulation</span><span class="tag">premature closure</span><span class="tag">clinical safety</span><span class="tag">AMIE Mx</span><span class="tag">AgentClinic</span><span class="tag">CRAFT-MD</span><span class="tag">oncology transfer</span></p>
+</section>
+
+<section id="synthesis"><h2>One-page synthesis</h2>
+<div class="verdict"><b>Core thesis.</b> A frontier model with strong static medical knowledge can acquire better <i>procedural clinical behavior</i>—especially information gathering, management planning, communication, and resistance to premature closure—by optimizing complete simulated encounters rather than isolated answers.</div>
+<p>ResidencyRL initializes from Gemini 3.5 Flash and trains with online Group Relative Policy Optimization (GRPO) over a heterogeneous action space: up to 60 dialogue turns plus 8 structured clinical/documentation tool calls. Training uses 49,870 general telehealth scenarios, 5,000 targeted history-taking scenarios, and 2,583 adversarial safety scenarios (83%/15%/2%). An LLM-based patient simulator exposes progressively disclosed information, behavioral variation, and adversarial resistance. A structured Gemini 3.1 Pro autorater supplies trajectory-level reward across diagnostic accuracy, management, intake, communication, documentation, style, and critical safety penalties.</p>
+<p>The strongest evidence is not the in-domain reward-aligned evaluation but the repeated transfer pattern. On AMIE Mx, ResidencyRL improves management reasoning from 80.1% to 88.4%, patient communication from 83.7% to 92.2%, and clinical skills from 79.6% to 84.8%. In a separate clinician-curated telehealth harness, blinded physicians prefer the trained model in 87.6% of 97 overall comparisons, including a 90.7% win rate for completeness of information gathering. Specialist oncology evaluations also favor the trained agent on completeness, clinical accuracy, actionability, and overall quality. External AgentClinic and CRAFT-MD results move mostly in the expected direction, although individual differences there are not statistically significant.</p>
+<div class="takeaway-grid">
+<div class="mini-card"><div class="kpi">−31%</div><div class="kpi-sub">relative missed-red-flag reduction under adversarial in-domain evaluation (45.5% → 31.5%)</div></div>
+<div class="mini-card"><div class="kpi">87.6%</div><div class="kpi-sub">clinician preference for ResidencyRL on overall impression in blinded SxS (n=97)</div></div>
+<div class="mini-card"><div class="kpi">+8.34 pp</div><div class="kpi-sub">AMIE Mx management-reasoning improvement (80.07% → 88.41%)</div></div>
+<div class="mini-card"><div class="kpi">57,453</div><div class="kpi-sub">reported training scenarios across general, history-taking, and adversarial packs</div></div>
+</div>
+<div class="badnote"><b>Principal evidentiary constraint.</b> The training environment, patient model, verifier, and much of the evaluation stack are LLM-mediated; the appendix demonstrates that the autorater is systematically shifted in favor of the trained model. Human side-by-side review meaningfully strengthens the result, but it remains a simulation study with no patient outcomes.</div>
+</section>
+
+<section id="coverage"><h2>Coverage manifest</h2>
+<table><thead><tr><th>Source component</th><th>Coverage decision</th><th>Representation</th></tr></thead><tbody>
+<tr><td>Main text: Abstract; §§1–6</td><td>Included</td><td>Section condensation + quantitative result tables</td></tr>
+<tr><td>Main figures 1–8</td><td>All included</td><td>Structured blocks; figures visually inspected in the PDF</td></tr>
+<tr><td>Main tables 1–6</td><td>All included</td><td>Structured extraction / compact result tables</td></tr>
+<tr><td>Appendix A: training data (Tables A1–A2)</td><td>Included</td><td>Structured summary preserving condition scope and complexity design</td></tr>
+<tr><td>Appendix B: grading rubric (Tables A3–A6)</td><td>Included</td><td>Structured rubric summary because it is central to training validity</td></tr>
+<tr><td>Appendix C: AMIE Telehealth scoring + Figure A1</td><td>Included</td><td>Calibration findings and verifier-bias analysis</td></tr>
+<tr><td>Appendix D: oncology collection/grading (Tables A7–A9)</td><td>Included selectively</td><td>Sampling and weighted-axis design summarized; exhaustive per-stratum rows condensed</td></tr>
+<tr><td>Appendix E: ICL ablation + Figure A2</td><td>Included</td><td>Structured ablation table</td></tr>
+<tr><td>Appendix F: two case studies</td><td>Included</td><td>Behavioral failure/success patterns summarized; long transcripts not reproduced</td></tr>
+<tr><td>References</td><td>Not condensed</td><td>Bibliography treated as provenance infrastructure, not evidence extraction target</td></tr>
+</tbody></table>
+<p class="foot">No main-text figure, table, workflow, or evaluation family was omitted. Appendix material was included when it materially affected method validity, calibration, transfer claims, reproducibility, or safety interpretation.</p>
+</section>
+
+<section id="methods"><h2>Methods</h2>
+<h3>Training environment and scenario curriculum</h3>
+<p>The scenario pipeline samples demographic, behavioral, and clinical attributes; generates detailed cases with Gemini 3.1 Pro; performs LLM-as-judge coherence review; and deduplicates patient summaries with character-trigram TF-IDF using a cosine-similarity threshold of 0.9. Presenting complaints span 81 conditions across respiratory/cardiovascular, musculoskeletal, genitourinary/reproductive, gastrointestinal, and other primary-care/telehealth domains. Complexity levels 1–5 progressively add comorbidities, atypical symptom overlap, medication interactions, social confounders, and broader differentials.</p>
+<p>Two targeted extension packs shape the policy toward failure modes the authors consider clinically important. History-taking cases hide a diagnostic pivot until the model asks a sufficiently specific question (social/lifestyle, medication specifics, symptom characterization, or exposures). Adversarial safety cases span nine categories including emergency escalation, boundary enforcement, atypical presentations, pharmacologic limits, abuse/vulnerability recognition, age verification, autonomy, crisis de-escalation, and resistance to patient manipulation. Adversarial difficulty levels determine how persistently the simulator withholds or distorts critical information.</p>
+<h3>Agent action space and patient simulator</h3>
+<p>The environment combines natural-language conversation with a structured clinical API: chart review, diagnosis, ranked differential, urgency, management plan, patient-facing summary, SOAP documentation, and termination. This makes the trajectory broader than history-taking alone. The patient simulator is Gemini 3.5 Flash conditioned on the scenario and encounter history, with instructions governing health literacy, reactive disclosure, pacing, and adversarial behavior. Tool calls, the policy’s internal reasoning, and the evaluation rubric are hidden from the patient simulator.</p>
+<h3>Reward design</h3>
+<pre><code>R = R_primary − R_penalty, bounded to [−3, 3]
+R_primary = 3 × (2/9 diagnosis + 3/9 management + 1/9 communication
+                 + 1/9 documentation + 1/9 intake + 1/9 style)</code></pre>
+<p>Twenty-six Likert sub-axes are split across topic-specific Gemini 3.1 Pro judge calls. Management receives the largest weight (3/9), followed by diagnosis (2/9); communication, documentation, intake, and style each receive 1/9. Critical penalties include hallucinated clinical data (−2), contraindicated actions (up to −3), plan leakage, missed critical questions, under-triage, and missed red flags. Deterministic system penalties cover parsing failures, missing termination, and excessive conversational length.</p>
+<h3>Reinforcement learning</h3>
+<p>The policy is optimized with online multi-turn GRPO from Gemini 3.5 Flash. Each scenario receives parallel episodes, the complete trajectory is scored only after completion, and group-relative advantages update the model without a separate value function. Training behavior shifts toward longer and more computationally intensive encounters: median conversational length rises from approximately 18 to 23 turns by step 100, and total agent steps stabilize near 52.</p>
+<div class="warning"><b>Reproducibility boundary.</b> The paper describes the environment, reward structure, scenario mixture, evaluation instruments, and GRPO conceptually, but does not provide the training codebase. Exact internal implementation and infrastructure are proprietary, and standard training details such as a fully reproducible hyperparameter/compute recipe are not exposed.</div>
+</section>
+
+<section id="results"><h2>Results</h2>
+<h3>4.1 Held-out in-domain telehealth and adversarial cases</h3>
+<table><thead><tr><th>Metric</th><th>Baseline</th><th>ResidencyRL</th><th>Interpretation</th></tr></thead><tbody>
+<tr><td>General telehealth diagnostic rubric ≥4/5</td><td class="num">86.4%</td><td class="num">88.4%</td><td>Small absolute gain (+2.0 pp)</td></tr>
+<tr><td>Adversarial diagnostic rubric ≥4/5</td><td class="num">81.0%</td><td class="num">88.0%</td><td>Largest diagnostic gain (+7.0 pp)</td></tr>
+<tr><td>Overall management — general</td><td class="num">3.98/5</td><td class="num">4.52/5</td><td>Broad improvement across treatment, investigation, safety-netting, urgency, follow-up</td></tr>
+<tr><td>Overall management — adversarial</td><td class="num">3.94/5</td><td class="num">4.51/5</td><td>Similar magnitude to general cases</td></tr>
+<tr><td>Social/lifestyle intake — general</td><td class="num">1.31/5</td><td class="num">2.64/5</td><td>Largest intake improvement, though absolute score remains moderate</td></tr>
+<tr><td>Missed critical question — adversarial</td><td class="num">65.5%</td><td class="num">43.5%</td><td>−22.0 pp</td></tr>
+<tr><td>Missed red flag — adversarial</td><td class="num">45.5%</td><td class="num">31.5%</td><td>−14.0 pp; ~31% relative reduction</td></tr>
+<tr><td>Contraindicated action — adversarial</td><td class="num">21.5%</td><td class="num">16.5%</td><td>Directionally lower; confidence intervals overlap</td></tr>
+<tr><td>Under-triage — adversarial</td><td class="num">4.0%</td><td class="num">4.5%</td><td>No improvement; slight numerical worsening</td></tr>
+</tbody></table>
+<p>These results demonstrate optimization of the intended training signal, but the authors appropriately treat them as secondary evidence because the held-out cases share the scenario-generation and rubric architecture used during training.</p>
+
+<h3>4.2 AMIE Mx multi-visit transfer</h3>
+<table><thead><tr><th>Clinical axis</th><th>Base</th><th>ResidencyRL</th><th>Difference</th><th>Adjusted p</th></tr></thead><tbody>
+<tr><td>Management reasoning (MXEKF)</td><td class="num">80.07%</td><td class="num">88.41%</td><td class="num">+8.34 pp</td><td class="num">5.88×10⁻18</td></tr>
+<tr><td>Guideline adherence</td><td class="num">84.17%</td><td class="num">86.67%</td><td class="num">+2.50 pp</td><td class="num">0.017</td></tr>
+<tr><td>Preciseness / memory</td><td class="num">90.03%</td><td class="num">92.67%</td><td class="num">+2.64 pp</td><td class="num">0.017</td></tr>
+<tr><td>Patient communication (GMPCQ)</td><td class="num">83.69%</td><td class="num">92.19%</td><td class="num">+8.50 pp</td><td class="num">1.56×10⁻17</td></tr>
+<tr><td>Clinical skills (PACES)</td><td class="num">79.59%</td><td class="num">84.84%</td><td class="num">+5.26 pp</td><td class="num">8.60×10⁻15</td></tr>
+<tr><td>Diagnosis & management</td><td class="num">90.37%</td><td class="num">90.68%</td><td class="num">+0.31 pp</td><td class="num">0.213</td></tr>
+</tbody></table>
+<p>Performance remains stable across the three visit stages, whereas the baseline falls by visit 3. The result is important because the training curriculum is single-visit; thus improved longitudinal behavior appears to transfer rather than being directly practiced.</p>
+
+<h3>4.3 Specialist oncology transfer</h3>
+<p>Three hundred clinician-curated oncology scenarios cover 240 solid-tumor cases across 21 cancer types and 60 hematologic malignancy cases across 10 subtypes. The agent was not trained on oncology or specialist workflows. Automated head-to-head grading favors ResidencyRL on completeness (34.8% wins vs 10.5% baseline), clinical accuracy (26.0% vs 9.1%), actionability (21.6% vs 7.8%), and the overall composite (42.9% vs 18.6%), while differences in case relevance and safety/triage are uncommon and not significant.</p>
+<p>A blinded oncologist review of 100 cases reports more targeted histories, earlier red-flag identification, more systematic exposure/family/genetic-risk elicitation, and more explicit sequencing of diagnostic workup. A recurring weakness is bundling multiple questions into one turn, which reviewers note may overwhelm patients.</p>
+
+<h3>4.4 External AgentClinic and CRAFT-MD benchmarks</h3>
+<table><thead><tr><th>Benchmark / metric</th><th>Baseline</th><th>ResidencyRL</th><th>Appraisal</th></tr></thead><tbody>
+<tr><td>AgentClinic-MedQA diagnostic accuracy (n=215)</td><td class="num">81.4%</td><td class="num">85.6%</td><td>+4.2 pp; not significant (p=0.176)</td></tr>
+<tr><td>AgentClinic-MIMIC-IV diagnostic accuracy (n=200)</td><td class="num">53.5%</td><td class="num">60.0%</td><td>+6.5 pp; not significant (p=0.079); consultations longer (15.8 vs 11.2 turns)</td></tr>
+<tr><td>CRAFT-MD consultation free-response</td><td class="num">58.1%</td><td class="num">62.8%</td><td>+4.7 pp; directional, not individually significant</td></tr>
+<tr><td>CRAFT-MD visit free-response</td><td class="num">81.3%</td><td class="num">84.5%</td><td>+3.2 pp; directional</td></tr>
+<tr><td>CRAFT-MD visit multiple-choice</td><td class="num">94.2%</td><td class="num">93.7%</td><td>Only reported submetric favoring baseline numerically</td></tr>
+</tbody></table>
+<p>This is the most conservative part of the paper’s generalization claim. The cross-benchmark pattern is compatible with transfer of active information-gathering skill, but the paper itself states that larger samples are needed to confirm the trend.</p>
+
+<h3>4.5 Clinician-curated AMIE Telehealth harness</h3>
+<p>In 299 out-of-domain clinician-designed scenarios, both models run inside the same expert-optimized AMIE Telehealth Harness originally tuned for the base model. Automated grading shows statistically significant improvements on 8 of 10 metrics after FDR correction. The largest deltas are Naturalness (2.52→3.24) and Overall Clinical Rubric Score (3.93→4.43). Treatment, overall management, follow-up, safety, style, and diagnostic appropriateness also improve; investigation and urgency are directional but not significant.</p>
+<table><thead><tr><th>Blinded physician SxS (n=97)</th><th>ResidencyRL result</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Overall impression</td><td class="num">87.6% preferred</td><td>Strong overall human-grounded validation</td></tr>
+<tr><td>Completeness of information gathering</td><td class="num">90.7% preferred</td><td>Largest preference signal</td></tr>
+<tr><td>Management plan appropriateness</td><td class="num">75.3% preferred</td><td>Large practical clinical-process gain</td></tr>
+<tr><td>Diagnostic assessment</td><td class="num">66.0% preferred</td><td>Moderate-large preference</td></tr>
+<tr><td>Management plan safety</td><td class="num">96.9% preferred or tied</td><td>42.3% wins, 54.6% ties, 3.1% losses</td></tr>
+<tr><td>No hallucinations</td><td class="num">77.3% ties</td><td>No significant difference; training did not measurably degrade factuality on this axis</td></tr>
+</tbody></table>
+<p>Clinicians also judged 99/100 sampled encounter cases realistic in both arms. This supports simulator face validity for the evaluated dialogue setting, but does not establish equivalence to real clinical encounters.</p>
+</section>
+
+<section id="sections"><h2>Section-by-section condensation</h2>
+<div class="section-summary"><h3>Abstract</h3><p>The abstract frames the work as a transition from static medical knowledge to sequential clinical process. It reports adversarial diagnostic accuracy improving from 81.0% to 88.0%, missed red flags decreasing by 31% relatively, and clinician preference of 87.6% in side-by-side evaluation. It also claims transfer across AMIE Mx, AgentClinic, and CRAFT-MD.</p><p>The abstract correctly includes the central caveat: prospective real-world workflow validation is still necessary before clinical utility can be established.</p></div>
+<div class="section-summary"><h3>1. Introduction</h3><p>The authors motivate clinical encounters as long-horizon partially observed decision problems where information must be actively elicited. They distinguish medical knowledge from clinical process and identify premature closure, adversarial manipulation, and patient communication as sequential failure modes poorly captured by static QA benchmarks.</p><p>The contribution is positioned around three claims: long-horizon multi-turn RL can improve complete encounter behavior; these improvements generalize across specialties and environments; and targeted training can reduce dangerous shortcuts such as missed red flags.</p></div>
+<div class="section-summary"><h3>2. Related Work</h3><p>The paper situates ResidencyRL between foundational medical LLMs, AMIE-style conversational systems, long-horizon agentic RL, and clinical RL systems such as Doctor-R1, DoctorAgent-RL, DiagAgent, and SALUS. Table 1 emphasizes that prior medical RL generally uses shorter horizons or narrower action spaces.</p><p>The authors’ key distinction is not merely dialogue length: ResidencyRL jointly optimizes inquiry, documentation, diagnosis, management, safety, and communication in a single trajectory.</p></div>
+<div class="section-summary"><h3>3. Methods</h3><p>Methods combine a generated/deduplicated scenario curriculum, a stateful patient simulator, structured clinical tools, an analytic multi-axis LLM autorater, and online GRPO. The scenario system intentionally creates information asymmetry and adversarial patient behavior so reward depends on asking the right questions rather than only producing a plausible final answer.</p><p>The reward design is unusually explicit for a clinical-agent paper, but the verifier is also the major source of validity risk: the same general family of automated judging signals both trains and evaluates part of the system.</p></div>
+<div class="section-summary"><h3>4. Results</h3><p>In-domain performance improves broadly, especially intake completeness, management, and adversarial safety. More persuasive are out-of-domain gains on AMIE Mx, oncology, and clinician-curated AMIE Telehealth, including blinded physician preferences. AgentClinic/CRAFT-MD mostly trend in the same direction but are not individually significant.</p><p>The result pattern is coherent with the proposed mechanism: gains are largest where active information gathering, management reasoning, communication, and free-form synthesis matter; static multiple-choice performance changes little.</p></div>
+<div class="section-summary"><h3>5. Discussion, limitations & future directions</h3><p>The authors interpret the transfer pattern as evidence for procedural generalization rather than memorization of domain facts. They explicitly acknowledge verifier Goodharting, metric saturation, simulator fidelity gaps, text-only US-English telehealth scope, lack of long-term patient outcomes, lack of multimodal/physical interaction, automated adversaries, and proprietary infrastructure.</p><p>Future directions include broader multi-actor clinical settings, EHR-grounded and multimodal simulation, simulation of downstream treatment effects, multi-visit training, and stronger verification strategies. These are not minor extensions: several correspond directly to the main barriers between benchmark competence and deployable clinical systems.</p></div>
+<div class="section-summary"><h3>6. Conclusion</h3><p>The paper concludes that simulation-based multi-turn RL can make a medically knowledgeable frontier model more effective at clinical-process tasks. The strongest source-supported form of that conclusion is “more competent in the tested simulated and benchmark settings,” not “validated as a clinician.”</p><p>Data availability is partial: several benchmark datasets are open, while the actual codebase and internal training infrastructure are not released because of internal dependencies and stated medical-safety concerns.</p></div>
+</section>
+
+<section id="visuals"><h2>Main figures, tables & workflows</h2>
+<h3>Figure 1 — End-to-end ResidencyRL training system</h3><pre><code>Purpose: Show the complete simulation → reward → GRPO → evaluation pipeline.
+Structure: scenario proposer/judge + deduplication → general/history/adversarial packs → patient simulator + documentation API → multi-turn rollout → structured reward → GRPO → clinical evaluation.
+Key design detail: up to 60 dialogue turns + 8 structured tool calls; reward covers six clinical dimensions plus safety penalties.
+Interpretation: the contribution is a training environment and objective for whole encounters, not a new static medical benchmark.
+Limit: figure abstracts away proprietary implementation details.</code></pre>
+<h3>Figures 2–3 — Scenario context and example rollout</h3><pre><code>Figure 2: A 59-year-old with constipation contains hidden daily concentrated Kratom use that is disclosed only after a specific supplement/herbal-remedy question.
+Figure 3: The trained agent elicits that hidden factor, generates a differential, diagnosis, management plan, patient summary, SOAP note, and terminates the encounter.
+Interpretation: these figures concretely illustrate how scenario design turns information-gathering behavior into a learnable target.
+Limit: illustrative examples are not evidence of aggregate efficacy.</code></pre>
+<h3>Figure 4 — Training dynamics</h3><pre><code>Median conversation length rises from ~18 to ~23 turns by step 100.
+Thinking tokens per turn increase during training.
+Total agent steps stabilize around ~52.
+The policy pushes against the soft >30-turn penalty while becoming more thorough.
+Interpretation: the learned strategy spends more interaction/computation on information gathering rather than simply shortening trajectories.</code></pre>
+<h3>Figure 5 / Table 5 — AMIE Mx transfer</h3><pre><code>Largest category gains: patient communication +8.50 pp; management reasoning +8.34 pp; clinical skills +5.26 pp.
+Smaller significant gains: guideline adherence +2.50 pp; precision/memory +2.64 pp.
+Diagnosis & management aggregate: +0.31 pp, not significant.
+Interpretation: transfer concentrates in process/interaction axes more than already-saturated core diagnostic scoring.</code></pre>
+<h3>Figure 6 — Specialist oncology</h3><pre><code>ResidencyRL wins more often on completeness, clinical accuracy, actionability, and overall score.
+Case relevance and safety/triage differences are uncommon and not significant.
+Interpretation: primary-care/telehealth RL appears to transfer to specialist process quality, but not every axis benefits.</code></pre>
+<h3>Figure 7 — Out-of-domain AMIE Telehealth automated scores</h3><pre><code>8/10 metrics significant after FDR correction.
+Largest changes: Overall Clinical Rubric 3.93→4.43; Naturalness 2.52→3.24.
+Other significant gains: treatment, overall management, follow-up, safety, style, diagnostic appropriateness.
+Investigation and urgency: directional, not significant.
+Limit: these are still automated rubric scores and several metrics are near ceiling.</code></pre>
+<h3>Figure 8 — Blinded human preference</h3><pre><code>Overall impression: 87.6% prefer ResidencyRL.
+Completeness of information gathering: 90.7% prefer ResidencyRL.
+Management appropriateness: 75.3% prefer ResidencyRL.
+Diagnostic assessment: 66.0% prefer ResidencyRL.
+No-hallucination axis: predominantly ties and no significant difference.
+Interpretation: this is the strongest independent validation against concerns that reward gains are merely verifier optimization.</code></pre>
+<h3>Table 1 — Comparison with prior clinical simulation/RL systems</h3><p>ResidencyRL is differentiated by a horizon up to 68 actions, mixed dialogue + documentation tools, online GRPO, approximately 57K generated cases including adversarial scenarios, and an objective spanning complete diagnostic consultation and management rather than a narrow order/query subtask.</p>
+<h3>Table 2 — Reward structure</h3><p>Management is weighted 3/9, diagnosis 2/9, and intake/communication/documentation/style each 1/9. Critical safety violations can dominate reward through penalties up to 3 points, creating an explicit safety-sensitive objective rather than treating safety as an unweighted secondary rubric.</p>
+<h3>Table 3 — Evaluation overview</h3><p>The evaluation suite covers 200 held-out telehealth cases, 200 held-out adversarial cases, 120 AMIE Mx cases (360 visits), 300 oncology cases, AgentClinic-MedQA (215), AgentClinic-MIMIC-IV (200), CRAFT-MD (1,273), and 299 clinician-curated AMIE Telehealth cases with a 97-case valid human SxS subset.</p>
+<h3>Table 4 — In-domain evaluation</h3><p>Broad improvements appear across management, communication, and screening completeness, with the notable exception that under-triage does not improve. Safety gains are largest for information omission (critical questions/red flags), not for every unsafe-action endpoint.</p>
+<h3>Table 6 — AgentClinic / CRAFT-MD</h3><p>Results are directionally favorable in the more conversational/free-response settings but do not individually reach significance. Visit multiple-choice accuracy is slightly lower after training. This table appropriately tempers the stronger transfer claims from AMIE and clinician review.</p>
+</section>
+
+<section id="appendices"><h2>High-value appendix findings</h2>
+<h3>Appendix A — Training coverage and complexity</h3><p>Table A1 enumerates 81 presenting complaints across five broad domains. The set includes routine respiratory/cardiovascular complaints, musculoskeletal issues, reproductive/genitourinary care, gastrointestinal problems, and a wide “Other” bucket spanning mental health, metabolic disease, dermatology, refills, and general telehealth complaints. Table A2 increases difficulty from textbook cases (level 1) to high-comorbidity, actively misleading, polypharmacy-heavy, socially confounded cases (level 5).</p>
+<h3>Appendix B — Autorater specification (Tables A3–A6)</h3><p>The appendix exposes the rubric in enough detail to understand the reward target: six weighted axes, sub-axis weights, dimension-specific 1–5 anchors, and eight safety/error flags. This is a major methodological strength because “clinical quality” is decomposed into auditable criteria rather than represented as a single opaque scalar.</p>
+<h3>Appendix C.7 / Figure A1 — Autorater calibration and bias</h3>
+<div class="badnote"><b>Critical calibration result.</b> Cases clinicians preferred for ResidencyRL had larger autorater deltas than cases they did not prefer (median +0.61 vs +0.31; p&lt;0.01), so the autorater contains meaningful relative signal. However, autorater deltas were systematically positive even when clinicians did not favor the trained model; the mean overall delta was +0.63. The authors attribute this plausibly to optimization against similar automated signals during training.</div>
+<p>This appendix materially changes interpretation: automated effect sizes should not be treated as unbiased estimates of true clinical preference. The human SxS result is therefore essential rather than decorative validation.</p>
+<h3>Appendix D — Oncology grading</h3><p>The oncology set uses specialist-written reference management plans and six weighted 1–5 axes: clinical accuracy (25%), safety/triage (20%), case relevance (15%), completeness (15%), actionability/specialist value (15%), and clarity/calibration (10%). This creates a clinically oriented transfer test rather than simply reusing the training reward unchanged.</p>
+<h3>Appendix E / Figure A2 — In-context learning ablation</h3>
+<table><thead><tr><th>Metric (normalized)</th><th>Baseline</th><th>ICL₀</th><th>ICL_all</th><th>ResidencyRL</th></tr></thead><tbody>
+<tr><td>Diagnostic accuracy</td><td class="num">0.864</td><td class="num">0.808</td><td class="num">~0.83</td><td class="num">0.884</td></tr>
+<tr><td>Management quality</td><td class="num">0.825</td><td class="num">0.793</td><td class="num">0.843</td><td class="num">0.927</td></tr>
+<tr><td>Communication</td><td class="num">0.508</td><td class="num">0.491</td><td class="num">0.541</td><td class="num">0.606</td></tr>
+<tr><td>Screening completeness</td><td class="num">0.401</td><td class="num">0.358</td><td class="num">0.521</td><td class="num">0.622</td></tr>
+<tr><td>Mean encounter length</td><td class="num">16.8</td><td class="num">19.0</td><td class="num">22.3</td><td class="num">19.9</td></tr>
+</tbody></table>
+<p>Five demonstrations sampled from the strongest RL trajectories improve three of four clinical axes over baseline but still do not match the trained policy; they also produce the longest encounters. This supports the claim that weight-updated RL adds more than behavior imitation through prompting. The ablation does not compare against supervised fine-tuning on equivalent expert trajectories.</p>
+<h3>Appendix F — Case studies</h3><p>The first case illustrates resistance to an implausible, patient-demanded surgical framing: the trained model probes the claim and persists with safety checks rather than anchoring on the patient’s self-diagnosis. The second case is a TIA presentation in which the baseline escalates quickly but terminates after minimal history and later fabricates past medical history/medications in the SOAP note. ResidencyRL gathers vascular risk factors, medications, and family history before escalating, enabling a more grounded differential and plan.</p>
+<p>These cases are useful for failure-mode understanding, but they are selected illustrations. Their evidentiary role is explanatory rather than quantitative.</p>
+</section>
+
+<section id="appraisal"><h2>Evaluation & appraisal</h2>
+<div class="verdict"><b>Verdict: Read first.</b> High-value work for clinical-agent training, evaluation, and safety methodology. Treat it as strong evidence that multi-turn simulation RL can improve <i>simulated clinical process</i>, not as evidence that the resulting model is ready for independent patient care.</div>
+<div class="rating-grid">
+<div class="mini-card"><div class="score">10<small>/10</small></div><b>Relevance</b><p>Directly addresses clinical AI agents, sequential reasoning, safety, agent reliability, and evaluation.</p><p class="foot"><b>Evidence basis:</b> full-encounter RL + multi-benchmark clinical evaluation. <b>Limit:</b> telehealth simulation. <b>Would lower:</b> if transfer were limited to reward-aligned tests.</p></div>
+<div class="mini-card"><div class="score">9<small>/10</small></div><b>Novelty</b><p>Extends clinical RL to long trajectories and a broad action/reward space rather than isolated dialogue or ordering.</p><p class="foot"><b>Evidence basis:</b> Table 1 comparison and T≤68 design. <b>Limit:</b> multi-turn medical RL is concurrent rather than unique. <b>Would raise:</b> stronger causal ablations across horizon/reward components.</p></div>
+<div class="mini-card"><div class="score">8<small>/10</small></div><b>Method strength</b><p>Large curriculum, explicit safety taxonomy, held-out filtering, multiple OOD frameworks, bootstrap CIs/FDR correction, and blinded clinicians.</p><p class="foot"><b>Limit:</b> synthetic training/evaluation dependence and incomplete reproducibility. <b>Would raise:</b> external independent replication and full training recipe.</p></div>
+<div class="mini-card"><div class="score">7<small>/10</small></div><b>Evidence strength</b><p>Human SxS and OOD transfer substantially strengthen a simulation paper, but no patient outcomes exist.</p><p class="foot"><b>Limit:</b> verifier bias, metric saturation, several external results not significant. <b>Would raise:</b> prospective real-patient study with clinical outcomes and independent adjudication.</p></div>
+<div class="mini-card"><div class="score">6<small>/10</small></div><b>External validity</b><p>Transfer across benchmarks, longitudinal care, specialist oncology, and a separate harness is encouraging.</p><p class="foot"><b>Limit:</b> English-speaking US text telehealth, simulated patients, no physical/multimodal care. <b>Would raise:</b> diverse sites, languages, patient populations, and live workflows.</p></div>
+<div class="mini-card"><div class="score">8<small>/10</small></div><b>Implementation value</b><p>The scenario, reward, safety, and evaluation architecture is highly reusable conceptually.</p><p class="foot"><b>Limit:</b> proprietary code/models/infrastructure prevent direct reproduction. <b>Would raise:</b> open environment, reward code, fixtures, and reproducible GRPO recipe.</p></div>
+</div>
+<h3>Main strengths</h3>
+<ul><li><b>Evaluation triangulation:</b> reward-aligned held-out tests, separate OOD benchmarks, specialist transfer, an independent agentic harness, and blinded clinician review.</li><li><b>Reward transparency:</b> clinically meaningful axes and explicit safety penalties rather than a single opaque preference score.</li><li><b>Failure-mode targeting:</b> hidden-information and adversarial scenario packs directly train against premature closure and incomplete history-taking.</li><li><b>Mechanistic coherence:</b> the largest gains occur where the training intervention should matter—information gathering, management reasoning, communication, and free-response synthesis.</li><li><b>Self-critique in the paper:</b> the authors quantify verifier bias rather than ignoring it.</li></ul>
+<h3>Main limitations</h3>
+<ul><li><b>Simulation-to-clinic gap:</b> no real patient outcomes, physical examination, multimodal data, procedures, treatment-response observation, or team coordination.</li><li><b>Verifier entanglement:</b> similar LLM-mediated scoring signals are used for training and multiple evaluations; Appendix C.7 confirms a positive shift toward the trained model.</li><li><b>External benchmark uncertainty:</b> AgentClinic and CRAFT-MD improvements are directional but individually nonsignificant.</li><li><b>Residual safety failures:</b> missed critical questions remain 43.5% and missed red flags 31.5% in the adversarial set; under-triage does not improve.</li><li><b>Reproducibility:</b> proprietary models/infrastructure, no released codebase, and an incomplete public training recipe constrain replication.</li><li><b>Population/environment scope:</b> US, English, text-based telehealth scenarios only.</li></ul>
+<div class="badnote"><b>Do not overclaim:</b> “87.6% clinician preference” is a preference between two simulated-agent encounter outputs inside a specific harness, not a comparison with practicing clinicians and not a patient-outcome endpoint.</div>
+</section>
+
+<section id="takeaways"><h2>Implementation / research takeaways</h2>
+<div class="takeaway-grid">
+<div class="mini-card"><b>1. Train the process, not just the answer</b>For agentic CDS or clinical assistants, optimize complete trajectories that include elicitation, decision points, documentation, and safety-netting.</div>
+<div class="mini-card"><b>2. Build capability-specific scenario packs</b>General-case simulation alone is unlikely to train rare but safety-critical behaviors. Hidden-history and adversarial packs act as targeted curricula.</div>
+<div class="mini-card"><b>3. Keep reward multidimensional</b>Separate diagnosis, management, intake, communication, documentation, style, and hard safety penalties so one high-performing axis cannot mask a dangerous failure elsewhere.</div>
+<div class="mini-card"><b>4. Evaluate beyond the training harness</b>Reward-aligned scores should be treated as optimization diagnostics. External environments and human review are needed to assess transfer.</div>
+<div class="mini-card"><b>5. Audit the verifier explicitly</b>Measure how automated score deltas relate to independent experts and look for systematic shift after RL. This paper’s positive-bias finding is an important model for verifier governance.</div>
+<div class="mini-card"><b>6. Track residual failure rates</b>Relative improvements can coexist with unacceptable absolute safety failure rates. A 31% red-flag reduction still leaves nearly one-third of adversarial red flags missed.</div>
+</div>
+<h3>Best use</h3><p>Architecture/reference paper for clinical-agent simulation, long-horizon RL, structured reward design, safety curriculum generation, and evaluation governance.</p>
+<h3>Do not use for</h3><p>Claims of autonomous clinical deployment readiness, real-world patient safety, superiority to physicians, or validated treatment effectiveness.</p>
+<h3>High-value next experiments suggested by the evidence</h3><ul><li>Prospective real-patient or standardized-human-patient evaluation with independent adjudication.</li><li>Verifier-independent endpoints and cross-family judges to quantify reward-model overfitting.</li><li>Ablations by horizon length, adversarial-pack inclusion, reward-axis removal, and safety-penalty weighting.</li><li>Multimodal/EHR-grounded environments with actual test results and treatment-response transitions.</li><li>Open or reproducible smaller-scale environment to test whether the method generalizes beyond Gemini/internal infrastructure.</li></ul>
+</section>
+
+<section id="provenance"><h2>Provenance & caveats</h2>
+<div class="meta-grid">
+<div class="mini-card"><b>Evaluated source</b>ResidencyRL: Reinforcement Learning in Simulated Clinical Environments</div>
+<div class="mini-card"><b>Stable identifier</b>arXiv:2608.07418v1</div>
+<div class="mini-card"><b>Evaluated file</b>ResidencyRL Reinforcement Learning in Simulated Clinical Environments - 2608.07418v1.pdf (51 pages)</div>
+<div class="mini-card"><b>Generated</b>2026-08-10</div>
+</div>
+<p>This SEA is grounded in the supplied preprint and its appendices. No external web verification or secondary-source commentary was used. Quantitative values are preserved from the source; interpretation and appraisal are separated from author-reported findings. Appendix transcripts are summarized rather than reproduced at length.</p>
+<p class="foot">Protocol: summary-evaluation-appraisal-protocol-v4-compact.md (governing project source; file content identifies itself as the integrated compact protocol). Historical v3 HTML was consulted only for presentation reference.</p>
+</section>
+</div>
+</body></html>

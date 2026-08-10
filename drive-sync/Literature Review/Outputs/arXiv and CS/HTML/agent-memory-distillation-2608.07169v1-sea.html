@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA — Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#182230;--muted:#5b6878;--line:#dbe2ec;--accent:#214f86;--accent2:#edf4fb;--good:#146c43;--goodbg:#eef9f3;--warn:#8a5b08;--warnbg:#fff8e7;--bad:#8a2632;--badbg:#fff0f2;--code:#101827;--codefg:#eaf1fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}header{background:linear-gradient(135deg,#102b4c,#275f9a);color:white;padding:2.7rem 1.25rem 2.2rem;border-bottom:5px solid #c8dbef}.wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}header .wrap{padding:0}h1{font-size:clamp(1.8rem,3.8vw,3rem);line-height:1.12;margin:0 0 .8rem}header p{max-width:900px;margin:.35rem 0;color:#edf5ff}.eyebrow{text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;font-weight:800;opacity:.88}nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:1.15rem 0;padding:1.15rem 1.25rem;box-shadow:0 1px 4px rgba(16,36,61,.05)}nav.toc ul{columns:2;column-gap:2rem;margin:.5rem 0;padding-left:1.2rem}nav.toc li{break-inside:avoid;margin:.25rem 0}a{color:var(--accent)}h2{color:#163f70;margin:.1rem 0 1rem;font-size:1.5rem}h3{color:#245481;margin:1.2rem 0 .45rem}h4{margin:1rem 0 .35rem;color:#31465f}.meta-grid,.rating-grid,.takeaway-grid,.mini-grid{display:grid;gap:.85rem}.meta-grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}.rating-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.takeaway-grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.mini-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.mini-card,.rating{border:1px solid var(--line);border-radius:12px;padding:.85rem;background:#fbfcfe}.mini-card strong,.rating strong{display:block;color:#234c78;margin-bottom:.2rem}.rating .score{font-size:1.45rem;font-weight:800;color:#173f72}.verdict,.warning,.badnote,.goodnote{border-radius:12px;padding:.9rem 1rem;margin:.85rem 0;border-left:5px solid}.verdict{background:var(--accent2);border-color:var(--accent)}.warning{background:var(--warnbg);border-color:var(--warn)}.badnote{background:var(--badbg);border-color:var(--bad)}.goodnote{background:var(--goodbg);border-color:var(--good)}.tag{display:inline-block;background:#eaf1f8;color:#244e7a;border:1px solid #ccdae9;border-radius:999px;padding:.15rem .55rem;font-size:.82rem;margin:.12rem .2rem .12rem 0}table{width:100%;border-collapse:collapse;margin:.75rem 0 1.1rem;font-size:.93rem}th,td{border:1px solid var(--line);padding:.48rem .58rem;vertical-align:top}th{background:#edf3f9;color:#1d3d61;text-align:left}.scroll{overflow-x:auto}pre{background:var(--code);color:var(--codefg);padding:1rem;border-radius:11px;overflow:auto;white-space:pre-wrap;line-height:1.47;font-size:.89rem}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}.section-summary{border-left:4px solid #d5e2f0;padding-left:1rem;margin:1rem 0}.muted{color:var(--muted)}.small{font-size:.88rem}.kicker{font-size:1.12rem;font-weight:700;color:#224f80}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.coverage-item{border-top:1px solid var(--line);padding:.72rem 0}.coverage-item:first-child{border-top:0;padding-top:0}.source-claim{font-weight:700;color:#224f80}.appraisal{font-weight:700;color:#7a4d0a}.foot{color:var(--muted);font-size:.88rem;padding-bottom:2rem}ul.tight,ol.tight{margin:.4rem 0;padding-left:1.25rem}ul.tight li,ol.tight li{margin:.18rem 0}@media(max-width:760px){nav.toc ul{columns:1}.two-col{grid-template-columns:1fr}table{font-size:.86rem}}@media print{body{background:white}header{background:white;color:black;border-bottom:2px solid #777;padding:1.2rem 0}header p{color:#333}nav.toc,section{box-shadow:none;break-inside:avoid-page}a{color:inherit;text-decoration:none}.wrap{max-width:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Summary · Evaluation · Appraisal</div>
+    <h1>Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory</h1>
+    <p>Taeil Kim, Kangsan Kim, Sung Ju Hwang · arXiv:2608.07169v1 · 7 Aug 2026 · cs.AI</p>
+    <p>Reference appraisal of a training-free teacher-to-student memory transfer framework for small tool-using LLM agents.</p>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#metadata">Metadata & scope</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#sections">Section condensation</a></li>
+    <li><a href="#method">AMD architecture</a></li>
+    <li><a href="#results">Results & ablations</a></li>
+    <li><a href="#visuals">Figures, tables & algorithm</a></li>
+    <li><a href="#appraisal">Evaluation & appraisal</a></li>
+    <li><a href="#takeaways">Implementation takeaways</a></li>
+    <li><a href="#provenance">Provenance & QA</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+<h2>Metadata & scope</h2>
+<div class="meta-grid">
+  <div class="mini-card"><strong>Exact title</strong>Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory</div>
+  <div class="mini-card"><strong>Authors</strong>Taeil Kim; Kangsan Kim; Sung Ju Hwang</div>
+  <div class="mini-card"><strong>Affiliations</strong>KAIST; DeepAuto.ai</div>
+  <div class="mini-card"><strong>Source type</strong>arXiv preprint; AI/ML agent benchmark study</div>
+  <div class="mini-card"><strong>Date / version</strong>7 Aug 2026 · v1</div>
+  <div class="mini-card"><strong>Stable identifier</strong>arXiv:2608.07169</div>
+  <div class="mini-card"><strong>Primary task</strong>Training-free teacher-to-student transfer through hierarchical agent memory</div>
+  <div class="mini-card"><strong>Evaluation domain</strong>Text-based tool use: AppWorld, BFCL V3, ToolSandbox</div>
+</div>
+<div class="warning"><strong>Scope warning.</strong> This paper establishes benchmark evidence for structured memory transfer in small tool-using agents. It does not validate multimodal agents, open-ended coding agents, continuously adapting memories, real-world deployments, safety-critical use, or production cost/latency characteristics.</div>
+<p class="small muted"><strong>Coverage decision:</strong> all main-text sections, Figures 1–6, Tables 1–4, and the AMD workflow are represented as structured blocks. Appendix Algorithm 1, Tables 5–6, Figures 7–15, and implementation details are included because they materially affect reproducibility, leakage/generalization appraisal, or failure analysis. The bibliography is not condensed because it is provenance infrastructure rather than primary evidence.</p>
+</section>
+
+<section id="synthesis">
+<h2>One-page synthesis</h2>
+<div class="verdict"><strong>Verdict: Read first.</strong> AMD is a high-value design paper for agent-memory systems because it converts a vague idea—“give the small model the teacher's memories”—into a concrete granularity-and-timing architecture, then backs that design with multi-benchmark ablations. The most reusable result is not merely the headline accuracy gain; it is the evidence that <em>memory representation, granularity, retrieval count, and injection timing must be matched to student capacity</em>.</div>
+<p class="kicker">Core thesis</p>
+<p>The authors argue that small agents cannot exploit memory as effectively as large agents because they generate too few successful trajectories and because naive transfer of a stronger teacher's high-level memories remains too difficult for the student to operationalize. Agent Memory Distillation (AMD) addresses the capability gap by decomposing teacher experience into three complementary memory types: <strong>Workflow</strong> memory for task-level planning, <strong>Subtask</strong> memory for concrete intermediate execution patterns, and <strong>Function</strong> memory for reactive correction of tool-call failures.</p>
+<p>Across four 4B–8B student models, the paper reports mean absolute gains over zero-shot of <strong>27.2 percentage points on AppWorld</strong>, <strong>11.2 points on BFCL V3</strong>, and <strong>3.4 points on ToolSandbox</strong>. The strongest mechanistic finding is that Subtask memory contributes the largest incremental benefit on complex long-horizon tasks; k=1 retrieval is near-optimal; and representation should vary by level—natural language for high-level workflow, concrete code/examples for subtask and function execution.</p>
+<div class="mini-grid">
+  <div class="mini-card"><strong>Most important result</strong>Qwen3-4B on AppWorld rises from 14.88% zero-shot to 49.40% with AMD (+34.52 points).</div>
+  <div class="mini-card"><strong>Most important ablation</strong>For Qwen3-4B AppWorld, Workflow alone reaches 22.02%; adding Subtask reaches 47.02%; Function then reaches 49.40%.</div>
+  <div class="mini-card"><strong>Generalization check</strong>Disjoint memory/evaluation protocols retain large gains: 41.07% cross-split and 46.43% self-excluded on AppWorld vs corresponding zero-shot 16.07% and 14.88%.</div>
+  <div class="mini-card"><strong>Capacity constraint</strong>Additional memory can hurt weaker students; Llama3.1-8B drops from 30.36% WF+ST to 27.38% after Function memory on AppWorld.</div>
+  <div class="mini-card"><strong>Retrieval lesson</strong>More is not better: Subtask accuracy falls from 49.40% at k=1 to 33.34% at k=5 on the reported Qwen3-4B AppWorld analysis.</div>
+  <div class="mini-card"><strong>Representation lesson</strong>Text Workflow + code-centric Subtask/Function scores 49.40%; all-text drops to 26.19%.</div>
+</div>
+<p><span class="tag">agent memory</span><span class="tag">small LLMs</span><span class="tag">teacher–student transfer</span><span class="tag">tool use</span><span class="tag">hierarchical memory</span><span class="tag">test-time adaptation</span><span class="tag">retrieval</span><span class="tag">training-free</span></p>
+</section>
+
+<section id="sections">
+<h2>Section condensation</h2>
+<div class="section-summary">
+<h3>1. Introduction</h3>
+<p>The paper frames small-agent memory as a two-part problem. First, small models have lower task success rates, so self-generated memory stores contain too few successful trajectories. Second, simply importing memory from a stronger teacher is insufficient because high-level teacher guidance may assume capabilities or procedural knowledge that the student lacks. The authors position this as an analogue of the teacher–student capability gap in conventional knowledge distillation, compounded by weaker in-context learning and instruction following in smaller models.</p>
+<p>AMD's contribution is a training-free transfer scheme that makes teacher experience more executable for the student by representing it at multiple granularities and injecting it at different times. Workflow and Subtask memories are proactive; Function memory is reactive. The paper claims this is the first systematic study of teacher-to-student memory distillation designed explicitly around the capability gap; that priority claim is an author claim rather than independently verified here.</p>
+</div>
+<div class="section-summary">
+<h3>2. Related Work</h3>
+<p>The authors distinguish AMD from agent-memory methods such as Reflexion, ExpeL, AWM, ReasoningBank, MemP, ReflecTool, and SASM. Their argument is that prior memory work largely assumes a capable model using its own or similarly structured memories, whereas AMD asks how to make a stronger teacher's experience usable by substantially smaller students. SASM is the closest granularity-oriented comparator, but it uses a uniform subtask-level memory rather than separate planning, execution, and error-recovery stores.</p>
+<p>They also separate AMD from parameter-updating knowledge distillation methods such as SAD, Agent Distillation, and SCoRe. AMD transfers behavior at inference time through memory rather than updating weights. This places it closer to test-time knowledge transfer and experience reuse than to conventional model compression, with the practical attraction that a student can change behavior without retraining.</p>
+</div>
+<div class="section-summary" id="method">
+<h3>3. Agent Memory Distillation</h3>
+<p>The formal setting is a multi-turn tool-use environment. A large teacher agent generates trajectories over a task set; only successful trajectories are used to build a memory store. <strong>Workflow memory</strong> stores a generalized task query and short natural-language strategy with tools, prerequisites, decision rules, validation cues, failure patterns, and placeholders for dynamic values. <strong>Subtask memory</strong> segments a successful trajectory into semantically coherent units, each with a label, description, concrete tool/code execution, and observations. <strong>Function memory</strong> indexes successful individual function calls by function name and preserves the call, local context, and optionally the API schema.</p>
+<p>Retrieval follows the same hierarchy. At task start, the student retrieves top-k Workflow memory using the task instruction and independently retrieves one Subtask memory for each decomposed subtask label, deduplicating repeated hits. During execution, Function memory is retrieved only after a tool error and is appended as targeted corrective context. The main experiments use <strong>k=1</strong>, a similarity threshold, and OpenAI <code>text-embedding-3-small</code> embeddings. This split between proactive planning/exemplar context and reactive local repair is the paper's central architectural contribution.</p>
+</div>
+<div class="section-summary">
+<h3>4. Experiment</h3>
+<p>AMD is evaluated on three tool-use benchmarks: <strong>AppWorld test_normal</strong> (168 tasks; stateful Python API interactions across simulated apps), <strong>BFCL V3 multi-turn base</strong> (200 tasks; structured function calling with correct state and minimal viable path requirements), and <strong>ToolSandbox base</strong> (129 scenarios; conversational stateful tools scored by milestones and minefields, with GPT-5-mini as user simulator). GPT-5-mini is the main teacher. Students are Qwen3-4B, Gemma4-E4B, Qwen3-8B, and Llama3.1-8B.</p>
+<p>The primary comparators are zero-shot, ReasoningBank, MemP, and SASM. Memory baselines are generated from the same teacher trajectories and used under their respective protocols. The paper reports two-run averages for the main experiments; a later appendix repeats zero-shot and AMD five times for Qwen3-4B. Qwen3 thinking mode is disabled, student inference is served with vLLM, and all students have a 40-step limit.</p>
+</div>
+<div class="section-summary" id="results">
+<h3>4.2 Main results</h3>
+<p>AMD improves every reported student/benchmark pair over zero-shot. The largest gains occur on AppWorld: +34.52 points for Qwen3-4B, +29.77 for Gemma4-E4B, +26.19 for Qwen3-8B, and +18.45 for Llama3.1-8B. On BFCL V3 the gains are +23.00, +8.75, +7.50, and +5.50, respectively; ToolSandbox gains are smaller (+3.88, +3.49, +5.42, +0.77). Several AMD students match or exceed the main GPT-5-mini teacher score on AppWorld or BFCL V3.</p>
+<p>The paper also reports reduced interaction steps. On AppWorld, Qwen3-4B requires 23.8 turns zero-shot versus 10.1 for the teacher and 14.9 with AMD. The authors interpret this as transfer of efficient behavior, not only final correctness. On BFCL V3, where turn counts were already closer to the teacher, AMD changes interaction length less.</p>
+</div>
+<div class="section-summary">
+<h3>5. Analysis</h3>
+<p>Ablations establish a clear hierarchy. Workflow memory produces a consistent planning benefit, but Subtask memory supplies the dominant incremental gain on long-horizon AppWorld tasks. Function memory is usually additive but smaller and can be harmful when the model cannot absorb additional reactive context. Student-generated memory is substantially weaker than teacher memory on AppWorld, supporting the premise that small models' own successful experience is too sparse or unreliable.</p>
+<p>Teacher quality is not sufficient by itself: for Qwen3-8B, student performance tracks teacher accuracy, but for Qwen3-4B, GPT-5-mini yields 49.40% despite lower teacher accuracy than GPT-5.5 and DeepSeek V4 Pro, suggesting teacher–student compatibility. Student-size analysis finds absolute AMD accuracy rising from 1.7B through 14B, while gain peaks at 4B. Retrieval-count and representation ablations further show that small students benefit from selective rather than broad retrieval and from code-centric execution memories rather than all-text memory.</p>
+</div>
+<div class="section-summary">
+<h3>6. Conclusion and stated limitations</h3>
+<p>The authors conclude that hierarchical memory can provide a training-free route for transferring stronger-agent experience into smaller students and that matching memory complexity to student capacity is critical. Their proposed hierarchy maps high-level planning to prose, intermediate behavior to concrete execution traces, and low-level errors to targeted function examples.</p>
+<p>The paper explicitly limits its claims to text-based tool-use benchmarks; multimodal and open-ended coding settings are untested. Memory is generated offline and frozen, so AMD does not learn from new student successes/failures at test time or adapt to distribution shift. The framework remains dependent on suitable teacher trajectories, and adaptive teacher selection is left open.</p>
+</div>
+<div class="section-summary">
+<h3>Appendix: robustness and implementation</h3>
+<p>The most important appendix result addresses a potential evaluation concern: in the main protocol, memory is distilled and evaluated within the same benchmark task pool. The authors therefore report 7:3 cross-split evaluation and self-excluded retrieval in which each evaluation task cannot retrieve memory distilled from itself. Gains remain monotonic across memory levels, and full AMD reaches 41.07%/30.65%/22.92% on AppWorld/BFCL/ToolSandbox in cross-split evaluation and 46.43%/31.00%/23.26% under self-exclusion.</p>
+<p>Five-run Qwen3-4B experiments show low run-to-run variability: AMD 49.60±0.91 on AppWorld, 38.67±0.58 on BFCL V3, and 20.16±0.78 on ToolSandbox. The appendix also provides the exact inference algorithm, workflow-memory generation prompt, semantic subtask segmentation prompt, student subtask decomposition prompt, and representative memory examples, making the architecture substantially more reproducible than the main text alone.</p>
+</div>
+</section>
+
+<section id="results-detail">
+<h2>Results & ablations: quantitative reference</h2>
+<h3>Table 1 — Main benchmark results</h3>
+<div class="scroll"><table>
+<thead><tr><th>Model / method</th><th>AppWorld</th><th>BFCL V3</th><th>ToolSandbox</th><th>Average</th></tr></thead>
+<tbody>
+<tr><td><strong>Teacher: GPT-5-mini</strong></td><td>50.00</td><td>36.50</td><td>28.68</td><td>38.39</td></tr>
+<tr><td>Qwen3-4B zero-shot</td><td>14.88</td><td>15.50</td><td>16.28</td><td>15.55</td></tr>
+<tr><td>Qwen3-4B ReasoningBank</td><td>10.71</td><td>24.25</td><td>16.28</td><td>17.08</td></tr>
+<tr><td>Qwen3-4B MemP</td><td>16.67</td><td>28.25</td><td>14.73</td><td>19.88</td></tr>
+<tr><td>Qwen3-4B SASM</td><td>15.48</td><td>15.25</td><td>18.22</td><td>16.32</td></tr>
+<tr><td><strong>Qwen3-4B AMD</strong></td><td><strong>49.40</strong></td><td><strong>38.50</strong></td><td><strong>20.16</strong></td><td><strong>36.02</strong></td></tr>
+<tr><td>Gemma4-E4B zero-shot</td><td>24.40</td><td>37.25</td><td>18.22</td><td>26.62</td></tr>
+<tr><td>Gemma4-E4B ReasoningBank</td><td>30.36</td><td>40.25</td><td>15.12</td><td>28.58</td></tr>
+<tr><td>Gemma4-E4B MemP</td><td>20.83</td><td>35.25</td><td>15.89</td><td>23.99</td></tr>
+<tr><td>Gemma4-E4B SASM</td><td>22.02</td><td>36.75</td><td>12.40</td><td>23.72</td></tr>
+<tr><td><strong>Gemma4-E4B AMD</strong></td><td><strong>54.17</strong></td><td><strong>46.00</strong></td><td><strong>21.71</strong></td><td><strong>40.63</strong></td></tr>
+<tr><td>Qwen3-8B zero-shot</td><td>25.60</td><td>38.00</td><td>20.16</td><td>27.92</td></tr>
+<tr><td><strong>Qwen3-8B AMD</strong></td><td><strong>51.79</strong></td><td><strong>45.50</strong></td><td><strong>25.58</strong></td><td><strong>40.96</strong></td></tr>
+<tr><td>Llama3.1-8B zero-shot</td><td>8.93</td><td>9.00</td><td>5.43</td><td>7.79</td></tr>
+<tr><td><strong>Llama3.1-8B AMD</strong></td><td><strong>27.38</strong></td><td><strong>14.50</strong></td><td><strong>6.20</strong></td><td><strong>16.03</strong></td></tr>
+</tbody></table></div>
+<div class="warning"><strong>Interpretive caution:</strong> the full ReasoningBank/MemP/SASM comparison is displayed for Qwen3-4B and Gemma4-E4B, but not for Qwen3-8B or Llama3.1-8B. Therefore, the paper's wording that AMD outperforms “all baselines in every model and benchmark” is broader than what Table 1 directly displays for those two 8B students.</div>
+
+<h3>Table 2 — Component ablation</h3>
+<div class="scroll"><table>
+<thead><tr><th>Configuration</th><th>Qwen3-4B AppWorld</th><th>Qwen3-8B AppWorld</th><th>Llama3.1-8B AppWorld</th><th>Gemma4-E4B AppWorld</th><th>Qwen3-4B BFCL</th><th>Qwen3-8B BFCL</th><th>Llama3.1-8B BFCL</th><th>Gemma4-E4B BFCL</th></tr></thead>
+<tbody>
+<tr><td>Zero-shot</td><td>14.88</td><td>25.60</td><td>8.93</td><td>24.40</td><td>15.50</td><td>38.00</td><td>9.00</td><td>37.25</td></tr>
+<tr><td>WF</td><td>22.02</td><td>30.36</td><td>11.31</td><td>30.36</td><td>35.50</td><td>40.00</td><td>11.50</td><td>45.50</td></tr>
+<tr><td>WF + FN</td><td>24.11</td><td>33.93</td><td>14.88</td><td>40.48</td><td>35.50</td><td>41.50</td><td>12.50</td><td>46.00</td></tr>
+<tr><td>WF + ST</td><td>47.02</td><td>51.19</td><td><strong>30.36</strong></td><td>53.57</td><td>37.50</td><td>45.50</td><td>14.00</td><td>45.00</td></tr>
+<tr><td>WF + ST + FN</td><td><strong>49.40</strong></td><td><strong>51.79</strong></td><td>27.38</td><td><strong>54.17</strong></td><td><strong>38.50</strong></td><td><strong>45.50</strong></td><td><strong>14.50</strong></td><td><strong>46.00</strong></td></tr>
+<tr><td>Student Memory</td><td>16.07</td><td>29.76</td><td>8.93</td><td>25.60</td><td>27.00</td><td>43.00</td><td>9.50</td><td>44.50</td></tr>
+</tbody></table></div>
+<p><strong>Pattern:</strong> Workflow is beneficial; Subtask supplies the largest step-change; Function adds smaller gains and can impose a context/comprehension cost. The Llama3.1-8B exception is important evidence against a simplistic “more memory always helps” interpretation.</p>
+
+<div class="two-col">
+<div>
+<h3>Table 3 — Teacher effect on AppWorld</h3>
+<table><thead><tr><th>Teacher</th><th>Teacher acc.</th><th>Qwen3-4B</th><th>Qwen3-8B</th></tr></thead><tbody>
+<tr><td>Zero-shot</td><td>—</td><td>14.88</td><td>25.60</td></tr>
+<tr><td>GPT-5.5</td><td>91.08</td><td>47.02</td><td>58.93</td></tr>
+<tr><td>DeepSeek V4 Pro</td><td>81.55</td><td>38.10</td><td>57.14</td></tr>
+<tr><td>GPT-5-mini</td><td>50.00</td><td><strong>49.40</strong></td><td>51.79</td></tr>
+<tr><td>Qwen3-32B</td><td>34.42</td><td>29.76</td><td>39.29</td></tr>
+</tbody></table>
+<p class="small">For Qwen3-8B, better teachers track better transfer. For Qwen3-4B, GPT-5-mini transfers better than higher-accuracy teachers, supporting the compatibility hypothesis.</p>
+</div>
+<div>
+<h3>Table 4 — Representation format</h3>
+<table><thead><tr><th>Workflow</th><th>Subtask</th><th>Function</th><th>AppWorld acc.</th></tr></thead><tbody>
+<tr><td>Code</td><td>Code</td><td>Code</td><td>44.05</td></tr>
+<tr><td><strong>Text</strong></td><td><strong>Code</strong></td><td><strong>Code</strong></td><td><strong>49.40</strong></td></tr>
+<tr><td>Text</td><td>Text</td><td>Code</td><td>23.21</td></tr>
+<tr><td>Text</td><td>Code</td><td>Text</td><td>47.62</td></tr>
+<tr><td>Text</td><td>Text</td><td>Text</td><td>26.19</td></tr>
+</tbody></table>
+<p class="small">The level-specific representation is not cosmetic: all-text memory loses 23.21 points relative to the proposed mixed representation.</p>
+</div>
+</div>
+
+<h3>Appendix Tables 5–6 — Robustness</h3>
+<div class="scroll"><table><thead><tr><th>5-run Qwen3-4B</th><th>AppWorld</th><th>BFCL V3</th><th>ToolSandbox</th></tr></thead><tbody>
+<tr><td>Zero-shot</td><td>14.48 ± 0.69</td><td>15.33 ± 0.76</td><td>16.54 ± 0.44</td></tr>
+<tr><td>AMD</td><td>49.60 ± 0.91</td><td>38.67 ± 0.58</td><td>20.16 ± 0.78</td></tr>
+</tbody></table></div>
+<div class="scroll"><table><thead><tr><th>Protocol</th><th>Memory</th><th>AppWorld</th><th>BFCL V3</th><th>ToolSandbox</th></tr></thead><tbody>
+<tr><td rowspan="4">Cross-split 7:3</td><td>Zero-shot</td><td>16.07</td><td>16.13</td><td>16.67</td></tr>
+<tr><td>WF</td><td>21.43</td><td>25.81</td><td>18.75</td></tr>
+<tr><td>WF + ST</td><td>39.29</td><td>27.42</td><td>20.83</td></tr>
+<tr><td>WF + ST + FN</td><td><strong>41.07</strong></td><td><strong>30.65</strong></td><td><strong>22.92</strong></td></tr>
+<tr><td rowspan="4">Self-excluded</td><td>Zero-shot</td><td>14.88</td><td>15.50</td><td>16.28</td></tr>
+<tr><td>WF</td><td>23.21</td><td>22.50</td><td>19.38</td></tr>
+<tr><td>WF + ST</td><td>40.48</td><td>30.50</td><td>20.16</td></tr>
+<tr><td>WF + ST + FN</td><td><strong>46.43</strong></td><td><strong>31.00</strong></td><td><strong>23.26</strong></td></tr>
+</tbody></table></div>
+<div class="goodnote"><strong>Why Table 6 matters:</strong> it directly tests whether same-task memory construction explains the main gains. Performance remains substantially above zero-shot without self-derived memory, strengthening the interpretation that AMD transfers reusable patterns rather than simply replaying the evaluation task. The lower cross-split scores also show that memory-pool breadth matters.</div>
+</section>
+
+<section id="visuals">
+<h2>Figures, tables & workflow reconciliation</h2>
+<h3>Main-text figures</h3>
+<div class="coverage-item"><strong>Figure 1 — Motivation, concept, and headline results.</strong> Four panels contrast weak student self-memory, naive teacher transfer, AMD's three-level hierarchy, and benchmark gains. <em>Representation:</em> structured block. <em>Interpretation:</em> establishes the capability-gap hypothesis and the proposed granularity solution; the results panel is illustrative rather than an independent analysis.</div>
+<div class="coverage-item"><strong>Figure 2 — Hierarchical memory generation and injection.</strong> Teacher successful trajectories are transformed into Workflow, Subtask, and Function memories; Workflow/Subtask enter the system prompt before execution, while Function memory is retrieved on errors. <em>Representation:</em> structured workflow below.</div>
+<pre><code>Successful teacher trajectories only
+        │
+        ├─ Workflow memory ── task-level strategy / preconditions / validation / failures
+        │                    └─ retrieve by task instruction → proactive system-prompt injection
+        │
+        ├─ Subtask memory ─── semantic segments + concrete calls/code + observations
+        │                    └─ student decomposes task → retrieve per subtask → proactive injection
+        │
+        └─ Function memory ── function name + successful example + optional API schema
+                             └─ tool error → lookup failing function → reactive corrective hint</code></pre>
+<div class="coverage-item"><strong>Figure 3 — Interaction efficiency.</strong> On AppWorld, AMD moves student turn counts toward teacher behavior; the text gives Qwen3-4B as 23.8 zero-shot vs 10.1 teacher vs 14.9 AMD, and Gemma4-E4B AMD at 7.2 turns. BFCL V3 shows less room for turn-count improvement. <em>Representation:</em> structured block.</div>
+<div class="coverage-item"><strong>Figure 4 — Student size.</strong> Qwen-family AMD accuracy rises 21.43% → 49.40% → 51.79% → 52.68% across 1.7B/4B/8B/14B, while the gain peaks at 4B (+34.52 points). <em>Representation:</em> structured block. <em>Limit:</em> one model family and one benchmark.</div>
+<div class="coverage-item"><strong>Figure 5 — Retrieval count.</strong> k=1 is near-optimal. The strongest degradation is Subtask memory, falling from 49.40% to 33.34% as k increases from 1 to 5. <em>Representation:</em> structured block. <em>Interpretation:</em> retrieval precision/context budget is a first-order design variable for small students.</div>
+<div class="coverage-item"><strong>Figure 6 — Cascading case study.</strong> A Venmo task demonstrates sequential failure repair: Workflow supplies the month filter, Subtask supplies correct datetime parsing and approval loop, and Function supplies robust parsing of a balance response before withdrawal. <em>Representation:</em> structured block. <em>Limit:</em> a selected illustrative task cannot estimate failure prevalence.</div>
+
+<h3>Main-text tables</h3>
+<p>Tables 1–4 are reconstructed quantitatively in the preceding section. All are represented as structured tables rather than screenshots because the values, labels, and comparisons are recoverable from source text.</p>
+
+<h3>Algorithm 1 — AMD student inference</h3>
+<pre><code>Inputs: task s; student decomposer/coder; Mwf, Mst, Mfn; k; similarity threshold δ; max subtasks N.
+
+1. Retrieve Workflow memory with s; inject if above threshold.
+2. Student decomposes s into ≤N ordered subtask labels.
+3. Retrieve top-k Subtask entries per label; deduplicate; inject.
+4. Execute student tool-use loop.
+5. If the previous observation is an error:
+      extract failing function name(s)
+      retrieve Function memory by function name
+      generate next action with targeted Function hint
+   else:
+      generate next action without Function hint
+6. Execute action; append action and observation.
+7. Stop on task completion or maximum steps.</code></pre>
+<p><strong>Failure modes exposed by the algorithm:</strong> decomposition quality controls Subtask retrieval; embedding threshold controls false-positive memory; errors must be detectable and attributable to function names for reactive memory to activate; Function guidance does not address silent semantic errors unless an execution failure occurs.</p>
+
+<h3>Appendix visual inventory</h3>
+<div class="mini-grid">
+  <div class="mini-card"><strong>Figure 7 — Workflow case study</strong>Identity-resolution memory prevents a 40-step loop and enables eight transactions in 23 steps.</div>
+  <div class="mini-card"><strong>Figure 8 — Subtask case study</strong>Pagination and correct API direction change an incorrect $341 total into the correct $833 in four steps.</div>
+  <div class="mini-card"><strong>Figure 9 — Function case study</strong>A multi-key response parser prevents silent skipping of a $391 withdrawal.</div>
+  <div class="mini-card"><strong>Figure 10 — Workflow memory example</strong>Shows generalized prose, placeholders, API names, validation cues, and failure patterns.</div>
+  <div class="mini-card"><strong>Figure 11 — Subtask memory example</strong>Preserves API documentation, an invalid page-limit attempt, error feedback, and corrected executable pattern.</div>
+  <div class="mini-card"><strong>Figure 12 — Function memory example</strong>Stores function-level call context, parameters, and response schema.</div>
+  <div class="mini-card"><strong>Figure 13 — Workflow build prompt</strong>Constrains output to 2–4 sentences, under 120 words, requires supported APIs, placeholders, validation cue, and failure pattern.</div>
+  <div class="mini-card"><strong>Figure 14 — Segmentation prompt</strong>Requires non-overlapping exhaustive semantic segments, ≤5-word labels, and explicit treatment of API-doc browsing and completion.</div>
+  <div class="mini-card"><strong>Figure 15 — Student decomposition prompt</strong>Requires sequential subtasks, first-step credential/login behavior, and at most six subtasks.</div>
+</div>
+<p class="small muted">Appendix Figures 7–15 are included because they materially inform reproducibility and the operational meaning of each memory type; they are condensed rather than reproduced as screenshots.</p>
+</section>
+
+<section id="appraisal">
+<h2>Evaluation & appraisal</h2>
+<div class="verdict"><strong>Bottom line:</strong> benchmark-useful and build-useful; not yet deployment-valid. The paper offers a credible architecture and unusually informative ablations for how small agents consume memory. The evidence supports “hierarchical, capacity-aware memory helps on these tool-use benchmarks” much more strongly than it supports universal teacher-memory distillation or production-agent claims.</div>
+<div class="rating-grid">
+  <div class="rating"><div class="score">9/10</div><strong>Relevance</strong>Directly addresses small-agent memory, tool use, retrieval granularity, and training-free capability transfer. <br><span class="small"><b>Evidence basis:</b> three tool-use benchmarks, four student models, memory ablations. <b>Limiting factor:</b> no real-world deployment. <b>Would raise:</b> live-agent or domain-specific validation.</span></div>
+  <div class="rating"><div class="score">8/10</div><strong>Novelty</strong>The key novelty is not memory itself but the three-level representation plus proactive/reactive injection schedule targeted to student capacity. <br><span class="small"><b>Evidence basis:</b> explicit comparison to flat/hierarchical baselines and representation/timing design. <b>Limiting factor:</b> components draw on known workflow, subtask, and tool-memory ideas. <b>Would raise:</b> broader evidence that the hierarchy is the uniquely effective decomposition.</span></div>
+  <div class="rating"><div class="score">7/10</div><strong>Method strength</strong>Strong multi-benchmark design, component/representation/retrieval/teacher/size ablations, disjoint evaluation, and repeated-run analysis. <br><span class="small"><b>Limiting factor:</b> main Table 1 averages only two runs; complete memory-baseline rows are not displayed for all students; benchmark task pool is reused in the main memory construction protocol. <b>Would raise:</b> larger repeated trials, full comparator matrix, preregistered/equally tuned baselines.</span></div>
+  <div class="rating"><div class="score">7/10</div><strong>Evidence strength</strong>The main direction is well supported and the appendix materially strengthens causal interpretation by excluding same-task retrieval. <br><span class="small"><b>Limiting factor:</b> limited uncertainty reporting outside the five-run Qwen3-4B appendix and benchmark-only endpoints. <b>Would raise:</b> confidence intervals across all models, statistical comparisons, independent replication.</span></div>
+  <div class="rating"><div class="score">6/10</div><strong>External validity</strong>Three benchmarks cover different tool-use styles, but all remain structured text/tool environments. <br><span class="small"><b>Limiting factor:</b> no multimodal, open-ended coding, long-running, distribution-shift, or real-user environment; memory is frozen. <b>Would raise:</b> cross-domain transfer, changing tools, longitudinal memory, deployment studies.</span></div>
+  <div class="rating"><div class="score">9/10</div><strong>Implementation value</strong>The paper provides a readily implementable memory schema, retrieval policy, algorithm, prompts, examples, and ablation-based defaults. <br><span class="small"><b>Limiting factor:</b> similarity threshold values, end-to-end cost, token overhead, latency, storage growth, and production governance are not fully characterized. <b>Would raise:</b> released code/configs with cost/latency and memory-maintenance measurements.</span></div>
+</div>
+
+<h3>Strengths</h3>
+<ul class="tight">
+<li><strong>Mechanistic ablations are unusually useful:</strong> they isolate memory type, teacher, student size, retrieval count, and representation format rather than reporting only a monolithic benchmark win.</li>
+<li><strong>Disjoint evaluation addresses the most obvious leakage concern:</strong> gains persist when evaluation tasks cannot retrieve memory distilled from themselves.</li>
+<li><strong>Negative results are informative:</strong> more retrieval degrades performance; Function memory can hurt Llama3.1-8B; stronger teacher accuracy does not always transfer better to the weaker student.</li>
+<li><strong>Implementation is concrete:</strong> prompts, examples, algorithmic control flow, top-k defaults, error-triggered retrieval, and segmentation rules are provided.</li>
+<li><strong>The architecture has a clear cognitive/computational rationale:</strong> abstract planning is encoded in prose, execution in concrete examples, and local repair in function-specific evidence.</li>
+</ul>
+
+<h3>Limitations and risks</h3>
+<ul class="tight">
+<li><strong>Main-protocol task-pool overlap:</strong> teacher memory is originally built from the same benchmark task set used for evaluation. The appendix mitigates but does not erase the fact that the headline Table 1 numbers use the easier protocol.</li>
+<li><strong>Displayed baseline completeness:</strong> Table 1 omits ReasoningBank/MemP/SASM rows for Qwen3-8B and Llama3.1-8B, weakening the literal breadth of the “all baselines in every model” claim.</li>
+<li><strong>Uncertainty is thin:</strong> main results are two-run averages without confidence intervals; five-run standard deviations are reported only for Qwen3-4B zero-shot versus AMD.</li>
+<li><strong>Benchmark-to-deployment gap:</strong> AppWorld/BFCL/ToolSandbox do not test production concerns such as tool/API drift, security boundaries, adversarial or poisoned memory, user-specific privacy, auditability, or long-term memory maintenance.</li>
+<li><strong>Reactive Function memory depends on explicit errors:</strong> silent semantic mistakes may not trigger the corrective pathway; the appendix itself contains examples of silent wrong-key behavior, illustrating this boundary.</li>
+<li><strong>Offline frozen memory:</strong> there is no lifecycle policy for accepting new student experience, resolving conflicts, revoking stale memory, or adapting to distribution shift.</li>
+<li><strong>Cost and context tradeoffs are undermeasured:</strong> the paper shows that extra memory can hurt accuracy but does not provide comprehensive token, latency, or dollar-cost accounting.</li>
+</ul>
+
+<h3>Claim calibration</h3>
+<table><thead><tr><th>Claim</th><th>Assessment</th></tr></thead><tbody>
+<tr><td>Hierarchical teacher memory improves small-agent accuracy on the tested benchmarks.</td><td><span class="source-claim">Well supported.</span> Improvements are broad and persist under disjoint evaluation.</td></tr>
+<tr><td>Subtask memory is the most important component for complex long-horizon tasks.</td><td><span class="source-claim">Supported for the reported AppWorld/BFCL ablations.</span> Particularly strong on AppWorld; not established universally.</td></tr>
+<tr><td>AMD can enable students to exceed teacher performance.</td><td><span class="source-claim">Numerically supported on some benchmark/model combinations.</span> This does not imply globally superior capability; the student uses teacher-derived memory and benchmark-specific context.</td></tr>
+<tr><td>Teacher quality and student compatibility jointly determine transfer.</td><td><span class="source-claim">Plausibly supported.</span> Table 3 gives a useful counterexample to monotonic teacher-accuracy transfer, but the teacher set is small.</td></tr>
+<tr><td>AMD is a foundation for scalable real-world small agents.</td><td><span class="appraisal">Promising inference, not established evidence.</span> Real deployment, memory lifecycle, safety, and cost are not evaluated.</td></tr>
+</tbody></table>
+<p><strong>Confidence in appraisal: moderate-high.</strong> The paper is unusually transparent about architecture and ablations, and the appendix adds important robustness checks. Confidence is capped by preprint status, benchmark-only evaluation, partial uncertainty reporting, and lack of independent replication or deployment evidence.</p>
+</section>
+
+<section id="takeaways">
+<h2>Implementation takeaways</h2>
+<div class="takeaway-grid">
+  <div class="mini-card"><strong>1. Match representation to abstraction.</strong>Use prose for task-level strategy; preserve executable traces/examples for intermediate and function-level behavior.</div>
+  <div class="mini-card"><strong>2. Separate proactive from reactive memory.</strong>Inject planning and subtask exemplars before execution; reserve detailed function guidance for error recovery to limit context inflation.</div>
+  <div class="mini-card"><strong>3. Default to narrow retrieval.</strong>AMD's k=1 result argues for high-confidence retrieval over memory breadth when the student is capacity-limited.</div>
+  <div class="mini-card"><strong>4. Treat student capacity as a policy input.</strong>Do not assume a fixed memory package works across models; additional context can decrease accuracy.</div>
+  <div class="mini-card"><strong>5. Evaluate memory on disjoint tasks.</strong>Same-task memory construction can overstate generalization. Self-exclusion or explicit memory/evaluation splits should be a standard evaluation condition.</div>
+  <div class="mini-card"><strong>6. Track teacher compatibility, not only teacher score.</strong>Teacher selection may need to optimize transferability to a particular student rather than raw teacher benchmark accuracy.</div>
+  <div class="mini-card"><strong>7. Preserve failure context in function memory.</strong>A bare API schema is less informative than a successful call plus the context explaining why it was used and how the response was parsed.</div>
+  <div class="mini-card"><strong>8. Add lifecycle controls before production.</strong>A production implementation would need stale-memory revocation, conflict handling, provenance, versioning, poisoning resistance, privacy boundaries, and monitoring—none are supplied by AMD itself.</div>
+</div>
+<div class="goodnote"><strong>Build-useful abstraction:</strong> AMD can be reduced to a general design rule: <em>retrieve the minimum amount of teacher experience necessary at the level where the student's current uncertainty occurs.</em> High-level uncertainty gets a workflow; execution uncertainty gets an exemplar; tool-interface failure gets a function-specific repair.</div>
+<div class="warning"><strong>Do not overclaim:</strong> the paper does not show that hierarchical memory replaces training, that it improves arbitrary small models in arbitrary agent environments, or that students “become as capable as” the teacher. It shows substantial task-specific transfer in three structured tool-use benchmarks.</div>
+</section>
+
+<section id="provenance">
+<h2>Provenance & QA</h2>
+<div class="meta-grid">
+  <div class="mini-card"><strong>Evaluated file</strong>Agent Memory Distillation Empowering Small LLM Agents with Hierarchical Teacher Memory - 2608.07169v1.pdf</div>
+  <div class="mini-card"><strong>Identifier</strong>arXiv:2608.07169v1 [cs.AI]</div>
+  <div class="mini-card"><strong>Source date</strong>7 Aug 2026</div>
+  <div class="mini-card"><strong>SEA generation date</strong>10 Aug 2026</div>
+</div>
+<p><strong>QA status: PASS.</strong> Exact title/source identity checked; 25-page source mapped; all main-text figures and tables reconciled; appendix robustness, algorithm, memory examples, and generation/decomposition prompts included where methodologically important; quantitative benchmark and ablation magnitudes preserved; source claims separated from appraisal; no external factual verification was used; bibliography omitted from condensation; no internal chat/file citation syntax is embedded in this HTML.</p>
+<p class="foot">This appraisal is a structured reading aid, not an independent replication. Scores reflect the evidence reported in the evaluated preprint and are intentionally capped where external validation, deployment evidence, uncertainty reporting, or independent replication are absent.</p>
+</section>
+</main>
+</body>
+</html>

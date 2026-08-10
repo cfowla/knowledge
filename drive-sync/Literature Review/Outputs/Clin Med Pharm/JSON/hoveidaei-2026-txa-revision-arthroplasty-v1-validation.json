@@ -1,0 +1,98 @@
+{
+  "activated_macro": "@ATOM",
+  "source_metadata": {
+    "title": "The Efficacy and Safety of Tranexamic Acid in Revision Total Knee and Total Hip Arthroplasty: A Systematic Review and Meta-Analysis",
+    "authors": [
+      "Amir Human Hoveidaei",
+      "Reza Niakan",
+      "Amirhossein Salmannezhad",
+      "Alireza Pouramini",
+      "Ryan Palmer",
+      "Sagar Telang",
+      "Nathanael D. Heckmann"
+    ],
+    "source_type": "systematic_review_and_meta_analysis",
+    "journal": "Arthroplasty Today",
+    "volume": "40",
+    "year": 2026,
+    "article_number": "102054",
+    "doi": "10.1016/j.artd.2026.102054",
+    "prospero_id": "CRD420251129117",
+    "received": "2025-09-22",
+    "revised": "2026-04-16",
+    "accepted": "2026-04-23",
+    "page_count": 30,
+    "input_filename": "main.pdf",
+    "input_document_sha256": "5e259977d0f6d4bf5d422db1d9b13ecda5c141b3941b73187e3b1dd3c650d36d",
+    "publication_id": "1af6d474-950e-581f-9452-aab90911e94a"
+  },
+  "extraction_summary": {
+    "extraction_run_id": "hoveidaei-2026-txa-revision-arthroplasty-v1",
+    "atom_count": 74,
+    "atom_counts_by_type": {
+      "adverse_event": 4,
+      "author_conclusion": 11,
+      "comparator_description": 1,
+      "conflict_of_interest": 1,
+      "eligibility_criterion": 4,
+      "intervention_description": 1,
+      "limitation": 5,
+      "method": 7,
+      "outcome_definition": 2,
+      "population_description": 1,
+      "qualitative_result": 12,
+      "quantitative_result": 8,
+      "study_objective": 1,
+      "subgroup_result": 16
+    },
+    "assertion_origin_counts": {
+      "directly_reported": 1,
+      "normalized_from_source": 73
+    },
+    "structural_validation": "passed",
+    "json_schema_validation": "passed",
+    "sufficiency_validation": "passed"
+  },
+  "validation": {
+    "structural_errors": [],
+    "json_schema_errors": [],
+    "sufficiency_errors": [],
+    "sufficiency_warnings": []
+  },
+  "source_internal_inconsistencies": [
+    {
+      "location": "Abstract page 1 vs Results/Figure 5a page 9",
+      "issue": "The abstract prints the rTHA RBC-unit WMD as +0.98, whereas the Results text and Figure 5a show -0.98.",
+      "resolution": "The atom uses -0.98 because the main Results text and forest plot agree on the negative sign."
+    },
+    {
+      "location": "Results prose page 9 vs Figure S12 page 19",
+      "issue": "The prose describing double-dose IV TXA and calculated blood loss omits negative signs in the WMD and confidence interval.",
+      "resolution": "The atom uses Figure S12 values: WMD -407.63 mL, 95% CI -645.01 to -170.26."
+    }
+  ],
+  "schema_gaps": [
+    "The governing LiteratureAtom model is oriented toward primary literature; this source is a systematic review/meta-analysis. Review-level pooled estimates are represented as the review's own quantitative results, while individual-study findings are explicitly tagged secondary_reported_result.",
+    "There is no dedicated systematic-review recommendation atom kind; the paper's proposed clinical recommendations are represented as author_conclusion atoms with proposed_clinical_recommendation tags.",
+    "The QuantitativeResult model has no structured heterogeneity field, so I² values are preserved in canonical statements rather than a dedicated field.",
+    "The model has no structured field for source-rated evidence strength; Table 2 strength labels are preserved in canonical statements and tags."
+  ],
+  "extraction_limitations": [
+    "Dense study-level baseline characteristics and every regimen cell in Table 1 were not expanded into one atom per table cell; extraction prioritizes review-level methods, pooled estimates, clinically material non-pooled comparisons, safety findings, recommendations, and limitations.",
+    "Bibliographic reference entries were treated as provenance infrastructure rather than evidence atoms.",
+    "No underlying primary study was treated as if it had been directly read; study-level findings taken from this review are tagged secondary_reported_result.",
+    "No external/web information was used."
+  ],
+  "visual_verification": {
+    "rendered_pdf_pages": 30,
+    "key_figures_or_tables_inspected": [
+      "Figure 2 and Figure 3 (page 7)",
+      "Figure 4 (page 8)",
+      "Figure 5 (page 9)",
+      "Table 2 (page 10)",
+      "Figures S1-S19 (pages 14-23, with key pooled estimates checked against forest plots)",
+      "Tables S1-S2 (pages 28-29)",
+      "Supplementary Results (page 30)"
+    ]
+  }
+}

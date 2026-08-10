@@ -1,0 +1,4335 @@
+{
+  "activated_macro": "@ATOM",
+  "source_metadata": {
+    "title": "DocMemo: Dynamic Evidence Discovery via Probabilistic Memory-Guided Retrieval for Multi-Modal Document Understanding",
+    "authors": [
+      "Hanshu Yao",
+      "Jianfeng Zhong",
+      "Niu Lian",
+      "Jinpeng Wang"
+    ],
+    "source_type": "arXiv preprint",
+    "arxiv_id": "2608.07067v1",
+    "category": "cs.AI",
+    "date": "2026-08-07",
+    "page_count": 16,
+    "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+    "input_file": "DocMemo Dynamic Evidence Discovery via Probabilistic Memory-Guided Retrieval for Multi-Modal Document Understanding - 2608.07067v1.pdf",
+    "input_document_sha256": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+    "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+    "code_repository": "https://github.com/Harrygof/DocMemo"
+  },
+  "atom_counts_by_type": {
+    "author_conclusion": 1,
+    "data_availability": 1,
+    "method": 14,
+    "outcome_definition": 3,
+    "population_description": 3,
+    "quantitative_result": 26,
+    "study_objective": 1
+  },
+  "atom_count_total": 49,
+  "validated_atoms": [
+    {
+      "atom_id": "df327a55-8687-53e2-8dc5-68b854beba9e",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The study proposes DocMemo to treat long-document visual question answering as dynamic evidence exploration with persistent cross-round retrieval state.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "introduction",
+        "page": "2",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "DocVQA",
+        "dynamic_retrieval",
+        "agent_memory"
+      ]
+    },
+    {
+      "atom_id": "1bee911a-d77b-5128-8899-ba935246c868",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "DocMemo maintains a tri-level memory state comprising Document Schema Memory, Page Belief Memory, and Question Episodic Memory.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "tri_level_memory"
+      ]
+    },
+    {
+      "atom_id": "9543572c-21fe-5e8a-b57b-36a48314da6e",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "Document Schema Memory is constructed offline from page summaries into a document type/topic description, a page-range structural index, and a global summary that remain fixed during inference.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "document_schema_memory",
+        "offline_memory"
+      ]
+    },
+    {
+      "atom_id": "c0da1975-5678-5033-89f8-182df1ef704e",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "Page Belief Memory models each page relevance as a Beta distribution whose parameters accumulate support for relevance and irrelevance.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "page_belief_memory",
+        "bayesian_retrieval"
+      ]
+    },
+    {
+      "atom_id": "c189adb1-f9a1-5e82-8387-fce3721bf420",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "Page Belief priors are initialized from normalized ColQwen2.5 visual relevance scores using alpha_i = S*c_i + 1 and beta_i = S*(1-c_i) + 1.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "page_belief_memory",
+        "ColQwen2.5"
+      ]
+    },
+    {
+      "atom_id": "06fd0541-14a3-5d8e-b4f3-e60c7eccfa59",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "Question Episodic Memory stores per-round evidence summaries, gap analyses, and refined queries within a single question-answering session.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "question_episodic_memory"
+      ]
+    },
+    {
+      "atom_id": "4c7d036a-007b-5fb4-b5b6-59c74ca80a7c",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "After each reasoning round, useful pages increment the corresponding Beta alpha parameter and irrelevant pages increment beta; unlabeled pages remain neutral.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "bayesian_update"
+      ]
+    },
+    {
+      "atom_id": "1d800895-face-5981-a134-272a8608ab99",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "Positive feedback is propagated to neighboring pages within radius r using distance-decayed increments gamma^|j-i|, while negative feedback is not propagated.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "spatial_propagation",
+        "locality_prior"
+      ]
+    },
+    {
+      "atom_id": "c826ad5c-e1ac-5ec9-852d-e552c59aeae3",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "At each round, DocMemo samples page relevance from the Beta posterior and combines the sample with current-query visual similarity using score_i=(1-lambda_t)c_i+lambda_t*theta_i.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "thompson_sampling",
+        "retrieval_scoring"
+      ]
+    },
+    {
+      "atom_id": "b589b648-201c-5716-baa8-6b6b4894f816",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "Candidate pages are reranked by a language model using page summaries together with schema and episodic memory, then merged into a cross-round accumulated page set that can be revisited.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "reranking",
+        "cross_round_accumulation"
+      ]
+    },
+    {
+      "atom_id": "ff057cae-1864-501b-bbef-71eec17b43ce",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "The reasoner terminates with an answer or not_answerable when appropriate; otherwise it produces a refined query and note that are written to episodic memory and provides useful/irrelevant page feedback for the next belief update.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "reasoning_loop",
+        "query_refinement"
+      ]
+    },
+    {
+      "atom_id": "8d3396e0-82cf-5b4e-9d09-56406017998c",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "Adaptive-granularity evidence access supplements full-page evidence with high-resolution local regions for information-dense pages, especially tables.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "adaptive_granularity",
+        "visual_crops"
+      ]
+    },
+    {
+      "atom_id": "9376bd9f-a270-5f70-b42f-dbce9bfe1cfa",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "population_description",
+      "canonical_statement": "MMLongBench-Doc contains 1,082 questions over 135 long documents; documents span up to 112 pages and average 47.5 pages.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc benchmark questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "MMLongBench_Doc"
+      ]
+    },
+    {
+      "atom_id": "660aae41-2520-5520-b232-adc73e57b1cb",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "population_description",
+      "canonical_statement": "LongDocURL contains 2,325 question-answer pairs over 396 PDF documents.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "LongDocURL benchmark question-answer pairs",
+        "sample_size": 2325,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "LongDocURL"
+      ]
+    },
+    {
+      "atom_id": "b3a32a8a-1d5d-535c-86ac-e66b26ee5a02",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "population_description",
+      "canonical_statement": "PaperTab contains 393 questions over 307 scientific papers and focuses on retrieval and reasoning over tabular information.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "PaperTab benchmark questions",
+        "sample_size": 393,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "PaperTab"
+      ]
+    },
+    {
+      "atom_id": "430c2e7a-95db-5cd3-943e-39c5725001c2",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "outcome_definition",
+      "canonical_statement": "Accuracy is the primary evaluation metric; GPT-4.1 acts as an automatic binary judge and accuracy is the proportion of predictions scored correct.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Proportion of predictions judged correct (binary 0/1).",
+        "outcome_type": "primary",
+        "measurement_method": "GPT-4.1 automatic binary judge",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "evaluation_metric"
+      ]
+    },
+    {
+      "atom_id": "613a1ec6-1da1-5fd6-87eb-115c1dcf83ca",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "outcome_definition",
+      "canonical_statement": "Evidence Recall is defined as the proportion of ground-truth evidence pages covered by the accumulated retrieved pages.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": {
+        "concept": {
+          "text": "Evidence Recall",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Ground-truth evidence pages covered by accumulated retrieved pages.",
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "retrieval_metric"
+      ]
+    },
+    {
+      "atom_id": "dcc2d35f-f4f7-5d61-b496-5cba16368004",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "outcome_definition",
+      "canonical_statement": "All-Hit Rate is defined as the fraction of questions for which all annotated evidence pages are retrieved.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": {
+        "concept": {
+          "text": "All-Hit Rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Fraction of questions with all annotated evidence pages retrieved.",
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "retrieval_metric"
+      ]
+    },
+    {
+      "atom_id": "bcb54fc8-93e8-55d2-af09-ea5b190beed4",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "The main experiments use Qwen3.5-9B as the backbone, ColQwen2.5-v0.2 for visual page retrieval, vLLM for serving, and MinerU for structure-aware table and figure crops on NVIDIA A100 GPUs.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "implementation",
+        "models",
+        "hardware"
+      ]
+    },
+    {
+      "atom_id": "95daf61d-3f3e-5677-8622-a0dbebce6e98",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "Default Page Belief settings are S=5.0, lambda=[0.0,0.3,0.6,0.6], propagation radius r=2, and decay factor gamma=0.5.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "hyperparameters",
+        "page_belief_memory"
+      ]
+    },
+    {
+      "atom_id": "b8986f10-e2aa-5b09-a215-e1c1997cc221",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "method",
+      "canonical_statement": "Iterative retrieval uses at most 3 retrieval-reasoning cycles, a 30-page candidate pool, at most 13 LLM-selected pages, and at most 9 pages per reasoning VLM call.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "hyperparameters",
+        "retrieval_budget"
+      ]
+    },
+    {
+      "atom_id": "a2828ae3-bc67-55ed-b5e7-e2f56bad654a",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "DocMemo achieved 71.3% accuracy on MMLongBench-Doc.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc benchmark questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "GPT-4.1 automatic binary judge",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "71.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DocMemo",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.3",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "MMLongBench-Doc",
+        "overall_performance"
+      ]
+    },
+    {
+      "atom_id": "0ebf21ca-03a8-5a58-83ca-fab1e9e19e08",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "DocMemo achieved 81.1% accuracy on LongDocURL.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "LongDocURL benchmark questions",
+        "sample_size": 2325,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "GPT-4.1 automatic binary judge",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "81.1",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DocMemo",
+            "event_count": null,
+            "sample_size": null,
+            "value": "81.1",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "LongDocURL",
+        "overall_performance"
+      ]
+    },
+    {
+      "atom_id": "551cc3e6-ce49-5b37-88ae-80702c4d1fa7",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "DocMemo achieved 80.4% accuracy on PaperTab.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "PaperTab benchmark questions",
+        "sample_size": 393,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "GPT-4.1 automatic binary judge",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "80.4",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DocMemo",
+            "event_count": null,
+            "sample_size": null,
+            "value": "80.4",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "PaperTab",
+        "overall_performance"
+      ]
+    },
+    {
+      "atom_id": "b99c10ac-6be6-53f9-a947-d24cd2c96f63",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Relative to the strongest agentic baselines identified by the authors, DocMemo improved accuracy by 3.7 percentage points on MMLongBench-Doc.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc benchmark questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "strongest agentic baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute_accuracy_gain_percentage_points",
+        "estimate": "3.7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "MMLongBench_Doc",
+        "baseline_gain"
+      ]
+    },
+    {
+      "atom_id": "bcb53aa6-e48d-585e-bbd5-fdeec262e2d3",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Relative to the strongest agentic baselines identified by the authors, DocMemo improved accuracy by 8.8 percentage points on LongDocURL.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "LongDocURL benchmark question-answer pairs",
+        "sample_size": 2325,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "strongest agentic baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute_accuracy_gain_percentage_points",
+        "estimate": "8.8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "LongDocURL",
+        "baseline_gain"
+      ]
+    },
+    {
+      "atom_id": "7b40c6e8-13c5-50bc-983c-2ae363c4e6f2",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Relative to the strongest agentic baselines identified by the authors, DocMemo improved accuracy by 15.0 percentage points on PaperTab.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "PaperTab benchmark questions",
+        "sample_size": 393,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "strongest agentic baseline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute_accuracy_gain_percentage_points",
+        "estimate": "15.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "PaperTab",
+        "baseline_gain"
+      ]
+    },
+    {
+      "atom_id": "d8b23705-e252-5510-affb-b76542cbb8ec",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-VL-8B, ColQwen2.5, and three iterative rounds held constant, DocMemo scored 61.7% versus 60.1% for SimpleDoc on MMLongBench-Doc.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc benchmark questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo with Qwen3-VL-8B",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "SimpleDoc with Qwen3-VL-8B",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "GPT-4.1 automatic binary judge",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "61.7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DocMemo",
+            "event_count": null,
+            "sample_size": null,
+            "value": "61.7",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "SimpleDoc",
+            "event_count": null,
+            "sample_size": null,
+            "value": "60.1",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "controlled_comparison",
+        "Qwen3_VL_8B"
+      ]
+    },
+    {
+      "atom_id": "2105791d-a77e-5680-9d77-005a23b3a719",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3.5-9B, ColQwen2.5, and three iterative rounds held constant, DocMemo scored 71.3% versus 69.3% for SimpleDoc on MMLongBench-Doc.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc benchmark questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo with Qwen3.5-9B",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "SimpleDoc with Qwen3.5-9B",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "GPT-4.1 automatic binary judge",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "71.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DocMemo",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.3",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "SimpleDoc",
+            "event_count": null,
+            "sample_size": null,
+            "value": "69.3",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "controlled_comparison",
+        "Qwen3_5_9B"
+      ]
+    },
+    {
+      "atom_id": "954db23a-685e-5fe8-b115-4c94bf0f0abf",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On MMLongBench-Doc table questions, DocMemo achieved 73.3% accuracy.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc table-question subset",
+        "sample_size": null,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "73.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DocMemo",
+            "event_count": null,
+            "sample_size": null,
+            "value": "73.3",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "MMLongBench_Doc",
+        "TAB"
+      ]
+    },
+    {
+      "atom_id": "cafaaed1-7d7c-5b34-920f-0bf00dd5afca",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On MMLongBench-Doc unanswerable questions, DocMemo achieved 78.8% accuracy.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc unanswerable-question subset",
+        "sample_size": null,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "78.8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DocMemo",
+            "event_count": null,
+            "sample_size": null,
+            "value": "78.8",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "MMLongBench_Doc",
+        "UNA"
+      ]
+    },
+    {
+      "atom_id": "f9c96473-37a6-5ac9-a10b-57c2bc0acd3a",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Removing all memory modules reduced MMLongBench-Doc overall accuracy from 71.28% to 68.47%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc benchmark questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Full DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "DocMemo without all memory modules",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "71.28",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Full DocMemo",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.28",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Without all memory modules",
+            "event_count": null,
+            "sample_size": null,
+            "value": "68.47",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "memory"
+      ]
+    },
+    {
+      "atom_id": "84077827-eb9e-587f-bfcb-10e158335567",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Removing Bayesian updating reduced MMLongBench-Doc overall accuracy from 71.28% to 68.80%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc benchmark questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Full DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "DocMemo without Bayesian updating",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "71.28",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Full DocMemo",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.28",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Without Bayesian updating",
+            "event_count": null,
+            "sample_size": null,
+            "value": "68.80",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "bayesian_update"
+      ]
+    },
+    {
+      "atom_id": "e5287b8a-d251-5f1a-946b-caa3ec93e9e9",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Removing adaptive-granularity evidence access reduced MMLongBench-Doc table-question accuracy from 73.27% to 68.66%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc table-question subset",
+        "sample_size": null,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Full DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "DocMemo without adaptive-granularity evidence access",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "73.27",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Full DocMemo",
+            "event_count": null,
+            "sample_size": null,
+            "value": "73.27",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Without adaptive-granularity",
+            "event_count": null,
+            "sample_size": null,
+            "value": "68.66",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "adaptive_granularity",
+        "TAB"
+      ]
+    },
+    {
+      "atom_id": "e9065336-7b5b-5d02-a4b5-c277e0ccdd30",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Replacing Thompson sampling with greedy posterior-mean selection reduced MMLongBench-Doc overall accuracy from 71.28% to 68.62%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 14",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc benchmark questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo with Thompson sampling",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "DocMemo with greedy selection",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "71.28",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Thompson sampling",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.28",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Greedy selection",
+            "event_count": null,
+            "sample_size": null,
+            "value": "68.62",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "thompson_sampling"
+      ]
+    },
+    {
+      "atom_id": "c7f19c3b-f34a-5f94-a2d4-a176a03540dd",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "DocMemo Evidence Recall increased from 28.32% in retrieval-reasoning iteration 1 to 69.56% in iteration 3.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "figure",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 3a",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc evaluation questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Evidence Recall",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "evidence_recall_percent",
+        "estimate": "69.56",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Iteration 1",
+            "event_count": null,
+            "sample_size": null,
+            "value": "28.32",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Iteration 3",
+            "event_count": null,
+            "sample_size": null,
+            "value": "69.56",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "iterative_retrieval",
+        "evidence_recall"
+      ]
+    },
+    {
+      "atom_id": "43f1fe78-4d37-50b5-80a6-a24d6cc56f47",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "DocMemo All-Hit Rate increased from 12.90% in retrieval-reasoning iteration 1 to 58.05% in iteration 3.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "figure",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 3a",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc evaluation questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "All-Hit Rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "all_hit_rate_percent",
+        "estimate": "58.05",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Iteration 1",
+            "event_count": null,
+            "sample_size": null,
+            "value": "12.90",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Iteration 3",
+            "event_count": null,
+            "sample_size": null,
+            "value": "58.05",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "iterative_retrieval",
+        "all_hit_rate"
+      ]
+    },
+    {
+      "atom_id": "dec2d5ac-c8cf-54bf-98f6-8d21043e79d3",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Cumulative MMLongBench-Doc accuracy increased from 60.6% after iteration 1 to 65.5% after iteration 2 and 69.0% after iteration 3.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 8",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc benchmark questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Cumulative answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "cumulative_accuracy_percent",
+        "estimate": "69.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Iteration 1",
+            "event_count": null,
+            "sample_size": null,
+            "value": "60.6",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Iteration 2",
+            "event_count": null,
+            "sample_size": null,
+            "value": "65.5",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Iteration 3",
+            "event_count": null,
+            "sample_size": null,
+            "value": "69.0",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "iterative_retrieval",
+        "cumulative_accuracy"
+      ]
+    },
+    {
+      "atom_id": "d6ec956a-da77-54c1-a3d9-d50f5e9b36a5",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "DocMemo used an average of 1.24 retrieval-reasoning iterations per question compared with a fixed 3.00 for SimpleDoc, corresponding to 0.41x relative computation cost and 2.40x relative efficiency.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 11",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc questions in iteration-efficiency comparison",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "SimpleDoc",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Retrieval-reasoning iterations per question",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean_iterations_per_question",
+        "estimate": "1.24",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DocMemo",
+            "event_count": null,
+            "sample_size": null,
+            "value": "1.24",
+            "unit": "iterations/question"
+          },
+          {
+            "arm_label": "SimpleDoc",
+            "event_count": null,
+            "sample_size": null,
+            "value": "3.00",
+            "unit": "iterations/question"
+          }
+        ],
+        "original_result_text": "Relative computation cost: 0.41x; relative efficiency: 2.40x."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "efficiency",
+        "iteration_cost"
+      ]
+    },
+    {
+      "atom_id": "21cf5c87-6d62-5eb0-8339-34920c7f4f83",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the iteration-efficiency comparison, DocMemo accuracy was 71.3% versus 60.6% for SimpleDoc on MMLongBench-Doc.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 11",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc benchmark questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "SimpleDoc",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "71.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DocMemo",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.3",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "SimpleDoc",
+            "event_count": null,
+            "sample_size": null,
+            "value": "60.6",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "efficiency",
+        "accuracy"
+      ]
+    },
+    {
+      "atom_id": "6fb1f5eb-b9ad-5b5b-acdb-9a858584fc93",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The default increasing lambda schedule [0.0,0.3,0.6,0.6] achieved 71.28% overall MMLongBench accuracy, compared with 69.04% for the reverse schedule [0.6,0.6,0.3,0.0].",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 7",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc benchmark questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Increasing lambda schedule",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Reverse lambda schedule",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "71.28",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Increasing schedule",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.28",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Reverse schedule",
+            "event_count": null,
+            "sample_size": null,
+            "value": "69.04",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "hyperparameter_sensitivity",
+        "lambda"
+      ]
+    },
+    {
+      "atom_id": "81eb4c17-2ac4-59c2-ba88-76975047feb4",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On LongDocURL, full DocMemo achieved 81.2% mean accuracy (reported uncertainty ±0.3), versus 79.2% without Bayesian updating, 79.4% without all memory, and 80.8% without adaptive-granularity evidence access.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 12",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "LongDocURL benchmark question-answer pairs",
+        "sample_size": 2325,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Full DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Without Bayesian updating",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Without all memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Without adaptive-granularity",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean_accuracy_percent",
+        "estimate": "81.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Full",
+            "event_count": null,
+            "sample_size": null,
+            "value": "81.2",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Without Bayesian",
+            "event_count": null,
+            "sample_size": null,
+            "value": "79.2",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Without all memory",
+            "event_count": null,
+            "sample_size": null,
+            "value": "79.4",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Without adaptive-granularity",
+            "event_count": null,
+            "sample_size": null,
+            "value": "80.8",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": "Reported uncertainties: full ±0.3, without Bayesian ±0.2, without all memory ±0.2, without adaptive-granularity ±0.3."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "LongDocURL",
+        "ablation"
+      ]
+    },
+    {
+      "atom_id": "c355f564-9932-505d-914c-e327c65af591",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On PaperTab, full DocMemo achieved 80.4% mean accuracy (reported uncertainty ±0.2), versus 78.6% without Bayesian updating, 78.4% without all memory, and 79.2% without adaptive-granularity evidence access.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 12",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "PaperTab benchmark questions",
+        "sample_size": 393,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Full DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Without Bayesian updating",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Without all memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Without adaptive-granularity",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean_accuracy_percent",
+        "estimate": "80.4",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Full",
+            "event_count": null,
+            "sample_size": null,
+            "value": "80.4",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Without Bayesian",
+            "event_count": null,
+            "sample_size": null,
+            "value": "78.6",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Without all memory",
+            "event_count": null,
+            "sample_size": null,
+            "value": "78.4",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Without adaptive-granularity",
+            "event_count": null,
+            "sample_size": null,
+            "value": "79.2",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": "Reported uncertainties: full ±0.2, without Bayesian ±0.2, without all memory ±0.3, without adaptive-granularity ±0.2."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "PaperTab",
+        "ablation"
+      ]
+    },
+    {
+      "atom_id": "c42e2116-7e06-52f0-be4b-4b2eb143069b",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For 10 documents, offline preprocessing took 0.51 hours total: page summary generation took 0.47 hours, visual embedding 0.02 hours, and Document Schema Memory construction 0.02 hours; visual embeddings occupied 1.2 GB.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 9",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "Documents used for offline preprocessing cost analysis",
+        "sample_size": 10,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo offline preprocessing pipeline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Offline preprocessing time",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "total_preprocessing_hours",
+        "estimate": "0.51",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Total",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.51",
+            "unit": "hours"
+          },
+          {
+            "arm_label": "Page summaries",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.47",
+            "unit": "hours"
+          },
+          {
+            "arm_label": "Visual embedding",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.02",
+            "unit": "hours"
+          },
+          {
+            "arm_label": "Schema memory",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.02",
+            "unit": "hours"
+          }
+        ],
+        "original_result_text": "Visual embedding storage: 1.2 GB."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "compute_cost",
+        "offline"
+      ]
+    },
+    {
+      "atom_id": "baf17632-0844-5ee9-91ac-439cd355bc41",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Online reasoning averaged 1.21 VLM calls per question; each call averaged 5.2 images, 11,541 input tokens, 1,121 output tokens, 20.41 seconds latency, and 33.95 GB peak VRAM.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 10",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "Questions included in the online reasoning cost analysis",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DocMemo reasoning VLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Online reasoning VLM calls per question",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean_vlm_calls_per_question",
+        "estimate": "1.21",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Reasoning VLM",
+            "event_count": null,
+            "sample_size": null,
+            "value": "1.21",
+            "unit": "calls/question"
+          }
+        ],
+        "original_result_text": "Avg images/call 5.2; input tokens/call 11541; output tokens/call 1121; latency/call 20.41 s; peak VRAM 33.95 GB."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "compute_cost",
+        "online"
+      ]
+    },
+    {
+      "atom_id": "8f9355f5-0578-5860-a94e-0481cfa4d63d",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In a manual review of 300 MMLongBench evaluation cases, GPT-4.1 binary judgments agreed with human judgments 96.7% of the time, with Cohen kappa 0.92.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C.6",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "Random sample of MMLongBench evaluation cases",
+        "sample_size": 300,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "GPT-4.1 automatic judge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "human judgment",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "reference_standard",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Agreement between GPT-4.1 and human judgments",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": "Manual exact-match review against ground truth",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "percent_agreement",
+        "estimate": "96.7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "GPT-4.1 vs human",
+            "event_count": null,
+            "sample_size": null,
+            "value": "96.7",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": "Cohen kappa = 0.92."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "evaluation_validation",
+        "human_verification"
+      ]
+    },
+    {
+      "atom_id": "a66bcffb-1b4b-5fcc-956d-0080ad2a9281",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "MMLongBench overall accuracy was 71.3% for full multimodal DocMemo, 58.6% for OCR-only, 69.3% for vision-only, and 69.9% without fine-grained visual crops.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 13",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": {
+        "label": "MMLongBench-Doc benchmark questions",
+        "sample_size": 1082,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Full multimodal DocMemo",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "OCR-only",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Vision-only",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Without fine-grained visual crops",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Answer accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy_percent",
+        "estimate": "71.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Full multimodal",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.3",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "OCR-only",
+            "event_count": null,
+            "sample_size": null,
+            "value": "58.6",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Vision-only",
+            "event_count": null,
+            "sample_size": null,
+            "value": "69.3",
+            "unit": "percent"
+          },
+          {
+            "arm_label": "Without fine-grained visual crops",
+            "event_count": null,
+            "sample_size": null,
+            "value": "69.9",
+            "unit": "percent"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "modality_ablation",
+        "multimodal"
+      ]
+    },
+    {
+      "atom_id": "1b5415ad-e3f0-5b4d-bc3e-c43a7bdc2b29",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "data_availability",
+      "canonical_statement": "The paper provides a public code repository at https://github.com/Harrygof/DocMemo.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "other",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "code_repository"
+      ]
+    },
+    {
+      "atom_id": "a9adb92b-09c8-5a35-a3db-7fcc1cd778aa",
+      "publication_id": "7c6e1c32-ec92-58d0-aefb-6eb857df3ad9",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors conclude that structured memory with dynamic probabilistic page-belief updating improves long-document visual question answering over static and iterative baselines, with adaptive-granularity access improving fine-grained evidence reading.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-10T07:47:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-project-macro-v1",
+        "input_document_hash": "2a9793cc2d3ea914d76fc212d2017429c70898231eb72aa35af02b729d3d6cda",
+        "extraction_run_id": "docmemo-2608.07067v1-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:47:01Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "author_conclusion"
+      ]
+    }
+  ],
+  "validation_report": {
+    "pydantic_structural_validation": {
+      "passed": true,
+      "errors": []
+    },
+    "schema_serialization_validation": {
+      "passed": true,
+      "errors": []
+    },
+    "sufficiency_validation": {
+      "passed": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "extraction_limitations": [
+    "The paper reports benchmark and ablation results but does not provide an explicit standalone limitations section; no limitation atom was created from model appraisal.",
+    "No funding disclosure or conflict-of-interest statement was identified in the paper text inspected; none was fabricated.",
+    "Reported ± values for Table 12 are preserved as source-reported uncertainty without inferring an interval type or number of repeated evaluation runs.",
+    "Some benchmark baseline values are reported as taken from official leaderboards or prior papers; atoms here represent claims/results as reported by this preprint, not independent re-verification of those external sources."
+  ]
+}

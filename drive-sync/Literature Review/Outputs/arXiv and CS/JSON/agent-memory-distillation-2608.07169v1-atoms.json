@@ -1,0 +1,5605 @@
+{
+  "activated_macro": "@ATOM",
+  "source_metadata": {
+    "title": "Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory",
+    "authors": [
+      "Taeil Kim",
+      "Kangsan Kim",
+      "Sung Ju Hwang"
+    ],
+    "affiliations": [
+      "KAIST",
+      "DeepAuto.ai"
+    ],
+    "source_type": "arXiv preprint; primary empirical AI/agent-systems study",
+    "identifier": "arXiv:2608.07169v1",
+    "version": "v1",
+    "date": "2026-08-07",
+    "page_count": 25,
+    "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+    "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+    "extraction_run_id": "2608.07169v1-general-v1",
+    "scope": "All 25 pages inspected. Main text, quantitative tables, figures with load-bearing numeric results, algorithmic appendix, robustness analyses, and stated limitations were considered. Bibliographic references were not atomized as evidence."
+  },
+  "atom_counts_by_type": {
+    "author_conclusion": 1,
+    "comparator_description": 1,
+    "intervention_description": 1,
+    "limitation": 3,
+    "method": 12,
+    "population_description": 3,
+    "qualitative_result": 1,
+    "quantitative_result": 35,
+    "study_objective": 1
+  },
+  "atom_count_total": 58,
+  "validated_atoms": [
+    {
+      "atom_id": "6f1c7dd5-07bf-5dd9-ad1b-f5170541a817",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The study investigates whether structured teacher memory can be transferred without parameter training to improve small 4B–8B language-model agents on multi-turn tool-use tasks despite a teacher–student capability gap.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "introduction",
+        "page": "2",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "objective",
+        "teacher_student_transfer",
+        "small_llm_agents"
+      ]
+    },
+    {
+      "atom_id": "764eeda5-0b91-5941-ac98-806126f5c30d",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "method",
+      "canonical_statement": "AMD constructs its memory store only from successful teacher trajectories and partitions the resulting knowledge into Workflow, Subtask, and Function memory banks.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "AMD",
+        "hierarchical_memory",
+        "memory_generation"
+      ]
+    },
+    {
+      "atom_id": "655105fa-49ea-53e4-bb1a-5ba25394dab1",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "method",
+      "canonical_statement": "Workflow memory summarizes high-level task strategy, including tools, preconditions, decision rules, validation cues, and common failure patterns, while replacing runtime-specific values with typed placeholders.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "workflow_memory",
+        "memory_representation"
+      ]
+    },
+    {
+      "atom_id": "5d10db82-6376-552b-a793-738d1cf5c2ac",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "method",
+      "canonical_statement": "Subtask memory segments each successful teacher trajectory into semantically coherent units and stores concrete execution examples with a short label and description for each segment.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "subtask_memory",
+        "trajectory_segmentation"
+      ]
+    },
+    {
+      "atom_id": "bfdcabfb-e0b1-52af-b0f9-d1af76cf0373",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "method",
+      "canonical_statement": "Function memory stores function-level invocation examples with surrounding context and, when available, API documentation describing argument and response schemas.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "function_memory",
+        "tool_use"
+      ]
+    },
+    {
+      "atom_id": "b6273d3d-d4fe-51a6-a003-cfd394f01464",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "method",
+      "canonical_statement": "AMD pre-encodes memory entries and uses cosine-similarity retrieval with a minimum similarity threshold for memory selection.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "retrieval",
+        "embedding_similarity"
+      ]
+    },
+    {
+      "atom_id": "943b6a84-0126-5699-b8d2-a0860c54b0d9",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "method",
+      "canonical_statement": "Workflow memory is retrieved using the task instruction and injected into the system prompt before the student issues any tool calls.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "workflow_memory",
+        "proactive_injection"
+      ]
+    },
+    {
+      "atom_id": "60bc9003-9861-53cd-a142-0c434d7d4f9a",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "method",
+      "canonical_statement": "Before execution, the student decomposes a task into at most six ordered subtask labels; each label retrieves a best-matching Subtask memory entry, with deduplication across subtasks before proactive prompt injection.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "subtask_memory",
+        "proactive_injection",
+        "task_decomposition"
+      ]
+    },
+    {
+      "atom_id": "99facb87-f6b6-5bc5-8d13-d3218ade8c9f",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "method",
+      "canonical_statement": "Function memory is injected reactively after a tool-call error: candidate records are looked up by failing function name, ranked by similarity to the current task, and appended as targeted corrective hints.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "function_memory",
+        "reactive_injection",
+        "error_recovery"
+      ]
+    },
+    {
+      "atom_id": "05218de1-2bab-5dc0-aadb-70c1487b5279",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "method",
+      "canonical_statement": "The main experiments used GPT-5-mini as teacher; Qwen3-4B, Qwen3-8B, Gemma4-E4B, and Llama3.1-8B as students; text-embedding-3-small for retrieval; k=1 for each memory type; and two repeated runs whose average performance was reported.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "experimental_setup",
+        "teacher_model",
+        "student_models"
+      ]
+    },
+    {
+      "atom_id": "6ab6196e-359a-589c-9e99-5352e4ab189d",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "method",
+      "canonical_statement": "Student agents were allowed at most 40 interaction steps per task; Qwen3 thinking mode was disabled, students were served with vLLM, and the GPT-5-mini teacher was queried through the OpenAI API.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "inference_setup",
+        "step_budget"
+      ]
+    },
+    {
+      "atom_id": "f986f178-38ae-565d-8200-d58f7166eeed",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "method",
+      "canonical_statement": "To test whether gains depended on memory derived from the evaluation task itself, the authors used a 7:3 cross-split protocol and a self-excluded retrieval protocol in which each task could retrieve only memories distilled from other tasks.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "robustness",
+        "disjoint_evaluation",
+        "leakage_control"
+      ]
+    },
+    {
+      "atom_id": "b5f924a3-8d29-5ba4-9dca-a2567cf760d8",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "method",
+      "canonical_statement": "Run-to-run robustness was assessed by repeating the zero-shot and AMD configurations five times with Qwen3-4B under the same experimental setup.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "robustness",
+        "repeated_runs"
+      ]
+    },
+    {
+      "atom_id": "b5d03d2b-ff67-5e1e-8e70-c2492f619a48",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "population_description",
+      "canonical_statement": "The AppWorld evaluation used the 168-task test_normal subset, where agents interact with simulated applications through Python API calls and success is measured by database-state unit tests.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark",
+        "AppWorld"
+      ]
+    },
+    {
+      "atom_id": "cd6dc7b9-6738-551e-accc-6e6b10e01091",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "population_description",
+      "canonical_statement": "The BFCL V3 evaluation used the 200-task multi-turn base subset; a task is correct only when every turn matches the expected API state and a minimal viable call path.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "BFCL V3 multi-turn base subset",
+        "sample_size": 200,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark",
+        "BFCL V3"
+      ]
+    },
+    {
+      "atom_id": "fa124d2e-55f3-51db-9ad3-658ae09c9ffe",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "population_description",
+      "canonical_statement": "The ToolSandbox evaluation used 129 base scenarios with JSON tool calls, a shared world state, GPT-5-mini as the simulated user, and scoring against human-authored milestones and minefields.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "ToolSandbox base subset",
+        "sample_size": 129,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark",
+        "ToolSandbox"
+      ]
+    },
+    {
+      "atom_id": "0d05d4ae-94a6-52e1-95dd-033b8c2bea58",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "intervention_description",
+      "canonical_statement": "AMD is a hierarchical teacher-memory intervention combining Workflow memory for planning, Subtask memory for concrete intermediate execution examples, and Function memory for reactive function-call correction.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Workflow + Subtask + Function teacher memory."
+        }
+      ],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "intervention",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "d3f97263-c845-5eed-a071-c058fc340bd6",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "comparator_description",
+      "canonical_statement": "The study compared AMD with zero-shot students and with ReasoningBank, MemP, and SASM adapted to teacher-to-student transfer using the same teacher trajectories.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "ReasoningBank",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Flat task-level reasoning memory."
+        },
+        {
+          "concept": {
+            "text": "MemP",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Hierarchical procedural memory adapted from same-model self-evolution."
+        },
+        {
+          "concept": {
+            "text": "SASM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Subtask-level retrieval with a single uniform memory type."
+        }
+      ],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "comparators",
+        "memory_baselines"
+      ]
+    },
+    {
+      "atom_id": "6925f6c4-a92f-5b62-bbc6-98bb2ab61da9",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-4B on AppWorld, AMD improved accuracy from 14.88% zero-shot to 49.40%, an absolute gain of 34.52 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success measured by database-state unit tests.",
+        "outcome_type": "primary",
+        "measurement_method": "AppWorld database-state unit tests",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "34.52",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.40",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "14.88",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 49.40%; zero-shot 14.88%; Δ +34.52%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "AppWorld",
+        "Qwen3-4B",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "cb1ab66e-1b74-5722-bb46-165d73f116c1",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-4B on BFCL V3, AMD improved accuracy from 15.50% zero-shot to 38.50%, an absolute gain of 23.00 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "BFCL V3 multi-turn base subset",
+        "sample_size": 200,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "An entry is correct only if every turn matches the expected API state and a minimal viable call path.",
+        "outcome_type": "primary",
+        "measurement_method": "BFCL V3 correctness criterion",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "23.00",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "38.50",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "15.50",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 38.50%; zero-shot 15.50%; Δ +23.00%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "BFCL V3",
+        "Qwen3-4B",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "24babad5-7ee1-58c2-93a1-c7ac4545cc06",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-4B on ToolSandbox, AMD improved accuracy from 16.28% zero-shot to 20.16%, an absolute gain of 3.88 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "ToolSandbox base subset",
+        "sample_size": 129,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Trajectories are scored against human-authored milestones and minefields.",
+        "outcome_type": "primary",
+        "measurement_method": "ToolSandbox milestone/minefield scoring",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "3.88",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "20.16",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "16.28",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 20.16%; zero-shot 16.28%; Δ +3.88%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "ToolSandbox",
+        "Qwen3-4B",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "b06d417a-90a5-5b29-95d7-f037be3cbe72",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Gemma4-E4B on AppWorld, AMD improved accuracy from 24.40% zero-shot to 54.17%, an absolute gain of 29.77 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Gemma4-E4B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Gemma4-E4B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success measured by database-state unit tests.",
+        "outcome_type": "primary",
+        "measurement_method": "AppWorld database-state unit tests",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "29.77",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "54.17",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "24.40",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 54.17%; zero-shot 24.40%; Δ +29.77%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "AppWorld",
+        "Gemma4-E4B",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "7da98422-be07-5d33-b5f9-c667ab47b87d",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Gemma4-E4B on BFCL V3, AMD improved accuracy from 37.25% zero-shot to 46.00%, an absolute gain of 8.75 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "BFCL V3 multi-turn base subset",
+        "sample_size": 200,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Gemma4-E4B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Gemma4-E4B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "An entry is correct only if every turn matches the expected API state and a minimal viable call path.",
+        "outcome_type": "primary",
+        "measurement_method": "BFCL V3 correctness criterion",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "8.75",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "46.00",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "37.25",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 46.00%; zero-shot 37.25%; Δ +8.75%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "BFCL V3",
+        "Gemma4-E4B",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "eaf458ce-25f0-51f1-bc95-5f8ee63a2f82",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Gemma4-E4B on ToolSandbox, AMD improved accuracy from 18.22% zero-shot to 21.71%, an absolute gain of 3.49 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "ToolSandbox base subset",
+        "sample_size": 129,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Gemma4-E4B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Gemma4-E4B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Trajectories are scored against human-authored milestones and minefields.",
+        "outcome_type": "primary",
+        "measurement_method": "ToolSandbox milestone/minefield scoring",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "3.49",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "21.71",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "18.22",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 21.71%; zero-shot 18.22%; Δ +3.49%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "ToolSandbox",
+        "Gemma4-E4B",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "37bc9345-06b5-5f9d-8da4-99060fb4085e",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-8B on AppWorld, AMD improved accuracy from 25.60% zero-shot to 51.79%, an absolute gain of 26.19 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-8B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-8B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success measured by database-state unit tests.",
+        "outcome_type": "primary",
+        "measurement_method": "AppWorld database-state unit tests",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "26.19",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "51.79",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "25.60",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 51.79%; zero-shot 25.60%; Δ +26.19%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "AppWorld",
+        "Qwen3-8B",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "9f738c4f-7d5b-5b3e-99f3-527d41f4d4d0",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-8B on BFCL V3, AMD improved accuracy from 38.00% zero-shot to 45.50%, an absolute gain of 7.50 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "BFCL V3 multi-turn base subset",
+        "sample_size": 200,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-8B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-8B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "An entry is correct only if every turn matches the expected API state and a minimal viable call path.",
+        "outcome_type": "primary",
+        "measurement_method": "BFCL V3 correctness criterion",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "7.50",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "45.50",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "38.00",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 45.50%; zero-shot 38.00%; Δ +7.50%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "BFCL V3",
+        "Qwen3-8B",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "8a28e19c-4bf3-5b53-91ce-f6f289d7287f",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-8B on ToolSandbox, AMD improved accuracy from 20.16% zero-shot to 25.58%, an absolute gain of 5.42 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "ToolSandbox base subset",
+        "sample_size": 129,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-8B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-8B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Trajectories are scored against human-authored milestones and minefields.",
+        "outcome_type": "primary",
+        "measurement_method": "ToolSandbox milestone/minefield scoring",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "5.42",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "25.58",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "20.16",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 25.58%; zero-shot 20.16%; Δ +5.42%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "ToolSandbox",
+        "Qwen3-8B",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "d9964622-1c7a-543c-bdac-284b0196c85d",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Llama3.1-8B on AppWorld, AMD improved accuracy from 8.93% zero-shot to 27.38%, an absolute gain of 18.45 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Llama3.1-8B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Llama3.1-8B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success measured by database-state unit tests.",
+        "outcome_type": "primary",
+        "measurement_method": "AppWorld database-state unit tests",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "18.45",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "27.38",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "8.93",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 27.38%; zero-shot 8.93%; Δ +18.45%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "AppWorld",
+        "Llama3.1-8B",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "1a1560cb-1264-5566-b7d5-93e7a58cec17",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Llama3.1-8B on BFCL V3, AMD improved accuracy from 9.00% zero-shot to 14.50%, an absolute gain of 5.50 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "BFCL V3 multi-turn base subset",
+        "sample_size": 200,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Llama3.1-8B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Llama3.1-8B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "An entry is correct only if every turn matches the expected API state and a minimal viable call path.",
+        "outcome_type": "primary",
+        "measurement_method": "BFCL V3 correctness criterion",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "5.50",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "14.50",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "9.00",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 14.50%; zero-shot 9.00%; Δ +5.50%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "BFCL V3",
+        "Llama3.1-8B",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "367fff28-b287-5a30-846f-9684fb39db94",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Llama3.1-8B on ToolSandbox, AMD improved accuracy from 5.43% zero-shot to 6.20%, an absolute gain of 0.77 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "ToolSandbox base subset",
+        "sample_size": 129,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Llama3.1-8B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Llama3.1-8B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Trajectories are scored against human-authored milestones and minefields.",
+        "outcome_type": "primary",
+        "measurement_method": "ToolSandbox milestone/minefield scoring",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "0.77",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "6.20",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "5.43",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 6.20%; zero-shot 5.43%; Δ +0.77%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "ToolSandbox",
+        "Llama3.1-8B",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "dec66e40-82ff-590d-9a77-010e059296be",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across the four student models, the authors report an average AMD accuracy gain of 27.2 percentage points over zero-shot on AppWorld.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Four evaluated student models on AppWorld",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Average across Qwen3-4B, Gemma4-E4B, Qwen3-8B, and Llama3.1-8B."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agents",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Same four student models without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Average task success accuracy gain",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Average absolute AMD-versus-zero-shot gain across four student models on AppWorld.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean absolute accuracy gain (percentage points)",
+        "estimate": "27.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "Average gain: 27.2%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "average_gain",
+        "AppWorld"
+      ]
+    },
+    {
+      "atom_id": "f11c5ffb-a56b-5732-a957-3c3368dd9392",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across the four student models, the authors report an average AMD accuracy gain of 11.2 percentage points over zero-shot on BFCL V3.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Four evaluated student models on BFCL V3",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Average across Qwen3-4B, Gemma4-E4B, Qwen3-8B, and Llama3.1-8B."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agents",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Same four student models without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Average task success accuracy gain",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Average absolute AMD-versus-zero-shot gain across four student models on BFCL V3.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean absolute accuracy gain (percentage points)",
+        "estimate": "11.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "Average gain: 11.2%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "average_gain",
+        "BFCL V3"
+      ]
+    },
+    {
+      "atom_id": "6a24ae0e-3bea-540d-a5e0-4b7854bdd40a",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across the four student models, the authors report an average AMD accuracy gain of 3.4 percentage points over zero-shot on ToolSandbox.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Four evaluated student models on ToolSandbox",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Average across Qwen3-4B, Gemma4-E4B, Qwen3-8B, and Llama3.1-8B."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agents",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Same four student models without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Average task success accuracy gain",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Average absolute AMD-versus-zero-shot gain across four student models on ToolSandbox.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean absolute accuracy gain (percentage points)",
+        "estimate": "3.4",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "Average gain: 3.4%p."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main_result",
+        "average_gain",
+        "ToolSandbox"
+      ]
+    },
+    {
+      "atom_id": "c32f49c8-05b7-5277-a2d3-76059b800334",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On AppWorld, AMD-augmented Gemma4-E4B achieved 54.17% accuracy versus 50.00% for the GPT-5-mini teacher, exceeding the teacher by 4.17 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "AMD-augmented Gemma4-E4B student",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "GPT-5-mini teacher agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success measured by database-state unit tests.",
+        "outcome_type": "primary",
+        "measurement_method": "AppWorld database-state unit tests",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference versus teacher (percentage points)",
+        "estimate": "4.17",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Gemma4-E4B + AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "54.17",
+            "unit": "%"
+          },
+          {
+            "arm_label": "GPT-5-mini teacher",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.00",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "Gemma4-E4B AMD 54.17%; GPT-5-mini teacher 50.00%."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "teacher_comparison",
+        "AppWorld",
+        "Gemma4-E4B"
+      ]
+    },
+    {
+      "atom_id": "2ca30f7a-4985-543c-a1c0-c4efa936c174",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On BFCL V3, AMD-augmented Gemma4-E4B achieved 46.00% accuracy versus 36.50% for the GPT-5-mini teacher, exceeding the teacher by 9.50 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "BFCL V3 multi-turn base subset",
+        "sample_size": 200,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "AMD-augmented Gemma4-E4B student",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "GPT-5-mini teacher agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "An entry is correct only if every turn matches the expected API state and a minimal viable call path.",
+        "outcome_type": "primary",
+        "measurement_method": "BFCL V3 correctness criterion",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference versus teacher (percentage points)",
+        "estimate": "9.50",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Gemma4-E4B + AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "46.00",
+            "unit": "%"
+          },
+          {
+            "arm_label": "GPT-5-mini teacher",
+            "event_count": null,
+            "sample_size": null,
+            "value": "36.50",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "Gemma4-E4B AMD 46.00%; GPT-5-mini teacher 36.50%."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "teacher_comparison",
+        "BFCL V3",
+        "Gemma4-E4B"
+      ]
+    },
+    {
+      "atom_id": "83c080ab-6705-5bf0-bf65-f1a6a4e28f82",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On AppWorld with Qwen3-4B, AMD reduced the mean interaction count from 23.8 zero-shot turns to 14.9 turns, compared with 10.1 turns for the teacher.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 3",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Interaction efficiency",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Number of interaction steps used by the agent.",
+        "outcome_type": "primary",
+        "measurement_method": "Mean interaction steps",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean interaction-step difference (AMD minus zero-shot)",
+        "estimate": "-8.9",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "14.9",
+            "unit": "steps"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "23.8",
+            "unit": "steps"
+          },
+          {
+            "arm_label": "Teacher",
+            "event_count": null,
+            "sample_size": null,
+            "value": "10.1",
+            "unit": "steps"
+          }
+        ],
+        "original_result_text": "Qwen3-4B AppWorld: zero-shot 23.8 turns; AMD 14.9; teacher 10.1."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "interaction_efficiency",
+        "AppWorld",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "a3d38197-f099-5f2f-be4f-b6e5da14aae5",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-4B on AppWorld, Workflow memory alone increased accuracy from 14.88% zero-shot to 22.02%, a 7.14-point gain.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Workflow memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Workflow memory only."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success measured by database-state unit tests.",
+        "outcome_type": "primary",
+        "measurement_method": "AppWorld database-state unit tests",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute accuracy difference (percentage points)",
+        "estimate": "7.14",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "WF",
+            "event_count": null,
+            "sample_size": null,
+            "value": "22.02",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "14.88",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "workflow_memory",
+        "Qwen3-4B",
+        "AppWorld"
+      ]
+    },
+    {
+      "atom_id": "3876ac01-24cf-500e-9a45-1227e5073c72",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-4B on AppWorld, adding Subtask memory to Workflow memory increased accuracy from 22.02% to 47.02%, a 25.00-point incremental gain.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Workflow + Subtask memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Workflow memory only",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success measured by database-state unit tests.",
+        "outcome_type": "primary",
+        "measurement_method": "AppWorld database-state unit tests",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "incremental accuracy difference (percentage points)",
+        "estimate": "25.00",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "WF + ST",
+            "event_count": null,
+            "sample_size": null,
+            "value": "47.02",
+            "unit": "%"
+          },
+          {
+            "arm_label": "WF",
+            "event_count": null,
+            "sample_size": null,
+            "value": "22.02",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "subtask_memory",
+        "Qwen3-4B",
+        "AppWorld"
+      ]
+    },
+    {
+      "atom_id": "f0a1e7c1-5874-5a38-9307-f46a4026c214",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-4B on AppWorld, adding Function memory to Workflow plus Subtask memory increased accuracy from 47.02% to 49.40%, a 2.38-point incremental gain.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Workflow + Subtask + Function memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Workflow + Subtask memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success measured by database-state unit tests.",
+        "outcome_type": "primary",
+        "measurement_method": "AppWorld database-state unit tests",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "incremental accuracy difference (percentage points)",
+        "estimate": "2.38",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "WF + ST + FN",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.40",
+            "unit": "%"
+          },
+          {
+            "arm_label": "WF + ST",
+            "event_count": null,
+            "sample_size": null,
+            "value": "47.02",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "function_memory",
+        "Qwen3-4B",
+        "AppWorld"
+      ]
+    },
+    {
+      "atom_id": "2c9ce8ae-942a-5e1e-828f-a3ec56b43691",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Llama3.1-8B on AppWorld, adding Function memory to Workflow plus Subtask memory reduced accuracy from 30.36% to 27.38%, a 2.98-point decrease.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Workflow + Subtask + Function memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Workflow + Subtask memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success measured by database-state unit tests.",
+        "outcome_type": "primary",
+        "measurement_method": "AppWorld database-state unit tests",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy change after adding Function memory (percentage points)",
+        "estimate": "-2.98",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "WF + ST + FN",
+            "event_count": null,
+            "sample_size": null,
+            "value": "27.38",
+            "unit": "%"
+          },
+          {
+            "arm_label": "WF + ST",
+            "event_count": null,
+            "sample_size": null,
+            "value": "30.36",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "function_memory",
+        "Llama3.1-8B",
+        "AppWorld",
+        "negative_effect"
+      ]
+    },
+    {
+      "atom_id": "0cf5a862-54cf-5a89-90cc-b5409a27e40a",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-4B on AppWorld, increasing Subtask-memory retrieval count from k=1 to k=5 reduced accuracy from 49.40% to 33.34%, a 16.06-point decrease.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 5",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Subtask memory retrieval k=1",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Subtask memory retrieval k=5",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success measured by database-state unit tests.",
+        "outcome_type": "primary",
+        "measurement_method": "AppWorld database-state unit tests",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy decrease from k=1 to k=5 (percentage points)",
+        "estimate": "16.06",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "k=1",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.40",
+            "unit": "%"
+          },
+          {
+            "arm_label": "k=5",
+            "event_count": null,
+            "sample_size": null,
+            "value": "33.34",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "retrieval_count",
+        "subtask_memory",
+        "AppWorld",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "a76e1e0f-6e1b-5c7d-afb1-92f0bd122fb2",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On AppWorld, the authors’ mixed representation design—text Workflow memory with code-centric Subtask and Function memory—achieved 49.40% accuracy versus 26.19% when all three memory types were represented as text.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Text Workflow + code Subtask + code Function memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Text Workflow + text Subtask + text Function memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success measured by database-state unit tests.",
+        "outcome_type": "primary",
+        "measurement_method": "AppWorld database-state unit tests",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy difference by memory representation (percentage points)",
+        "estimate": "23.21",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Text/Code/Code",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.40",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Text/Text/Text",
+            "event_count": null,
+            "sample_size": null,
+            "value": "26.19",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "memory_representation",
+        "ablation",
+        "AppWorld"
+      ]
+    },
+    {
+      "atom_id": "192d4813-f553-5eef-ad4c-4b9467bdea61",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For the Qwen3-4B AppWorld student, GPT-5-mini as teacher yielded 49.40% student accuracy versus 47.02% with GPT-5.5, even though GPT-5.5 teacher accuracy was 91.08% compared with 50.00% for GPT-5-mini.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "AppWorld test_normal subset",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "AMD with GPT-5-mini teacher",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Teacher accuracy 50.00%."
+        },
+        {
+          "concept": {
+            "text": "AMD with GPT-5.5 teacher",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Teacher accuracy 91.08%."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Qwen3-4B task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "AppWorld accuracy of the Qwen3-4B student after AMD using different teachers.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "student accuracy difference by teacher (percentage points)",
+        "estimate": "2.38",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "GPT-5-mini teacher",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.40",
+            "unit": "%"
+          },
+          {
+            "arm_label": "GPT-5.5 teacher",
+            "event_count": null,
+            "sample_size": null,
+            "value": "47.02",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "teacher_effect",
+        "teacher_student_compatibility",
+        "Qwen3-4B",
+        "AppWorld"
+      ]
+    },
+    {
+      "atom_id": "5f68d59c-e18d-537a-9248-5e979217eb1a",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Within the Qwen3 family on AppWorld, AMD accuracy increased from 21.43% at 1.7B parameters to 49.40%, 51.79%, and 52.68% at 4B, 8B, and 14B, while the zero-shot-to-AMD gain peaked at 4B with +34.52 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 4",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Qwen3 family students from 1.7B to 14B parameters evaluated on AppWorld",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "GPT-5-mini teacher across Qwen3 student sizes."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot Qwen3 students",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success measured by database-state unit tests.",
+        "outcome_type": "primary",
+        "measurement_method": "AppWorld database-state unit tests",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "peak zero-shot-to-AMD accuracy gain (percentage points)",
+        "estimate": "34.52",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "AMD accuracy: 21.43% (1.7B), 49.40% (4B), 51.79% (8B), 52.68% (14B); gain peaks at 4B (+34.52%p)."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "student_model_size",
+        "Qwen3",
+        "AppWorld"
+      ]
+    },
+    {
+      "atom_id": "cdbc82e8-70e0-5f16-9426-df93d888324c",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across five Qwen3-4B runs on AppWorld, AMD achieved 49.60% ± 0.91 success versus 14.48% ± 0.69 zero-shot, a mean difference of 35.12 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Five repeated Qwen3-4B evaluation runs on AppWorld",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean task success rate across repeated runs",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Mean success rate across five repeated runs on AppWorld.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean success-rate difference (percentage points)",
+        "estimate": "35.12",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD mean",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.60",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot mean",
+            "event_count": null,
+            "sample_size": null,
+            "value": "14.48",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 49.60 ± 0.91%; zero-shot 14.48 ± 0.69%."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "robustness",
+        "repeated_runs",
+        "AppWorld",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "56bf9646-171e-5a32-99de-4695dda23c52",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across five Qwen3-4B runs on BFCL V3, AMD achieved 38.67% ± 0.58 success versus 15.33% ± 0.76 zero-shot, a mean difference of 23.34 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Five repeated Qwen3-4B evaluation runs on BFCL V3",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean task success rate across repeated runs",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Mean success rate across five repeated runs on BFCL V3.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean success-rate difference (percentage points)",
+        "estimate": "23.34",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD mean",
+            "event_count": null,
+            "sample_size": null,
+            "value": "38.67",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot mean",
+            "event_count": null,
+            "sample_size": null,
+            "value": "15.33",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 38.67 ± 0.58%; zero-shot 15.33 ± 0.76%."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "robustness",
+        "repeated_runs",
+        "BFCL V3",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "4f75ed81-2bc2-5f22-958b-6707d08d96ba",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across five Qwen3-4B runs on ToolSandbox, AMD achieved 20.16% ± 0.78 success versus 16.54% ± 0.44 zero-shot, a mean difference of 3.62 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Five repeated Qwen3-4B evaluation runs on ToolSandbox",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Agent Memory Distillation (AMD)",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student; GPT-5-mini teacher; Workflow + Subtask + Function memory; k=1."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot student agent",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Qwen3-4B student without memory augmentation."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean task success rate across repeated runs",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Mean success rate across five repeated runs on ToolSandbox.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean success-rate difference (percentage points)",
+        "estimate": "3.62",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "AMD mean",
+            "event_count": null,
+            "sample_size": null,
+            "value": "20.16",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot mean",
+            "event_count": null,
+            "sample_size": null,
+            "value": "16.54",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "AMD 20.16 ± 0.78%; zero-shot 16.54 ± 0.44%."
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "robustness",
+        "repeated_runs",
+        "ToolSandbox",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "5c63d82e-52a5-5b73-923c-6d7627d0bf56",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under cross-split evaluation on AppWorld, Qwen3-4B with full Workflow + Subtask + Function memory achieved 41.07% success versus 16.07% zero-shot, a 25.00-point gain while excluding same-task memory from evaluation.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Qwen3-4B cross-split evaluation evaluation subset on AppWorld",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Workflow + Subtask + Function memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Cross-split evaluation; same-task memory excluded."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Cross-split evaluation baseline."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success rate under disjoint memory/evaluation protocol",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success rate under cross-split evaluation on AppWorld.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute success-rate difference (percentage points)",
+        "estimate": "25.00",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "WF + ST + FN",
+            "event_count": null,
+            "sample_size": null,
+            "value": "41.07",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "16.07",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "robustness",
+        "disjoint_evaluation",
+        "Cross-split evaluation",
+        "AppWorld",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "6f4155af-d3cd-5118-9a21-17e3a53071fa",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under cross-split evaluation on BFCL V3, Qwen3-4B with full Workflow + Subtask + Function memory achieved 30.65% success versus 16.13% zero-shot, a 14.52-point gain while excluding same-task memory from evaluation.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Qwen3-4B cross-split evaluation evaluation subset on BFCL V3",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Workflow + Subtask + Function memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Cross-split evaluation; same-task memory excluded."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Cross-split evaluation baseline."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success rate under disjoint memory/evaluation protocol",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success rate under cross-split evaluation on BFCL V3.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute success-rate difference (percentage points)",
+        "estimate": "14.52",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "WF + ST + FN",
+            "event_count": null,
+            "sample_size": null,
+            "value": "30.65",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "16.13",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "robustness",
+        "disjoint_evaluation",
+        "Cross-split evaluation",
+        "BFCL V3",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "f4ce9e14-15d9-5e03-97d7-d9ebe3ebef71",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under cross-split evaluation on ToolSandbox, Qwen3-4B with full Workflow + Subtask + Function memory achieved 22.92% success versus 16.67% zero-shot, a 6.25-point gain while excluding same-task memory from evaluation.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Qwen3-4B cross-split evaluation evaluation subset on ToolSandbox",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Workflow + Subtask + Function memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Cross-split evaluation; same-task memory excluded."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Cross-split evaluation baseline."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success rate under disjoint memory/evaluation protocol",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success rate under cross-split evaluation on ToolSandbox.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute success-rate difference (percentage points)",
+        "estimate": "6.25",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "WF + ST + FN",
+            "event_count": null,
+            "sample_size": null,
+            "value": "22.92",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "16.67",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "robustness",
+        "disjoint_evaluation",
+        "Cross-split evaluation",
+        "ToolSandbox",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "7c074144-3b48-5e5c-9ab1-e78d07ebedfa",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under self-excluded retrieval on AppWorld, Qwen3-4B with full Workflow + Subtask + Function memory achieved 46.43% success versus 14.88% zero-shot, a 31.55-point gain while excluding same-task memory from evaluation.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Qwen3-4B self-excluded retrieval evaluation subset on AppWorld",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Workflow + Subtask + Function memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Self-excluded retrieval; same-task memory excluded."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Self-excluded retrieval baseline."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success rate under disjoint memory/evaluation protocol",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success rate under self-excluded retrieval on AppWorld.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute success-rate difference (percentage points)",
+        "estimate": "31.55",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "WF + ST + FN",
+            "event_count": null,
+            "sample_size": null,
+            "value": "46.43",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "14.88",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "robustness",
+        "disjoint_evaluation",
+        "Self-excluded retrieval",
+        "AppWorld",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "a8fc59e2-b7f8-57f0-a3fc-304a938bba37",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under self-excluded retrieval on BFCL V3, Qwen3-4B with full Workflow + Subtask + Function memory achieved 31.00% success versus 15.50% zero-shot, a 15.50-point gain while excluding same-task memory from evaluation.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Qwen3-4B self-excluded retrieval evaluation subset on BFCL V3",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Workflow + Subtask + Function memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Self-excluded retrieval; same-task memory excluded."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Self-excluded retrieval baseline."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success rate under disjoint memory/evaluation protocol",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success rate under self-excluded retrieval on BFCL V3.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute success-rate difference (percentage points)",
+        "estimate": "15.50",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "WF + ST + FN",
+            "event_count": null,
+            "sample_size": null,
+            "value": "31.00",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "15.50",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "robustness",
+        "disjoint_evaluation",
+        "Self-excluded retrieval",
+        "BFCL V3",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "772b71aa-b43d-56a7-a410-500c3d3c0996",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under self-excluded retrieval on ToolSandbox, Qwen3-4B with full Workflow + Subtask + Function memory achieved 23.26% success versus 16.28% zero-shot, a 6.98-point gain while excluding same-task memory from evaluation.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": {
+        "label": "Qwen3-4B self-excluded retrieval evaluation subset on ToolSandbox",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Workflow + Subtask + Function memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Self-excluded retrieval; same-task memory excluded."
+        },
+        {
+          "concept": {
+            "text": "Zero-shot",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Self-excluded retrieval baseline."
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success rate under disjoint memory/evaluation protocol",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Success rate under self-excluded retrieval on ToolSandbox.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute success-rate difference (percentage points)",
+        "estimate": "6.98",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "WF + ST + FN",
+            "event_count": null,
+            "sample_size": null,
+            "value": "23.26",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Zero-shot",
+            "event_count": null,
+            "sample_size": null,
+            "value": "16.28",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "robustness",
+        "disjoint_evaluation",
+        "Self-excluded retrieval",
+        "ToolSandbox",
+        "Qwen3-4B"
+      ]
+    },
+    {
+      "atom_id": "23ee837a-3a1b-5455-9e04-60119c818253",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "In the AppWorld Venmo case study, Workflow memory corrected the current-month scope, Subtask memory supplied a working date-parsing pattern, and Function memory corrected balance-response parsing; the full hierarchy completed the task after the less complete configurations failed at successive stages.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 6",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "case_study",
+        "complementary_memory_levels",
+        "AppWorld"
+      ]
+    },
+    {
+      "atom_id": "124733ee-ba86-5d4e-a12a-388131b1d617",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors conclude that effective teacher-to-student memory transfer for small agents requires hierarchical organization across planning, subtask execution, and function-call guidance, with memory complexity aligned to student capacity.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "author_conclusion",
+        "AMD"
+      ]
+    },
+    {
+      "atom_id": "48c13388-b440-5c95-908f-b1bb87e08cee",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "limitation",
+      "canonical_statement": "AMD was evaluated only on text-based tool-use benchmarks with Python APIs or structured function calls; generalization to multimodal environments and open-ended coding tasks was not tested.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "external_validity"
+      ]
+    },
+    {
+      "atom_id": "6213c9fb-9c91-57b6-80da-e449afd938ae",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "limitation",
+      "canonical_statement": "AMD constructs memory offline from a fixed set of teacher trajectories and keeps it frozen at inference, so it cannot incorporate student successes or failures at test time or adapt to distribution shifts.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "online_adaptation",
+        "distribution_shift"
+      ]
+    },
+    {
+      "atom_id": "3b8a4178-4834-5865-a1a6-3fe45d70a06e",
+      "publication_id": "4dbcd28f-3a89-50f5-809e-55261ef8f720",
+      "atom_kind": "limitation",
+      "canonical_statement": "AMD depends on the quality and suitability of teacher trajectories, and the authors report that a stronger teacher does not always produce larger student gains because teacher–student compatibility also matters.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-review-atom",
+        "extracted_at": "2026-08-10T07:50:59.219983Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-10",
+        "input_document_hash": "sha256:319635b2ddbdd074dc9e6524aa05c069904aa800c76f89f54321649468ed54aa",
+        "extraction_run_id": "2608.07169v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:50:59.219983Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "teacher_quality",
+        "teacher_student_compatibility"
+      ]
+    }
+  ],
+  "validation_report": {
+    "pydantic_structural_validation": "passed",
+    "json_schema_validation": "passed",
+    "sufficiency_validation": "passed",
+    "structural_errors": [],
+    "schema_errors": [],
+    "sufficiency_errors": [],
+    "sufficiency_warnings": []
+  },
+  "extraction_limitations": [
+    "The current LiteratureAtom schema has no dedicated fields for benchmark identity, model architecture, standard deviation, computational cost, or agent-memory structures; these were preserved in population labels, exposure details, original_result_text, and tags where defensible.",
+    "Standard deviations in the five-run robustness table are preserved as source text because the schema interval object does not represent standard deviation.",
+    "No funding disclosure, conflict-of-interest statement, or data-availability statement was atomized because no such statement was identified in the inspected paper text.",
+    "Bibliographic citations and related-work claims were not extracted as primary evidence atoms."
+  ]
+}

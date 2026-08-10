@@ -1,0 +1,93 @@
+{
+  "activated_macro": "@ATOM",
+  "source_metadata": {
+    "file_name": "ciag481.pdf",
+    "extraction_label": "ciag481-general-v1",
+    "title": "Infectious Diseases Society of America 2026 Guidance on the Treatment of Antimicrobial-Resistant Gram-Negative Infections",
+    "authors": [
+      "Pranita D. Tamma",
+      "Robert A. Bonomo",
+      "Emily L. Heil",
+      "Julie Ann Justo",
+      "Michael J. Satlin",
+      "Amy J. Mathers"
+    ],
+    "journal": "Clinical Infectious Diseases",
+    "source_type": "IDSA guidance / accepted manuscript",
+    "doi": "10.1093/cid/ciag481",
+    "document_current_as_of": "2026-03-01",
+    "publication_id": "0b3d5893-0af1-52d1-b0e4-ca56f10ea325",
+    "input_document_hash": "sha256:896ec51007cf41d707e234c06650bb0419cd2dd3a396fe76b909224a1f429e2c",
+    "requested_page_range": "1-9",
+    "pages_parsed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "pages_excluded": "10-114"
+  },
+  "atom_summary": {
+    "total_atoms": 136,
+    "by_atom_kind": {
+      "author_conclusion": 14,
+      "limitation": 4,
+      "method": 4,
+      "other": 113,
+      "study_objective": 1
+    },
+    "by_assertion_origin": {
+      "normalized_from_source": 136
+    },
+    "by_source_page": {
+      "1": 2,
+      "2": 13,
+      "3": 14,
+      "4": 11,
+      "5": 8,
+      "6": 17,
+      "6-7": 1,
+      "7": 17,
+      "8": 13,
+      "9": 40
+    }
+  },
+  "validation": {
+    "pydantic_structural_valid": true,
+    "pydantic_structural_errors": [],
+    "json_schema_valid": true,
+    "json_schema_errors": [],
+    "sufficiency_valid": true,
+    "sufficiency_errors": [],
+    "sufficiency_warnings": []
+  },
+  "extraction_boundaries": {
+    "included": [
+      "Metadata, abstract, methods, introduction, general management suggestions, empiric-therapy considerations, duration/oral-transition considerations, and disclaimer content occurring on pages 1-4.",
+      "Table 1 dosing rows and footnotes visible on pages 5-8.",
+      "Table 2 breakpoint cells visible on pages 8-9 only."
+    ],
+    "excluded": [
+      "No content from page 10 or later was used to create atoms.",
+      "Table 2 continues onto page 10; rows beginning on page 10 were not extracted.",
+      "Table 2 footnote definitions that appear on page 10 were not used; affected page-9 cells are tagged unresolved_footnote.",
+      "References and supplemental material were not inspected for source claims because they fall outside the requested extraction boundary."
+    ]
+  },
+  "extraction_limitations": [
+    "The governing LiteratureAtom MVP is explicitly designed for primary literature, whereas this source is a guidance document. The schema has no dedicated guideline_recommendation, dosing_recommendation, or susceptibility_breakpoint atom kind.",
+    "Guideline recommendations, dosing rows, and breakpoint cells were therefore serialized conservatively as atom_kind=other or author_conclusion rather than being forced into primary-study result structures.",
+    "Background burden estimates on page 2 are secondary reports cited by the guidance; they were retained as atom_kind=other with secondary_report tags and were not represented as primary quantitative-result atoms.",
+    "No missing study population, exposure, outcome, denominator, or effect-estimate fields were invented to satisfy primary-study-oriented atom kinds.",
+    "All atoms are marked needs_review because extraction was performed by a language model and has not been independently human-verified."
+  ],
+  "output_files": [
+    "ciag481-general-v1.json",
+    "ciag481-general-v1-validation.json"
+  ]
+}

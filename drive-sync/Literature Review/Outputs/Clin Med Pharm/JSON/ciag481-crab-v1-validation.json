@@ -1,0 +1,90 @@
+{
+  "activated_macro": "@ATOM",
+  "source_metadata": {
+    "filename": "ciag481.pdf",
+    "title": "Infectious Diseases Society of America 2026 Guidance on the Treatment of Antimicrobial-Resistant Gram-Negative Infections",
+    "doi": "10.1093/cid/ciag481",
+    "source_type": "clinical guidance document / secondary evidence synthesis",
+    "requested_pdf_pages": [
+      52,
+      59
+    ],
+    "content_scope": "Section 5 CRAB content beginning at the Section 5 heading on PDF page 52 through the content visible on PDF page 59; preceding DTR P. aeruginosa text on page 52 was excluded.",
+    "publication_id": "0b3d5893-0af1-52d1-b0e4-ca56f10ea325",
+    "publication_id_consistency_note": "This batch uses the publication_id from ciag481-general-v1 and the later pages22-29 batch. A prior ciag481-esbl-v1 pages10-21 output used a different publication_id and should be normalized before whole-document merge.",
+    "input_document_hash": "sha256:896ec51007cf41d707e234c06650bb0419cd2dd3a396fe76b909224a1f429e2c",
+    "extraction_run_id": "ciag481-crab-v1"
+  },
+  "atom_counts": {
+    "total": 93,
+    "by_atom_kind": {
+      "adverse_event": 1,
+      "author_conclusion": 17,
+      "limitation": 15,
+      "method": 1,
+      "other": 2,
+      "population_description": 1,
+      "qualitative_result": 44,
+      "quantitative_result": 11,
+      "study_objective": 1
+    },
+    "by_assertion_origin": {
+      "normalized_from_source": 93
+    },
+    "by_source_page": {
+      "52": 12,
+      "53": 13,
+      "54": 14,
+      "55": 8,
+      "56": 11,
+      "57": 11,
+      "58": 14,
+      "59": 10
+    },
+    "by_question": {
+      "background": 14,
+      "q5.1": 19,
+      "q5.2": 15,
+      "q5.3": 14,
+      "q5.4": 16,
+      "q5.5": 11,
+      "q5.6": 4
+    }
+  },
+  "validation": {
+    "pydantic_structural_errors": [],
+    "json_schema_errors": [],
+    "sufficiency_errors": [],
+    "sufficiency_warnings": [],
+    "all_atoms_structurally_valid": true,
+    "all_atoms_schema_valid": true,
+    "all_atoms_sufficient_for_declared_kind": true
+  },
+  "extraction_boundaries": {
+    "included": [
+      "CRAB background beginning at the Section 5 heading on PDF page 52.",
+      "Questions 5.1 through 5.5 and their rationale content present on pages 53-59.",
+      "Question 5.6 suggested approach and only the complete rationale assertions visible on page 59."
+    ],
+    "excluded": [
+      "The DTR P. aeruginosa text preceding the Section 5 heading on page 52.",
+      "No content before PDF page 52 or after PDF page 59 was used to create atoms, apart from publication metadata and prior batch identifiers needed for source identity/merge consistency.",
+      "Question 5.6 rationale continues onto page 60; no page-60 content was inspected or used for extraction.",
+      "Reference-list bibliographic details and supplemental material were not parsed."
+    ]
+  },
+  "extraction_limitations": [
+    "The governing LiteratureAtom MVP is designed for primary literature, whereas ciag481.pdf is an IDSA clinical guidance document that synthesizes multiple underlying studies. Guideline recommendations were mapped to atom_kind=author_conclusion because the schema has no guideline_recommendation atom kind.",
+    "Quantitative and qualitative findings from cited trials, surveillance studies, PK/PD studies, animal models, systematic reviews, and meta-analyses are atoms of what the guidance reports, not direct re-extractions from the cited primary sources; these are tagged secondary_evidence_summary where applicable.",
+    "The schema provides a single quantitative_result.estimate field. For multi-arm results, estimate stores the first reported arm proportion while arm-specific event counts and denominators are preserved in quantitative_result.arms; no comparative effect measure was invented.",
+    "For the reported 20-25% nausea incidence and 27-57% colistin survival range, quantitative_result.estimate stores the reported lower bound and original_result_text preserves the full range; those atoms are explicitly tagged reported_range_lower_bound.",
+    "The guidance contains an internal denominator inconsistency on page 56: it describes a cefiderocol trial subgroup as n=54 while the reported arm denominators are 39 and 17 (sum 56). The quantitative atom preserves the arm counts and is accompanied by a limitation atom flagging the inconsistency.",
+    "Question 5.6 is truncated by the requested page boundary; only complete assertions on page 59 were extracted, and no continuation on page 60 was inferred.",
+    "All atoms are marked needs_review because extraction was performed by a language model and has not been independently human-verified. Structural, JSON Schema, and sufficiency validation do not establish source-fidelity verification.",
+    "A prior pages10-21 ESBL batch used a different publication_id from the general and later pages22-29 batches. This CRAB batch follows the general/later-batch publication_id (0b3d5893-0af1-52d1-b0e4-ca56f10ea325); a future merge should reconcile the ESBL publication_id conflict."
+  ],
+  "output_files": [
+    "ciag481-crab-v1.json",
+    "ciag481-crab-v1-validation.json"
+  ]
+}

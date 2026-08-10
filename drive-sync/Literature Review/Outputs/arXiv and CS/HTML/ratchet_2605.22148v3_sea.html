@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA — Ratchet: How Reliable Must an LLM Judge Be to Retire a Skill?</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#16202a;--muted:#5a6877;--line:#d9e1ea;--accent:#244f87;--accent2:#eef4fb;--good:#0b6545;--warn:#8a5b00;--bad:#8b2635;--code:#111923;--codeink:#eef5ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}
+header{background:linear-gradient(135deg,#11253f,#244f87);color:white;padding:3rem 1.25rem 2.5rem;border-bottom:5px solid #cbdcf0}header .inner,.wrap{max-width:1120px;margin:0 auto}h1{margin:0 0 .6rem;font-size:clamp(2rem,5vw,3.4rem);line-height:1.05}header p{max-width:900px;margin:.35rem 0;color:#edf4ff}.kicker{text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:.78rem;color:#cfe0f5}.wrap{padding:1.25rem}
+nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.15rem 1.25rem;margin:1rem 0;box-shadow:0 2px 8px rgba(18,38,64,.05)}nav.toc ul{columns:2;gap:2rem;padding-left:1.2rem}nav.toc a{color:var(--accent);text-decoration:none}h2{color:#143d6e;margin:.1rem 0 1rem}h3{color:#204c7d;margin-top:1.2rem}h4{margin:.9rem 0 .4rem}p{margin:.65rem 0}.meta-grid,.rating-grid,.takeaway-grid,.mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem}.mini-card{border:1px solid var(--line);border-radius:12px;padding:.85rem;background:#fbfcfe}.mini-card b{display:block;color:#1c416d;margin-bottom:.2rem}.verdict,.goodnote,.warning,.badnote{border-radius:12px;padding:.85rem 1rem;margin:.8rem 0}.verdict{background:#eaf2ff;border-left:5px solid var(--accent)}.goodnote{background:#edf8f2;border-left:5px solid var(--good)}.warning{background:#fff7e5;border-left:5px solid var(--warn)}.badnote{background:#fff0f2;border-left:5px solid var(--bad)}.tag{display:inline-block;border:1px solid #b8c7d9;background:#f2f6fb;border-radius:999px;padding:.14rem .5rem;margin:.1rem .15rem .1rem 0;font-size:.78rem;color:#2a4665}.source-label,.appraisal-label{font-size:.73rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.source-label{color:#315a8b}.appraisal-label{color:#8b2635}
+table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.9rem}th,td{border:1px solid var(--line);padding:.48rem .55rem;vertical-align:top}th{background:#edf3f9;text-align:left;color:#183b65;position:sticky;top:0}.scroll{overflow-x:auto}pre{background:var(--code);color:var(--codeink);padding:1rem;border-radius:12px;overflow-x:auto;white-space:pre-wrap;line-height:1.45}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.eq{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f4f7fa;border:1px solid var(--line);border-radius:8px;padding:.55rem .7rem;margin:.55rem 0;overflow-x:auto}.small{font-size:.88rem;color:var(--muted)}.score{font-size:1.55rem;font-weight:800;color:#163f70}.section-summary{border-top:1px dashed #cfd8e4;padding-top:.8rem;margin-top:.8rem}.qa-pass{color:var(--good);font-weight:800}ul.tight li{margin:.22rem 0}footer{max-width:1120px;margin:1rem auto 2rem;padding:0 1.25rem;color:var(--muted);font-size:.86rem}
+@media(max-width:760px){nav.toc ul{columns:1}table{font-size:.82rem}}@media print{body{background:white}header{background:white;color:black;border-bottom:2px solid #777;padding:1rem 0}header p,.kicker{color:#333}nav.toc,section{box-shadow:none;break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<header><div class="inner"><div class="kicker">Summary · Evaluation · Appraisal</div><h1>Ratchet: How Reliable Must an LLM Judge Be to Retire a Skill?</h1><p>Whole-paper reference artifact for arXiv:2605.22148v3. Focus: skill-library lifecycle governance, bounded-capacity maintenance, contribution-based retirement, and directional LLM-judge error.</p></div></header>
+<div class="wrap">
+<nav class="toc"><h2>Contents</h2><ul>
+<li><a href="#metadata">Metadata</a></li><li><a href="#synthesis">One-page synthesis</a></li><li><a href="#coverage">Coverage manifest</a></li><li><a href="#sections">Section condensation</a></li><li><a href="#visuals">Figures, tables & algorithm</a></li><li><a href="#technical">Technical core</a></li><li><a href="#appraisal">Evaluation & appraisal</a></li><li><a href="#takeaways">Implementation takeaways</a></li><li><a href="#qa">QA & provenance</a></li>
+</ul></nav>
+
+<section id="metadata"><h2>Metadata</h2><div class="meta-grid">
+<div class="mini-card"><b>Title</b>Ratchet: How Reliable Must an LLM Judge Be to Retire a Skill?</div>
+<div class="mini-card"><b>Authors</b>Xing Zhang; Yanwei Cui; Guanghui Wang; Ziyuan Li; Wei Qiu; Bing Zhu; Peiyang He</div>
+<div class="mini-card"><b>Affiliations</b>AWS Generative AI Innovation Center; HSBC Technology Center, China</div>
+<div class="mini-card"><b>Source type</b>arXiv preprint; theoretical + empirical AI/agent-systems study</div>
+<div class="mini-card"><b>Version/date</b>arXiv:2605.22148v3 · 7 Aug 2026</div>
+<div class="mini-card"><b>Length</b>21 pages, including references and appendices A–G</div>
+<div class="mini-card"><b>Primary domains</b>LLM agents; procedural memory; lifecycle governance; LLM-as-a-judge; noisy reward channels</div>
+<div class="mini-card"><b>Code</b>Repository link is reported by the paper; repository contents were not externally verified in this SEA run.</div>
+</div><div class="warning"><b>Scope warning.</b> This artifact summarizes and appraises the supplied v3 preprint. It does not independently reproduce the experiments, inspect the code repository, or verify cited prior work.</div></section>
+
+<section id="synthesis"><h2>One-page synthesis</h2>
+<div class="verdict"><b>Core thesis.</b> A self-evolving skill library needs explicit lifecycle maintenance, but a threshold-based retirement rule is only as reliable as the scalar reward it reads. The authors propose <b>Ratchet</b>: a fixed-width skill shelf with evidence-gated contribution eviction plus a constrained authoring prior, then derive a directional judge-error boundary beyond which retirement becomes uninformative.</div>
+<p><span class="source-label">Source-derived</span> The paper defines <b>library drift</b> as the condition where expected held-out pass@1 with the active library falls below the same frozen model’s no-skill control. Ratchet uses five frozen-model roles—Router, Solver, Critic, Synthesizer, Curator—over an append-only log. The Curator reads only a per-skill statistic and trial count, evicts at <code>n(s) ≥ Nmin</code> and <code>ĉ(s) ≤ −τ</code>, and maintains at most <code>C</code> active skills. Defaults are <code>τ=0.10</code>, <code>Nmin=100</code>, and <code>C=50</code>.</p>
+<p><span class="source-label">Source-derived</span> On a hard 100-task MBPP+ slice, three 100-round runs with Claude Opus 4.7 rise from mean round-0 held-out pass@1 <b>0.258 ± 0.047</b> to a mean peak of <b>0.658 ± 0.042</b>; the within-run rolling gain is <b>+0.328 ± 0.018</b> versus <b>+0.002 ± 0.005</b> when skill injection is withheld. The strongest negative ablation is aggressive early eviction (<code>Nmin=20, τ=0</code>), which yields <b>−0.019 ± 0.010</b>, below the no-skill control.</p>
+<p><span class="source-label">Source-derived</span> The judge model is a two-direction binary channel. With eviction pass-rate threshold <code>πτ=(1−τ)/2</code>, the paper’s central boundary is: if true failures are scored as passes at <code>ρF→P ≥ πτ</code>, no skill is asymptotically evictable; if true passes are scored as failures at <code>ρP→F ≥ 1−πτ</code>, the rule becomes indiscriminate. At <code>τ=0.10</code>, those edges are <b>0.45</b> and <b>0.55</b>. An audited strict judge is estimated at roughly <code>(ρF→P,ρP→F)=(0.01,0.95)</code>: far from the false-pass cliff but beyond the starvation edge.</p>
+<p><span class="source-label">Source-derived</span> The corruption sweep supports the qualitative asymmetry: symmetric noise attenuates retirement but does not disable it; false-pass bias can drive genuine contribution-based retirements to zero. End-task score is a poor alarm: the worst held-out excursion on RPT/71 is only <b>−0.065</b> at the theoretical false-pass boundary and then recovers at still-higher bias as synthesis itself starves.</p>
+<div class="badnote"><span class="appraisal-label">Appraisal — load-bearing concern</span><br><b>The formal guarantee has an internal estimator/scale problem as written.</b> Equation (2) defines <code>ĉ(s)=2p̂(s)−1</code>, a signed raw success rate, while Equation (3) defines contribution as <code>c(s)=E[p(x|s)−p0(x)]</code>. Those are not the same estimand unless an additional condition ties <code>p0</code> to 0.5 or a paired no-skill measurement is incorporated. Yet Proposition 1 assumes <code>ĉ</code> is unbiased for Equation (3). Separately, the numerical Hoeffding examples mix the [−1,1] contribution scale and [0,1] pass-rate scale: the printed Equation (4) with τ=.10, ε≈.39, Cδ=.05 implies a 0.54 deficit, not the stated 0.30. These issues materially weaken confidence in the claimed formal floor, while leaving the empirical lifecycle results and the simpler threshold-channel boundary as distinct findings.</div>
+<div><span class="tag">agent reliability</span><span class="tag">skill lifecycle</span><span class="tag">memory governance</span><span class="tag">LLM judge</span><span class="tag">noisy reward</span><span class="tag">bounded capacity</span><span class="tag">eviction</span><span class="tag">control loop</span></div>
+</section>
+
+<section id="coverage"><h2>Coverage manifest</h2>
+<div class="scroll"><table><thead><tr><th>Item</th><th>Coverage</th><th>Representation</th></tr></thead><tbody>
+<tr><td>Sections 1–7</td><td>Included</td><td>Section condensation</td></tr>
+<tr><td>Figures 1–3</td><td>All included</td><td>Structured reconstruction from caption/text; no screenshot required</td></tr>
+<tr><td>Tables 1–6</td><td>All included</td><td>HTML tables</td></tr>
+<tr><td>Algorithm 1</td><td>Included</td><td>Structured pseudocode block</td></tr>
+<tr><td>Appendices A–G</td><td>Included where methodologically/empirically load-bearing</td><td>Condensed narrative plus Tables 3–6</td></tr>
+<tr><td>References</td><td>Not condensed individually</td><td>Bibliography treated as provenance infrastructure; relevant prior-work claims remain summarized in Sections 1–2</td></tr>
+</tbody></table></div>
+<p class="small"><b>Source map:</b> 1 Introduction (pp.1–3); 2 Library drift (pp.3–4); 3 Ratchet design (pp.4–6); 4 formal floor and fallible reward (pp.6–8); 5 honest-reward experiments (pp.8–11); 6 sensor specification and corruption sweep (pp.11–13); 7 limitations/conclusion/broader impact (p.13); references (pp.13–17); appendices A–G (pp.17–21).</p>
+</section>
+
+<section id="sections"><h2>Section condensation</h2>
+<div class="section-summary"><h3>1. Introduction</h3><p>The authors frame self-evolving skill libraries as open-loop systems that author, retrieve, and inject persistent procedural artifacts but rarely remove them based on measured utility. They introduce “library drift” as a measurable failure mode and argue that explicit maintenance—not better authorship alone—is the missing controller.</p><p>The paper’s proposed synthesis is that lifecycle governance and reward reliability are inseparable: a bounded controller can provide a floor only if its sensor is sufficiently informative. The introduction previews the false-pass cliff, the empirical MBPP+ gain, and a pre-deployment audit for directional judge error.</p></div>
+<div class="section-summary"><h3>2. Library drift: when a skill library becomes harmful, and why it is rarely measured</h3><p>Library drift is defined against a within-model no-skill control: the shelf is harmful when expected pass@1 with the active library is below expected pass@1 without skill injection. The proposed mechanism is retrieval dilution and persistence of superseded artifacts; adaptive abstention can mask deterioration in aggregate curves.</p><p>The literature survey positions prior systems as heavily invested in authorship but sparsely instrumented for contribution-based retirement under bounded width. Table 1 is a feature-presence comparison, not a performance benchmark, and the authors explicitly distinguish their contribution from concurrent score-based maintenance systems.</p></div>
+<div class="section-summary"><h3>3. Ratchet: five roles, one log, three levers</h3><p>One frozen model fills Router, Solver, Critic, Synthesizer, and Curator roles. The durable state is an append-only evidence log. The Router returns at most one skill or declines, preserving single-skill attribution; failures are critiqued and clustered into candidate skill patterns; the Curator makes deterministic lifecycle decisions from per-skill counts/statistics.</p><p>The three levers are: (1) evidence-gated eviction at <code>n≥Nmin</code> and <code>ĉ≤−τ</code>; (2) a fixed active width <code>C</code> with weakest-skill eviction on overflow; and (3) a meta-skill authoring prior that constrains new skills toward reusable schemas. Supporting mechanisms are canonicalization, a cover guard, and a rollback guard that fired only twice in 300 round-decisions.</p></div>
+<div class="section-summary"><h3>4. Why a closed loop has a floor, and what buys the finiteness</h3><p>Proposition 1 claims a no-skill-relative lower bound whose finite terms depend on finite eviction margin and shelf width, while Proposition 2 extends the analysis to a two-direction reward channel. The intuitive boundary in Section 4.1 is clean: the fixed eviction threshold can be translated out of the feasible true-pass domain by false-pass bias, whereas symmetric noise primarily contracts resolution.</p><p><span class="appraisal-label">Appraisal</span> The core theoretical argument is not fully secure as written because the implemented statistic in Equation (2) does not estimate the no-skill-relative contribution defined in Equation (3), yet that equivalence is assumed in Proposition 1. The paper also mixes contribution-scale and pass-rate-scale Hoeffding radii in its numeric examples. These are not cosmetic notation issues because the theorem is the paper’s claimed formal basis for “non-divergence.”</p></div>
+<div class="section-summary"><h3>5. Evidence under an honest reward</h3><p>MBPP+/100 uses 60 train and 40 held-out tasks selected because the frozen base model fails at least one probe seed. The primary model is Claude Opus 4.7, with 100 rounds and seeds 42, 7, and 13. The reported rolling gain is the last-ten minus first-ten held-out pass@1 within each run. The clean reward is unit-test grading.</p><p>The default controller gains +0.328 ± 0.018; injection-withheld is essentially flat. Ablations identify injection, model-based routing, the authoring prior, and an evidence floor as load-bearing. Cross-model single-seed runs show positive gaps for Kimi, GLM-5, and DeepSeek, with weak/nonpositive gaps for Qwen3-Coder, Mistral Large 3, and GPT-5.5; the authors attribute these to capability/headroom and statistic effects. SWE-V/150 is presented as preliminary: no-skill mean 0.65, injection peak 0.87, but only 18–19 rounds.</p></div>
+<div class="section-summary"><h3>6. The sensor specification, measured</h3><p>The paper proposes an offline defect-injection audit for reference-free domains, pairing deterministic structural checks with a held-out LLM judge for semantic defects. On the authors’ audited strict judge, the union estimates false-pass error near 0.01 and phantom-failure error near 0.95, giving very low channel resolution κ≈0.04.</p><p>A corruption sweep on RPT/71 and three additional slices tests the predicted asymmetry. Genuine contribution-driven retirement is separated from width churn. False-pass bias disables retirement near/past the boundary; symmetric noise attenuates rather than kills it. The authors emphasize that the governable rectangle is necessary, not sufficient: a condition can lie inside it yet still have no currently evictable skills.</p></div>
+<div class="section-summary"><h3>7. Scope, limitations, conclusion, broader impact</h3><p>The authors generalize the threshold-channel result beyond skills to any artifact store retired by a scalar threshold. They explicitly limit the study to exogenous corruption, enumerable audit defect classes, routed-conditional association rather than causal contribution, three seeds for main experiments, single-seed cross-family probes, and no direct governance bake-off.</p><p>The operational warning is that lifecycle control can fail before end-task metrics clearly signal it. The paper therefore recommends auditing the sensor before enabling the controller and monitoring the direction of judge error rather than only aggregate accuracy.</p></div>
+<h3>Appendices A–G</h3><p>Appendix A exposes all per-seed MBPP+ rolling gains and rollback firings; B gives both halves of the cross-model comparison plus SWE-V/150 details; C specifies the seven defect classes and the held-out-judge audit; D lists every corruption condition; E addresses rollback and low seed count; F gives proofs and concentration calculations; G lists default configuration and role inputs. These appendices are load-bearing for reproducibility and for evaluating the mathematical-scale inconsistency noted above.</p>
+</section>
+
+<section id="technical"><h2>Technical core</h2>
+<h3>Operational definitions and rules</h3>
+<div class="eq">Library drift: E[pass@1 | Sₜ] &lt; E[p₀] for some t &gt; 0.</div>
+<div class="eq">Implemented per-skill statistic: ĉ(s) = (#pass − #fail)/n = 2p̂(s) − 1.</div>
+<div class="eq">Evict when: n(s) ≥ Nmin AND ĉ(s) ≤ −τ. Defaults: Nmin=100, τ=0.10.</div>
+<div class="eq">Capacity: |S| ≤ C, default C=50; overflow evicts arg minₛ ĉ(s).</div>
+<div class="eq">Judge channel: P(scored pass | true fail)=ρF→P; P(scored fail | true pass)=ρP→F; κ=1−ρF→P−ρP→F.</div>
+<div class="eq">Eviction pass-rate threshold: πτ=(1−τ)/2. At τ=.10, πτ=.45.</div>
+<div class="eq">Paper's certification edges: false-pass cliff ρF→P ≥ .45; starvation edge ρP→F ≥ .55.</div>
+<h3>Algorithm 1 — one governed round</h3><pre><code>ACT
+1. For eval then train tasks: Router chooses one ACTIVE skill or declines.
+2. Solver attempts the task; append graded capsule to the log.
+3. For each train failure: Critic appends attribution + pattern.
+
+GROW
+4. Canonicalize and cluster recent failure patterns.
+5. For uncovered clusters of size ≥3: Synthesizer writes a skill under the authoring prior.
+
+GOVERN
+6. If n(s) ≥ Nmin and ĉ(s) ≤ −τ: mark skill DEPRECATED.
+7. While active width exceeds C: evict the skill with minimum ĉ(s).
+
+GUARD
+8. If held-out pass@1 is >τrb below the running best for 5 consecutive rounds: restore best shelf.
+9. Return shelf and append-only log.</code></pre>
+<div class="warning"><b>Interpretation boundary.</b> The empirical controller thresholds raw per-skill pass behavior. The theorem, however, is framed in terms of contribution relative to a no-skill counterfactual. A deployment that needs a defensible causal or no-skill-relative “contribution” should consider paired/toggled evaluation or explicitly redefine the estimand rather than assuming Equation (2) supplies Equation (3).</div>
+</section>
+
+<section id="visuals"><h2>Figures, tables, and workflow extraction</h2>
+<h3>Figure 1 — The loop and its sensor specification</h3><pre><code>PLANT: Router → Solver → Critic → Synthesizer → growing shelf/log
+CONTROLLER: Curator
+  • evict by measured statistic at margin τ after Nmin trials
+  • cap active shelf at width C
+  • constrain authoring with a prior
+SENSOR: one scalar per skill, ĉ(s), plus n(s)
+
+Certification plane at τ=.10:
+  governable rectangle: ρF→P < .45 and ρP→F < .55
+  right of .45 false-pass edge: Curator asymptotically cannot evict
+  above .55 phantom-failure edge: rule becomes indiscriminate
+  audited judge: ≈(.01,.95), safe from false-pass cliff but beyond starvation edge</code></pre><p><b>Appraisal:</b> The figure cleanly communicates the directional asymmetry and separates controller from plant. The rectangle is a necessary informativeness condition, not a guarantee that the current skill population contains an evictable item.</p>
+
+<h3>Table 1 — Design-axis presence across skill-library systems</h3><div class="scroll"><table><thead><tr><th>System</th><th>Separate critic</th><th>Evidence log</th><th>Failure-cluster synthesis</th><th>Typed schema</th><th>Meta-skill layer</th><th>Pattern canonicalization</th><th>Eviction on contribution</th><th>Bounded width C</th></tr></thead><tbody><tr><td>MemGPT</td><td>✗</td><td>◦</td><td>N/A</td><td>◦</td><td>✗</td><td>✗</td><td>◦</td><td>◦</td></tr>
+<tr><td>DSPy</td><td>◦</td><td>◦</td><td>N/A</td><td>✓</td><td>◦</td><td>✗</td><td>✗</td><td>✗</td></tr>
+<tr><td>Voyager</td><td>✗</td><td>◦</td><td>◦</td><td>✓</td><td>◦</td><td>✗</td><td>✗</td><td>✗</td></tr>
+<tr><td>AWM</td><td>✗</td><td>◦</td><td>✗</td><td>✓</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td></tr>
+<tr><td>AutoManual</td><td>✗</td><td>◦</td><td>◦</td><td>◦</td><td>✗</td><td>✗</td><td>✗</td><td>N/A</td></tr>
+<tr><td>ExpeL</td><td>◦</td><td>✓</td><td>◦</td><td>✗</td><td>✗</td><td>✗</td><td>◦</td><td>✗</td></tr>
+<tr><td>CASCADE</td><td>◦</td><td>◦</td><td>✗</td><td>◦</td><td>✓</td><td>✗</td><td>✗</td><td>✗</td></tr>
+<tr><td>EvolveR</td><td>◦</td><td>◦</td><td>◦</td><td>◦</td><td>✗</td><td>◦</td><td>◦</td><td>✗</td></tr>
+<tr><td>SSL</td><td>✗</td><td>✗</td><td>✗</td><td>✓</td><td>◦</td><td>✗</td><td>✗</td><td>✗</td></tr>
+<tr><td>AutoSkill</td><td>✗</td><td>◦</td><td>✗</td><td>✓</td><td>✗</td><td>✗</td><td>◦</td><td>✗</td></tr>
+<tr><td>Strategy Genes</td><td>✗</td><td>◦</td><td>◦</td><td>✓</td><td>✗</td><td>✗</td><td>✗</td><td>◦</td></tr>
+<tr><td>SkillRL†</td><td>◦</td><td>◦</td><td>◦</td><td>◦</td><td>◦</td><td>✗</td><td>✗</td><td>✗</td></tr>
+<tr><td>Trace2Skill</td><td>◦</td><td>✓</td><td>◦</td><td>◦</td><td>✗</td><td>◦</td><td>✗</td><td>✗</td></tr>
+<tr><td>SkillAudit</td><td>✓</td><td>◦</td><td>✗</td><td>◦</td><td>✗</td><td>✗</td><td>◦</td><td>✗</td></tr>
+<tr><td>MACLA</td><td>✗</td><td>◦</td><td>◦</td><td>◦</td><td>✗</td><td>✗</td><td>◦</td><td>✗</td></tr>
+<tr><td>ProcMEM</td><td>◦</td><td>✗</td><td>◦</td><td>✓</td><td>✗</td><td>◦</td><td>✓</td><td>✓</td></tr>
+<tr><td>Ratchet</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr></tbody></table></div><p class="small">✓ present; ✗ absent; ◦ partial; N/A not applicable. The authors explicitly present this as feature presence, not comparative performance. †SkillRL updates weights and is included for contrast.</p>
+
+<h3>Algorithm 1</h3><p>Represented above in the Technical core. It is the main workflow artifact and exposes the division of labor between open-loop task execution, skill growth, governance, and rollback.</p>
+
+<h3>Figure 2 — Honest-sensor lift, skill lifetimes, and cross-model travel</h3><pre><code>(a) MBPP+/100, 3 seeds, 100 rounds:
+    round-0 held-out pass@1 = 0.258 ± 0.047
+    mean peak = 0.658 ± 0.042
+    rolling gain = +0.328 ± 0.018
+    injection-withheld = +0.002 ± 0.005
+
+(b) Seed 13 shelf history: 124 skills written
+    50 earning / surviving, 14 sensor-retired, 60 width-evicted
+    survivors' final ĉ average +0.29; sensor-retired average −0.45
+    sensor retirement occurs late (median 107 trials); width eviction removes young skills earlier
+
+(c) Within-family lift over own no-injection control:
+    Opus +0.326; Kimi +0.168; GLM-5 +0.105; DeepSeek +0.087;
+    Qwen3-Coder +0.020; Mistral −0.010; GPT-5.5 −0.012</code></pre>
+
+<h3>Table 2 — Eight single-knob conditions on MBPP+/100</h3><div class="scroll"><table><thead><tr><th>Condition</th><th>Knob</th><th>Rolling gain</th><th>Δ vs default</th><th>Interpretation</th></tr></thead><tbody><tr><td>Default</td><td>—</td><td>+0.328 ± 0.018</td><td>—</td><td>Reference configuration</td></tr>
+<tr><td>A1</td><td>Injection withheld</td><td>+0.002 ± 0.005</td><td>−0.326</td><td>Using the shelf, not merely maintaining it, carries the gain.</td></tr>
+<tr><td>A2</td><td>Retrieval replaces router</td><td>+0.077 ± 0.065</td><td>−0.251</td><td>Routing adjudication materially outperforms top-hit similarity retrieval.</td></tr>
+<tr><td>A3</td><td>Authoring prior removed</td><td>+0.187 ± 0.036</td><td>−0.141</td><td>Largest loss among the three principal levers when dropped.</td></tr>
+<tr><td>A4</td><td>Nmin→20, τ→0</td><td>−0.019 ± 0.010</td><td>−0.347</td><td>Early/aggressive eviction drops below the no-skill control.</td></tr>
+<tr><td>A5</td><td>Canonicalisation removed</td><td>+0.374 ± 0.023</td><td>+0.046</td><td>Difference is within the authors’ resolution at n=3.</td></tr>
+<tr><td>A6</td><td>Cover-guard removed</td><td>+0.363 ± 0.033</td><td>+0.035</td><td>Difference is within the authors’ resolution at n=3.</td></tr>
+<tr><td>A7</td><td>Width C=100</td><td>+0.317 ± 0.110</td><td>−0.011</td><td>Mean is similar but variance is much larger.</td></tr>
+<tr><td>A8</td><td>Prior refreshed / 10 rounds</td><td>+0.372 ± 0.017</td><td>+0.044</td><td>Best peak but with 55% more wall time; not claimed superior.</td></tr></tbody></table></div>
+
+<h3>Figure 3 — Predicted boundary and measured corruption behavior</h3><pre><code>Prediction:
+  symmetric noise contracts scored contribution toward the threshold center;
+  false-pass bias translates it upward and can move the eviction crossing outside the feasible domain.
+
+Measured mechanism:
+  clean genuine retirements/run = 1.333
+  false-pass .20: 0.000 retirements/run (inside formal rectangle but no shelf skill below p*)
+  false-pass .45: 0.333 (finite-sample residue at the asymptotic edge)
+  false-pass .70: 0.000
+  audited judge (.01,.95): 10.333, i.e. near-indiscriminate retirement
+
+Measured outcome on RPT/71:
+  worst Δ pass@1 is −0.065 at false-pass .45;
+  at false-pass .70 outcome rebounds to +0.039 as synthesis starves.</code></pre><p><b>Appraisal:</b> This figure is the strongest empirical support for the paper’s “mechanism before dashboard” message. It also shows that downstream harm is non-monotone, so aggregate error rate alone is a poor safety statistic.</p>
+
+<h3>Table 3 — Per-seed rolling gain (Appendix A)</h3><div class="scroll"><table><thead><tr><th>Condition</th><th>s=42</th><th>s=7</th><th>s=13</th><th>Mean ± std</th></tr></thead><tbody><tr><td>Default</td><td>+0.302</td><td>+0.340</td><td>+0.343</td><td>+0.328 ± 0.018</td></tr>
+<tr><td>A1 injection withheld</td><td>+0.003</td><td>−0.005</td><td>+0.008</td><td>+0.002 ± 0.005</td></tr>
+<tr><td>A2 retrieval replaces router</td><td>+0.147</td><td>+0.095</td><td>−0.010</td><td>+0.077 ± 0.065</td></tr>
+<tr><td>A3 authoring prior removed</td><td>+0.148</td><td>+0.177</td><td>+0.235</td><td>+0.187 ± 0.036</td></tr>
+<tr><td>A4 Nmin→20, τ→0</td><td>−0.005</td><td>−0.027</td><td>−0.025</td><td>−0.019 ± 0.010</td></tr>
+<tr><td>A5 canonicalisation removed</td><td>+0.343</td><td>+0.385</td><td>+0.395</td><td>+0.374 ± 0.023</td></tr>
+<tr><td>A6 cover-guard removed</td><td>+0.365</td><td>+0.403</td><td>+0.322</td><td>+0.363 ± 0.033</td></tr>
+<tr><td>A7 width C=100</td><td>+0.172</td><td>+0.340</td><td>+0.440</td><td>+0.317 ± 0.110</td></tr>
+<tr><td>A8 prior refreshed / 10 rounds</td><td>+0.365</td><td>+0.355</td><td>+0.395</td><td>+0.372 ± 0.017</td></tr></tbody></table></div><p class="small">Round-0 held-out pass@1: 0.225, 0.225, 0.325. Peaks: 0.675, 0.600, 0.700. Rollback fired 0, 1, and 1 times respectively.</p>
+
+<h3>Table 4 — Cross-model probe (Appendix B)</h3><div class="scroll"><table><thead><tr><th>Model</th><th>Vendor</th><th>Round-0</th><th>Default</th><th>Control</th><th>Gap</th></tr></thead><tbody><tr><td>Claude Opus 4.7</td><td>Anthropic</td><td>0.258</td><td>+0.328</td><td>+0.002</td><td>+0.326</td></tr>
+<tr><td>Kimi K2.5</td><td>Moonshot</td><td>0.050</td><td>+0.183</td><td>+0.015</td><td>+0.168</td></tr>
+<tr><td>GLM-5</td><td>Z.ai</td><td>0.025</td><td>+0.117</td><td>+0.012</td><td>+0.105</td></tr>
+<tr><td>DeepSeek V3.2</td><td>DeepSeek</td><td>0.025</td><td>+0.075</td><td>−0.012</td><td>+0.087</td></tr>
+<tr><td>Qwen3-Coder 480B</td><td>Alibaba</td><td>0.025</td><td>+0.020</td><td>+0.000</td><td>+0.020</td></tr>
+<tr><td>Mistral Large 3</td><td>Mistral</td><td>0.025</td><td>−0.010</td><td>+0.000</td><td>−0.010</td></tr>
+<tr><td>GPT-5.5</td><td>OpenAI</td><td>0.125</td><td>+0.003</td><td>+0.015</td><td>−0.012</td></tr></tbody></table></div><p class="small">The six non-Opus families are single-seed. The paper interprets non-separating models as suffering either insufficient task reach/headroom or a rolling-window-statistic limitation.</p>
+
+<h3>Table 5 — Held-out judge on paired clean/injected sections (Appendix C)</h3><div class="scroll"><table><thead><tr><th>Injected class</th><th>Pairs</th><th>Flag rate</th><th>Mean quality-score drop</th><th>Permutation p</th></tr></thead><tbody><tr><td>Number swap</td><td>67</td><td>0.985</td><td>1.194</td><td><10⁻⁴</td></tr>
+<tr><td>Claim negation</td><td>55</td><td>0.927</td><td>0.255</td><td>0.004</td></tr>
+<tr><td>Unsourced number</td><td>27</td><td>1.000</td><td>2.074</td><td><10⁻⁴</td></tr>
+<tr><td>Unregistered metric</td><td>28</td><td>1.000</td><td>1.464</td><td><10⁻⁴</td></tr>
+<tr><td>Orphan citation</td><td>28</td><td>1.000</td><td>0.893</td><td><10⁻⁴</td></tr>
+<tr><td>Broken cross-reference</td><td>25</td><td>0.840</td><td>0.040</td><td>0.500</td></tr>
+<tr><td>Summary removal</td><td>26</td><td>0.808</td><td>0.038</td><td>0.504</td></tr></tbody></table></div><p class="small">The deterministic grader catches all five “check-visible” classes, almost none of claim negation/number swap. The held-out judge is intended to cover that semantic gap. The union estimates ρF→P≈0.01; the strict training judge’s phantom-failure estimate is ≈0.95 over 42 true-pass audited sections (95% exact binomial interval reported as 0.84–0.99).</p>
+
+<h3>Table 6 — Corruption sweep conditions (Appendix D)</h3><div class="scroll"><table><thead><tr><th>Condition</th><th>(ρF→P, ρP→F)</th><th>p*</th><th>Realized divergence</th><th>Genuine retires/run</th><th>Skills written</th><th>Δ held-out vs clean</th></tr></thead><tbody><tr><td>Clean grader</td><td>(0, 0)</td><td>0.45</td><td>0.000</td><td>1.333</td><td>22.0</td><td>±0.000</td></tr>
+<tr><td>ρ = 0.10</td><td>(0.10, 0.10)</td><td>0.44</td><td>0.103</td><td>0.667</td><td>22.0</td><td>+0.033</td></tr>
+<tr><td>ρ = 0.20</td><td>(0.20, 0.20)</td><td>0.42</td><td>0.216</td><td>1.000</td><td>23.0</td><td>+0.018</td></tr>
+<tr><td>ρ = 0.30</td><td>(0.30, 0.30)</td><td>0.38</td><td>0.308</td><td>1.000</td><td>23.0</td><td>+0.027</td></tr>
+<tr><td>ρ = 0.40</td><td>(0.40, 0.40)</td><td>0.25</td><td>0.384</td><td>1.000</td><td>24.0</td><td>+0.060</td></tr>
+<tr><td>False-pass 0.20</td><td>(0.20, 0)</td><td>0.31</td><td>0.073</td><td>0.000</td><td>19.7</td><td>−0.021</td></tr>
+<tr><td>False-pass 0.45 = πτ</td><td>(0.45, 0)</td><td>0.00</td><td>0.180</td><td>0.333</td><td>15.7</td><td>−0.065</td></tr>
+<tr><td>False-pass 0.70</td><td>(0.70, 0)</td><td><0</td><td>0.306</td><td>0.000</td><td>15.0</td><td>+0.039</td></tr>
+<tr><td>Audited judge</td><td>(0.01, 0.95)</td><td>>1</td><td>0.591</td><td>10.333</td><td>19.0</td><td>+0.024</td></tr></tbody></table></div>
+</section>
+
+<section id="appraisal"><h2>Evaluation and appraisal</h2>
+<div class="verdict"><b>Verdict: Read first</b> for work on self-evolving agents, memory/skill lifecycle governance, evaluator reliability, or artifact-retirement systems. <b>Do not accept the formal non-divergence guarantee at face value without resolving the estimator and scale inconsistencies.</b></div>
+<div class="rating-grid">
+<div class="mini-card"><b>Relevance</b><div class="score">9/10</div><p>Directly addresses agent reliability, persistent memory governance, LLM-judge failure modes, and operational lifecycle controls.</p><p class="small"><b>Evidence basis:</b> explicit maintenance architecture + theory + ablations + corruption tests. <b>Limit:</b> coding/report-generation task families dominate. <b>Raise:</b> broader artifact stores and deployment traces.</p></div>
+<div class="mini-card"><b>Novelty</b><div class="score">8/10</div><p>The useful novelty is the coupling of artifact retirement with directional reward-channel analysis and an offline pre-deployment audit.</p><p class="small"><b>Evidence basis:</b> false-pass cliff, starvation edge, and mechanism-level retirement metrics. <b>Limit:</b> bounded pruning and score-based maintenance exist in adjacent work. <b>Raise:</b> stronger comparative lifecycle bake-off.</p></div>
+<div class="mini-card"><b>Method strength</b><div class="score">5/10</div><p>Empirical design is thoughtful, but the central formal section contains a load-bearing estimand mismatch and scale arithmetic inconsistency.</p><p class="small"><b>Evidence basis:</b> controlled ablations, per-seed reporting, injected error channels, explicit limitations. <b>Limit:</b> Eq.2 vs Eq.3 mismatch; three seeds; single-seed cross-model probe. <b>Raise:</b> corrected theorem/estimator plus independent reproduction.</p></div>
+<div class="mini-card"><b>Evidence strength</b><div class="score">6/10</div><p>The empirical claim that governance choices and judge-error direction matter is reasonably supported; the theorem-backed floor is not yet equally secure.</p><p class="small"><b>Evidence basis:</b> +0.328 default gain, A4 failure, retirement-mechanism sweep. <b>Limit:</b> no external independent validation and formal inconsistency. <b>Raise:</b> corrected analysis, preregistered larger runs, independent benchmark replication.</p></div>
+<div class="mini-card"><b>External validity</b><div class="score">5/10</div><p>Several model families and a preliminary SWE-bench setting help, but primary evidence comes from narrow slices and frozen-model loops.</p><p class="small"><b>Evidence basis:</b> seven model families, RPT slices, SWE-V/150. <b>Limit:</b> single-seed family probes, exogenous noise, enumerable defect audit only. <b>Raise:</b> real long-running libraries with endogenous judge drift and diverse domains.</p></div>
+<div class="mini-card"><b>Implementation value</b><div class="score">9/10</div><p>The operational lessons—capacity caps, evidence floors, sensor audits, mechanism metrics, append-only provenance—are concrete and transferable.</p><p class="small"><b>Evidence basis:</b> explicit roles, thresholds, defaults, prompts/configuration appendix. <b>Limit:</b> “contribution” statistic needs clarification before direct reuse. <b>Raise:</b> paired-control estimator and production monitoring recipe.</p></div>
+</div>
+<h3>Main strengths</h3><ul class="tight"><li>Defines a testable no-skill control for library drift rather than only naming retrieval dilution.</li><li>Separates contribution-driven retirement from capacity churn, which is essential for diagnosing a disabled controller.</li><li>Tests directional reward error rather than collapsing judge quality into one accuracy number.</li><li>Reports negative ablations, per-seed values, and rollback firings rather than only headline peaks.</li><li>Provides a pre-deployment audit concept using complementary deterministic and LLM-based defect detection.</li></ul>
+<h3>Main limitations</h3><ul class="tight"><li><b>Formal estimand mismatch:</b> <code>2p̂−1</code> is not generally an estimator of <code>p(s)−p0</code>.</li><li><b>Scale inconsistency:</b> Hoeffding radii and the stated default downside example mix [−1,1] and [0,1] conventions.</li><li>Three seeds are insufficient for formal hypothesis testing; authors appropriately avoid some small-difference claims.</li><li>Cross-model evidence is single-seed and task selection is conditioned on Opus failures.</li><li>Corruption is exogenous; the harder case where the evolving library learns to exploit a judge’s blind spots is excluded.</li><li>The defect audit certifies only named/enumerable failure classes.</li><li>The per-skill statistic is routed-conditional and associational; Router selection creates survivorship/selection confounding.</li><li>No head-to-head governance bake-off on a shared log.</li></ul>
+<h3>What the results support</h3><div class="goodnote"><b>Supported with moderate confidence:</b> lifecycle maintenance can materially change a persistent skill library; overly aggressive early eviction can be harmful; bounded capacity and evidence gating are operationally sensible; false-pass and phantom-failure judge errors should be tracked separately; end-task score can miss controller failure.</div>
+<h3>What the results do not yet establish</h3><div class="badnote"><b>Not established:</b> the exact no-skill-relative floor in Proposition 1/2 for the implemented statistic; that the reported judge-error rectangle is sufficient for robust production governance; that Ratchet outperforms other maintenance systems head-to-head; or that the observed gains generalize to long-running, endogenous, real-world agent ecosystems.</div>
+</section>
+
+<section id="takeaways"><h2>Implementation / research takeaways</h2><div class="takeaway-grid">
+<div class="mini-card"><b>1. Keep a real control</b>Periodically compare the same model with skill injection disabled. A lifecycle metric needs a reference state, not only an absolute task score.</div>
+<div class="mini-card"><b>2. Separate retirement mechanisms</b>Log contribution-based retirement, capacity eviction, synthesis count, and abstention separately; total deprecations can hide a dead sensor-driven curator.</div>
+<div class="mini-card"><b>3. Use an evidence floor</b>Do not threshold very young artifacts. A4 is a concrete warning that premature retirement can make governance worse than no governance.</div>
+<div class="mini-card"><b>4. Bound active width</b>A fixed capacity is useful independently of the contribution estimator because it limits retrieval dilution and prevents unbounded active-state growth.</div>
+<div class="mini-card"><b>5. Audit error direction</b>For LLM judges, estimate failure→pass and pass→failure separately against enumerated defect classes. Aggregate agreement can conceal the failure mode that disables retirement.</div>
+<div class="mini-card"><b>6. Fix the contribution estimand</b>If the goal is “contribution relative to no skill,” measure paired/toggled outcomes or otherwise define a baseline-aware estimator. Do not relabel raw pass margin as no-skill-relative contribution.</div>
+<div class="mini-card"><b>7. Watch for endogenous drift</b>A one-time judge audit is weakest when artifacts can adapt to the judge. Re-audit along the trajectory or use held-out/rotating evaluators if optimization pressure can exploit blind spots.</div>
+<div class="mini-card"><b>8. Treat the paper as build-useful, not theorem-final</b>The architecture and failure-mode decomposition are immediately useful; the mathematical guarantee should be re-derived before being used as a safety certificate.</div>
+</div></section>
+
+<section id="qa"><h2>QA and provenance</h2>
+<ul class="tight"><li><span class="qa-pass">PASS</span> Exact source title and version matched.</li><li><span class="qa-pass">PASS</span> Sections 1–7 mapped and condensed.</li><li><span class="qa-pass">PASS</span> Figures 1–3 reconciled as structured blocks.</li><li><span class="qa-pass">PASS</span> Tables 1–6 represented.</li><li><span class="qa-pass">PASS</span> Algorithm 1 represented.</li><li><span class="qa-pass">PASS</span> Appendices A–G reviewed for load-bearing methods/results.</li><li><span class="qa-pass">PASS</span> Source claims and independent appraisal are visually separated.</li><li><span class="qa-pass">PASS</span> No external facts were added to the evidence synthesis; no web verification performed.</li></ul>
+<p><b>Evaluated source:</b> <code>Ratchet How Reliable Must an LLM Judge Be to Retire a Skill - 2605.22148v3.pdf</code><br><b>Stable identifier:</b> arXiv:2605.22148v3<br><b>Source URL:</b> https://arxiv.org/abs/2605.22148<br><b>Generation date:</b> 2026-08-10</p>
+<p class="small"><b>Protocol note:</b> The governing project file is named <code>summary-evaluation-appraisal-protocol-v4-compact.md</code> but its internal heading identifies itself as “Integrated Compact v3.” This run followed the contents of the governing file supplied by the project. The historical v3 HTML reference was not used to override it.</p>
+</section>
+</div>
+<footer>SEA artifact generated from the supplied primary source. This is a critical reading aid, not an independent reproduction or peer review.</footer>
+</body></html>

@@ -1,0 +1,5784 @@
+{
+  "activated_macro": "@ATOM",
+  "source_metadata": {
+    "title": "TEPA: Revoking Stale Memories for Conflict-Robust Language Agents",
+    "authors": [
+      "Yan Zhou",
+      "Yue Ouyang",
+      "Kaiyang Zheng",
+      "Suncheng Xiang"
+    ],
+    "source_type": "arXiv preprint",
+    "arxiv_id": "2608.07429v1",
+    "category": "cs.AI",
+    "date": "2026-08-07",
+    "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+    "input_file": "TEPA Revoking Stale Memories for Conflict-Robust Language Agents - 2608.07429v1.pdf",
+    "input_document_sha256": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+    "page_count": 14,
+    "extraction_run_id": "2608.07429v1-general-v1"
+  },
+  "atom_counts": {
+    "total": 72,
+    "by_type": {
+      "author_conclusion": 5,
+      "limitation": 3,
+      "method": 27,
+      "other": 6,
+      "qualitative_result": 4,
+      "quantitative_result": 26,
+      "study_objective": 1
+    }
+  },
+  "validation": {
+    "pydantic_structural_valid": true,
+    "json_schema_valid": true,
+    "sufficiency_valid": true,
+    "structural_errors": [],
+    "schema_errors": [],
+    "sufficiency_errors": [],
+    "sufficiency_warnings": []
+  },
+  "atoms": [
+    {
+      "atom_id": "537a1486-916c-5e9a-a42a-31a85dabce43",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The study evaluates whether stale active long-term memories can make language-agent performance worse than no memory and whether conflict-keyed revocation prevents that failure.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "memory_pollution",
+        "revocation",
+        "language_agents"
+      ]
+    },
+    {
+      "atom_id": "591e6e5e-514d-52de-b43b-5dbd78baa1b5",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "other",
+      "canonical_statement": "Memory pollution is defined as degradation caused by active memories that have been superseded by newer conflicting evidence.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "definition",
+        "memory_pollution"
+      ]
+    },
+    {
+      "atom_id": "9dcf2048-1fa1-5ddd-bd64-1148d53f80f5",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "TEPA represents observations as keyed precedents with explicit lifecycle validity state and revokes an active precedent when fresh same-key evidence contradicts it, while retaining the revoked history for audit.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "TEPA",
+        "lifecycle_state",
+        "revocation"
+      ]
+    },
+    {
+      "atom_id": "ff91b238-98aa-55cf-9522-d08e8cd71b98",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "other",
+      "canonical_statement": "Stale-conflict consolidation asks the agent to answer using the current value for each key when later evidence supersedes an earlier incompatible value under the same key.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "introduction",
+        "page": "2",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "definition",
+        "stale_conflict_consolidation"
+      ]
+    },
+    {
+      "atom_id": "97743c68-7d27-5dcc-bc4b-9850ba87d3f5",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "Two evidence items are treated as conflicting when they share a conflict key but assert incompatible values.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "2",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "conflict_key",
+        "conflict_definition"
+      ]
+    },
+    {
+      "atom_id": "fe9dbf88-0b42-5e06-b68a-67044cdfb1f0",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "Revocable memory separates active precedents eligible for retrieval from a revoked archive excluded from ordinary retrieval.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "2",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "active_set",
+        "revoked_archive"
+      ]
+    },
+    {
+      "atom_id": "524843bb-180b-5399-ad5a-84d2b5d8c891",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "The memory pollution index is the phase-wise relative gap between no-memory success and method success, divided by no-memory success.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "2",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "memory_pollution_index",
+        "metric"
+      ]
+    },
+    {
+      "atom_id": "c2edc4a9-baf1-58fe-9123-3eb395ebf33d",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "A positive memory pollution index means the memory method performs worse than no memory in that phase.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "memory_pollution_index",
+        "interpretation"
+      ]
+    },
+    {
+      "atom_id": "ed9e3004-e5da-5afe-a4c8-64a7488e3a30",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "A TEPA precedent stores a conflict key, asserted value or action pattern, support count, conflict count, lifecycle state, and creation time; only Active precedents are retrievable.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "precedent",
+        "TEPA"
+      ]
+    },
+    {
+      "atom_id": "dbf0875b-c373-50fb-a3b8-41e437b404a8",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "In the drift benchmarks, retrieval returns active precedents matching the current task key and orders them by recency within that key.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "retrieval",
+        "drift_benchmark"
+      ]
+    },
+    {
+      "atom_id": "ca111206-c2a9-5c89-a18d-3a6d3ae3dd59",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "In MemoryAgentBench, all compared methods use the same lexical top-k answer context after the memory-state update.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "MemoryAgentBench",
+        "retrieval_control"
+      ]
+    },
+    {
+      "atom_id": "6a157510-ae95-5e8f-9aa5-836e755451b9",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "TEPA estimates precedent validity with a Beta-Bernoulli posterior mean q(p)=(s+alpha)/(s+f+alpha+beta), using alpha=beta=1 in all experiments.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "Beta_Bernoulli",
+        "validity_estimate"
+      ]
+    },
+    {
+      "atom_id": "f5187490-3489-508d-aef1-bce316c2f0b4",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "Same-value evidence increments an active precedent support count, while incompatible same-key evidence increments its conflict count.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "lifecycle_update",
+        "support",
+        "conflict"
+      ]
+    },
+    {
+      "atom_id": "7f91af91-d104-5f72-9410-65555cf568bc",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "An active precedent is revoked when its posterior mean falls below 0.3 after at least 5 observations or when, after at least 3 recent same-key outcomes, recent success falls below 0.34.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "revocation_threshold",
+        "TEPA"
+      ]
+    },
+    {
+      "atom_id": "1d00aaa7-c3fc-5fc8-aeb7-7a86c02563ee",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "TEPA uses Hypothesis for candidates before promotion, Active for retrievable precedents, and Revoked for precedents contradicted by fresher same-key evidence.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "lifecycle_state",
+        "TEPA"
+      ]
+    },
+    {
+      "atom_id": "2160f5cd-1396-5465-9939-3ef53e31bf2e",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "Fresh evidence can later promote a new precedent under the same key after an older precedent has been revoked.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "promotion",
+        "same_key_update"
+      ]
+    },
+    {
+      "atom_id": "d821566a-a6e7-55ce-814f-45b0d4bbaeb7",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "TEPA-Full adds trial-by-execution before promotion, with a default budget of one support check, one counterfactual check, and one contamination check.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "TEPA_Full",
+        "trial_validation"
+      ]
+    },
+    {
+      "atom_id": "9a49cd32-401a-50c7-87de-2c93ce5f78fa",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "A TEPA-Full candidate is promoted after at least 60% of validation trials are positive and at least one support trial succeeds.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "TEPA_Full",
+        "promotion_rule"
+      ]
+    },
+    {
+      "atom_id": "8e05f887-6990-5953-a25c-6a5ffa45cc4b",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "TEPA revocation is local to active precedents sharing the conflicting key, preserving unrelated keys for retrieval.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "key_local_revocation",
+        "design_contrast"
+      ]
+    },
+    {
+      "atom_id": "7c050ee3-3f3c-524b-aaf0-b0772ab7529b",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "other",
+      "canonical_statement": "Under the paper's single-key risk view, stale exposure followed with probability xi*eta can outweigh the benefit of useful current memory; when xi*eta exceeds that benefit, append-only memory becomes worse than no memory.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "theory",
+        "memory_pollution",
+        "risk"
+      ]
+    },
+    {
+      "atom_id": "c3fb34d2-a51e-5afa-bc41-0ab5f5cc58ac",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "The evaluation uses controlled hidden-regime drift, real file-backed executable drift, a preference-update stream, and MemoryAgentBench SH-6k, with MH-6k and long-context settings used as boundary tests.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmarks",
+        "evaluation_suite"
+      ]
+    },
+    {
+      "atom_id": "db980e59-d4be-5d1c-b8b0-92e6a57dd8ef",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "Mechanism baselines include no memory, append-only memory, temporal recency, semantic retrieval, sliding window, reactive forgetting, last-write-wins, conflict-aware recency, and oracle reset.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "baselines"
+      ]
+    },
+    {
+      "atom_id": "010a6b62-369f-5e90-955a-048548097424",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "Primary metrics are phase-wise success rate for drift and preference benchmarks and substring exact match for MemoryAgentBench; inference uses bootstrap 95% confidence intervals, paired permutation tests, Holm-Bonferroni correction, and paired effect sizes where applicable.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "statistics",
+        "metrics"
+      ]
+    },
+    {
+      "atom_id": "74d25417-9a8a-522a-83c8-2f5443ea0fb9",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "The paired design compares methods on matched task or query indices to control variance from intrinsic task difficulty.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "paired_design",
+        "statistics"
+      ]
+    },
+    {
+      "atom_id": "1a5ed043-f9a4-5ebe-901e-009674a93eae",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "Controlled, executable, and preference-update benchmarks use deterministic executors to isolate memory behavior from language-model sampling variance.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "deterministic_executor",
+        "causal_isolation"
+      ]
+    },
+    {
+      "atom_id": "3424e830-ce41-5ef3-94ca-72d724b00a0c",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "MemoryAgentBench uses a fixed DeepSeek-v4-Flash answer backend under the same prompt and scoring pipeline for all methods.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "MemoryAgentBench",
+        "answer_backend"
+      ]
+    },
+    {
+      "atom_id": "fc4bc6f6-dcdd-52e0-8cbc-bed55e6ebe6f",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "The default TEPA configuration uses proposal threshold 3, revocation threshold 0.3, promotion threshold 0.6, and trial budget 3 for TEPA-Full.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "hyperparameters",
+        "TEPA"
+      ]
+    },
+    {
+      "atom_id": "520e6036-3951-572a-b1ac-aede61e8a9d2",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "Controlled and executable drift use conflict keys composed of task type, domain, and input type; preference updates use preference slot plus profile context; MemoryAgentBench SH-6k keys are parsed from fact subject and relation template.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "key_extraction",
+        "schema_based_keys"
+      ]
+    },
+    {
+      "atom_id": "32313b02-e52f-55b8-911c-882817fa55e0",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "Deployable methods do not receive hidden phase labels, future phase boundaries, or current hidden regimes; oracle reset alone receives privileged phase information as a diagnostic upper bound.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "leakage_control",
+        "oracle_reset"
+      ]
+    },
+    {
+      "atom_id": "fe229fc6-1f79-5931-9fec-99d5462abf74",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "Each controlled, executable, and preference benchmark uses 50 seeds and 160 tasks per seed, while MemoryAgentBench SH-6k uses three query-order seeds and 300 queries.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_size",
+        "reproducibility"
+      ]
+    },
+    {
+      "atom_id": "f65072d3-442e-571c-a89e-4ebc5b9069a3",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "During controlled full reversal, append-only, last-write-wins, and conflict-aware recency each achieved 0.210 success, below no memory at 0.309, while TEPA achieved 0.950.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "Controlled",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Controlled hidden-regime drift benchmark; 50 seeds; 160 tasks per seed; full-reversal phase",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Last-write-wins",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Conflict-aware recency",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Full-reversal task success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "0.950",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "TEPA",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.950",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Append-only",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.210",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Last-write-wins",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.210",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Conflict-aware recency",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.210",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "No memory",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.309",
+            "unit": "proportion"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "controlled_drift",
+        "full_reversal",
+        "memory_pollution"
+      ]
+    },
+    {
+      "atom_id": "3425e34f-2d4e-51b7-ad41-196af55f046b",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The controlled full-reversal memory pollution index for append-only memory was 0.318.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Controlled hidden-regime drift benchmark; 50 seeds; 160 tasks per seed; full-reversal phase",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Memory pollution index during full reversal",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "memory pollution index",
+        "estimate": "0.318",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "controlled_drift",
+        "MPI"
+      ]
+    },
+    {
+      "atom_id": "7a2dc695-c272-55c3-b3c4-b153af2f4a0a",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across all controlled-drift tasks, TEPA exceeded append-only memory by 0.167 success-rate points (95% CI 0.162 to 0.172; Holm-corrected p<0.001; dz=9.68).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Controlled hidden-regime drift benchmark; all phases; paired task comparison",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Paired task success-rate difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "paired success-rate difference",
+        "estimate": "0.167",
+        "interval": {
+          "lower": "0.162",
+          "upper": "0.172",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": null,
+        "p_value_text": "<0.001",
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "controlled_drift",
+        "paired_comparison",
+        "effect_size_dz_9.68"
+      ]
+    },
+    {
+      "atom_id": "50331abc-fd18-5dcc-a8ca-eef10b2ae05f",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "During controlled full reversal, TEPA exceeded append-only memory by 0.740 success-rate points (95% CI 0.722 to 0.756; Holm-corrected p<0.001).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": "Controlled drift, reversal TEPA vs. append-only",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix B",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Controlled hidden-regime drift benchmark; 50 seeds; 160 tasks per seed; full-reversal phase",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Paired full-reversal success-rate difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "paired success-rate difference",
+        "estimate": "0.740",
+        "interval": {
+          "lower": "0.722",
+          "upper": "0.756",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": null,
+        "p_value_text": "<0.001",
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "controlled_drift",
+        "paired_comparison"
+      ]
+    },
+    {
+      "atom_id": "802c2198-8a05-521a-a7c7-b757a382e110",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "During controlled full reversal, no memory exceeded append-only memory by 0.098 success-rate points (95% CI 0.085 to 0.112; Holm-corrected p<0.001).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": "Controlled drift, reversal no memory vs. append-only",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix B",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Controlled hidden-regime drift benchmark; 50 seeds; 160 tasks per seed; full-reversal phase",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "No memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Paired full-reversal success-rate difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "paired success-rate difference",
+        "estimate": "0.098",
+        "interval": {
+          "lower": "0.085",
+          "upper": "0.112",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": null,
+        "p_value_text": "<0.001",
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "controlled_drift",
+        "memory_pollution",
+        "paired_comparison"
+      ]
+    },
+    {
+      "atom_id": "b02dc999-fec1-5d87-9b9f-b25a1c54a80c",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Controlled-drift TEPA errors concentrate in the first few same-key trials after reversal; after revocation fires, the active set becomes clean and subsequent same-key tasks are solved deterministically, so the 0.950 plateau reflects adaptation latency.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "controlled_drift",
+        "adaptation_latency",
+        "mechanism_trace"
+      ]
+    },
+    {
+      "atom_id": "11162bf3-3e35-5cd1-8ec8-194ac3f09917",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In controlled full reversal, reactive forgetting achieved 0.796 and oracle reset 0.812, both below TEPA at 0.950.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Controlled hidden-regime drift benchmark; 50 seeds; 160 tasks per seed; full-reversal phase",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Reactive forgetting",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Oracle reset",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Full-reversal task success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "0.950",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "TEPA",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.950",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Reactive forgetting",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.796",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Oracle reset",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.812",
+            "unit": "proportion"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "controlled_drift",
+        "baselines"
+      ]
+    },
+    {
+      "atom_id": "380e46a6-0af6-5bdb-ab68-712b6e4396df",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "During executable full reversal, append-only and last-write-wins each achieved 0.203 success, no memory 0.298, and TEPA 0.950.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Real file-backed executable drift benchmark; 50 seeds; 160 tasks per seed; full-reversal phase",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Last-write-wins",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Full-reversal task success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "0.950",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "TEPA",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.950",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Append-only",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.203",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Last-write-wins",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.203",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "No memory",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.298",
+            "unit": "proportion"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "executable_drift",
+        "full_reversal",
+        "memory_pollution"
+      ]
+    },
+    {
+      "atom_id": "56d6a120-3ddf-5671-bde6-6fb35734de13",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The executable full-reversal memory pollution index for append-only memory was 0.319.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Real file-backed executable drift benchmark; 50 seeds; 160 tasks per seed; full-reversal phase",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Memory pollution index during full reversal",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "memory pollution index",
+        "estimate": "0.319",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "executable_drift",
+        "MPI"
+      ]
+    },
+    {
+      "atom_id": "d96f39a1-5bb0-57b6-92c5-3f57c1dfcff4",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "During executable full reversal, TEPA exceeded append-only memory by 0.748 success-rate points (95% CI 0.728 to 0.768; Holm-corrected p<0.001).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": "Real executable, reversal TEPA vs. append-only",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix B",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Real file-backed executable drift benchmark; 50 seeds; 160 tasks per seed; full-reversal phase",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Paired full-reversal success-rate difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "paired success-rate difference",
+        "estimate": "0.748",
+        "interval": {
+          "lower": "0.728",
+          "upper": "0.768",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": null,
+        "p_value_text": "<0.001",
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "executable_drift",
+        "paired_comparison"
+      ]
+    },
+    {
+      "atom_id": "04f64f0c-c5ad-5706-b0cc-cdcc271777b9",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "During executable full reversal, no memory exceeded append-only memory by 0.095 success-rate points (95% CI 0.083 to 0.107; Holm-corrected p<0.001; dz=2.10).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": "Real executable, reversal no memory vs. append-only",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix B",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Real file-backed executable drift benchmark; 50 seeds; 160 tasks per seed; full-reversal phase",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "No memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Paired full-reversal success-rate difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "paired success-rate difference",
+        "estimate": "0.095",
+        "interval": {
+          "lower": "0.083",
+          "upper": "0.107",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": null,
+        "p_value_text": "<0.001",
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "executable_drift",
+        "memory_pollution",
+        "effect_size_dz_2.10"
+      ]
+    },
+    {
+      "atom_id": "4858c7ad-3f69-51c8-a426-85559b6e19e4",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "method",
+      "canonical_statement": "The executable benchmark evaluates actions through generated CSV/JSON files and real tool libraries; the accepted backend changes for CSV tasks under reversal while JSON tasks remain stable controls.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "executable_drift",
+        "real_file_IO",
+        "benchmark_design"
+      ]
+    },
+    {
+      "atom_id": "4dd02f37-14bb-5f44-904c-2e143873bac3",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "During preference full reversal, append-only memory achieved 0.138 success versus 0.837 for no memory.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Preference-update stream; 50 seeds; 160 tasks per seed",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Full-reversal preference task success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "0.138",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Append-only",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.138",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "No memory",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.837",
+            "unit": "proportion"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "preference_update",
+        "full_reversal",
+        "memory_pollution"
+      ]
+    },
+    {
+      "atom_id": "3b4bf95e-63a0-53be-9464-3cce60d9a1fe",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across the preference-update stream, last-write-wins achieved 0.686 overall success versus 0.837 for no memory.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Preference-update stream; 50 seeds; 160 tasks per seed",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Last-write-wins",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Overall preference task success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "0.686",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Last-write-wins",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.686",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "No memory",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.837",
+            "unit": "proportion"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "preference_update",
+        "last_write_wins"
+      ]
+    },
+    {
+      "atom_id": "e1bd80a1-3636-5b8c-b553-2ced84543bf7",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Adding the TEPA-Full validation rule to last-write-wins raised overall preference success to 0.863, but TEPA-Full remained higher by 0.048 (95% CI 0.026 to 0.069; Holm-corrected p=0.0011).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Preference-update stream; 50 seeds; 160 tasks per seed",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA-Full",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Validated last-write-wins",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Overall preference task success-rate difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "paired success-rate difference",
+        "estimate": "0.048",
+        "interval": {
+          "lower": "0.026",
+          "upper": "0.069",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": null,
+        "p_value_text": "0.0011",
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Validated last-write-wins",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.863",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "TEPA-Full",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.910",
+            "unit": "proportion"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "preference_update",
+        "trial_validation",
+        "paired_comparison"
+      ]
+    },
+    {
+      "atom_id": "6e4448bd-560e-5ea9-bdc1-770f50f7a3f5",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the preference full-reversal phase, TEPA-Full exceeded validated last-write-wins by 0.240 success-rate points (95% CI 0.156 to 0.330).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Preference-update stream; full-reversal phase",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA-Full",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Validated last-write-wins",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Full-reversal preference success-rate difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "paired success-rate difference",
+        "estimate": "0.240",
+        "interval": {
+          "lower": "0.156",
+          "upper": "0.330",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "preference_update",
+        "full_reversal"
+      ]
+    },
+    {
+      "atom_id": "8fb6362a-45eb-53be-9e1c-a24fa9bd46e6",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "TEPA-Full achieved 0.910 overall preference-update success and was statistically indistinguishable from no memory, with a 0.002 difference (95% CI -0.011 to 0.014; Holm-corrected p=1.000).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Preference-update stream; 50 seeds; 160 tasks per seed",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA-Full",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Overall preference task success-rate difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "paired success-rate difference",
+        "estimate": "0.002",
+        "interval": {
+          "lower": "-0.011",
+          "upper": "0.014",
+          "confidence_level_percent": "95",
+          "interval_type": "confidence_interval"
+        },
+        "p_value": null,
+        "p_value_text": "1.000",
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "TEPA-Full",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.910",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "No memory",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.908",
+            "unit": "proportion"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "preference_update",
+        "no_memory_comparison"
+      ]
+    },
+    {
+      "atom_id": "ba6e94cb-f51b-5c71-811f-4d68713f409e",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Preference reversal remains difficult for relevance-based retrieval because the stale profile can stay semantically on-topic after being superseded; validation filters candidate promotion while lifecycle revocation removes previously active stale preferences.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "preference_update",
+        "semantic_relevance",
+        "revocation"
+      ]
+    },
+    {
+      "atom_id": "b9e02145-3004-5ed8-8be3-c3ea02b68434",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On MemoryAgentBench SH-6k, TEPA-Rev and last-write-wins each achieved 0.890 substring exact match, TEPA-NoRev 0.630, append-only 0.583, sliding window 0.580, reactive forgetting 0.580, conflict-aware recency 0.580, and temporal recency 0.510.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "MemoryAgentBench SH-6k single-hop conflict-resolution setting; three query-order seeds; 300 queries",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA-Rev",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Last-write-wins",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "TEPA-NoRev",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Sliding window",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Reactive forgetting",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Conflict-aware recency",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Temporal recency",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Substring exact match",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "substring exact match",
+        "estimate": "0.890",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "TEPA-Rev",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.890",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Last-write-wins",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.890",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "TEPA-NoRev",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.630",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Append-only",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.583",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Sliding window",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.580",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Reactive forgetting",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.580",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Conflict-aware recency",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.580",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Temporal recency",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.510",
+            "unit": "proportion"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "MemoryAgentBench",
+        "SH_6k",
+        "single_hop"
+      ]
+    },
+    {
+      "atom_id": "65c0e712-0430-539a-ae5a-c5b4f8cc6d42",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors interpret the SH-6k result as showing that current-key replacement is the decisive operation for clean single-hop fact updates when the latest fact is directly observed.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "MemoryAgentBench",
+        "single_hop",
+        "current_key_replacement"
+      ]
+    },
+    {
+      "atom_id": "2e9fc514-096e-518e-bb25-8a2d9783cccb",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Removing revocation reduced controlled full-reversal success from 0.950 with TEPA to 0.211 with TEPA-NoRev, below no memory at approximately 0.31.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 4a",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Controlled hidden-regime drift benchmark; 50 seeds; 160 tasks per seed; full-reversal phase",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "TEPA-NoRev",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Full-reversal task success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "0.950",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "TEPA",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.950",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "TEPA-NoRev",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.211",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "No memory",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.31",
+            "unit": "proportion"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "revocation",
+        "controlled_drift"
+      ]
+    },
+    {
+      "atom_id": "d9b6fa60-161c-543b-9b1f-7ad1334e496f",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Nearby revocation and promotion thresholds and trial-budget variants remained close to default TEPA performance, while a larger recent window was the main negative outlier and slowed adaptation.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "hyperparameter_sensitivity"
+      ]
+    },
+    {
+      "atom_id": "31195092-7ed9-55b1-a8e0-1f3c6e35e073",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "TEPA-Rev achieved 0.680 substring exact match on MemoryAgentBench SH-32k.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "MemoryAgentBench SH-32k boundary setting",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA-Rev",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Substring exact match",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "substring exact match",
+        "estimate": "0.680",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "MemoryAgentBench",
+        "SH_32k",
+        "boundary"
+      ]
+    },
+    {
+      "atom_id": "a483aa38-0ebb-5089-9537-74005b063be8",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "TEPA-Rev achieved 0.040 substring exact match on MemoryAgentBench MH-6k.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": "TEPA-Rev",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "MemoryAgentBench MH-6k boundary setting",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA-Rev",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Substring exact match",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "substring exact match",
+        "estimate": "0.040",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "MemoryAgentBench",
+        "MH_6k",
+        "boundary"
+      ]
+    },
+    {
+      "atom_id": "0c0a2ccc-2209-563b-9484-095c1fbef404",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On MemoryAgentBench SH-262k, TEPA-Rev achieved 0.000 substring exact match while append-only achieved 0.350.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "MemoryAgentBench SH-262k very-long-context boundary setting",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA-Rev",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Substring exact match",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "substring exact match",
+        "estimate": "0.000",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "TEPA-Rev",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.000",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Append-only",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.350",
+            "unit": "proportion"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "MemoryAgentBench",
+        "SH_262k",
+        "boundary",
+        "long_context"
+      ]
+    },
+    {
+      "atom_id": "66396d69-d96a-5e1c-8482-31a37621e385",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "limitation",
+      "canonical_statement": "Fact-level revocation does not solve multi-hop relational retrieval or very-long-context selection; the MH-6k and SH-262k results identify retrieval-chain construction and context selection as separate bottlenecks.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "multi_hop",
+        "long_context"
+      ]
+    },
+    {
+      "atom_id": "4ad27d5c-0922-596f-a850-291973f504e5",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With structured key corruption probabilities of 0%, 5%, 10%, and 20%, TEPA full-reversal success was 0.950, 0.908, 0.886, and 0.777, respectively.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": "TEPA",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Controlled drift key-extraction noise audit; full-reversal success over 50 seeds",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "TEPA with noisy conflict keys",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Full-reversal task success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate at 20% key noise",
+        "estimate": "0.777",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "0% key noise",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.950",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "5% key noise",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.908",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "10% key noise",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.886",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "20% key noise",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.777",
+            "unit": "proportion"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "key_noise",
+        "robustness",
+        "controlled_drift"
+      ]
+    },
+    {
+      "atom_id": "718f34b5-32fd-59c6-a58e-b6f6d0fc5ab1",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across the same 0%-20% key-noise audit, append-only and last-write-wins remained near their reversal failure mode at about 0.210-0.215 success.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Controlled drift key-extraction noise audit; full-reversal success over 50 seeds",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Last-write-wins",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Full-reversal task success rate under key noise",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate at 20% key noise",
+        "estimate": "0.215",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Append-only 0%",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.210",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "Append-only 20%",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.215",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "LWW 0%",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.210",
+            "unit": "proportion"
+          },
+          {
+            "arm_label": "LWW 20%",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.215",
+            "unit": "proportion"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "key_noise",
+        "append_only",
+        "last_write_wins"
+      ]
+    },
+    {
+      "atom_id": "0fa3c930-e7ab-53ea-bbd3-51c00ef8878a",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "limitation",
+      "canonical_statement": "TEPA assumes useful conflict keys can be extracted from evidence; this is natural for structured preference slots, entity attributes, and tool-regime records but harder for open-ended memories with implicit conflict relations.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "conflict_key_extraction",
+        "open_ended_memory"
+      ]
+    },
+    {
+      "atom_id": "b63664a7-de12-5283-a722-ad655bed2cc0",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "The supplementary lifecycle trace shows a precedent being promoted, losing posterior validity under full reversal, moving out of the active state, and later returning to active status when supporting evidence reappears.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 5",
+        "supplement": "Appendix A",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "lifecycle_trace",
+        "revocation",
+        "repromotion"
+      ]
+    },
+    {
+      "atom_id": "7d9e6632-39c1-53c0-b566-2708710c2dfc",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the active-memory-size trace, append-only memory grows to 128 active items by the end of the stream, whereas TEPA and TEPA-NoRev are shown at 2 active items.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 6",
+        "supplement": "Appendix A",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Controlled drift active-memory-size trace across 160 episodes",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Append-only memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "TEPA",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "TEPA-NoRev",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Active memory size at end of stream",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "active memory count",
+        "estimate": "128",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Append-only",
+            "event_count": null,
+            "sample_size": null,
+            "value": "128",
+            "unit": "items"
+          },
+          {
+            "arm_label": "TEPA",
+            "event_count": null,
+            "sample_size": null,
+            "value": "2",
+            "unit": "items"
+          },
+          {
+            "arm_label": "TEPA-NoRev",
+            "event_count": null,
+            "sample_size": null,
+            "value": "2",
+            "unit": "items"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "memory_size",
+        "scalability",
+        "active_set"
+      ]
+    },
+    {
+      "atom_id": "7ad813f2-ebc3-51b5-8a68-77cdf157bfb2",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "At 100,000 updates, the scalability microbenchmark reported query costs of 823.971 microseconds for append scan, 0.241 microseconds for last-write-wins, and 0.216 microseconds for TEPA lifecycle.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "13",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 9",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix E",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Scalability microbenchmark at 100,000 updates",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Append scan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Last-write-wins",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "TEPA lifecycle",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Per-key query cost",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "query cost",
+        "estimate": "0.216",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Append scan",
+            "event_count": null,
+            "sample_size": null,
+            "value": "823.971",
+            "unit": "microseconds"
+          },
+          {
+            "arm_label": "Last-write-wins",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.241",
+            "unit": "microseconds"
+          },
+          {
+            "arm_label": "TEPA lifecycle",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.216",
+            "unit": "microseconds"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "scalability",
+        "microbenchmark",
+        "query_cost"
+      ]
+    },
+    {
+      "atom_id": "a32267de-d69e-588a-a6e3-1c15e1c5bad0",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "At 1,000,000 updates, the scalability microbenchmark reported query costs of 4006.250 microseconds for append scan, 0.399 microseconds for last-write-wins, and 0.301 microseconds for TEPA lifecycle.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "13",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 9",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix E",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Scalability microbenchmark at 1,000,000 updates",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Append scan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Last-write-wins",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "TEPA lifecycle",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Per-key query cost",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "query cost",
+        "estimate": "0.301",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Append scan",
+            "event_count": null,
+            "sample_size": null,
+            "value": "4006.250",
+            "unit": "microseconds"
+          },
+          {
+            "arm_label": "Last-write-wins",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.399",
+            "unit": "microseconds"
+          },
+          {
+            "arm_label": "TEPA lifecycle",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.301",
+            "unit": "microseconds"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "scalability",
+        "microbenchmark",
+        "query_cost"
+      ]
+    },
+    {
+      "atom_id": "55bc4daf-aeea-531e-9f8e-7bde075c2325",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "At 1,000,000 updates, update cost was 0.114 ms per 1,000 updates for append scan, 0.440 for last-write-wins, and 0.513 for TEPA lifecycle.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "13",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 9",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix E",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": {
+        "label": "Scalability microbenchmark at 1,000,000 updates",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Append scan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Last-write-wins",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "TEPA lifecycle",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Update cost per 1,000 updates",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "update cost",
+        "estimate": "0.513",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Append scan",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.114",
+            "unit": "ms per 1k updates"
+          },
+          {
+            "arm_label": "Last-write-wins",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.440",
+            "unit": "ms per 1k updates"
+          },
+          {
+            "arm_label": "TEPA lifecycle",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.513",
+            "unit": "ms per 1k updates"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "scalability",
+        "microbenchmark",
+        "update_cost"
+      ]
+    },
+    {
+      "atom_id": "f2856225-a70d-5a34-a038-f0965af0efca",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "other",
+      "canonical_statement": "Under the key-current model, excluding stale same-key evidence weakly dominates retrieving both stale and current evidence in expected 0-1 loss when the current value remains available; the dominance is strict if stale evidence is sometimes followed.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "theory",
+        "proposition_1",
+        "single_key"
+      ]
+    },
+    {
+      "atom_id": "f9f05b04-03f0-5b1d-b12e-d7b11ac166c5",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "other",
+      "canonical_statement": "If append-only retrieval exposes stale evidence with probability q and the downstream decision follows it with probability eta, append-only excess risk over revocable memory is at least q*eta under 0-1 loss, or at least q*eta*Delta when stale following adds loss Delta.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "theory",
+        "proposition_2",
+        "excess_risk"
+      ]
+    },
+    {
+      "atom_id": "b785c17f-5d57-51aa-889d-ccb6446c257c",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "other",
+      "canonical_statement": "Within a stationary segment, the Beta-Bernoulli posterior mean converges to the precedent support probability; if that probability is below the revocation threshold, revocation eventually occurs almost surely, while false-revocation probability above the threshold decays exponentially after sufficient observations.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "theory",
+        "proposition_3",
+        "posterior_consistency"
+      ]
+    },
+    {
+      "atom_id": "efcf4b1b-507e-58d2-8b40-ab9fae554c42",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "limitation",
+      "canonical_statement": "The theoretical propositions are restricted to stale single-key conflict revocation and do not provide guarantees for retrieval-chain construction, compositional answering, or long-context selection.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "theory_scope"
+      ]
+    },
+    {
+      "atom_id": "a7987d4b-1e60-5a33-aa11-605806e92e3b",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors conclude that persistent agent memory should track validity alongside relevance because a memory can remain relevant and recent after its value has been superseded.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "design_principle",
+        "validity",
+        "relevance"
+      ]
+    },
+    {
+      "atom_id": "3131afae-f88c-535a-90e0-d2cc1479bd8b",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors conclude that revocation should remove contradicted same-key evidence from ordinary retrieval while preserving revoked precedents for audit, diagnosis, and possible later re-promotion.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "audit",
+        "revocation",
+        "repromotion"
+      ]
+    },
+    {
+      "atom_id": "5a07cf0f-adc1-50bf-9d4d-5ac30e9e2ac0",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The paper explicitly limits its positive claim to conflict-keyed revocation for stale evidence rather than general autonomous-agent memory performance.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "13",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix F",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "claim_scope",
+        "agent_memory"
+      ]
+    },
+    {
+      "atom_id": "a95fec87-d6b1-50e6-92bd-d59b71a7aa48",
+      "publication_id": "6c4db7df-d0c3-5892-b399-c2364b71e4ed",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors identify multi-hop retrieval-chain construction and very-long-context selection as the next architectural challenges beyond fact-level validity tracking.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "gpt-5.6-sol",
+        "extracted_at": "2026-08-10T07:08:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "da7c92be265c48dae8466e0b54e743c069d2a46d2ceffbdc742f094a7e36d5e4",
+        "extraction_run_id": "2608.07429v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:08:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "future_work",
+        "retrieval_chain",
+        "long_context"
+      ]
+    }
+  ],
+  "extraction_limitations": [
+    "No funding, conflict-of-interest, or data-availability statement was identified in the provided 14-page preprint, so none was invented as an atom.",
+    "Quantitative benchmark atoms normalize AI evaluation streams into the current LiteratureAtom population/exposure/outcome schema; these descriptors represent benchmark methods and query/task sets, not human study populations or clinical interventions.",
+    "The extraction preserves the paper's own benchmark claims and theoretical scope; it does not externally verify benchmark code, DeepSeek-v4-Flash behavior, referenced prior work, or reproducibility.",
+    "Appendix references and bibliography entries were treated as provenance/background infrastructure rather than atom targets unless they contained a direct claim about the present study."
+  ]
+}

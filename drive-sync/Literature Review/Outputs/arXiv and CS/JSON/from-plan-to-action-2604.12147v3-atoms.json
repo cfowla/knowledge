@@ -1,0 +1,5288 @@
+{
+  "source_metadata": {
+    "title": "From Plan to Action: How Well Do Agents Follow the Plan?",
+    "authors": [
+      "Shuyang Liu",
+      "Saman Dehghan",
+      "Jatin Ganhotra",
+      "Martin Hirzel",
+      "Reyhaneh Jabbarvand"
+    ],
+    "source_type": "empirical software-engineering study / ASE 2026 conference paper; arXiv v3 preprint",
+    "arxiv_id": "2604.12147v3",
+    "arxiv_version_date": "2026-08-07",
+    "doi": "10.1145/3832783.3834400",
+    "conference": "41st IEEE/ACM International Conference on Automated Software Engineering (ASE 2026)",
+    "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+    "input_document_sha256": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+    "page_count": 12,
+    "extraction_run_id": "liu-2026-plan-compliance-atom-v1"
+  },
+  "atom_counts_by_type": {
+    "author_conclusion": 6,
+    "data_availability": 1,
+    "funding_disclosure": 1,
+    "limitation": 2,
+    "method": 12,
+    "population_description": 3,
+    "qualitative_result": 17,
+    "quantitative_result": 26,
+    "study_objective": 1
+  },
+  "atom_count_total": 69,
+  "atoms": [
+    {
+      "atom_id": "a3e625ff-275b-53e0-9aa0-81d8eaf59866",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The study evaluated how well programming agents follow instructed task plans and how plan compliance relates to issue-resolution success.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "introduction",
+        "page": "1",
+        "paragraph": "Introduction",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "agent_planning",
+        "plan_compliance",
+        "program_repair"
+      ]
+    },
+    {
+      "atom_id": "04313db9-32d8-554e-b7bc-28dfb3666fe7",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "population_description",
+      "canonical_statement": "The primary evaluation used 497 SWE-bench Verified instances after excluding three Very Hard instances that no studied model resolved under any plan setting.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": "Dataset",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "swe_bench_verified",
+        "dataset"
+      ]
+    },
+    {
+      "atom_id": "5b9ab46b-3fc6-5c1c-a8ec-162b66d455e9",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "population_description",
+      "canonical_statement": "The generalization evaluation used 266 Python instances from SWE-bench Pro.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "9",
+        "paragraph": "RQ6. Generalization to Other Benchmarks",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "266 Python SWE-bench Pro instances used for generalization experiments",
+        "sample_size": 266,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "swe_bench_pro",
+        "dataset"
+      ]
+    },
+    {
+      "atom_id": "a03416b2-c09f-5839-99ab-8ce84dc6b9e0",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "method",
+      "canonical_statement": "Experiments used the SWE-agent scaffold with GPT-5 mini, DeepSeek-V3, DeepSeek-R1, and Devstral-small as backbone language models.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": "Models and Scaffold",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "swe_agent",
+        "models"
+      ]
+    },
+    {
+      "atom_id": "c9d0a9d2-d030-5bf9-a046-e76a29db405d",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "method",
+      "canonical_statement": "The Standard program-repair plan consisted of Navigation, Reproduction, Patch, and Validation in that order.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "2",
+        "paragraph": "Experimental Design",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "standard_plan",
+        "NRPV"
+      ]
+    },
+    {
+      "atom_id": "c9975df3-d251-5cc4-a639-d617bc6996cf",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "method",
+      "canonical_statement": "The study evaluated eight plan settings: Standard, No Plan, No Reproduction, No Validation, added regression testing, added summary, reordered phases, and periodic plan reminders.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "plan_variations",
+        "experimental_conditions"
+      ]
+    },
+    {
+      "atom_id": "4c831398-2ed9-5580-adc0-5b66b68a0c34",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "method",
+      "canonical_statement": "The periodic-reminder setting re-injected the Standard plan every five trajectory steps.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "Periodic Plan Reminder",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "plan_reminder",
+        "context"
+      ]
+    },
+    {
+      "atom_id": "7142d7b0-16be-52db-a54f-e8e4f4b0f5cb",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "method",
+      "canonical_statement": "Raw agent actions were mapped to plan phases using file/directory inspection for Navigation, generated pre-patch tests for Reproduction, application-code edits for Patch, and generated post-patch tests for Validation; existing repository tests were treated as regression testing outside the default plan.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "2",
+        "paragraph": "Experimental Design",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "action_mapping",
+        "langutory"
+      ]
+    },
+    {
+      "atom_id": "4a97684f-10e4-5e1d-b9dc-9bd94ec1aeaa",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "method",
+      "canonical_statement": "Plan Phase Compliance (PPC) measured the fraction of instructed plan phases that appeared at least once in a trajectory.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": "Equation 1",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "PPC",
+        "metric"
+      ]
+    },
+    {
+      "atom_id": "52dc391c-0147-5c74-9418-c446c956271c",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "method",
+      "canonical_statement": "Plan Order Compliance (POC) measured the fraction of instructed phases whose first occurrences formed the expected relative order using the longest increasing subsequence.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": "Equation 2",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "POC",
+        "metric"
+      ]
+    },
+    {
+      "atom_id": "b87ea99e-595e-5c0c-a803-789ae589c1be",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "method",
+      "canonical_statement": "Plan Phase Fidelity (PPF) penalized phases appearing in a trajectory that were outside the instructed plan alphabet.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": "Equation 3",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "PPF",
+        "metric"
+      ]
+    },
+    {
+      "atom_id": "b1f420a9-e922-5db6-b36c-c1bd819e6e4f",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "method",
+      "canonical_statement": "Overall Plan Compliance (PC) was defined as the geometric mean of PPC, POC, and PPF.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": "Equation 4",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "PC",
+        "metric"
+      ]
+    },
+    {
+      "atom_id": "f4dbc100-62a3-5bf3-905c-1e2848fbea09",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "method",
+      "canonical_statement": "The evaluation additionally reported issue-resolution success rate, Graphectory node/edge/loop counts, and phase-flow Sankey analyses.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": "Analysis and Metrics",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "evaluation_metrics",
+        "phase_flow"
+      ]
+    },
+    {
+      "atom_id": "186e6632-aef8-50a2-9839-f8e36e36a562",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "method",
+      "canonical_statement": "Two authors independently annotated 320 sampled actions for mapping validation, and agreement among the two human annotations and automated labels had Fleiss kappa of 0.99.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": "Mapping Validation",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "mapping_validation",
+        "interrater_agreement"
+      ]
+    },
+    {
+      "atom_id": "92d56153-9d63-5d7e-8e56-a2578a12ac93",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the Standard plan on SWE-bench Verified, GPT-5 mini achieved an issue-resolution success rate of 56.3%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with GPT-5 mini",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Standard N-R-P-V plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Issue-resolution success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate percent",
+        "estimate": "56.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "GPT-5 mini",
+            "event_count": null,
+            "sample_size": null,
+            "value": "56.3",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "standard_plan",
+        "success_rate",
+        "gpt-5_mini"
+      ]
+    },
+    {
+      "atom_id": "f54341fc-75ec-591f-b160-b510855e1a7c",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the Standard plan on SWE-bench Verified, DeepSeek-V3 achieved an issue-resolution success rate of 38.4%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-V3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Standard N-R-P-V plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Issue-resolution success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate percent",
+        "estimate": "38.4",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DeepSeek-V3",
+            "event_count": null,
+            "sample_size": null,
+            "value": "38.4",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "standard_plan",
+        "success_rate",
+        "deepseek-v3"
+      ]
+    },
+    {
+      "atom_id": "bdc1b360-7b85-5749-b1c4-0502b7e90b98",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the Standard plan on SWE-bench Verified, DeepSeek-R1 achieved an issue-resolution success rate of 39.4%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-R1",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Standard N-R-P-V plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Issue-resolution success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate percent",
+        "estimate": "39.4",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DeepSeek-R1",
+            "event_count": null,
+            "sample_size": null,
+            "value": "39.4",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "standard_plan",
+        "success_rate",
+        "deepseek-r1"
+      ]
+    },
+    {
+      "atom_id": "d0dd1911-8cb2-5861-8e1f-eacda33b8bd1",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the Standard plan on SWE-bench Verified, Devstral-small achieved an issue-resolution success rate of 64.8%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with Devstral-small",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Standard N-R-P-V plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Issue-resolution success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate percent",
+        "estimate": "64.8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Devstral-small",
+            "event_count": null,
+            "sample_size": null,
+            "value": "64.8",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "standard_plan",
+        "success_rate",
+        "devstral-small"
+      ]
+    },
+    {
+      "atom_id": "97077610-e301-5fbb-88ef-945ab0cee963",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the Standard plan, GPT-5 mini had mean PC 0.75 on resolved trajectories and 0.77 on unresolved trajectories.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "2,000 SWE-agent trajectories under the Standard plan on SWE-bench Verified",
+        "sample_size": 2000,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with GPT-5 mini",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Standard N-R-P-V plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Plan Compliance (PC)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean PC on resolved trajectories",
+        "estimate": "0.75",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Resolved",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.75",
+            "unit": "PC"
+          },
+          {
+            "arm_label": "Unresolved",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.77",
+            "unit": "PC"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "standard_plan",
+        "plan_compliance",
+        "gpt-5_mini"
+      ]
+    },
+    {
+      "atom_id": "ad10dc01-08d9-58b9-9637-6178dd2af26b",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the Standard plan, DeepSeek-V3 had mean PC 0.83 on resolved trajectories and 0.81 on unresolved trajectories.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "2,000 SWE-agent trajectories under the Standard plan on SWE-bench Verified",
+        "sample_size": 2000,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-V3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Standard N-R-P-V plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Plan Compliance (PC)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean PC on resolved trajectories",
+        "estimate": "0.83",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Resolved",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.83",
+            "unit": "PC"
+          },
+          {
+            "arm_label": "Unresolved",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.81",
+            "unit": "PC"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "standard_plan",
+        "plan_compliance",
+        "deepseek-v3"
+      ]
+    },
+    {
+      "atom_id": "b587518d-ab61-5a7b-a4da-28b187fbb5fd",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the Standard plan, DeepSeek-R1 had mean PC 0.76 on resolved trajectories and 0.72 on unresolved trajectories.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "2,000 SWE-agent trajectories under the Standard plan on SWE-bench Verified",
+        "sample_size": 2000,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-R1",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Standard N-R-P-V plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Plan Compliance (PC)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean PC on resolved trajectories",
+        "estimate": "0.76",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Resolved",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.76",
+            "unit": "PC"
+          },
+          {
+            "arm_label": "Unresolved",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.72",
+            "unit": "PC"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "standard_plan",
+        "plan_compliance",
+        "deepseek-r1"
+      ]
+    },
+    {
+      "atom_id": "efe09561-4c07-5407-a3c8-822121bde540",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the Standard plan, Devstral-small had mean PC 0.92 on resolved trajectories and 0.90 on unresolved trajectories.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "2,000 SWE-agent trajectories under the Standard plan on SWE-bench Verified",
+        "sample_size": 2000,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with Devstral-small",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Standard N-R-P-V plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Plan Compliance (PC)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean PC on resolved trajectories",
+        "estimate": "0.92",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Resolved",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.92",
+            "unit": "PC"
+          },
+          {
+            "arm_label": "Unresolved",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.9",
+            "unit": "PC"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "standard_plan",
+        "plan_compliance",
+        "devstral-small"
+      ]
+    },
+    {
+      "atom_id": "5776e2cf-c7f5-50bc-a09e-6b39be40ae09",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Standard-plan compliance varied across models: Devstral-small most consistently covered phases in order, GPT-5 mini adapted by problem difficulty, DeepSeek-V3 had near-perfect phase fidelity but lower phase/order coverage, and DeepSeek-R1 had the lowest compliance.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "4",
+        "paragraph": "Finding 1",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_1",
+        "model_differences"
+      ]
+    },
+    {
+      "atom_id": "260702c7-920c-5340-ad45-985832f48e6e",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Resolved trajectories had significantly higher plan compliance for Devstral-small (p=1e-5) and DeepSeek-R1 (p=0.032); the association was not statistically significant for DeepSeek-V3 (p=0.60) or GPT-5 mini (p=0.285).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": "Finding 2",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_2",
+        "resolution",
+        "statistical_test"
+      ]
+    },
+    {
+      "atom_id": "eb16c298-7a62-52e5-9384-252f430ef07b",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "GPT-5 mini often skipped Reproduction on easier problems but followed the instructed Standard plan more closely as problem difficulty increased.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": "Finding 2",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "gpt5_mini",
+        "difficulty",
+        "adaptation"
+      ]
+    },
+    {
+      "atom_id": "12fb343f-1fce-52bb-b245-1dd4b93fc351",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Average Graphectory node/edge/loop counts were approximately 86/179/64 for Devstral-small, 38/49/18 for GPT-5 mini, 15/27/4 for DeepSeek-V3, and 14/21/4 for DeepSeek-R1.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": "Finding 3",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "2,000 SWE-agent trajectories under the Standard plan on SWE-bench Verified",
+        "sample_size": 2000,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Studied SWE-agent trajectories under the Standard plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Graphectory trajectory complexity metrics",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean node count for Devstral-small",
+        "estimate": "86",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Devstral-small nodes",
+            "event_count": null,
+            "sample_size": null,
+            "value": "86",
+            "unit": "nodes"
+          },
+          {
+            "arm_label": "GPT-5 mini nodes",
+            "event_count": null,
+            "sample_size": null,
+            "value": "38",
+            "unit": "nodes"
+          },
+          {
+            "arm_label": "DeepSeek-V3 nodes",
+            "event_count": null,
+            "sample_size": null,
+            "value": "15",
+            "unit": "nodes"
+          },
+          {
+            "arm_label": "DeepSeek-R1 nodes",
+            "event_count": null,
+            "sample_size": null,
+            "value": "14",
+            "unit": "nodes"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "graphectory",
+        "trajectory_complexity"
+      ]
+    },
+    {
+      "atom_id": "cad2fe53-b195-5f99-ac08-867220271a20",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Pearson correlations between overall plan compliance and Graphectory complexity metrics were very weak positive correlations, with 0 < r <= 0.2.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": "Finding 3",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "correlation",
+        "graphectory",
+        "plan_compliance"
+      ]
+    },
+    {
+      "atom_id": "8969b8c5-6c69-5a9a-a691-45cbc59d4dbc",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "The authors considered the Standard plan incomplete because GPT-5 mini and Devstral-small frequently ran existing repository tests in addition to the plan-prescribed generated tests.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": "Finding 4",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_4",
+        "regression_testing",
+        "plan_incompleteness"
+      ]
+    },
+    {
+      "atom_id": "4d437c52-40c4-579a-ad32-28d2fa92a8cf",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Without an explicit plan, Devstral-small still largely followed N-R-P-V, GPT-5 mini often followed a subset without Reproduction, and the DeepSeek models largely reduced trajectories to N-P patterns.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "Finding 5",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_5",
+        "no_plan",
+        "internalized_workflow"
+      ]
+    },
+    {
+      "atom_id": "5c4e2573-d8eb-55f5-9138-77a045177cc5",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Removing the Standard plan reduced success across all four models, with the largest performance loss observed in the DeepSeek models and particularly DeepSeek-R1.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "Finding 6",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_6",
+        "no_plan",
+        "success"
+      ]
+    },
+    {
+      "atom_id": "7b339081-0422-589c-afe7-77da0aa95b9d",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the No Plan setting, DeepSeek-V3 resolved 23 SWE-bench Verified instances that it did not resolve under the Standard plan.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "Finding 7",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-V3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No Plan setting",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Instances resolved only under No Plan versus Standard plan",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "exclusive resolved instance count",
+        "estimate": "23",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No Plan exclusive resolutions",
+            "event_count": 23,
+            "sample_size": 497,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_7",
+        "no_plan",
+        "exclusive_resolution"
+      ]
+    },
+    {
+      "atom_id": "de43bd5b-ebdd-573f-b02b-a4a528841d9e",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the No Plan setting, DeepSeek-R1 resolved 11 SWE-bench Verified instances that it did not resolve under the Standard plan.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "Finding 7",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-R1",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No Plan setting",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Instances resolved only under No Plan versus Standard plan",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "exclusive resolved instance count",
+        "estimate": "11",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No Plan exclusive resolutions",
+            "event_count": 11,
+            "sample_size": 497,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_7",
+        "no_plan",
+        "exclusive_resolution"
+      ]
+    },
+    {
+      "atom_id": "c01d6c40-d3bd-53c5-8584-9f6e9adee03e",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the No Plan setting, Devstral-small resolved 28 SWE-bench Verified instances that it did not resolve under the Standard plan.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "Finding 7",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with Devstral-small",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No Plan setting",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Instances resolved only under No Plan versus Standard plan",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "exclusive resolved instance count",
+        "estimate": "28",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No Plan exclusive resolutions",
+            "event_count": 28,
+            "sample_size": 497,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_7",
+        "no_plan",
+        "exclusive_resolution"
+      ]
+    },
+    {
+      "atom_id": "6830177a-7804-5642-ba49-efd778d40d68",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the No Plan setting, GPT-5 mini resolved 34 SWE-bench Verified instances that it did not resolve under the Standard plan.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "Finding 7",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with GPT-5 mini",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No Plan setting",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Instances resolved only under No Plan versus Standard plan",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "exclusive resolved instance count",
+        "estimate": "34",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No Plan exclusive resolutions",
+            "event_count": 34,
+            "sample_size": 497,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_7",
+        "no_plan",
+        "exclusive_resolution"
+      ]
+    },
+    {
+      "atom_id": "06d878ca-c286-5c45-a3ef-a4a536d2f7c1",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Manual inspection linked many No Plan-only resolutions to failed or incorrect reproduction-test generation under the Standard plan, after which the No Plan trajectory skipped reproduction and generated the correct patch.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "Finding 7",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "no_plan",
+        "reproduction_failure",
+        "manual_analysis"
+      ]
+    },
+    {
+      "atom_id": "c23ada5c-94fe-5771-9a29-8087739a33b1",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the No Reproduction plan, DeepSeek-R1 produced malformed tool calls in 349 instances, often leading to repeated execution errors and termination.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": "RQ3.1 No Reproduction",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-R1",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No Reproduction plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Malformed tool-call trajectories",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "instance count with malformed tool calls",
+        "estimate": "349",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Malformed tool-call instances",
+            "event_count": 349,
+            "sample_size": 497,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "deepseek_r1",
+        "tool_call_failure",
+        "no_reproduction"
+      ]
+    },
+    {
+      "atom_id": "e5d587b5-1747-58a9-80c4-9c0fd33477f7",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Removing Validation harmed GPT-5 mini substantially, whereas DeepSeek-V3 showed only slight performance degradation and high phase fidelity; Devstral-small was less affected than when Reproduction was removed.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": "RQ3.2 No Validation",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "no_validation",
+        "model_differences"
+      ]
+    },
+    {
+      "atom_id": "7f462250-6716-587c-a55d-a36b4e53aed9",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors concluded that a bad, incomplete plan can have a greater negative impact on trajectories than providing no plan at all.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": "Finding 8",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_8",
+        "bad_plan",
+        "author_interpretation"
+      ]
+    },
+    {
+      "atom_id": "259bee01-5ffe-54ea-9640-a9de5a1657a5",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "After accounting for nondeterminism, the No Validation setting yielded 7 previously unresolved issue(s) for GPT-5 mini.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": "Finding 9",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with GPT-5 mini",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No Validation plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Previously unresolved issues resolved under No Validation",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "exclusive resolved instance count after nondeterminism control",
+        "estimate": "7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Exclusive resolutions",
+            "event_count": 7,
+            "sample_size": 497,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_9",
+        "no_validation",
+        "exclusive_resolution"
+      ]
+    },
+    {
+      "atom_id": "bc8780af-17f6-52e6-9b8e-cccca1ed774a",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "After accounting for nondeterminism, the No Validation setting yielded 19 previously unresolved issue(s) for Devstral-small.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": "Finding 9",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with Devstral-small",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No Validation plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Previously unresolved issues resolved under No Validation",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "exclusive resolved instance count after nondeterminism control",
+        "estimate": "19",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Exclusive resolutions",
+            "event_count": 19,
+            "sample_size": 497,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_9",
+        "no_validation",
+        "exclusive_resolution"
+      ]
+    },
+    {
+      "atom_id": "e18e09b5-93c7-5727-bb75-4dab87dffb95",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "After accounting for nondeterminism, the No Validation setting yielded 5 previously unresolved issue(s) for DeepSeek-V3.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": "Finding 9",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-V3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No Validation plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Previously unresolved issues resolved under No Validation",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "exclusive resolved instance count after nondeterminism control",
+        "estimate": "5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Exclusive resolutions",
+            "event_count": 5,
+            "sample_size": 497,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_9",
+        "no_validation",
+        "exclusive_resolution"
+      ]
+    },
+    {
+      "atom_id": "3aa40d8e-9083-51d6-add0-d2cf1a4eff6e",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "After accounting for nondeterminism, the No Validation setting yielded 1 previously unresolved issue(s) for DeepSeek-R1.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": "Finding 9",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-R1",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No Validation plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Previously unresolved issues resolved under No Validation",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "exclusive resolved instance count after nondeterminism control",
+        "estimate": "1",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Exclusive resolutions",
+            "event_count": 1,
+            "sample_size": 497,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_9",
+        "no_validation",
+        "exclusive_resolution"
+      ]
+    },
+    {
+      "atom_id": "e2ffddd1-a73d-5277-b48a-315989a7d8ed",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Adding regression-test execution caused only small success changes for Devstral-small and GPT-5 mini, but DeepSeek-V3 had a larger performance drop and low PPC, consistent with difficulty incorporating the added phases.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": "RQ4.1 Regression Test Execution",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "regression_testing",
+        "plan_augmentation"
+      ]
+    },
+    {
+      "atom_id": "1bafb327-1522-5d7a-b140-be12df6d8c23",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Under the regression-testing plan, Devstral-small tended to run regression tests after Navigation and after Validation, while GPT-5 mini tended to run them first and again after Validation.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": "RQ4.1 Regression Test Execution",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "phase_flow",
+        "regression_testing",
+        "model_strategy"
+      ]
+    },
+    {
+      "atom_id": "a6119790-ad04-58dd-8e1a-31701956f6af",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With the added Summary phase, DeepSeek-R1 exhibited pervasive tool-calling failures in 413 instances.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": "RQ4.2 Plan with Change Summary",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-R1",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Standard plan plus change-summary phase",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Tool-calling failure trajectories",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "instance count with tool-calling failures",
+        "estimate": "413",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Tool-calling failure instances",
+            "event_count": 413,
+            "sample_size": 497,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "deepseek_r1",
+        "summary_phase",
+        "tool_call_failure"
+      ]
+    },
+    {
+      "atom_id": "0c953cdb-1e79-5b42-9ce7-2adbe54c9724",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Adding a final change-summary phase produced minimal behavioral and success-rate changes for Devstral-small, GPT-5 mini, and DeepSeek-V3 because the phase generally occurred after the core repair process.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": "RQ4.2 Plan with Change Summary",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "summary_phase",
+        "minimal_effect"
+      ]
+    },
+    {
+      "atom_id": "b9577061-5bc6-5cf0-916b-5230e34e9bfe",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors concluded that plan augmentation is useful only when aligned with a model's internal strategy and can degrade performance when added phases are not naturally employed by the model.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": "Finding 10",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_10",
+        "plan_augmentation",
+        "internal_strategy"
+      ]
+    },
+    {
+      "atom_id": "35821558-ffaa-5796-bf76-7658bcb97b9c",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the reordered N-P-R-V plan, DeepSeek-V3 resolved 196 instances versus 191 under the Standard plan in the initial comparison.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": "RQ5.1 Reordered Plan",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-V3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Reordered N-P-R-V plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Issue resolutions",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "resolved instance count under reordered plan",
+        "estimate": "196",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Reordered plan",
+            "event_count": 196,
+            "sample_size": 497,
+            "value": null,
+            "unit": null
+          },
+          {
+            "arm_label": "Standard plan",
+            "event_count": 191,
+            "sample_size": 497,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "reordered_plan",
+        "deepseek_v3",
+        "success"
+      ]
+    },
+    {
+      "atom_id": "1665f1d5-34c6-5669-82c7-afcbdad03dfd",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Devstral-small often performed Reproduction before Patch despite the reordered N-P-R-V instruction, indicating preference for its established reproduction-first workflow.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": "RQ5.1 Reordered Plan",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "devstral_small",
+        "reordered_plan",
+        "phase_order"
+      ]
+    },
+    {
+      "atom_id": "45945982-681c-5b6a-8f0a-e0c41030ddac",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors concluded that agents prioritize effective workflows over prescribed phase ordering when the instructed order conflicts with their problem-solving process.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "9",
+        "paragraph": "Finding 11",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_11",
+        "phase_order",
+        "author_interpretation"
+      ]
+    },
+    {
+      "atom_id": "b9605bd4-9b5b-5d75-8054-8c0d9b1ccccd",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "After accounting for nondeterminism, the reordered plan changed DeepSeek-V3 success rate only negligibly, from 38.3% to 38.0%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "9",
+        "paragraph": "Finding 12",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "497 SWE-bench Verified instances spanning Easy, Medium, and Hard difficulty",
+        "sample_size": 497,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-V3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Reordered N-P-R-V plan",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Issue-resolution success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "reordered-plan success rate percent",
+        "estimate": "38.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Standard-plan reproducible subset",
+            "event_count": null,
+            "sample_size": null,
+            "value": "38.3",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Reordered plan",
+            "event_count": null,
+            "sample_size": null,
+            "value": "38.0",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "finding_12",
+        "reordered_plan",
+        "nondeterminism_control"
+      ]
+    },
+    {
+      "atom_id": "d4403ff3-3b9e-56df-a62c-06fabfc8e405",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Periodic plan reminders improved plan compliance for DeepSeek-V3, maintained similar overall PC for the other models, and produced consistent success improvements across models.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "9",
+        "paragraph": "RQ5.2 Reminded Plan",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "plan_reminder",
+        "success",
+        "plan_compliance"
+      ]
+    },
+    {
+      "atom_id": "544c7786-db16-5776-910f-6d8c063910c5",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "population_description",
+      "canonical_statement": "For more meaningful SWE-bench Pro comparisons, the analysis retained 31 Python instances that at least one studied LLM could resolve under the Standard plan.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "10",
+        "paragraph": "RQ6 Generalization",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "31 SWE-bench Pro Python instances resolved by at least one studied LLM under the Standard plan",
+        "sample_size": 31,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "swe_bench_pro",
+        "resolvable_subset"
+      ]
+    },
+    {
+      "atom_id": "60523aff-fc64-5a97-8478-1ccf3f9d5a2f",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across all agents and plan settings, mean plan compliance on the selected SWE-bench Pro subset was 13% lower than on SWE-bench Verified.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "10",
+        "paragraph": "RQ6 Generalization",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "31 SWE-bench Pro Python instances resolved by at least one studied LLM under the Standard plan",
+        "sample_size": 31,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-bench Pro selected subset",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "All studied plan settings",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Relative change in plan compliance versus SWE-bench Verified",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "relative drop in plan compliance percent",
+        "estimate": "13",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Average PC drop",
+            "event_count": null,
+            "sample_size": null,
+            "value": "13",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "swe_bench_pro",
+        "generalization",
+        "plan_compliance"
+      ]
+    },
+    {
+      "atom_id": "529e249f-ccd8-5c69-95a9-160cd01a5e1b",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "On SWE-bench Pro, agents spent more effort in repetitive Navigation and Patching without reaching Validation, while most agents still skipped Reproduction.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "10",
+        "paragraph": "RQ6 Generalization",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "swe_bench_pro",
+        "phase_flow",
+        "difficulty"
+      ]
+    },
+    {
+      "atom_id": "1c0f980a-3e17-5a42-bbb2-7176ccfece08",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "method",
+      "canonical_statement": "To assess nondeterminism, the Standard-plan experiments were repeated three times and compared with pairwise McNemar tests.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "10",
+        "paragraph": "RQ7 Impact of Nondeterminism",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "nondeterminism",
+        "replication",
+        "mcnemar"
+      ]
+    },
+    {
+      "atom_id": "3f957a11-9265-5ade-a358-1ce82a06ccc2",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Pairwise McNemar tests found statistically significant differences across Standard-plan runs, confirming nondeterminism in agent outcomes.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "10",
+        "paragraph": "RQ7 Impact of Nondeterminism",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "nondeterminism",
+        "mcnemar"
+      ]
+    },
+    {
+      "atom_id": "39553422-1749-57c4-986b-ea5000b6d7aa",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The reproducible subset with outcomes consistent across Standard-plan repeats contained 401 instances for GPT-5 mini.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "10",
+        "paragraph": "RQ7 Impact of Nondeterminism",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "Reproducible SWE-bench Verified subset for GPT-5 mini",
+        "sample_size": 401,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with GPT-5 mini",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Repeated Standard-plan runs",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Instances with consistent resolved/unresolved outcome across repeated Standard-plan runs",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "reproducible subset size",
+        "estimate": "401",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Reproducible subset",
+            "event_count": null,
+            "sample_size": null,
+            "value": "401",
+            "unit": "instances"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "nondeterminism",
+        "reproducible_subset",
+        "gpt-5_mini"
+      ]
+    },
+    {
+      "atom_id": "38b4c80c-e433-5e3a-ba0c-ebe8f52f136c",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The reproducible subset with outcomes consistent across Standard-plan repeats contained 308 instances for Devstral-small.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "10",
+        "paragraph": "RQ7 Impact of Nondeterminism",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "Reproducible SWE-bench Verified subset for Devstral-small",
+        "sample_size": 308,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with Devstral-small",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Repeated Standard-plan runs",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Instances with consistent resolved/unresolved outcome across repeated Standard-plan runs",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "reproducible subset size",
+        "estimate": "308",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Reproducible subset",
+            "event_count": null,
+            "sample_size": null,
+            "value": "308",
+            "unit": "instances"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "nondeterminism",
+        "reproducible_subset",
+        "devstral-small"
+      ]
+    },
+    {
+      "atom_id": "24b5ae11-d6ac-5800-b144-837bf3a587a7",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The reproducible subset with outcomes consistent across Standard-plan repeats contained 323 instances for DeepSeek-V3.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "10",
+        "paragraph": "RQ7 Impact of Nondeterminism",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "Reproducible SWE-bench Verified subset for DeepSeek-V3",
+        "sample_size": 323,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-V3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Repeated Standard-plan runs",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Instances with consistent resolved/unresolved outcome across repeated Standard-plan runs",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "reproducible subset size",
+        "estimate": "323",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Reproducible subset",
+            "event_count": null,
+            "sample_size": null,
+            "value": "323",
+            "unit": "instances"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "nondeterminism",
+        "reproducible_subset",
+        "deepseek-v3"
+      ]
+    },
+    {
+      "atom_id": "a1d653bb-d212-5c26-85e7-159ecf79f0c1",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The reproducible subset with outcomes consistent across Standard-plan repeats contained 287 instances for DeepSeek-R1.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "10",
+        "paragraph": "RQ7 Impact of Nondeterminism",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": {
+        "label": "Reproducible SWE-bench Verified subset for DeepSeek-R1",
+        "sample_size": 287,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SWE-agent with DeepSeek-R1",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Repeated Standard-plan runs",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Instances with consistent resolved/unresolved outcome across repeated Standard-plan runs",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "reproducible subset size",
+        "estimate": "287",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Reproducible subset",
+            "event_count": null,
+            "sample_size": null,
+            "value": "287",
+            "unit": "instances"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "nondeterminism",
+        "reproducible_subset",
+        "deepseek-r1"
+      ]
+    },
+    {
+      "atom_id": "dd75aa29-99ea-5006-b858-b2a73ee19cff",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "On reproducible subsets, the main conclusions persisted: plan reduction, augmentation, and reordering affected models differently according to their underlying strategy, and periodic reminders consistently improved performance.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "10",
+        "paragraph": "RQ7 Impact of Nondeterminism",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "nondeterminism",
+        "robustness",
+        "plan_variations"
+      ]
+    },
+    {
+      "atom_id": "0a951463-ca0d-55a9-91b4-0032672b1303",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "limitation",
+      "canonical_statement": "The study evaluated only four language models, two software-engineering benchmarks, and a phase-level abstraction that may omit fine-grained or project-specific actions.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "11",
+        "paragraph": "Threats to Validity",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "external_validity",
+        "construct_validity"
+      ]
+    },
+    {
+      "atom_id": "2853a1a6-ffac-52c0-8460-c984e95d9796",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "limitation",
+      "canonical_statement": "The authors identified possible data contamination and workflow overfitting on SWE-bench Verified as threats to interpreting plan compliance as genuine plan-following ability.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "Data contamination and overfitting",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "data_contamination",
+        "overfitting",
+        "validity"
+      ]
+    },
+    {
+      "atom_id": "f672f6ed-a201-5a23-a84a-fff16554eba9",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors argued that plan compliance should be used as a process-level signal rather than a maximized objective, because strict compliance is not always necessary or beneficial.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "11",
+        "paragraph": "Implications for Agent Design and Training",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "process_signal",
+        "agent_training",
+        "plan_compliance"
+      ]
+    },
+    {
+      "atom_id": "661497af-cc34-576d-9d8d-267c613c8c3d",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors proposed using compliance signals for online monitoring, targeted reminders, adaptive plan refinement, and process-level post-training supervision while preserving agent flexibility.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "11",
+        "paragraph": "Implications for Agent Design and Training",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "monitoring",
+        "post_training",
+        "adaptive_planning"
+      ]
+    },
+    {
+      "atom_id": "91a34ae1-73bb-5ca2-bb9b-8f22638e8817",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The paper concluded that plans materially affect issue-resolution success, but agents often struggle to comply with them, leaving room for improved plans and improved plan-following.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "11",
+        "paragraph": "Conclusion",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "conclusion",
+        "plan_compliance",
+        "agent_performance"
+      ]
+    },
+    {
+      "atom_id": "62a71510-4ca9-57e5-9383-a842ac9da854",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "data_availability",
+      "canonical_statement": "The paper states that its artifacts are publicly available through the cited artifact website.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "other",
+        "page": "11",
+        "paragraph": "Data Availability Statement",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "data_availability",
+        "artifact"
+      ]
+    },
+    {
+      "atom_id": "211449ca-080d-567d-a510-d4add117a112",
+      "publication_id": "2a09ab98-bf7a-5b07-baa1-f5eef513333a",
+      "atom_kind": "funding_disclosure",
+      "canonical_statement": "The work reports support from NSF CCF-2238045 and IBM-Illinois Discovery Accelerator Institute grants.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "other",
+        "page": "11",
+        "paragraph": "Acknowledgments",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "GPT-5.6 Sol",
+        "extracted_at": "2026-08-10T07:35:00Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "sol-2026-08-10",
+        "prompt_version": "@ATOM-v1",
+        "input_document_hash": "adc0ddcedc82b70ec4c0aaa097ca3d0058577e00fdbb0f21059fb28161f75a19",
+        "extraction_run_id": "liu-2026-plan-compliance-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:35:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "funding",
+        "NSF",
+        "IBM"
+      ]
+    }
+  ],
+  "validation_report": {
+    "structural_validation": {
+      "is_valid": true,
+      "errors": []
+    },
+    "sufficiency_validation": {
+      "is_valid": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "extraction_limitations": [
+    "Atoms were extracted from the 12-page article and its rendered main-text figures/tables; the external artifact repository and supplementary implementation files were not inspected because @ATOM did not request external verification.",
+    "Figure-based values were normalized from the rendered article into structured quantitative-result fields; narrative interpretations remain separate atoms.",
+    "The paper reports several possible causal explanations for plan violations (for example data contamination, context-window pressure, and short-term reward optimization); where these were speculative, they were not converted into directly reported causal results.",
+    "No conflict-of-interest statement was located in the supplied article text; therefore no conflict_of_interest atom was created."
+  ]
+}

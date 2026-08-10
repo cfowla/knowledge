@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA — Same Answer, Different Confidence: Protocol Sensitivity in LLM Calibration</title>
+<style>
+:root{
+  --bg:#f5f7fb;--card:#ffffff;--ink:#182230;--muted:#5a6879;--line:#dbe2ec;
+  --accent:#234f86;--accent2:#eaf1fb;--good:#17643a;--goodbg:#edf8f1;
+  --warn:#7b5600;--warnbg:#fff7df;--bad:#8a2d2d;--badbg:#fff0f0;--code:#0f1724;--codefg:#eaf1fa;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}
+header{background:linear-gradient(135deg,#10233c,#234f86);color:#fff;padding:3.2rem 1.2rem 2.6rem;border-bottom:5px solid #cfddf1}
+header .wrap{max-width:1120px;margin:auto}
+h1{font-size:clamp(2rem,4vw,3.25rem);line-height:1.08;margin:0 0 .8rem}
+.subtitle{font-size:1.05rem;opacity:.92;max-width:900px}
+.wrap{max-width:1120px;margin:auto;padding:1.25rem}
+nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:0 1px 4px rgba(16,35,60,.05)}
+nav.toc{padding:1rem 1.2rem;margin:1.25rem 0}
+nav.toc strong{display:block;margin-bottom:.45rem;color:#173d6d}
+nav.toc a{color:var(--accent);text-decoration:none;margin-right:.9rem;white-space:nowrap;line-height:2}
+section{padding:1.25rem 1.35rem;margin:1rem 0}
+h2{margin:.05rem 0 1rem;color:#173d6d;font-size:1.55rem}
+h3{color:#244f80;margin:1.15rem 0 .45rem}
+h4{margin:.9rem 0 .35rem;color:#304459}
+p{margin:.55rem 0}
+.meta-grid,.rating-grid,.takeaway-grid,.two-col,.three-col{display:grid;gap:.85rem}
+.meta-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.rating-grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.takeaway-grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.two-col{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.three-col{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.mini-card{border:1px solid var(--line);border-radius:11px;padding:.85rem;background:#fbfcfe}
+.mini-card b{color:#203f65}
+.verdict,.warning,.badnote,.goodnote{border-radius:11px;padding:.9rem 1rem;margin:.75rem 0;border-left:5px solid}
+.verdict{background:var(--accent2);border-color:var(--accent)}
+.goodnote{background:var(--goodbg);border-color:var(--good)}
+.warning{background:var(--warnbg);border-color:#b47b00}
+.badnote{background:var(--badbg);border-color:var(--bad)}
+.tag{display:inline-block;background:#edf2f8;color:#29496e;border:1px solid #d5e0ee;border-radius:999px;padding:.18rem .55rem;margin:.12rem .18rem .12rem 0;font-size:.86rem}
+table{width:100%;border-collapse:collapse;margin:.85rem 0;font-size:.92rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:.52rem .6rem;text-align:left;vertical-align:top;min-width:95px}
+th{background:#eef3f9;color:#1c395b}
+pre{background:var(--code);color:var(--codefg);border-radius:11px;padding:1rem;overflow:auto;white-space:pre-wrap;font-size:.88rem;line-height:1.47}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.metric{font-size:1.55rem;font-weight:760;color:#173d6d}
+.muted{color:var(--muted)}
+.small{font-size:.88rem}
+ul{margin:.45rem 0 .7rem;padding-left:1.2rem}li{margin:.25rem 0}
+.figure-block{border:1px solid #ccd8e7;border-radius:12px;padding:1rem;margin:.9rem 0;background:#f9fbfe}
+.figure-block .label{font-weight:750;color:#1d4778;margin-bottom:.35rem}
+.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;opacity:.8;font-weight:700}
+.score{font-size:1.65rem;font-weight:800;color:#173d6d}
+hr{border:0;border-top:1px solid var(--line);margin:1.1rem 0}
+a{color:var(--accent)}
+footer{max-width:1120px;margin:1.5rem auto 2.2rem;padding:0 1.25rem;color:var(--muted);font-size:.88rem}
+@media print{body{background:#fff}header{background:#fff;color:#000;border-bottom:2px solid #000;padding:1rem 0}.wrap{max-width:none}.toc{display:none}section{box-shadow:none;break-inside:avoid}.figure-block,.mini-card{break-inside:avoid}a{color:#000;text-decoration:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">Summary · Evaluation · Appraisal</div>
+    <h1>Same Answer, Different Confidence: Protocol Sensitivity in LLM Calibration</h1>
+    <div class="subtitle">A source-grounded appraisal of arXiv:2605.27752v3, focused on measurement validity, robustness, reproducibility, and implications for LLM confidence evaluation.</div>
+  </div>
+</header>
+<div class="wrap">
+<nav class="toc">
+  <strong>Contents</strong>
+  <a href="#metadata">Metadata</a><a href="#synthesis">Synthesis</a><a href="#coverage">Coverage</a>
+  <a href="#sections">Section summary</a><a href="#visuals">Figures & tables</a><a href="#appendices">Appendices</a>
+  <a href="#appraisal">Appraisal</a><a href="#takeaways">Takeaways</a><a href="#provenance">Provenance</a>
+</nav>
+
+<section id="metadata">
+<h2>Metadata</h2>
+<div class="meta-grid">
+  <div class="mini-card"><b>Title</b><br>Same Answer, Different Confidence: Protocol Sensitivity in LLM Calibration</div>
+  <div class="mini-card"><b>Authors</b><br>Hankyeol Kim; Pilsung Kang</div>
+  <div class="mini-card"><b>Affiliation</b><br>Seoul National University</div>
+  <div class="mini-card"><b>Identifier</b><br>arXiv:2605.27752v3 [cs.AI]</div>
+  <div class="mini-card"><b>Version/date</b><br>v3 · 7 Aug 2026</div>
+  <div class="mini-card"><b>Source type</b><br>AI/ML preprint; controlled benchmark measurement study plus targeted literature audit</div>
+  <div class="mini-card"><b>Primary domain</b><br>LLM confidence estimation, calibration, uncertainty evaluation, measurement protocol design</div>
+  <div class="mini-card"><b>Evaluated scope</b><br>English short-answer QA; 3 main 7–8B Instruct models; 4 benchmark families; robustness checks up to Qwen2.5-72B</div>
+</div>
+<div class="warning"><b>Scope warning.</b> This paper tests whether comparisons between verbalized confidence and token-derived confidence are stable under alternative measurement protocols. It does not establish a universally superior confidence signal, a context-free uncertainty measure, or deployment-grade calibration thresholds.</div>
+</section>
+
+<section id="synthesis">
+<h2>One-page synthesis</h2>
+<div class="verdict"><b>Core thesis:</b> “verbalized confidence vs token likelihood” is not a single comparison. The preferred signal can change when the exact answer, scoring context/slot, token readout, or evaluation criterion changes—even while the question, answer string, and correctness label are held fixed.</div>
+<div class="three-col">
+  <div class="mini-card"><div class="metric">4/12</div><b>ECE winner changes</b><br><span class="muted">Bare-turn → Guess: token scoring, point estimate; 3 fully resolved.</span></div>
+  <div class="mini-card"><div class="metric">9/12</div><b>AUROC winner changes</b><br><span class="muted">Same-answer context change; 4 fully resolved.</span></div>
+  <div class="mini-card"><div class="metric">3/12</div><b>AURC winner changes</b><br><span class="muted">Same-answer context comparison.</span></div>
+</div>
+<p>The paper’s strongest design move is its <b>prediction-event invariant</b>: verbalized confidence, token score, and correctness label must all refer to the same exact answer on the same item. The authors generate one answer with a confidence prompt, fix its label, and teacher-force that answer into alternative valid token-scoring contexts. This isolates measurement protocol from answer-generation changes.</p>
+<p>The most consequential operational choice is context/answer slot. In the main 12 settings, moving the token readout from the bare assistant turn to the confidence prompt’s <code>Guess:</code> slot changes the ECE comparison by mean |Δg| 0.254 and the AUROC comparison by 0.158. By contrast, substituting the canonical reference for the model’s own answer moves the ECE gap by 0.077; switching span likelihood to first-token probability moves it by 0.052; alternative calibration-error estimators move it only 0.006–0.026 in the bare context.</p>
+<p>The result is not just score rescaling: macro AUROC for token confidence rises from 0.604 in the bare turn to 0.762 in the <code>Guess:</code> slot, which implies item reordering because AUROC is invariant to any common order-preserving transformation. The <code>Guess:</code> slot also rewards answers generated in that slot by +0.216 relative to bare-origin answers, whereas the bare turn shows essentially no origin advantage (−0.002). Thus, its strong discrimination partly reflects an in-context effect rather than a portable property of the answer position.</p>
+<p>Verbalized confidence is also answer-formulation sensitive. Supplying the canonical TriviaQA reference instead of the first accepted alias raises confidence by +0.072 despite both answers being correct. Across supplied-answer tests, canonical gold averages 0.850 confidence versus 0.783 for plausible wrong answers; the paired separation is only +0.031. These findings weaken any interpretation of a confidence number as a context-free correctness probability.</p>
+<div class="goodnote"><b>High-value contribution:</b> the paper turns a broad “prompt sensitivity” concern into a concrete measurement-validity rule and reporting checklist. For benchmark design, evaluator construction, uncertainty pipelines, or agent abstention systems, the actionable message is to validate the full answer/context/readout/metric protocol—not merely the model or scalar confidence method.</div>
+<div>
+<span class="tag">LLM calibration</span><span class="tag">measurement validity</span><span class="tag">verbalized confidence</span><span class="tag">token likelihood</span><span class="tag">AUROC</span><span class="tag">ECE</span><span class="tag">AURC</span><span class="tag">protocol sensitivity</span><span class="tag">reproducibility</span>
+</div>
+</section>
+
+<section id="coverage">
+<h2>Coverage manifest</h2>
+<div class="two-col">
+<div class="mini-card"><b>Main text covered</b><br>Abstract; Introduction; Related Work; targeted audit; Setup and Method §§3.1–3.4; Results §§4.1–4.4; Conclusion; Limitations; Ethical Considerations.</div>
+<div class="mini-card"><b>Appendices covered</b><br>A–L: same-answer setting results, reciprocal control, origin/slot interaction, calibration transfer, native MC control, readout/estimator/scale checks, larger/base models, parse rates, supplied-answer analysis, scorer sensitivity, protocol-audit evidence.</div>
+<div class="mini-card"><b>Figures</b><br>Figures 1–3 all represented as structured evidence blocks. No numbered appendix figures identified.</div>
+<div class="mini-card"><b>Tables</b><br>Main-text Tables 1–2 reconstructed. Appendix Tables 3–22 reconciled in grouped evidence summaries with load-bearing values preserved.</div>
+<div class="mini-card"><b>Visual strategy</b><br>Structured reconstruction only. Embedded screenshots were unnecessary because captions, axes, table values, and workflow logic were recoverable from the source.</div>
+<div class="mini-card"><b>Omissions</b><br>Full bibliography not reproduced. No external code/repository verification was performed because verification was not requested.</div>
+</div>
+</section>
+
+<section id="sections">
+<h2>Section-by-section condensation</h2>
+<div class="section-summary">
+<h3>Abstract & Introduction</h3>
+<p>The paper argues that head-to-head comparisons of verbalized confidence and token likelihood are under-specified unless they define the exact prediction event and measurement protocol. Token likelihood varies with the scored string, prompt, answer position, and aggregation. The authors identify the question + exact answer + correctness label as the invariant object that both confidence signals must evaluate.</p>
+<p>They motivate the study with a targeted audit of 12 published comparisons and preview the main empirical result: changing only the token-scoring context can reverse which signal appears better under ECE, AUROC, or AURC. Additional tests vary the scored string and token readout, while a supplied-answer experiment tests whether verbalized confidence tracks correctness independently of wording.</p>
+</div>
+<div class="section-summary">
+<h3>2. Related Work & 2.1 Targeted Audit</h3>
+<p>The related-work section separates verbalized confidence elicitation, token-based confidence construction, calibration estimators, and answer/ownership effects. The paper positions itself as a same-answer measurement study: instead of changing a prompt and allowing a new answer, it fixes one answer and asks whether its measured confidence comparison survives a change in scoring context.</p>
+<p>The targeted audit screens 22 candidates and includes 12 studies that evaluate a self-reported/verbalized signal and a probabilistic signal tied to one candidate answer while making a comparative claim. All 12 specify the rated answer, 10/12 the scored string, 6/12 aggregation, and only 7/12 the conditioning context/answer slot. Of those seven, four use a generation-style context and three an elicitation/self-report context. The authors explicitly frame this as an included-set finding, not a prevalence estimate for the field.</p>
+</div>
+<div class="section-summary">
+<h3>3.1 Models, Data, and Elicitation</h3>
+<p>Main models are Llama-3-8B-Instruct, Mistral-7B-Instruct-v0.3, and Qwen2.5-7B-Instruct. Datasets are TriviaQA (1,000 items), SciQ (1,000), TruthfulQA (817), and four MMLU subjects totaling 1,155 items. Qwen2.5 14B/32B/72B runs are robustness checks rather than a scaling study; matching base checkpoints form a separate instruction-tuning check.</p>
+<p>Models use greedy decoding and return a short answer after <code>Guess:</code> plus a decimal probability after <code>Probability:</code>. Correctness uses a fixed normalized-string rule with containment; SciQ/MMLU use correct option text rather than letters in the main analysis. Main-setting joint parse rates are at least 0.966. A native multiple-choice control later uses exact option letters.</p>
+</div>
+<div class="section-summary">
+<h3>3.2 Same Answer Across Token Contexts</h3>
+<p>The core experiment generates one answer-confidence pair, fixes the answer and its correctness label, then teacher-forces that same answer in three token-scoring positions: the start of a bare assistant turn, an assistant-side <code>Answer:</code> slot, and the confidence prompt’s <code>Guess:</code> slot. The boundary-matched <code>Answer:</code> condition addresses tokenization/boundary differences; an invalid direct-prefix position is explicitly excluded because the prompt expects a marker there.</p>
+<p>The primary token score is the mean log probability across the answer span; a first-answer-token probability is a secondary readout. A reciprocal control begins from an answer generated by a probability-free prompt and then moves that fixed answer into alternative contexts. The authors correctly distinguish this reciprocal analysis from a causal origin test because the two directions use different answers and different confidence-elicitation procedures.</p>
+</div>
+<div class="section-summary">
+<h3>3.3 Evaluation and Uncertainty</h3>
+<p>For each context, the paper computes a paired gap between verbalized-confidence performance and token-confidence performance. ECE captures numerical reliability, AUROC correctness discrimination, and tie-aware AURC selective-prediction risk. The primary calibration estimator is equal-width 10-bin ECE, with KDE-ECE, KS-Cal, and Smoothed ECE as checks.</p>
+<p>All comparisons use matched rows and paired nonparametric bootstrap intervals. The authors are careful about semantics: the verbalized value is solicited as a correctness probability, whereas span likelihood is a probability of the answer string. Accordingly, raw ECE is treated as a comparison used in prior work, not proof that token likelihood is intrinsically a correctness probability. A cross-fitted Brier-loss transfer test asks whether a mapping learned in one token context remains valid in another.</p>
+</div>
+<div class="section-summary">
+<h3>3.4 Supplied-Answer Diagnostic</h3>
+<p>To test answer sensitivity, the model receives a candidate after <code>Guess:</code> and generates only <code>Probability:</code>. Candidates include canonical gold answers, plausible wrong answers produced by another model when available, off-type wrong answers, and the model’s own answer re-supplied as a formatting control.</p>
+<p>Correctly answered items also compare confidence on the generated answer with confidence on the canonical gold string, while TriviaQA permits a stronger formulation test between two accepted references. This design isolates whether confidence changes when correctness does not.</p>
+</div>
+<div class="section-summary">
+<h3>4.1 Context Changes the Preferred Signal</h3>
+<p>Moving token scoring from the bare turn to <code>Guess:</code> changes the ECE winner in 4/12 settings and the AUROC winner in 9/12; the corresponding paired contrast excludes zero in 11/12 ECE settings and 9/12 AUROC settings. The boundary-matched <code>Answer:</code> → <code>Guess:</code> comparison yields 3/12 ECE and 9/12 AUROC winner changes. AURC changes winner in 3/12.</p>
+<p>The macro AUROC result is particularly diagnostic: token AUROC increases from 0.604 (bare) to 0.762 (<code>Guess:</code>), proving that context changes item ranking rather than simply applying a monotone rescaling. The origin control finds essentially no advantage for prompted-origin answers in the bare turn (−0.002, 95% CI −0.005 to +0.001) but a +0.216 advantage in the <code>Guess:</code> slot, so part of the latter’s strength is context-specific.</p>
+</div>
+<div class="section-summary">
+<h3>4.2 Measurement-Choice Sensitivity</h3>
+<p>Context/slot is the largest measured source of movement: mean |Δg| 0.254 under ECE and 0.158 under AUROC. Scoring the canonical reference instead of the model answer moves the gap by 0.077 ECE / 0.041 AUROC and changes the winner in 2/12 / 3/12 settings. Replacing answer-span likelihood with first-token probability moves it by 0.052 / 0.049 and changes the winner in 1/12 / 4/12.</p>
+<p>Calibration-estimator choice is substantially smaller: alternative ECE estimators move the bare-context gap by only 0.006–0.026 on average, with no bare-context winner changes; Smoothed ECE changes one prompted-context winner. Strict-format parsing, integer 0–100 confidence, native multiple-choice formatting, post-hoc calibration transfer, larger Qwen checks, and base-model checks all retain evidence of context dependence.</p>
+</div>
+<div class="section-summary">
+<h3>4.3 Verbalized Confidence Depends on the Answer Presented</h3>
+<p>Mean verbalized confidence is 0.850 for canonical gold, 0.783 for plausible wrong, and 0.240 for off-type wrong answers. After question-level pairing and removal of semantically correct “wrong” candidates, gold exceeds plausible wrong by only +0.031 (95% CI +0.025 to +0.038). In a 223-case benchmark-verified wrong subset, gold is not higher in 64.6% of pairs.</p>
+<p>TriviaQA provides the strongest same-correctness formulation test: replacing the first accepted alias with the canonical reference raises confidence by +0.072 overall and +0.096 when the strings actually differ. Re-supplying a model’s own answer changes mean confidence by at most 0.011, so a simple prefill-formatting artifact does not explain the effect.</p>
+</div>
+<div class="section-summary">
+<h3>4.4 Reporting Implications</h3>
+<p>Crossing three answer slots, two scored strings, and two readouts produces 12 measured token protocols. Across this grid, the ECE gap spans 0.391 on average and leaves the sign of the comparison undetermined in 6/12 settings. For answer-span AUROC protocols, the gap spans 0.219 and is undetermined in 10/12 settings. These are lower bounds because only measured variants are included.</p>
+<p>The paper therefore proposes five reporting requirements after first enforcing prediction-event alignment: answer provenance; exact scored answer string; token readout/aggregation; conditioning context and answer slot; and evaluation criterion/estimator. It further distinguishes self-abstention from candidate verification: the correct protocol must attach confidence and correctness to the answer actually being acted upon.</p>
+</div>
+<div class="section-summary">
+<h3>5. Conclusion</h3>
+<p>The paper concludes that confidence-signal ordering is partly a property of the measurement protocol. The main context intervention changes the point-estimate winner in 4/12 ECE, 9/12 AUROC, and 3/12 AURC settings; scored-string and readout choices can also reverse conclusions, while estimator choice is smaller.</p>
+<p>The recommended remedy is not to declare one confidence signal superior but to define the prediction event first and report the complete protocol. Confidence values and thresholds should be revalidated in the exact context where they will be used.</p>
+</div>
+<div class="section-summary">
+<h3>Limitations</h3>
+<p>External validity is constrained to English, short-answer QA, greedy decoding, three main open 7–8B Instruct models, and benchmark correctness rules. Larger-model checks are confined to one Qwen family; base-model checks have low, nonrandom retention and one nearly degenerate Mistral label distribution. Long-form generation, dialogue, code, tool use, closed models, multilingual tasks, and judge-based semantic correctness remain untested.</p>
+<p>The primary context contrast combines instruction text, chat-turn boundary, and answer marker, so it does not identify a single causal prompt feature. The reciprocal control is a transfer check rather than a causal origin manipulation. The targeted protocol audit has one rater, only 12 included studies, and does not estimate field-wide prevalence. None of ECE, AUROC, or AURC establishes a coherent epistemic uncertainty quantity or deployment-safe threshold.</p>
+</div>
+<div class="section-summary">
+<h3>Ethical Considerations</h3>
+<p>The experiments use released models and public QA benchmarks without training, deployment, user data, or human participants. The authors identify over-interpretation of confidence scores as the central risk: a favorable number can encourage misplaced trust when the number is protocol-dependent.</p>
+<p>The paper accordingly emphasizes reporting and target-domain validation rather than recommending either confidence signal as a standalone reliability measure. The benchmark setting also does not support broader fairness, truthfulness, or real-world safety claims.</p>
+</div>
+</section>
+
+<section id="visuals">
+<h2>Main-text figures, tables, and workflows</h2>
+<div class="figure-block"><div class="label">Figure 1 — Measurement decomposition</div>
+<p><b>Purpose:</b> defines the unit of comparison and the protocol axes. A dataset question leads to one model-generated answer; that answer plus its correctness label forms the fixed prediction event. Verbalized confidence and token probability are then compared while varying answer provenance, scored string, conditioning context, and token readout.</p>
+<p><b>Key structure:</b> answer provenance includes self-generated, supplied canonical gold, plausible wrong, and off-type wrong; token probability varies generated vs canonical-reference string, bare-query vs confidence-prompt context, and span vs first-token readout; outcomes are ECE, AUROC, and AURC.</p>
+<p><b>Interpretation:</b> the figure makes the paper’s main validity rule explicit: every compared score and label must refer to the same prediction event unless the analysis is explicitly diagnosing a substitution.</p></div>
+<div class="figure-block"><div class="label">Figure 2 — Token-score positions for one fixed answer</div>
+<p><b>Valid positions:</b> bare assistant-turn answer; assistant-side <code>Answer:</code> slot; confidence-prompt <code>Guess:</code> slot. <b>Invalid diagnostic:</b> placing the answer where the confidence prompt requires the <code>Guess:</code> marker.</p>
+<p><b>Methodological role:</b> the <code>Answer:</code> slot is a boundary-matched control separating prompt/context effects from leading-blank/tokenization boundary effects. The invalid direct-prefix readout is excluded from all claims.</p></div>
+<div class="figure-block"><div class="label">Figure 3 — Setting-level context shifts</div>
+<p><b>Structure:</b> 12 model–dataset rows, each connecting the bare-turn and <code>Guess:</code>-slot gap for ECE and AUROC. A setting is marked when the preferred signal changes; asterisks denote fully resolved changes.</p>
+<p><b>Main pattern:</b> ECE changes winner in 4/12 settings (3 fully resolved); AUROC changes in 9/12 (4 fully resolved). The visual shows that the effect is heterogeneous across models/datasets rather than a single macro-average artifact.</p></div>
+
+<h3>Table 1 — Same-answer comparison over 12 main settings</h3>
+<table>
+<tr><th>Score / gap</th><th>ECE ↓</th><th>AUROC ↑</th><th>AURC ↓</th></tr>
+<tr><td>Verbalized</td><td>0.426</td><td>0.698</td><td>0.448</td></tr>
+<tr><td>Token, bare turn</td><td>0.283</td><td>0.604</td><td>0.476</td></tr>
+<tr><td>Token, Answer: slot</td><td>0.257</td><td>0.612</td><td>0.466</td></tr>
+<tr><td>Token, Guess: slot</td><td>0.358</td><td>0.762</td><td>0.392</td></tr>
+<tr><td>g bare</td><td>+0.143 [+.127,+.155]</td><td>+0.094 [+.081,+.108]</td><td>−0.027 [−.037,−.018]</td></tr>
+<tr><td>g Answer:</td><td>+0.169 [+.154,+.180]</td><td>+0.086 [+.073,+.100]</td><td>−0.018 [−.028,−.009]</td></tr>
+<tr><td>g Guess:</td><td>+0.068 [+.062,+.072]</td><td>−0.064 [−.077,−.051]</td><td>+0.056 [+.048,+.064]</td></tr>
+<tr><td>Winner changes: bare → Guess:</td><td>4/12</td><td>9/12</td><td>3/12</td></tr>
+<tr><td>Winner changes: Answer: → Guess:</td><td>3/12</td><td>9/12</td><td>3/12</td></tr>
+</table>
+<p class="small muted">Gap sign conventions differ by metric: negative favors verbalized confidence for ECE/AURC; positive favors verbalized confidence for AUROC.</p>
+
+<h3>Table 2 — Effect size of measurement choices</h3>
+<table>
+<tr><th>Measurement choice</th><th>ECE mean |Δg|</th><th>ECE winner changes</th><th>AUROC mean |Δg|</th><th>AUROC winner changes</th></tr>
+<tr><td>Context & slot: bare → Guess:</td><td>0.254</td><td>4/12</td><td>0.158</td><td>9/12</td></tr>
+<tr><td>Scored string: own → reference</td><td>0.077</td><td>2/12</td><td>0.041</td><td>3/12</td></tr>
+<tr><td>Token readout: span → first token</td><td>0.052</td><td>1/12</td><td>0.049</td><td>4/12</td></tr>
+<tr><td>Calibration estimator: 10-bin → KDE/KS/Smoothed</td><td>0.006–0.026</td><td>0/12 (bare)</td><td>—</td><td>—</td></tr>
+</table>
+
+<div class="figure-block"><div class="label">Workflow — Same-answer protocol</div><pre><code>Generate once under confidence prompt
+  → parse answer a_hat and verbalized confidence
+  → assign one correctness label y
+  → freeze (question, a_hat, y)
+  → teacher-force a_hat in alternative valid scoring contexts
+  → derive token score(s)
+  → compare verbalized vs token signal on matched rows
+  → bootstrap context-specific gaps and gap contrasts
+  → only then ask whether preferred signal changes</code></pre></div>
+</section>
+
+<section id="appendices">
+<h2>Appendix evidence reconciliation (Tables 3–22)</h2>
+<div class="mini-card"><b>Tables 3–5 · Setting-level and origin controls</b><br>
+Table 3 supplies all 12 per-setting ECE/AUROC gaps behind the macro results. Table 4 reverses direction with probability-free source answers: source→Guess macro contrast is −0.174 [−0.179,−0.164] ECE and −0.011 [−0.020,−0.002] AUROC, with only 2/12 winner changes per metric because token confidence already leads widely. Table 5 isolates answer-origin advantage: bare −0.002 [−0.005,+0.001], Guess +0.216 [+.211,+.221], interaction +0.218 [+.212,+.223].</div>
+<div class="mini-card"><b>Tables 6–9 · Operational alignment, selective risk, transfer, native MC</b><br>
+Table 6 maps protocol alignment to self-abstention, candidate verification, and protocol-sensitivity use cases. Table 7 reports tie-aware AURC: verbalized 0.448, bare 0.476, Answer 0.466, Guess 0.392; context changes winner in 3/12. Table 8 shows positive cross-context Brier penalties for imported calibration mappings in essentially every setting (e.g., prompted-natural isotonic +0.103 / +0.157 by direction). Table 9’s native one-letter SciQ/MMLU control retains significant context shifts; ECE winner changes 2/6, while AUROC/AURC winner does not because token confidence leads in both slots.</div>
+<div class="mini-card"><b>Tables 10–12 · Readout, estimator, and 12-protocol grid</b><br>
+Table 10 shows context movement (0.254 ECE gap, 4 flips) dominates readout changes (0.052 bare, 0.062 prompted). Table 11 compares 10-bin, KDE, KS, and Smoothed ECE: macro bare gaps +0.143/+0.140/+0.154/+0.166 and prompted +0.068/+0.067/+0.064/+0.062; only Smoothed ECE raises context sign changes to 5/12. Table 12 crosses three slots × two strings × two readouts; macro ECE gaps range from +0.041 (reference/first/bare) to +0.236 (reference/span/Guess), illustrating protocol-dependent conclusions.</div>
+<div class="mini-card"><b>Tables 13–15 · Larger models, base models, parsing</b><br>
+Table 13: Qwen2.5-14B/32B/72B all preserve context-dependent reversals; ECE flips 2/4 datasets at each size, AUROC flips 2/4, 3/4, and 4/4. Table 14: base-model checks still show 3/12 winner changes per metric overall, but low/self-selected retention and near-zero Mistral accuracy limit interpretation. Table 15 documents main Instruct parse rates of 0.97–1.00, while base retention is much lower.</div>
+<div class="mini-card"><b>Tables 16–19 · Supplied-answer and scorer checks</b><br>
+Tables 16–17: self-generated correct 0.908, self-generated wrong 0.807, canonical gold 0.850, plausible wrong 0.783, off-type wrong 0.240; paired gold−plausible wrong +0.031 [+.025,+.038]. Table 18: TriviaQA canonical−first alias +0.072 overall, +0.096 when strings differ; generated−canonical among accepted-correct answers is ~0.002. Table 19: normalized exact match lowers accuracy from 0.428 to 0.299 but retains the context pattern; AUROC gap shifts from +0.060 bare to −0.085 Guess under exact match.</div>
+<div class="mini-card"><b>Tables 20–22 · Protocol-audit reproducibility</b><br>
+Table 20 gives explicit exclusion reasons for 10 of 22 audit candidates. Table 21 records specification status across 12 included comparisons: rated answer 12/12 explicit, scored string 10/12, aggregation 6/12, context/slot 7/12; among explicit context choices, 4 use generation-style and 3 elicitation-style contexts, while reconstruction gives 8 vs 4. Table 22 provides the evidence ledger and locations supporting those audit judgments. The appendix also reports that a second rating pass changed five judgments, underscoring the difficulty of protocol reconstruction.</div>
+<div class="warning"><b>Appendix interpretation:</b> the robustness program is unusually useful because it distinguishes perturbations that materially move the comparison (context/slot, scored string, readout) from those that usually do not (reasonable ECE estimators). However, most checks remain within the same benchmark paradigm and model families, so they strengthen internal measurement claims more than external deployment claims.</div>
+</section>
+
+<section id="appraisal">
+<h2>Evaluation and appraisal</h2>
+<div class="verdict"><b>Verdict: Read first.</b> The paper is highly useful as a measurement-validity and evaluator-design reference. Its main contribution is not a new calibration algorithm but a defensible protocol for deciding what is actually being compared.</div>
+<div class="rating-grid">
+<div class="mini-card"><div class="score">9/10</div><b>Relevance</b><p>Directly addresses LLM reliability evaluation, confidence measurement, benchmark validity, and reproducible evaluator design.</p><p class="small"><b>Evidence basis:</b> same-answer protocol, audit, robustness grid. <b>Limiter:</b> not an agent/tool-use or clinical-domain study. <b>Would increase:</b> replication in long-form, agentic, and domain-specialized settings.</p></div>
+<div class="mini-card"><div class="score">8/10</div><b>Novelty</b><p>The prediction-event alignment rule and systematic cross-protocol comparison provide a clear conceptual advance over generic prompt-sensitivity warnings.</p><p class="small"><b>Evidence basis:</b> controlled context/slot intervention and 12-protocol grid. <b>Limiter:</b> prompt/context sensitivity itself is established territory. <b>Would increase:</b> mechanistic decomposition of why contexts reorder confidence.</p></div>
+<div class="mini-card"><div class="score">8.5/10</div><b>Method strength</b><p>Strong matched design, teacher-forced same-answer comparisons, paired bootstrap intervals, multiple metrics, reciprocal/boundary/native-format/larger/base-model controls, and explicit invalid-position exclusion.</p><p class="small"><b>Limiter:</b> main context contrast still bundles instruction, boundary, and marker changes; audit is single-rater. <b>Would increase:</b> factorial isolation of prompt components and independent audit annotation.</p></div>
+<div class="mini-card"><div class="score">8/10</div><b>Evidence strength</b><p>Claims are tightly scoped to measured protocol sensitivity and supported by consistent main and robustness analyses with uncertainty intervals.</p><p class="small"><b>Limiter:</b> benchmark-only evidence and limited model/task diversity. <b>Would increase:</b> independent replication across additional families and operational tasks.</p></div>
+<div class="mini-card"><div class="score">6/10</div><b>External validity</b><p>The effect appears across three Instruct models, four QA datasets, same-family larger models, and some base-model checks, but remains centered on English short-answer QA.</p><p class="small"><b>Limiter:</b> no long-form generation, code, agents, tools, multilingual tasks, closed models, or real deployment. <b>Would increase:</b> broader task/model/domain replication with semantic judges and sampled decoding.</p></div>
+<div class="mini-card"><div class="score">9/10</div><b>Implementation value</b><p>The alignment rule and five-part reporting checklist can be directly incorporated into evaluator specs, abstention systems, confidence benchmarks, and regression tests.</p><p class="small"><b>Limiter:</b> it does not prescribe a universal confidence method or threshold. <b>Would increase:</b> packaged protocol tests/reference implementation for common inference stacks.</p></div>
+</div>
+<h3>Strengths</h3>
+<ul>
+<li><b>Excellent construct alignment.</b> The answer and label are frozen before token context is changed, preventing a common confound.</li>
+<li><b>Metric-aware interpretation.</b> The authors distinguish numerical calibration, discrimination, and selective risk rather than treating one scalar as “confidence quality.”</li>
+<li><b>Strong negative controls.</b> Boundary-matched placement and exclusion of the invalid direct-prefix position prevent a superficially dramatic but malformed comparison from entering the claims.</li>
+<li><b>Useful robustness hierarchy.</b> The study demonstrates that protocol choices do not all matter equally; context/slot is much larger than estimator choice.</li>
+<li><b>Transparent correction history.</b> The appendix explains an earlier misaligned analysis and why the revised same-answer comparison changes the conclusion.</li>
+</ul>
+<h3>Principal limitations / risks of overclaiming</h3>
+<ul>
+<li>The paper demonstrates <b>protocol dependence</b>, not that verbalized confidence or token likelihood is generally poor.</li>
+<li>The <code>Guess:</code> slot’s strong AUROC/AURC cannot be generalized to supplied candidates because it confers a measurable in-context origin advantage.</li>
+<li>ECE comparisons are semantically awkward because token answer likelihood is not intrinsically a correctness probability; the paper acknowledges this and uses AUROC/AURC and transfer tests to reduce dependence on that interpretation.</li>
+<li>The targeted audit is useful for specification examples but too small and single-rater to support prevalence claims about the literature.</li>
+<li>Deployment claims should be capped: short-answer benchmark correctness is substantially simpler than long-form factuality, multi-step reasoning, or tool-execution reliability.</li>
+</ul>
+<div class="goodnote"><b>Appraisal bottom line:</b> high confidence in the internal claim that measured confidence comparisons can reverse under defensible protocol changes. Moderate confidence that the same magnitude/frequency of reversals will generalize outside short-answer QA. The paper is build-useful immediately as an evaluator specification and QA reference, but not sufficient by itself to choose a production confidence signal.</div>
+</section>
+
+<section id="takeaways">
+<h2>Implementation / research takeaways</h2>
+<div class="takeaway-grid">
+<div class="mini-card"><b>1. Define the prediction event first</b><br>Persist the exact question/item, exact answer string, and correctness label. Do not compare confidence signals that refer to different answers.</div>
+<div class="mini-card"><b>2. Treat confidence as protocol-bound</b><br>Store prompt/template version, answer slot/marker, tokenization boundary, scored string, aggregation rule, model checkpoint, and decoding policy as measurement provenance.</div>
+<div class="mini-card"><b>3. Separate objectives</b><br>Use calibration/reliability metrics, discrimination metrics, and selective-risk metrics separately. Do not collapse ECE, AUROC, and AURC into one “better confidence” verdict.</div>
+<div class="mini-card"><b>4. Build counterfactual protocol tests</b><br>For a fixed answer and label, rescore under plausible alternative contexts. A result that changes sign should be reported as protocol-sensitive rather than model-intrinsic.</div>
+<div class="mini-card"><b>5. Validate the use case</b><br>Self-abstention should score the model-generated answer; candidate verification/reranking should score the supplied candidate and its own correctness label.</div>
+<div class="mini-card"><b>6. Regression-test wording sensitivity</b><br>Include semantically equivalent accepted answers/aliases. Large confidence shifts under correctness-preserving reformulations are a reliability warning.</div>
+</div>
+<h3>Suggested evaluator specification derived from the paper</h3>
+<pre><code>PredictionEvent:
+  item_id
+  question
+  exact_answer
+  correctness_label
+
+ConfidenceMeasurement:
+  answer_provenance
+  scored_string
+  conditioning_prompt_hash/version
+  answer_slot + marker
+  token_readout / aggregation
+  model + tokenizer + chat template
+  decoding settings
+
+Evaluation:
+  reliability metric + estimator
+  discrimination metric
+  selective-risk metric
+  matched-row policy
+  uncertainty / bootstrap procedure
+  target use case
+
+Validation rule:
+  every score and label used in one comparison must point to the same PredictionEvent
+  unless the analysis is explicitly labeled as a substitution/transfer diagnostic</code></pre>
+<div class="badnote"><b>Do not infer from this paper:</b> that the <code>Guess:</code>-slot token score is universally best; that verbalized confidence is unusable; that token likelihood is calibrated probability of correctness; or that one benchmark-derived threshold will transfer across prompts, answer formulations, models, or deployments.</div>
+</section>
+
+<section id="provenance">
+<h2>Provenance & QA</h2>
+<div class="meta-grid">
+<div class="mini-card"><b>Primary source</b><br>Kim H, Kang P. <i>Same Answer, Different Confidence: Protocol Sensitivity in LLM Calibration.</i> arXiv:2605.27752v3 [cs.AI]. 7 Aug 2026.</div>
+<div class="mini-card"><b>Evaluated file</b><br>Same Answer, Different Confidence Protocol Sensitivity in LLM Confidence Calibration - 2605.27752v3.pdf</div>
+<div class="mini-card"><b>Appraisal protocol</b><br>summary-evaluation-appraisal-protocol-v4-compact.md (governing project source; file heading retains “Integrated Compact v3”)</div>
+<div class="mini-card"><b>Generation date</b><br>10 Aug 2026</div>
+<div class="mini-card"><b>External sources</b><br>None. No web verification requested or used.</div>
+<div class="mini-card"><b>QA status</b><br>Main sections, Figures 1–3, Tables 1–22, Appendices A–L, ratings, takeaways, and provenance reconciled. Internal chat/file citation syntax excluded.</div>
+</div>
+<p class="small muted">This SEA artifact is a structured synthesis and appraisal of the supplied preprint. It does not replace reading the primary source, reproducing the released code, or independently verifying model outputs and literature-audit judgments.</p>
+</section>
+</div>
+<footer>SEA reference artifact · self-contained HTML · source-grounded, no external verification.</footer>
+</body>
+</html>

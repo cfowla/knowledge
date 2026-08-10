@@ -1,0 +1,5316 @@
+{
+  "activated_macro": "@ATOM",
+  "source_metadata": {
+    "title": "When Experience Becomes Instruction: Trajectory Poisoning in Self-Evolving Agent Skill Systems",
+    "authors": [
+      "Jialuo Chen",
+      "Lingqi Jiang",
+      "Xinhao Deng",
+      "Xiaohu Du",
+      "Jianan Ma",
+      "Yunhao Feng",
+      "Yuqi Qing",
+      "Zhihao Yuan",
+      "Linkang Du",
+      "Jingyi Wang"
+    ],
+    "source_type": "arXiv preprint",
+    "identifier": "arXiv:2608.05563v2",
+    "category": "cs.CR",
+    "version_date": "2026-08-07",
+    "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+    "input_file": "When Experience Becomes Instruction Trajectory Poisoning in Self-Evolving Agent Skill Systems - 2608.05563v2.pdf",
+    "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+    "substantive_pages": "1-8",
+    "reference_pages": "8-9"
+  },
+  "governing_sources": {
+    "authority_precedence": [
+      "literature.py",
+      "literature_atoms.py",
+      "literature_atom.schema.json",
+      "README(2).md",
+      "example_atom.json"
+    ]
+  },
+  "atom_count": 66,
+  "atom_counts_by_type": {
+    "author_conclusion": 5,
+    "limitation": 6,
+    "method": 16,
+    "outcome_definition": 1,
+    "population_description": 1,
+    "qualitative_result": 3,
+    "quantitative_result": 33,
+    "study_objective": 1
+  },
+  "atoms": [
+    {
+      "atom_id": "3332f504-d7a1-5008-9f4f-f945727e69f5",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The study evaluates whether bounded attacker-controlled trajectories can poison the experience-to-instruction promotion process in trajectory-grounded self-evolving skill systems and identifies the conditions under which target behavior is promoted into a persistent skill artifact.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": "Abstract",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "PoisonedEvolution",
+        "self-evolving skills",
+        "trajectory poisoning"
+      ]
+    },
+    {
+      "atom_id": "be357331-eaa5-56e3-b185-b676b804c9ab",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "The primary attacker model is skill-visible black-box: an attacker may inspect public or installed target skills and contribute a bounded share of trajectories, but cannot inspect private trajectory pools, filters, evolution prompts, or directly modify the skill bank.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": "System and Threat Model — Attacker",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "threat model",
+        "black-box attacker"
+      ]
+    },
+    {
+      "atom_id": "853f488c-4a86-5a28-aa31-3a8fb44a9c02",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "The authors abstract a trajectory-based self-evolving skill system as a trajectory pool T, quality filter or router F, LLM-backed evolver E, and versioned skill bank S, with evolution updating the bank from filtered trajectory evidence and the current skill state.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": "Trajectory-based SES abstraction",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "SES abstraction",
+        "evolution pipeline"
+      ]
+    },
+    {
+      "atom_id": "0f0bc394-4574-560e-8da6-ffebde3858a3",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "Artifact poisoning success is defined as the conjunction of Inclusion, Evolution Attribution, and Realization: poisoned records must enter an evolver-consumable stream, be treated as reusable skill-worthy evidence, and survive synthesis into the generated skill.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": "Artifact poisoning success",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "C1 Inclusion",
+        "C2 Evolution Attribution",
+        "C3 Realization"
+      ]
+    },
+    {
+      "atom_id": "7508d4b3-a1b8-5524-a0a7-8cdea23c7cd2",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "outcome_definition",
+      "canonical_statement": "Skill Embedding Rate (SER) is the primary poisoning metric and is the fraction of completed evolution trials in which a behavior-specific, diff-aware rule detects newly added target behavior in the output skill.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": "Metrics",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Fraction of completed evolution trials with newly embedded target behavior detected by a pre-registered behavior-specific diff-aware rule.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "SER",
+        "artifact-level metric"
+      ]
+    },
+    {
+      "atom_id": "a541eb8c-746d-5b7b-ad55-b5e65e38b19e",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "The initial skill is checked before SER scoring so pre-existing target text is not counted; LLM judge outputs are used only to inspect ambiguous cases and do not define poisoning success.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": "Metrics",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "SER detection",
+        "diff-aware evaluation"
+      ]
+    },
+    {
+      "atom_id": "45528014-1c35-50cb-a522-85c11b571a1e",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "Hard and Soft spreadsheet task accuracy are reported only as a skill-usefulness sanity check and are explicitly separated from the artifact-poisoning metric.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": "Metrics",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "utility sanity check",
+        "metric separation"
+      ]
+    },
+    {
+      "atom_id": "5f9b83aa-8801-554d-93e6-1abbf369bb0c",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "limitation",
+      "canonical_statement": "The empirical scope measures generated skill artifacts rather than downstream trigger activation, action execution, real credential theft, exfiltration, or destructive effects.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": "Non-goals and safety",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "scope limitation",
+        "artifact poisoning",
+        "runtime out of scope"
+      ]
+    },
+    {
+      "atom_id": "050407c7-0902-5ab9-9dda-8b1b615afb9a",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "limitation",
+      "canonical_statement": "The empirical claims cover trajectory-grounded artifact evolution in SkillClaw and a structural transfer case in Trace2Skill; user-scoped dialogue-memory systems, verifier-only systems, and parameter-training systems are outside the evaluation.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": "Scope and generality",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "external validity",
+        "scope limitation"
+      ]
+    },
+    {
+      "atom_id": "afe177e9-2829-58b2-bea6-93b60e2c1008",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "PoisonedEvolution transforms attacker-owned trajectories while preserving the original task and outcome and inserting an outcome-conditioned causal bridge that makes a target behavior appear useful for success or necessary to repair failure.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": "Trajectory transformation",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "PoisonedEvolution",
+        "trajectory transformation"
+      ]
+    },
+    {
+      "atom_id": "dbb693b9-a3c3-5fbf-8ec7-03e414b9e841",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "For SkillClaw, transformed records retain task-specific identifiers and successful outcomes while condensing history around a plausible workflow locus; for Trace2Skill, failed outcomes are retained and failure is attributed to the missing target behavior.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": "Reference-grounded construction",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "reference-grounded construction",
+        "outcome conditioning"
+      ]
+    },
+    {
+      "atom_id": "be23bb74-0f3f-5e2c-b601-bf19cfc41a22",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "Domain-aligned placement supports Inclusion by locating the transformed behavior at plausible workflow points such as prerequisites, recovery, output transformation, or validation, without requiring knowledge of the private filter or evolver prompt.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": "C1: domain-aligned inclusion",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "C1 Inclusion",
+        "domain alignment"
+      ]
+    },
+    {
+      "atom_id": "42890e3f-c409-5989-b332-2d74bebd7277",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "Causal attribution is induced by repeatedly linking the target behavior to task-relevant constraints and observed outcomes, so the evolver sees a pattern analogous to requirement or obstacle → target behavior → task completion, or missing behavior → failure.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": "C2: causal attribution",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "C2 Attribution",
+        "causal framing"
+      ]
+    },
+    {
+      "atom_id": "cfe6125b-f66d-5ad5-91e4-c104ebd873cf",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "Cross-trajectory realization is encouraged by varying tasks and surface wording while keeping the operational semantics of the target behavior invariant, allowing the behavior to survive summarization, paraphrase, and skill merging.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": "C3: cross-trajectory realization",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "C3 Realization",
+        "semantic invariance",
+        "recurrence"
+      ]
+    },
+    {
+      "atom_id": "f8f3050e-0c28-509b-80da-f00d55913c30",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "The evaluation instantiates four representative security-effect families—confidentiality, data integrity, supply-chain integrity, and operational-safety weakening—using inert canary endpoints, paths, registries, and test flags without executing the referenced harmful actions.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": "Payload representation and security-effect families",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "F1 confidentiality",
+        "F2 data integrity",
+        "F3 supply chain",
+        "F4 safety weakening",
+        "inert canaries"
+      ]
+    },
+    {
+      "atom_id": "35c7e080-5b94-5ca5-8314-d3819f5cc922",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "population_description",
+      "canonical_statement": "The SkillClaw source corpus contains 300 case-level execution logs produced by GLM-5 using the original xlsx skill on 100 SpreadsheetBench training tasks, which were converted into SkillClaw-compatible sessions.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": "Research questions and data",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "300 case-level execution logs from 100 SpreadsheetBench training tasks",
+        "sample_size": 300,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "SpreadsheetBench",
+        "GLM-5",
+        "xlsx skill"
+      ]
+    },
+    {
+      "atom_id": "5ee7f591-bd27-5aab-b889-d4bffeebbece",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "Each SkillClaw trial constructs a task-distinct batch containing transformed attacker contributions and clean records, runs one native evolution cycle, and leaves the evolver prompt and skill-bank code unchanged so only selected input trajectories differ.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": "Research questions and data",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "input-only intervention"
+      ]
+    },
+    {
+      "atom_id": "2f980426-1327-501a-96d5-3eb8479c5e63",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "The main SkillClaw matrix uses the init refinement setting with n=30 trajectories, k=3 attacker records (10% support), 25 completed trials per model–family cell, six evolvers and four behavior families; optional session-quality judging and publish-time verification are disabled.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": "Research questions and data",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "main evaluation",
+        "n=30",
+        "k=3",
+        "init"
+      ]
+    },
+    {
+      "atom_id": "9fd86c7b-1e69-53ad-baed-70eedff64004",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "At 10% attacker support in the SkillClaw main matrix, PoisonedEvolution embedded target behaviors in 546 of 600 completed trials, corresponding to 91.0% SER.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": "RQ1: Attack Feasibility in SkillClaw",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "SkillClaw init-setting evolution trials at n=30, k=3 across six evolvers and four behavior families",
+        "sample_size": 600,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "10% attacker support; n=30, k=3; init setting"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "91.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "PoisonedEvolution",
+            "event_count": 546,
+            "sample_size": 600,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": "546/600 completed trials (91.0% SER)"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ1",
+        "aggregate"
+      ]
+    },
+    {
+      "atom_id": "7188abdc-0c4f-598b-9113-b4d67c4fe9be",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the SkillClaw main matrix, GPT-5.4 embedded the target behavior in 70/100 completed trials (70.0% SER) across the four security-effect families.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "GPT-5.4",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "GPT-5.4 SkillClaw init trials across F1–F4 at n=30, k=3",
+        "sample_size": 100,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "evolver=GPT-5.4; n=30; k=3; init"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "70.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "GPT-5.4",
+            "event_count": 70,
+            "sample_size": 100,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "Table 1",
+        "evolver result",
+        "GPT-5.4"
+      ]
+    },
+    {
+      "atom_id": "b19b10d8-40cf-5a7e-9049-20227fe43e64",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the SkillClaw main matrix, MiniMax-M2.5 embedded the target behavior in 87/100 completed trials (87.0% SER) across the four security-effect families.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "MiniMax-M2.5",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "MiniMax-M2.5 SkillClaw init trials across F1–F4 at n=30, k=3",
+        "sample_size": 100,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "evolver=MiniMax-M2.5; n=30; k=3; init"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "87.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MiniMax-M2.5",
+            "event_count": 87,
+            "sample_size": 100,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "Table 1",
+        "evolver result",
+        "MiniMax-M2.5"
+      ]
+    },
+    {
+      "atom_id": "9f7a993e-a4b6-5b88-9f22-971a2cb6f8ec",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the SkillClaw main matrix, DeepSeek-V3.2 embedded the target behavior in 100/100 completed trials (100.0% SER) across the four security-effect families.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "DeepSeek-V3.2",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "DeepSeek-V3.2 SkillClaw init trials across F1–F4 at n=30, k=3",
+        "sample_size": 100,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "evolver=DeepSeek-V3.2; n=30; k=3; init"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "100.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DeepSeek-V3.2",
+            "event_count": 100,
+            "sample_size": 100,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "Table 1",
+        "evolver result",
+        "DeepSeek-V3.2"
+      ]
+    },
+    {
+      "atom_id": "20509e43-ef69-50fa-b020-b5acb7be7d7c",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the SkillClaw main matrix, DeepSeek-V4-Pro embedded the target behavior in 94/100 completed trials (94.0% SER) across the four security-effect families.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "DeepSeek-V4-Pro",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "DeepSeek-V4-Pro SkillClaw init trials across F1–F4 at n=30, k=3",
+        "sample_size": 100,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "evolver=DeepSeek-V4-Pro; n=30; k=3; init"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "94.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DeepSeek-V4-Pro",
+            "event_count": 94,
+            "sample_size": 100,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "Table 1",
+        "evolver result",
+        "DeepSeek-V4-Pro"
+      ]
+    },
+    {
+      "atom_id": "ad4c3866-dfce-52b0-a109-ae5e982d9b66",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the SkillClaw main matrix, Qwen3.5-35B-A3B embedded the target behavior in 95/100 completed trials (95.0% SER) across the four security-effect families.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "Qwen3.5-35B-A3B",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Qwen3.5-35B-A3B SkillClaw init trials across F1–F4 at n=30, k=3",
+        "sample_size": 100,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "evolver=Qwen3.5-35B-A3B; n=30; k=3; init"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "95.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Qwen3.5-35B-A3B",
+            "event_count": 95,
+            "sample_size": 100,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "Table 1",
+        "evolver result",
+        "Qwen3.5-35B-A3B"
+      ]
+    },
+    {
+      "atom_id": "34bb78a7-8e6b-5bc5-9cc4-c638b1be9516",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the SkillClaw main matrix, Qwen3.5-122B-A10B embedded the target behavior in 100/100 completed trials (100.0% SER) across the four security-effect families.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "Qwen3.5-122B-A10B",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Qwen3.5-122B-A10B SkillClaw init trials across F1–F4 at n=30, k=3",
+        "sample_size": 100,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "evolver=Qwen3.5-122B-A10B; n=30; k=3; init"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "100.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Qwen3.5-122B-A10B",
+            "event_count": 100,
+            "sample_size": 100,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "Table 1",
+        "evolver result",
+        "Qwen3.5-122B-A10B"
+      ]
+    },
+    {
+      "atom_id": "925019bf-6347-59df-a9c0-b144c63c3f6c",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across six SkillClaw evolvers in the main matrix, F1 confidentiality was embedded in 137/150 completed trials (91.3% SER).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "Family aggregate",
+        "table_column": "F1",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "SkillClaw init trials for F1 confidentiality across six evolvers at n=30, k=3",
+        "sample_size": 150,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "n=30; k=3; init"
+        },
+        {
+          "concept": {
+            "text": "F1 confidentiality",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "91.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "F1 confidentiality",
+            "event_count": 137,
+            "sample_size": 150,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "Table 1",
+        "family result",
+        "F1"
+      ]
+    },
+    {
+      "atom_id": "f4c4f445-8bb3-5827-a934-1e487142e952",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across six SkillClaw evolvers in the main matrix, F2 data integrity was embedded in 139/150 completed trials (92.7% SER).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "Family aggregate",
+        "table_column": "F2",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "SkillClaw init trials for F2 data integrity across six evolvers at n=30, k=3",
+        "sample_size": 150,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "n=30; k=3; init"
+        },
+        {
+          "concept": {
+            "text": "F2 data integrity",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "92.7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "F2 data integrity",
+            "event_count": 139,
+            "sample_size": 150,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "Table 1",
+        "family result",
+        "F2"
+      ]
+    },
+    {
+      "atom_id": "3a6003f2-457e-5290-9465-b950f3fc2584",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across six SkillClaw evolvers in the main matrix, F3 supply-chain integrity was embedded in 124/150 completed trials (82.7% SER).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "Family aggregate",
+        "table_column": "F3",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "SkillClaw init trials for F3 supply-chain integrity across six evolvers at n=30, k=3",
+        "sample_size": 150,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "n=30; k=3; init"
+        },
+        {
+          "concept": {
+            "text": "F3 supply-chain integrity",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "82.7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "F3 supply-chain integrity",
+            "event_count": 124,
+            "sample_size": 150,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "Table 1",
+        "family result",
+        "F3"
+      ]
+    },
+    {
+      "atom_id": "f4df4508-619a-5aff-a1cb-e4354cca4493",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across six SkillClaw evolvers in the main matrix, F4 operational-safety weakening was embedded in 146/150 completed trials (97.3% SER).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "Family aggregate",
+        "table_column": "F4",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "SkillClaw init trials for F4 operational-safety weakening across six evolvers at n=30, k=3",
+        "sample_size": 150,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "n=30; k=3; init"
+        },
+        {
+          "concept": {
+            "text": "F4 operational-safety weakening",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "97.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "F4 operational-safety weakening",
+            "event_count": 146,
+            "sample_size": 150,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "Table 1",
+        "family result",
+        "F4"
+      ]
+    },
+    {
+      "atom_id": "a4748195-0b9e-5e21-bda7-e223067ea42c",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "A separate no-init SkillClaw diagnostic across four representative evolvers embedded the target behavior in 490 of 600 trials (81.7% SER), establishing feasibility of poisoning the skill-creation path.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": "RQ1: Attack Feasibility in SkillClaw — no-init diagnostic",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "No-init SkillClaw diagnostic trials across four representative evolvers",
+        "sample_size": 600,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "no-init skill creation diagnostic"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "81.7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "no-init",
+            "event_count": 490,
+            "sample_size": 600,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": "490/600 trials (81.7%)"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "no-init",
+        "skill creation"
+      ]
+    },
+    {
+      "atom_id": "6c92bdd9-387f-5f5f-bd0d-1097cc3b7304",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "limitation",
+      "canonical_statement": "The no-init diagnostic is not used to estimate a causal refinement-versus-creation effect because its four-evolver model set is not paired with the six-evolver main matrix, and its source traces were originally collected with the xlsx skill.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": "RQ1: Attack Feasibility in SkillClaw — no-init diagnostic",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "no-init",
+        "comparability limitation"
+      ]
+    },
+    {
+      "atom_id": "98d5a07b-a67a-51e6-9acf-4f275151baee",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the representative attacker-support/dilution study, Attacker support k=1 in a 30-record batch yielded 5/25 trials with the target behavior embedded.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": "Figure 2a",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Representative SkillClaw recurrence/dilution trials: fixed n=30, k=1",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "fixed n=30, k=1"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "fixed n=30, k=1",
+            "event_count": 5,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "Figure 2",
+        "fixed n=30, k=1"
+      ]
+    },
+    {
+      "atom_id": "a5e7e23e-957b-59a9-b249-b6e2233bac48",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the representative attacker-support/dilution study, Attacker support k=2 in a 30-record batch yielded 21/25 trials with the target behavior embedded.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": "Figure 2a",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Representative SkillClaw recurrence/dilution trials: fixed n=30, k=2",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "fixed n=30, k=2"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "21",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "fixed n=30, k=2",
+            "event_count": 21,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "Figure 2",
+        "fixed n=30, k=2"
+      ]
+    },
+    {
+      "atom_id": "a9c32e29-602b-5074-90c6-9ce26b051927",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the representative attacker-support/dilution study, Attacker support k=3 in a 30-record batch yielded 25/25 trials with the target behavior embedded.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": "Figure 2a",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Representative SkillClaw recurrence/dilution trials: fixed n=30, k=3",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "fixed n=30, k=3"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "25",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "fixed n=30, k=3",
+            "event_count": 25,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "Figure 2",
+        "fixed n=30, k=3"
+      ]
+    },
+    {
+      "atom_id": "15bee3bc-f7d8-5167-9944-fc7e5fcaab4f",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the representative attacker-support/dilution study, Batch size n=10 with k=3 attacker records yielded 25/25 trials with the target behavior embedded.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": "Figure 2b",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Representative SkillClaw recurrence/dilution trials: fixed k=3, n=10",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "fixed k=3, n=10"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "25",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "fixed k=3, n=10",
+            "event_count": 25,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "Figure 2",
+        "fixed k=3, n=10"
+      ]
+    },
+    {
+      "atom_id": "654493aa-daf4-56c4-bf0c-faaab3997a04",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the representative attacker-support/dilution study, Batch size n=30 with k=3 attacker records yielded 25/25 trials with the target behavior embedded.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": "Figure 2b",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Representative SkillClaw recurrence/dilution trials: fixed k=3, n=30",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "fixed k=3, n=30"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "25",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "fixed k=3, n=30",
+            "event_count": 25,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "Figure 2",
+        "fixed k=3, n=30"
+      ]
+    },
+    {
+      "atom_id": "58e3b6a6-b9fd-5fb6-950b-8afafc3d3c38",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the representative attacker-support/dilution study, Batch size n=100 with k=3 attacker records yielded 22/25 trials with the target behavior embedded.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "5",
+        "paragraph": "Figure 2b",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Representative SkillClaw recurrence/dilution trials: fixed k=3, n=100",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "fixed k=3, n=100"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "22",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "fixed k=3, n=100",
+            "event_count": 22,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "Figure 2",
+        "fixed k=3, n=100"
+      ]
+    },
+    {
+      "atom_id": "37d0843b-27fb-5360-8d38-3cb97aa69786",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "An additional low-support check with k=1 attacker record in n=100 total records yielded 0/5 successful embeddings.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "RQ2: Mechanism Ablations — additional k=1, n=100 check",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Additional SkillClaw low-support check at k=1, n=100",
+        "sample_size": 5,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "k=1; n=100"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "k=1, n=100",
+            "event_count": 0,
+            "sample_size": 5,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "recurrence"
+      ]
+    },
+    {
+      "atom_id": "cec6d091-1664-5d99-971b-3d523a3f4a19",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the C2 attribution-form ablation, single-place local insertion embedded the target behavior in 8/25 trials.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "6",
+        "paragraph": "Panel (a): C2 Attribution form",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 3",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "C2 attribution-form ablation: Local",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Local",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "single-place local insertion"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Local",
+            "event_count": 8,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "C2",
+        "Figure 3",
+        "Local"
+      ]
+    },
+    {
+      "atom_id": "abdf6e7f-2076-511f-b7bb-9f7b2655dc22",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the C2 attribution-form ablation, fragmented insertion without a clear causal role embedded the target behavior in 11/25 trials.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "6",
+        "paragraph": "Panel (a): C2 Attribution form",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 3",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "C2 attribution-form ablation: Fragmented",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Fragmented",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "fragmented insertion without a clear causal role"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "11",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Fragmented",
+            "event_count": 11,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "C2",
+        "Figure 3",
+        "Fragmented"
+      ]
+    },
+    {
+      "atom_id": "7de0fe92-e702-5926-a986-f4a0b65ac11b",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the C2 attribution-form ablation, outcome-linked causal framing embedded the target behavior in 25/25 trials.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "6",
+        "paragraph": "Panel (a): C2 Attribution form",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 3",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "C2 attribution-form ablation: Causal",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Causal",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "outcome-linked causal framing"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "25",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Causal",
+            "event_count": 25,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "C2",
+        "Figure 3",
+        "Causal"
+      ]
+    },
+    {
+      "atom_id": "085260b4-6fea-5010-bb76-c88ed576b70e",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the C3 behavioral-encoding stress test for the F1 family, broad generic reporting instruction embedded the target behavior in 18/25 trials.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "6",
+        "paragraph": "Panel (b): C3 Behavioral encoding",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 3",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "C3 behavioral-encoding stress test: Generic",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Generic",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "broad generic reporting instruction"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "18",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Generic",
+            "event_count": 18,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "C3",
+        "Figure 3",
+        "Generic"
+      ]
+    },
+    {
+      "atom_id": "b3b2658f-a944-508a-86ce-a4d3b2d0eba5",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the C3 behavioral-encoding stress test for the F1 family, out-of-band auxiliary-channel cue embedded the target behavior in 0/25 trials.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "6",
+        "paragraph": "Panel (b): C3 Behavioral encoding",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 3",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "C3 behavioral-encoding stress test: Auxiliary",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Auxiliary",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "out-of-band auxiliary-channel cue"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Auxiliary",
+            "event_count": 0,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "C3",
+        "Figure 3",
+        "Auxiliary"
+      ]
+    },
+    {
+      "atom_id": "5b1c6884-97d2-5f84-89e8-0677c2cc6280",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the C3 behavioral-encoding stress test for the F1 family, domain-tailored actionable xlsx-specific encoding embedded the target behavior in 25/25 trials.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "6",
+        "paragraph": "Panel (b): C3 Behavioral encoding",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 3",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "C3 behavioral-encoding stress test: Tailored",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Tailored",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "domain-tailored actionable xlsx-specific encoding"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Embedded trials",
+        "estimate": "25",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Tailored",
+            "event_count": 25,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "SkillClaw",
+        "RQ2",
+        "C3",
+        "Figure 3",
+        "Tailored"
+      ]
+    },
+    {
+      "atom_id": "3f4e31aa-29d9-5779-912d-3742ef40f9da",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The mechanism ablations support recurring evidence, outcome-linked causal framing, and actionable domain-aligned encoding as the main determinants of whether poisoning survives evidence promotion and skill synthesis.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "RQ2: Mechanism Ablations",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "RQ2",
+        "mechanism conclusion",
+        "recurrence",
+        "causal framing",
+        "domain alignment"
+      ]
+    },
+    {
+      "atom_id": "2c8554ac-2cad-5c64-8cb0-43fdf130b18f",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "The Trace2Skill transfer experiment uses the full input path: each trial mixes three attacker-controlled, system-formatted failed trajectories with 27 clean failures from a held-out spreadsheet pool, then relies on native error analysis and skill consolidation; only the input trace pool changes.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "RQ3: Structural Transfer to Trace2Skill",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "Trace2Skill",
+        "structural transfer",
+        "input-only intervention"
+      ]
+    },
+    {
+      "atom_id": "3edf8b64-8c72-5dbe-a355-4c1f4ab7ed46",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "The Trace2Skill transfer evaluation comprises 600 trials at n=30 and k=3 (10% attacker support), with 150 trials per security-effect family across multiple evolvers and evolution modes.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "RQ3: Structural Transfer to Trace2Skill",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "Trace2Skill",
+        "n=30",
+        "k=3",
+        "600 trials"
+      ]
+    },
+    {
+      "atom_id": "379e52fb-3a25-5fed-bb57-6f9371f9084f",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across the Trace2Skill structural-transfer evaluation, PoisonedEvolution embedded target behavior in 369 of 600 trials (61.5% SER).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "Overall",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Trace2Skill structural-transfer trials at n=30, k=3",
+        "sample_size": 600,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Trace2Skill; n=30; k=3"
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "61.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Overall",
+            "event_count": 369,
+            "sample_size": 600,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Trace2Skill",
+        "RQ3",
+        "Table 2",
+        "aggregate"
+      ]
+    },
+    {
+      "atom_id": "66f9458a-9c0f-546e-a6f5-10bcafe02a0e",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In Trace2Skill structural transfer, F1 confidentiality was embedded in 101/150 trials (67.3% SER).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "F1",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Trace2Skill trials for F1 confidentiality at n=30, k=3",
+        "sample_size": 150,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Trace2Skill; n=30; k=3"
+        },
+        {
+          "concept": {
+            "text": "F1 confidentiality",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "67.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "F1 confidentiality",
+            "event_count": 101,
+            "sample_size": 150,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Trace2Skill",
+        "RQ3",
+        "Table 2",
+        "F1"
+      ]
+    },
+    {
+      "atom_id": "0fd4296d-9e86-56ca-a290-393c27f31efe",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In Trace2Skill structural transfer, F2 data integrity was embedded in 124/150 trials (82.7% SER).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "F2",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Trace2Skill trials for F2 data integrity at n=30, k=3",
+        "sample_size": 150,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Trace2Skill; n=30; k=3"
+        },
+        {
+          "concept": {
+            "text": "F2 data integrity",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "82.7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "F2 data integrity",
+            "event_count": 124,
+            "sample_size": 150,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Trace2Skill",
+        "RQ3",
+        "Table 2",
+        "F2"
+      ]
+    },
+    {
+      "atom_id": "e54eac56-4955-574f-a77e-88e3976eeceb",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In Trace2Skill structural transfer, F3 supply-chain integrity was embedded in 116/150 trials (77.3% SER).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "F3",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Trace2Skill trials for F3 supply-chain integrity at n=30, k=3",
+        "sample_size": 150,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Trace2Skill; n=30; k=3"
+        },
+        {
+          "concept": {
+            "text": "F3 supply-chain integrity",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "77.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "F3 supply-chain integrity",
+            "event_count": 116,
+            "sample_size": 150,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Trace2Skill",
+        "RQ3",
+        "Table 2",
+        "F3"
+      ]
+    },
+    {
+      "atom_id": "ca50a66e-ebef-5eeb-a150-6e95140f5aa2",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In Trace2Skill structural transfer, F4 operational-safety weakening was embedded in 28/150 trials (18.7% SER).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "F4",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Trace2Skill trials for F4 operational-safety weakening at n=30, k=3",
+        "sample_size": 150,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "PoisonedEvolution",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "Trace2Skill; n=30; k=3"
+        },
+        {
+          "concept": {
+            "text": "F4 operational-safety weakening",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "exposure",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Skill Embedding Rate (%)",
+        "estimate": "18.7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "F4 operational-safety weakening",
+            "event_count": 28,
+            "sample_size": 150,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Trace2Skill",
+        "RQ3",
+        "Table 2",
+        "F4"
+      ]
+    },
+    {
+      "atom_id": "03a0613a-6d3f-5b5b-b4ac-685e9e6efe31",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Security-effect family sensitivity changed across evolution architectures: F4 was the easiest family to promote in SkillClaw but the least successful in Trace2Skill, indicating that semantic fit with pipeline routing and attribution policy matters.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": "Payload-family sensitivity",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "cross-system comparison",
+        "family sensitivity",
+        "pipeline routing"
+      ]
+    },
+    {
+      "atom_id": "cf773dde-0300-57d8-9a2e-221b942cf59c",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On the 100-task trajectory-collection split with Qwen3.5-122B-A10B, the poisoned-evolved xlsx skill achieved 20.0% Hard accuracy compared with 18.0% without a skill.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "Benign-task utility check",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "100 SpreadsheetBench trajectory-collection tasks",
+        "sample_size": 100,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Poisoned-evolved xlsx skill",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No skill",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Hard task accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "All cases for a benchmark instance pass.",
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Hard accuracy (%)",
+        "estimate": "20.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Poisoned-evolved xlsx skill",
+            "event_count": null,
+            "sample_size": null,
+            "value": "20.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "No skill",
+            "event_count": null,
+            "sample_size": null,
+            "value": "18.0",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "utility check",
+        "Hard accuracy",
+        "Qwen3.5-122B-A10B"
+      ]
+    },
+    {
+      "atom_id": "d329c1a0-0b81-5e35-ae92-7d806c9b03a9",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On the same 100-task split, the poisoned-evolved xlsx skill achieved 36.54% Soft accuracy compared with 34.88% without a skill.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": "Benign-task utility check",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "100 SpreadsheetBench trajectory-collection tasks",
+        "sample_size": 100,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Poisoned-evolved xlsx skill",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No skill",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Soft task accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Fraction of individual benchmark cases passed.",
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Soft accuracy (%)",
+        "estimate": "36.54",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Poisoned-evolved xlsx skill",
+            "event_count": null,
+            "sample_size": null,
+            "value": "36.54",
+            "unit": "%"
+          },
+          {
+            "arm_label": "No skill",
+            "event_count": null,
+            "sample_size": null,
+            "value": "34.88",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "utility check",
+        "Soft accuracy",
+        "Qwen3.5-122B-A10B"
+      ]
+    },
+    {
+      "atom_id": "2b295a80-7505-59a9-9fde-af3ece342558",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "limitation",
+      "canonical_statement": "The benign-task utility evaluation is a targeted sanity check and does not establish broad utility preservation or a complete utility–security trade-off under poisoning.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": "Evolver policy matters",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "utility limitation",
+        "external validity"
+      ]
+    },
+    {
+      "atom_id": "3029480e-efc2-5c8d-936e-8768b01742f6",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "method",
+      "canonical_statement": "The pilot Provenance-Diversity Gate requires support from at least three users and clusters, rejects majority dominance, and penalizes high text overlap to distinguish concentrated provenance from independently supported evidence before promotion.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": "Defenses should inspect evidence promotion, not only skill text",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "provenance defense",
+        "promotion-time gate"
+      ]
+    },
+    {
+      "atom_id": "1adfcb53-c923-5c99-a92f-a6a9297ad75d",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "At n=30 and k=3, the pilot provenance-diversity gate blocked all 25 single-cluster F1 candidates and reduced post-gate SER from 25/25 before gating to 0/25 after gating.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": "Defenses should inspect evidence promotion, not only skill text",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": {
+        "label": "Single-cluster F1 provenance-gate candidates at n=30, k=3",
+        "sample_size": 25,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Provenance-Diversity Gate",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "No provenance gate",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Skill Embedding Rate (SER)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Generated skill newly embeds the target behavior.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Post-gate embedded trials",
+        "estimate": "0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Before gate",
+            "event_count": 25,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          },
+          {
+            "arm_label": "After gate",
+            "event_count": 0,
+            "sample_size": 25,
+            "value": null,
+            "unit": null
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "provenance defense",
+        "pilot",
+        "F1"
+      ]
+    },
+    {
+      "atom_id": "e1a6c3c9-5b73-5773-a62a-f2e5e7cd21b2",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "The pilot provenance-diversity gate accepted one five-session diverse control candidate.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": "Defenses should inspect evidence promotion, not only skill text",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "provenance defense",
+        "pilot control"
+      ]
+    },
+    {
+      "atom_id": "68011803-9237-5f7f-a7fb-fc734d0480e9",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "limitation",
+      "canonical_statement": "The provenance-diversity defense is preliminary because candidate grouping is assumed, the clean control is small, and coordinated Sybil contributors may mimic diversity.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": "Defenses should inspect evidence promotion, not only skill text",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "provenance defense",
+        "limitation",
+        "Sybil risk"
+      ]
+    },
+    {
+      "atom_id": "635daf7e-b1eb-5580-a1cd-24bc74bf6eb8",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "SkillClaw results vary substantially by evolver, from 70.0% to 100.0% aggregate SER, showing that evolver policy is part of the attack surface; the authors caution that this is not a model quality or scale ranking.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": "Evolver policy matters",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "evolver policy",
+        "model sensitivity"
+      ]
+    },
+    {
+      "atom_id": "be02a4f7-942d-5356-9c9a-6ecfe3b67ca7",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "limitation",
+      "canonical_statement": "The study evaluates one evolution cycle and does not measure whether a poisoned skill can create a longitudinal feedback loop by causing future trajectories to repeat and apparently revalidate the poisoned behavior.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": "Evolution may create a feedback loop",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "single-cycle limitation",
+        "longitudinal evaluation"
+      ]
+    },
+    {
+      "atom_id": "b28c3794-7a0a-5c2b-9981-94332c290cb9",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "Artifact-origin provenance alone is insufficient because an authorized victim evolver can still produce a poisoned skill from attacker-controlled evidence; the authors argue that lineage should retain supporting and contradicting trajectories, contributor clusters, evolver version, and exact skill diff.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": "Authentic provenance is not trustworthy provenance",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "semantic lineage",
+        "provenance",
+        "auditability"
+      ]
+    },
+    {
+      "atom_id": "e875e3ae-66ac-5138-a5f5-801f42aaf98f",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors recommend treating evidence promotion as a provenance-sensitive authorization decision and combining evidence-level promotion gates with pre-execution skill analysis, staged rollout, reversible skill versions, and capability-based runtime enforcement.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "discussion",
+        "page": "7",
+        "paragraph": "Artifact poisoning and runtime impact are distinct",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "defense implications",
+        "authorization",
+        "runtime enforcement"
+      ]
+    },
+    {
+      "atom_id": "963ca2c9-911d-570c-ad99-2064d4ec2533",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The paper concludes that recurring, workflow-aligned adversarial evidence can satisfy Inclusion, Evolution Attribution, and Realization, making the experience-to-instruction promotion step a security boundary for self-evolving skill systems.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "8",
+        "paragraph": "Conclusion",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "main conclusion",
+        "evidence promotion",
+        "security boundary"
+      ]
+    },
+    {
+      "atom_id": "9a34b417-e499-57e9-972c-3355f9bbfd9c",
+      "publication_id": "183c4bcc-da25-56a7-a598-cec8e46f58af",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors conclude that defenses should apply provenance and relevance checks before experience becomes durable shared instruction rather than relying only on post-generation skill-text scanning.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "8",
+        "paragraph": "Conclusion",
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-atom",
+        "extracted_at": "2026-08-10T07:38:00Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08-10",
+        "input_document_hash": "sha256:2108eb0a97328a66834a402323cedce4cc9ca242180416082af6f3aa594e726f",
+        "extraction_run_id": "2608.05563v2-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:38:00Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "defense conclusion",
+        "provenance",
+        "relevance checks"
+      ]
+    }
+  ],
+  "validation_report": {
+    "pydantic_structural_validation": {
+      "status": "pass",
+      "errors": []
+    },
+    "json_schema_validation": {
+      "status": "pass",
+      "errors": []
+    },
+    "sufficiency_validation": {
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "extraction_limitations": [
+    "The paper is an arXiv preprint and the extraction records source-reported claims without external verification.",
+    "The evaluation is artifact-level and does not establish runtime compromise, trigger activation, or real-world harmful action execution.",
+    "Trace2Skill is treated by the authors as a structural transfer case rather than an equal-sized benchmark target.",
+    "The provenance-diversity defense is a preliminary pilot with a small clean control and assumed candidate grouping.",
+    "No funding disclosure, conflict-of-interest statement, or dedicated data-availability statement was identified in the provided nine-page source; no atoms were fabricated for absent disclosures.",
+    "Related-work claims and bibliography entries were not atomized because they are provenance/context rather than original study findings."
+  ]
+}

@@ -1,0 +1,5944 @@
+{
+  "source_metadata": {
+    "title": "FutureBridge: Token Selection Beyond Local Preference in Collaborative Decoding",
+    "authors": [
+      "Quanquan Li",
+      "Hongbo Zhang",
+      "Yihe Chi",
+      "Jingyu Li",
+      "Xidong Xi",
+      "Liuyang Song",
+      "Hongzhen Zhang",
+      "Yuxiang Huang",
+      "Jing Ke",
+      "Siyuan Ma",
+      "Junyi Lin",
+      "Guitao Cao"
+    ],
+    "source_type": "arXiv preprint",
+    "arxiv_id": "2608.06819",
+    "version": "v1",
+    "date": "2026-08-07",
+    "file": "FutureBridge Token Selection Beyond Local Preference in Collaborative Decoding - 2608.06819v1.pdf",
+    "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+    "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+    "extraction_run_id": "futurebridge-2608.06819v1-general-v1"
+  },
+  "atom_count": 61,
+  "atom_counts_by_type": {
+    "author_conclusion": 2,
+    "limitation": 2,
+    "method": 18,
+    "population_description": 1,
+    "qualitative_result": 1,
+    "quantitative_result": 36,
+    "study_objective": 1
+  },
+  "atoms": [
+    {
+      "atom_id": "2f3aee9c-f39b-46c3-b7ba-ef13b7e73975",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The study evaluates whether token-level SLM-LLM collaboration should select intervention tokens according to how well the receiving SLM can use them for subsequent reasoning rather than according to the LLM's local next-token preference.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "token_selection",
+        "collaborative_decoding",
+        "slm_llm"
+      ]
+    },
+    {
+      "atom_id": "089cff83-6881-4566-9762-59997002e25b",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "The authors identify two gaps in local-preference token selection: a candidate coverage gap when useful LLM candidates are absent from the SLM shortlist and a teaching suitability gap when LLM-preferred tokens are difficult for the SLM to continue from.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "introduction",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "candidate_coverage_gap",
+        "teaching_suitability_gap"
+      ]
+    },
+    {
+      "atom_id": "3b8ce766-6260-4de3-8d81-082fe9637fa9",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "FutureBridge formulates collaboration as token reranking over the union of the SLM and LLM top-k next-token candidate sets at states admitted by a fixed request policy.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "joint_candidate_pool",
+        "reranking"
+      ]
+    },
+    {
+      "atom_id": "170c545b-ea15-4b98-b4c7-6c1ff07d55dd",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "The ideal token objective is the candidate that maximizes final-answer correctness after the candidate is appended and the fixed deterministic SLM completes the trajectory.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "objective",
+        "student_conditioned_value"
+      ]
+    },
+    {
+      "atom_id": "2d82fc66-dc0f-497e-8e91-e386995eb0b5",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "FutureBridge does not optimize the request policy or the per-trajectory intervention budget; these are external and shared across candidate selectors.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "request_policy",
+        "budget_control"
+      ]
+    },
+    {
+      "atom_id": "bafe2599-971f-4673-be06-18b19197cfa3",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "Training states are collected by running the frozen SLM under the fixed request policy without inserting candidate interventions or LLM suffixes, so selectors are trained from the same logged states.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "state_logging",
+        "matched_states"
+      ]
+    },
+    {
+      "atom_id": "71165f2c-5342-43b2-b287-321b49c662c9",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "For each admitted state, FutureBridge forms a deduplicated union of SLM top-K and LLM top-K candidates, separating candidate availability from candidate selection.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "candidate_expansion",
+        "deduplication"
+      ]
+    },
+    {
+      "atom_id": "b32849a7-2a02-424c-b352-abcc9e30b834",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "A greedy LLM trajectory from the same state is retained only when its complete final answer is verifier-correct and contains at least 128 post-action tokens; prefixes of this trajectory provide shared futures with horizons 16, 32, 64, or 128 tokens.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "verified_future",
+        "future_horizon",
+        "filtering"
+      ]
+    },
+    {
+      "atom_id": "2b5290f8-d82d-4b66-af9e-c784ba57a8eb",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "Candidate supervision is constructed by replacing only the LLM action token with each candidate while holding the problem, SLM prefix, shared future, and scoring model fixed.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "counterfactual_scoring",
+        "controlled_replacement"
+      ]
+    },
+    {
+      "atom_id": "b6e3625c-fcf3-49c1-a6ea-776e100c25bc",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "For each candidate, the frozen SLM teacher-forces the shared future and defines future compatibility B_H as the average conditional log-likelihood of the same length-H future after that candidate is inserted.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "future_compatibility",
+        "teacher_forcing"
+      ]
+    },
+    {
+      "atom_id": "514b5986-0bfd-411a-865a-d40187073ac7",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "limitation",
+      "canonical_statement": "The B_H compatibility score is a teacher-forced surrogate for complete free-running SLM rollout value and is not a causal final-answer outcome.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "surrogate_endpoint",
+        "teacher_forcing"
+      ]
+    },
+    {
+      "atom_id": "e54c28f4-42a4-4ec1-8ef1-2196dbcc88c5",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "FutureBridge standardizes compatibility scores within each candidate group and applies a temperature-scaled softmax to create dense candidate-level targets; pure or hybrid LLM-local-preference targets are retained only as ablations.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "soft_targets",
+        "normalization",
+        "ablation"
+      ]
+    },
+    {
+      "atom_id": "f54133a4-a474-46be-bc40-9c402ef2f188",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "A LoRA candidate scorer initialized from the receiving SLM predicts an independent scalar score from only the current state and candidate token and is trained by group-level cross-entropy against the future-compatibility target.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "lora_reranker",
+        "distillation"
+      ]
+    },
+    {
+      "atom_id": "775e940b-9d69-406b-a88a-be182b8e74f8",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "At inference, the assisting LLM supplies only next-token candidates; the selected reranker chooses one token from the joint pool, appends only that token, and immediately returns decoding to the SLM without generating or appending a future suffix.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "deployment_boundary",
+        "token_only_inference"
+      ]
+    },
+    {
+      "atom_id": "89b7e844-f92e-4ba5-824b-1e99a05c982b",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "population_description",
+      "canonical_statement": "The primary receiving model is Qwen3-1.7B, scale generalization is evaluated with Qwen3-0.6B, and Qwen3-32B is the assisting LLM; all base-model parameters remain frozen.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Qwen3-1.7B and Qwen3-0.6B receiving SLMs assisted by Qwen3-32B; all base parameters frozen",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "models",
+        "qwen3"
+      ]
+    },
+    {
+      "atom_id": "3b493ba2-88c9-418a-9d61-c68f4b35c095",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "End-to-end evaluation uses GSM8K, MATH-500, OlympiadBench, AIME 2024, and AIME 2025 with single-trajectory pass@1 accuracy as the primary metric and an unweighted Math Avg. across the five benchmarks.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmarks",
+        "pass_at_1",
+        "math_avg"
+      ]
+    },
+    {
+      "atom_id": "454521f8-636c-45ec-b569-4d62b543d276",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "All methods use the same zero-shot chain-of-thought prompt and answer verifier, and generation is truncated after 4,096 output tokens.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "evaluation_protocol",
+        "generation_limit"
+      ]
+    },
+    {
+      "atom_id": "6f7c3a6b-fc29-4cd1-9410-9daa121465f5",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "FutureBridge supervision is constructed from MATH training data and MATH validation is used to select the request threshold, reranker checkpoint, and future horizon before all choices are fixed for held-out benchmarks.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "model_selection",
+        "math_validation"
+      ]
+    },
+    {
+      "atom_id": "0d924c1e-3229-49a4-9889-693d9501f2df",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-1.7B as the receiving SLM, FutureBridge achieved 96.8% single-trajectory accuracy on GSM8K.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "1.7B GSM8K",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-1.7B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "GSM8K pass@1 accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy (%)",
+        "estimate": "96.8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "96.8",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "end_to_end",
+        "qwen3_1.7b",
+        "gsm8k"
+      ]
+    },
+    {
+      "atom_id": "e71e1d80-bc60-4a55-bc96-c3737e6aed5f",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-1.7B as the receiving SLM, FutureBridge achieved 81.6% single-trajectory accuracy on MATH-500.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "1.7B MATH-500",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-1.7B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "MATH-500 pass@1 accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy (%)",
+        "estimate": "81.6",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "81.6",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "end_to_end",
+        "qwen3_1.7b",
+        "math-500"
+      ]
+    },
+    {
+      "atom_id": "d4ac2c22-a5de-4346-aff5-ccff9e11a265",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-1.7B as the receiving SLM, FutureBridge achieved 43.5% single-trajectory accuracy on OlympiadBench.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "1.7B OlympiadBench",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-1.7B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "OlympiadBench pass@1 accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy (%)",
+        "estimate": "43.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "43.5",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "end_to_end",
+        "qwen3_1.7b",
+        "olympiadbench"
+      ]
+    },
+    {
+      "atom_id": "858b0651-7006-462a-bfb6-f3e5eab89c5b",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-1.7B as the receiving SLM, FutureBridge achieved 16.7% single-trajectory accuracy on AIME 2024.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "1.7B AIME 2024",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-1.7B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "AIME 2024 pass@1 accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy (%)",
+        "estimate": "16.7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "16.7",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "end_to_end",
+        "qwen3_1.7b",
+        "aime_2024"
+      ]
+    },
+    {
+      "atom_id": "fbdbac21-6ab5-4a85-8ef0-f752f73ea9f0",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-1.7B as the receiving SLM, FutureBridge achieved 13.3% single-trajectory accuracy on AIME 2025.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "1.7B AIME 2025",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-1.7B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "AIME 2025 pass@1 accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy (%)",
+        "estimate": "13.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "13.3",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "end_to_end",
+        "qwen3_1.7b",
+        "aime_2025"
+      ]
+    },
+    {
+      "atom_id": "fee78adf-bb5c-45b2-a2dc-c02f5a67d68d",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-1.7B, FutureBridge achieved a Math Avg. of 50.38%, compared with 49.14% for S2T, 48.40% for Takeover, 47.70% for R2R, 40.20% for S2T-Local, 38.40% for Maj@8, and 37.30% for greedy SLM decoding.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "1.7B Math Avg.",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-1.7B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "S2T",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Takeover",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "R2R",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "S2T-Local",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Maj@8",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Greedy SLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Unweighted Math Avg. accuracy across five benchmarks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Math Avg. accuracy (%)",
+        "estimate": "50.38",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.38",
+            "unit": "%"
+          },
+          {
+            "arm_label": "S2T",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.14",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Takeover",
+            "event_count": null,
+            "sample_size": null,
+            "value": "48.4",
+            "unit": "%"
+          },
+          {
+            "arm_label": "R2R",
+            "event_count": null,
+            "sample_size": null,
+            "value": "47.7",
+            "unit": "%"
+          },
+          {
+            "arm_label": "S2T-Local",
+            "event_count": null,
+            "sample_size": null,
+            "value": "40.2",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Maj@8",
+            "event_count": null,
+            "sample_size": null,
+            "value": "38.4",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Greedy SLM",
+            "event_count": null,
+            "sample_size": null,
+            "value": "37.3",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "end_to_end",
+        "qwen3_1.7b",
+        "math_avg"
+      ]
+    },
+    {
+      "atom_id": "b8c37f0f-b204-4267-9b44-0440981f013d",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-1.7B, the paper reports a 35.1% relative improvement in Math Avg. for FutureBridge compared with greedy SLM decoding.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-1.7B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Greedy SLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Relative improvement in Math Avg. accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "relative improvement (%)",
+        "estimate": "35.1",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge Math Avg.",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.38",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Greedy SLM Math Avg.",
+            "event_count": null,
+            "sample_size": null,
+            "value": "37.3",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "relative_improvement",
+        "qwen3_1.7b"
+      ]
+    },
+    {
+      "atom_id": "921065f9-4bb1-4306-bd3f-559ef59e2b8b",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-1.7B, FutureBridge exceeded S2T by 1.24 Math Avg. percentage points and Takeover by 1.98 points.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-1.7B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "S2T",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Takeover",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Math Avg. accuracy difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "difference vs S2T (percentage points)",
+        "estimate": "1.24",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.38",
+            "unit": "%"
+          },
+          {
+            "arm_label": "S2T",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.14",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Takeover",
+            "event_count": null,
+            "sample_size": null,
+            "value": "48.4",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "end_to_end_delta",
+        "qwen3_1.7b"
+      ]
+    },
+    {
+      "atom_id": "451eed26-264c-4ddb-935c-464f401808ab",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-0.6B as the receiving SLM, FutureBridge achieved 87.8% single-trajectory accuracy on GSM8K.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "0.6B GSM8K",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-0.6B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "GSM8K pass@1 accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy (%)",
+        "estimate": "87.8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "87.8",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "end_to_end",
+        "qwen3_0.6b",
+        "gsm8k"
+      ]
+    },
+    {
+      "atom_id": "6c500f91-17fa-44d2-b811-aa8ec84a94d9",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-0.6B as the receiving SLM, FutureBridge achieved 74.8% single-trajectory accuracy on MATH-500.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "0.6B MATH-500",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-0.6B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "MATH-500 pass@1 accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy (%)",
+        "estimate": "74.8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "74.8",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "end_to_end",
+        "qwen3_0.6b",
+        "math-500"
+      ]
+    },
+    {
+      "atom_id": "1da8ecf1-6e91-469d-9df6-d708db7ff62f",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-0.6B as the receiving SLM, FutureBridge achieved 31.2% single-trajectory accuracy on OlympiadBench.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "0.6B OlympiadBench",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-0.6B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "OlympiadBench pass@1 accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy (%)",
+        "estimate": "31.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "31.2",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "end_to_end",
+        "qwen3_0.6b",
+        "olympiadbench"
+      ]
+    },
+    {
+      "atom_id": "5f889fbd-f84d-4549-bed4-3c3d5674d219",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-0.6B as the receiving SLM, FutureBridge achieved 13.3% single-trajectory accuracy on AIME 2024.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "0.6B AIME 2024",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-0.6B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "AIME 2024 pass@1 accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy (%)",
+        "estimate": "13.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "13.3",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "end_to_end",
+        "qwen3_0.6b",
+        "aime_2024"
+      ]
+    },
+    {
+      "atom_id": "4d743976-aa95-435f-93f0-a348add2bc41",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-0.6B as the receiving SLM, FutureBridge achieved 11.1% single-trajectory accuracy on AIME 2025.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "0.6B AIME 2025",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-0.6B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "AIME 2025 pass@1 accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy (%)",
+        "estimate": "11.1",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "11.1",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "end_to_end",
+        "qwen3_0.6b",
+        "aime_2025"
+      ]
+    },
+    {
+      "atom_id": "43efa82f-9c7d-425e-a3e0-13aeecea03b8",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-0.6B, FutureBridge achieved a Math Avg. of 43.64%, compared with 36.48% for S2T and 30.14% for S2T-Local.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "0.6B Math Avg.",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-0.6B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "S2T",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "S2T-Local",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Unweighted Math Avg. accuracy across five benchmarks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Math Avg. accuracy (%)",
+        "estimate": "43.64",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "43.64",
+            "unit": "%"
+          },
+          {
+            "arm_label": "S2T",
+            "event_count": null,
+            "sample_size": null,
+            "value": "36.48",
+            "unit": "%"
+          },
+          {
+            "arm_label": "S2T-Local",
+            "event_count": null,
+            "sample_size": null,
+            "value": "30.14",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "scale_generalization",
+        "qwen3_0.6b"
+      ]
+    },
+    {
+      "atom_id": "06b8b767-8add-41d3-9908-eea0c832006a",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "For Qwen3-0.6B, FutureBridge improved Math Avg. by 7.16 percentage points over S2T and by 13.50 points over S2T-Local.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Five mathematical reasoning benchmarks with Qwen3-0.6B receiving SLM and Qwen3-32B assisting LLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "S2T",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "S2T-Local",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Math Avg. accuracy difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "difference vs S2T (percentage points)",
+        "estimate": "7.16",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "43.64",
+            "unit": "%"
+          },
+          {
+            "arm_label": "S2T",
+            "event_count": null,
+            "sample_size": null,
+            "value": "36.48",
+            "unit": "%"
+          },
+          {
+            "arm_label": "S2T-Local",
+            "event_count": null,
+            "sample_size": null,
+            "value": "30.14",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "scale_generalization",
+        "end_to_end_delta"
+      ]
+    },
+    {
+      "atom_id": "f41e0f8b-ccc7-4a8a-9dc0-c7c27336e530",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the matched token-only collaboration budget with Qwen3-1.7B, FutureBridge averaged 4.8 LLM calls per problem and 3.30x greedy-SLM latency; S2T also averaged 4.8 calls with 3.18x latency.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "FutureBridge",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Token-only inference with Qwen3-1.7B receiving SLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "S2T",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Greedy SLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Normalized inference latency",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "normalized latency (x greedy SLM)",
+        "estimate": "3.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "3.3",
+            "unit": "x"
+          },
+          {
+            "arm_label": "S2T",
+            "event_count": null,
+            "sample_size": null,
+            "value": "3.18",
+            "unit": "x"
+          },
+          {
+            "arm_label": "Greedy SLM",
+            "event_count": null,
+            "sample_size": null,
+            "value": "1.0",
+            "unit": "x"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "inference_efficiency",
+        "latency"
+      ]
+    },
+    {
+      "atom_id": "8631b6e1-8658-40b7-ab8a-3140328d13a9",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "FutureBridge's 3.30x latency was reported as 3.8% higher than S2T because of joint-pool scoring while improving Math Avg. by 1.24 points under the same average 4.8 LLM calls.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Token-only inference with Qwen3-1.7B receiving SLM",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "S2T",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Relative latency increase vs S2T",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "relative latency increase (%)",
+        "estimate": "3.8",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge latency",
+            "event_count": null,
+            "sample_size": null,
+            "value": "3.3",
+            "unit": "x"
+          },
+          {
+            "arm_label": "S2T latency",
+            "event_count": null,
+            "sample_size": null,
+            "value": "3.18",
+            "unit": "x"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "inference_efficiency",
+        "budget_matched"
+      ]
+    },
+    {
+      "atom_id": "4b8fb13c-348c-4f9b-a2ff-06967aacea16",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Pairwise agreement with complete token-only candidate rollouts was 68.3% for FutureBridge, 69.7% for Direct-B_H, 61.2% for the LLM local score, and 56.9% for the SLM local score.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 9",
+        "table_row": "Pairwise accuracy",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Matched held-out intervention states with complete token-only candidate rollouts",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Direct-B_H",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "LLM local score",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "SLM local score",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "control",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Pairwise agreement with complete token-only SLM rollouts",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "pairwise agreement (%)",
+        "estimate": "68.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "68.3",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Direct-B_H",
+            "event_count": null,
+            "sample_size": null,
+            "value": "69.7",
+            "unit": "%"
+          },
+          {
+            "arm_label": "LLM local score",
+            "event_count": null,
+            "sample_size": null,
+            "value": "61.2",
+            "unit": "%"
+          },
+          {
+            "arm_label": "SLM local score",
+            "event_count": null,
+            "sample_size": null,
+            "value": "56.9",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "mechanism",
+        "rollout_agreement"
+      ]
+    },
+    {
+      "atom_id": "c54f48ec-4c92-49b3-9437-e6f739e4795d",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On GSM8K held-out candidate rollouts, FutureBridge top-1 success was 93.5%, compared with 94.8% for privileged Direct-B_H and 87.0% for LLM-local scoring.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 9",
+        "table_row": "GSM8K top-1 success",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Matched held-out GSM8K intervention states with complete token-only SLM rollouts",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Direct-B_H",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "LLM local score",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "GSM8K top-1 rollout success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "top-1 rollout success (%)",
+        "estimate": "93.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "93.5",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Direct-B_H",
+            "event_count": null,
+            "sample_size": null,
+            "value": "94.8",
+            "unit": "%"
+          },
+          {
+            "arm_label": "LLM local score",
+            "event_count": null,
+            "sample_size": null,
+            "value": "87.0",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "mechanism",
+        "top1_rollout_success",
+        "gsm8k"
+      ]
+    },
+    {
+      "atom_id": "d555441f-5ff1-496a-8a27-37dae6877826",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On MATH-500 held-out candidate rollouts, FutureBridge top-1 success was 74.4%, compared with 76.1% for privileged Direct-B_H and 67.5% for LLM-local scoring.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 9",
+        "table_row": "MATH-500 top-1 success",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Matched held-out MATH-500 intervention states with complete token-only SLM rollouts",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Direct-B_H",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "LLM local score",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "MATH-500 top-1 rollout success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "top-1 rollout success (%)",
+        "estimate": "74.4",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "74.4",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Direct-B_H",
+            "event_count": null,
+            "sample_size": null,
+            "value": "76.1",
+            "unit": "%"
+          },
+          {
+            "arm_label": "LLM local score",
+            "event_count": null,
+            "sample_size": null,
+            "value": "67.5",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "mechanism",
+        "top1_rollout_success",
+        "math_500"
+      ]
+    },
+    {
+      "atom_id": "9c7512b8-a8b2-495c-943b-f8e377a665ac",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On OlympiadBench held-out candidate rollouts, FutureBridge top-1 success was 38.9%, compared with 40.1% for privileged Direct-B_H and 32.2% for LLM-local scoring.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 9",
+        "table_row": "OlympiadBench top-1 success",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Matched held-out OlympiadBench intervention states with complete token-only SLM rollouts",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Direct-B_H",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "LLM local score",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "OlympiadBench top-1 rollout success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "top-1 rollout success (%)",
+        "estimate": "38.9",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "38.9",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Direct-B_H",
+            "event_count": null,
+            "sample_size": null,
+            "value": "40.1",
+            "unit": "%"
+          },
+          {
+            "arm_label": "LLM local score",
+            "event_count": null,
+            "sample_size": null,
+            "value": "32.2",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "mechanism",
+        "top1_rollout_success",
+        "olympiadbench"
+      ]
+    },
+    {
+      "atom_id": "aa873ec6-263b-48af-b4de-7d4aeffad0d1",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "With Qwen3-1.7B, restricting FutureBridge to an SLM-only candidate pool reduced Math Avg. from 50.38% to 47.9%, while an LLM-only pool reduced it to 48.3%.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "Candidate pool variants",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Qwen3-1.7B evaluation on the reported ablation benchmark aggregate",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge joint pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "SLM-only pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "LLM-only pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Math Avg. accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Math Avg. accuracy (%)",
+        "estimate": "50.38",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Joint pool",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.38",
+            "unit": "%"
+          },
+          {
+            "arm_label": "SLM-only pool",
+            "event_count": null,
+            "sample_size": null,
+            "value": "47.9",
+            "unit": "%"
+          },
+          {
+            "arm_label": "LLM-only pool",
+            "event_count": null,
+            "sample_size": null,
+            "value": "48.3",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "candidate_pool"
+      ]
+    },
+    {
+      "atom_id": "e1d86182-8fed-4d06-a482-400e7c21c16f",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Using the same states, budget, and joint candidate pool, direct LLM local scoring achieved 47.2% Math Avg., versus 50.38% for FutureBridge.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "Direct LLM score",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Qwen3-1.7B matched candidate-selection ablation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Direct LLM score",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Math Avg. accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Math Avg. accuracy (%)",
+        "estimate": "50.38",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.38",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Direct LLM score",
+            "event_count": null,
+            "sample_size": null,
+            "value": "47.2",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "local_preference"
+      ]
+    },
+    {
+      "atom_id": "10260a54-0b18-48ed-8306-271502967b5e",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The distilled LLM-preference ablation achieved 46.7% Math Avg., compared with 50.38% for FutureBridge under matched architecture and optimization budget.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "Distilled LLM pref.",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Qwen3-1.7B matched supervision-target ablation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Distilled LLM preference",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Math Avg. accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Math Avg. accuracy (%)",
+        "estimate": "50.38",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.38",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Distilled LLM preference",
+            "event_count": null,
+            "sample_size": null,
+            "value": "46.7",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "supervision_target"
+      ]
+    },
+    {
+      "atom_id": "6d26ac55-fb8e-4dd5-b8db-60d63cc6352a",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Increasing the shared-future training horizon from 16 to 64 tokens increased Math Avg. from 47.7% to 50.38%; increasing to 128 tokens yielded 50.5%.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 11",
+        "table_row": "Math Avg.",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Qwen3-1.7B shared-future horizon ablation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge H=64",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "FutureBridge H=16",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "FutureBridge H=128",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Math Avg. accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Math Avg. accuracy (%)",
+        "estimate": "50.38",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "H=16",
+            "event_count": null,
+            "sample_size": null,
+            "value": "47.7",
+            "unit": "%"
+          },
+          {
+            "arm_label": "H=64",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.38",
+            "unit": "%"
+          },
+          {
+            "arm_label": "H=128",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.5",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "future_horizon"
+      ]
+    },
+    {
+      "atom_id": "af26a6a9-dff3-4d1a-9119-1609d78e2c19",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "MATH validation selected H=64 for the deployed FutureBridge reranker even though H=128 produced a slightly higher reported aggregate score; deployment generates no future tokens.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "model_selection",
+        "future_horizon",
+        "deployment"
+      ]
+    },
+    {
+      "atom_id": "0f3a16c5-e8a8-4318-b9c2-b5875dd6fe41",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Using a unverified training future reduced Math Avg. to 48.2% compared with 50.38% under answer-verified future supervision, a reported drop of 2.2 percentage points.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 12",
+        "table_row": "Unverified",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Qwen3-1.7B shared-future quality ablation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Unverified training future",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Answer-verified training future",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Math Avg. accuracy decrease vs answer-verified future",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy decrease (percentage points)",
+        "estimate": "2.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Unverified",
+            "event_count": null,
+            "sample_size": null,
+            "value": "48.2",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Answer-verified",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.38",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "future_quality",
+        "unverified"
+      ]
+    },
+    {
+      "atom_id": "00a288a9-34b7-4074-8696-fadc148addf7",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Using a incorrect answer training future reduced Math Avg. to 46.1% compared with 50.38% under answer-verified future supervision, a reported drop of 4.3 percentage points.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 12",
+        "table_row": "Incorrect answer",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Qwen3-1.7B shared-future quality ablation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Incorrect answer training future",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Answer-verified training future",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Math Avg. accuracy decrease vs answer-verified future",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy decrease (percentage points)",
+        "estimate": "4.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Incorrect answer",
+            "event_count": null,
+            "sample_size": null,
+            "value": "46.1",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Answer-verified",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.38",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "future_quality",
+        "incorrect_answer"
+      ]
+    },
+    {
+      "atom_id": "10829dfe-2510-4d34-8105-24a5d8b4b8f3",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Using a cross-state training future reduced Math Avg. to 44.3% compared with 50.38% under answer-verified future supervision, a reported drop of 6.1 percentage points.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 12",
+        "table_row": "Cross-state",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Qwen3-1.7B shared-future quality ablation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Cross-state training future",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Answer-verified training future",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Math Avg. accuracy decrease vs answer-verified future",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy decrease (percentage points)",
+        "estimate": "6.1",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Cross-state",
+            "event_count": null,
+            "sample_size": null,
+            "value": "44.3",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Answer-verified",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.38",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "future_quality",
+        "cross_state"
+      ]
+    },
+    {
+      "atom_id": "278887cf-b288-4a07-af82-ad352db45fd9",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Using a token-shuffled training future reduced Math Avg. to 43.2% compared with 50.38% under answer-verified future supervision, a reported drop of 7.2 percentage points.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 12",
+        "table_row": "Token-shuffled",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Qwen3-1.7B shared-future quality ablation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Token-shuffled training future",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Answer-verified training future",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Math Avg. accuracy decrease vs answer-verified future",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy decrease (percentage points)",
+        "estimate": "7.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Token-shuffled",
+            "event_count": null,
+            "sample_size": null,
+            "value": "43.2",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Answer-verified",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.38",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "future_quality",
+        "token_shuffled"
+      ]
+    },
+    {
+      "atom_id": "a882c6f3-1231-4eca-be23-0fc5c446c7e6",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "The external request policy uses entropy over the SLM distribution normalized on its top-64 support, with a threshold set to the 0.99 quantile on problem-disjoint MATH validation data and at most eight admitted intervention events per trajectory.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material A",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "request_policy",
+        "entropy",
+        "intervention_budget"
+      ]
+    },
+    {
+      "atom_id": "9299287a-1aee-4c65-84ea-5ffd49449580",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "The 7,500 MATH training problems were split into 6,750 training problems and 750 validation problems before state collection to prevent prefixes from the same problem entering both subsets.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material A",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "data_split",
+        "leakage_control"
+      ]
+    },
+    {
+      "atom_id": "9d957013-f7ad-43d2-84c1-324198ea5d08",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "After answer verification, minimum 128-token future filtering, and candidate-group validation, 18,432 Qwen3-1.7B groups and 20,160 Qwen3-0.6B groups remained; overall retained fractions were 58.2% and 58.3%, respectively.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": "Valid joint candidate group",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Logged admitted MATH states used for FutureBridge supervision construction",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Qwen3-1.7B receiver",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Qwen3-0.6B receiver",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Retained candidate groups after filtering",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "retained fraction (%)",
+        "estimate": "58.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Qwen3-1.7B",
+            "event_count": null,
+            "sample_size": null,
+            "value": "58.2",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Qwen3-0.6B",
+            "event_count": null,
+            "sample_size": null,
+            "value": "58.3",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "training_data",
+        "filtering"
+      ]
+    },
+    {
+      "atom_id": "9bad1550-d2d6-489c-a8c0-1703611c3378",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "method",
+      "canonical_statement": "The LoRA reranker uses rank 16, scaling 32, dropout 0.05 on query/key/value/output attention projections, a scalar head on the appended candidate token, AdamW at 2e-4, three epochs, target temperature 0.5, and three training seeds.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material A",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "lora",
+        "training_hyperparameters"
+      ]
+    },
+    {
+      "atom_id": "50545129-2cd4-4d72-bb2c-464d1ca1a9bf",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "limitation",
+      "canonical_statement": "The main-table Math Avg. is reported as the mean across three training seeds without per-cell standard deviations.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material A",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "uncertainty_reporting",
+        "seeds"
+      ]
+    },
+    {
+      "atom_id": "0334b7ac-f23b-41a6-b896-3f9eb06afece",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "One-time offline construction and training for the primary Qwen3-1.7B receiver totaled 51.0 H200 GPU-hours: 5.8 for state logging, 29.4 for verified-future generation, 8.6 for SLM compatibility scoring, and 7.2 for reranker optimization.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": "Total",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Offline FutureBridge supervision and reranker training for Qwen3-1.7B receiver",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge offline pipeline",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "One-time offline compute cost",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "H200 GPU-hours",
+        "estimate": "51.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "State logging",
+            "event_count": null,
+            "sample_size": null,
+            "value": "5.8",
+            "unit": "H200-hours"
+          },
+          {
+            "arm_label": "Verified-future generation",
+            "event_count": null,
+            "sample_size": null,
+            "value": "29.4",
+            "unit": "H200-hours"
+          },
+          {
+            "arm_label": "Compatibility scoring",
+            "event_count": null,
+            "sample_size": null,
+            "value": "8.6",
+            "unit": "H200-hours"
+          },
+          {
+            "arm_label": "Reranker optimization",
+            "event_count": null,
+            "sample_size": null,
+            "value": "7.2",
+            "unit": "H200-hours"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "compute_cost",
+        "offline_training"
+      ]
+    },
+    {
+      "atom_id": "f5b2e2e1-b524-40ea-a8c1-fddcdbba8063",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "At deployment with Qwen3-1.7B, FutureBridge considered an average joint pool of 13.2 candidates per intervention and used 78.1 GB GPU memory, versus an 8.0-token pool and 72.7 GB for S2T.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": "FutureBridge",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Per-problem token-only deployment with Qwen3-1.7B receiver",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "FutureBridge",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "S2T",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Average candidate pool size",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "candidate pool size (tokens)",
+        "estimate": "13.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "FutureBridge pool",
+            "event_count": null,
+            "sample_size": null,
+            "value": "13.2",
+            "unit": "tokens"
+          },
+          {
+            "arm_label": "S2T pool",
+            "event_count": null,
+            "sample_size": null,
+            "value": "8.0",
+            "unit": "tokens"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "deployment_cost",
+        "candidate_pool"
+      ]
+    },
+    {
+      "atom_id": "9e9da60f-b318-4b86-a756-e8218cc2e950",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "At matched held-out GSM8K intervention states, the joint SLM-LLM top-8 pool contained a token yielding a correct complete SLM rollout in 88.2% of states, versus 79.4% for the LLM top-8 pool and 72.8% for the SLM top-8 pool.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 10",
+        "table_row": "GSM8K",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Matched held-out GSM8K intervention states",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Joint SLM-LLM pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "LLM top-8 pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "SLM top-8 pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Candidate-pool coverage of a token yielding a correct complete SLM rollout",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "coverage (%)",
+        "estimate": "88.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Joint pool",
+            "event_count": null,
+            "sample_size": null,
+            "value": "88.2",
+            "unit": "%"
+          },
+          {
+            "arm_label": "LLM top-8",
+            "event_count": null,
+            "sample_size": null,
+            "value": "79.4",
+            "unit": "%"
+          },
+          {
+            "arm_label": "SLM top-8",
+            "event_count": null,
+            "sample_size": null,
+            "value": "72.8",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "candidate_coverage",
+        "gsm8k"
+      ]
+    },
+    {
+      "atom_id": "13ecad09-086c-4eb2-9722-0a635d92949c",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "At matched held-out MATH-500 intervention states, the joint SLM-LLM top-8 pool contained a token yielding a correct complete SLM rollout in 63.4% of states, versus 54.1% for the LLM top-8 pool and 49.6% for the SLM top-8 pool.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 10",
+        "table_row": "MATH-500",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Matched held-out MATH-500 intervention states",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Joint SLM-LLM pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "LLM top-8 pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "SLM top-8 pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Candidate-pool coverage of a token yielding a correct complete SLM rollout",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "coverage (%)",
+        "estimate": "63.4",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Joint pool",
+            "event_count": null,
+            "sample_size": null,
+            "value": "63.4",
+            "unit": "%"
+          },
+          {
+            "arm_label": "LLM top-8",
+            "event_count": null,
+            "sample_size": null,
+            "value": "54.1",
+            "unit": "%"
+          },
+          {
+            "arm_label": "SLM top-8",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.6",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "candidate_coverage",
+        "math_500"
+      ]
+    },
+    {
+      "atom_id": "7e734a85-6dfd-43ba-944c-2c1c12dbd564",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "At matched held-out OlympiadBench intervention states, the joint SLM-LLM top-8 pool contained a token yielding a correct complete SLM rollout in 59.5% of states, versus 50.7% for the LLM top-8 pool and 45.2% for the SLM top-8 pool.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 10",
+        "table_row": "OlympiadBench",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Matched held-out OlympiadBench intervention states",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Joint SLM-LLM pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "LLM top-8 pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "SLM top-8 pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Candidate-pool coverage of a token yielding a correct complete SLM rollout",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "coverage (%)",
+        "estimate": "59.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Joint pool",
+            "event_count": null,
+            "sample_size": null,
+            "value": "59.5",
+            "unit": "%"
+          },
+          {
+            "arm_label": "LLM top-8",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.7",
+            "unit": "%"
+          },
+          {
+            "arm_label": "SLM top-8",
+            "event_count": null,
+            "sample_size": null,
+            "value": "45.2",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "candidate_coverage",
+        "olympiadbench"
+      ]
+    },
+    {
+      "atom_id": "7aa45432-cc32-40e3-a728-e049d5cd3a02",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "A size-matched SLM top-16 pool achieved a 48.0% Math Avg., 2.4 points below the joint SLM-LLM pool.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Supplementary Material D",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": {
+        "label": "Qwen3-1.7B size-matched candidate-pool control",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SLM top-16 pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Joint SLM-LLM pool",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Math Avg. accuracy difference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Math Avg. accuracy (%)",
+        "estimate": "48.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SLM top-16 pool",
+            "event_count": null,
+            "sample_size": null,
+            "value": "48.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Joint pool",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.38",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "candidate_coverage",
+        "size_matched_control"
+      ]
+    },
+    {
+      "atom_id": "1df43adf-f20e-422a-8717-cc10e7a07360",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors conclude that token-level collaboration should select interventions according to whether the receiving SLM can use them to continue reasoning, rather than according to the LLM's local preference alone.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "conclusion",
+        "receiver_conditioned_selection"
+      ]
+    },
+    {
+      "atom_id": "45f9f67b-6384-45f0-a0c1-ce21e0d29493",
+      "publication_id": "d984c180-2fb8-4c6f-85a4-6378ec574562",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The reported experiments support separating candidate coverage from candidate selection: the LLM can expand the available action space while an SLM-conditioned reranker chooses among the joint candidates.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review-project",
+        "extracted_at": "2026-08-10T07:51:03.562429Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM",
+        "input_document_hash": "sha256:9ac6aef3065e2467ad0269633bd92a7622afaa666ca3091b6de409f1a06be7bb",
+        "extraction_run_id": "futurebridge-2608.06819v1-general-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-10T07:51:03.562429Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "conclusion",
+        "candidate_coverage",
+        "candidate_selection"
+      ]
+    }
+  ],
+  "validation_report": {
+    "structural_validation": {
+      "status": "passed",
+      "validated_atoms": 61,
+      "errors": []
+    },
+    "serialization_schema_validation": {
+      "status": "passed",
+      "validated_atoms": 61,
+      "errors": []
+    },
+    "sufficiency_validation": {
+      "status": "passed",
+      "validated_atoms": 61,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "extraction_limitations": [
+    "No explicit funding disclosure, conflict-of-interest statement, or data/code availability statement was present in the inspected 10-page preprint content, so no atoms were created for those kinds.",
+    "The LiteratureAtom schema is oriented toward primary literature; for AI/ML quantitative results, population descriptors identify the evaluated model/benchmark setting and do not imply human participants.",
+    "The paper reports main-table Math Avg. as a three-seed mean without per-cell standard deviations; no uncertainty intervals were available for the principal benchmark cells.",
+    "FutureBridge evidence in this source is limited to mathematical reasoning benchmarks and Qwen3 model pairs; no non-mathematical deployment evaluation is reported in the source."
+  ]
+}

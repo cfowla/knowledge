@@ -1,0 +1,47 @@
+{
+  "activated_macro": "@ATOM",
+  "source_metadata": {
+    "file": "ciag481.pdf",
+    "title": "Infectious Diseases Society of America 2026 Guidance on the Treatment of Antimicrobial-Resistant Gram-Negative Infections",
+    "doi": "10.1093/cid/ciag481",
+    "source_type": "guidance document",
+    "requested_pdf_pages": [
+      22,
+      29
+    ],
+    "content_scope": "Section 2 AmpC beta-lactamase-producing Enterobacterales content present on PDF pages 22-29",
+    "publication_id": "0b3d5893-0af1-52d1-b0e4-ca56f10ea325",
+    "input_document_sha256": "896ec51007cf41d707e234c06650bb0419cd2dd3a396fe76b909224a1f429e2c",
+    "extraction_run_id": "ciag481-ampc-v1-pages22-29"
+  },
+  "atom_counts": {
+    "total": 86,
+    "by_kind": {
+      "author_conclusion": 22,
+      "limitation": 13,
+      "other": 26,
+      "qualitative_result": 8,
+      "quantitative_result": 17
+    },
+    "by_assertion_origin": {
+      "normalized_from_source": 86
+    }
+  },
+  "validation": {
+    "pydantic_structural_valid": true,
+    "pydantic_structural_errors": [],
+    "json_schema_valid": true,
+    "json_schema_errors": [],
+    "sufficiency_valid": true,
+    "sufficiency_errors": [],
+    "sufficiency_warnings": []
+  },
+  "extraction_limitations": [
+    "The governing LiteratureAtom MVP is designed for primary literature, while ciag481.pdf is an IDSA guidance document. Guideline recommendations were mapped to atom_kind=author_conclusion because the schema has no guideline_recommendation kind.",
+    "Quantitative and qualitative findings summarized from cited studies are atoms of what the guidance reports, not re-extractions from the cited primary publications; these atoms are tagged secondary_evidence_summary and should not be treated as primary-study provenance.",
+    "The trailing ESBL-E sentence at the top of PDF page 22 was excluded because it belongs to Section 1 and would duplicate the prior semantic batch boundary.",
+    "Question 2.7 begins on PDF page 29, but its rationale begins on page 30. Only the suggested approach on page 29 was extracted; no page-30 content was used.",
+    "No content before PDF page 22 or after PDF page 29 was used to create atoms in this batch, apart from publication metadata needed to identify the source.",
+    "All generated atoms are marked needs_review; structural/schema/sufficiency validation does not constitute human verification of extraction fidelity."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "activated_macro": "@ATOM",
+  "source_metadata": {
+    "source_file": "ciag481.pdf",
+    "doi": "10.1093/cid/ciag481",
+    "publication_id": "0b3d5893-0af1-52d1-b0e4-ca56f10ea325",
+    "extraction_run_id": "ciag481-cre-v1",
+    "page_range_inclusive": "30-41",
+    "section_scope": "Section 3: carbapenem-resistant Enterobacterales (CRE)",
+    "scope_boundary": "The AmpC-E text preceding the Section 3 heading on page 30 was excluded. Question 3.8 was extracted only through its Suggested approach on page 41; its rationale begins outside the requested page range and was not parsed.",
+    "input_document_sha256": "896ec51007cf41d707e234c06650bb0419cd2dd3a396fe76b909224a1f429e2c"
+  },
+  "atom_count_total": 118,
+  "atom_counts_by_type": {
+    "adverse_event": 5,
+    "author_conclusion": 36,
+    "limitation": 6,
+    "method": 2,
+    "other": 22,
+    "quantitative_result": 47
+  },
+  "validation": {
+    "pydantic_structural_validation": "passed",
+    "pydantic_structural_errors": [],
+    "json_schema_validation": "passed",
+    "json_schema_errors": [],
+    "sufficiency_validation": "passed",
+    "sufficiency_errors": [],
+    "sufficiency_warnings": []
+  },
+  "extraction_limitations": [
+    "The governing LiteratureAtom model is explicitly designed for primary literature; this source section is a clinical guidance document that summarizes and interprets primary studies.",
+    "Guideline Suggested approach statements were encoded as author_conclusion atoms and tagged by clinical question; this is a schema accommodation, not a dedicated guideline-recommendation representation.",
+    "Quantitative evidence atoms represent results as reported by the guidance, not direct extraction from the cited primary studies. They should not be treated as primary-study atoms without verification against those cited studies.",
+    "Where the guidance reported approximate values, inequality bounds, or ranges, the structured quantitative estimate records the reported approximate value/bound; two range midpoints used for structured estimates are explicitly marked calculated_from_reported_data while the canonical statement and original_result_text preserve the reported range.",
+    "No content after PDF page 41 was used. Consequently, the rationale for Question 3.8 is intentionally absent."
+  ]
+}

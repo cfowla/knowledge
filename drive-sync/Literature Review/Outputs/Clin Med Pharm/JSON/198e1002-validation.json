@@ -1,0 +1,65 @@
+{
+  "activated_macro": "@ATOM",
+  "source_metadata": {
+    "file": "198e1002.pdf",
+    "exact_title": "Initial management of intermediate- and high-risk pulmonary embolism",
+    "authors": [
+      "Asher A. Mendelson",
+      "Lana A. Castellucci",
+      "Sebastian Mafeld",
+      "Kerstin de Wit"
+    ],
+    "group_author": "Pulmonary Embolism Canada",
+    "journal": "CMAJ",
+    "publication_date": "2026-07-13",
+    "volume": "198",
+    "issue": "26",
+    "pages": "E1002-E1010",
+    "doi": "10.1503/cmaj.250944",
+    "source_type": "peer-reviewed narrative review",
+    "publication_id": "407559ff-bd53-5599-aeab-362d7317721b",
+    "input_document_sha256": "871fb70ac16c7518353a502283293b5c3cc8c056c10fbc0a1e392117258859e2",
+    "extraction_run_id": "198e1002-general-v1",
+    "substantive_pages": "PDF pp. 1-6 (CMAJ E1002-E1007)",
+    "reference_pages": "PDF pp. 7-8 (CMAJ E1008-E1009)",
+    "disclosure_page": "PDF p. 9 (CMAJ E1010)"
+  },
+  "atom_count_total": 82,
+  "atom_counts_by_type": {
+    "author_conclusion": 20,
+    "conflict_of_interest": 1,
+    "funding_disclosure": 1,
+    "intervention_description": 7,
+    "limitation": 9,
+    "method": 6,
+    "other": 4,
+    "qualitative_result": 28,
+    "quantitative_result": 5,
+    "study_objective": 1
+  },
+  "validation": {
+    "pydantic_structural_errors": [],
+    "json_schema_errors": [],
+    "sufficiency_errors": [],
+    "sufficiency_warnings": [],
+    "all_atoms_structurally_valid": true,
+    "all_atoms_sufficient_for_declared_kind": true
+  },
+  "extraction_limitations": [
+    "The governing LiteratureAtom model is explicitly oriented to primary literature, whereas this source is a narrative review.",
+    "Quantitative and comparative findings originating in cited studies are represented only as secondary reports from this review, anchored to the review page and tagged secondary_reported_result; they are not primary-study extractions.",
+    "Where the review supplied direction or ranges without a point estimate compatible with the QuantitativeResult contract, the claim was retained as a qualitative_result rather than fabricating an estimate.",
+    "The bibliography was not atomized; reference entries were treated as provenance infrastructure rather than independent evidence assertions.",
+    "The schema has no dedicated recommendation/guideline-synthesis atom kind, so review recommendations were mapped primarily to author_conclusion and tagged to preserve their role.",
+    "This extraction does not independently verify the cited primary studies or current guideline text."
+  ],
+  "schema_gaps": [
+    "No first-class source-type field distinguishes primary-study atoms from secondary-source synthesis.",
+    "No dedicated atom kind for guideline/review recommendations or evidence-synthesis statements.",
+    "QuantitativeResult requires a point estimate, which is not ideal for source-reported ranges or threshold-only comparative statements."
+  ],
+  "output_files": {
+    "atoms": "198e1002-atoms.json",
+    "validation": "198e1002-validation.json"
+  }
+}

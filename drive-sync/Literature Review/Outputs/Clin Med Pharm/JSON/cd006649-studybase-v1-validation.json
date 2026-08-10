@@ -1,0 +1,116 @@
+{
+  "extraction_run_id": "cd006649-studybase-v1",
+  "source": {
+    "source_id": "CD006649",
+    "title": "Anticoagulation for the initial treatment of venous thromboembolism in people with cancer",
+    "source_type": "Cochrane intervention review / systematic review of randomized controlled trials",
+    "publication": "Cochrane Database of Systematic Reviews 2021, Issue 12",
+    "doi": "10.1002/14651858.CD006649.pub8",
+    "latest_search_date_reported": "2021-08-14",
+    "input_file": "CD006649.pdf",
+    "input_document_hash": "sha256:e8f43bfc7dde9f14f54c72fdda0afce83cf64e1f39d26cc18b251046ccabbd0d",
+    "publication_id": "745823b6-f2ae-54f3-9d86-3c65f7eca409",
+    "publication_id_reused_from": "cd006649-general-v1-atoms.json"
+  },
+  "scaffold": {
+    "pass_0_file": "cd006649-pass00-global.md",
+    "semantic_scope": "Review-level evidence architecture: study flow, included-study composition, cancer-subgroup data provenance, intervention/comparison families, follow-up structure, selected load-bearing trial characteristics, global risk-of-bias findings, missing subgroup information, and meaningful exclusion patterns.",
+    "source_pages_inspected": [
+      "Physical PDF pp. 13-17 (article pp. 11-15): Figure 1, included-study narrative, Figures 2-3, global risk-of-bias results",
+      "Physical PDF pp. 29-50 (article pp. 27-48): Characteristics of included studies and characteristics of excluded studies"
+    ],
+    "intentionally_deferred": [
+      "Comparison-specific mortality, recurrent-VTE, bleeding, heterogeneity, and GRADE effect estimates",
+      "Summary of Findings tables and forest-plot quantitative result extraction",
+      "Full cell-by-cell atomization of each included-study characteristics and risk-of-bias table",
+      "Bibliography entries as evidence atoms"
+    ]
+  },
+  "governing_sources": [
+    "literature.py",
+    "literature_atoms.py",
+    "literature_atom.schema.json",
+    "README(2).md",
+    "example_atom.json"
+  ],
+  "atom_count": 34,
+  "atom_counts_by_kind": {
+    "limitation": 2,
+    "method": 1,
+    "other": 30,
+    "population_description": 1
+  },
+  "atom_counts_by_assertion_origin": {
+    "calculated_from_reported_data": 1,
+    "directly_reported": 7,
+    "normalized_from_source": 26
+  },
+  "validation": {
+    "pydantic_structural_validation": {
+      "valid": true,
+      "error_count": 0,
+      "errors": []
+    },
+    "json_schema_validation": {
+      "valid": true,
+      "error_count": 0,
+      "errors": []
+    },
+    "sufficiency_validation": {
+      "valid": true,
+      "error_count": 0,
+      "warning_count": 0,
+      "issues": []
+    }
+  },
+  "duplicate_review": {
+    "exact_duplicate_count": 0,
+    "exact_duplicates": [],
+    "cross_batch_note": "The prior cd006649-general-v1 validation explicitly deferred detailed included-study characteristics, study-flow results, and risk-of-bias results, reducing expected cross-batch overlap. A full semantic duplicate check should be repeated after all batches are merged."
+  },
+  "source_inconsistencies_requiring_human_review": [
+    {
+      "issue": "Breddin 2001 cancer-subgroup count differs across inspected source locations.",
+      "locations": [
+        "Results narrative: article p. 12 / PDF p. 14 reports 83 people with cancer",
+        "Characteristics table: article p. 28 / PDF p. 30 reports 137 (12%) people with cancer"
+      ],
+      "handling": "The trial-characteristic atom preserves the characteristics-table value (137) and is tagged breddin_count_review_needed. No reconciliation was invented; the difference may reflect arm inclusion but is not explicitly resolved in the inspected text."
+    },
+    {
+      "issue": "Excluded-study accounting is internally difficult to reconcile.",
+      "locations": [
+        "Results narrative: article p. 13 / PDF p. 15 says 131 full-text articles were excluded, identifies 11 with unavailable cancer-subgroup outcomes, then says the remaining 123 articles were excluded for other reasons",
+        "Figure 1: article p. 11 / PDF p. 13 lists exclusion-reason counts 86 + 17 + 27 + 1 = 131"
+      ],
+      "handling": "Both source reports were preserved separately. No corrected denominator was inferred."
+    }
+  ],
+  "schema_gaps": [
+    "The LiteratureAtom MVP is designed for primary literature, while CD006649 is a systematic review that summarizes trial-level evidence.",
+    "There is no dedicated atom kind for systematic-review study flow, included-study characteristics, risk-of-bias judgments, or secondary-reported trial descriptors; OTHER, METHOD, POPULATION_DESCRIPTION, and LIMITATION were used conservatively with systematic_review and secondary_reported_trial tags.",
+    "Trial-level characteristics are secondary reports anchored to the Cochrane review, not primary-study re-extractions. No primary-study provenance is implied.",
+    "Risk-of-bias judgments have no structured domain object in schema version 1.0 and are therefore preserved in canonical statements and descriptive tags."
+  ],
+  "extraction_limitations": [
+    "Pass 0 was used only as routing and context; atoms were created from the original CD006649 PDF pages specified for this batch.",
+    "The batch intentionally uses one consolidated load-bearing characteristics atom per included study rather than atomizing every cell in the multi-page characteristics tables.",
+    "Comparison-specific effect estimates were not extracted because they are assigned to dedicated LMWH-UFH, fondaparinux-heparin, and dalteparin-tinzaparin batches.",
+    "No missing cancer type, subgroup outcome, follow-up, or trial-design details were invented.",
+    "All atoms are machine-extracted and marked needs_review; structural/schema/sufficiency validation does not constitute human source-fidelity verification."
+  ],
+  "qa": {
+    "shared_publication_id": true,
+    "publication_id_matches_general_v1": true,
+    "unique_atom_ids": true,
+    "schema_version_consistent": true,
+    "all_atoms_have_source_anchor": true,
+    "all_atoms_have_extraction_run_id": true,
+    "all_trial_characteristic_atoms_tagged_secondary": true,
+    "status": "passed"
+  },
+  "output_files": [
+    "cd006649-studybase-v1-atoms.json",
+    "cd006649-studybase-v1-validation.json"
+  ]
+}

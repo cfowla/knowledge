@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEA — Explicit, Not Longer: What Makes Epistemic Stance Survive Memory Compression</title>
+<style>
+:root{--bg:#f5f7fa;--card:#fff;--ink:#17202a;--muted:#5b6777;--line:#dce3ec;--accent:#174a7e;--accent2:#0d6b55;--warn:#8a5a00;--bad:#8b2635;--soft:#eef4fb;--code:#0f1724;--codefg:#edf5ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}a{color:var(--accent)}.wrap{max-width:1120px;margin:auto;padding:0 22px 54px}header{background:linear-gradient(135deg,#102a46,#174a7e);color:white;padding:46px 0 38px;border-bottom:5px solid #b9d1ea}header .wrap{padding-bottom:0}h1{font-size:clamp(2rem,4vw,3.25rem);line-height:1.08;margin:0 0 12px}header p{max-width:920px;margin:.4rem 0;color:#edf5ff}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:700;color:#c9dff5}.tag{display:inline-block;border:1px solid #cfd9e6;border-radius:999px;padding:.18rem .55rem;margin:.12rem .2rem .12rem 0;font-size:.82rem;background:#f6f9fc;color:#27435f}.toc,section{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 4px rgba(16,36,61,.05)}.toc{margin:22px 0;padding:18px 22px}.toc ul{columns:2;gap:28px;margin:.4rem 0;padding-left:1.2rem}.toc li{break-inside:avoid;margin:.25rem 0}section{margin:18px 0;padding:22px}h2{color:#103b68;margin:0 0 14px;font-size:1.55rem}h3{color:#184d7c;margin:1.25rem 0 .45rem}h4{margin:1rem 0 .35rem;color:#34475c}.meta-grid,.rating-grid,.takeaway-grid,.two-col{display:grid;gap:12px}.meta-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.rating-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}.takeaway-grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.two-col{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}.mini-card{border:1px solid var(--line);border-radius:11px;padding:13px 14px;background:#fbfcfe}.mini-card strong{display:block;color:#294761;margin-bottom:3px}.verdict,.warning,.goodnote,.badnote{padding:14px 16px;border-radius:10px;margin:12px 0;border-left:5px solid}.verdict{background:#eaf6f1;border-color:var(--accent2)}.warning{background:#fff7e7;border-color:var(--warn)}.goodnote{background:#edf7f4;border-color:#26856c}.badnote{background:#fff0f2;border-color:var(--bad)}table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:.93rem}th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top}th{background:#eef3f8;color:#203e5d;text-align:left}tbody tr:nth-child(even){background:#fbfcfd}.num{text-align:right;font-variant-numeric:tabular-nums}.section-summary{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}.section-summary:first-child{border-top:0;padding-top:0}pre{background:var(--code);color:var(--codefg);padding:15px;border-radius:11px;overflow-x:auto;line-height:1.45;font-size:.88rem}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.metric{font-size:1.45rem;font-weight:760;color:#0f4777}.muted{color:var(--muted)}.small{font-size:.87rem}.status{font-weight:700}.shown{color:#0b6a4d}.retracted{color:#9b2638}.pending{color:#8a5a00}.notshown{color:#5f6470}.score{font-size:1.35rem;font-weight:800;color:#0f4777}.bar{height:8px;border-radius:999px;background:#e5ebf1;margin-top:7px;overflow:hidden}.bar>span{display:block;height:100%;background:#285e8f}.figure-block{border:1px solid #cfd9e5;border-radius:12px;padding:15px;margin:14px 0;background:#f9fbfd}.figure-block h3{margin-top:0}.figlabel{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:#627487;font-weight:800}.foot{color:#667384;font-size:.84rem}.nowrap{white-space:nowrap}@media(max-width:760px){.toc ul{columns:1}section{padding:17px}.wrap{padding-left:12px;padding-right:12px}table{font-size:.84rem;display:block;overflow-x:auto}}@media print{body{background:white}.wrap{max-width:none}.toc,section{box-shadow:none;break-inside:auto}.toc{display:none}a{color:inherit;text-decoration:none}header{background:white;color:black;border-bottom:2px solid #333;padding:20px 0}header p,.eyebrow{color:#333}.tag{background:white}.figure-block,.mini-card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Summary · Evaluation · Appraisal</div>
+    <h1>Explicit, Not Longer: What Makes Epistemic Stance Survive Memory Compression</h1>
+    <p>Reference appraisal of Alex Kwon, arXiv:2608.06953v1 (cs.CL), 7 Aug 2026. Focus: whether an agent memory compressor preserves a claim's source/certainty when that stance is represented as a structured field versus ordinary prose.</p>
+    <p><span class="tag">agent memory</span><span class="tag">epistemic stance</span><span class="tag">compression</span><span class="tag">provenance</span><span class="tag">structured memory</span><span class="tag">evaluation design</span></p>
+  </div>
+</header>
+<div class="wrap">
+<nav class="toc" aria-label="Table of contents">
+  <strong>Contents</strong>
+  <ul>
+    <li><a href="#metadata">Metadata and scope</a></li>
+    <li><a href="#synthesis">One-page synthesis</a></li>
+    <li><a href="#design">Study design and metrics</a></li>
+    <li><a href="#sections">Section-by-section condensation</a></li>
+    <li><a href="#visuals">Figures, tables, and workflows</a></li>
+    <li><a href="#appendices">Appendices and claim ledger</a></li>
+    <li><a href="#appraisal">Evaluation and appraisal</a></li>
+    <li><a href="#implementation">Implementation takeaways</a></li>
+    <li><a href="#coverage">Coverage and QA</a></li>
+    <li><a href="#provenance">Provenance</a></li>
+  </ul>
+</nav>
+
+<section id="metadata">
+<h2>Metadata and scope</h2>
+<div class="meta-grid">
+  <div class="mini-card"><strong>Title</strong>Explicit, Not Longer: What Makes Epistemic Stance Survive Memory Compression</div>
+  <div class="mini-card"><strong>Author</strong>Alex Kwon, Independent Researcher</div>
+  <div class="mini-card"><strong>Source type</strong>AI/ML experimental preprint</div>
+  <div class="mini-card"><strong>Version</strong>arXiv:2608.06953v1 · 7 Aug 2026</div>
+  <div class="mini-card"><strong>Primary models</strong>Claude Haiku 4.5 and Sonnet 4.5</div>
+  <div class="mini-card"><strong>Core unit of inference</strong>Claim, not repeated trial</div>
+</div>
+<div class="warning"><strong>Scope warning.</strong> The evidence is synthetic, English-language, and concentrated at severe compression budgets. The main result is demonstrated on two models from one provider. It does not establish a universal mechanism, production-system benefit, or generality to other model families.</div>
+</section>
+
+<section id="synthesis">
+<h2>One-page synthesis</h2>
+<div class="verdict"><strong>Bottom line:</strong> Under tight memory budgets, the same epistemic stance survives compression substantially more often when presented explicitly—especially as structured fields—than when relegated to a bracketed aside. The reproducible finding is the outcome, not a single mechanism: labels help on both tested models, extra length does not, and other components differ by model.</div>
+<div class="takeaway-grid">
+  <div class="mini-card"><strong>Main effect</strong><div class="metric">+15.8 pp / +15.3 pp</div>Field-minus-parenthetical stance retention on Haiku 4.5 and Sonnet 4.5, respectively.</div>
+  <div class="mini-card"><strong>Held-out replication</strong><div class="metric">+15.6 pp</div>Haiku 4.5; 38 claims favored field, 1 favored prose; registered size prediction held.</div>
+  <div class="mini-card"><strong>Mechanism intersection</strong><div class="metric">labels ↑; length ≈ 0</div>Labels: +9.7 and +12.8 points. Padding did not produce a supported benefit.</div>
+  <div class="mini-card"><strong>Human check</strong><div class="metric">κ = 0.75</div>86% agreement across 50 hand-labelled memories; one author-rater, with seven disagreements printed.</div>
+</div>
+<h3>What the paper supports</h3>
+<p>The strongest claim is practical and narrow: when compression is severe enough to force deletion, epistemic standing is more robust when it is presented as part of an explicit record rather than as subordinate prose. Across 60 claims in seven registers, the field format retained stance in 30.3% versus 14.4% of Haiku memories and 56.1% versus 40.8% of Sonnet memories. Claim-clustered intervals excluded zero and exact sign tests favored the field format. A separate 60-claim Haiku replication, written and decision-ruled before the run, reproduced the effect almost exactly at +15.6 points.</p>
+<p>The paper is unusually explicit about where its own interpretation failed. A ten-claim corpus produced both a false null and a false model-family moderator; a parser bug inflated an earlier effect; a single-model ablation suggested a mechanism the second model did not reproduce. The final claim is therefore deliberately reduced to the intersection of controls: make stance explicit, do not expect mere added length to protect it, and test the representation on the model that will actually compress it.</p>
+<h3>What the paper does not support</h3>
+<p>It does not show that labels alone explain the field advantage, that explicit prose is inferior to the schema, that padding is intrinsically harmful, that the effect extends to loose budgets, or that the same decomposition will hold on other model families. The end-to-end schema-writing pipeline is only a 10-item pilot; the production claim that a write schema improves complete memory writes remains pending in the paper's own evidence ledger.</p>
+</section>
+
+<section id="design">
+<h2>Study design and metrics</h2>
+<div class="two-col">
+<div class="mini-card"><strong>Task</strong>Preserve a claim's epistemic standing—source, certainty, qualification, and time context—through memory compression.</div>
+<div class="mini-card"><strong>Primary manipulation</strong>The claim and stance content are identical; only representation differs: labelled fields versus a parenthetical aside.</div>
+<div class="mini-card"><strong>Stimuli</strong>60 synthetic claims across seven registers; a second 60-claim held-out set for Haiku replication.</div>
+<div class="mini-card"><strong>Pressure</strong>Main 60-claim runs use BRUTAL (8 notes → ≤25 words) and SEVERE (8 notes → ≤12 words).</div>
+<div class="mini-card"><strong>Pairing</strong>Same filler notes, positions, sampling settings, pressure, and replicate seed within each matched comparison.</div>
+<div class="mini-card"><strong>Primary readout</strong>A blind model reader sees only stored memory and the target claim, classifying it as qualified, established fact, or absent.</div>
+<div class="mini-card"><strong>Inference</strong>Claim-clustered bootstrap intervals, exact sign tests on per-claim differences, and within-claim permutation tests.</div>
+<div class="mini-card"><strong>Secondary checks</strong>Fixed model judge, deterministic no-model gate, and 50 hand labels.</div>
+</div>
+<h3>Stimulus registers</h3>
+<table>
+<thead><tr><th>Register</th><th class="num">n</th><th>Reason for inclusion</th></tr></thead>
+<tbody>
+<tr><td>Project</td><td class="num">17</td><td>Original office-work register; long noun phrases and named colleagues.</td></tr>
+<tr><td>Medicine</td><td class="num">8</td><td>Clinical detail and numbers a compressor may prioritize.</td></tr>
+<tr><td>News</td><td class="num">7</td><td>Named external actors and attribution.</td></tr>
+<tr><td>Personal</td><td class="num">7</td><td>First-person recall and source-of-memory framing.</td></tr>
+<tr><td>Scheduling</td><td class="num">7</td><td>Dates/times with a dedicated retention slot.</td></tr>
+<tr><td>Estimate</td><td class="num">7</td><td>Numeric values with implicit precision.</td></tr>
+<tr><td>Conflict</td><td class="num">7</td><td>Disagreeing sources; stress-test of single-source schema.</td></tr>
+</tbody>
+</table>
+<h3>Pressure ladder</h3>
+<table>
+<thead><tr><th>Level</th><th class="num">Notes</th><th>Compressor budget</th><th>Role in paper</th></tr></thead>
+<tbody>
+<tr><td>NONE</td><td class="num">1</td><td>One or two sentences</td><td>Loose; little/no actual compression.</td></tr>
+<tr><td>LOW</td><td class="num">6</td><td>One short line per fact</td><td>Earlier 10-claim ladder.</td></tr>
+<tr><td>HIGH</td><td class="num">6</td><td>≤40 words total</td><td>Earlier 10-claim ladder.</td></tr>
+<tr><td>EXTREME</td><td class="num">6</td><td>One line/fact, ≤8 words/line</td><td>Earlier 10-claim ladder.</td></tr>
+<tr><td><strong>BRUTAL</strong></td><td class="num">8</td><td>≤25 words total</td><td>Main 60-claim analysis.</td></tr>
+<tr><td><strong>SEVERE</strong></td><td class="num">8</td><td>≤12 words total</td><td>Main 60-claim analysis; many zero ties from full eviction.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="sections">
+<h2>Section-by-section condensation</h2>
+<div class="section-summary"><h3>1. Introduction</h3><p>The paper frames agent memory as a compression problem in which qualifiers such as hedges, attribution, and dates are especially vulnerable because they can look expendable relative to the core proposition. It proposes a four-field write schema—CLAIM, SOURCE, CERTAINTY, AS_OF—as a way to make epistemic standing structurally obligatory rather than optional phrasing.</p><p>The initial hypothesis is stronger than the final conclusion: fields might survive because they read as content rather than phrasing. Later ablations show that the outcome survives but the mechanism does not transfer cleanly across models.</p></div>
+<div class="section-summary"><h3>2. Related work</h3><p>The paper situates itself between memory architectures and post-hoc faithfulness/stance detection. Existing memory systems summarize or extract text; stance and attribution work typically attempts to recover or verify epistemic information after writing. This paper instead changes the write representation so stance need not be inferred from arbitrary prose at read/check time.</p><p>The author draws an analogy to grammaticalized evidentiality and constrained decoding: an obligatory slot can preserve information that optional lexical material may lose. This conceptual motivation supports the schema idea but is not itself experimental evidence for the mechanism.</p></div>
+<div class="section-summary"><h3>3. Where the loss happens</h3><p>Two 10-item pilots are deliberately left unresolved or negative. A transition probe could be read as loss at recording or at compression depending on instrument, and a repair step that restored qualifiers in prose changed zero final outcomes despite firing on 8/10 notes. The hypothesis arose from an uncontrolled observation that a few labelled repairs survived while parentheticals did not.</p><p>A major scorer bug is documented: malformed judge JSON caused clear positives to be recorded as null, affecting about 6% of then-existing trials and inflating an earlier pooled effect from +4.0 to +9.3 points. The repaired harness retains raw replies and uses a fallback parser; 33 of 4,104 later two-cell replies required that fallback and none were unusable.</p></div>
+<div class="section-summary"><h3>4. Field versus prose, held constant</h3><p>Sixty claims are paired across field and parenthetical forms under identical fillers, positions, pressure, model, and sampling conditions. Across BRUTAL and SEVERE budgets, Haiku retains stance in 109/360 field records versus 52/360 prose records (+15.8 points), and Sonnet in 202/360 versus 147/360 (+15.3). Claim-level sign tests and clustered intervals support the direction.</p><p>The paper correctly treats claim—not the 360 repeated pairs—as the generalizing unit. The earlier 10-claim office-only corpus produced +3.7-point estimates with intervals spanning zero and had suggested a false model-family split. The larger corpus reverses that interpretation without changing the tested models.</p></div>
+<div class="section-summary"><h3>5. Where it holds and where it fails</h3><p>The effect is positive in six of seven registers on both models; project claims are strongest and conflict claims weakest. A 20,000-permutation within-claim shuffle places the observed mean beyond every shuffled value on both models (reported p = 0.00005, the test's resolution floor). Many ties at SEVERE are zero ties because both arms lose the claim entirely.</p><p>The main structural failure is conflicting attribution. A single SOURCE and CERTAINTY slot cannot naturally represent two disagreeing sources, forcing the disagreement back into a compressed clause. The paper identifies multi-attribution structure as the obvious, untested repair.</p></div>
+<div class="section-summary"><h3>6. A pre-registered replication</h3><p>Because the 60-claim corpus was written after the initial 10-claim null, the author created another 60 claims to the same seven-register specification and committed a prediction and decision rule before running Haiku. The registered rule required a significant sign test and a mean effect within +8 to +25 points. The run returned +15.6 points, 38 claims favoring field versus 1 prose, p&lt;10<sup>−6</sup>, with all 720 judge replies parsable.</p><p>A deterministic gate reproduced the two-cell direction on both models and matched the Haiku effect magnitude to three decimals, though its open-class recall is limited and it is biased against labels it cannot lexically recognize. Fifty author-labelled memories yielded 86% agreement and κ=0.75; the seven disagreements are asymmetric by arm, so the hand sample checks gross judge behavior but cannot tightly bound scorer bias.</p></div>
+<div class="section-summary"><h3>7. Labels, layout, or length?</h3><p>Four additional arms create six forms total: explicit sentences, labelled fields, unbracketed same words, own lines without labels, bracketed plus padding, and bracketed. The chain isolates five contrasts. Labels help on both models (+9.7 Haiku, +12.8 Sonnet), while padding provides no supported benefit; its apparent −10.3-point cost on Sonnet reverses under the no-model instrument and is therefore not claimed as harm.</p><p>The rest is model-dependent. Explicit full-sentence wording is the largest Haiku component (+12.5) but nearly null on Sonnet (+0.6); unbracketing is +6.7 and +12.8. Because the ablation is a chain rather than factorial and the component ranking differs by model, the paper refuses a single mechanistic explanation.</p></div>
+<div class="section-summary"><h3>8. The schema end to end</h3><p>A small end-to-end pilot asks the model to write to the schema and then compress. Clean writes increase from 3/10 to 7/10; when the schema is filled, all four fields are present in 10/10 records, and 8/10 sources are classified as non-asserted. The paper explicitly treats this as a pilot, not a headline result.</p><p>This distinction matters: the controlled two-cell experiment proves a representation effect under constructed inputs; it does not yet establish the same magnitude or reliability when a deployed model must first extract and correctly populate the schema itself.</p></div>
+<div class="section-summary"><h3>9. Checking a record</h3><p>Once stance is represented as fields, the paper proposes deterministic checks: a hedged source cannot map to asserted certainty; a named speaker requires SOURCE; a dated claim requires AS_OF; missing retention fields make the record MALFORMED rather than a pass. This avoids the need to recognize every possible hedge in arbitrary memory prose.</p><p>The author warns that prose-oriented detectors can perversely score schema memories worse because a value such as <code>CERTAINTY: hedged</code> may preserve stance perfectly without containing the detector's lexical cues. Structured records must be validated as records, not as natural-language prose.</p></div>
+<div class="section-summary"><h3>10. Conclusion</h3><p>The conclusion is intentionally narrower than the opening mechanism story: explicit stance survives better than bracketed stance at tight budgets; labels help on both tested models; mere length does not; the best remaining form may depend on the compressor. The schema's durable advantage is not unique retention but machine-checkability.</p><p>The paper treats negative findings and retractions as substantive evidence about experimental reliability. Its final claims are constrained to what remains after corpus expansion, parser repair, replication, ablation on a second model, deterministic scoring, and manual review.</p></div>
+<div class="section-summary"><h3>Limitations, ethics, and reproducibility</h3><p>Generalizability is the dominant limitation: two models from one provider, synthetic English claims, tight budgets, a chain rather than factorial ablation, and one author who also supplied the 50 human labels. The hand-label scorer-swap interval is wide enough to permit a shift roughly as large as the main effect. The schema also does not solve wrong field values and has a single-source blind spot.</p><p>All stimuli are synthetic and contain no personal data. The paper reports releasing raw runs, code, superseded data, annotation materials, seeds, and document-consistency checks in a public Apache-2.0 repository. Reported metered API spend is under $14 nominal for the runs counted by the harness, with the earliest pressure sweep excluded from that total and separately estimated at roughly $1.5.</p></div>
+</section>
+
+<section id="visuals">
+<h2>Figures, tables, and workflows</h2>
+<div class="figure-block">
+<div class="figlabel">Figure 1 — experiment in one view</div>
+<h3>Matched representation test</h3>
+<pre><code>Same claim + same epistemic standing
+        │
+        ├─ FIELD: CLAIM / SOURCE / CERTAINTY
+        └─ PROSE: claim (per source; rumor, unconfirmed)
+        │
+Same compressor, prompt, settings, filler notes, positions
+        │
+BRUTAL budget: 8 notes → 25 words
+        │
+Blind readout sees only stored memory + target claim
+        ├─ qualified / stance preserved
+        ├─ established fact / stance washed off
+        └─ absent / claim evicted</code></pre>
+<table>
+<thead><tr><th>Haiku 4.5 at BRUTAL</th><th class="num">Field</th><th class="num">Parenthetical</th></tr></thead>
+<tbody><tr><td>Standing retained</td><td class="num">44%</td><td class="num">21%</td></tr><tr><td>Stored as bare fact</td><td class="num">11%</td><td class="num">28%</td></tr><tr><td>Claim evicted</td><td class="num">45%</td><td class="num">52%</td></tr></tbody>
+</table>
+<p class="small">Interpretation: at this specific budget, the largest difference is qualification loss rather than eviction. The paper later narrows this for Haiku pooled across both budgets, where reduced eviction contributes about half of the total stance gain.</p>
+</div>
+
+<div class="figure-block">
+<div class="figlabel">Table 1 + Figure 2 — 60-claim primary result</div>
+<table>
+<thead><tr><th>Metric</th><th class="num">Haiku 4.5</th><th class="num">Sonnet 4.5</th></tr></thead>
+<tbody>
+<tr><td>Field retains stance</td><td class="num">30.3% (109/360)</td><td class="num">56.1% (202/360)</td></tr>
+<tr><td>Prose retains stance</td><td class="num">14.4% (52/360)</td><td class="num">40.8% (147/360)</td></tr>
+<tr><td><strong>Difference</strong></td><td class="num"><strong>+15.8 pp</strong></td><td class="num"><strong>+15.3 pp</strong></td></tr>
+<tr><td>Claim-clustered 95% CI</td><td class="num">[+10.8, +20.6]</td><td class="num">[+8.9, +21.9]</td></tr>
+<tr><td>Claims field / prose / tied</td><td class="num">37 / 2 / 21</td><td class="num">30 / 8 / 22</td></tr>
+<tr><td>Exact sign test</td><td class="num">p&lt;0.0001</td><td class="num">p=0.0005</td></tr>
+</tbody>
+</table>
+<p>Figure 2's per-claim bars show that the mean is not driven by a small number of extreme claims. Its right panel contrasts the 60-claim corpus with the original 10-claim corpus: the 10-claim clustered intervals cross zero on both models, while the 60-claim intervals do not. The methodological point is that corpus breadth—not a model change—removed the earlier null and false moderator.</p>
+</div>
+
+<div class="figure-block">
+<div class="figlabel">Table 2 — held-out replication</div>
+<table>
+<thead><tr><th>Metric</th><th class="num">Original 60</th><th class="num">Held-out 60</th></tr></thead>
+<tbody>
+<tr><td>Field retains stance</td><td class="num">30.3%</td><td class="num">28.6%</td></tr>
+<tr><td>Prose retains stance</td><td class="num">14.4%</td><td class="num">13.1%</td></tr>
+<tr><td><strong>Difference</strong></td><td class="num"><strong>+15.8 pp</strong></td><td class="num"><strong>+15.6 pp</strong></td></tr>
+<tr><td>Claim-clustered 95% CI</td><td class="num">[+10.8,+20.6]</td><td class="num">[+11.4,+20.0]</td></tr>
+<tr><td>Claims favoring field / prose</td><td class="num">37 / 2</td><td class="num">38 / 1</td></tr>
+</tbody>
+</table>
+<p>The held-out set was written to the same specification by the same author, so it is not an independent corpus. Its value is narrower: the effect persists when stimuli and a decision rule are committed before the run.</p>
+</div>
+
+<div class="figure-block">
+<div class="figlabel">Table 3 + Figure 3 — six-form ablation</div>
+<table>
+<thead><tr><th>Contrast</th><th class="num">Haiku 4.5</th><th class="num">Sonnet 4.5</th><th>Interpretation</th></tr></thead>
+<tbody>
+<tr><td>Labels</td><td class="num">+9.7 pp*</td><td class="num">+12.8 pp*</td><td>Only component significant in the same direction on both models.</td></tr>
+<tr><td>Unbracketing</td><td class="num">+6.7 pp</td><td class="num">+12.8 pp*</td><td>Helpful on both; stronger evidence on Sonnet.</td></tr>
+<tr><td>Explicit wording</td><td class="num">+12.5 pp*</td><td class="num">+0.6 pp</td><td>Largest Haiku component; essentially null on Sonnet.</td></tr>
+<tr><td>Own line</td><td class="num">+6.1 pp</td><td class="num">+2.5 pp</td><td>No robust cross-model effect.</td></tr>
+<tr><td>Length/padding</td><td class="num">+0.8 pp</td><td class="num">−10.3 pp*</td><td>No supported benefit; apparent Sonnet harm reverses under deterministic readout, so harm is not claimed.</td></tr>
+<tr><td><strong>Net field vs bracketed</strong></td><td class="num"><strong>+15.8 pp*</strong></td><td class="num"><strong>+15.3 pp*</strong></td><td>Near-identical outcome assembled from different components.</td></tr>
+</tbody>
+</table>
+<p class="foot">* Significant exact sign test in the paper. The deterministic ablation readout reproduces five of seven directions; it does not support the label contrast because the lexicon is partly blind to label values, and it reverses the padding sign. The paper therefore claims label benefit from the model readout and only a length null across instruments.</p>
+</div>
+
+<div class="figure-block">
+<div class="figlabel">Workflow — four-field write schema</div>
+<pre><code>CLAIM: &lt;what is asserted&gt;
+SOURCE: &lt;who or what it came from&gt;
+CERTAINTY: asserted | hedged | rumor | unverified
+AS_OF: &lt;when it held&gt;</code></pre>
+<p>The schema is not claimed to be uniquely optimal. The ablation could not establish equivalence between labelled fields and explicit sentences. The schema's separate advantage is that completeness and some consistency properties can be checked deterministically.</p>
+</div>
+
+<div class="figure-block">
+<div class="figlabel">Workflow — deterministic record check</div>
+<pre><code>source + structured memory record
+  ├─ source is hedged?      → CERTAINTY must not be asserted
+  ├─ source names speaker?  → SOURCE must be populated
+  ├─ source dates claim?    → AS_OF must be populated
+  └─ retention fields absent → MALFORMED, never PASS</code></pre>
+<p>Important boundary: presence is not correctness. A confidently wrong field value can still pass a presence-oriented checker unless the source-side stance is detectable by the deterministic rules.</p>
+</div>
+</section>
+
+<section id="appendices">
+<h2>Appendices and evidence ledger</h2>
+<h3>Appendix A — nine withdrawn claims</h3>
+<p>The paper explicitly records nine claims it previously asserted and later withdrew. Three had been title/headline claims. This is not merely editorial history: it documents where small corpora, instrument bugs, and single-model mechanisms produced plausible but unstable conclusions.</p>
+<table>
+<thead><tr><th>Withdrawn claim</th><th>Why it was withdrawn</th></tr></thead>
+<tbody>
+<tr><td>Labels are not the mechanism.</td><td>Labels were first over-credited, then dismissed; the two-model ablation shows a reproducible +9.7/+12.8-point label contribution.</td></tr>
+<tr><td>The consistency gate protects the paper from stating withdrawn claims.</td><td>Numeric checks missed prose-level contradictions; prose-to-prose checks were added.</td></tr>
+<tr><td>Grammatical subordination is the mechanism.</td><td>The ablation splits that path into unbracketing and wording, and the components do not transfer across models.</td></tr>
+<tr><td>The judge understates the effect, making the estimate conservative.</td><td>The seven human/judge disagreements are arm-asymmetric and mostly human misses of present content; the direction of scorer bias is not interpretable.</td></tr>
+<tr><td>The effect disappears when the claim is the unit of analysis.</td><td>This was an artifact of only 10 claims in one register; the 60-claim claim-level analysis is positive.</td></tr>
+<tr><td>The effect splits by model family and is absent on Sonnet.</td><td>Sonnet changes from +3.7 points on 10 claims to +15.3 on 60 claims.</td></tr>
+<tr><td>The schema helps most where the compressor is weakest.</td><td>Not supported on the expanded pressure ladder.</td></tr>
+<tr><td>The schema costs retention because a bulkier record is evicted more often.</td><td>Observed once in an earlier narrow setting; not reproduced on the full ladder/larger corpus, and length does not explain retention.</td></tr>
+<tr><td>The advantage widens monotonically as compression pressure increases.</td><td>Pre-specified in the harness but not observed.</td></tr>
+</tbody>
+</table>
+<h3>Appendix B — stimulus and pressure structure</h3>
+<p>Appendix B confirms that all 60 claims are bare assertions with stance carried only in source/certainty material, allowing exact content matching across arms. Filler notes are deliberately stance-free and generated from an arm-independent seed. This is an important internal-validity control but also contributes to artificiality relative to self-written production memories.</p>
+<h3>Appendix C — every human/judge disagreement</h3>
+<table>
+<thead><tr><th>Claim ID</th><th>Arm / model / budget</th><th>Human</th><th>Judge</th><th class="num">Content overlap</th></tr></thead>
+<tbody>
+<tr><td>med_bp</td><td>FIELD / Sonnet / BRUTAL</td><td>absent</td><td>qualified</td><td class="num">0.38</td></tr>
+<tr><td>sched_review</td><td>PAREN / Sonnet / SEVERE</td><td>absent</td><td>established fact</td><td class="num">0.20</td></tr>
+<tr><td>proj_headcount</td><td>PAREN / Sonnet / SEVERE</td><td>absent</td><td>qualified</td><td class="num">0.83</td></tr>
+<tr><td>v3_est_headcount</td><td>PAREN / Haiku / BRUTAL</td><td>absent</td><td>established fact</td><td class="num">0.25</td></tr>
+<tr><td>est_attend</td><td>PAREN / Sonnet / SEVERE</td><td>qualified</td><td>established fact</td><td class="num">0.25</td></tr>
+<tr><td>news_recall</td><td>PAREN / Sonnet / BRUTAL</td><td>absent</td><td>qualified</td><td class="num">0.40</td></tr>
+<tr><td>proj_headcount</td><td>PAREN / Haiku / SEVERE</td><td>absent</td><td>established fact</td><td class="num">0.67</td></tr>
+</tbody>
+</table>
+<p>Agreement is 86%, κ=0.75. Disagreement is 1/26 field versus 6/24 prose (Fisher exact p=0.045). The paper emphasizes that this asymmetry prevents using the 50-item sample to establish a tight correction or bound on the primary effect.</p>
+<h3>Appendix D — reproducibility and run accounting</h3>
+<table>
+<thead><tr><th>Corpus/run</th><th>Model</th><th class="num">Scored trials</th></tr></thead>
+<tbody>
+<tr><td>10-claim ladder</td><td>Haiku 4.5</td><td class="num">640</td></tr>
+<tr><td>10-claim ladder</td><td>Opus 4.5</td><td class="num">536</td></tr>
+<tr><td>10-claim ladder</td><td>Sonnet 4.5</td><td class="num">480</td></tr>
+<tr><td>10-claim ladder</td><td>Sonnet 5</td><td class="num">288</td></tr>
+<tr><td>60-claim main</td><td>Haiku 4.5</td><td class="num">720</td></tr>
+<tr><td>60-claim main</td><td>Sonnet 4.5</td><td class="num">720</td></tr>
+<tr><td>Held-out replication</td><td>Haiku 4.5</td><td class="num">720</td></tr>
+<tr><td><strong>Total two-cell project trials</strong></td><td></td><td class="num"><strong>4,104</strong></td></tr>
+</tbody>
+</table>
+<p>The ablation contributes 1,440 scored trials per model separately. The paper reports streamed/fsynced, resumable runs; call/spend caps; publication of raw and superseded runs; and automated document checks that re-derive load-bearing numbers. These are strong reproducibility practices, although this SEA did not externally verify the repository or rerun the experiments.</p>
+</section>
+
+<section id="appraisal">
+<h2>Evaluation and appraisal</h2>
+<div class="verdict"><strong>Verdict: Read first.</strong> The paper is high-value for anyone building compressed agent memory, provenance-aware state, or evaluation harnesses. Its most useful contribution is not only the +15-point effect but the disciplined demonstration that a convincing mechanism can disappear under a second model, a larger corpus, or a repaired instrument.</div>
+<div class="rating-grid">
+<div class="mini-card"><div class="score">9/10 · Relevance</div><div class="bar"><span style="width:90%"></span></div><p><strong>Rationale:</strong> Directly addresses reliability of compressed agent memory and preservation of uncertainty/provenance.</p><p><strong>Evidence basis:</strong> Controlled memory-write/compression experiments plus replication and readout checks.</p><p><strong>Limiting factor:</strong> Narrow model/provider and synthetic setting.</p><p><strong>Would raise:</strong> Production-memory evaluations with naturally generated notes.</p></div>
+<div class="mini-card"><div class="score">8/10 · Novelty</div><div class="bar"><span style="width:80%"></span></div><p><strong>Rationale:</strong> Structured stance fields are conceptually simple, but the controlled representation test and model-dependent ablation are distinctive.</p><p><strong>Evidence basis:</strong> Field-vs-prose pairing, six-form ablation, claim-level analysis.</p><p><strong>Limiting factor:</strong> The paper itself notes that obligatory evidential structure and constrained output are not new ideas.</p><p><strong>Would raise:</strong> Broader demonstration that the phenomenon predicts new failure classes across systems.</p></div>
+<div class="mini-card"><div class="score">8/10 · Method strength</div><div class="bar"><span style="width:80%"></span></div><p><strong>Rationale:</strong> Strong matching, claim-level inference, pressure manipulation, preregistered held-out run, multiple readouts, and transparent error correction.</p><p><strong>Evidence basis:</strong> Same fillers/positions/settings, clustered bootstrap, sign tests, permutation tests, replication, deterministic and human checks.</p><p><strong>Limiting factor:</strong> Same-provider models, self-judging primary setup, chain rather than factorial ablation, one author-rater.</p><p><strong>Would raise:</strong> Cross-provider models, independent raters, full factorial ablation, external corpus.</p></div>
+<div class="mini-card"><div class="score">8/10 · Evidence strength</div><div class="bar"><span style="width:80%"></span></div><p><strong>Rationale:</strong> The primary direction is consistent, large enough to matter, claim-distributed, and reproduced on a held-out set.</p><p><strong>Evidence basis:</strong> +15.8/+15.3 points on two models; +15.6 replication; 37:2, 30:8, and 38:1 claim-direction splits.</p><p><strong>Limiting factor:</strong> Instrument uncertainty and restricted setting prevent treating the estimate as broadly transportable.</p><p><strong>Would raise:</strong> Independent annotation and replication on unrelated memory/compression stacks.</p></div>
+<div class="mini-card"><div class="score">5/10 · External validity</div><div class="bar"><span style="width:50%"></span></div><p><strong>Rationale:</strong> The experiment is intentionally artificial to isolate form, and the headline effect is concentrated at the tight end of the budget ladder.</p><p><strong>Evidence basis:</strong> 60 hand-written English claims, synthetic fillers, two Claude-family models.</p><p><strong>Limiting factor:</strong> No natural production corpus, multilingual test, or independent model-family replication.</p><p><strong>Would raise:</strong> Multi-provider, multilingual, real-agent memory trials across typical budget regimes.</p></div>
+<div class="mini-card"><div class="score">8/10 · Implementation value</div><div class="bar"><span style="width:80%"></span></div><p><strong>Rationale:</strong> The intervention is simple, checkable, and cheap to test; the paper also identifies a concrete multi-source failure mode.</p><p><strong>Evidence basis:</strong> Four-field schema, deterministic checker, explicit experimental harness and raw-run release.</p><p><strong>Limiting factor:</strong> End-to-end schema generation remains a 10-item pilot, so deployment benefit is not yet established.</p><p><strong>Would raise:</strong> Prospective system-level trials showing fewer factwashed memories without unacceptable loss/latency.</p></div>
+</div>
+<h3>Main strengths</h3>
+<ul>
+<li><strong>Excellent internal matching:</strong> claim, stance content, fillers, position, model, settings, and pressure are held constant within pairs.</li>
+<li><strong>Correct unit of inference:</strong> claim-level clustering avoids pseudo-replication from repeated budgets/replicates.</li>
+<li><strong>Replication addresses stimulus tuning:</strong> the held-out 60-claim run was committed before calls and reproduced the main estimate.</li>
+<li><strong>Instrument triangulation:</strong> primary blind reader, fixed reader, deterministic gate, and human labels constrain different failure modes.</li>
+<li><strong>Unusually transparent self-correction:</strong> nine withdrawn claims, the parser bug, and all seven human/judge disagreements are surfaced rather than hidden.</li>
+<li><strong>Reproducibility orientation:</strong> raw outputs, superseded runs, seeds, analysis scripts, and paper-consistency checks are reported as released.</li>
+</ul>
+<h3>Main limitations</h3>
+<ul>
+<li><strong>Model scope:</strong> two headline models from one provider are insufficient for a general law of memory compression.</li>
+<li><strong>Stimulus realism:</strong> synthetic claims and filler notes provide clean causal comparison at the cost of ecological validity.</li>
+<li><strong>Pressure dependence:</strong> the paper claims the effect at the tight end of the ladder, not across all memory budgets.</li>
+<li><strong>Primary judge coupling:</strong> compressor and reader are the same model within headline runs; the fixed-judge check removes this only partly.</li>
+<li><strong>Human validation is limited:</strong> one author-rater, 50 items, no inter-rater agreement, and a scorer-swap interval too wide to bound the full effect.</li>
+<li><strong>Ablation is not factorial:</strong> component estimates depend on the path through six forms and interactions are unmeasured.</li>
+<li><strong>Schema correctness is not guaranteed:</strong> required fields can be present but wrong; source-side stance detection remains lexicon-limited.</li>
+</ul>
+<div class="badnote"><strong>Do not overclaim:</strong> this paper does not establish that labels are the sole mechanism, that labelled fields outperform explicit prose, that padding is harmful, that Opus 4.5 or Sonnet 5 replicate the effect, or that a production write schema already improves complete memory pipelines.</div>
+</section>
+
+<section id="implementation">
+<h2>Implementation takeaways</h2>
+<div class="goodnote"><strong>Build-useful takeaway:</strong> Treat epistemic stance as first-class data, not optional prose. The representation should make source, certainty, and time independently inspectable before compression and independently checkable after compression.</div>
+<div class="takeaway-grid">
+<div class="mini-card"><strong>1. Separate fields</strong>Store proposition, source, certainty, and temporal scope separately rather than burying qualification in punctuation or subordinate clauses.</div>
+<div class="mini-card"><strong>2. Do not pad</strong>Longer notes are not supported as a retention strategy. Spend tokens on explicit semantics rather than stance-free length.</div>
+<div class="mini-card"><strong>3. Test the actual compressor</strong>The ablation decomposition differs sharply between Haiku and Sonnet even though the net effect is nearly identical.</div>
+<div class="mini-card"><strong>4. Support multi-source attribution</strong>A single SOURCE field fails on disputed claims. A list/array of source-specific assertions or stances is a more defensible next design.</div>
+<div class="mini-card"><strong>5. Validate records as records</strong>Field presence, enum validity, and source/stance consistency should be checked structurally; prose lexicons can mis-score structured values.</div>
+<div class="mini-card"><strong>6. Preserve raw evaluator outputs</strong>The paper's parser bug shows why raw judge text and parse status must remain auditable rather than collapsing failures to null silently.</div>
+<div class="mini-card"><strong>7. Cluster by semantic item</strong>If the same claim is tested across budgets/replicates, treat the claim as the generalizing unit rather than inflating n with correlated repeats.</div>
+<div class="mini-card"><strong>8. Keep claim-status ledgers</strong>Separating SHOWN, NOT SHOWN, NARROWED, PENDING, and RETRACTED claims is a useful guard against stale conclusions surviving experimental revisions.</div>
+</div>
+<p class="small muted">These implementation takeaways are appraisal-level translations of the paper's findings and failure analysis; they are not additional experimental results.</p>
+</section>
+
+<section id="coverage">
+<h2>Coverage manifest and QA</h2>
+<table>
+<thead><tr><th>Source object</th><th>Coverage decision</th><th>Representation</th></tr></thead>
+<tbody>
+<tr><td>Main text: Abstract + Sections 1–10</td><td>Included</td><td>Section-by-section condensation with quantitative details preserved.</td></tr>
+<tr><td>Figure 1</td><td>Included</td><td>Structured workflow + BRUTAL outcome table.</td></tr>
+<tr><td>Figure 2</td><td>Included</td><td>Table 1 metrics + explanation of per-claim and 10-vs-60 corpus panels.</td></tr>
+<tr><td>Figure 3</td><td>Included</td><td>Ablation contrast table + model-dependent interpretation.</td></tr>
+<tr><td>Tables 1–3</td><td>Included</td><td>Reconstructed HTML tables.</td></tr>
+<tr><td>Appendix A / Table 4</td><td>Included</td><td>Evidence-ledger interpretation with all nine retracted claims listed.</td></tr>
+<tr><td>Appendix B</td><td>Included</td><td>Register distribution + complete pressure ladder.</td></tr>
+<tr><td>Appendix C</td><td>Included</td><td>All seven disagreement metadata rows and interpretation.</td></tr>
+<tr><td>Appendix D</td><td>Included</td><td>Trial accounting, reproducibility controls, and reported release practices.</td></tr>
+<tr><td>References</td><td>Not individually condensed</td><td>Used as related-work context; bibliography entries are not evidence objects for this SEA.</td></tr>
+</tbody>
+</table>
+<div class="mini-card"><strong>Semantic QA status</strong>Source title/version reconciled; all three main-text figures and Tables 1–3 represented; all four appendices inspected; key magnitudes and uncertainty retained; source claims separated from appraisal; no external facts added; no experiment reruns or repository verification performed.</div>
+</section>
+
+<section id="provenance">
+<h2>Provenance</h2>
+<p><strong>Evaluated source:</strong> <em>Explicit, Not Longer: What Makes Epistemic Stance Survive Memory Compression</em>, Alex Kwon, arXiv:2608.06953v1 [cs.CL], 7 Aug 2026.</p>
+<p><strong>Evaluated file:</strong> Explicit, Not Longer What Makes Epistemic Stance Survive Memory Compression - 2608.06953v1.pdf</p>
+<p><strong>Source-reported code/data repository:</strong> https://github.com/collapseindex/factwash (Apache-2.0). Repository contents were not externally verified in this appraisal.</p>
+<p><strong>SEA basis:</strong> User-provided preprint only, using the project Summary–Evaluation–Appraisal protocol. No external/web verification was requested or used.</p>
+<p><strong>Generated:</strong> 10 Aug 2026.</p>
+</section>
+</div>
+</body>
+</html>

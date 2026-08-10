@@ -1,0 +1,5091 @@
+[
+  {
+    "atom_id": "0089a531-07a2-5b2c-8def-a0bfd4fdcecf",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "study_objective",
+    "canonical_statement": "This paper focuses on maximizing RAG accuracy under a low-latency budget by operating at a finer-grained level of information extracted in advance from text chunks.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "introduction",
+      "page": "2",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "RAG",
+      "low_latency",
+      "information_nuggets"
+    ]
+  },
+  {
+    "atom_id": "ebe1a7f3-c6ff-52aa-96d6-3e8e41dd3cd2",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "CoinRAG shifts document-context encoding offline: each chunk is encoded once, and online inference slices query-relevant token spans from the precomputed chunk KV cache instead of re-encoding full retrieved text.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "2",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "KV_cache",
+      "offline_precompute"
+    ]
+  },
+  {
+    "atom_id": "66c77391-c6ba-5902-9b82-52a778a6e5c8",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "Offline nugget extraction represents each candidate nugget as a contiguous token span within its source chunk so that the corresponding contextualized KV slice can later be recovered.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "3",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "nugget_extraction",
+      "span_grounding"
+    ]
+  },
+  {
+    "atom_id": "3447dd3f-9178-547f-8117-e6726d109603",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "The nugget extraction pipeline first accepts exact substring matches, otherwise performs fuzzy whole-word-span matching, and abandons candidates that do not meet the similarity threshold.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "3",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "nugget_extraction",
+      "fuzzy_matching"
+    ]
+  },
+  {
+    "atom_id": "af4e9545-3549-5d96-9c19-554801b9b223",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "The implementation uses GPT-4o-mini for offline nugget extraction and accepts a fuzzy-matched candidate only when similarity is at least 0.7.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "14",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "GPT-4o-mini",
+      "threshold"
+    ]
+  },
+  {
+    "atom_id": "c47df275-0b70-5240-86c5-470cc674b047",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "Online retrieval is two-stage: BGE-M3 first retrieves top-kc chunks, then ranks only the pre-extracted nuggets nested within those chunks and retains the top-k nuggets.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "3",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "two_stage_retrieval",
+      "BGE-M3"
+    ]
+  },
+  {
+    "atom_id": "f8911653-5272-57c5-ac35-3e997c799aa4",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "CoinRAG slices nugget KV states from a full-chunk encoding, so selected nugget tokens retain the contextual conditioning they had when the entire source chunk was encoded.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "3",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "contextualized_KV",
+      "cache_slicing"
+    ]
+  },
+  {
+    "atom_id": "0beb565c-f378-5e70-ae0f-0d0d1b7535cb",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "Contextualized nugget caches are concatenated with the system-prompt cache after RoPE position rotation, using an order-preserving contiguous position-alignment strategy to remove structural gaps.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "3",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "RoPE",
+      "position_alignment"
+    ]
+  },
+  {
+    "atom_id": "9cdfd3cd-59c0-5d97-a140-3c83f1d4b05a",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "The position offset for each nugget is computed from the system-prompt length plus the cumulative lengths of preceding selected nuggets, producing contiguous positions without changing model architecture.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "4",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "position_alignment",
+      "RoPE"
+    ]
+  },
+  {
+    "atom_id": "2119262c-0dee-5799-b424-ff1b9cb12d5b",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "Nugget-aware fine-tuning trains the model on the same non-contiguous cache-composition structure used at inference and minimizes cross-entropy on target answer tokens.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "4",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "fine_tuning",
+      "training_inference_alignment"
+    ]
+  },
+  {
+    "atom_id": "d486f3aa-7cd9-58ff-a888-c96e7401ae6a",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "The empirical evaluation uses the LongBench HotpotQA, 2WikiMQA, and MuSiQue multi-document, multi-hop question-answering benchmarks.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "LongBench",
+      "HotpotQA",
+      "2WikiMQA",
+      "MuSiQue"
+    ]
+  },
+  {
+    "atom_id": "5d78393f-d735-5875-b790-8c170299d698",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "population_description",
+    "canonical_statement": "The LongBench evaluation split used 200 questions for each of HotpotQA, 2WikiMQA, and MuSiQue.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "13",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "LongBench evaluation questions: 200 each for HotpotQA, 2WikiMQA, and MuSiQue",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "evaluation_dataset"
+    ]
+  },
+  {
+    "atom_id": "5c4625f2-08e4-5f6f-9d8e-b127df95167f",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "CoinRAG was compared with Standard RAG, CacheBlend, TurboRAG, and KVLink; Block-attention was omitted because the authors treated TurboRAG as an essentially identical chunk-level KV-cache-reuse design.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "baselines"
+    ]
+  },
+  {
+    "atom_id": "d58ee982-bc80-50a1-892a-40bb436bec4f",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "outcome_definition",
+    "canonical_statement": "Answer quality was evaluated with token-level F1 score under a prompt that constrained the model to produce concise answers.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level lexical F1 score for concise QA outputs",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "F1"
+    ]
+  },
+  {
+    "atom_id": "afc538b1-2538-5a09-b44b-b086a5e4f888",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "outcome_definition",
+    "canonical_statement": "Efficiency was evaluated primarily with Time-to-First-Token (TTFT), defined as the time to construct the prefix context and process the query during prefill.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": {
+      "concept": {
+        "text": "Time-to-First-Token latency",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Time to construct the prefix context and process the query during prefill",
+      "outcome_type": "not_specified",
+      "measurement_method": "Milliseconds",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "TTFT",
+      "latency"
+    ]
+  },
+  {
+    "atom_id": "e91e083b-43e8-5ff9-837c-ca1273c25691",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "outcome_definition",
+    "canonical_statement": "Prefill context length in tokens was reported as a proxy for active KV-cache memory usage during long-context inference.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": {
+      "concept": {
+        "text": "Active prefix context length",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Prefill context length in tokens used as a proxy for live KV-cache size",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token count",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "context_length",
+      "memory"
+    ]
+  },
+  {
+    "atom_id": "dec69cc9-6be8-5b4b-9ddc-5177b6c76b0e",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "The primary low-latency operating point was a P99 TTFT budget of 100 ms.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "introduction",
+      "page": "1",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "SLA",
+      "P99",
+      "TTFT"
+    ]
+  },
+  {
+    "atom_id": "b68e1d9a-8110-5bf9-a34d-6e53af42c16b",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "Offline nugget extraction used GPT-4o-mini on 512-token chunks, while online retrieval used BGE-M3 and answer generation used Qwen2-7B-Instruct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "models",
+      "512_token_chunks"
+    ]
+  },
+  {
+    "atom_id": "28c26a23-5e5d-5dbf-aeab-eb581f3779dc",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "CoinRAG was fine-tuned for one epoch over 277,280 training instances with an effective batch size of 16.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "14",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "fine_tuning",
+      "training_set"
+    ]
+  },
+  {
+    "atom_id": "3f714398-77c9-5578-a279-add24c914b5e",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "The top-k sweep used kc in {1,2,3,4,5,10,20,30,50} for chunk retrieval and k in {1,2,3,4,5,10,20,30,50,100,150,200} for CoinRAG nugget selection.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "14",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "hyperparameter_sweep",
+      "retrieval"
+    ]
+  },
+  {
+    "atom_id": "3b2d46ba-d3af-505f-b1a1-5f36dc3698e2",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "The answer-generation prompt prioritizes verbatim extraction from retrieved clues, then clue-grounded multi-hop inference, and permits internal parametric knowledge only when retrieved clues are not useful.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "13",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "prompting",
+      "fallback"
+    ]
+  },
+  {
+    "atom_id": "5bd2e087-9604-5d7c-8e84-9b29a679819a",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "The illustrated online inference flow has four stages: chunk retrieval, nugget retrieval within the retrieved chunks, KV-slice loading and position-aligned stitching, and query-conditioned answer generation.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "16",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 8",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "inference_pipeline"
+    ]
+  },
+  {
+    "atom_id": "9ab4400d-9277-5a53-90b0-5ff72323a51e",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "For the three evaluation corpora, each chunk was pre-encoded once into a full-context KV cache and stored on local NVMe storage for selective loading during inference.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "14",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "cache_storage",
+      "offline_precompute"
+    ]
+  },
+  {
+    "atom_id": "da96a883-20a4-56c2-981e-e001b0b6edad",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "The implementation stores each chunk cache as an independent file and asynchronously loads per-document caches; only the selected nugget token ranges are ultimately used by CoinRAG.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "17",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "IO",
+      "cache_loading"
+    ]
+  },
+  {
+    "atom_id": "4f706705-363f-5702-9b49-360d7bc95426",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "method",
+    "canonical_statement": "Evaluation and latency benchmarking were run on an NVIDIA L40S in bfloat16 precision; model training was performed on an RTX PRO 6000.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "15",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "hardware",
+      "reproducibility"
+    ]
+  },
+  {
+    "atom_id": "21b1c481-d329-599a-bcd4-a810ffca8f37",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "Under the P99 TTFT <=100 ms constraint, CoinRAG achieved the highest F1 score among Standard RAG, CacheBlend, TurboRAG, and KVLink on all three evaluated datasets.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 2",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "main_result",
+      "Pareto_frontier"
+    ]
+  },
+  {
+    "atom_id": "fea585ea-d406-5a12-ae20-6bbbb708d23d",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Under the 100 ms P99 latency budget, CoinRAG averaged 41.7 F1 versus 39.6 for TurboRAG, a 5.3% relative improvement.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "LongBench evaluation suite: HotpotQA, 2WikiMQA, and MuSiQue; 200 questions per dataset",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "CoinRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "TurboRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "relative F1 improvement (%)",
+      "estimate": "5.3",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "CoinRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "41.7",
+          "unit": "F1 score"
+        },
+        {
+          "arm_label": "TurboRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "39.6",
+          "unit": "F1 score"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "main_result",
+      "100ms"
+    ]
+  },
+  {
+    "atom_id": "2cd0e42f-362a-5e8e-be1c-25f38f8ab88b",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Under the 100 ms P99 latency budget, CoinRAG used an average active prefix length of 465 tokens versus 855 for TurboRAG, which the authors describe as 1.84x shorter.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "LongBench evaluation suite: HotpotQA, 2WikiMQA, and MuSiQue; 200 questions per dataset",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "CoinRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "TurboRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Active prefix context length",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Average active prefix context length",
+      "outcome_type": "not_specified",
+      "measurement_method": "Tokens",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "context length ratio (TurboRAG/CoinRAG)",
+      "estimate": "1.84",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "CoinRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "465",
+          "unit": "tokens"
+        },
+        {
+          "arm_label": "TurboRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "855",
+          "unit": "tokens"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "memory",
+      "100ms"
+    ]
+  },
+  {
+    "atom_id": "d5106af7-92eb-5f07-bee3-c7dafd3164ad",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On HotpotQA under the 100 ms P99 budget, CoinRAG achieved F1 51.4 versus 49.1 for TurboRAG.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "HotpotQA LongBench evaluation questions",
+      "sample_size": 200,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "CoinRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "TurboRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "F1 score",
+      "estimate": "51.4",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "CoinRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "51.4",
+          "unit": "F1 score"
+        },
+        {
+          "arm_label": "TurboRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "49.1",
+          "unit": "F1 score"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "HotpotQA",
+      "100ms"
+    ]
+  },
+  {
+    "atom_id": "4b97e4a3-3b63-5f72-83be-3c35ccf9a765",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On 2WikiMQA under the 100 ms P99 budget, CoinRAG achieved F1 42.4 versus 42.2 for TurboRAG.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "2WikiMQA LongBench evaluation questions",
+      "sample_size": 200,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "CoinRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "TurboRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "F1 score",
+      "estimate": "42.4",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "CoinRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "42.4",
+          "unit": "F1 score"
+        },
+        {
+          "arm_label": "TurboRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "42.2",
+          "unit": "F1 score"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "2WikiMQA",
+      "100ms"
+    ]
+  },
+  {
+    "atom_id": "6aa8dfaa-805b-588d-9172-05ae03adfa2d",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On MuSiQue under the 100 ms P99 budget, CoinRAG achieved F1 31.4 versus 27.4 for TurboRAG.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "MuSiQue LongBench evaluation questions",
+      "sample_size": 200,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "CoinRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "TurboRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "F1 score",
+      "estimate": "31.4",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "CoinRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "31.4",
+          "unit": "F1 score"
+        },
+        {
+          "arm_label": "TurboRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "27.4",
+          "unit": "F1 score"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "MuSiQue",
+      "100ms"
+    ]
+  },
+  {
+    "atom_id": "a3d7afde-356d-59cd-8322-b4971daaf31b",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Across the three datasets under the 100 ms budget, CoinRAG had mean TTFT 65 ms and average P99 TTFT 81 ms.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "LongBench evaluation suite: HotpotQA, 2WikiMQA, and MuSiQue; 200 questions per dataset",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "CoinRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Time-to-First-Token latency",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Prefill latency",
+      "outcome_type": "not_specified",
+      "measurement_method": "Milliseconds",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "mean TTFT (ms)",
+      "estimate": "65",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "Mean TTFT",
+          "event_count": null,
+          "sample_size": null,
+          "value": "65",
+          "unit": "ms"
+        },
+        {
+          "arm_label": "Average P99 TTFT",
+          "event_count": null,
+          "sample_size": null,
+          "value": "81",
+          "unit": "ms"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "latency",
+      "100ms"
+    ]
+  },
+  {
+    "atom_id": "42a21d2c-50fe-5c07-9ac2-2932df7d52a0",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "With no latency limit, CoinRAG averaged 42.7 F1 versus 40.6 for TurboRAG, corresponding to a 5.2% average improvement over TurboRAG.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "LongBench evaluation suite: HotpotQA, 2WikiMQA, and MuSiQue; 200 questions per dataset",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "CoinRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "TurboRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "relative F1 improvement (%)",
+      "estimate": "5.2",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "CoinRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "42.7",
+          "unit": "F1 score"
+        },
+        {
+          "arm_label": "TurboRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "40.6",
+          "unit": "F1 score"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "no_latency_limit"
+    ]
+  },
+  {
+    "atom_id": "fe1617a2-6e6a-5a6f-9c0f-6c4ae7f426d7",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "With no latency limit, CoinRAG used an average active prefix length of 580 tokens versus 3,955 for TurboRAG, which the authors describe as 6.8x shorter.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "LongBench evaluation suite: HotpotQA, 2WikiMQA, and MuSiQue; 200 questions per dataset",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "CoinRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "TurboRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Active prefix context length",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Average active prefix context length",
+      "outcome_type": "not_specified",
+      "measurement_method": "Tokens",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "context length ratio (TurboRAG/CoinRAG)",
+      "estimate": "6.8",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "CoinRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "580",
+          "unit": "tokens"
+        },
+        {
+          "arm_label": "TurboRAG",
+          "event_count": null,
+          "sample_size": null,
+          "value": "3955",
+          "unit": "tokens"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "no_latency_limit",
+      "memory"
+    ]
+  },
+  {
+    "atom_id": "930c6969-1dd3-545e-ba7b-5d9cd82d260f",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Even with no context-length limit, CoinRAG context length remained up to 10.1x shorter than Standard RAG.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "LongBench evaluation suite: HotpotQA, 2WikiMQA, and MuSiQue; 200 questions per dataset",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "CoinRAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Standard RAG",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Active prefix context length",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Average active prefix context length",
+      "outcome_type": "not_specified",
+      "measurement_method": "Tokens",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "maximum context-length reduction factor vs Standard RAG",
+      "estimate": "10.1",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "memory",
+      "Pareto_frontier"
+    ]
+  },
+  {
+    "atom_id": "2918ba00-f720-56a8-b26d-0eaabe66df91",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "Across both latency-budget and context-length-budget sweeps, CoinRAG established a stronger empirical accuracy-efficiency Pareto frontier than the evaluated baselines in the low-budget region.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 3",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "Pareto_frontier",
+      "efficiency"
+    ]
+  },
+  {
+    "atom_id": "09f5845b-fda3-5169-aa99-b793d20bc7a0",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Encoding selected nuggets in isolation instead of slicing contextualized KV states lowered peak F1 by 6.3 points on HotpotQA.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 4",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "HotpotQA LongBench evaluation questions",
+      "sample_size": 200,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Contextualized nugget KV slicing",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Isolated nugget encoding",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "peak F1 decrease from isolated encoding (points)",
+      "estimate": "6.3",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "ablation",
+      "contextualization",
+      "HotpotQA"
+    ]
+  },
+  {
+    "atom_id": "7e3638c2-5085-5bac-9a21-f1ad215acab7",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Encoding selected nuggets in isolation instead of slicing contextualized KV states lowered peak F1 by 4.9 points on 2WikiMQA.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 4",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "2WikiMQA LongBench evaluation questions",
+      "sample_size": 200,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Contextualized nugget KV slicing",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Isolated nugget encoding",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "peak F1 decrease from isolated encoding (points)",
+      "estimate": "4.9",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "ablation",
+      "contextualization",
+      "2WikiMQA"
+    ]
+  },
+  {
+    "atom_id": "082c05a7-639f-5eb1-b53c-0c5845ac9542",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Encoding selected nuggets in isolation instead of slicing contextualized KV states lowered peak F1 by 3.9 points on MuSiQue.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 4",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "MuSiQue LongBench evaluation questions",
+      "sample_size": 200,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Contextualized nugget KV slicing",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Isolated nugget encoding",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "peak F1 decrease from isolated encoding (points)",
+      "estimate": "3.9",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "ablation",
+      "contextualization",
+      "MuSiQue"
+    ]
+  },
+  {
+    "atom_id": "e35836c9-ff68-5e5d-a52c-4649ee712a6b",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Two-stage chunk-to-nugget retrieval produced a 9.6% to 17.5% relative peak-F1 gain over one-stage retrieval across the three datasets.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 4",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "LongBench evaluation suite: HotpotQA, 2WikiMQA, and MuSiQue; 200 questions per dataset",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Two-stage chunk-to-nugget retrieval",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "One-stage nugget retrieval",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "relative peak-F1 gain range (%)",
+      "estimate": "9.6",
+      "interval": {
+        "lower": "9.6",
+        "upper": "17.5",
+        "confidence_level_percent": null,
+        "interval_type": "range"
+      },
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "ablation",
+      "retrieval"
+    ]
+  },
+  {
+    "atom_id": "b2ec8c9f-70ec-5ec0-a4ce-ecf8973d7f82",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "At a tight 75 ms P99 budget, position alignment improved F1 by 3.0% to 8.5% across the three datasets compared with no position alignment.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 4",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "LongBench evaluation suite: HotpotQA, 2WikiMQA, and MuSiQue; 200 questions per dataset",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Position alignment",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "No position alignment",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "relative F1 improvement range (%)",
+      "estimate": "3.0",
+      "interval": {
+        "lower": "3.0",
+        "upper": "8.5",
+        "confidence_level_percent": null,
+        "interval_type": "range"
+      },
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "ablation",
+      "position_alignment"
+    ]
+  },
+  {
+    "atom_id": "fcfc35d6-d1de-51df-9c07-3017962bbbfc",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Nugget-aware fine-tuning improved peak F1 by 11.3 points on HotpotQA compared with no nugget-aware fine-tuning.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 4",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "HotpotQA LongBench evaluation questions",
+      "sample_size": 200,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Nugget-aware fine-tuning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "No nugget-aware fine-tuning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "peak F1 improvement (points)",
+      "estimate": "11.3",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "ablation",
+      "fine_tuning",
+      "HotpotQA"
+    ]
+  },
+  {
+    "atom_id": "8d1dc7fb-2f05-5c45-8532-c71706065fa1",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Nugget-aware fine-tuning improved peak F1 by 6.3 points on 2WikiMQA compared with no nugget-aware fine-tuning.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 4",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "2WikiMQA LongBench evaluation questions",
+      "sample_size": 200,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Nugget-aware fine-tuning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "No nugget-aware fine-tuning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "peak F1 improvement (points)",
+      "estimate": "6.3",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "ablation",
+      "fine_tuning",
+      "2WikiMQA"
+    ]
+  },
+  {
+    "atom_id": "ae8ec26e-4697-5146-97e2-078e16784ed2",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Nugget-aware fine-tuning improved peak F1 by 6.4 points on MuSiQue compared with no nugget-aware fine-tuning.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 4",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "MuSiQue LongBench evaluation questions",
+      "sample_size": 200,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Nugget-aware fine-tuning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "No nugget-aware fine-tuning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Answer quality",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Token-level F1 score",
+      "outcome_type": "not_specified",
+      "measurement_method": "Token-level F1 score",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "peak F1 improvement (points)",
+      "estimate": "6.4",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "ablation",
+      "fine_tuning",
+      "MuSiQue"
+    ]
+  },
+  {
+    "atom_id": "67c32a11-5691-542d-acba-98452f9235e3",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Across the training and evaluation corpora, GPT-4o-mini proposed approximately 7.1 candidate nuggets per passage on average.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "12",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "Training and LongBench evaluation passages",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "GPT-4o-mini nugget extraction",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Candidate nuggets per passage",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "Count per passage",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "mean candidate nuggets per passage",
+      "estimate": "7.1",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "nugget_extraction",
+      "density"
+    ]
+  },
+  {
+    "atom_id": "5800289e-f381-5dea-be82-109652f7417f",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Training-corpus nugget extraction processed 950,221 unique passages and yielded 6.08 million nuggets at 99.9% validity.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "17",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "Training corpus unique passages",
+      "sample_size": 950221,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "GPT-4o-mini nugget extraction",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Extracted nugget yield and validity",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "Nugget count and validity percentage",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "nugget validity (%)",
+      "estimate": "99.9",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "Extracted nuggets",
+          "event_count": null,
+          "sample_size": null,
+          "value": "6080000",
+          "unit": "nuggets"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "offline_cost",
+      "nugget_extraction"
+    ]
+  },
+  {
+    "atom_id": "8dd40c9e-6d8c-52da-ac0a-66a5b36f749d",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Training-corpus nugget extraction via the GPT-4o-mini Batch API cost approximately $265-$325 as a one-time corpus-preparation cost.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "17",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "Training corpus: 950,221 unique passages",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "GPT-4o-mini Batch API nugget extraction",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Offline nugget extraction cost",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "US dollars",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "one-time extraction cost (USD)",
+      "estimate": "265",
+      "interval": {
+        "lower": "265",
+        "upper": "325",
+        "confidence_level_percent": null,
+        "interval_type": "range"
+      },
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "offline_cost",
+      "cost"
+    ]
+  },
+  {
+    "atom_id": "aa19c41e-eb6e-5163-b61f-7e49bb92cc15",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Nugget extraction for the three evaluation corpora combined processed 5,681 passages, yielded about 277,000 nuggets, and cost under $2.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "17",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "Three evaluation corpora combined",
+      "sample_size": 5681,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "GPT-4o-mini Batch API nugget extraction",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Offline evaluation-corpus nugget extraction cost",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "US dollars",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "upper bound on extraction cost (USD)",
+      "estimate": "2",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "Extracted nuggets",
+          "event_count": null,
+          "sample_size": null,
+          "value": "277000",
+          "unit": "nuggets"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "offline_cost",
+      "cost"
+    ]
+  },
+  {
+    "atom_id": "1bbfd60a-3954-5cbe-b68a-f39a02d39fc0",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Building the complete chunk KV-cache store for all three evaluation corpora combined took under 30 minutes.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "17",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "HotpotQA, 2WikiMQA, and MuSiQue evaluation corpora",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Offline chunk KV-cache construction",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Offline cache construction time",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "Minutes",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "upper bound on total construction time (minutes)",
+      "estimate": "30",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "offline_cost",
+      "cache_construction"
+    ]
+  },
+  {
+    "atom_id": "f45909da-bc1f-55d8-a157-957d3cfbaa16",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Full chunk-cache disk storage was reported as 146 GB for HotpotQA, 75 GB for 2WikiMQA, and 173 GB for MuSiQue.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "17",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "Three LongBench evaluation corpora",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Full chunk KV-cache storage",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Disk storage footprint",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "GB",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "HotpotQA cache storage (GB)",
+      "estimate": "146",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "HotpotQA",
+          "event_count": null,
+          "sample_size": null,
+          "value": "146",
+          "unit": "GB"
+        },
+        {
+          "arm_label": "2WikiMQA",
+          "event_count": null,
+          "sample_size": null,
+          "value": "75",
+          "unit": "GB"
+        },
+        {
+          "arm_label": "MuSiQue",
+          "event_count": null,
+          "sample_size": null,
+          "value": "173",
+          "unit": "GB"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "storage",
+      "offline_cost"
+    ]
+  },
+  {
+    "atom_id": "098a5773-a43b-56f2-9f65-74336c28738a",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Nugget spans covered approximately 70% of chunk-token positions across the evaluation corpora, implying roughly a 30% disk-footprint reduction if only nugget-covered positions were retained.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "17",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "Three LongBench evaluation corpora",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Nugget-only KV-cache retention",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Token-position coverage and potential disk reduction",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "Percent",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "nugget-covered token positions (%)",
+      "estimate": "70",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "Potential disk-footprint reduction",
+          "event_count": null,
+          "sample_size": null,
+          "value": "30",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "storage",
+      "compression"
+    ]
+  },
+  {
+    "atom_id": "922a64ec-87c9-53b0-b347-5920ea5b6f5a",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For Qwen2-7B-Instruct in bfloat16, the KV cache for a single 512-token chunk occupied approximately 28 MB.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "17",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "Qwen2-7B-Instruct, 28 layers, 4 KV heads, head dimension 128",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "512-token full chunk KV cache",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Per-chunk KV-cache size",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "MB",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "approximate KV-cache size per 512-token chunk (MB)",
+      "estimate": "28",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "storage",
+      "KV_cache"
+    ]
+  },
+  {
+    "atom_id": "766cd443-ba0d-5882-b7d3-6abb37c965e4",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Nugget-aware fine-tuning required approximately 140 GPU-hours on a single RTX PRO 6000.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "17",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "277,280 training examples; Qwen2-7B-Instruct",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Nugget-aware fine-tuning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Fine-tuning compute cost",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "GPU-hours",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "training compute (GPU-hours)",
+      "estimate": "140",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "fine_tuning",
+      "offline_cost"
+    ]
+  },
+  {
+    "atom_id": "4010abbd-b6ee-5184-96fa-812ab7cd1cec",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Nugget-aware fine-tuning had a reported peak GPU memory footprint of 75.8 GB.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "17",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": {
+      "label": "Qwen2-7B-Instruct fine-tuning on RTX PRO 6000",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Nugget-aware fine-tuning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Peak training GPU memory",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "GB",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "peak GPU memory (GB)",
+      "estimate": "75.8",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "fine_tuning",
+      "memory"
+    ]
+  },
+  {
+    "atom_id": "9c9adc66-251c-50bf-9731-da841658793a",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "limitation",
+    "canonical_statement": "CoinRAG incurs offline compute and disk-storage costs that scale with corpus size and assumes documents are static or infrequently updated enough for those one-time costs to be acceptable.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "other",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "limitation",
+      "offline_cost",
+      "static_corpus"
+    ]
+  },
+  {
+    "atom_id": "69e04159-f980-516e-a586-6e4ce444b13f",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "limitation",
+    "canonical_statement": "Precomputed KV caches are tightly coupled to the language-model checkpoint and positional architecture, so changing the backbone model requires document re-encoding.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "other",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "limitation",
+      "model_coupling"
+    ]
+  },
+  {
+    "atom_id": "247c3ad9-a9c3-5c8a-b442-6f0630e86493",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "limitation",
+    "canonical_statement": "Downstream answer quality is bounded by chunk-level and nugget-level retrieval recall; evidence that is not surfaced by retrieval cannot be recovered by the generator from the cached context.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "other",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "limitation",
+      "retrieval_recall"
+    ]
+  },
+  {
+    "atom_id": "86076c99-6646-5882-9f9d-7db11a538b27",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "limitation",
+    "canonical_statement": "Nuggets from different chunks do not attend to one another during their offline encoding, so CoinRAG retains the cross-chunk-attention limitation of chunk-level cache-reuse approaches such as TurboRAG.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "other",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "limitation",
+      "cross_chunk_attention"
+    ]
+  },
+  {
+    "atom_id": "b0f7d57f-8964-507b-a21a-5fe1754a204e",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "limitation",
+    "canonical_statement": "The evaluation did not consider inter-query KV-cache reuse because it assumed limited online-cache capacity; the impact of repeated or overlapping retrieved documents across query traffic remains untested.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "other",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "limitation",
+      "inter_query_reuse"
+    ]
+  },
+  {
+    "atom_id": "5e3d3b65-87dd-5a09-b59a-b58a031e8f7c",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "limitation",
+    "canonical_statement": "The evaluation is limited to single-shot multi-document QA on three LongBench benchmarks; conversational and repeated-query settings were left for future evaluation.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "12",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "limitation",
+      "external_validity",
+      "conversational_RAG"
+    ]
+  },
+  {
+    "atom_id": "69afc2ee-e26d-5f0b-bf2e-34c8c05d60da",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "limitation",
+    "canonical_statement": "CoinRAG did not systematically evaluate prompt-injection susceptibility; cached malicious spans could still influence answer generation if retrieved.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "12",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "limitation",
+      "security",
+      "prompt_injection"
+    ]
+  },
+  {
+    "atom_id": "0804a073-53ea-58a0-a66d-7387954cc974",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "limitation",
+    "canonical_statement": "Aggressive nugget slicing can amplify surface-entity biases or omit linking evidence needed for the intended multi-hop interpretation.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "18",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "limitation",
+      "failure_analysis"
+    ]
+  },
+  {
+    "atom_id": "de318983-d0a3-5858-bb94-609a98fd783f",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "A HotpotQA success case showed a direct lexical match in which retrieved nuggets explicitly identified Pleiospilos as a flowering plant and the model returned the correct answer.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "18",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 9",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "success_case",
+      "lexical_match"
+    ]
+  },
+  {
+    "atom_id": "7f6c7ea5-0665-5aac-bb09-b66ff2546490",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "A HotpotQA success case showed semantic-only recovery: no retrieved nugget contained the literal title \"It's Always Sunny in Philadelphia\", but the model inferred it from plot cues about the Gang and Paddy's Pub.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "18",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 9",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "success_case",
+      "semantic_reasoning"
+    ]
+  },
+  {
+    "atom_id": "d44b4030-22ac-5194-8711-a075d5d31530",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "A HotpotQA success case recovered \"Atlantic Ocean\" even though that literal answer was absent from retrieved text, using cues such as Atlantic blue crab and US East Coast geography.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "18",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 9",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "success_case",
+      "parametric_or_semantic_bridge"
+    ]
+  },
+  {
+    "atom_id": "0285f622-9362-5ab8-8002-a6147a12ff89",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "A failure case returned Jupiter instead of Sun even though the highest-scoring nugget contained the correct answer, apparently because several other retrieved nuggets repeatedly mentioned Jupiter.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "19",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 10",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "failure_case",
+      "surface_frequency_bias"
+    ]
+  },
+  {
+    "atom_id": "9eb85c91-bf89-5182-a97b-8c81bef96110",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "A failure case returned George Harrison rather than the canonical Bob Dylan answer after nugget extraction omitted the Traveling Wilburys roster and preserved Harrison-centric clues.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "19",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 10",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "failure_case",
+      "nugget_omission"
+    ]
+  },
+  {
+    "atom_id": "be3617be-f918-58c9-8b69-7558f4a8a5e8",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "A failure case returned Lowell instead of Norman because retrieval surfaced the University of Oklahoma but not its city, while a nugget explicitly mentioned Lowell High School in Lowell, Michigan.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "19",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 10",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "failure_case",
+      "retrieval_failure"
+    ]
+  },
+  {
+    "atom_id": "b3839e7f-a0a4-5160-a6fc-e36ab4cc2060",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "author_conclusion",
+    "canonical_statement": "The authors conclude that CoinRAG establishes a new Pareto frontier for long-context RAG under an interactive 100 ms P99 TTFT budget by combining compact nugget-level cache reuse with improved answer quality.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "conclusion",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "conclusion",
+      "Pareto_frontier"
+    ]
+  },
+  {
+    "atom_id": "9dd3c9aa-7c62-58be-ba1f-847b88db4375",
+    "publication_id": "96e6ee4f-f6c8-5d28-b445-c42ef9b1284d",
+    "atom_kind": "author_conclusion",
+    "canonical_statement": "The authors argue that, on average, the gains from removing noisy and unnecessary context outweigh the loss from missing some cross-chunk interactions, especially under tight latency budgets.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol-literature-atom",
+      "extracted_at": "2026-08-10T07:38:00Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-10",
+      "prompt_version": "project-ATOM-v1",
+      "input_document_hash": "70856378670a6cabf70e97d0a5ab502948ccabc70e43673f806d0372abed2c8b",
+      "extraction_run_id": "coinrag-2608.07458v1-general-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-10T07:38:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "conclusion",
+      "noise_reduction"
+    ]
+  }
+]

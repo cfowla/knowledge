@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEA — From Plan to Action: How Well Do Agents Follow the Plan?</title>
+<style>
+:root{--bg:#f5f7fa;--card:#ffffff;--ink:#17202a;--muted:#5b6777;--line:#dbe2ea;--navy:#173b63;--blue:#2d6aa0;--green:#186a4b;--amber:#8b5e10;--red:#8a2f2f;--softblue:#edf4fb;--softgreen:#edf8f2;--softamber:#fff7e7;--softred:#fdf0f0;--code:#101923;--codeink:#eaf2fb}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif} a{color:var(--blue)}
+header{background:linear-gradient(135deg,#102d4d,#1b4e7c);color:#fff;padding:48px 22px 38px;border-bottom:5px solid #b9d3ea} .wrap{max-width:1120px;margin:auto} header h1{font-size:clamp(2rem,4vw,3.25rem);line-height:1.08;margin:0 0 12px} header p{margin:5px 0;color:#e4edf7} .eyebrow{text-transform:uppercase;letter-spacing:.12em;font-weight:700;font-size:.78rem;color:#cfe2f3}
+nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 8px rgba(13,38,63,.05);margin:18px auto;padding:24px} nav.toc ul{columns:2;gap:32px;margin:0;padding-left:20px} nav.toc li{margin:.28rem 0} h2{color:var(--navy);font-size:1.65rem;margin:0 0 16px} h3{color:#244e78;margin-top:1.5rem} h4{margin:.2rem 0;color:#213f5f} p{margin:.62rem 0} .meta-grid,.rating-grid,.takeaway-grid,.key-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:12px} .mini-card{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfcfe} .mini-card b{display:block;color:var(--navy);margin-bottom:4px} .verdict{border-left:5px solid var(--green);background:var(--softgreen);padding:16px 18px;border-radius:10px;margin:14px 0} .warning{border-left:5px solid var(--amber);background:var(--softamber);padding:14px 16px;border-radius:10px} .badnote{border-left:5px solid var(--red);background:var(--softred);padding:14px 16px;border-radius:10px} .goodnote{border-left:5px solid var(--blue);background:var(--softblue);padding:14px 16px;border-radius:10px} .tag{display:inline-block;padding:4px 9px;margin:3px 4px 3px 0;border-radius:999px;background:#e9f0f7;color:#20486f;font-size:.82rem;font-weight:650} .claimtag,.appraisaltag{display:inline-block;font-size:.72rem;font-weight:750;text-transform:uppercase;letter-spacing:.06em;padding:3px 7px;border-radius:6px;margin-right:7px} .claimtag{background:#e7f0fa;color:#194e79} .appraisaltag{background:#f6e9e9;color:#7b2e2e}
+.section-summary{padding:13px 16px;margin:12px 0;border-left:4px solid #b7cbe0;background:#f9fbfd;border-radius:8px} .section-summary h3{margin:.1rem 0 .45rem} code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace} pre{background:var(--code);color:var(--codeink);border-radius:12px;padding:15px;overflow:auto;white-space:pre-wrap} .equation{background:#f2f5f8;border:1px solid var(--line);padding:12px 15px;border-radius:10px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:8px 0} .visual-card{border:1px solid var(--line);border-radius:13px;padding:16px;margin:14px 0;background:#fff} .visual-head{display:flex;gap:12px;align-items:flex-start} .figlabel{white-space:nowrap;background:#173b63;color:#fff;border-radius:7px;padding:4px 8px;font-weight:750;font-size:.78rem} .visual-dl{display:grid;grid-template-columns:160px 1fr;gap:6px 12px;margin:12px 0 0} .visual-dl dt{font-weight:750;color:#3c536b} .visual-dl dd{margin:0} .table-scroll{overflow-x:auto;margin:10px 0} table{border-collapse:collapse;width:100%;min-width:680px;font-size:.9rem} caption{text-align:left;font-weight:700;color:#394f65;margin-bottom:6px} th,td{border:1px solid #d8e0e8;padding:7px 8px;vertical-align:top} th{background:#edf2f7;color:#244867} tbody tr:nth-child(even){background:#fafbfd} .rating{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfcfe} .score{font-size:1.7rem;font-weight:800;color:var(--navy)} .rating small{display:block;color:var(--muted);margin-top:5px} .source-locator{font-size:.84rem;color:var(--muted)} ul.tight li{margin:.28rem 0} footer{color:#5e6977;font-size:.86rem;padding:18px 0 36px} .qa-pass{color:var(--green);font-weight:800} @media(max-width:700px){nav.toc ul{columns:1} .visual-dl{grid-template-columns:1fr} header{padding-top:34px}} @media print{body{background:#fff;font-size:11pt} nav.toc,section{box-shadow:none;break-inside:auto} .visual-card,.mini-card,.rating{break-inside:avoid} a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="eyebrow">Summary · Evaluation · Appraisal</div><h1>From Plan to Action: How Well Do Agents Follow the Plan?</h1><p>Shuyang Liu · Saman Dehghan · Jatin Ganhotra · Martin Hirzel · Reyhaneh Jabbarvand</p><p>ASE 2026 · arXiv:2604.12147v3 · source-grounded appraisal</p></div></header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents"><h2>Contents</h2><ul>
+<li><a href="#metadata">Metadata & scope</a></li><li><a href="#synthesis">One-page synthesis</a></li><li><a href="#methods">Methods & metrics</a></li><li><a href="#sections">Section condensation</a></li><li><a href="#visuals">Figures, table & workflow extraction</a></li><li><a href="#appraisal">Evaluation & appraisal</a></li><li><a href="#implementation">Implementation takeaways</a></li><li><a href="#coverage">Coverage & QA</a></li><li><a href="#provenance">Provenance</a></li>
+</ul></nav>
+
+<section id="metadata"><h2>Metadata & scope</h2><div class="meta-grid">
+<div class="mini-card"><b>Source type</b>Empirical AI/ML agent-evaluation paper; ASE 2026 conference paper with arXiv v3.</div>
+<div class="mini-card"><b>Version / dates</b>arXiv v3 dated 7 Aug 2026; received 26 Mar 2026; accepted 18 Jun 2026; ASE ’26 scheduled 12–16 Oct 2026.</div>
+<div class="mini-card"><b>Stable identifiers</b>arXiv:2604.12147v3<br>DOI: 10.1145/3832783.3834400<br>Artifact DOI: 10.5281/zenodo.19339901</div>
+<div class="mini-card"><b>Design</b>Controlled plan-prompt variations in SWE-agent across four LLMs and two software-engineering benchmarks, with process-centric trajectory analysis.</div>
+<div class="mini-card"><b>Scale</b>21,120 trajectories overall; 497 SWE-bench Verified instances in the primary evaluation; 266 Python SWE-bench Pro instances for generalization work.</div>
+<div class="mini-card"><b>Scope warning</b>Supports claims about plan-guided programming agents in this scaffold/benchmark setting. It does not establish universal plan-following behavior or prove the proposed causal roots of violations.</div>
+</div><p><span class="tag">agent reliability</span><span class="tag">plan compliance</span><span class="tag">SWE-agent</span><span class="tag">process-centric evaluation</span><span class="tag">SWE-bench</span><span class="tag">prompt scaffolding</span></p></section>
+
+<section id="synthesis"><h2>One-page synthesis</h2>
+<div class="verdict"><b>Verdict: Read first.</b> The paper provides a concrete process-level framework for asking whether an agent followed the strategy it was given, rather than judging only whether the final task succeeded. Its strongest practical result is that plan quality and model-plan alignment matter, and periodic plan reminders can improve success without requiring strict compliance.</div>
+<div class="key-grid">
+<div class="mini-card"><b>Core thesis</b>Plans materially shape agent behavior and success, but agents do not simply execute them. They combine the explicit plan with model-internalized workflows and local context.</div>
+<div class="mini-card"><b>New measurement layer</b>The authors define Plan Phase Compliance (PPC), Plan Order Compliance (POC), Plan Phase Fidelity (PPF), and their geometric-mean Plan Compliance (PC).</div>
+<div class="mini-card"><b>Standard plan</b>The baseline workflow is Navigation → Reproduction → Patch → Validation. Standard-plan success was 56.3% for GPT-5 mini, 38.4% for DeepSeek-V3, 39.4% for DeepSeek-R1, and 64.8% for Devstral-small.</div>
+<div class="mini-card"><b>No plan</b>Agents still exhibit recognizable internal workflows, but success falls overall. Some issues are solved only without the standard plan because faulty reproduction-test generation can derail repair.</div>
+<div class="mini-card"><b>Bad plans can be worse</b>Removing one key phase can damage performance more than removing the plan entirely. Added phases can also hurt when they conflict with a model’s internal strategy.</div>
+<div class="mini-card"><b>Adaptive override</b>Agents often ignore suboptimal ordering. Devstral-small, for example, continues to reproduce before patching despite being instructed to patch first.</div>
+<div class="mini-card"><b>Reminder effect</b>Re-inserting the standard plan every five steps improves DeepSeek-V3 compliance and produces consistent success improvements across the studied models.</div>
+<div class="mini-card"><b>Generalization signal</b>Plan compliance falls by 13% on the selected SWE-bench Pro comparison, where trajectories become more navigation/patch-heavy and often fail to reach validation.</div>
+</div>
+<div class="warning"><b>Interpretive boundary.</b> The empirical evidence is strongest for the behavioral effects of plan variants and reminders. Explanations involving fine-tuning, benchmark contamination, model-internal strategies, context pressure, or short-term reward are partly supported by indirect tests and trajectory inspection but are not cleanly isolated causal mechanisms.</div>
+</section>
+
+<section id="methods"><h2>Methods & metrics</h2>
+<h3>Experimental frame</h3><p><span class="claimtag">Source</span>SWE-agent is held as the common scaffold while the backbone LLM varies across GPT-5 mini, DeepSeek-V3, DeepSeek-R1, and Devstral-small. The primary benchmark is SWE-bench Verified: 497 Easy/Medium/Hard instances after excluding three Very Hard instances unresolved by every studied model under every plan setting. Generalization experiments use 266 Python SWE-bench Pro instances; because success was near zero on many, the compliance comparison in §6.1 is narrowed to 31 instances resolvable by at least one model under the Standard plan.</p>
+<p><span class="claimtag">Source</span>Eight plan settings are tested: Standard, No Plan, No Reproduction, No Validation, added regression testing, added change summary, reordered phases, and periodic reminders. Existing repository tests are deliberately distinguished from agent-generated tests: regression testing is outside the default N-R-P-V alphabet unless explicitly added.</p>
+<h3>Action abstraction</h3><pre><code>Raw SWE-agent trajectory
+  → Graphectory: action graph with chronological edges
+  → action-to-phase mapping
+       Navigation: inspect files/directories
+       Reproduction: create/run new tests before application-code edits
+       Patch: edit application code
+       Validation: create/run new tests after patching
+       General: actions outside the current plan vocabulary
+  → Langutory: compact phase-letter trajectory
+  → PPC / POC / PPF / PC</code></pre>
+<p>The automated phase mapping was manually checked on 320 actions: two authors independently labeled the first occurrence of each default-plan phase across 20 sampled trajectories per model. Agreement among the two human annotations and automated labels reached Fleiss’ κ = 0.99.</p>
+<h3>Compliance metrics</h3>
+<div class="equation"><b>PPC</b> = number of instructed phases appearing at least once ÷ number of instructed phases</div>
+<div class="equation"><b>POC</b> = LIS(first-occurrence indices of instructed phases) ÷ number of instructed phases</div>
+<div class="equation"><b>PPF</b> = |plan alphabet| ÷ |plan alphabet ∪ observed phase labels|</div>
+<div class="equation"><b>PC</b> = (PPC × POC × PPF)<sup>1/3</sup></div>
+<p><span class="appraisaltag">Appraisal</span>The decomposition is useful because “followed all phases,” “followed them in order,” and “introduced extra phases” are behaviorally distinct. The geometric mean prevents one strong component from fully compensating for a weak one, but equal multiplicative weighting is a design choice rather than an empirically validated utility function.</p>
+<h3>Other analyses</h3><p>Task success is the benchmark issue-resolution rate. Graphectory node, temporal-edge, and loop counts measure trajectory complexity. Phase Flow Analysis visualizes transitions as Sankey-style flows. Standard-plan experiments are repeated three times for RQ7, with pairwise McNemar tests and reproducible subsets used to test whether conclusions survive agent nondeterminism.</p>
+</section>
+
+<section id="sections"><h2>Section condensation</h2>
+<div class="section-summary"><h3>Abstract & Introduction</h3><p>The paper argues that agent plans are usually advisory system-prompt instructions rather than enforced workflows. Because an agent chooses each action from its local context, it may skip, reorder, or add phases as trajectories grow. Evaluating task success alone therefore cannot distinguish plan-following from alternative routes such as memorized workflows, benchmark overfitting, or contamination.</p><p>The study positions plan compliance as a process-level object of measurement. Across 21,120 trajectories, the authors ask how compliance varies by model, whether plans improve task success, what happens when plans are removed or mutated, whether reminders help, how results generalize to SWE-bench Pro, and whether conclusions survive stochastic variation.</p></div>
+<div class="section-summary"><h3>2. Experimental Design</h3><p>The default plan is Navigation (N) → Reproduction (R) → Patch (P) → Validation (V). The mapping rules intentionally distinguish newly generated tests from existing repository regression tests. Langutory compresses raw trajectories into phase letters, enabling phase coverage, ordering, and fidelity to be quantified.</p><p>Figure 1 illustrates why the components differ: a trajectory can cover every phase but start Reproduction before Navigation, or can omit Reproduction and Validation entirely. PPC, POC, and PPF are combined into PC using a geometric mean.</p></div>
+<div class="section-summary"><h3>3. Empirical Setup</h3><p>Four LLMs are evaluated under eight plan settings on SWE-bench Verified and, for generalization, SWE-bench Pro. The analysis combines PC metrics, task success, trajectory-complexity metrics, and phase-flow diagrams. Table 1 defines the exact mutated plan sequences.</p><p>The action-to-phase classifier receives a strong validation result (κ = 0.99 on 320 annotated actions), supporting the reliability of the abstraction for the sampled default-plan actions. The manual check is nevertheless narrower than the full space of plan variants and General/out-of-plan actions.</p></div>
+<div class="section-summary"><h3>4. Standard Plan Compliance & No Plan</h3><p>Under the Standard plan, compliance differs sharply by model. Devstral-small nearly always covers phases in order but performs more out-of-plan actions; DeepSeek-V3 has near-perfect phase fidelity while omitting or misordering phases; DeepSeek-R1 has the weakest compliance; GPT-5 mini changes strategy with problem difficulty and often skips Reproduction on easier issues. Resolved trajectories have significantly higher PC for Devstral-small (p = 1×10<sup>−5</sup>) and DeepSeek-R1 (p = 0.032), but not for DeepSeek-V3 (p = 0.60) or GPT-5 mini (p = 0.285).</p><p>When the plan is removed, model-internalized workflows remain visible but success drops overall. Devstral-small continues to resemble N-R-P-V, GPT-5 mini often resembles N-P-V, and DeepSeek models more often reduce to N-P. Yet every model also solves some instances only under No Plan; manual inspection links many such cases to incorrect reproduction tests under the Standard plan, after which the no-plan trajectory succeeds by skipping that step.</p></div>
+<div class="section-summary"><h3>5.1 Reduced Plans</h3><p>Removing Reproduction or Validation does not simply make agents shorter or freer. It can destabilize behavior, especially when the omitted phase is important to a model’s learned workflow. DeepSeek-R1 emits malformed tool calls in 349 No-Reproduction instances, while GPT-5 mini is particularly harmed by removing Validation. DeepSeek-V3 is less dependent on Validation, consistent with its tendency to skip that phase.</p><p>The authors’ synthesis is that a bad incomplete plan can be worse than no plan. Reduced-plan-only successes still occur, especially when the Standard plan’s reproduction requirement leads to a bad test. After accounting for nondeterminism, No Validation yields relatively few exclusive successes: 7 GPT-5 mini, 19 Devstral-small, 5 DeepSeek-V3, and 1 DeepSeek-R1.</p></div>
+<div class="section-summary"><h3>5.2 Augmented Plans</h3><p>Adding relevant phases is not automatically beneficial. Regression-test execution is already natural for Devstral-small and GPT-5 mini and changes success only modestly, but DeepSeek-V3 struggles to incorporate the added phases. Early long regression feedback may redirect the trajectory toward environment/test issues rather than repair. DeepSeek-R1 again performs poorly.</p><p>A final change-summary phase is largely neutral for GPT-5 mini, DeepSeek-V3, and Devstral-small because it occurs after core repair reasoning. DeepSeek-R1, however, shows pervasive tool-call failure in 413 instances. The authors conclude that augmentation works best when it aligns with the model’s internal strategy and can be harmful when it does not.</p></div>
+<div class="section-summary"><h3>5.3 Reordered & Reminded Plans</h3><p>The N-P-R-V reorder tests whether models will obey a still-plausible but strategically different sequence. DeepSeek-V3 often follows Navigation directly with Patch, while Devstral-small continues to reproduce before patching. The initial DeepSeek-V3 result rises from 191 to 196 resolved issues, but on the reproducible subset the rate changes only from 38.3% to 38.0%, showing that the apparent gain is not robust.</p><p>Periodic reminders are the clearest positive intervention. Re-injecting N-R-P-V every five steps improves DeepSeek-V3 compliance and keeps other models near their prior PC while improving success consistently. The authors interpret this as a way to counter plan salience loss and drift toward irrelevant subgoals.</p></div>
+<div class="section-summary"><h3>6. Generalization & Nondeterminism</h3><p>On the selected SWE-bench Pro comparison, PC drops by 13% on average across models and settings. Phase flows shift toward repetitive Navigation and Patching, with fewer trajectories reaching Validation and most agents still skipping Reproduction. This indicates that the high-level Standard plan is less effective on the harder benchmark.</p><p>Repeated Standard-plan runs produce statistically significant outcome differences by pairwise McNemar tests, confirming nondeterminism. The reproducible subsets contain 401 GPT-5 mini, 308 Devstral-small, 323 DeepSeek-V3, and 287 DeepSeek-R1 instances. Re-analysis on these subsets preserves the main qualitative findings, including the benefit of reminders.</p></div>
+<div class="section-summary"><h3>7. Related Work</h3><p>The paper situates itself against work on plan construction/refinement, separated planner/executor systems, process-centric trajectory metrics, and agent goal-plan-action alignment. Its claimed distinction is a mathematically specified, scalable compliance measure paired with controlled prompt-level plan mutations rather than task-level success alone or LLM-judge scoring.</p></div>
+<div class="section-summary"><h3>8. Threats to Validity</h3><p>The authors note external-validity limits from four models, two benchmarks, and a single software-repair domain. Internal validity is addressed by consistent configurations and repeated experiments. Construct validity is limited by a phase-level abstraction that discards some project-specific detail, though core repair phases are intentionally preserved.</p><p>Additional appraisal concern: some of the strongest causal explanations remain hypotheses. DeepSeek-R1’s frequent scaffold/tool-call failures can confound plan-quality effects with interface compatibility, and the 31-instance SWE-bench Pro filtered subset improves analyzability but narrows generalizability.</p></div>
+<div class="section-summary"><h3>9. Discussion</h3><p>The authors argue that the method can generalize to other domains by replacing the phase vocabulary while leaving the compliance mathematics unchanged. They explicitly caution against treating maximum compliance as the goal: productive deviations can be adaptive, while harmful omissions, reordering, or loss of plan awareness deserve intervention.</p><p>They propose compliance as an online monitoring signal for targeted reminders or adaptive plan refinement and as a post-training supervision signal that teaches models to follow task-appropriate plans without merely memorizing fixed workflows.</p></div>
+<div class="section-summary"><h3>10–11. Conclusion & Data Availability</h3><p>The paper concludes that plans clearly affect issue-resolution success but are imperfectly followed. Better plans and better plan-following are both plausible routes to improved agents. The study artifacts are stated to be publicly available via the cited artifact DOI.</p></div>
+</section>
+
+<section id="visuals"><h2>Figures, table & workflow extraction</h2>
+<div class="goodnote">Coverage decision: all 19 main-text figures and Table 1 are represented below as structured blocks. No screenshots are embedded because the figures’ load-bearing content can be reconstructed from the text, captions, metric matrices, and rendered source pages.</div>
+<h3>Table 1 — studied plan settings</h3><div class="table-scroll"><table><thead><tr><th>Setting</th><th>Plan formulation</th><th>Variation</th><th>Operational change</th></tr></thead><tbody>
+<tr><td>Standard</td><td>N → R → P → V</td><td>Baseline</td><td>Navigation, Reproduction, Patch, Validation.</td></tr>
+<tr><td>No Plan</td><td>—</td><td>Reduction</td><td>Plan removed from the system prompt.</td></tr>
+<tr><td>No Reproduction</td><td>N → P → V</td><td>Reduction</td><td>Reproduction phase removed.</td></tr>
+<tr><td>No Validation</td><td>N → R → P</td><td>Reduction</td><td>Post-patch Validation removed.</td></tr>
+<tr><td>+ Regression testing</td><td>R<sub>G</sub> → N → R → P → V → V<sub>G</sub></td><td>Augmentation</td><td>Existing repository tests added before core repair and after validation.</td></tr>
+<tr><td>+ Summary</td><td>N → R → P → V → S</td><td>Augmentation</td><td>PR-style change summary before submission.</td></tr>
+<tr><td>Reordered</td><td>N → P → R → V</td><td>Reordering</td><td>Patch moved before reproduction.</td></tr>
+<tr><td>Periodic reminder</td><td>N → R → P → V</td><td>Repeating</td><td>Default plan re-injected every five trajectory steps.</td></tr>
+</tbody></table></div><p class="source-locator">Source locator: Table 1, p. 4.</p>
+
+<article class="visual-card" id="fig-1">
+      <div class="visual-head"><span class="figlabel">Figure 1</span><h4>Illustrative Graphectory and Langutory examples</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Show why phase coverage, order, and fidelity need separate metrics.</dd>
+        <dt>Structure / numeric details</dt><dd>Three trajectories: (a) DeepSeek-R1 / xarray-4356 resolved, Langutory NR²PV³PV, PPC=1, POC=1, PPF=1, PC=1; (b) DeepSeek-R1 / matplotlib-21568 unresolved, R⁴N³P²V², PPC=1, POC=.75, PPF=1, PC=.91; (c) DeepSeek-V3 / django-13551 unresolved, N³P, PPC=.5, POC=.5, PPF=1, PC=.63.</dd>
+        <dt>Main pattern</dt><dd>A trajectory can cover all phases but violate order, or omit entire phases while remaining faithful to the allowed alphabet.</dd>
+        <dt>Interpretation</dt><dd>The examples motivate the metric decomposition and connect process deviations to concrete repair failures.</dd>
+        <dt>Limits</dt><dd>Illustrative cases are explanatory, not evidence that the same deviation always causes failure.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 1, p. 3.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-2">
+      <div class="visual-head"><span class="figlabel">Figure 2</span><h4>Standard plan compliance metrics and success rate</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Compare resolved vs unresolved trajectory compliance under N-R-P-V, overall and by difficulty.</dd>
+        <dt>Structure / numeric details</dt><dd><div class="table-scroll"><table class="compact"><caption>All-difficulty panel; success rates: GPT-5 mini 56.3%, DeepSeek-V3 38.4%, DeepSeek-R1 39.4%, Devstral-small 64.8%.</caption><thead><tr><th>Model / outcome</th><th>PPC</th><th>POC</th><th>PPF</th><th>PC</th></tr></thead><tbody><tr><td>GPT-5 mini — resolved</td><td>0.72</td><td>0.72</td><td>0.82</td><td>0.75</td></tr><tr><td>GPT-5 mini — unresolved</td><td>0.76</td><td>0.76</td><td>0.82</td><td>0.77</td></tr><tr><td>DeepSeek-V3 — resolved</td><td>0.79</td><td>0.74</td><td>0.99</td><td>0.83</td></tr><tr><td>DeepSeek-V3 — unresolved</td><td>0.77</td><td>0.73</td><td>0.99</td><td>0.81</td></tr><tr><td>DeepSeek-R1 — resolved</td><td>0.73</td><td>0.69</td><td>0.86</td><td>0.76</td></tr><tr><td>DeepSeek-R1 — unresolved</td><td>0.68</td><td>0.63</td><td>0.87</td><td>0.72</td></tr><tr><td>Devstral-small — resolved</td><td>0.99</td><td>0.99</td><td>0.80</td><td>0.92</td></tr><tr><td>Devstral-small — unresolved</td><td>0.95</td><td>0.95</td><td>0.81</td><td>0.90</td></tr></tbody></table></div></dd>
+        <dt>Main pattern</dt><dd>Devstral-small has the highest PC; DeepSeek-V3 has very high PPF but weaker phase/order coverage; GPT-5 mini is less compliant on resolved than unresolved trajectories overall; compliance patterns shift with difficulty.</dd>
+        <dt>Interpretation</dt><dd>Success is not identical to strict plan compliance. Model-specific strategy and problem difficulty matter.</dd>
+        <dt>Limits</dt><dd>The heatmaps report averages and p-values are presented separately; they do not by themselves establish causality.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 2, p. 5.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-3">
+      <div class="visual-head"><span class="figlabel">Figure 3</span><h4>Standard-plan phase-flow analysis</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Reveal how trajectories transition through phases across models and difficulty levels.</dd>
+        <dt>Structure / numeric details</dt><dd>Four model columns × four difficulty rows. Flow colors encode N/R/P/V; gray denotes out-of-plan actions; black bars denote termination.</dd>
+        <dt>Main pattern</dt><dd>Devstral-small follows the full plan most visibly; GPT-5 mini skips Reproduction more often on easy tasks; DeepSeek models often omit phases or put Reproduction before Navigation.</dd>
+        <dt>Interpretation</dt><dd>Phase-flow views expose structure lost in scalar PC scores and help interpret the model-specific heatmaps.</dd>
+        <dt>Limits</dt><dd>Flow thickness is descriptive; without confidence intervals it should not be treated as a precise causal estimate.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 3, p. 5.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-4">
+      <div class="visual-head"><span class="figlabel">Figure 4</span><h4>No Plan phase-flow analysis</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Test whether model-internalized workflows persist when explicit plan instructions are removed.</dd>
+        <dt>Structure / numeric details</dt><dd>Same four-model phase-flow layout, now with no instructed plan; N/R/P/V labels are used diagnostically to compare behavior with the standard workflow.</dd>
+        <dt>Main pattern</dt><dd>Devstral-small still resembles N-R-P-V; GPT-5 mini often follows a subset; DeepSeek-V3 and R1 more often collapse toward N-P.</dd>
+        <dt>Interpretation</dt><dd>The explicit plan is not the sole source of workflow structure; training/internal strategy supplies a prior.</dd>
+        <dt>Limits</dt><dd>The paper infers internalized workflows from behavior; it does not directly inspect training data or latent policies.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 4, p. 7.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-5">
+      <div class="visual-head"><span class="figlabel">Figure 5</span><h4>Impact of No Plan on success</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Compare which SWE-bench Verified instances are solved under Standard vs No Plan.</dd>
+        <dt>Structure / numeric details</dt><dd>UpSet-style bars show overlap and exclusive resolution sets. Exact No-Plan-only counts reported in text: GPT-5 mini 34, Devstral-small 28, DeepSeek-V3 23, DeepSeek-R1 11. Standard-plan total for GPT-5 mini is 280 (56.3% of 497) versus 245 under No Plan.</dd>
+        <dt>Main pattern</dt><dd>Total performance declines without the plan, but each model also gains a small set of exclusive No-Plan successes.</dd>
+        <dt>Interpretation</dt><dd>A global plan provides useful guidance even when not perfectly followed, while particular prescribed steps can sometimes block success.</dd>
+        <dt>Limits</dt><dd>Exclusive successes are strongly affected by nondeterminism; later analysis reduces the deterministic-only counts.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 5, p. 7.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-6">
+      <div class="visual-head"><span class="figlabel">Figure 6</span><h4>Phase flow with removed Reproduction or Validation</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Show whether agents comply with reduced plans or continue executing removed phases.</dd>
+        <dt>Structure / numeric details</dt><dd>Top row: No Reproduction N-P-V. Bottom row: No Validation N-R-P. Four models in each row.</dd>
+        <dt>Main pattern</dt><dd>Removed phases still appear, especially when they are part of a model’s internalized strategy. DeepSeek-R1 trajectories often terminate early.</dd>
+        <dt>Interpretation</dt><dd>Explicit plan changes influence trajectories but do not erase learned workflow preferences.</dd>
+        <dt>Limits</dt><dd>DeepSeek-R1 tool-format failures complicate interpretation as a pure planning effect.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 6, p. 8.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-7">
+      <div class="visual-head"><span class="figlabel">Figure 7</span><h4>Reduced-plan impact on success</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Compare Standard versus No Reproduction and No Validation resolution sets.</dd>
+        <dt>Structure / numeric details</dt><dd>Two UpSet-style panels: (a) No Reproduction; (b) No Validation, each stratified by difficulty and model.</dd>
+        <dt>Main pattern</dt><dd>Removing either phase reduces success overall; the magnitude differs by model. GPT-5 mini is particularly dependent on Validation, while Devstral-small is more sensitive to loss of Reproduction.</dd>
+        <dt>Interpretation</dt><dd>A plan can be globally useful even when a model sometimes skips the nominally required phase.</dd>
+        <dt>Limits</dt><dd>The figure mixes plan effects with model-specific scaffold/tool stability, most visibly for DeepSeek-R1.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 7, p. 8.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-8">
+      <div class="visual-head"><span class="figlabel">Figure 8</span><h4>No Reproduction compliance metrics</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Quantify compliance under N-P-V.</dd>
+        <dt>Structure / numeric details</dt><dd><div class="table-scroll"><table class="compact"><caption>No Reproduction plan: N → P → V</caption><thead><tr><th>Model / outcome</th><th>PPC</th><th>POC</th><th>PPF</th><th>PC</th></tr></thead><tbody><tr><td>GPT-5 mini — resolved</td><td>0.95</td><td>0.95</td><td>0.76</td><td>0.88</td></tr><tr><td>GPT-5 mini — unresolved</td><td>0.95</td><td>0.95</td><td>0.75</td><td>0.87</td></tr><tr><td>DeepSeek-V3 — resolved</td><td>0.67</td><td>0.67</td><td>0.98</td><td>0.77</td></tr><tr><td>DeepSeek-V3 — unresolved</td><td>0.66</td><td>0.66</td><td>0.97</td><td>0.76</td></tr><tr><td>DeepSeek-R1 — resolved</td><td>0.67</td><td>0.67</td><td>0.95</td><td>0.76</td></tr><tr><td>DeepSeek-R1 — unresolved</td><td>0.47</td><td>0.46</td><td>0.98</td><td>0.63</td></tr><tr><td>Devstral-small — resolved</td><td>1.00</td><td>1.00</td><td>0.53</td><td>0.80</td></tr><tr><td>Devstral-small — unresolved</td><td>0.90</td><td>0.90</td><td>0.56</td><td>0.76</td></tr></tbody></table></div></dd>
+        <dt>Main pattern</dt><dd>GPT-5 mini nearly perfectly covers/orders the remaining phases but has lower PPF because it still reproduces; Devstral-small likewise has very low PPF despite perfect phase/order compliance; DeepSeek-R1 unresolved PC falls to .63.</dd>
+        <dt>Interpretation</dt><dd>Models may obey the reduced plan structurally while still inserting the removed phase, revealing tension between prompt instruction and internal workflow.</dd>
+        <dt>Limits</dt><dd>High PPC/POC under a reduced plan does not imply the plan is good or that task performance improves.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 8, p. 8.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-9">
+      <div class="visual-head"><span class="figlabel">Figure 9</span><h4>No Validation compliance metrics</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Quantify compliance under N-R-P.</dd>
+        <dt>Structure / numeric details</dt><dd><div class="table-scroll"><table class="compact"><caption>No Validation plan: N → R → P</caption><thead><tr><th>Model / outcome</th><th>PPC</th><th>POC</th><th>PPF</th><th>PC</th></tr></thead><tbody><tr><td>GPT-5 mini — resolved</td><td>0.84</td><td>0.68</td><td>0.68</td><td>0.72</td></tr><tr><td>GPT-5 mini — unresolved</td><td>0.81</td><td>0.67</td><td>0.69</td><td>0.72</td></tr><tr><td>DeepSeek-V3 — resolved</td><td>0.72</td><td>0.77</td><td>0.87</td><td>0.78</td></tr><tr><td>DeepSeek-V3 — unresolved</td><td>0.80</td><td>0.75</td><td>0.84</td><td>0.79</td></tr><tr><td>DeepSeek-R1 — resolved</td><td>0.55</td><td>0.51</td><td>1.00</td><td>0.68</td></tr><tr><td>DeepSeek-R1 — unresolved</td><td>0.20</td><td>0.19</td><td>1.00</td><td>0.46</td></tr><tr><td>Devstral-small — resolved</td><td>0.96</td><td>0.96</td><td>0.63</td><td>0.83</td></tr><tr><td>Devstral-small — unresolved</td><td>0.94</td><td>0.94</td><td>0.67</td><td>0.83</td></tr></tbody></table></div></dd>
+        <dt>Main pattern</dt><dd>GPT-5 mini PC is .72 for both resolved and unresolved; DeepSeek-V3 stays near .78–.79; DeepSeek-R1 unresolved PC drops to .46; Devstral-small remains .83.</dd>
+        <dt>Interpretation</dt><dd>Validation dependence is model-specific; DeepSeek-V3 is comparatively tolerant, while DeepSeek-R1 shows severe instability.</dd>
+        <dt>Limits</dt><dd>PPF can be high when the model simply stops early, so it should be interpreted jointly with PPC/POC and task success.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 9, p. 8.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-10">
+      <div class="visual-head"><span class="figlabel">Figure 10</span><h4>Phase flow with Regression Testing or Summary</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Show whether added phases are incorporated and how they alter flow.</dd>
+        <dt>Structure / numeric details</dt><dd>Top row adds regression testing before N and after V. Bottom row adds an end-of-trajectory Summary S. Four models per row.</dd>
+        <dt>Main pattern</dt><dd>Devstral-small and GPT-5 mini already use regression testing but place it differently; DeepSeek-V3 has difficulty incorporating the added early test phase. Summary is mostly appended at the end and changes core flow little except for DeepSeek-R1 instability.</dd>
+        <dt>Interpretation</dt><dd>Task-relevant plan augmentation is not automatically beneficial; placement and compatibility with learned strategy matter.</dd>
+        <dt>Limits</dt><dd>Added prompt content changes both semantics and context burden, so phase-specific causal attribution is imperfect.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 10, p. 9.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-11">
+      <div class="visual-head"><span class="figlabel">Figure 11</span><h4>Augmented-plan impact on success</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Compare Standard with added Regression Testing and added Summary.</dd>
+        <dt>Structure / numeric details</dt><dd>Two UpSet-style panels. DeepSeek-R1 experiences particularly large degradation; the text reports 413 tool-calling failures under the Summary plan.</dd>
+        <dt>Main pattern</dt><dd>Regression testing produces small success changes for Devstral-small/GPT-5 mini, a larger drop for DeepSeek-V3, and very poor DeepSeek-R1 behavior. Summary is mostly neutral except for DeepSeek-R1.</dd>
+        <dt>Interpretation</dt><dd>New phases should be evaluated as model-specific interventions, not universal best practices.</dd>
+        <dt>Limits</dt><dd>Severe tool-call failures can dominate the measured success effect and may reflect interface compatibility rather than plan semantics alone.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 11, p. 9.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-12">
+      <div class="visual-head"><span class="figlabel">Figure 12</span><h4>Regression Testing compliance metrics</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Quantify compliance when regression phases are explicitly part of the plan.</dd>
+        <dt>Structure / numeric details</dt><dd><div class="table-scroll"><table class="compact"><caption>Regression Testing plan</caption><thead><tr><th>Model / outcome</th><th>PPC</th><th>POC</th><th>PPF</th><th>PC</th></tr></thead><tbody><tr><td>GPT-5 mini — resolved</td><td>0.76</td><td>0.65</td><td>1.00</td><td>0.79</td></tr><tr><td>GPT-5 mini — unresolved</td><td>0.80</td><td>0.69</td><td>1.00</td><td>0.82</td></tr><tr><td>DeepSeek-V3 — resolved</td><td>0.56</td><td>0.53</td><td>1.00</td><td>0.66</td></tr><tr><td>DeepSeek-V3 — unresolved</td><td>0.59</td><td>0.54</td><td>1.00</td><td>0.68</td></tr><tr><td>DeepSeek-R1 — resolved</td><td>0.56</td><td>0.51</td><td>1.00</td><td>0.65</td></tr><tr><td>DeepSeek-R1 — unresolved</td><td>0.21</td><td>0.20</td><td>1.00</td><td>0.34</td></tr><tr><td>Devstral-small — resolved</td><td>0.96</td><td>0.78</td><td>1.00</td><td>0.91</td></tr><tr><td>Devstral-small — unresolved</td><td>0.95</td><td>0.76</td><td>1.00</td><td>0.89</td></tr></tbody></table></div></dd>
+        <dt>Main pattern</dt><dd>PPF becomes 1.00 across all models by construction of the expanded alphabet, while PPC/POC expose incorporation difficulty. DeepSeek-R1 unresolved PC is .34; Devstral-small remains .89–.91.</dd>
+        <dt>Interpretation</dt><dd>Expanding the alphabet can improve fidelity scores without improving success; coverage/order remain essential.</dd>
+        <dt>Limits</dt><dd>Metric comparisons across plan alphabets require attention to what counts as in-plan.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 12, p. 9.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-13">
+      <div class="visual-head"><span class="figlabel">Figure 13</span><h4>Summary-plan compliance metrics</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Quantify compliance under N-R-P-V-S.</dd>
+        <dt>Structure / numeric details</dt><dd><div class="table-scroll"><table class="compact"><caption>Summary plan: N → R → P → V → S</caption><thead><tr><th>Model / outcome</th><th>PPC</th><th>POC</th><th>PPF</th><th>PC</th></tr></thead><tbody><tr><td>GPT-5 mini — resolved</td><td>0.73</td><td>0.73</td><td>0.84</td><td>0.76</td></tr><tr><td>GPT-5 mini — unresolved</td><td>0.70</td><td>0.69</td><td>0.84</td><td>0.73</td></tr><tr><td>DeepSeek-V3 — resolved</td><td>0.76</td><td>0.73</td><td>0.97</td><td>0.81</td></tr><tr><td>DeepSeek-V3 — unresolved</td><td>0.74</td><td>0.70</td><td>0.97</td><td>0.78</td></tr><tr><td>DeepSeek-R1 — resolved</td><td>0.57</td><td>0.57</td><td>0.98</td><td>0.68</td></tr><tr><td>DeepSeek-R1 — unresolved</td><td>0.30</td><td>0.29</td><td>0.99</td><td>0.44</td></tr><tr><td>Devstral-small — resolved</td><td>0.99</td><td>0.99</td><td>0.80</td><td>0.92</td></tr><tr><td>Devstral-small — unresolved</td><td>0.94</td><td>0.94</td><td>0.82</td><td>0.89</td></tr></tbody></table></div></dd>
+        <dt>Main pattern</dt><dd>GPT-5 mini, DeepSeek-V3, and Devstral-small remain close to Standard-plan compliance; DeepSeek-R1 unresolved PC falls to .44.</dd>
+        <dt>Interpretation</dt><dd>A late orthogonal phase exerts little pressure on most models’ core repair behavior but can destabilize a fragile model/scaffold interaction.</dd>
+        <dt>Limits</dt><dd>The figure cannot separate whether DeepSeek-R1 fails because of added instruction length, sequencing, or semantic content.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 13, p. 9.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-14">
+      <div class="visual-head"><span class="figlabel">Figure 14</span><h4>Reordered and Reminded phase flows</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Compare an altered order with periodic re-injection of the Standard plan.</dd>
+        <dt>Structure / numeric details</dt><dd>Top row: N-P-R-V. Bottom row: Standard N-R-P-V reminded every five steps. Four models per row.</dd>
+        <dt>Main pattern</dt><dd>DeepSeek-V3 often follows the patch-first reorder, while Devstral-small keeps reproduction before patching. Reminders preserve or restore Standard-plan flow, especially for DeepSeek-V3.</dd>
+        <dt>Interpretation</dt><dd>Agents can override instructed order when it conflicts with their preferred workflow; reminders help counter drift rather than forcing perfect adherence.</dd>
+        <dt>Limits</dt><dd>The reminder interval is fixed at five steps and is not optimized or compared against alternative reminder schedules.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 14, p. 10.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-15">
+      <div class="visual-head"><span class="figlabel">Figure 15</span><h4>Impact of Reordered and Reminded plans on success</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Measure success changes for phase reordering and periodic reminders.</dd>
+        <dt>Structure / numeric details</dt><dd>Two UpSet-style panels. Initial DeepSeek-V3 reordered comparison: 196 resolved versus 191 under Standard; after nondeterminism control, 38.0% versus 38.3%. Reminded plans improve success consistently across models.</dd>
+        <dt>Main pattern</dt><dd>The apparent DeepSeek-V3 benefit from reordering largely disappears on reproducible subsets, while the reminder benefit persists qualitatively.</dd>
+        <dt>Interpretation</dt><dd>Reminder-based salience control is the most robustly useful scaffold intervention in the paper.</dd>
+        <dt>Limits</dt><dd>Exact effect sizes and confidence intervals for reminder gains are not reported in the narrative; statistical testing is focused on nondeterminism rather than every plan contrast.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 15, p. 10.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-16">
+      <div class="visual-head"><span class="figlabel">Figure 16</span><h4>Reordered-plan compliance metrics</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Quantify compliance under N-P-R-V.</dd>
+        <dt>Structure / numeric details</dt><dd><div class="table-scroll"><table class="compact"><caption>Reordered plan: N → P → R → V</caption><thead><tr><th>Model / outcome</th><th>PPC</th><th>POC</th><th>PPF</th><th>PC</th></tr></thead><tbody><tr><td>GPT-5 mini — resolved</td><td>0.71</td><td>0.67</td><td>0.84</td><td>0.73</td></tr><tr><td>GPT-5 mini — unresolved</td><td>0.75</td><td>0.73</td><td>0.86</td><td>0.78</td></tr><tr><td>DeepSeek-V3 — resolved</td><td>0.67</td><td>0.67</td><td>0.98</td><td>0.76</td></tr><tr><td>DeepSeek-V3 — unresolved</td><td>0.65</td><td>0.64</td><td>0.98</td><td>0.73</td></tr><tr><td>DeepSeek-R1 — resolved</td><td>0.61</td><td>0.61</td><td>0.99</td><td>0.71</td></tr><tr><td>DeepSeek-R1 — unresolved</td><td>0.37</td><td>0.35</td><td>0.99</td><td>0.49</td></tr><tr><td>Devstral-small — resolved</td><td>0.99</td><td>0.75</td><td>0.80</td><td>0.84</td></tr><tr><td>Devstral-small — unresolved</td><td>0.93</td><td>0.71</td><td>0.83</td><td>0.81</td></tr></tbody></table></div></dd>
+        <dt>Main pattern</dt><dd>Devstral-small remains near-perfect on phase coverage but POC falls to .75/.71 because it often refuses the patch-before-reproduction order. DeepSeek-V3 PC is .76 resolved and .73 unresolved.</dd>
+        <dt>Interpretation</dt><dd>Order compliance reveals deliberate or learned resistance to a less useful phase sequence.</dd>
+        <dt>Limits</dt><dd>Lower POC can be adaptive rather than a failure, so PC should not be maximized blindly.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 16, p. 10.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-17">
+      <div class="visual-head"><span class="figlabel">Figure 17</span><h4>Reminded-plan compliance metrics</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Quantify compliance when N-R-P-V is re-injected every five steps.</dd>
+        <dt>Structure / numeric details</dt><dd><div class="table-scroll"><table class="compact"><caption>Reminded Standard plan: N → R → P → V, re-injected every five steps</caption><thead><tr><th>Model / outcome</th><th>PPC</th><th>POC</th><th>PPF</th><th>PC</th></tr></thead><tbody><tr><td>GPT-5 mini — resolved</td><td>0.71</td><td>0.71</td><td>0.83</td><td>0.75</td></tr><tr><td>GPT-5 mini — unresolved</td><td>0.75</td><td>0.75</td><td>0.84</td><td>0.77</td></tr><tr><td>DeepSeek-V3 — resolved</td><td>0.81</td><td>0.78</td><td>0.98</td><td>0.85</td></tr><tr><td>DeepSeek-V3 — unresolved</td><td>0.80</td><td>0.75</td><td>0.97</td><td>0.83</td></tr><tr><td>DeepSeek-R1 — resolved</td><td>0.61</td><td>0.59</td><td>1.00</td><td>0.71</td></tr><tr><td>DeepSeek-R1 — unresolved</td><td>0.28</td><td>0.28</td><td>1.00</td><td>0.42</td></tr><tr><td>Devstral-small — resolved</td><td>0.99</td><td>0.99</td><td>0.80</td><td>0.92</td></tr><tr><td>Devstral-small — unresolved</td><td>0.97</td><td>0.97</td><td>0.81</td><td>0.91</td></tr></tbody></table></div></dd>
+        <dt>Main pattern</dt><dd>DeepSeek-V3 improves to PC .85 resolved/.83 unresolved; Devstral-small remains .92/.91; GPT-5 mini remains around .75/.77; DeepSeek-R1 remains unstable, especially unresolved (.42).</dd>
+        <dt>Interpretation</dt><dd>Reminders chiefly improve the model whose baseline standard-plan compliance was more vulnerable to drift, without materially harming the others.</dd>
+        <dt>Limits</dt><dd>The mechanism is consistent with salience restoration but the experiment does not isolate salience from added tokens or repeated instruction effects.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 17, p. 10.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-18">
+      <div class="visual-head"><span class="figlabel">Figure 18</span><h4>SWE-bench Pro Standard-plan phase flow</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Test whether Standard-plan behavior looks similar on a harder, less-overlapping benchmark.</dd>
+        <dt>Structure / numeric details</dt><dd>Four model phase-flow panels on the selected Python SWE-bench Pro comparison.</dd>
+        <dt>Main pattern</dt><dd>Trajectories shift toward repeated Navigation and Patching, most agents still skip Reproduction, and many never reach Validation. DeepSeek models show especially early termination or narrow phase progression.</dd>
+        <dt>Interpretation</dt><dd>Plan compliance is task-distribution dependent; a high-level workflow that works on Verified is less sufficient on harder Pro instances.</dd>
+        <dt>Limits</dt><dd>The detailed comparison is based on only 31 Pro instances that at least one model could resolve under Standard, limiting precision and representativeness.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 18, p. 11.</dd>
+      </dl>
+    </article>
+<article class="visual-card" id="fig-19">
+      <div class="visual-head"><span class="figlabel">Figure 19</span><h4>Compliance on reproducible Verified subsets and SWE-bench Pro</h4></div>
+      <dl class="visual-dl">
+        <dt>Purpose</dt><dd>Compare PC across plan settings after controlling Verified nondeterminism and across the selected Pro subset.</dd>
+        <dt>Structure / numeric details</dt><dd><div class="table-scroll"><table class="compact"><caption>Overall PC by plan setting. Left four columns: reproducible SWE-bench Verified subset; right four: selected SWE-bench Pro subset.</caption><thead><tr><th rowspan="2">Plan</th><th colspan="4">Verified deterministic</th><th colspan="4">SWE-bench Pro</th></tr><tr><th>GPT-5 mini</th><th>Devstral</th><th>DeepSeek-V3</th><th>DeepSeek-R1</th><th>GPT-5 mini</th><th>Devstral</th><th>DeepSeek-V3</th><th>DeepSeek-R1</th></tr></thead><tbody><tr><td>No Validation</td><td>0.73</td><td>0.82</td><td>0.78</td><td>0.64</td><td>0.73</td><td>0.81</td><td>0.77</td><td>0.59</td></tr><tr><td>No Reproduction</td><td>0.83</td><td>0.86</td><td>0.77</td><td>0.56</td><td>0.91</td><td>0.82</td><td>0.74</td><td>0.59</td></tr><tr><td>Standard Plan</td><td>0.77</td><td>0.91</td><td>0.82</td><td>0.76</td><td>0.72</td><td>0.88</td><td>0.66</td><td>0.47</td></tr><tr><td>Regression</td><td>0.80</td><td>0.90</td><td>0.67</td><td>0.35</td><td>0.80</td><td>0.90</td><td>0.67</td><td>0.35</td></tr><tr><td>Summary</td><td>0.75</td><td>0.90</td><td>0.80</td><td>0.46</td><td>0.75</td><td>0.85</td><td>0.69</td><td>0.46</td></tr><tr><td>Reordered</td><td>0.75</td><td>0.82</td><td>0.74</td><td>0.53</td><td>0.73</td><td>0.78</td><td>0.67</td><td>0.43</td></tr><tr><td>Reminded</td><td>0.75</td><td>0.92</td><td>0.82</td><td>0.45</td><td>0.73</td><td>0.90</td><td>0.69</td><td>0.45</td></tr></tbody></table></div></dd>
+        <dt>Main pattern</dt><dd>Verified deterministic results preserve the model/plan patterns from the full benchmark. Pro PC is lower on average by 13%, with especially weak Standard-plan PC for DeepSeek-V3 (.66) and DeepSeek-R1 (.47).</dd>
+        <dt>Interpretation</dt><dd>The core conclusions survive stochastic filtering, but benchmark shift materially changes compliance levels and phase flows.</dd>
+        <dt>Limits</dt><dd>The Pro panel is a selected subset; direct numerical comparison should not be interpreted as an unbiased estimate of all 266 Pro instances.</dd>
+        <dt>Representation</dt><dd>Structured reconstruction from the source figure.</dd>
+        <dt>Source locator</dt><dd>Figure 19, p. 11.</dd>
+      </dl>
+    </article>
+</section>
+
+<section id="appraisal"><h2>Evaluation & appraisal</h2>
+<div class="rating-grid">
+<div class="rating"><div class="score">9.5/10</div><b>Relevance</b><p>Directly addresses agent reliability, scaffold behavior, process monitoring, and evaluation beyond endpoint success.</p><small><b>Evidence basis:</b> formal compliance metrics, plan mutations, reminder intervention. <b>Limiter:</b> software-engineering-only domain. <b>Would raise:</b> replication in web, scientific, or clinical tool agents.</small></div>
+<div class="rating"><div class="score">8.5/10</div><b>Novelty</b><p>Strong contribution in turning plan-following into a measurable process construct and experimentally manipulating plans at scale.</p><small><b>Evidence basis:</b> PPC/POC/PPF/PC + controlled plan variants across 21,120 trajectories. <b>Limiter:</b> builds on Graphectory/Langutory and prior planning literature. <b>Would raise:</b> prospective use of PC to dynamically improve agents.</small></div>
+<div class="rating"><div class="score">8.0/10</div><b>Method strength</b><p>Large controlled evaluation, consistent scaffold, mapping validation, phase-flow analysis, second benchmark, and explicit nondeterminism handling.</p><small><b>Evidence basis:</b> 497 Verified instances, four models, eight settings, κ=.99, repeated Standard runs. <b>Limiter:</b> some plan variants are confounded by model/tool-format failures and no full factorial causal isolation. <b>Would raise:</b> confidence intervals/effect sizes for plan contrasts and controlled prompt-length/placebo variants.</small></div>
+<div class="rating"><div class="score">7.5/10</div><b>Evidence strength</b><p>Behavioral findings are well supported; mechanistic explanations are less certain.</p><small><b>Evidence basis:</b> consistent model-specific patterns, deterministic-subset replication, Pro benchmark shift. <b>Limiter:</b> proposed causes such as contamination, fine-tuning overfit, context pressure, and short-term reward are partly inferential; statistical uncertainty is not comprehensively reported. <b>Would raise:</b> direct causal interventions and uncertainty reporting for every major comparison.</small></div>
+<div class="rating"><div class="score">6.5/10</div><b>External validity</b><p>Useful cross-model and cross-benchmark evidence, but confined to one programming scaffold and software-repair task family.</p><small><b>Evidence basis:</b> four heterogeneous LLMs and both Verified/Pro. <b>Limiter:</b> Pro analysis narrows to 31 resolvable instances; no non-programming domain. <b>Would raise:</b> replication across multiple agent frameworks and domains.</small></div>
+<div class="rating"><div class="score">9.0/10</div><b>Implementation value</b><p>Highly actionable for agent harness design: instrument phase compliance, test plan mutations, use reminders, and avoid treating strict compliance as the goal.</p><small><b>Evidence basis:</b> formal metrics, every-five-step reminder intervention, model-specific failure modes, public artifact. <b>Limiter:</b> reminder cadence and intervention thresholds are not optimized. <b>Would raise:</b> online adaptive controller experiments with cost/latency tradeoffs.</small></div>
+</div>
+<h3>Strengths</h3><ul class="tight"><li>Separates <b>process correctness</b> from task-level success instead of assuming one implies the other.</li><li>Uses controlled plan mutations rather than purely observational trajectory analysis.</li><li>Formal metrics are simple, reproducible, and interpretable; mapping validation is unusually strong for a process-abstraction paper.</li><li>Explicitly checks nondeterminism and re-runs analyses on reproducible subsets rather than ignoring stochastic instability.</li><li>Tests both a more familiar benchmark and a harder benchmark intended to reduce training overlap.</li><li>Finds a practical intervention—periodic reminders—that is plausible to deploy in existing agent scaffolds.</li></ul>
+<h3>Principal limitations / concerns</h3><div class="badnote"><ul class="tight"><li><b>Causal overreach risk:</b> “fine-tuning paradigm,” “data contamination,” “context pressure,” and “short-term reward” are plausible explanations, but the experiments mainly manipulate plans, not those causes directly.</li><li><b>DeepSeek-R1 confounding:</b> 349 malformed-tool-call cases in No Reproduction and 413 tool-call failures in Summary mean some performance loss is scaffold/interface failure rather than a clean test of planning.</li><li><b>Metric normativity:</b> PPF penalizes out-of-plan phases even when those phases—such as regression testing—may be useful. PC is therefore best interpreted as descriptive alignment, not quality.</li><li><b>Compression by first occurrence:</b> POC uses first occurrences and can miss whether later cycles are strategically appropriate or whether an early accidental phase creates a misleading ordering score.</li><li><b>Generalization bottleneck:</b> the detailed SWE-bench Pro comparison is filtered to 31 resolvable instances, which is informative but small and selected.</li><li><b>Statistical reporting:</b> some p-values are reported, but effect-size uncertainty and confidence intervals are not a consistent part of the plan-variant comparisons.</li></ul></div>
+<h3>Bottom line</h3><p>The paper is persuasive that <b>plans influence agent trajectories even when agents do not follow them exactly</b>, that <b>plan quality/alignment can matter more than nominal compliance</b>, and that <b>reminders can help long-horizon execution</b>. It is less persuasive as evidence for the exact causal origins of plan violations. The most reusable contribution is the evaluation framing: treat compliance as a process signal to monitor and intervene on, not as a single optimization target.</p>
+</section>
+
+<section id="implementation"><h2>Implementation takeaways</h2>
+<div class="takeaway-grid">
+<div class="mini-card"><b>1. Instrument plans explicitly</b>Represent plan phases as typed states/events and compute phase coverage, first-occurrence order, and out-of-plan actions from traces. Keep raw traces for audit.</div>
+<div class="mini-card"><b>2. Separate adherence from quality</b>Do not reward high PC by itself. Pair compliance with task success, failure mode, cost, latency, and human-defined safety/quality checks.</div>
+<div class="mini-card"><b>3. Add targeted reminders</b>A simple scaffold intervention is to re-surface the active plan periodically or after drift signals. The paper’s fixed schedule is every five steps; production systems should test adaptive thresholds.</div>
+<div class="mini-card"><b>4. Test plan mutations per model</b>Plan steps that help one model can distract another. Treat plan architecture as a model/scaffold compatibility surface requiring evaluation.</div>
+<div class="mini-card"><b>5. Distinguish useful deviations</b>Regression tests are a concrete example of an out-of-plan behavior that may be beneficial. Log why a phase is out-of-plan before classifying it as harmful.</div>
+<div class="mini-card"><b>6. Detect scaffold failures separately</b>Malformed tool calls should be a distinct failure class from plan noncompliance; otherwise compliance analyses can mistake interface fragility for strategic behavior.</div>
+<div class="mini-card"><b>7. Stress-test on harder distributions</b>Compliance measured on a familiar benchmark can overstate robustness. Re-run both plan and process metrics on distribution shifts and low-overlap datasets.</div>
+<div class="mini-card"><b>8. Use process supervision cautiously</b>Post-training can teach plan following, but retain the ability to override a bad order or unnecessary phase. Optimize for task-appropriate behavior, not obedience.</div>
+</div>
+<h3>Build-useful evaluation harness</h3><pre><code>for each (model, task, plan_variant):
+    run agent → trace
+    map actions → phase labels
+    compute PPC / POC / PPF / PC
+    record success + cost + tool failures
+    classify deviations:
+        missing phase
+        harmful reorder
+        useful out-of-plan action
+        context drift
+        scaffold/tool-format failure
+    if harmful drift persists:
+        re-surface plan or revise plan
+compare across repeated runs and shifted benchmarks</code></pre>
+<div class="warning"><b>Do not overclaim from this paper:</b> it does not show that every agent should follow a fixed plan, that five-step reminders are universally optimal, that plan compliance is a safety guarantee, or that benchmark contamination is the proven explanation for any specific model’s behavior.</div>
+</section>
+
+<section id="coverage"><h2>Coverage & QA</h2><div class="meta-grid">
+<div class="mini-card"><b>Sections mapped</b>Abstract; §§1–11; Acknowledgments; References. Major subsections RQ1–RQ7 represented.</div>
+<div class="mini-card"><b>Main-text visuals</b>19/19 figures represented as structured blocks.</div>
+<div class="mini-card"><b>Tables</b>1/1 main-text table reconstructed.</div>
+<div class="mini-card"><b>Algorithms/workflows</b>Action-to-phase pipeline plus all four plan-compliance equations represented.</div>
+<div class="mini-card"><b>Appendices/supplements</b>None in the evaluated 12-page source.</div>
+<div class="mini-card"><b>Omission</b>Individual bibliography entries not condensed; they are provenance infrastructure rather than empirical results generated by this paper.</div>
+</div><p><span class="qa-pass">Semantic QA status: PASS.</span> Source identity, main sections, quantitative anchors, all figures/tables, appraisal ratings, implementation takeaways, and provenance are present. No external verification was added; the artifact is grounded in the supplied paper and governing SEA protocol.</p></section>
+
+<section id="provenance"><h2>Provenance</h2><p><b>Evaluated source:</b> Liu S, Dehghan S, Ganhotra J, Hirzel M, Jabbarvand R. <i>From Plan to Action: How Well Do Agents Follow the Plan?</i> ASE ’26. arXiv:2604.12147v3. DOI 10.1145/3832783.3834400.</p><p><b>Evaluated file:</b> From Plan to Action How Well Do Agents Follow the Plan - 2604.12147v3.pdf (12 pages).</p><p><b>Appraisal protocol:</b> Summary, Evaluation, and Appraisal Protocol v4 compact (authoritative project source; file header retains historical “Integrated Compact v3” label).</p><p><b>Generated:</b> 10 Aug 2026.</p><p><b>Caveat:</b> This artifact is a source-grounded literature review aid. Appraisal statements are independent interpretation and are separated from reported source claims where material.</p></section>
+<footer>Single-file, self-contained HTML. No external fonts, scripts, stylesheets, or remote images.</footer>
+</main></body></html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA — Lower- versus Standard-Intensity UFH for Extracranial VTE in the Neuro ICU</title>
+<style>
+:root{
+  --bg:#f5f7fa;--card:#ffffff;--ink:#17202a;--muted:#596879;--line:#d8e0ea;
+  --navy:#173a63;--blue:#245f9e;--blue2:#eaf2fb;--green:#14643a;--greenbg:#e9f6ef;
+  --amber:#7a5200;--amberbg:#fff4d8;--red:#8b2424;--redbg:#fdecec;--code:#101826;--codefg:#edf4ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}
+header{background:linear-gradient(135deg,#102b4c,#245f9e);color:#fff;padding:3rem 1.25rem 2.5rem;border-bottom:6px solid #cfe0f3}
+header .wrap{max-width:1120px;margin:auto}
+header h1{font-size:clamp(1.75rem,3vw,2.65rem);line-height:1.12;margin:0 0 .8rem;font-weight:800;letter-spacing:-.02em}
+header p{max-width:900px;margin:.35rem 0;color:#eef5ff}
+.wrap{max-width:1120px;margin:0 auto;padding:1.25rem}
+nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 1px 5px rgba(18,44,74,.05);margin:1rem 0;padding:1.15rem 1.25rem}
+nav.toc h2,section>h2{margin:.05rem 0 .9rem;color:var(--navy);font-size:1.35rem}
+nav.toc ul{columns:2;column-gap:2rem;margin:.3rem 0;padding-left:1.2rem}
+nav.toc li{margin:.25rem 0;break-inside:avoid}
+a{color:#175f9f;text-decoration-thickness:.07em;text-underline-offset:.16em}
+h3{color:#204d7d;margin:1.15rem 0 .5rem;font-size:1.08rem}
+h4{margin:.9rem 0 .35rem;color:#30465e}
+p{margin:.55rem 0}
+.small{font-size:.9rem;color:var(--muted)}
+.meta-grid,.rating-grid,.takeaway-grid,.two-col{display:grid;gap:.85rem}
+.meta-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.rating-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.takeaway-grid,.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mini-card{border:1px solid var(--line);border-radius:11px;padding:.85rem;background:#fbfcfe}
+.mini-card b{display:block;color:#213d5d;margin-bottom:.18rem}
+.verdict,.warning,.badnote,.goodnote{border-radius:11px;padding:.9rem 1rem;margin:.75rem 0;border-left:5px solid}
+.verdict{background:var(--blue2);border-color:var(--blue);color:#183d65}
+.warning{background:var(--amberbg);border-color:#c28a14;color:#604000}
+.badnote{background:var(--redbg);border-color:#b13a3a;color:#6d2020}
+.goodnote{background:var(--greenbg);border-color:#2d8a58;color:#114e30}
+.tag{display:inline-block;font-size:.78rem;border:1px solid #c7d7e8;background:#eff5fb;color:#214f7d;border-radius:999px;padding:.16rem .48rem;margin:.12rem .18rem .12rem 0}
+.section-summary{border-left:3px solid #c7d9eb;padding-left:1rem;margin:1rem 0}
+.section-summary h3{margin-top:0}
+table{width:100%;border-collapse:collapse;margin:.7rem 0 1rem;font-size:.91rem}
+th,td{border:1px solid var(--line);padding:.48rem .55rem;vertical-align:top}
+th{background:#edf3f9;color:#1d426c;text-align:left}
+pre{background:var(--code);color:var(--codefg);border-radius:11px;padding:1rem;overflow:auto;white-space:pre-wrap;line-height:1.48;font-size:.88rem;border:1px solid #1c2b41}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+.kpi{font-size:1.55rem;font-weight:800;color:var(--navy);line-height:1.1}
+.kpi-label{font-size:.82rem;color:var(--muted);margin-top:.22rem}
+.score{font-size:1.45rem;font-weight:800;color:var(--navy)}
+.score span{font-size:.82rem;color:var(--muted);font-weight:600}
+hr{border:0;border-top:1px solid var(--line);margin:1.25rem 0}
+footer{max-width:1120px;margin:0 auto 2rem;padding:0 1.25rem;color:var(--muted);font-size:.88rem}
+@media(max-width:820px){.meta-grid,.rating-grid,.takeaway-grid,.two-col{grid-template-columns:1fr}nav.toc ul{columns:1}}
+@media print{body{background:#fff}header{background:#fff;color:#000;border-bottom:2px solid #000;padding:1rem 0}header p{color:#333}.wrap{max-width:none;padding:.5rem}nav.toc,section{box-shadow:none;break-inside:auto}a{color:inherit}.verdict,.warning,.badnote,.goodnote{break-inside:avoid}.mini-card,table,pre{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="small" style="color:#dbe9f7;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Summary · Evaluation · Appraisal</div>
+    <h1>Comparison of safety and efficacy of lower-intensity versus standard unfractionated heparin infusion nomograms for extracranial venous thromboembolism in the neurological intensive care unit</h1>
+    <p><strong>Hakoun AM, Gupta M, Dhar R, Mardani M, Koc F, Keyrouz SG.</strong> Clinical Neurology and Neurosurgery. 2026;268:109512.</p>
+    <p>Clinical-practice appraisal of a single-center retrospective cohort comparing aPTT 40–65 s versus 60–100 s UFH targets in neurocritical-care patients with acute extracranial VTE.</p>
+  </div>
+</header>
+<div class="wrap">
+<nav class="toc" aria-label="Table of contents">
+<h2>Contents</h2>
+<ul>
+<li><a href="#metadata">Metadata & scope</a></li>
+<li><a href="#synthesis">One-page synthesis</a></li>
+<li><a href="#pico">Clinical question / PICO</a></li>
+<li><a href="#methods">Methods</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#sections">Section condensation</a></li>
+<li><a href="#visuals">Figures & tables</a></li>
+<li><a href="#appraisal">Evaluation & appraisal</a></li>
+<li><a href="#practice">Practice translation</a></li>
+<li><a href="#limitations">Key limitations</a></li>
+<li><a href="#provenance">Provenance & QA</a></li>
+</ul>
+</nav>
+
+<section id="metadata">
+<h2>Metadata & scope</h2>
+<div class="meta-grid">
+  <div class="mini-card"><b>Source type</b>Full Length Article; original clinical research</div>
+  <div class="mini-card"><b>Design</b>Retrospective, single-center observational cohort</div>
+  <div class="mini-card"><b>Setting</b>Neurology/Neurosurgery ICU, Washington University / Barnes-Jewish Hospital</div>
+  <div class="mini-card"><b>Study period</b>June 2018–April 2024</div>
+  <div class="mini-card"><b>Publication</b>Clinical Neurology and Neurosurgery 268 (2026) 109512; online 23 May 2026</div>
+  <div class="mini-card"><b>Identifier</b>doi:10.1016/j.clineuro.2026.109512</div>
+  <div class="mini-card"><b>Funding</b>No specific grant funding reported</div>
+  <div class="mini-card"><b>Conflicts</b>Authors declared no conflicts of interest</div>
+  <div class="mini-card"><b>Supplement</b>Referenced by the article but not contained in the evaluated 8-page PDF</div>
+</div>
+<div class="warning"><strong>Scope warning.</strong> This study is hypothesis-generating observational evidence. It evaluates associations between clinician-selected UFH strategies and in-hospital outcomes; it does not establish that a lower aPTT target is causally safer or noninferior for VTE treatment, and it does not validate a universal neurocritical-care anticoagulation protocol.</div>
+<div>
+<span class="tag">unfractionated heparin</span><span class="tag">VTE</span><span class="tag">neurocritical care</span><span class="tag">aPTT nomogram</span><span class="tag">intracranial hemorrhage</span><span class="tag">DVT</span><span class="tag">PE</span><span class="tag">retrospective cohort</span>
+</div>
+</section>
+
+<section id="synthesis">
+<h2>One-page synthesis</h2>
+<div class="verdict"><strong>Core thesis:</strong> In this selected neurocritical-care cohort, a lower-intensity UFH nomogram targeting aPTT 40–65 s was associated with substantially fewer major bleeding events than a standard aPTT 60–100 s nomogram, while VTE progression did not differ significantly between the two UFH strategies. The data support prospective evaluation of lower-intensity UFH, not routine replacement of standard treatment.</div>
+<div class="meta-grid">
+  <div class="mini-card"><div class="kpi">236</div><div class="kpi-label">patients in safety cohort</div></div>
+  <div class="mini-card"><div class="kpi">81 / 50 / 105</div><div class="kpi-label">standard UFH / lower UFH / no therapeutic AC</div></div>
+  <div class="mini-card"><div class="kpi">18.5% vs 4.0%</div><div class="kpi-label">major bleeding: standard vs lower UFH; p=0.02</div></div>
+  <div class="mini-card"><div class="kpi">4.63</div><div class="kpi-label">adjusted OR for major bleeding, standard vs lower; 95% CI 1.18–18.10</div></div>
+  <div class="mini-card"><div class="kpi">3.8% vs 12.5%</div><div class="kpi-label">VTE progression: standard vs lower UFH; p=0.08</div></div>
+  <div class="mini-card"><div class="kpi">27.6%</div><div class="kpi-label">VTE progression with no therapeutic anticoagulation</div></div>
+</div>
+<h3>What the source supports</h3>
+<p>The strongest signal is safety: major bleeding occurred in 15/81 standard-intensity patients versus 2/50 lower-intensity patients. In Firth penalized logistic regression, standard-intensity UFH remained associated with greater odds of major bleeding (aOR 4.63, 95% CI 1.18–18.10; p=0.03); a sensitivity model incorporating bolus use, concomitant antiplatelet therapy, and supratherapeutic aPTT burden yielded aOR 6.65 (95% CI 1.62–27.35; p&lt;0.01). The crude absolute difference was 14.5 percentage points, but it should not be interpreted as a causal risk difference because treatment assignment was nonrandom.</p>
+<p>For efficacy, untreated patients had the highest symptomatic VTE progression (29/105, 27.6%). Both lower-intensity UFH (aOR 0.32, 95% CI 0.12–0.87) and standard-intensity UFH (aOR 0.15, 95% CI 0.05–0.43) were associated with less progression than no therapeutic anticoagulation. The direct UFH-versus-UFH comparison remained inconclusive: progression was numerically higher with lower-intensity UFH (6/48, 12.5%) than standard-intensity UFH (3/79, 3.8%), p=0.08, and the adjusted comparison was imprecise (reported aOR 0.85, 95% CI 0.21–3.52; p=0.82).</p>
+<h3>Why this paper matters</h3>
+<p>It addresses a common but poorly standardized bedside compromise: using a deliberately lower heparin target in patients with acute intracranial pathology or recent neurosurgery who nevertheless have acute extracranial DVT/PE. The study gives concrete target ranges and clinically meaningful bleeding/VTE outcomes, making it directly useful for protocol discussion and research design.</p>
+<div class="badnote"><strong>Do not overread the result.</strong> The two UFH strategies were clinician-selected, the groups differed in neurological diagnoses and heparin bolus exposure, follow-up imaging was symptom-triggered rather than protocolized, and event counts were small. The wide confidence intervals are compatible with considerable uncertainty around the magnitude of both safety and efficacy effects.</div>
+</section>
+
+<section id="pico">
+<h2>Clinical question / PICO</h2>
+<table>
+<tr><th>Element</th><th>Study specification</th></tr>
+<tr><td><strong>Population</strong></td><td>Adults in a Neurology/Neurosurgery ICU with acute extracranial DVT and/or PE plus intracranial or intraspinal pathology. Key exclusions included cerebral venous sinus thrombosis, non-UFH therapeutic anticoagulation, UFH &lt;24 h, failure to reach therapeutic aPTT goal, hospital stay &lt;48 h, early death, pregnancy, incarceration, and absence of intracranial/intraspinal pathology.</td></tr>
+<tr><td><strong>Intervention</strong></td><td>Lower-intensity UFH infusion targeting aPTT 40–65 s (n=50 safety; n=48 efficacy after distal-DVT exclusions).</td></tr>
+<tr><td><strong>Comparator</strong></td><td>Standard-intensity UFH targeting aPTT 60–100 s (n=81 safety; n=79 efficacy); secondary contextual comparator: no therapeutic anticoagulation (n=105).</td></tr>
+<tr><td><strong>Primary outcomes</strong></td><td>Symptomatic extracranial VTE progression and major bleeding during hospitalization.</td></tr>
+<tr><td><strong>Secondary outcomes</strong></td><td>Worsening intracranial bleeding, minor hemorrhage, confirmed HIT, and aPTT target attainment.</td></tr>
+<tr><td><strong>Clinical decision addressed</strong></td><td>Whether lowering UFH intensity may reduce hemorrhagic risk while retaining acceptable thrombotic control in selected brain-injured or neurosurgical patients with acute extracranial VTE.</td></tr>
+</table>
+</section>
+
+<section id="methods">
+<h2>Methods</h2>
+<div class="section-summary">
+<h3>Design and treatment assignment</h3>
+<p>All consecutive eligible Neuro ICU patients with acute DVT/PE during the study period were identified from a prospective ICU database, but the analysis itself was retrospective. UFH intensity was not assigned by protocol or randomization. Treating teams selected standard intensity, lower intensity, or no therapeutic anticoagulation based on hemorrhagic risk, thrombotic risk, stability of intracranial pathology, timing from neurologic injury/surgery, and overall clinical status.</p>
+<p>Patients without therapeutic anticoagulation received mechanical prophylaxis at admission and heparin chemoprophylaxis 24–48 h after brain injury, intervention, or surgery. This means the three cohorts represent different clinical decisions and baseline risk profiles rather than exchangeable treatment arms.</p>
+</div>
+<div class="section-summary">
+<h3>Outcome ascertainment</h3>
+<p>VTE progression required a quantifiable increase in thrombus burden on imaging or a new PE after a prior DVT. Repeat CT pulmonary angiography or duplex ultrasonography was obtained when clinically indicated rather than on a fixed surveillance schedule. Major bleeding followed ISTH criteria and included critical-site bleeding, ≥2 units pRBC transfusion outside the operating room, hemorrhagic shock, or a ≥2 g/dL hemoglobin decrease attributable to hemorrhage.</p>
+<p>Intracranial events were adjudicated with explicit radiographic/clinical thresholds, including SDH expansion, hemorrhagic transformation, tumor-bed bleeding, and intracerebral hematoma expansion criteria. Outcomes after hospital discharge were not captured. Three investigators performed chart review with additional lead-reviewer review.</p>
+</div>
+<div class="section-summary">
+<h3>Statistics</h3>
+<p>Baseline comparisons used standard categorical and continuous-data tests. Multivariable models reported adjusted odds ratios with 95% confidence intervals; covariates were selected a priori for clinical relevance. Firth penalized logistic regression was used for the main outcome models, an appropriate strategy for sparse events. Sensitivity analyses added clinically relevant covariates.</p>
+<p>aPTT target attainment was assessed at the patient level by classifying all measured values as below, within, or above each assigned nomogram range, calculating each patient's percentages, and comparing group medians with the Wilcoxon rank-sum test.</p>
+</div>
+</section>
+
+<section id="results">
+<h2>Results</h2>
+<h3>Study population</h3>
+<p>Among 10,883 Neuro ICU admissions, 443 patients were diagnosed with acute DVT or PE; 236 met criteria for the safety cohort. The final groups were 81 standard-intensity UFH, 50 lower-intensity UFH, and 105 no therapeutic anticoagulation. The efficacy analysis excluded two distal-DVT patients from each UFH group.</p>
+<p>Age, sex, race, BMI, PESI class, GCS, and NIHSS in the stroke subset were similar. Clinically important imbalances remained: the lower-intensity cohort contained more patients with intraparenchymal hemorrhage (18.0% vs 4.9%) and postoperative/interventional patients (44.0% vs 21.0%), whereas the standard-intensity cohort contained more acute ischemic stroke (44.4% vs 32.0%). Heparin bolus exposure differed sharply: 46.9% with standard intensity versus 2.0% with lower intensity.</p>
+<h3>Safety</h3>
+<table>
+<tr><th>Outcome</th><th>Standard UFH<br>60–100 s (n=81)</th><th>Lower UFH<br>40–65 s (n=50)</th><th>Interpretation</th></tr>
+<tr><td>Major bleeding</td><td>15 (18.5%)</td><td>2 (4.0%)</td><td>p=0.02; principal safety signal</td></tr>
+<tr><td>CNS hemorrhagic events</td><td>8</td><td>2</td><td>p=0.22; underpowered for a specific intracranial endpoint</td></tr>
+<tr><td>Non-CNS major bleeding</td><td>7</td><td>0</td><td>All 7 involved ≥2-unit pRBC transfusion; 2 included hemorrhagic shock</td></tr>
+<tr><td>Minor bleeding</td><td>8 (9.9%)</td><td>6 (12.0%)</td><td>p=0.95</td></tr>
+<tr><td>Confirmed HIT</td><td>0</td><td>3 (6.0%)</td><td>All three were in lower-intensity group; patients were switched to bivalirudin and retained in analysis</td></tr>
+</table>
+<div class="goodnote"><strong>Adjusted safety result:</strong> standard-intensity UFH versus lower-intensity UFH: aOR 4.63 (95% CI 1.18–18.10; p=0.03) for major bleeding. Sensitivity analysis: aOR 6.65 (95% CI 1.62–27.35; p&lt;0.01).</div>
+<h3>Efficacy</h3>
+<table>
+<tr><th>Outcome</th><th>Standard UFH<br>(n=79)</th><th>Lower UFH<br>(n=48)</th><th>No therapeutic AC<br>(n=105)</th></tr>
+<tr><td>VTE progression</td><td>3 (3.8%)</td><td>6 (12.5%)</td><td>29 (27.6%)</td></tr>
+<tr><td>DVT progression</td><td>3 (3.8%)</td><td>5 (10.4%)</td><td>28 (26.7%)</td></tr>
+<tr><td>PE progression</td><td>0</td><td>1 (2.1%)</td><td>1 (1.0%)</td></tr>
+</table>
+<p>Compared with no therapeutic anticoagulation, lower-intensity UFH was associated with lower odds of VTE progression (aOR 0.32, 95% CI 0.12–0.87; p=0.03), as was standard-intensity UFH (aOR 0.15, 95% CI 0.05–0.43; p&lt;0.01). A sensitivity model adjusting for BMI &gt;30, active malignancy, mechanical-ventilation days, and ICU length of stay was directionally consistent; BMI &gt;30 was independently associated with VTE progression (aOR 2.43, 95% CI 1.15–5.26; p=0.02).</p>
+<p>The direct standard-versus-lower comparison did <em>not</em> show a statistically significant difference after adjustment for the percentage of aPTT values below target (reported aOR 0.85, 95% CI 0.21–3.52; p=0.82). The raw progression rate nevertheless favored standard intensity (3.8% vs 12.5%), making the wide interval and limited power clinically important rather than reassuring.</p>
+<h3>aPTT target attainment</h3>
+<table>
+<tr><th>Patient-level aPTT category</th><th>Lower intensity</th><th>Standard intensity</th><th>p value</th></tr>
+<tr><td>Within target</td><td>66.7% (IQR 53.3–77.7)</td><td>57.1% (IQR 50.0–66.7)</td><td>&lt;0.01</td></tr>
+<tr><td>Below target</td><td>17.3% (IQR 7.9–25.0)</td><td>28.6% (IQR 20.0–36.4)</td><td>&lt;0.01</td></tr>
+<tr><td>Above target</td><td>10.5% (IQR 0.0–24.5)</td><td>14.3% (IQR 6.5–21.1)</td><td>0.39</td></tr>
+</table>
+<p>The lower-intensity nomogram achieved a greater proportion of measured aPTTs within its assigned range and fewer below-range values. Above-range burden was similar. These data describe control against each nomogram's own range; they do not show equivalent anticoagulant exposure between the strategies.</p>
+</section>
+
+<section id="sections">
+<h2>Section condensation</h2>
+<div class="section-summary"><h3>Abstract</h3><p>The authors frame therapeutic anticoagulation for acute VTE in neurocritical care as a balance between thrombotic progression and catastrophic hemorrhage. In 236 eligible patients, major bleeding was more frequent with standard-intensity than lower-intensity UFH, and both UFH strategies were associated with less VTE progression than no therapeutic anticoagulation.</p><p>The abstract appropriately concludes that lower-intensity UFH <em>may</em> provide a safer balance in selected brain-injured patients and calls for prospective validation. The data do not establish noninferiority for efficacy.</p></div>
+<div class="section-summary"><h3>1. Introduction</h3><p>The introduction identifies immobilization and inflammation as drivers of VTE in neurologically critically ill patients and highlights the danger of precipitating or worsening intracranial hemorrhage with therapeutic anticoagulation. UFH is attractive because it is rapidly reversible, and clinicians sometimes use lower aPTT targets despite limited evidence.</p><p>The study objective is explicit: compare lower-intensity UFH with standard-intensity UFH and with no therapeutic anticoagulation for safety and efficacy in patients at risk of intracranial hemorrhage.</p></div>
+<div class="section-summary"><h3>2. Methods</h3><p>The study is a retrospective cohort based on a prospective ICU database. Eligibility required adult acute DVT/PE plus intracranial/intraspinal pathology; treatment strategy was selected by clinicians. The co-primary outcomes were symptomatic VTE progression and ISTH major bleeding during hospitalization.</p><p>Follow-up imaging was clinically triggered, not systematic. The analysis used multivariable/Firth penalized logistic regression and sensitivity analyses. aPTT attainment was summarized at the patient level against each assigned target range.</p></div>
+<div class="section-summary"><h3>3. Results</h3><p>The safety cohort comprised 81 standard-intensity, 50 lower-intensity, and 105 untreated patients. Major bleeding was lower with lower-intensity UFH (4.0% vs 18.5%); the association persisted after adjustment. Specific intracranial hemorrhagic events were numerically fewer but not statistically different.</p><p>VTE progression was highest without therapeutic anticoagulation. Lower- and standard-intensity UFH were each associated with less progression than no anticoagulation; direct comparison of the two UFH strategies was imprecise and nonsignificant despite a numerical difference favoring standard intensity. Lower-intensity patients had more aPTT measurements within their assigned range.</p></div>
+<div class="section-summary"><h3>4. Discussion</h3><p>The authors interpret the data as supporting the plausibility of lower-intensity UFH in high-bleeding-risk neurocritical-care patients, while emphasizing the clinical heterogeneity of DVT/PE and the difficulty of balancing intracranial bleeding risk against thrombus extension. They contextualize their findings with prior reports of therapeutic anticoagulation after neurological injury/surgery and smaller lower-dose heparin studies.</p><p>They acknowledge that the absence of a statistically significant difference in intracranial hemorrhage may reflect limited sample size and clinician selection. They also note frequent IVC-filter use as a possible explanation for the low PE-progression rate and identify BMI as an independent predictor of VTE progression.</p></div>
+<div class="section-summary"><h3>4.6 Limitations and future directions</h3><p>The authors explicitly identify the single-center design, small sample, clinician-selected treatment, confounding by indication, residual confounding, and nonprotocolized VTE imaging as major limitations. These factors can distort both safety and efficacy comparisons.</p><p>They classify the findings as hypothesis-generating and call for larger prospective multicenter validation to determine which neurocritical-care subgroups may benefit from different anticoagulation strategies.</p></div>
+<div class="section-summary"><h3>5. Conclusion</h3><p>The source concludes that lower-intensity UFH was associated with fewer major bleeds than standard-intensity UFH and no significant difference in VTE progression between UFH strategies. It proposes lower-intensity UFH as a potentially reasonable balance for selected brain-injured patients.</p><p>The conclusion remains appropriately conditional and reiterates the need for prospective validation because of retrospective treatment selection and absence of protocolized follow-up imaging.</p></div>
+</section>
+
+<section id="visuals">
+<h2>Figures, tables & exhibits</h2>
+<p class="small">Coverage decision: all 4 main-text figures and all 3 main-text tables are represented below as structured extractions. No main-text workflow/algorithm is present. Supplemental Table S1, Supplemental Table S2, and Supplemental Figure S1 are cited in the article but were not included in the evaluated PDF and therefore were not independently reconciled.</p>
+<pre><code>FIGURE 1 — Study population flow diagram (page 3)
+Purpose: Define cohort construction and treatment groups.
+Structure: 10,883 Neuro ICU admissions → 443 DVT/PE charts assessed → 207 excluded → 236 analyzed.
+Final groups: aPTT 60–100 s (n=81); aPTT 40–65 s (n=50); no therapeutic AC (n=105).
+Key exclusion categories shown: no intracranial/intraspinal pathology, alternative anticoagulation, duplicate records,
+hospital stay &lt;48 h, UFH infusion ≤24 h, failure to reach therapeutic aPTT, CVST, other criteria.
+Appraisal: Flow is clear, but several exclusions can select for patients who survived/continued UFH long enough to be evaluable.
+Representation: structured block.</code></pre>
+<pre><code>TABLE 1 — Demographic and clinical characteristics (page 4)
+Key balance: age, sex, race, BMI, PESI, GCS, and NIHSS broadly similar.
+Important imbalance: AIS 44.4% standard vs 32.0% lower vs 10.5% no AC; IPH 4.9% vs 18.0% vs 20.0%;
+post-op/intervention 21.0% vs 44.0% vs 30.5%; proximal DVT 46.9% vs 42.0% vs 71.4%; PE 63.0% vs 62.0% vs 41.9%.
+Timing: median VTE-diagnosis-to-UFH initiation 0 days standard vs 1.0 day lower; neurologic-injury-to-UFH 6 vs 5 days.
+Appraisal: Diagnostic and thrombotic phenotype imbalance supports substantial confounding by indication.
+Representation: structured block.</code></pre>
+<pre><code>TABLE 2 — Safety outcomes (page 4)
+Major bleeding: 15/81 (18.5%) standard vs 2/50 (4.0%) lower, p=0.02.
+CNS hemorrhagic events: 8 vs 2, p=0.22.
+Non-CNS major bleeding: 7 vs 0; ≥2-unit pRBC transfusion 7 vs 0; hemorrhagic shock 2 vs 0.
+Minor bleeding: 8 (9.9%) vs 6 (12.0%), p=0.95.
+Confirmed HIT: 0 vs 3 (6.0%).
+Appraisal: Major-bleeding signal is clinically important, but event counts are small and components are heterogeneous.
+Representation: structured block.</code></pre>
+<pre><code>FIGURE 2 — Adjusted predictors of major bleeding (page 5)
+Model: Firth penalized logistic regression among UFH-treated patients.
+Standard vs lower UFH: aOR 4.63 (95% CI 1.18–18.10), p=0.028.
+Age: 0.99 (0.96–1.03), p=0.717.
+GCS: 1.06 (0.93–1.22), p=0.382.
+Days from admission to UFH initiation: 0.99 (0.94–1.05), p=0.769.
+Main pattern: treatment group is the only displayed significant predictor; CI is wide.
+Representation: structured block.</code></pre>
+<pre><code>TABLE 3 — VTE progression among all treatment groups (page 5)
+Overall VTE progression: 3/79 (3.8%) standard; 6/48 (12.5%) lower; 29/105 (27.6%) no AC; overall p&lt;0.01.
+DVT progression: 3.8%; 10.4%; 26.7%; p&lt;0.01.
+PE progression: 0%; 2.1%; 1.0%.
+Main pattern: the untreated group drives the overall difference; PE events are too sparse for meaningful comparison.
+Appraisal: Direct lower-vs-standard efficacy remains uncertain despite strong contrast with no therapeutic anticoagulation.
+Representation: structured block.</code></pre>
+<pre><code>FIGURE 3 — Adjusted association between treatment strategy and VTE progression (page 5)
+Lower-intensity UFH vs no therapeutic AC: aOR 0.32 (95% CI 0.12–0.87), p=0.026.
+Standard-intensity UFH vs no therapeutic AC: aOR 0.15 (0.05–0.43), p&lt;0.001.
+Age: 0.98 (0.95–1.00), p=0.050.
+Admission GCS: 0.96 (0.87–1.05), p=0.387.
+Any DVT phenotype vs PE only: 1.67 (0.60–4.63), p=0.321.
+Main pattern: both UFH strategies associate with lower progression than no therapeutic anticoagulation.
+Representation: structured block.</code></pre>
+<pre><code>FIGURE 4 — Patient-level aPTT target attainment (page 6)
+Display: stacked bars for every patient, sorted by percentage in assigned range.
+Lower intensity (40–65 s): median 66.7% in target; 17.3% below; 10.5% above.
+Standard intensity (60–100 s): median 57.1% in target; 28.6% below; 14.3% above.
+Main pattern: lower-intensity patients spent a greater proportion of measured aPTTs within their own target and less below target.
+Limit: the figure compares attainment relative to different target definitions; it is not an exposure-equivalence plot.
+Representation: structured block.</code></pre>
+</section>
+
+<section id="appraisal">
+<h2>Evaluation & appraisal</h2>
+<div class="verdict"><strong>Verdict: Read first for anticoagulation / critical-care practice, but do not use alone to change a therapeutic UFH target.</strong><br>Best use: protocol discussion, identifying a plausible lower-intensity strategy for high-hemorrhagic-risk patients, and designing prospective validation. Do not use for: claiming noninferior VTE efficacy or a definitive causal reduction in bleeding.</div>
+<div class="rating-grid">
+  <div class="mini-card"><div class="score">9/10 <span>Relevance</span></div><p>Directly addresses UFH nomogram intensity, VTE treatment, bleeding, and neurocritical-care decision-making.</p><p class="small"><b>Evidence basis:</b> clinically specific population, dosing targets, and outcomes. <b>Limiting factor:</b> narrow setting. <b>Would rise:</b> multicenter pragmatic validation.</p></div>
+  <div class="mini-card"><div class="score">8/10 <span>Novelty</span></div><p>Provides comparative data for a lower therapeutic aPTT target in a high-risk population with limited direct evidence.</p><p class="small"><b>Evidence basis:</b> direct 40–65 s vs 60–100 s comparison. <b>Limiting factor:</b> retrospective practice variation. <b>Would rise:</b> prospective randomized or protocolized comparison.</p></div>
+  <div class="mini-card"><div class="score">5/10 <span>Method strength</span></div><p>Well-defined outcomes and penalized regression improve a difficult observational dataset, but treatment allocation is highly confounded.</p><p class="small"><b>Evidence basis:</b> predefined criteria, explicit bleeding definitions, sensitivity analyses. <b>Limiting factor:</b> nonrandom assignment, small events, clinically triggered imaging. <b>Would rise:</b> prospective allocation and standardized surveillance.</p></div>
+  <div class="mini-card"><div class="score">5/10 <span>Evidence strength</span></div><p>The safety association is compelling enough to generate a hypothesis; efficacy equivalence is not demonstrated.</p><p class="small"><b>Evidence basis:</b> 18.5% vs 4.0% major bleeding with adjusted association; wide CIs and 3.8% vs 12.5% VTE progression. <b>Limiting factor:</b> residual confounding and imprecision. <b>Would rise:</b> adequately powered prospective outcomes.</p></div>
+  <div class="mini-card"><div class="score">4/10 <span>External validity</span></div><p>Results may apply to similar tertiary Neuro ICU patients but are difficult to generalize across institutions, diagnoses, and heparin protocols.</p><p class="small"><b>Evidence basis:</b> single center with heterogeneous neurologic diagnoses. <b>Limiting factor:</b> center-specific selection and management. <b>Would rise:</b> multicenter replication across defined subgroups.</p></div>
+  <div class="mini-card"><div class="score">7/10 <span>Implementation value</span></div><p>The article gives actionable target ranges and outcome definitions, useful for protocol review and local data collection.</p><p class="small"><b>Evidence basis:</b> clear aPTT targets, safety/efficacy outcomes, attainment analysis. <b>Limiting factor:</b> insufficient evidence for an autonomous practice change. <b>Would rise:</b> protocolized dosing details plus prospective effectiveness data.</p></div>
+</div>
+<h3>Validity assessment</h3>
+<div class="two-col">
+<div class="mini-card"><b>Strengths</b>
+<ul>
+<li>Clinically consequential, under-studied decision.</li>
+<li>Explicit lower and standard aPTT targets.</li>
+<li>ISTH-based major bleeding definition plus neurologic imaging criteria.</li>
+<li>Consecutive eligible patients and standardized abstraction process described.</li>
+<li>Firth penalized logistic regression suited to sparse outcomes.</li>
+<li>Sensitivity analyses address several plausible confounders.</li>
+<li>Authors appropriately frame conclusions as hypothesis-generating.</li>
+</ul></div>
+<div class="mini-card"><b>Threats to validity</b>
+<ul>
+<li>Confounding by indication: clinicians selected intensity based on hemorrhagic/thrombotic risk.</li>
+<li>Marked bolus imbalance (46.9% standard vs 2.0% lower), making “intensity” partly a treatment-bundle comparison.</li>
+<li>Neurologic diagnosis and operative status differed between groups.</li>
+<li>Clinically triggered repeat imaging can miss asymptomatic progression and create differential ascertainment.</li>
+<li>Small number of major bleeds and VTE events yields wide intervals.</li>
+<li>Excluding UFH &lt;24 h and patients who failed to reach target may omit clinically important early failures/intolerance.</li>
+<li>No post-discharge outcomes.</li>
+<li>Supplemental analyses were referenced but not available in the evaluated PDF.</li>
+</ul></div>
+</div>
+<div class="warning"><strong>Interpretive hinge:</strong> the paper supports “lower-intensity UFH deserves prospective testing” more strongly than “lower-intensity UFH is as effective as standard UFH.” The direct efficacy estimate is too imprecise to exclude clinically meaningful differences.</div>
+</section>
+
+<section id="practice">
+<h2>Implementation / practice takeaways</h2>
+<div class="takeaway-grid">
+<div class="mini-card"><b>Potential use now</b><p>Use the study as evidence supporting individualized discussion when full-intensity anticoagulation is judged unusually hazardous, especially when a team is already considering a reduced UFH target.</p></div>
+<div class="mini-card"><b>What should not change from this paper alone</b><p>Do not infer that aPTT 40–65 s is a validated therapeutic standard, noninferior for VTE prevention of progression, or appropriate across all brain injuries/neurosurgical states.</p></div>
+<div class="mini-card"><b>Protocol-design value</b><p>If an institution evaluates a lower-intensity pathway, this article supplies candidate aPTT ranges, safety endpoints, VTE-progression definitions, and target-attainment metrics for prospective audit.</p></div>
+<div class="mini-card"><b>Monitoring implication</b><p>Protocol evaluation should separately track intracranial and extracranial major bleeding, bolus exposure, antiplatelet exposure, time to therapeutic range, percentage below/within/above target, DVT/PE progression, and HIT.</p></div>
+<div class="mini-card"><b>Research priority</b><p>Prospective multicenter studies should stratify by neurological pathology, recent surgery, VTE phenotype/severity, bolus strategy, and timing from injury/procedure, with standardized imaging and post-discharge follow-up.</p></div>
+<div class="mini-card"><b>Pharmacy relevance</b><p>The study is particularly useful for pharmacist-led nomogram review because it highlights that target range, bolus policy, and target attainment are separable protocol components that may influence both safety and efficacy.</p></div>
+</div>
+</section>
+
+<section id="limitations">
+<h2>Key limitations and unresolved questions</h2>
+<ol>
+<li><strong>Causal attribution is weak.</strong> Lower-intensity patients were selected because clinicians perceived different risks; regression cannot fully reconstruct the counterfactual treatment decision.</li>
+<li><strong>The bolus imbalance is substantial.</strong> Standard-intensity care included heparin boluses in nearly half of patients versus almost none in the lower-intensity group. Even though a sensitivity model adjusted for bolus use, sparse events limit confidence that the target range itself explains the bleeding difference.</li>
+<li><strong>“No difference” in VTE progression is not evidence of equivalence.</strong> The direct comparison is underpowered, with wide confidence bounds; raw progression was 12.5% lower-intensity versus 3.8% standard-intensity.</li>
+<li><strong>Outcome surveillance was not uniform.</strong> Repeat vascular imaging was symptom-triggered, so asymptomatic progression could be missed and detection could vary by clinical status.</li>
+<li><strong>Selection from exclusions may matter.</strong> Excluding UFH courses shorter than 24 hours and patients who failed to reach a therapeutic target may preferentially remove early discontinuations, unstable patients, or difficult-to-anticoagulate cases.</li>
+<li><strong>Single-center protocol ecology.</strong> The balance of neuro diagnoses, IVC-filter practices, laboratory reagents, heparin nomogram details, and clinician thresholds may not transport directly to other hospitals.</li>
+<li><strong>PE-specific efficacy is largely unanswered.</strong> Only two PE-progression events occurred across all three groups.</li>
+</ol>
+</section>
+
+<section id="provenance">
+<h2>Provenance, coverage manifest & QA</h2>
+<pre><code>SOURCE COVERAGE MANIFEST
+source_id: 10.1016/j.clineuro.2026.109512
+exact_title: Comparison of safety and efficacy of lower-intensity versus standard unfractionated heparin infusion nomograms for extracranial venous thromboembolism in the neurological intensive care unit
+source_type: peer-reviewed journal article; retrospective observational cohort
+version/date: Clinical Neurology and Neurosurgery 268 (2026) 109512; available online 23 May 2026
+evaluated_file: 1-s2.0-S0303846726002040.pdf (8 pages)
+sections/headings: Abstract; Introduction; Methods 2.1–2.5; Results 3.1–3.2.4; Discussion 4.1–4.6; Conclusion; authorship/funding/COI; references
+figures: 4 (all reconciled)
+tables: 3 (all reconciled)
+algorithms/workflows: none
+appendices/supplements: online supplement referenced; not included in evaluated PDF
+visual_strategy: structured extraction for Figures 1–4 and Tables 1–3; no embedded screenshots required
+omissions: bibliography not condensed; supplemental Table S1, Table S2, and Figure S1 not independently reviewed because absent from supplied PDF</code></pre>
+<p><strong>Generation date:</strong> 10 August 2026.</p>
+<p><strong>Grounding:</strong> This artifact was generated from the supplied article and the project SEA protocol. No external clinical guideline, drug-information, regulatory, or web verification was added. Any independent interpretive statements are labeled as appraisal rather than source-reported findings.</p>
+<p><strong>QA status:</strong> Main-text section map complete; 4/4 figures reconciled; 3/3 tables reconciled; no main-text algorithms/workflows; quantitative primary outcomes and key adjusted estimates preserved; appraisal performed after extraction; internal tool/file citation syntax excluded from artifact.</p>
+</section>
+</div>
+<footer>
+<strong>Reference:</strong> Hakoun AM, Gupta M, Dhar R, Mardani M, Koc F, Keyrouz SG. Clinical Neurology and Neurosurgery. 2026;268:109512. doi:10.1016/j.clineuro.2026.109512.<br>
+This summary/evaluation/appraisal supports source understanding and critique; it does not replace primary-source review, clinical judgment, or local policy.
+</footer>
+</body>
+</html>

@@ -1,0 +1,114 @@
+{
+  "activated_macro": "@ATOM",
+  "extraction_run_id": "cd006649-dalteparin-tinzaparin-v1",
+  "source": {
+    "source_id": "CD006649",
+    "title": "Anticoagulation for the initial treatment of venous thromboembolism in people with cancer",
+    "source_type": "Cochrane intervention review / systematic review of randomized controlled trials",
+    "publication": "Cochrane Database of Systematic Reviews 2021, Issue 12",
+    "doi": "10.1002/14651858.CD006649.pub8",
+    "latest_search_date_reported": "2021-08-14",
+    "input_file": "CD006649.pdf",
+    "input_document_hash": "sha256:e8f43bfc7dde9f14f54c72fdda0afce83cf64e1f39d26cc18b251046ccabbd0d",
+    "publication_id": "745823b6-f2ae-54f3-9d86-3c65f7eca409",
+    "publication_id_reused_from": "cd006649-general-v1-atoms.json"
+  },
+  "scaffold": {
+    "pass_0_file": "cd006649-pass00-global.md",
+    "semantic_scope": "Dalteparin versus tinzaparin comparison: 3-month mortality, recurrent VTE, major bleeding, minor bleeding, outcome-level GRADE certainty/imprecision, author interpretation, explicitly unreported outcomes, and the source-internal certainty wording conflict.",
+    "source_pages_inspected": [
+      "Physical PDF pp. 7-8 (article pp. 5-6): Summary of Findings 3 and GRADE footnotes",
+      "Physical PDF p. 18 (article p. 16): dalteparin-versus-tinzaparin Results narrative, Discussion certainty wording, and unreported outcomes",
+      "Physical PDF pp. 46-47 (article pp. 44-45): Wells 2005 cancer-subgroup characteristics, dosing, follow-up, ITT statement, and risk-of-bias context",
+      "Physical PDF pp. 54-55 (article pp. 52-53): Analyses 3.1-3.4 forest plots"
+    ],
+    "quoted_batch_rule_applied": "Mortality, recurrent VTE, major bleeding, and minor bleeding were kept independently reviewable. Relative risks and absolute risk differences were serialized as separate quantitative atoms because QuantitativeResult permits one effect_measure per atom. Wide confidence intervals and very small event counts were preserved explicitly.",
+    "intentionally_deferred_or_not_duplicated": [
+      "The standalone Wells 2005 study-characteristics atom was not duplicated because it already exists in cd006649-studybase-v1.",
+      "Global search methods, eligibility criteria, funding, conflicts, and review-wide risk-of-bias findings were not duplicated from prior general/studybase batches.",
+      "No primary-study re-extraction was performed from the Wells 2005 paper; all trial-level details here are secondary reports anchored to the Cochrane review."
+    ]
+  },
+  "governing_sources": [
+    "literature.py",
+    "literature_atoms.py",
+    "literature_atom.schema.json",
+    "README(2).md",
+    "example_atom.json",
+    "large-source-ATOM-SEA.md"
+  ],
+  "atom_count": 20,
+  "atom_counts_by_kind": {
+    "author_conclusion": 4,
+    "other": 5,
+    "qualitative_result": 3,
+    "quantitative_result": 8
+  },
+  "atom_counts_by_assertion_origin": {
+    "normalized_from_source": 20
+  },
+  "validation": {
+    "pydantic_structural_validation": {
+      "valid": true,
+      "error_count": 0,
+      "errors": []
+    },
+    "json_schema_validation": {
+      "valid": true,
+      "error_count": 0,
+      "errors": []
+    },
+    "sufficiency_validation": {
+      "valid": true,
+      "error_count": 0,
+      "warning_count": 0,
+      "issues": []
+    }
+  },
+  "duplicate_review": {
+    "exact_duplicate_count": 0,
+    "exact_duplicates": [],
+    "cross_batch_note": "Comparison-specific quantitative effects were deferred from prior general/studybase runs. The existing Wells 2005 characteristics atom was used as context rather than duplicated. Repeat semantic duplicate review after all CD006649 batches are merged."
+  },
+  "source_inconsistencies_requiring_human_review": [
+    {
+      "issue": "Outcome-level GRADE certainty is inconsistent within the source for dalteparin versus tinzaparin.",
+      "structured_result": "Summary of Findings 3, the abstract/plain-language summary, and the comparison Results text characterize all four assessed outcomes as low-certainty evidence.",
+      "conflicting_text": "The Discussion / Quality of the evidence paragraph states that all tested dalteparin-versus-tinzaparin outcomes were moderate-certainty evidence due to very serious imprecision.",
+      "handling": "Both source assertions were preserved. The low-certainty outcome ratings were used for the four structured GRADE atoms because they are the outcome-level Summary of Findings entries; the conflicting Discussion statement was retained as a separate atom and flagged for human review. No silent correction was made."
+    }
+  ],
+  "schema_gaps": [
+    "The LiteratureAtom MVP is oriented to primary literature, while CD006649 is a systematic review summarizing trial-level cancer-subgroup evidence.",
+    "There is no dedicated structured field for GRADE certainty or downgrade rationale; outcome-level certainty was preserved as atom_kind=other with GRADE/imprecision tags.",
+    "QuantitativeResult permits one effect_measure per atom, so source-reported RR and absolute risk difference were intentionally represented as separate atoms.",
+    "There is no dedicated systematic-review pooled/single-study comparison atom type; review-level effect estimates were represented conservatively as quantitative_result atoms and tagged secondary_reported_result.",
+    "The review comparison orients dalteparin as the intervention and tinzaparin as the comparator, while the Wells 2005 study-characteristics table labels tinzaparin as intervention and dalteparin as control; the atom exposures follow the review comparison orientation and preserve this role normalization in exposure details.",
+    "Risk-of-bias judgments have no structured domain object in schema version 1.0; Wells 2005 risk-of-bias context was inspected but not redundantly atomized in this comparison batch."
+  ],
+  "extraction_limitations": [
+    "Pass 0 was used as routing/context only; atoms were created from the original CD006649 source locations for this semantic batch.",
+    "The 113 participants are a cancer subgroup of the broader Wells 2005 RCT (overall trial n=505), rather than a cancer-only RCT population.",
+    "The source does not specify cancer types for the Wells 2005 cancer subgroup, and no missing cancer-stage/type details were invented.",
+    "Absolute effects are Cochrane Summary-of-Findings anticipated absolute effects and should not be mistaken for a separately randomized estimate.",
+    "The comparison is based on very small numbers of events: 25 deaths, 7 recurrent-VTE events, 3 major-bleeding events, and 14 minor-bleeding events; this was preserved in GRADE/imprecision atoms rather than reduced to effect direction.",
+    "No external verification was performed and the primary Wells 2005 article was not re-read for this run.",
+    "All atoms are machine-extracted and marked needs_review; structural/schema/sufficiency validation does not constitute human source-fidelity verification."
+  ],
+  "qa": {
+    "shared_publication_id": true,
+    "publication_id_matches_prior_cd006649_runs": true,
+    "unique_atom_ids": true,
+    "schema_version_consistent": true,
+    "all_atoms_have_source_anchor": true,
+    "all_atoms_have_extraction_run_id": true,
+    "relative_and_absolute_effects_separate": true,
+    "small_event_counts_preserved": true,
+    "source_internal_certainty_conflict_preserved": true,
+    "status": "passed"
+  },
+  "output_files": [
+    "cd006649-dalteparin-tinzaparin-v1-atoms.json",
+    "cd006649-dalteparin-tinzaparin-v1-validation.json"
+  ]
+}

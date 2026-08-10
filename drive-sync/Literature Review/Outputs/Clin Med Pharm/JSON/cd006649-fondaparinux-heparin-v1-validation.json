@@ -1,0 +1,103 @@
+{
+  "activated_macro": "@ATOM",
+  "extraction_run_id": "cd006649-fondaparinux-heparin-v1",
+  "source": {
+    "source_id": "CD006649",
+    "title": "Anticoagulation for the initial treatment of venous thromboembolism in people with cancer",
+    "source_type": "Cochrane intervention review / systematic review of randomized controlled trials",
+    "publication": "Cochrane Database of Systematic Reviews 2021, Issue 12",
+    "doi": "10.1002/14651858.CD006649.pub8",
+    "latest_search_date_reported": "2021-08-14",
+    "input_file": "CD006649.pdf",
+    "input_document_hash": "sha256:e8f43bfc7dde9f14f54c72fdda0afce83cf64e1f39d26cc18b251046ccabbd0d",
+    "publication_id": "745823b6-f2ae-54f3-9d86-3c65f7eca409",
+    "publication_id_reused_from": "cd006649-general-v1-atoms.json"
+  },
+  "scaffold": {
+    "pass_0_file": "cd006649-pass00-global.md",
+    "semantic_scope": "Fondaparinux versus heparin comparison: 3-month mortality, recurrent VTE, major bleeding, minor bleeding, outcome-level GRADE certainty/imprecision, author interpretation, and explicitly unreported outcomes.",
+    "source_pages_inspected": [
+      "Physical PDF pp. 6-7 (article pp. 4-5): Summary of Findings 2 and GRADE footnotes",
+      "Physical PDF pp. 17-18 (article pp. 15-16): fondaparinux-versus-heparin results narrative and certainty discussion",
+      "Physical PDF pp. 45-46 (article pp. 43-44): Van Doormaal 2009 / MATISSE cancer-subgroup characteristics and risk-of-bias context",
+      "Physical PDF pp. 52-53 (article pp. 50-51): Analyses 2.1-2.4 forest plots"
+    ],
+    "quoted_batch_rule_applied": "Mortality, recurrent VTE, major bleeding, and minor bleeding were kept independently reviewable. Relative risks and absolute risk differences were serialized as separate quantitative atoms because QuantitativeResult permits one effect_measure per atom.",
+    "intentionally_deferred_or_not_duplicated": [
+      "The standalone Van Doormaal 2009 study-characteristics atom was not duplicated because it already exists in cd006649-studybase-v1.",
+      "Global search methods, eligibility criteria, funding, conflicts, and review-wide risk-of-bias findings were not duplicated from prior general/studybase batches.",
+      "No primary-study re-extraction was performed from the Van Doormaal 2009 paper; all trial-level details here are secondary reports anchored to the Cochrane review."
+    ]
+  },
+  "governing_sources": [
+    "literature.py",
+    "literature_atoms.py",
+    "literature_atom.schema.json",
+    "README(2).md",
+    "example_atom.json",
+    "large-source-ATOM-SEA.md"
+  ],
+  "atom_count": 19,
+  "atom_counts_by_kind": {
+    "author_conclusion": 4,
+    "other": 4,
+    "qualitative_result": 3,
+    "quantitative_result": 8
+  },
+  "atom_counts_by_assertion_origin": {
+    "normalized_from_source": 19
+  },
+  "validation": {
+    "pydantic_structural_validation": {
+      "valid": true,
+      "error_count": 0,
+      "errors": []
+    },
+    "json_schema_validation": {
+      "valid": true,
+      "error_count": 0,
+      "errors": []
+    },
+    "sufficiency_validation": {
+      "valid": true,
+      "error_count": 0,
+      "warning_count": 0,
+      "issues": []
+    }
+  },
+  "duplicate_review": {
+    "exact_duplicate_count": 0,
+    "exact_duplicates": [],
+    "cross_batch_note": "Comparison-specific quantitative effects were deferred from the prior general and studybase runs. The existing Van Doormaal characteristics atom was used as context rather than duplicated. Repeat semantic duplicate review after all CD006649 batches are merged."
+  },
+  "source_inconsistencies_requiring_human_review": [],
+  "schema_gaps": [
+    "The LiteratureAtom MVP is oriented to primary literature, while CD006649 is a systematic review summarizing trial-level cancer-subgroup evidence.",
+    "There is no dedicated structured field for GRADE certainty or downgrade rationale; outcome-level certainty was preserved as atom_kind=other with GRADE/imprecision tags.",
+    "QuantitativeResult permits one effect_measure per atom, so source-reported RR and absolute risk difference were intentionally represented as separate atoms.",
+    "There is no dedicated systematic-review pooled/single-study comparison atom type; review-level effect estimates were represented conservatively as quantitative_result atoms and tagged secondary_reported_result.",
+    "The heparin comparator is composite in the review (enoxaparin/LMWH or UFH); the Cochrane comparison reports a single heparin arm for the cancer subgroup, so no unsupported comparator-specific split was invented."
+  ],
+  "extraction_limitations": [
+    "Pass 0 was used as routing/context only; atoms were created from the original CD006649 source locations for this semantic batch.",
+    "The cancer population is a subgroup of a broader MATISSE trial rather than a cancer-only RCT population.",
+    "The source does not specify cancer types for included participants, and no missing cancer-stage/type details were invented.",
+    "Absolute effects are the Cochrane Summary-of-Findings anticipated absolute effects and should not be mistaken for a separate independently randomized comparison.",
+    "No external verification was performed and no primary Van Doormaal 2009 article was re-read for this run.",
+    "All atoms are machine-extracted and marked needs_review; structural/schema/sufficiency validation does not constitute human source-fidelity verification."
+  ],
+  "qa": {
+    "shared_publication_id": true,
+    "publication_id_matches_prior_cd006649_runs": true,
+    "unique_atom_ids": true,
+    "schema_version_consistent": true,
+    "all_atoms_have_source_anchor": true,
+    "all_atoms_have_extraction_run_id": true,
+    "relative_and_absolute_effects_separate": true,
+    "status": "passed"
+  },
+  "output_files": [
+    "cd006649-fondaparinux-heparin-v1-atoms.json",
+    "cd006649-fondaparinux-heparin-v1-validation.json"
+  ]
+}
