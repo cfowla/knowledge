@@ -1,0 +1,69 @@
+name: LiteratureAtoms Monthly Architecture Review
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 6 1 * *"
+      timezone: "America/New_York"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  create-architecture-review-task:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Ensure LiteratureAtoms labels exist
+        shell: bash
+        run: bash .github/scripts/ensure-literatureatom-labels.sh
+
+      - name: Create monthly architecture-review issue
+        shell: bash
+        run: |
+          date_stamp="$(date +%F)"
+          title="LiteratureAtoms monthly architecture review — ${date_stamp}"
+
+          if gh issue list --state all --limit 100 --json title --jq '.[].title' | grep -Fxq "$title"; then
+            echo "Issue already exists: $title"
+            exit 0
+          fi
+
+          body_file="$(mktemp)"
+          cat > "$body_file" <<EOF
+          ## Task
+
+          Run the **monthly deep LiteratureAtoms architecture review** for \`cfowla/knowledge\`.
+
+          Use \`PROJECT_HEALTH.md\` as the authoritative assessment contract. Review the accumulated health reports and repository evidence to identify persistent architectural pressure, not merely the most recent week's changes.
+
+          ## Required workflow
+
+          - [ ] Review the most recent monthly architecture report and intervening weekly reports in \`health-reports/\`.
+          - [ ] Examine longer-running patterns across ATOM, validation, SEA, provenance, source types, atom kinds, tests, documentation, organization, and scalability.
+          - [ ] Reassess chronic \`WATCH\` findings and determine whether repeated evidence now warrants \`ISSUE\` or \`URGENT\` status.
+          - [ ] Identify findings that have been resolved, invalidated, or reduced in importance.
+          - [ ] Search existing open issues before proposing or creating new work.
+          - [ ] Create GitHub Issues only for actionable \`ISSUE\` or \`URGENT\` findings, with repository evidence, scope, and acceptance criteria.
+          - [ ] Write the assessment to \`health-reports/${date_stamp}-monthly-architecture.md\`.
+          - [ ] Link new or existing issues from the report and explicitly state the next architectural baseline.
+          - [ ] Close this task when the report and any warranted issues are committed/created.
+
+          ## Suggested ChatGPT invocation
+
+          \`@GitHub Run the monthly deep LiteratureAtoms architecture review for cfowla/knowledge using PROJECT_HEALTH.md and the health-reports history. Evaluate persistent schema pressure, validation/provenance reliability, ATOM ↔ SEA consistency, source- and atom-type coverage, test/documentation drift, organization, repeated manual work, and scalability. Write health-reports/${date_stamp}-monthly-architecture.md and create GitHub Issues only for actionable ISSUE or URGENT findings after checking for duplicates.\`
+          EOF
+
+          gh issue create \
+            --title "$title" \
+            --body-file "$body_file" \
+            --label "health-check" \
+            --label "type: architecture" \
+            --label "priority: high"
