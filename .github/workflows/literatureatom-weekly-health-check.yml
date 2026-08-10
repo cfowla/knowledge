@@ -1,0 +1,68 @@
+name: LiteratureAtoms Weekly Health Check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1"
+      timezone: "America/New_York"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  create-health-check-task:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Ensure LiteratureAtoms labels exist
+        shell: bash
+        run: bash .github/scripts/ensure-literatureatom-labels.sh
+
+      - name: Create weekly health-check issue
+        shell: bash
+        run: |
+          date_stamp="$(date +%F)"
+          title="LiteratureAtoms weekly health check — ${date_stamp}"
+
+          if gh issue list --state all --limit 100 --json title --jq '.[].title' | grep -Fxq "$title"; then
+            echo "Issue already exists: $title"
+            exit 0
+          fi
+
+          body_file="$(mktemp)"
+          cat > "$body_file" <<EOF
+          ## Task
+
+          Run the **weekly lightweight LiteratureAtoms health check** for \`cfowla/knowledge\`.
+
+          Use \`PROJECT_HEALTH.md\` as the authoritative assessment contract. Make the review delta-oriented: concentrate on repository activity and new ATOM, validation, and SEA artifacts since the previous health check while using the existing corpus to determine whether concerns are recurring.
+
+          ## Required workflow
+
+          - [ ] Find the most recent prior report in \`health-reports/\` and establish the comparison baseline.
+          - [ ] Inspect relevant changes since that baseline.
+          - [ ] Assess all domains in \`PROJECT_HEALTH.md\`.
+          - [ ] Classify each meaningful finding as \`OBSERVATION\`, \`WATCH\`, \`ISSUE\`, or \`URGENT\`.
+          - [ ] Search existing open issues before proposing or creating new work.
+          - [ ] Create GitHub Issues only for findings that warrant \`ISSUE\` or \`URGENT\` status, with repository evidence and acceptance criteria.
+          - [ ] Write the assessment to \`health-reports/${date_stamp}-weekly.md\`.
+          - [ ] Link new or existing issues from the report.
+          - [ ] Close this task when the report and any warranted issues are committed/created.
+
+          ## Suggested ChatGPT invocation
+
+          \`@GitHub Run the weekly lightweight LiteratureAtoms health check for cfowla/knowledge using PROJECT_HEALTH.md. Compare activity since the previous health report with existing concerns. Write the report to health-reports/${date_stamp}-weekly.md and create GitHub Issues only for high-confidence ISSUE or URGENT findings after checking for duplicates.\`
+          EOF
+
+          gh issue create \
+            --title "$title" \
+            --body-file "$body_file" \
+            --label "health-check" \
+            --label "priority: normal"
