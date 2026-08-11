@@ -1,0 +1,49 @@
+{
+  "source_metadata": {
+    "source_id": "arXiv:2603.21607v2",
+    "title": "INTRYGUE: Induction-Aware Entropy Gating for Reliable RAG Uncertainty Estimation",
+    "authors": [
+      "Alexandra Bazarova",
+      "Andrei Volodichev",
+      "Daria Kotova",
+      "Alexey Zaytsev"
+    ],
+    "source_type": "arXiv preprint",
+    "version_date": "2026-08-07",
+    "identifier": "arXiv:2603.21607v2",
+    "doi": "10.48550/arXiv.2603.21607",
+    "publication_id": "960beca8-b312-58c1-a141-abb551ec8a47",
+    "evaluated_file": "INTRYGUE Induction-Aware Entropy Gating for Reliable RAG Uncertainty Estimation - 2603.21607v2.pdf",
+    "sha256": "094e71d93ca52767f17b5f90d25fc64d1787daca763018c566dec209e7ecfe06",
+    "page_count": 18
+  },
+  "atom_count": 90,
+  "atom_counts_by_kind": {
+    "author_conclusion": 1,
+    "data_availability": 1,
+    "limitation": 6,
+    "method": 10,
+    "other": 2,
+    "population_description": 2,
+    "qualitative_result": 13,
+    "quantitative_result": 54,
+    "study_objective": 1
+  },
+  "validation": {
+    "pydantic_structural_errors": [],
+    "json_schema_errors": [],
+    "sufficiency_errors": [],
+    "sufficiency_warnings": [],
+    "structurally_valid": true,
+    "sufficient": true
+  },
+  "extraction_limitations": [
+    "Baseline AUROC matrices in Tables 1-2 were preserved in the SEA artifact but were not atomized cell-by-cell; the atom set prioritizes all reported INTRYGUE cells plus load-bearing baseline comparisons to avoid hundreds of repetitive matrix atoms under the current scalar-result schema.",
+    "The ± quantities in AUROC tables are preserved verbatim in quantitative_result.original_result_text because the table captions state only that results are averaged over five runs and do not explicitly label the dispersion statistic.",
+    "Several causal-ablation figures report trends graphically without exact numeric values in the text; those findings are represented as qualitative_result atoms rather than estimated from plots.",
+    "No external code repository, supplementary file beyond the PDF appendices, or independent replication was used for extraction."
+  ],
+  "source_inconsistencies": [
+    "Figure 5 caption says positive entropy Pre-Post values indicate entropy-neuron activations “inflate model confidence,” whereas the surrounding text and mechanism state that these neurons increase predictive entropy and reduce confidence; this appears internally inconsistent and was not normalized away."
+  ]
+}

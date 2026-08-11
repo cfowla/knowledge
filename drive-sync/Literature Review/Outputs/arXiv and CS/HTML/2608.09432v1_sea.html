@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZetaGPT — Summary, Evaluation, and Appraisal</title>
+<style>
+:root{--bg:#f5f7fa;--card:#fff;--ink:#17202a;--muted:#596879;--line:#d7dee8;--accent:#173f72;--accent2:#295f9e;--good:#155b39;--warn:#7a5200;--bad:#842029;--code:#101927;--codeink:#edf4ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.58 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:1120px;margin:auto;padding:24px}header{background:linear-gradient(135deg,#10243d,#1f5b97);color:#fff;padding:42px 24px;border-bottom:5px solid #c9ddf4}header .inner{max-width:1120px;margin:auto}header h1{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.13;margin:0 0 10px}header p{margin:5px 0;color:#e8f0fa}.tag{display:inline-block;padding:.18rem .48rem;border-radius:999px;background:#e9f1fb;color:#173f72;border:1px solid #c8d8ec;font-size:.82rem;margin:.15rem .25rem .15rem 0}nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:16px 0;padding:20px 22px;box-shadow:0 2px 8px rgba(16,36,61,.045)}nav.toc a{color:var(--accent);text-decoration:none;margin-right:16px;white-space:nowrap}h2{color:#113a69;margin-top:0;border-bottom:1px solid var(--line);padding-bottom:.45rem}h3{color:#1d4f82;margin-top:1.35rem}.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.mini-card{border:1px solid var(--line);border-radius:10px;padding:12px;background:#fbfcfe}.mini-card b{display:block;color:#25486c;margin-bottom:4px}.verdict,.warning,.badnote,.goodnote{border-radius:10px;padding:13px 15px;margin:12px 0}.verdict{background:#e9f2ff;border-left:5px solid #2f6faa}.warning{background:#fff6dd;border-left:5px solid #a97600}.badnote{background:#fdeeee;border-left:5px solid #a43434}.goodnote{background:#e9f7ef;border-left:5px solid #28764a}.section-summary{border-left:4px solid #d5e3f3;padding-left:14px;margin:16px 0}pre{background:var(--code);color:var(--codeink);border-radius:11px;padding:14px;overflow:auto;white-space:pre-wrap;border:1px solid #263b59}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}table{border-collapse:collapse;width:100%;font-size:.93rem}th,td{border:1px solid var(--line);padding:8px;vertical-align:top}th{background:#edf3f9;color:#1c3f64;text-align:left}.score{font-size:1.55rem;font-weight:800;color:#163f6e}.muted{color:var(--muted)}ul{padding-left:1.25rem}li{margin:.25rem 0}.small{font-size:.9rem}.nowrap{white-space:nowrap}@media print{body{background:#fff}.wrap{max-width:none;padding:0 12px}header{background:#fff;color:#000;border-bottom:2px solid #000;padding:18px 12px}header p{color:#333}section,nav.toc{box-shadow:none;break-inside:avoid}.tag{border-color:#777;color:#000;background:#fff}a{color:#000;text-decoration:none}}
+</style>
+</head>
+<body>
+<header><div class="inner">
+<h1>ZetaGPT: A Reference Implementation of Positional–Encoding–Free State–Space–Attention Language Models</h1>
+<p>Summary, Evaluation, and Appraisal • AI/ML systems lens</p>
+<p>Róisín Luo • arXiv:2608.09432v1 • 10 Aug 2026 • cs.CL</p>
+</div></header>
+<div class="wrap">
+<nav class="toc">
+<a href="#metadata">Metadata</a><a href="#synthesis">Synthesis</a><a href="#sections">Sections</a><a href="#visuals">Figures & tables</a><a href="#appraisal">Appraisal</a><a href="#takeaways">Takeaways</a><a href="#provenance">Provenance</a>
+</nav>
+
+<section id="metadata"><h2>Metadata</h2>
+<div class="meta-grid">
+<div class="mini-card"><b>Source type</b>Technical report / arXiv preprint</div>
+<div class="mini-card"><b>Author</b>Róisín Luo, University of Galway</div>
+<div class="mini-card"><b>Identifier</b>arXiv:2608.09432v1<br>DOI: 10.48550/arXiv.2608.09432</div>
+<div class="mini-card"><b>Design</b>Architecture + open reference implementation + internal training diagnostics</div>
+<div class="mini-card"><b>Model family</b>State–Space–Attention (SSA) Transformer without explicit positional encoding</div>
+<div class="mini-card"><b>Primary evaluated scale</b>ZetaGPT-S, 34.4M parameters</div>
+</div>
+<div class="warning"><b>Scope warning.</b> This report describes an architecture and training pipeline and presents tokenizer/state-space training diagnostics. It does not report a controlled language-model performance comparison against positional-encoding baselines, a long-context extrapolation benchmark, or external validation. Novelty claims are author claims and were not independently verified in this source-only execution.</div>
+</section>
+
+<section id="synthesis"><h2>One-page synthesis</h2>
+<div class="verdict"><b>Verdict: Read soon.</b> High value as a compact implementation reference for positional-encoding-free small language models; materially weaker as evidence that explicit positional encoding is unnecessary or that the architecture improves long-context or downstream performance.</div>
+<p><b>Core thesis.</b> ZetaGPT places a causal selective state-space module before self-attention in every block. Because the recurrent hidden state is conditioned on the ordered causal prefix, the authors argue that the state-space branch can make token representations position-aware before attention, eliminating the need for learned, sinusoidal, rotary, or other explicit positional encodings. Attention remains standard causal multi-head attention, augmented with an input-dependent output gate.</p>
+<p><b>What the report actually demonstrates.</b> It gives a concrete recurrence, module ordering, three model-size configurations, tokenizer implementation details, data choices, optimizer schedules, and an end-to-end pretraining→SFT→reward-model→RLHF→GRPO pipeline. Figure 3 reports internal state-space dynamics during the first 12,800 ZetaGPT-S pretraining steps: training loss falls from 10.90 to 6.05 nats/token; median memory horizon falls from about 7.9 to 5.7 tokens; input selectivity rises from 0.037 to 0.094; and the residual write ratio rises from 0.004 to 0.021. These observations are consistent with learned recurrent dynamics, but they do not by themselves establish that the PE-free design matches or exceeds explicit-position baselines.</p>
+<div><span class="tag">small language models</span><span class="tag">state-space models</span><span class="tag">attention</span><span class="tag">positional encoding</span><span class="tag">BPE</span><span class="tag">RLHF</span><span class="tag">GRPO</span><span class="tag">reference implementation</span></div>
+</section>
+
+<section id="sections"><h2>Section-by-section condensation</h2>
+<div class="section-summary"><h3>Abstract</h3><p>The paper motivates positional-encoding-free language models from self-attention’s permutation equivariance and proposes inserting a causal state-space equation before attention so recurrent state dynamics can encode sequential information. ZetaGPT is presented as a compact hybrid architecture and a fully open-source reference pipeline spanning tokenizer training, pretraining, SFT, RLHF, and GRPO-based chain-of-thought training.</p><p>The abstract’s strongest novelty statements—especially “first open-source small language model without explicit positional encoding”—are claims made by the author. The abstract does not report comparative language-model quality, perplexity, long-context extrapolation, or downstream-task accuracy.</p></div>
+<div class="section-summary"><h3>1. Introduction</h3><p>The introduction formalizes self-attention’s permutation equivariance and contrasts explicit positional approaches (learned embeddings, sinusoidal encodings, RoPE and extensions) with a design in which sequence order is represented implicitly by architecture dynamics. The conceptual move is to let a causal recurrent state summarize each prefix before self-attention.</p><p>The paper frames three contributions: the PE-free SSA architecture, an open reference implementation, and a complete small-LLM pipeline. The introduction positions the work as a development and empirical-study platform rather than a claim of state-of-the-art model quality.</p></div>
+<div class="section-summary"><h3>2. Landscape of Small Language Models</h3><p>Table 2 compares ZetaGPT with compact models including TinyStories variants, GPT-2 Small, Pythia-70M, SmolLM2-135M, Gemma 3 270M, Qwen3-0.6B, and TinyLlama. The comparison emphasizes architecture and positional-encoding mechanism rather than matched training data or performance.</p><p>ZetaGPT-S/M/L are listed as 34.4M/159.2M/479.9M-parameter SSA models with no explicit positional encoding. This table supports the report’s niche positioning but is not an experimental baseline table.</p></div>
+<div class="section-summary"><h3>3. Model</h3><p>Each block contains three pre-normalized residual branches in sequence: SSM, gated causal multi-head attention, and MLP. ZetaGPT-S uses 6 layers, 8 heads, d<sub>model</sub>=384 and 34.4M parameters; M uses 12 layers, 12 heads, d<sub>model</sub>=768 and 159.2M parameters; L uses 24 layers, 16 heads, d<sub>model</sub>=1024 and 479.9M parameters.</p><p>The architectural claim is that context length is not hard-coded by positional embeddings. That is structurally plausible for this design, but empirical extrapolation beyond trained contexts is not demonstrated.</p></div>
+<div class="section-summary"><h3>3.1. Tokenizer</h3><p>The tokenizer is byte-level BPE, starting from 256 byte symbols plus pad/eos/unk. With 50,000 learned merges the vocabulary is 50,259. Figure 2 profiles the full merge process on a reported 546 MB WikiText-103 corpus.</p><p>Tokenizer diagnostics show large early gains and diminishing late returns: compression rises 1.02→5.16 bytes/token while corpus length falls 535M→106M tokens; selected-pair frequency falls 1.2×10<sup>7</sup>→205; candidate pairs rise 9,497→3.47M; mean new-symbol length rises 2.35→7.19 bytes, with a 19-byte maximum.</p></div>
+<div class="section-summary"><h3>3.2. State-Space Module</h3><p>The paper uses a selective diagonal state-space recurrence. Input-dependent decay a<sub>t</sub> is constrained to (0,1) through exp(-softplus(·)); a projected value path passes through depthwise causal convolution and SiLU; a parallel projection produces a gate; the recurrent state mixes prior state with current value before a gated output projection.</p><p>During the first 12,800 pretraining steps, Figure 3 shows differentiated layer-wise memory horizons, rising input selectivity, increasing residual contribution, and emergence of both long- and short-memory channels. These are internal mechanistic diagnostics, not a causal ablation showing that the SSM is necessary or sufficient for language-model performance.</p></div>
+<div class="section-summary"><h3>3.3. Gated Multi-Head Attention</h3><p>The attention computation is standard causal multi-head attention. ZetaGPT adds an input-dependent sigmoid gate to the concatenated attention output before final projection, motivated by prior work on attention selectivity and attention-sink behavior.</p><p>No ZetaGPT-specific ablation is reported here comparing gated versus ungated attention, so the benefit of the gate within this architecture is assumed from cited prior work rather than demonstrated in the report.</p></div>
+<div class="section-summary"><h3>4. Pipeline & Data</h3><p>The training flow is data curation → tokenizer → pretraining → SFT, followed by reward-model/RLHF instruction-following training and a separate GRPO path for chain-of-thought reasoning. Pretraining uses WikiText-103; instruction tuning uses Alpaca-GPT4, which is also reused for reward-model and RLHF stages; GSM8K supplies the reasoning task for GRPO.</p><p>The pipeline is unusually complete for a small educational/reference implementation. However, the report does not describe held-out evaluation methodology, contamination checks, hardware/compute budget, or multi-seed replication.</p></div>
+<div class="section-summary"><h3>5. Training Protocol</h3><p>All stages use AdamW with β=(0.9,0.999), ε=10<sup>-8</sup>, global-norm clipping at 1.0, and cosine annealing to one tenth of peak learning rate. Pretraining: 2×10<sup>-5</sup>, 64,840 steps. SFT: 1×10<sup>-6</sup>, 2,342 steps. Reward model: 1×10<sup>-5</sup>, 2,500 steps. RLHF: 1×10<sup>-6</sup>, 3,251 steps. GRPO: 1×10<sup>-6</sup>, 1,400 steps.</p><p>Checkpoints/statistics/state-space diagnostics are recorded every 200 steps. Unless otherwise specified, batch size is 16 and context length follows the selected model’s pretraining configuration.</p></div>
+<div class="section-summary"><h3>6. Limitations</h3><p>The paper explicitly attributes its main limits to computational resources: modest pretraining corpus, compact model scale, and short trained contexts. The default 34.4M model is suited to prototyping/education, but the authors caution that behavior may not transfer to much larger models.</p><p>Training contexts are 256, 512, and 1024 tokens for S/M/L, respectively, preventing comprehensive evaluation of long-context modeling or extrapolation. This limitation directly constrains the central positional-encoding-free motivation.</p></div>
+<div class="section-summary"><h3>7. Conclusion</h3><p>The conclusion restates the central mechanism: causal state-space dynamics generate position-aware representations before attention while avoiding explicit positional encodings. It also emphasizes the full development pipeline and reference-implementation role.</p><p>The authors again claim first-open-source-small-model status. This appraisal treats that as unverified novelty framing rather than established fact.</p></div>
+<div class="section-summary"><h3>References</h3><p>Bibliography-only content was used as provenance context but not condensed as evidence. No appendix or supplement was identified.</p></div>
+</section>
+
+<section id="visuals"><h2>Figures, tables, equations, and workflow</h2>
+<h3>Figure 1 — Model Architecture</h3><pre><code>Purpose: Show the positional-encoding-free SSA block and SSM internals.
+Structure:
+  Input → LayerNorm → selective SSM → residual add
+        → LayerNorm → gated causal MHA → residual add
+        → LayerNorm → FFN → residual add
+SSM internals: input-dependent decay, value projection, causal convolution, SiLU, recurrent update, output gate, output projection.
+Interpretation: recurrence is the architecture’s source of order sensitivity before attention.
+Limit: the diagram explains mechanism; it does not demonstrate comparative model quality.
+Representation: structured block.</code></pre>
+<h3>Table 1 — ZetaGPT Configuration Scheme</h3>
+<table><thead><tr><th>Config</th><th>Layers</th><th>Heads</th><th>d_model</th><th>d_head</th><th>MLP</th><th>Embedding params</th><th>Block params</th><th>Total</th></tr></thead><tbody>
+<tr><td>ZetaGPT-S</td><td>6</td><td>8</td><td>384</td><td>48</td><td>4×</td><td>19.3M</td><td>15.1M</td><td>34.4M</td></tr>
+<tr><td>ZetaGPT-M</td><td>12</td><td>12</td><td>768</td><td>64</td><td>4×</td><td>38.6M</td><td>120.6M</td><td>159.2M</td></tr>
+<tr><td>ZetaGPT-L</td><td>24</td><td>16</td><td>1024</td><td>64</td><td>4×</td><td>51.5M</td><td>428.4M</td><td>479.9M</td></tr>
+</tbody></table>
+<p class="small muted">All use vocabulary size 50,259 and no explicit positional encoding. The table states that context length is a training configuration rather than an architectural constraint.</p>
+<h3>Table 2 — ZetaGPT’s Niche Among Compact Language Models</h3><pre><code>Rows: representative compact models from ~3.7M to ~1.1B parameters plus ZetaGPT-S/M/L.
+Columns: reference, parameter count, vocabulary, architecture, positional encoding, pretraining context.
+Pattern: comparison models use learned positional embeddings or RoPE; ZetaGPT entries use State–Space–Attention and “None”.
+Appraisal: this is a taxonomy/niche table, not a matched empirical comparison. Training data, compute, objectives, and performance are not controlled across rows.
+Representation: structured block.</code></pre>
+<h3>Figure 2 — Dynamics of BPE Tokenizer</h3><pre><code>50,000 merge iterations on reported 546 MB WikiText-103 corpus.
+Merged-pair frequency: 1.2×10^7 → 205.
+Distinct candidate pairs: 9,497 → 3.47M; ~90% of final count by ~6,700 merges.
+Compression: 1.02 → 5.16 bytes/token.
+Corpus length: 535M → 106M tokens.
+Incremental compression gain: +1.63 (first 1k), +1.51 (next 9k), +1.00 (last 40k) bytes/token.
+Mean new-symbol length: 2.35 bytes (first 100) → 7.19 bytes (last 30k); max 19 bytes.
+Interpretation: BPE gains are front-loaded and candidate-pair bookkeeping expands rapidly.
+Representation: structured block.</code></pre>
+<h3>Figure 3 — Per-Layer Dynamics of the State-Space Modules</h3><pre><code>Observation window: first 12,800 pretraining steps, 19.7% of stated optimization budget.
+Training loss: 10.90 → 6.05 nats/token.
+Median memory horizon: ~7.9 → ~5.7 tokens.
+Selectivity (std of decay across token positions): 0.037 → 0.094.
+Residual write ratio: 0.004 → 0.021 (~6× as described by author).
+Layer pattern: shallow layers longest horizons; intermediate layers shortest; deeper layers intermediate.
+Decay distribution: long-memory channels (a&gt;0.99) emerge after ~2,000 steps; short-memory channels (a&lt;0.5) appear earlier and reach several percent.
+Interpretation: recurrent dynamics become heterogeneous and more input-dependent during training.
+Limit: no PE baseline, SSM ablation, or downstream-performance link is shown.
+Representation: structured block.</code></pre>
+<h3>Figure 4 — End-to-End Training Pipeline</h3><pre><code>Data curation → BPE tokenizer → pretraining → SFT
+SFT → reward-model training → RLHF instruction-following tuning
+SFT → GRPO → chain-of-thought reasoning
+Datasets: WikiText-103 (pretraining), Alpaca-GPT4 (instruction/alignment), GSM8K (GRPO reasoning).
+Failure-analysis gap: report does not present stage-wise benchmark outcomes or failure taxonomy.
+Governance/reproducibility gap: hardware, compute budget, random-seed replication, and held-out evaluation protocol are not reported.
+Representation: structured block.</code></pre>
+<h3>Central equations / decision-relevant mechanics</h3><pre><code>Generic state space:
+  h_t = A(x_t) h_{t-1} + B(x_t) x_t
+  y_t = C(x_t) h_t + D(x_t) x_t
+Selective diagonal implementation:
+  a_t = exp(-softplus(W_a x_t + b_a))
+  h_t = a_t ⊙ h_{t-1} + (1-a_t) ⊙ v_t
+  y_t = W_o(h_t ⊙ SiLU(g_t)) + b_o
+Gated attention:
+  Attn(x) = (O ⊙ sigmoid(x W_G)) W_O
+Appraisal: equations are sufficiently explicit to reproduce the intended computation, but empirical necessity/sufficiency of each component is not established by ablation.</code></pre>
+</section>
+
+<section id="appraisal"><h2>Evaluation and appraisal</h2>
+<div class="rating-grid">
+<div class="mini-card"><b>Relevance</b><div class="score">8/10</div><p>Strong fit for small LMs, long-context architecture ideas, and reproducible AI systems.</p><p><b>Evidence basis:</b> PE-free SSA design, tokenizer/training pipeline, internal dynamics.</p><p><b>Limit:</b> no clinical/biomedical application and no strong downstream evaluation.</p><p><b>Would rise:</b> task evaluation tied to long-context or reliability use cases.</p></div>
+<div class="mini-card"><b>Novelty</b><div class="score">7/10</div><p>Combines recurrent state-space order encoding with full attention in a compact open reference design.</p><p><b>Evidence basis:</b> explicit architecture and niche comparison.</p><p><b>Limit:</b> “first” claim not independently verified; related PE-free hybrid ideas are acknowledged.</p><p><b>Would rise:</b> documented prior-art search plus direct architectural comparison.</p></div>
+<div class="mini-card"><b>Method strength</b><div class="score">5/10</div><p>Mechanics and training settings are fairly explicit, but evaluation design is thin.</p><p><b>Evidence basis:</b> equations, configs, data, optimizer schedules, diagnostics.</p><p><b>Limit:</b> no matched baseline, ablation, multiple seeds, or held-out benchmark plan.</p><p><b>Would rise:</b> controlled baseline/ablation matrix with replicated runs.</p></div>
+<div class="mini-card"><b>Evidence strength</b><div class="score">4/10</div><p>Internal diagnostics support that state-space dynamics learn heterogeneous timescales, not that PE-free modeling is competitively effective.</p><p><b>Evidence basis:</b> Figure 3 state dynamics and training-loss trajectory.</p><p><b>Limit:</b> no perplexity/downstream/long-context comparison or uncertainty reporting.</p><p><b>Would rise:</b> held-out performance, uncertainty, PE baselines, context-extrapolation tests.</p></div>
+<div class="mini-card"><b>External validity</b><div class="score">3/10</div><p>Evidence comes from a small model, modest corpus, and short contexts.</p><p><b>Evidence basis:</b> 34.4M default model; 256–1024 token contexts.</p><p><b>Limit:</b> scale and task transfer are explicitly uncertain.</p><p><b>Would rise:</b> larger models, diverse corpora, multi-task and long-context external tests.</p></div>
+<div class="mini-card"><b>Implementation value</b><div class="score">8/10</div><p>Useful as a build reference because module equations, size configs, datasets, stage ordering, and learning schedules are specified.</p><p><b>Evidence basis:</b> Figures 1/4, Table 1, Sections 3–5.</p><p><b>Limit:</b> source-only appraisal did not inspect the repository; hardware/compute and exact evaluation harness are absent.</p><p><b>Would rise:</b> executable reproducibility checks, environment lockfile, golden tests, measured training cost.</p></div>
+</div>
+<div class="badnote"><b>Main evidentiary gap.</b> The report’s central mechanism is plausible and internally instrumented, but the reported evidence does not isolate the effect of removing positional encoding. A persuasive test would compare otherwise matched models with explicit PE, no PE/no SSM, and SSM/no PE across perplexity, downstream tasks, context-length extrapolation, stability, and compute.</div>
+<h3>Strengths</h3><ul><li>Clear architectural decomposition and equations.</li><li>Compact parameterizations spanning 34.4M to 479.9M parameters.</li><li>Unusually complete educational/research pipeline from tokenizer through GRPO.</li><li>Mechanistic SSM diagnostics are more informative than presenting training loss alone.</li><li>Limitations explicitly acknowledge scale and context-length constraints.</li></ul>
+<h3>Limitations</h3><ul><li>No positional-encoding baseline or ablation.</li><li>No held-out perplexity or downstream benchmark scores.</li><li>No demonstrated long-context extrapolation despite that motivation.</li><li>No uncertainty, repeated seeds, or robustness/failure-analysis protocol.</li><li>No reported hardware/compute budget.</li><li>Alpaca-GPT4 reuse across SFT/reward/RLHF narrows the alignment evidence and is not accompanied by independent alignment evaluation.</li></ul>
+</section>
+
+<section id="takeaways"><h2>Implementation / research takeaways</h2>
+<div class="takeaway-grid">
+<div class="mini-card"><b>Build-useful</b>Use the SSA ordering and selective diagonal recurrence as a compact reference implementation for experiments where explicit PE is intentionally removed.</div>
+<div class="mini-card"><b>Instrument early</b>The Figure 3 diagnostics—memory horizon, decay selectivity, residual write ratio, long/short-memory fractions—are useful observability targets for SSM-attention training.</div>
+<div class="mini-card"><b>Add the missing ablation</b>Compare matched PE+attention, no-PE attention, and no-PE SSA-attention models; keep tokenizer/data/compute constant.</div>
+<div class="mini-card"><b>Test the central promise</b>Train at one context length, evaluate materially longer contexts, and report degradation curves rather than only in-range training diagnostics.</div>
+<div class="mini-card"><b>Do not overclaim</b>Internal timescale emergence is evidence of recurrent adaptation, not proof that the representations encode all order information needed for competitive language modeling.</div>
+<div class="mini-card"><b>Reproducibility priority</b>Add exact environment, hardware/compute, seeds, checkpoint evaluation scripts, and golden metrics before treating the implementation as a strong empirical benchmark.</div>
+</div>
+<div class="goodnote"><b>Bottom line.</b> ZetaGPT is most valuable as a compact, inspectable architecture and training-pipeline reference. It is not yet strong evidence for positional-encoding-free superiority, long-context generalization, or scale transfer.</div>
+</section>
+
+<section id="provenance"><h2>Provenance and coverage</h2>
+<p><b>Evaluated file:</b> 2608.09432v1.pdf (609,362 bytes; 14 pages).</p>
+<p><b>Source:</b> arXiv:2608.09432v1, “ZetaGPT: A Reference Implementation of Positional–Encoding–Free State–Space–Attention Language Models,” v1 dated 10 Aug 2026. DOI 10.48550/arXiv.2608.09432.</p>
+<p><b>Repository identified by source:</b> https://github.com/roisincrtai/zetagpt. The repository itself was not externally inspected in this source-only appraisal run.</p>
+<p><b>Coverage:</b> all substantive sections through the conclusion; Figures 1–4; Tables 1–2; state-space and gated-attention equations; end-to-end training workflow. Bibliography-only pages omitted from narrative condensation.</p>
+<p><b>Generation date:</b> 11 Aug 2026.</p>
+<p class="muted small">This appraisal supports literature understanding and research planning. It does not independently verify novelty claims, repository reproducibility, or unreported performance.</p>
+</section>
+</div>
+</body>
+</html>
