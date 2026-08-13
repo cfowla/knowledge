@@ -1,0 +1,3080 @@
+[
+  {
+    "atom_id": "16bdcffe-ee70-57d8-8aeb-88b8043cb242",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "study_objective",
+    "canonical_statement": "The study introduces RadFusion to make radiology report generation threshold-controllable so diagnostic text can be aligned with classifier operating points along the sensitivity-specificity trade-off.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "introduction",
+      "page": "2",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "RadFusion",
+      "threshold-control",
+      "radiology-report-generation"
+    ]
+  },
+  {
+    "atom_id": "c9d47b34-4863-5052-9cc8-0ccae39bdb73",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "RadFusion fuses three components: a calibrated multi-label image classifier, a VQA-based radiology report generator, and an LLM rewriter that makes stated diagnoses conform to thresholded classifier decisions while preserving report detail.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "figure",
+      "page": "4",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 1",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "architecture",
+      "classifier",
+      "VQA",
+      "LLM-rewriter"
+    ]
+  },
+  {
+    "atom_id": "bcc220eb-c336-51fc-8d01-c5981dc23ae4",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "The perception component produces confidence scores for 14 CheXpert disease classes and binarizes each class at a selected threshold into positive or negative decisions.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "4",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "perception-model",
+      "CheXpert",
+      "thresholding"
+    ]
+  },
+  {
+    "atom_id": "c4198ee8-fa5a-5071-902a-c04d75220d7d",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "The default perception model fine-tunes MedImageInsight for the CheXpert classes using an image-text plus image-class hybrid contrastive objective; the underlying MedImageInsight model has a 360M-parameter image encoder and 252M-parameter language encoder and was pretrained on more than 3.5 million medical image-text pairs across 12 imaging domains.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "4",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "MedImageInsight",
+      "classifier-training",
+      "contrastive-learning"
+    ]
+  },
+  {
+    "atom_id": "c7b944ce-7387-5cb3-ac66-6621498e1cc6",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "Classifier confidence scores are calibrated by post-hoc temperature scaling that learns a scalar temperature on a validation set to minimize Expected Calibration Error without changing AUC.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "calibration",
+      "temperature-scaling",
+      "ECE"
+    ]
+  },
+  {
+    "atom_id": "f762ec77-0641-5065-bab9-f661b2753122",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "QRad reframes report generation as Auto-VQA: a question generator proposes clinically relevant questions from the image and an answer generator produces one report sentence per question, with the final report formed by concatenating the answers.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "QRad",
+      "Auto-VQA",
+      "report-generation"
+    ]
+  },
+  {
+    "atom_id": "535a3397-e679-5654-b526-6907536aa9c2",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "When thresholding changes an omitted disease class to positive, RadFusion queries QRad for a grounded follow-up description of that finding; the initial report plus follow-up answers form the evidence pool for rewriting.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "follow-up-query",
+      "grounding",
+      "evidence-pool"
+    ]
+  },
+  {
+    "atom_id": "9cd547f4-5ec7-58c3-a965-1dab1d4bd493",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "The LLM rewriter keeps already-consistent positive findings, adds or corrects positive findings using the evidence pool when needed, removes or negates findings assigned negative, and preserves non-class content.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "LLM-rewriter",
+      "rewriting-rules",
+      "grounding"
+    ]
+  },
+  {
+    "atom_id": "ef1fd8f8-c7ab-52e3-961c-38c94bc7f8d7",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "The proposed three-dimensional extension uses per-class thresholds Ta and Tb to define negative, semi-positive, and positive confidence zones and a third threshold Tc for urgency; this extension is presented as achievable by changing rewriting instructions without retraining the models.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "three-dimensional-thresholds",
+      "uncertainty",
+      "urgency",
+      "future-work"
+    ]
+  },
+  {
+    "atom_id": "9c3b96a6-dc83-51f9-8d4a-6dc2df645d29",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "population_description",
+    "canonical_statement": "Experiments use MIMIC-CXR, described as containing 227,835 studies and 377,110 chest X-ray images; the Findings section is the generation target and all evaluations use the official test split of 2,347 studies.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "MIMIC-CXR",
+      "test-split",
+      "dataset"
+    ]
+  },
+  {
+    "atom_id": "2ffcd879-fb06-551a-9051-cc84c55da3a6",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "Threshold controllability is evaluated in a closed loop: classifier scores are thresholded, the LLM rewrites the QRad report to match those decisions, GPT-5 maps the rewritten report back to class labels, and the extracted labels are compared with ground-truth labels to calculate sensitivity and false-positive rate.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "closed-loop-evaluation",
+      "GPT-5-evaluator",
+      "ROC"
+    ]
+  },
+  {
+    "atom_id": "a6c090e1-0c92-5a80-b2e4-b3293e5bf704",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "The evaluation sweeps a common threshold from 0.0 to 1.0 in increments of 0.1, yielding 11 operating points across 13 disease classes; No Finding is excluded because it overlaps semantically with the absence of other classes.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "threshold-sweep",
+      "13-classes",
+      "No-Finding-excluded"
+    ]
+  },
+  {
+    "atom_id": "21cb848c-b566-5e43-81ac-b38fd143951f",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "outcome_definition",
+    "canonical_statement": "Threshold-controlled report performance is summarized by ROC curves plotting sensitivity against false-positive rate across operating points and by AUC-ROC across those points.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": {
+      "concept": {
+        "text": "ROC/AUC performance of threshold-controlled reports",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "ROC curve over threshold operating points; AUC summarizes discriminative performance.",
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "ROC",
+      "AUC-ROC",
+      "evaluation-metric"
+    ]
+  },
+  {
+    "atom_id": "a5c388c5-4987-54ef-9fa5-1d01fbb385c7",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For Cardiomegaly in Figure 2, the threshold-controlled report AUC-ROC is 0.92, matching the classifier AUC-ROC of 0.92.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "figure",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 2",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "RadFusion threshold-controlled report",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "MI2 FT classifier",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Cardiomegaly AUC-ROC",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "ROC from threshold sweep on report labels versus ground truth",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "threshold-controlled report AUC-ROC",
+      "estimate": "0.92",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "RadFusion report",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.92",
+          "unit": "AUC-ROC"
+        },
+        {
+          "arm_label": "Classifier",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.92",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Figure-2",
+      "Cardiomegaly",
+      "AUC-ROC"
+    ]
+  },
+  {
+    "atom_id": "8a8e0574-6ed8-5b8c-8192-ae2407744176",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For Edema in Figure 2, the threshold-controlled report AUC-ROC is 0.92, matching the classifier AUC-ROC of 0.92.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "figure",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 2",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "RadFusion threshold-controlled report",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "MI2 FT classifier",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Edema AUC-ROC",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "ROC from threshold sweep on report labels versus ground truth",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "threshold-controlled report AUC-ROC",
+      "estimate": "0.92",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "RadFusion report",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.92",
+          "unit": "AUC-ROC"
+        },
+        {
+          "arm_label": "Classifier",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.92",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Figure-2",
+      "Edema",
+      "AUC-ROC"
+    ]
+  },
+  {
+    "atom_id": "dd4aeb9b-a5a0-5f65-a7d7-c79dae3cc862",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For Atelectasis in Figure 2, the threshold-controlled report AUC-ROC is 0.90, matching the classifier AUC-ROC of 0.90.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "figure",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 2",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "RadFusion threshold-controlled report",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "MI2 FT classifier",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Atelectasis AUC-ROC",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "ROC from threshold sweep on report labels versus ground truth",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "threshold-controlled report AUC-ROC",
+      "estimate": "0.90",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "RadFusion report",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.90",
+          "unit": "AUC-ROC"
+        },
+        {
+          "arm_label": "Classifier",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.90",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Figure-2",
+      "Atelectasis",
+      "AUC-ROC"
+    ]
+  },
+  {
+    "atom_id": "dbc4f91c-e028-53b4-8f98-42a9b3eade89",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For Pleural Other in Figure 2, the threshold-controlled report AUC-ROC is 0.90, matching the classifier AUC-ROC of 0.90.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "figure",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 2",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "RadFusion threshold-controlled report",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "MI2 FT classifier",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Pleural Other AUC-ROC",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "ROC from threshold sweep on report labels versus ground truth",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "threshold-controlled report AUC-ROC",
+      "estimate": "0.90",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "RadFusion report",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.90",
+          "unit": "AUC-ROC"
+        },
+        {
+          "arm_label": "Classifier",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.90",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Figure-2",
+      "Pleural Other",
+      "AUC-ROC"
+    ]
+  },
+  {
+    "atom_id": "4ee1e1b3-a9b4-58e2-9ba7-93485acb4551",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "MI2 FT achieves a macro-average AUC-ROC of 0.90 across the 13 evaluated disease classes in Table 1.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "MI2 FT",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Macro-average AUC-ROC across 13 disease classes",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "macro-average AUC-ROC",
+      "estimate": "0.90",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "MI2 FT",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.90",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table-1",
+      "classifier-ablation",
+      "AUC-ROC"
+    ]
+  },
+  {
+    "atom_id": "5024f270-7019-5b67-a504-f3c31db77ea6",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "QRad Linear Prob achieves a macro-average AUC-ROC of 0.91 across the 13 evaluated disease classes in Table 1.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "QRad Linear Prob",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Macro-average AUC-ROC across 13 disease classes",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "macro-average AUC-ROC",
+      "estimate": "0.91",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "QRad Linear Prob",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.91",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table-1",
+      "classifier-ablation",
+      "AUC-ROC"
+    ]
+  },
+  {
+    "atom_id": "353b5c9f-1a0b-57c0-9997-510bd485ca3d",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "QRad Token Logit achieves a macro-average AUC-ROC of 0.73 across the 13 evaluated disease classes in Table 1.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "QRad Token Logit",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Macro-average AUC-ROC across 13 disease classes",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "macro-average AUC-ROC",
+      "estimate": "0.73",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "QRad Token Logit",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.73",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table-1",
+      "classifier-ablation",
+      "AUC-ROC"
+    ]
+  },
+  {
+    "atom_id": "41f0d099-4aec-5966-96d1-4ac1f54f1053",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For Pneumothorax in Table 1, QRad Linear Prob achieves AUC-ROC 0.95 versus 0.88 for MI2 FT.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": "Pneumothorax column",
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "QRad Linear Prob",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "MI2 FT",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Pneumothorax AUC-ROC",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Pneumothorax AUC-ROC for QRad Linear Prob",
+      "estimate": "0.95",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "QRad Linear Prob",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.95",
+          "unit": "AUC-ROC"
+        },
+        {
+          "arm_label": "MI2 FT",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.88",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table-1",
+      "Pneumothorax",
+      "classifier-ablation"
+    ]
+  },
+  {
+    "atom_id": "e04a9036-a07b-52d5-85fc-39b731aa7cc5",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Compared with non-controlled report generation, threshold-controlled reports improve sensitivity by 6.9% at matched specificity.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "RadFusion threshold-controlled reports",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Non-controlled QRad reports",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Sensitivity at matched specificity",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "reported sensitivity improvement (%) at matched specificity",
+      "estimate": "6.9",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "diagnostic-accuracy",
+      "sensitivity",
+      "matched-specificity"
+    ]
+  },
+  {
+    "atom_id": "24bab835-928d-5d5d-948e-593674e49013",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Compared with non-controlled report generation, threshold-controlled reports improve specificity by 20.7% at matched sensitivity.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "RadFusion threshold-controlled reports",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Non-controlled QRad reports",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Specificity at matched sensitivity",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "reported specificity improvement (%) at matched sensitivity",
+      "estimate": "20.7",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "diagnostic-accuracy",
+      "specificity",
+      "matched-sensitivity"
+    ]
+  },
+  {
+    "atom_id": "0d6bca83-5da3-508d-ab0a-2db992c88bf8",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "Across all 13 evaluated disease classes, the threshold-controlled report ROC curves closely track the classifier ROC curves, while the non-controlled report operating points fall below the threshold-controlled curves.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "figure",
+      "page": "16",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 4",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "Figure-4",
+      "ROC-conformance",
+      "13-classes"
+    ]
+  },
+  {
+    "atom_id": "ddc1bfb6-57f4-5eb9-a735-48116f282d95",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "With GPT-5 as rewriter, the threshold-controlled reports have macro-average AUC-ROC 0.90 with per-class examples in the prompt versus 0.88 when the examples are removed.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 2",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "GPT-5 rewriter with per-class examples",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "GPT-5 rewriter without per-class examples",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Macro-average AUC-ROC of threshold-controlled reports",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "macro-average AUC-ROC with examples",
+      "estimate": "0.90",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "GPT-5 with examples",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.90",
+          "unit": "AUC-ROC"
+        },
+        {
+          "arm_label": "GPT-5 without examples",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.88",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table-2",
+      "prompt-ablation",
+      "GPT-5"
+    ]
+  },
+  {
+    "atom_id": "7c48cc82-aa35-534d-9dbf-1e288260b3e0",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For Fracture, GPT-5 report AUC-ROC decreases from 0.89 with per-class prompt examples to 0.73 without those examples.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "9",
+      "paragraph": "Fracture column",
+      "sentence": null,
+      "table": "Table 2",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "GPT-5 with per-class examples",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "GPT-5 without per-class examples",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Fracture AUC-ROC of threshold-controlled reports",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Fracture AUC-ROC with examples",
+      "estimate": "0.89",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "GPT-5 with examples",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.89",
+          "unit": "AUC-ROC"
+        },
+        {
+          "arm_label": "GPT-5 without examples",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.73",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table-2",
+      "Fracture",
+      "prompt-ablation"
+    ]
+  },
+  {
+    "atom_id": "b5e805c4-5483-5c21-b5f7-378bc2539edc",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Using QRad Linear Prob as the classifier, GPT-5.4-mini achieves macro-average report AUC-ROC 0.76 at default reasoning and 0.89 at medium reasoning.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "GPT-5.4-mini medium reasoning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "GPT-5.4-mini default reasoning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Macro-average AUC-ROC of threshold-controlled reports with QRad Linear Prob",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "macro-average AUC-ROC at medium reasoning",
+      "estimate": "0.89",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "GPT-5.4-mini medium",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.89",
+          "unit": "AUC-ROC"
+        },
+        {
+          "arm_label": "GPT-5.4-mini default",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.76",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table-3",
+      "reasoning-effort",
+      "GPT-5.4-mini"
+    ]
+  },
+  {
+    "atom_id": "afaa1608-6dbc-5a63-8543-fffa2f7ea54d",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For Lung Lesion with QRad Linear Prob, increasing GPT-5.4-mini reasoning effort from default to medium raises report AUC-ROC from 0.58 to 0.81.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "9",
+      "paragraph": "Lung Lesion column",
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "GPT-5.4-mini medium reasoning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "GPT-5.4-mini default reasoning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Lung Lesion AUC-ROC of threshold-controlled reports with QRad Linear Prob",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Lung Lesion AUC-ROC at medium reasoning",
+      "estimate": "0.81",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "GPT-5.4-mini medium",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.81",
+          "unit": "AUC-ROC"
+        },
+        {
+          "arm_label": "GPT-5.4-mini default",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.58",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table-3",
+      "Lung-Lesion",
+      "reasoning-effort"
+    ]
+  },
+  {
+    "atom_id": "a6369bc7-4918-5d5f-ad88-27c0512edd89",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "With QRad Linear Prob as the classifier, DeepSeek V4 Pro at default reasoning achieves macro-average report AUC-ROC 0.87, compared with 0.90 for GPT-5 at default reasoning in the same table.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": {
+      "label": "MIMIC-CXR official test split",
+      "sample_size": 2347,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "DeepSeek V4 Pro default reasoning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "GPT-5 default reasoning",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Macro-average AUC-ROC of threshold-controlled reports with QRad Linear Prob",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "macro-average AUC-ROC for DeepSeek V4 Pro",
+      "estimate": "0.87",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "DeepSeek V4 Pro default",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.87",
+          "unit": "AUC-ROC"
+        },
+        {
+          "arm_label": "GPT-5 default",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.90",
+          "unit": "AUC-ROC"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table-3",
+      "provider-ablation",
+      "DeepSeek",
+      "GPT-5"
+    ]
+  },
+  {
+    "atom_id": "d35f468a-0c71-531f-9c24-9b55813c6721",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "Under the prompt tuned for GPT-5, GPT-5.4 does not outperform GPT-5, which the authors interpret as evidence that rewriting prompts may need model-specific optimization.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "rewriter-ablation",
+      "prompt-sensitivity",
+      "GPT-5.4"
+    ]
+  },
+  {
+    "atom_id": "a7d7b039-49d2-57af-9c25-24eda0c0aad5",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "The sample clinical interface presents per-class threshold sliders with predicted confidence, highlights the corresponding ROC operating point, displays the adjusted report, and links rewritten text spans to their disease class, confidence, and threshold.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "14",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 3",
+      "supplement": "Appendix A",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "clinical-interface",
+      "human-in-the-loop",
+      "threshold-slider"
+    ]
+  },
+  {
+    "atom_id": "d13b3aad-a33e-51c5-8c13-18f2166bdad0",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "The full LLM rewriting instruction contains a task description, a per-class template dictionary with positive and negative text examples, worked rewriting rules, and an output constraint requiring a JSON object containing only the modified report.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "18",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 7",
+      "supplement": "Appendix E",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "prompt",
+      "rewriter-instruction",
+      "reproducibility"
+    ]
+  },
+  {
+    "atom_id": "fe27a5dc-bfaa-56c7-ab7e-b2ea9adf4cd3",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "method",
+    "canonical_statement": "For the full 13-class threshold-control evaluation, the disease labels used as ground truth are obtained from the reference reports with VisualCheXbert.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "16",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 4",
+      "supplement": "Appendix B",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "ground-truth-labels",
+      "VisualCheXbert",
+      "evaluation"
+    ]
+  },
+  {
+    "atom_id": "ebad578d-d687-51c8-8fe4-2a324bb2470e",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "author_conclusion",
+    "canonical_statement": "The authors conclude that RadFusion makes generated radiology reports clinically adaptable, quantitatively evaluable, and diagnostically more accurate by conforming report content to threshold-adjusted classifier predictions.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "conclusion",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "author-conclusion",
+      "clinical-adaptability",
+      "quantitative-evaluation"
+    ]
+  },
+  {
+    "atom_id": "55183b0f-a80d-5bdf-a19c-dd004d12de06",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "limitation",
+    "canonical_statement": "Classifier errors can propagate into the rewritten report because RadFusion depends on the quality of the perception component.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "10",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "stated-limitation",
+      "classifier-error-propagation"
+    ]
+  },
+  {
+    "atom_id": "5da43166-7c1d-5fff-ba9b-845289027f24",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "limitation",
+    "canonical_statement": "The report generator may omit findings, limiting the evidence available to the rewriting stage.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "10",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "stated-limitation",
+      "report-generator-omission"
+    ]
+  },
+  {
+    "atom_id": "2e9a49de-7659-573f-b756-b3ed801ea4f3",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "limitation",
+    "canonical_statement": "The LLM rewriter may introduce subtle linguistic artifacts.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "10",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "stated-limitation",
+      "rewriter-artifacts"
+    ]
+  },
+  {
+    "atom_id": "ca240777-0aac-5ff5-9807-9fff50d3b877",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "limitation",
+    "canonical_statement": "The rewriting instruction is template-based and tuned for chest X-ray findings, varies in effectiveness across LLMs, and would require retuning for a different rewriter, imaging modality, or clinical domain.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "10",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "stated-limitation",
+      "retuning-generalization"
+    ]
+  },
+  {
+    "atom_id": "f2922f1d-5e12-5bf5-be44-d1a250a4ac73",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "limitation",
+    "canonical_statement": "Threshold control operates over a predefined set of disease classes, so findings outside that set are not subject to threshold adjustment.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "10",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "stated-limitation",
+      "predefined-class-limit"
+    ]
+  },
+  {
+    "atom_id": "d8c5f04d-06da-5641-978c-5ba50364b032",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "limitation",
+    "canonical_statement": "The evaluation relies on automatic label extraction from reports, which may itself introduce error.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "10",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "stated-limitation",
+      "automatic-label-extraction"
+    ]
+  },
+  {
+    "atom_id": "1f8faca0-32be-5501-9ff8-282040c65c61",
+    "publication_id": "10545cd2-8837-5b25-bd7f-1cb89d1fcd3a",
+    "atom_kind": "other",
+    "canonical_statement": "The authors state that RadFusion is intended to assist rather than replace radiologist review.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "10",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:31:45.257157Z",
+      "software_name": null,
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "project-@ATOM-v1",
+      "input_document_hash": "c7a46143078c5569a8556c9f439cea657b1bd3a079d0ecbd6d7c85238eacd368",
+      "extraction_run_id": "2608.10505v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:31:45.257157Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "human-review",
+      "intended-use"
+    ]
+  }
+]

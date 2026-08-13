@@ -1,0 +1,288 @@
+{
+  "source_id": "arXiv:2608.12253v1",
+  "exact_title": "One Frozen Simulator Is Not Enough: Simulator Collapse in Multi-Agent RL",
+  "source_type": "preprint / AI-ML systems and multi-agent reinforcement learning study",
+  "date_or_version": "v1, 12 Aug 2026",
+  "evaluated_file": "2608.12253v1.pdf",
+  "page_count": 41,
+  "sections_or_headings": [
+    "Abstract",
+    "1 Introduction",
+    "2 Background",
+    "3 Simulator Collapse: Why One Simulator Is Not Enough",
+    "3.1 Definition and Hypothesis",
+    "3.2 Theory: How Simulator Collapse Impacts the Policy",
+    "3.3 Empirical Evidence",
+    "3.4 Breaking the Chain: Verbalized Sampling and Co-Training",
+    "4 Experiments",
+    "4.1 Setup",
+    "4.2 Simulator Collapse Reproduces; Both Fixes Recover It",
+    "5 Related Work",
+    "6 Discussion and Conclusion",
+    "Appendix A Limitations, Broader Impact, and Future Work",
+    "Appendix B Theory: Simulator Collapse",
+    "Appendix C Implementation Details",
+    "Appendix D Prompts and Templates",
+    "Appendix E Human Study",
+    "Appendix F Extended Experiments"
+  ],
+  "figures": [
+    {
+      "number": 1,
+      "pdf_page": 1,
+      "caption": "Single-simulator RL collapses; Verbalized Sampling and Co-Training recover. τ 2- bench (Qwen3-4B-Instruct). (a) Held-out generalization: RL against a single frozen simulator peaks early, then starts collapsing. (b) Policy entropy: the same recipe drives the policy’s entropy to near zero. (c) Human study: both fixes lift real-user performance over RL (Single), which drops below even the untrained baseline. Preprint. arXiv:2608.12253v1 [cs.CL] 12 Aug 2026",
+      "representation": "structured block"
+    },
+    {
+      "number": 2,
+      "pdf_page": 4,
+      "caption": "Simulator collapse and our two fixes. (a) Problem: the real-user distribution is broad, but a frozen LLM simulator covers only one mode; the RL policy locks onto that mode and gives the narrow reply on real users it cannot serve. (b) Verbalized Sampling (inference-time): a single prompt asks the still-frozen simulator for several plausible user replies with likelihoods, so the policy sees varied reactions (acceptance, pushback, refusal) within a single rollout and cannot collapse onto a shortcut. (c) Co-Training (training-time): the simulator is no longer frozen and keeps drifting across training; the policy must keep generalising because the target mode it would memorise has already moved. This definition is deliberately tied to the training distribution: a simulator can produce many different",
+      "representation": "structured block"
+    },
+    {
+      "number": 3,
+      "pdf_page": 6,
+      "caption": "Single-simulator RL exhibits simulator collapse. Three single-simulator REINFORCE runs, three seeds each, ±1σ shading on OOD. Training reward climbs in every run (a), OOD eval peaks early and declines (b), and policy entropy collapses (c). The decoupling between (a) and (b) is simulator collapse passing through into policy collapse; (c) is the mechanism. Token-level entropy, which we measure in §3.3, is the empirical counterpart of this strategy-level concentration only to the extent that the exploit strategies in Ax are themselves low-entropy text (fixed scripts, formulaic appeals); in that regime, strategy concentration shows up as a token-entropy collapse. We support this regime qualitatively by inspecting late-training within-batch rollouts, where the three transcripts from a single context become nearly word-for-word the same (Appendix F.9).",
+      "representation": "structured block"
+    },
+    {
+      "number": 4,
+      "pdf_page": 10,
+      "caption": "Both inference- and training-time solutions revive policy entropy. (a) P4G Eval Reward over training; (b) τ 2-bench Retail Eval Success Rate; (c) τ 2-bench Retail Policy Entropy. RL (Single) rises briefly and collapses below the untrained baseline on both eval panels while its entropy crashes to near zero. Verbalized Sampling, Ensemble (K=3), Co-Training, and Population Co-Training improve eval and preserve entropy; the two Co-Training variants additionally exhibit the simulator- update kick pattern in the entropy panel. Persona-Guided (32; τ 2-bench only) sits between RL (Single) and the population methods. Curves average three seeds; eval shading is ±1σ over six held-out evaluator models.",
+      "representation": "structured block"
+    },
+    {
+      "number": 5,
+      "pdf_page": 26,
+      "caption": "Persuader (agent) system prompt for Persuasion for Good. The persona block is loaded per-rollout from the convokit P4G corpus [14]. 26",
+      "representation": "structured block"
+    },
+    {
+      "number": 6,
+      "pdf_page": 27,
+      "caption": "Persuadee (user simulator) system prompt for Persuasion for Good. The structured [DONATE $N] marker is parsed by the reward function [14]. Verbalized Sampling instruction (appended to persuadee prompt) ## Response Diversity Instructions Instead of committing to a single response, generate {n} plausible replies you (as the persuadee) might naturally give to your chat partner, along with an estimated probability for each. The replies should be genuinely diverse — they should differ in phrasing, tone, skepticism level, and (where appropriate) whether or not to donate. IMPORTANT: if a candidate reply represents a decision to donate or give money, that candidate must include the literal structured marker [DONATE $N] or [GIVE $N] where N is the amount. Otherwise the donation will not be registered. Candidates that do not involve donating should omit the marker",
+      "representation": "structured block"
+    },
+    {
+      "number": 7,
+      "pdf_page": 27,
+      "caption": "Verbalized-sampling instruction block appended to the persuadee system prompt for the VS baseline [22]. At rollout time, one of the {n} candidate replies is sampled with the verbalized probabilities. E Human Study Our main results use LLM evaluators that share RLHF biases with the training simulators [29]. The human study tests whether Co-Training’s gains hold up against real users on both τ 2-bench (task- oriented) and Persuasion for Good (open-ended), following Zhou et al. [29]’s τ 2 protocol and Wang et al. [14]’s original P4G setup. Recruitment is on Prolific; the study runs on a Cloudflare-tunneled chat interface, described next. 27",
+      "representation": "structured block"
+    },
+    {
+      "number": 8,
+      "pdf_page": 28,
+      "caption": "τ 2-bench user-simulator system prompt. The {instructions} placeholder is filled per-task with the scenario-specific instruction block from the retail or airline split [11]. CooperBench coding-agent system prompt You are a helpful assistant that can interact with a computer. You are {agent_id} working as a team with: {agents_str}. You are all working on related features in the same codebase. Each agent has their own workspace. Use the send_message tool to coordinate with teammates.",
+      "representation": "structured block"
+    },
+    {
+      "number": 9,
+      "pdf_page": 28,
+      "caption": "Coding-agent system prompt for CooperBench (cooperative setting) [12]. {agent_id} and {agents_str} are filled per-rollout with the agent’s id and the comma-separated teammate list. The solo and baseline settings drop the team coordination block. Interface.",
+      "representation": "structured block"
+    },
+    {
+      "number": 10,
+      "pdf_page": 29,
+      "caption": "τ 2-bench landing view. The right panel renders the structured task profile (goal, role information, conditional behaviors, style notes, and a sky-blue Travelers callout when the scenario involves multiple passengers). The left panel is a single-message-per-turn streaming chat with the agent, with an explicit End button next to the input. Light-mode rendering for legibility; the deployed interface ships in dark mode. and survey completeness only, never on task success or donation amount, so outcome measures stay unbiased. If a session is interrupted by an infrastructure fault (server error, model timeout, broken redirect), the participant gets the full study reward regardless of completion. The protocol has IRB approval at the authors’ institution. Survey instruments, recruitment materials, and anonymized",
+      "representation": "structured block"
+    },
+    {
+      "number": 11,
+      "pdf_page": 30,
+      "caption": "Persuasion for Good landing view. The right panel renders the persuadee role-play prompt drawn from the ConvoKit corpus, including the persona’s demographics, salient personality traits, and behavioural guidance (e.g., “Don’t agree or refuse on the first message”). The chat panel hosts the open-ended donation conversation; the agent does not invoke tools on this task. Welch’s t). For donations, this corresponds to a detectable lift of $0.30 at the empirical donation standard deviation of ∼$0.65. Per-condition means are reported with 95% bootstrap percentile confidence intervals (10,000 resamples). The two pre-registered pairwise comparisons (Co-Training vs Base; Co-Training vs RL (Single)) use Welch’s t for continuous and Likert outcomes and Fisher’s exact for binary completion, with Holm–Bonferroni step-down on the two pairwise p-values per",
+      "representation": "structured block"
+    },
+    {
+      "number": 12,
+      "pdf_page": 31,
+      "caption": "τ 2-bench survey panel. Rendered after the participant confirms the End modal. The eight 1–7 Likert items (task success, helpfulness, honesty, efficiency, instruction-following, safety, frustration, overall satisfaction) replace the instruction panel on the right; the chat history is retained on the left, now disabled, so the participant can refer to specific exchanges while answering. A free-text field at the bottom captures qualitative feedback; Submit is gated until every Likert row has a value. (Q3a, pool size K), and the simulator reward must keep each checkpoint informative rather than re-collapsed on a new mode (Q3b, reward design). We probe each on τ 2-bench Retail. The buffer must be wide, but not stale. Q3a asks how many checkpoints the population should hold. Sweeping K ∈{1, 3, 5, 10} with one checkpoint every four training steps (Figure 17), K=1",
+      "representation": "structured block"
+    },
+    {
+      "number": 13,
+      "pdf_page": 32,
+      "caption": "Persuasion for Good survey panel. Differs from the τ 2 survey in two ways: the first item is a continuous donation amount in [$0, $2] rather than a Likert score, and the five Likerts measure perceptions of the persuader (argument quality, empathy, perceived manipulation, engagement, future donation likelihood) rather than task-execution dimensions.",
+      "representation": "structured block"
+    },
+    {
+      "number": 14,
+      "pdf_page": 32,
+      "caption": "Debrief page. Surfaces the Prolific completion code, an eight-second auto-redirect countdown back to Prolific, the post-hoc task-outcome verdict from the τ 2 evaluator, and a debrief block revealing which agent condition the participant interacted with (blinded during the chat itself). F.3 Empirical training dynamics across methods",
+      "representation": "structured block"
+    },
+    {
+      "number": 15,
+      "pdf_page": 33,
+      "caption": "Human study on τ 2-bench. Each subplot reports mean ±1 std across N=40 Prolific participants per condition. ∗p<0.05, ∗∗p<0.01 vs RL (Single) (Welch’s t, Holm–Bonferroni within each panel; 2 pre-registered pairwise tests). F.4 Per-benchmark training, eval, and entropy curves across all settings We report the full training-time picture for every method on each benchmark, with the same three signals tracked in §3.3 (training reward, OOD eval reward, policy entropy). Three seeds per method; ±1σ shading on the OOD panel. Each benchmark uses its own scale and method set. P4G and τ 2-bench Retail (Figures 20, 21) show the same qualitative pattern. RL (Single) takes the highest training reward against its training simulator and the lowest policy entropy, but its OOD eval slides back toward the untrained baseline. Verbalized Sampling and frozen ensembles trade a noisier,",
+      "representation": "structured block"
+    },
+    {
+      "number": 16,
+      "pdf_page": 34,
+      "caption": "Human study on Persuasion for Good. Each subplot reports mean ±1 std across N=40 Prolific participants per condition. ∗p<0.05, ∗∗p<0.01 vs RL (Single) (Welch’s t, Holm–Bonferroni within each panel; 2 pre-registered pairwise tests). lower training reward for a higher steady OOD eval; Co-Training and Population Co-Training extend the OOD gain further and keep entropy in the 0.8–1.2 nat range throughout training. CooperBench (Appendix Figures 23 and 24) adds a conversation-turn diagnostic. Cross-play against a fixed partner produces a turn-count curve that rises and then drops: once the policy finds a short strategy the frozen partner accepts, conversations get shorter. Self-play and Population Co-Training do not show this drop. The partner keeps adapting, so longer multi-turn solutions stay rewarded and",
+      "representation": "structured block"
+    },
+    {
+      "number": 17,
+      "pdf_page": 35,
+      "caption": "K=5 peaks above both extremes; the optimum is interior because stale checkpoints dilute the population. Eval reward over training for K ∈{1, 3, 5, 10} on P4G (left) and τ 2-Retail (right); checkpoint cadence is every four training steps. Asymptote ordering: K=5 > K=10 > K=3 > K=1. 0 50 100 150 200 250 Training step 0.4 0.5 0.6 0.7 Eval Success Rate (a) 2-bench Retail (Qwen3-8B) 0 50 100 150 200 250 Training step 0.3 0.4 0.5 Eval Success Rate (b) 2-bench Airline (Qwen3-8B) RL (Single) Verbalized Sampling Ensemble (K = 3) Co-training Population Co-training",
+      "representation": "structured block"
+    },
+    {
+      "number": 18,
+      "pdf_page": 35,
+      "caption": "τ 2-bench with Qwen3-8B. Scaling the trainable policy from Qwen3-4B-Instruct to Qwen3-8B preserves the ordering from Figure 4: RL (Single) collapses below the untrained baseline, every population-based method improves steadily, and Population Co-Training is the top curve. Noise reflects the smaller number of eval episodes in this setting. Collapse persists at the 8B scale. Scaling the trainable policy from Qwen3-4B-Instruct to Qwen3- 8B does not eliminate simulator collapse: RL (Single) still saturates its training reward, peaks transiently on OOD, and crashes its policy entropy (Figure 22). The 8B run appears to collapse later than the 4B run, though we do not measure onset precisely; the qualitative pattern is the same. F.5 Proof of Proposition 3.7 This subsection proves Proposition 3.7 by the same coupling argument as Theorem 3.2, then states a",
+      "representation": "structured block"
+    },
+    {
+      "number": 19,
+      "pdf_page": 36,
+      "caption": "Empirical training dynamics on τ 2-bench Retail (full time series). Zero-variance batch fraction (top-left), all-success (top-right), all-failure (bottom-left), and policy entropy (bottom-right). Single-simulator RL (blue) blows up on every panel; Co-Training and Population Co-Training are the only methods that keep all four healthy. Shaded bands are ±1σ over three seeds. 0 50 100 150 200 250 Training step 0.2 0.4 0.6 0.8 Training Reward (a) Training Reward 0 50 100 150 200 250 Training step 0.4 0.6 0.8 1.0 Eval Reward (b) Eval Reward 0 50 100 150 200 250 Training step 0.0 0.5 1.0 1.5 Entropy (nats) (c) Policy Entropy Persuasion for Good (Qwen3-4B-Instruct) RL (Single) Verbalized Sampling Ensemble (K = 3) Co-training Population Co-training",
+      "representation": "structured block"
+    },
+    {
+      "number": 20,
+      "pdf_page": 36,
+      "caption": "Persuasion for Good: training, OOD eval, and policy entropy. Six methods, three seeds each; ±1σ shading on OOD. Training reward against the GPT-5-mini training simulator (a) is highest for RL (Single), which corresponds to the lowest agent entropy (c) and the worst OOD eval (b). γ-sharpening exponentially suppresses tail behaviors. Combined with γ-sharpening (Ap- pendix B.3), the recovery assumption separates VS from direct prompting on tail behaviors: direct prompting suppresses them exponentially in γ, while VS preserves them up to η. Proposition F.1 (γ-sharpening tail suppression). Fix a state s and let b⋆= arg maxb P(b | s) with mass m = P(b⋆| s). Let B ⊂B be a set of nonmodal behaviors with reference mass P(B | s) = ρ and maximum per-behavior mass maxb∈B P(b | s) ≤λm for some λ ∈[0, 1). Under direct",
+      "representation": "structured block"
+    },
+    {
+      "number": 21,
+      "pdf_page": 37,
+      "caption": "τ 2-bench Retail: training, OOD eval, and policy entropy. Seven methods, three seeds each. Same qualitative pattern as Figure 20: RL (Single) wins training reward and loses OOD; Co-Training and Population Co-Training are best on the held-out panel. 0 50 100 150 200 250 Training step 0.0 0.5 1.0 Training Reward (a) Training Reward 0 50 100 150 200 250 Training step 0.4 0.6 Eval Success Rate (b) Eval Success Rate 0 50 100 150 200 250 Training step 0.0 0.5 1.0 1.5 Entropy (nats) (c) Policy Entropy 2-bench Retail (Qwen3-8B) RL (Single) Verbalized Sampling Ensemble (K = 3) Co-training Population Co-training",
+      "representation": "structured block"
+    },
+    {
+      "number": 22,
+      "pdf_page": 37,
+      "caption": "τ 2-bench Retail (Qwen3-8B). Six methods, three seeds each; ±1σ shading on OOD. The collapse pattern from Figure 21 appears at the 8B scale, qualitatively similar but visually later in training: RL (Single)’s training reward saturates, OOD eval peaks and slides, and policy entropy crashes. The per-step curves are also noisier across all three panels; the bigger policy has wider per-step variance at matched eval-episode counts. Under VS with reference-recovery error η, pVS ϕ (B | s) ≥ρ −η. Proof. P b∈B P(b)γ = P b∈B P(b) · P(b)γ−1 ≤ρ(λm)γ−1 using P(b) ≤λm on B. The denomi- nator of Pγ is at least the modal contribution mγ, giving Pγ(B) ≤ρ(λm)γ−1/mγ = (ρ/m) λγ−1. For the VS bound, |pVS ϕ (B) −P(B)| ≤DTV(pVS ϕ , P) ≤η. □ For typical empirical estimates γ ∈[6, 66] (Appendix B.3) and λ bounded away from 1, Pγ(B)",
+      "representation": "structured block"
+    },
+    {
+      "number": 23,
+      "pdf_page": 38,
+      "caption": "CooperBench (Qwen3.5-9B): training, eval, entropy, and conversation turns. The 9B run shows the same overfit signature as Figure 24 (Qwen3.5-27B) but with visibly more per-step variance, characteristic of SWE-style tasks at the smaller scale. Cross-play against a fixed Haiku partner or against a K=3 frozen ensemble plateaus and starts dropping in conversation turns as a short exploit strategy takes over; Self-play and Population Co-Training keep climbing. F.6 Verbalized Sampling mitigates simulator collapse We isolate the effect of Verbalized Sampling [22] on the same training simulator used in our main experiments (GPT-5-mini). Figure 25 compares RL (Single) and RL (Single) + Verbalized Sampling under matched hyperparameters and three seeds each. Without VS, the policy follows the simulator-",
+      "representation": "structured block"
+    },
+    {
+      "number": 24,
+      "pdf_page": 39,
+      "caption": "CooperBench (Qwen3.5-27B): training, eval, entropy, and conversation turns. Cross- play against a fixed Haiku partner or against a K=3 frozen ensemble shows the overfit signature on conversation turns: turns rise early as the policy learns to interact, then drop as a short exploit strategy takes over. Self-play and Population Co-Training avoid this regression; turns keep climbing as the partner co-evolves. 0 50 100 150 200 250 Training step 0.2 0.4 0.6 0.8 1.0 Reward (training sim.) (a) Training reward 0 50 100 150 200 250 Training step 0.40 0.45 0.50 0.55 0.60 0.65 Reward (held-out panel) (b) OOD eval reward (held-out panel) 0 50 100 150 200 250 Training step 0.00 0.25 0.50 0.75 1.00 1.25 1.50 1.75 Entropy (nats) (c) Policy entropy Qwen3-4B-Instruct vs GPT-5-mini RL (Single) + Verbalized Sampling",
+      "representation": "structured block"
+    },
+    {
+      "number": 25,
+      "pdf_page": 39,
+      "caption": "Verbalized Sampling mitigates simulator collapse against GPT-5-mini. Three seeds per setting. (a) Training reward: both runs climb, with +VS reaching a slightly higher plateau because the gradient signal is preserved on more batches. (b) OOD eval reward on the held-out 6-model panel (±1σ shaded): +VS peaks much higher and degrades far less than RL (Single), narrowing the gap to the untrained baseline. (c) Policy entropy: RL (Single) collapses to near zero, while +VS holds entropy near 0.7–0.8 nats throughout training. VS reduces but does not eliminate simulator collapse; the residual gap motivates the Co-Training experiments in §4.2. trivial helper while eval reward drops from 0.27 to 0.17. Only the curriculum reward keeps opponent reward near 0.45, the regime of maximum within-batch variance (Remark B.10), and reaches ∼0.40",
+      "representation": "structured block"
+    },
+    {
+      "number": 26,
+      "pdf_page": 40,
+      "caption": "Verbalized Sampling against GPT-5. Three seeds per setting. (a) Training reward: RL (Single) climbs to a plateau in the 0.6–0.8 range; +VS is noisier and lower because the K-modal verbalized simulator gives less consistent reward signal. (b) OOD eval (held-out 6-model panel, ±1σ shaded): RL (Single) peaks near 0.66 and degrades; +VS climbs more slowly but ends near 0.70. (c) Policy entropy: RL (Single) stays high for most of training and then crashes; +VS holds entropy above 1 nat throughout with substantial fluctuation.",
+      "representation": "structured block"
+    },
+    {
+      "number": 27,
+      "pdf_page": 41,
+      "caption": "Co-Training requires a carefully chosen simulator reward (τ 2-bench Retail). Top-left: agent training reward; cooperative reward (green) reaches the highest training reward by reward- hacking a trivially helpful simulator. Top-right: opponent reward; only the curriculum reward (blue) stays balanced near 0.45. Bottom-left: agent policy entropy; both extremes collapse to 0.01–0.04. Bottom-right: held-out eval reward; only the curriculum reward beats the no-co-training ensemble baseline. 0 50 100 150 200 250 Training step 0.0 0.2 0.4 0.6 0.8 Training Reward (a) Training Reward 0 50 100 150 200 250 Training step 0.2 0.4 0.6 0.8 Eval Reward (b) Eval Reward 0 50 100 150 200 250 Training step 0.0 0.5 1.0 1.5 2.0 Entropy (nats) (c) Policy Entropy Persuasion for Good (Olmo-3-7B-Instruct) RL (Single)",
+      "representation": "structured block"
+    },
+    {
+      "number": 28,
+      "pdf_page": 41,
+      "caption": "Persuasion for Good (Olmo-3-7B-Instruct). Three panels: training reward, OOD eval reward, policy entropy. The qualitative simulator-collapse signature reproduces: RL (Single) saturates training reward, peaks transiently on OOD, and crashes its (higher initial) entropy; Verbalized Sampling, Ensemble, Co-Training, and Population Co-Training preserve entropy and close most of the held-out gap. 0 50 100 150 200 250 Training step 0.00 0.25 0.50 0.75 Training Reward (a) Training Reward 0 50 100 150 200 250 Training step 0.3 0.4 0.5 Eval Success Rate (b) Eval Success Rate 0 50 100 150 200 250 Training step 0 1 2 Entropy (nats) (c) Policy Entropy 2-bench Retail (Olmo-3-7B-Instruct) RL (Single) Verbalized Sampling Ensemble (K = 3) Co-training Population Co-training",
+      "representation": "structured block"
+    },
+    {
+      "number": 29,
+      "pdf_page": 41,
+      "caption": "τ 2-bench Retail (Olmo-3-7B-Instruct). Same three panels as Figure 28. Olmo-3-7B- Instruct’s Base success rate is lower than Qwen3-4B-Instruct’s (0.34 vs 0.40), but the collapse-and- recovery pattern is the same. 41",
+      "representation": "structured block"
+    }
+  ],
+  "tables": [
+    {
+      "number": 1,
+      "pdf_page": 9,
+      "caption": "User-simulator setting (P4G, τ 2-bench). Best held-out-panel score across training; subscript = panel-std over six held-out simulators. P4G reward r = min(donation/2, 1); τ 2-bench reports per-split success rate (%). Bold = best per model size; underline = runner-up. “N/A” on the P4G column for Persona-Guided: the P4G task already conditions on personas, so the baseline does not apply. The frozen ensemble uses K=3 to match the main-text cost comparison; Population Co- Training uses K=5 by default, and Appendix F.1 sweeps K ∈{1, 3, 5, 10} showing the population benefit persists at each K. Per-method compute and memory breakdown is in Appendix C.4. P4G τ 2-bench Model Method Reward ↑ Retail ↑ Airline ↑ Qwen3-4B-Instruct Base 0.216±0.03 40.4±3.1 24.0±2.8 RL (Single) 0.275±0.12 46.1±5.2 29.8±4.3",
+      "representation": "structured block"
+    },
+    {
+      "number": 2,
+      "pdf_page": 10,
+      "caption": "Symmetric cooperation (CooperBench). Held-out success rate (%) against a 3-model partner panel (Haiku 4.5, GPT-5, Gemini-3-Flash); subscript = panel-std. Bold = best per model size; underline = runner-up. ∗Tinker with LoRA adapters (Qwen3.5-27B only); per-step compute differs from the other rows. CooperBench is symmetric: the asymmetric paradigm labels of Table 1 specialise here to cross-play (frozen partner), Self-play (single model in both roles), and Population self-play (rotating among recent self-play checkpoints). Method Qwen3.5-9B Qwen3.5-27B∗ Success ↑ Success ↑ Base 23.7±5.2 47.8±4.8 Cross-play (Haiku) 28.8±5.5 54.3±5.2 + Cross-play Ensemble (K=3) 29.8±5.3 56.1±5.0 + Self-play 32.8±6.0 61.7±5.5 + Population self-play (ours) 33.6±5.7 62.4±5.3 Verbalized Sampling and Co-Training improve P4G dialogue naturalness. Full",
+      "representation": "structured block"
+    },
+    {
+      "number": 3,
+      "pdf_page": 9,
+      "caption": "Q4: Human study on τ 2-bench and Persua- sion for Good. We report τ 2-bench task outcome from the objective evaluator ([0, 1]), overall satisfaction on a 1–7 Likert scale, P4G donation amount, and P4G overall satisfaction. Bold = best per column; underline = second best per column. ∗p<0.05, ∗∗p<0.01 vs RL (Single). τ 2-bench P4G Method Task ↑ Natural ↑ Donation ($) ↑ Natural ↑ Base 0.41±0.22 4.77±1.89 0.51±0.60 3.93±1.91 RL (Single) 0.43±0.31 5.11±1.63 0.46±0.72 3.21±1.76 + Verbalized Sampling 0.63±0.28 ∗∗ 5.38±1.57 0.74±0.59 4.33±1.78 ∗∗ + Co-Training 0.70±0.43 ∗∗ 5.50±1.81 0.69±0.64 4.45±1.67 ∗∗ Q4: Do the gains transfer to real users? We run a human study on τ 2- bench (retail split) and Persuasion for Good with four conditions per task: Base, RL (Single), +Verbalized Sam- pling, and +Co-Training, collecting",
+      "representation": "structured block"
+    },
+    {
+      "number": 4,
+      "pdf_page": 23,
+      "caption": "Training paradigms supported by LLM RL frameworks. ✓= native support, ✗= not supported, p = partial (e.g. available via patches but not first-class). SCOPE composes existing paradigms behind one interface; the differentiator is the bottom three rows (heterogeneous sim. rotation, checkpoint pool, and Verbalized Sampling), which no other framework supports natively. Property SCOPE (ours) SLIME verl Dr.MAS AstraFlow OpenRLHF Sotopia-RL Multi-turn dialogue (H ≥10) ✓ ✗ p ✗ p ✗ ✓ Asymmetric two-agent ✓ ✗ ✗ ✓ p ✗ p Dual-model Co-Training ✓ ✗ ✗ ✓ ✓ ✗ ✗ Self-play ✓ p p ✓ ✓ ✗ ✗ Custom simulator reward ✓ ✗ ✗ p p ✗ ✗ Heterogeneous sim. rotation (K LLMs) ✓ ✗ ✗ ✗ ✗ ✗ ✗ Checkpoint pool (FIFO) ✓ ✗ ✗ ✗ ✗ ✗ ✗ Verbalized Sampling at inference ✓ ✗ ✗ ✗ ✗ ✗ ✗ Policy optimization. We use REINFORCE with group-relative normalization, adapted from",
+      "representation": "structured block"
+    },
+    {
+      "number": 5,
+      "pdf_page": 24,
+      "caption": "Comparison of the seven training paradigms compared in the main results. “Updated?” indicates whether the simulator’s weights change during agent training. “Per-rollout sampling” specifies how the active simulator is selected for each rollout in a batch. Method Simulator pool Updated? Per-rollout sampling What it isolates 1. No training Base — — — — 2. Single-simulator (frozen) RL (Single) GPT-5-mini (single frozen LLM) No Single response Frozen single LLM Persona-Guided GPT-5-mini + persona prompt No One persona- conditioned response Prompt-only widening Verbalized Sampling GPT-5-mini No Sample one of k verbal- ized candidates Response-distribution di- versity within one LLM 3. Multi-simulator (frozen) Ensemble Models (K=3) {Haiku 4.5, GPT-5-mini, Gemini 3 Flash} No Cyclic rotation across",
+      "representation": "structured block"
+    },
+    {
+      "number": 6,
+      "pdf_page": 25,
+      "caption": "Shared hyperparameters used across all methods and tasks. Learning rate. All methods (Ensemble, Co-Training, Co-Training with Population) and Verbalized Sampling use 1×10−6 across all tasks, tuned on the first 50 steps of τ 2-bench Ensemble training (stable reward growth, entropy above 1.5 nats). Models. The trainable agents are Qwen3-4B-Instruct-2507 and Qwen3-8B for the dialogue tasks, and Qwen3.5-9B / Qwen3.5-27B for CooperBench [64]. All frozen simulators are accessed through OpenRouter using the slugs listed in Table 7. Three of them act as training simulators; all six are used at evaluation, with the three training models still in the panel for completeness. None of the evaluation-only models is used for checkpoint selection. Evaluator rollouts are deterministic at T=0; training rollouts are stochastic at T=0.7.",
+      "representation": "structured block"
+    },
+    {
+      "number": 7,
+      "pdf_page": 25,
+      "caption": "Closed-model simulators (OpenRouter slugs). Role indicates whether the model is used as a training simulator (Train), evaluation only (Eval), or both. Snapshot is the canonical model release on OpenRouter at access time. Family OpenRouter slug Snapshot Role OpenAI openai/gpt-5-mini 2025-08-07 Train + Eval Anthropic anthropic/claude-haiku-4.5 2025-10-01 Train + Eval Google google/gemini-3-flash-preview 2025-12-17 Train + Eval Z.ai z-ai/glm-5 2026-02-11 Eval MiniMax minimax/minimax-m2.7 2026-03-18 Eval DeepSeek deepseek/deepseek-chat-v3.1 2025-08-21 Eval Compute and memory.",
+      "representation": "structured block"
+    },
+    {
+      "number": 8,
+      "pdf_page": 26,
+      "caption": "Per-method per-step training compute, peak GPU memory, and wall-clock per step. Wall-clock and total GPU-hour numbers are approximate, measured on 8×H100 with the Qwen3-4B agent on τ 2-bench Retail; Qwen3-8B and Qwen3.5-9B CooperBench runs scale similarly. Qwen3.5- 27B CooperBench runs use Tinker with LoRA adapters (Table 2 footnote) and are not directly comparable. Method Training compute Peak GPU memory Wall-clock / step RL (Single) 1.0× (ref) 1.0× ∼250 s Verbalized Sampling 1.0× (sim frozen) 1.0× ∼280 s Ensemble Models 1.0× (sim frozen) 1.0× ∼250 s Persona-Guided 1.0× (sim frozen) 1.0× ∼250 s Co-Training ∼2.0× ∼2.0× ∼500 s Population Co-Training ∼2.0× ∼(1+K/2)× buffer ∼500 s run on τ 2-bench Retail (Qwen3-4B agent, 8×H100): ∼280 for RL (Single), ∼560 for Co-Training, ∼560 for Population Co-Training.",
+      "representation": "structured block"
+    },
+    {
+      "number": 9,
+      "pdf_page": 40,
+      "caption": "Simulator-reward variants. rπ is the policy’s per-rollout reward; σ2 π its within-group variance. Curriculum follows SPICE-style variance shaping [31]. Variant Simulator reward rϕ Adversarial −rπ Cooperative rπ Curriculum exp \u0012 −(σ2 π −0.25)2 0.02 \u0013 the same, which is what the geometric strategy-mass concentration of Corollary 3.5 looks like in transcript space. F.10 Training on more models We replicate the main P4G and τ 2-bench Retail experiments with Olmo-3-7B-Instruct [65] as the trainable agent, keeping every other element of the setup unchanged. Two differences relative to the Qwen3-4B-Instruct runs are notable. First, Olmo-3-7B-Instruct starts with higher base policy entropy than Qwen3-4B-Instruct (≈1.85 vs ≈1.55 nats); its RLHF profile is less sharpened. Second, its Base task performance is lower (0.34 vs 0.40 on τ 2-Retail, 0.35 vs 0.43 on P4G), consistent with its smaller",
+      "representation": "structured block"
+    }
+  ],
+  "algorithms_or_workflows": [
+    "POMDP multi-turn interaction and group-relative policy update",
+    "Single-simulator collapse chain",
+    "Verbalized Sampling rollout-time simulator diversification",
+    "Co-Training joint policy/simulator update",
+    "Population Co-Training checkpoint-pool sampling",
+    "SCOPE opponent-generation/training loop",
+    "Human-study assignment, interaction, survey, and debrief workflow"
+  ],
+  "appendices_or_supplements": [
+    "Appendix A: limitations/broader impact/future work",
+    "Appendix B: full theory proofs",
+    "Appendix C: implementation/framework/hyperparameters/compute",
+    "Appendix D: prompts/templates",
+    "Appendix E: human study methods and results",
+    "Appendix F: ablations and extended experiments"
+  ],
+  "visual_strategy": {
+    "structured_blocks": 38,
+    "embedded_crops_or_screenshots": 0,
+    "omitted_with_reason": 0
+  },
+  "coverage_decision": "All 29 numbered figures and all 9 numbered tables in the primary PDF are represented as structured blocks. Main-text and appendix figures/tables are retained because they materially affect theory interpretation, reproducibility, human-study appraisal, or extended empirical support.",
+  "omissions": [
+    "Bibliographic reference entries are not individually condensed or atomized.",
+    "No separate correction or supplementary PDF was supplied; embedded appendices in the primary PDF were processed."
+  ]
+}

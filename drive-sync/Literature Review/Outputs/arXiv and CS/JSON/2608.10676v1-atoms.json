@@ -1,0 +1,4250 @@
+[
+  {
+    "atom_id": "68c8ed8b-8e11-5a12-8003-dbaf5dbc51ce",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "study_objective",
+    "canonical_statement": "The study proposes ReTree to keep per-step search-agent reasoning context bounded while preserving source-linked evidence and enabling structural repair of downstream reasoning after evidence contradictions.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "abstract",
+      "page": "1",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "ReTree",
+      "search agents",
+      "tree-structured memory"
+    ]
+  },
+  {
+    "atom_id": "cd3a471f-aa6a-57b6-94ef-b79f6182aa29",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "The problem formulation requires a useful search memory to satisfy bounded per-step context, traceability of answer claims to retrieved passages, and dependency-consistent revision of states derived from revised evidence.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "4",
+      "paragraph": "Problem Formulation",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "design requirements",
+      "dependency consistency"
+    ]
+  },
+  {
+    "atom_id": "bbf6a9d6-b6a2-56eb-ae50-b9563d99842c",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "ReTree represents memory as an external rooted evidence tree whose active node stores a compact task-state summary, locally introduced evidence, revision history, and a parent pointer.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": "4.1 Evidence-Tree State",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "tree state",
+      "memory architecture"
+    ]
+  },
+  {
+    "atom_id": "7f10b87c-8772-569c-a103-2d4a5b0fd121",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "The policy context is constructed from the active-node summary plus the top-5 lexically relevant evidence items; summaries are capped at 140 words, so per-step reasoning context is bounded with trajectory length while external storage may continue to grow.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": "4.1 Evidence-Tree State",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "bounded context",
+      "top-k evidence"
+    ]
+  },
+  {
+    "atom_id": "28335a46-f795-5893-baac-264f2e9fbe5c",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "Each search action returns up to five passages and the extractor emits at most six question-relevant atomic facts.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "6",
+      "paragraph": "4.2 Expansion and Source Binding",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "retrieval budget",
+      "evidence extraction"
+    ]
+  },
+  {
+    "atom_id": "bba8eef4-5d97-54e2-9534-94c748f280f9",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "Each extracted fact is bound to its source by passage index rather than by asking the language model to reproduce a URL.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "6",
+      "paragraph": "4.2 Expansion and Source Binding",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "source binding",
+      "provenance"
+    ]
+  },
+  {
+    "atom_id": "a18d0cd2-10e0-5158-b91b-cfe1218d8780",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "The query policy may stop only after at least one real retrieval and after evidence supports the final requested answer slot.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "6",
+      "paragraph": "4.2 Expansion and Source Binding",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "stopping rule"
+    ]
+  },
+  {
+    "atom_id": "93605ae6-330b-5fb5-acbb-142294123fe8",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "A backtrack is proposed only when new evidence supplies an incompatible value for the same entity and attribute under the same scope and time; refinements, different senses, and compatible candidates expand the tree instead.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "6",
+      "paragraph": "4.3 Contradiction-Triggered Backtracking",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "conflict detection",
+      "backtracking"
+    ]
+  },
+  {
+    "atom_id": "c9a19075-c549-58aa-a6c5-793053e8425c",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "A proposed backtrack is subjected to a second history-aware revision check using the branch summary, targeted evidence, new facts, and the target evidence change history, and repair is applied only for same-scope contradictions with better support.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "6",
+      "paragraph": "4.3 Contradiction-Triggered Backtracking",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "revision confirmation",
+      "oscillation control"
+    ]
+  },
+  {
+    "atom_id": "fca7256f-c379-5968-b1b2-ecb98aaf87e2",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "When a conflict is confirmed, ReTree locates the node that introduced the refuted evidence, replaces that evidence and source, records the revision, regenerates the node summary from corrected evidence, prunes all descendants, and resumes search from the repaired node.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "6",
+      "paragraph": "4.3 Contradiction-Triggered Backtracking",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "dependency-directed repair",
+      "subtree pruning"
+    ]
+  },
+  {
+    "atom_id": "f7a1dd4e-39d9-5e12-bbda-b8822091da88",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "Final attribution decomposes reasoning into atomic claims linked to evidence identifiers, resolves each identifier to current evidence text and URL, and uses an NLI judge to test whether the cited raw passage entails the claim.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "7",
+      "paragraph": "4.4 Claim-Level Attribution",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "claim attribution",
+      "NLI"
+    ]
+  },
+  {
+    "atom_id": "2a23b0c7-142d-5453-89d0-10e8cc25629a",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "The current implementation selects top-k evidence by lexical overlap in O(|A(n)|) time and locates evidence introducers by tree traversal in O(|T|) time.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "7",
+      "paragraph": "4.5 Computation Complexity and Failure Modes",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "complexity"
+    ]
+  },
+  {
+    "atom_id": "25deba85-f17a-5e59-a356-a358a0395ad2",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "population_description",
+    "canonical_statement": "The benchmark evaluation includes 2,149 questions: all 125 Bamboogle questions, all 824 FRAMES questions, and fixed 600-question subsets of 2WikiMultiHopQA and HotpotQA.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "8",
+      "paragraph": "5.1 Datasets",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "Questions from Bamboogle, 2WikiMultiHopQA, HotpotQA, and FRAMES",
+      "sample_size": 2149,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "benchmark suite"
+    ]
+  },
+  {
+    "atom_id": "cd4b6c5b-73d4-5ebb-84fa-643718240b3c",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "outcome_definition",
+    "canonical_statement": "Answer quality is evaluated with GPT-5 judge accuracy against gold answers under type constraints and normalized exact match; provenance is evaluated with NLI-based citation precision, citation recall, and uncited rate on 600 FRAMES questions; context/compute metrics include maximum per-step policy context, model calls, and token usage.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "8",
+      "paragraph": "5.2 Metrics",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": {
+      "concept": {
+        "text": "Evaluation metrics",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "GPT-5 answer judge, normalized EM, NLI-based passage entailment, rendered context characters, model-call and token counts",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "metrics"
+    ]
+  },
+  {
+    "atom_id": "6837e046-4ca0-5e6d-a329-b47a062e7a9e",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "All agent variants use Qwen3-8B, the same Google Search API backend and question order, a maximum of eight searches per question with up to five passages each, at least one retrieval before answering, seed 0, and fixed hyperparameters across benchmarks.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "8",
+      "paragraph": "5.3 Settings",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "experimental settings",
+      "Qwen3-8B"
+    ]
+  },
+  {
+    "atom_id": "25671ae0-aedd-5608-9dc9-32637b574f56",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "method",
+    "canonical_statement": "Local inference uses Qwen3-8B in FP16 through an OpenAI-compatible SGLang endpoint on two NVIDIA A40 48GB GPUs with Python 3.10.20, PyTorch 2.2.1, and CUDA 12.1; live web search and GPT-5 evaluation use hosted APIs.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "8",
+      "paragraph": "5.3 Settings",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "implementation",
+      "compute"
+    ]
+  },
+  {
+    "atom_id": "b76e7a2e-0987-5e55-84a2-8b4fabb9310a",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "comparator_description",
+    "canonical_statement": "Full-Trajectory ReAct retains the complete uncompressed observation trajectory and serves as the primary transcript-based baseline.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "9",
+      "paragraph": "5.4 Comparison Approaches",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": "Complete uncompressed observation trajectory"
+      }
+    ],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "baseline",
+      "ReAct"
+    ]
+  },
+  {
+    "atom_id": "3caf4881-13e3-54d1-b618-bed984da299e",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "comparator_description",
+    "canonical_statement": "FlatUpdate shares ReTree’s 140-word summary, top-5 evidence budget, and conflict detector but stores evidence in a flat list and replaces a refuted fact without rebuilding dependent summaries or pruning downstream reasoning.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "9",
+      "paragraph": "5.4 Comparison Approaches",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [
+      {
+        "concept": {
+          "text": "FlatUpdate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": "Flat evidence list with in-place fact replacement and no dependency-directed pruning"
+      }
+    ],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "mechanism-matched control"
+    ]
+  },
+  {
+    "atom_id": "71fb1fb7-7641-5691-972f-657e106f9420",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "comparator_description",
+    "canonical_statement": "ReportMemory folds each retrieval into a single report capped at 200 words while retaining an unordered set of visited URLs and discarding explicit fact-level dependency lineage.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "9",
+      "paragraph": "5.4 Comparison Approaches",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": "Single evolving 200-word report with unordered URL set"
+      }
+    ],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "bounded synthesis control"
+    ]
+  },
+  {
+    "atom_id": "570ec606-5078-587f-a5d1-5f71064419e9",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On Bamboogle, ReTree judge accuracy was 61.6% versus 58.4% for FlatUpdate, 54.4% for ReportMemory, and 36.0% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "Bamboogle",
+      "table_column": "Answer Quality - Accuracy",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "Bamboogle benchmark questions",
+      "sample_size": 125,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlatUpdate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Judge accuracy",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "GPT-5 judge against gold answers under type constraints",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "judge accuracy",
+      "estimate": "61.6",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "61.6",
+          "unit": "%"
+        },
+        {
+          "arm_label": "FlatUpdate",
+          "event_count": null,
+          "sample_size": null,
+          "value": "58.4",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "54.4",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "36.0",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "answer quality"
+    ]
+  },
+  {
+    "atom_id": "7ec8a4c8-a4d1-536d-8ce0-8ed6da816d78",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On Bamboogle, ReTree normalized exact match was 47.2% versus 48.0% for FlatUpdate, 37.6% for ReportMemory, and 28.0% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "Bamboogle",
+      "table_column": "Answer Quality - EM",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "Bamboogle benchmark questions",
+      "sample_size": 125,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlatUpdate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Normalized exact match",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "Normalized exact match against gold answer",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "exact match",
+      "estimate": "47.2",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "47.2",
+          "unit": "%"
+        },
+        {
+          "arm_label": "FlatUpdate",
+          "event_count": null,
+          "sample_size": null,
+          "value": "48.0",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "37.6",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "28.0",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "answer quality"
+    ]
+  },
+  {
+    "atom_id": "a7e71dd6-4144-56f8-950e-325a32b14e5d",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On Bamboogle, the average maximum per-step policy context was 1,116 characters for ReTree and 1,474 characters for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "Bamboogle",
+      "table_column": "Max Context",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "Bamboogle benchmark questions",
+      "sample_size": 125,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Average maximum per-step policy context",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Mean across questions of each question’s largest rendered policy-memory context during a run",
+      "outcome_type": "secondary",
+      "measurement_method": "Characters; fixed instructions and other LLM calls excluded",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "characters",
+      "estimate": "1116",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "1116",
+          "unit": "characters"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "1474",
+          "unit": "characters"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "context footprint"
+    ]
+  },
+  {
+    "atom_id": "1f57ce29-3a00-5c29-b059-64b6b3fe0e54",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On 2Wiki, ReTree judge accuracy was 50.5% versus 45.8% for FlatUpdate, 50.8% for ReportMemory, and 36.5% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "2Wiki",
+      "table_column": "Answer Quality - Accuracy",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "2Wiki benchmark questions",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlatUpdate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Judge accuracy",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "GPT-5 judge against gold answers under type constraints",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "judge accuracy",
+      "estimate": "50.5",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "50.5",
+          "unit": "%"
+        },
+        {
+          "arm_label": "FlatUpdate",
+          "event_count": null,
+          "sample_size": null,
+          "value": "45.8",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "50.8",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "36.5",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "answer quality"
+    ]
+  },
+  {
+    "atom_id": "e9bd64b2-6062-530c-a58f-9f95f740ba8a",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On 2Wiki, ReTree normalized exact match was 31.3% versus 25.8% for FlatUpdate, 25.8% for ReportMemory, and 24.8% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "2Wiki",
+      "table_column": "Answer Quality - EM",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "2Wiki benchmark questions",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlatUpdate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Normalized exact match",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "Normalized exact match against gold answer",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "exact match",
+      "estimate": "31.3",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "31.3",
+          "unit": "%"
+        },
+        {
+          "arm_label": "FlatUpdate",
+          "event_count": null,
+          "sample_size": null,
+          "value": "25.8",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "25.8",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "24.8",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "answer quality"
+    ]
+  },
+  {
+    "atom_id": "4b596018-8a5e-5a6f-9013-9c1464e85925",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On 2Wiki, the average maximum per-step policy context was 1,068 characters for ReTree and 1,521 characters for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "2Wiki",
+      "table_column": "Max Context",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "2Wiki benchmark questions",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Average maximum per-step policy context",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Mean across questions of each question’s largest rendered policy-memory context during a run",
+      "outcome_type": "secondary",
+      "measurement_method": "Characters; fixed instructions and other LLM calls excluded",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "characters",
+      "estimate": "1068",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "1068",
+          "unit": "characters"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "1521",
+          "unit": "characters"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "context footprint"
+    ]
+  },
+  {
+    "atom_id": "e7919f5e-4ab9-550f-ad0e-cdd72d1e4303",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On HotpotQA, ReTree judge accuracy was 50.5% versus 48.3% for FlatUpdate, 48.8% for ReportMemory, and 42.2% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "HotpotQA",
+      "table_column": "Answer Quality - Accuracy",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "HotpotQA benchmark questions",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlatUpdate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Judge accuracy",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "GPT-5 judge against gold answers under type constraints",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "judge accuracy",
+      "estimate": "50.5",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "50.5",
+          "unit": "%"
+        },
+        {
+          "arm_label": "FlatUpdate",
+          "event_count": null,
+          "sample_size": null,
+          "value": "48.3",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "48.8",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "42.2",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "answer quality"
+    ]
+  },
+  {
+    "atom_id": "3376dcc4-d8ce-5f4e-a780-10d001bc3b25",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On HotpotQA, ReTree normalized exact match was 32.3% versus 32.5% for FlatUpdate, 27.3% for ReportMemory, and 29.3% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "HotpotQA",
+      "table_column": "Answer Quality - EM",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "HotpotQA benchmark questions",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlatUpdate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Normalized exact match",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "Normalized exact match against gold answer",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "exact match",
+      "estimate": "32.3",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "32.3",
+          "unit": "%"
+        },
+        {
+          "arm_label": "FlatUpdate",
+          "event_count": null,
+          "sample_size": null,
+          "value": "32.5",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "27.3",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "29.3",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "answer quality"
+    ]
+  },
+  {
+    "atom_id": "ea867639-e31b-5df3-ac25-30afaee3e225",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On HotpotQA, the average maximum per-step policy context was 1,211 characters for ReTree and 1,542 characters for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "HotpotQA",
+      "table_column": "Max Context",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "HotpotQA benchmark questions",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Average maximum per-step policy context",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Mean across questions of each question’s largest rendered policy-memory context during a run",
+      "outcome_type": "secondary",
+      "measurement_method": "Characters; fixed instructions and other LLM calls excluded",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "characters",
+      "estimate": "1211",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "1211",
+          "unit": "characters"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "1542",
+          "unit": "characters"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "context footprint"
+    ]
+  },
+  {
+    "atom_id": "86fe8951-a7cf-576a-ac7b-3ae489b347e1",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On FRAMES, ReTree judge accuracy was 31.8% versus 27.9% for FlatUpdate, 26.0% for ReportMemory, and 15.8% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "FRAMES",
+      "table_column": "Answer Quality - Accuracy",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "FRAMES benchmark questions",
+      "sample_size": 824,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlatUpdate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Judge accuracy",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "GPT-5 judge against gold answers under type constraints",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "judge accuracy",
+      "estimate": "31.8",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "31.8",
+          "unit": "%"
+        },
+        {
+          "arm_label": "FlatUpdate",
+          "event_count": null,
+          "sample_size": null,
+          "value": "27.9",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "26.0",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "15.8",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "answer quality"
+    ]
+  },
+  {
+    "atom_id": "e2a20bda-d5f3-5574-8c15-56b119db223b",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On FRAMES, ReTree normalized exact match was 19.5% versus 16.7% for FlatUpdate, 13.0% for ReportMemory, and 10.1% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "FRAMES",
+      "table_column": "Answer Quality - EM",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "FRAMES benchmark questions",
+      "sample_size": 824,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlatUpdate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Normalized exact match",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "Normalized exact match against gold answer",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "exact match",
+      "estimate": "19.5",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "19.5",
+          "unit": "%"
+        },
+        {
+          "arm_label": "FlatUpdate",
+          "event_count": null,
+          "sample_size": null,
+          "value": "16.7",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "13.0",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "10.1",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "answer quality"
+    ]
+  },
+  {
+    "atom_id": "fba553ac-f990-50ec-8cfe-b72b31e480a9",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On FRAMES, the average maximum per-step policy context was 1,274 characters for ReTree and 1,920 characters for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "FRAMES",
+      "table_column": "Max Context",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "FRAMES benchmark questions",
+      "sample_size": 824,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Average maximum per-step policy context",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Mean across questions of each question’s largest rendered policy-memory context during a run",
+      "outcome_type": "secondary",
+      "measurement_method": "Characters; fixed instructions and other LLM calls excluded",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "characters",
+      "estimate": "1274",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "1274",
+          "unit": "characters"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "1920",
+          "unit": "characters"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "context footprint"
+    ]
+  },
+  {
+    "atom_id": "97e172c2-1908-5527-ac6f-a2a8a59191ab",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On Overall, ReTree judge accuracy was 44.0% versus 40.4% for FlatUpdate, 40.9% for ReportMemory, and 30.1% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "Overall",
+      "table_column": "Answer Quality - Accuracy",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "Pooled benchmark questions",
+      "sample_size": 2149,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlatUpdate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Judge accuracy",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "GPT-5 judge against gold answers under type constraints",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "judge accuracy",
+      "estimate": "44.0",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "44.0",
+          "unit": "%"
+        },
+        {
+          "arm_label": "FlatUpdate",
+          "event_count": null,
+          "sample_size": null,
+          "value": "40.4",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "40.9",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "30.1",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "answer quality"
+    ]
+  },
+  {
+    "atom_id": "3c1fc6dd-287d-58c3-a17c-e2a29244c341",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On Overall, ReTree normalized exact match was 28.0% versus 25.5% for FlatUpdate, 22.0% for ReportMemory, and 20.6% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "Overall",
+      "table_column": "Answer Quality - EM",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "Pooled benchmark questions",
+      "sample_size": 2149,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlatUpdate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Normalized exact match",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "Normalized exact match against gold answer",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "exact match",
+      "estimate": "28.0",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "28.0",
+          "unit": "%"
+        },
+        {
+          "arm_label": "FlatUpdate",
+          "event_count": null,
+          "sample_size": null,
+          "value": "25.5",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "22.0",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "20.6",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "answer quality"
+    ]
+  },
+  {
+    "atom_id": "3dc1b7d4-c222-55d1-bbae-bca36e914b84",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On Overall, the average maximum per-step policy context was 1,190 characters for ReTree and 1,677 characters for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": "Overall",
+      "table_column": "Max Context",
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "Pooled benchmark questions",
+      "sample_size": 2149,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Average maximum per-step policy context",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Mean across questions of each question’s largest rendered policy-memory context during a run",
+      "outcome_type": "secondary",
+      "measurement_method": "Characters; fixed instructions and other LLM calls excluded",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "characters",
+      "estimate": "1190",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "1190",
+          "unit": "characters"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "1677",
+          "unit": "characters"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 1",
+      "context footprint"
+    ]
+  },
+  {
+    "atom_id": "dd5c8c5f-1925-5423-aeae-4a83a1a6eb1f",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On the fixed 600-question FRAMES attribution subset, citation precision was 44.5% for ReTree, 16.8% for ReportMemory, and 37.7% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 2",
+      "table_row": "Citation precision",
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "Fixed FRAMES attribution subset",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Citation precision",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Claim extraction plus NLI-based passage entailment",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "citation precision",
+      "estimate": "44.5",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "44.5",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "16.8",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "37.7",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 2",
+      "attribution"
+    ]
+  },
+  {
+    "atom_id": "37d1bb2c-54ed-5c37-8c63-275b26e6fc7a",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On the fixed 600-question FRAMES attribution subset, citation recall was 41.3% for ReTree, 21.4% for ReportMemory, and 27.1% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 2",
+      "table_row": "Citation recall",
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "Fixed FRAMES attribution subset",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Citation recall",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Claim extraction plus NLI-based passage entailment",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "citation recall",
+      "estimate": "41.3",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "41.3",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "21.4",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "27.1",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 2",
+      "attribution"
+    ]
+  },
+  {
+    "atom_id": "f281f14f-0d51-5f52-b4ac-6d4ee70e9102",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On the fixed 600-question FRAMES attribution subset, citation f1 was 42.8% for ReTree, 18.8% for ReportMemory, and 31.5% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 2",
+      "table_row": "Citation F1",
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "Fixed FRAMES attribution subset",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Citation F1",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Claim extraction plus NLI-based passage entailment",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "citation f1",
+      "estimate": "42.8",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "42.8",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "18.8",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "31.5",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 2",
+      "attribution"
+    ]
+  },
+  {
+    "atom_id": "7411f340-5c34-5868-b64f-7482a012b13d",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On the fixed 600-question FRAMES attribution subset, uncited rate was 14.8% for ReTree, 5.9% for ReportMemory, and 33.1% for Full-Trajectory ReAct.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "table",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 2",
+      "table_row": "Uncited rate",
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": {
+      "label": "Fixed FRAMES attribution subset",
+      "sample_size": 600,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "ReTree",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "ReportMemory",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Full-Trajectory ReAct",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Uncited rate",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Claim extraction plus NLI-based passage entailment",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "uncited rate",
+      "estimate": "14.8",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "ReTree",
+          "event_count": null,
+          "sample_size": null,
+          "value": "14.8",
+          "unit": "%"
+        },
+        {
+          "arm_label": "ReportMemory",
+          "event_count": null,
+          "sample_size": null,
+          "value": "5.9",
+          "unit": "%"
+        },
+        {
+          "arm_label": "Full-Trajectory ReAct",
+          "event_count": null,
+          "sample_size": null,
+          "value": "33.1",
+          "unit": "%"
+        }
+      ],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "Table 2",
+      "attribution"
+    ]
+  },
+  {
+    "atom_id": "eef41bfb-9093-51e8-aa50-0c934522fc3b",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "Natural contradiction-triggered backtracking occurred in 9.6–17.5% of ReTree runs across the evaluated datasets.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "10",
+      "paragraph": "5.5 Results - Per-step context footprint and compute",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "backtracking rate",
+      "range reported"
+    ]
+  },
+  {
+    "atom_id": "203357f5-0a91-5c10-8526-319fadaeed06",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "Compared with FlatUpdate, ReTree used 7–11% more model calls.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "10",
+      "paragraph": "5.5 Results - Per-step context footprint and compute",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "compute overhead",
+      "range reported"
+    ]
+  },
+  {
+    "atom_id": "a6f29a4d-f963-5b58-9653-dc9bf64f61a0",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "Compared with FlatUpdate, ReTree used 10–13% more total tokens.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "results",
+      "page": "10",
+      "paragraph": "5.5 Results - Per-step context footprint and compute",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "token overhead",
+      "range reported"
+    ]
+  },
+  {
+    "atom_id": "3a8f81a7-f652-5e28-944a-d1c5ca29b090",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "limitation",
+    "canonical_statement": "Hard subtree pruning treats every descendant of a revised node as dependent, so it can invalidate useful downstream facts that are actually independent of the corrected premise.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "10",
+      "paragraph": "6 Limitations",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "over-invalidation",
+      "hard pruning"
+    ]
+  },
+  {
+    "atom_id": "17107d23-22cb-5747-a077-ff697f34ba90",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "limitation",
+    "canonical_statement": "Correction quality depends on the conflict judge: false negatives preserve contaminated state, whereas false positives can over-prune useful evidence; same-scope checks and revision history reduce but do not eliminate these errors.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "7",
+      "paragraph": "4.5 Computation Complexity and Failure Modes",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "conflict judge",
+      "failure mode"
+    ]
+  },
+  {
+    "atom_id": "e282f24d-3d29-5e7e-9dd6-149c257db71b",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "limitation",
+    "canonical_statement": "Bounding per-step context does not bound total external memory: the evidence store grows with retrieval, and linear evidence selection and tree traversal can become slower over very long horizons.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "10",
+      "paragraph": "6 Limitations",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "scalability",
+      "external memory"
+    ]
+  },
+  {
+    "atom_id": "378414d8-9d61-53f5-ba3b-4eda82a55b4e",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "limitation",
+    "canonical_statement": "Wall-clock latency was not reported because live-search network variance made it unstable as an evaluation metric.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "methods",
+      "page": "8",
+      "paragraph": "5.2 Metrics",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "latency not reported"
+    ]
+  },
+  {
+    "atom_id": "bd77eb30-d23b-5668-9662-010d0c8cd837",
+    "publication_id": "3e9e437a-4007-5df7-ade0-9ab3426c08ef",
+    "atom_kind": "author_conclusion",
+    "canonical_statement": "The authors conclude that search-agent working memory should preserve a revisable dependency structure over evidence and intermediate conclusions rather than functioning only as a compressed transcript.",
+    "assertion_origin": "normalized_from_source",
+    "source_anchor": {
+      "section": "conclusion",
+      "page": "10",
+      "paragraph": "7 Conclusion",
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "chatgpt-literature-review",
+      "extracted_at": "2026-08-13T03:01:55.514544Z",
+      "software_name": "ChatGPT Literature Review project",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-12",
+      "prompt_version": "ATOM-project-macro-2026-08",
+      "input_document_hash": "sha256:defdfb8cb2bed63d5a07befc097a18272bea415e971d89dd6286a5b3565e7da8",
+      "extraction_run_id": "2608.10676v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T03:01:55.514544Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "author conclusion",
+      "memory design"
+    ]
+  }
+]

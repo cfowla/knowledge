@@ -1,0 +1,3137 @@
+{
+  "source_metadata": {
+    "source_id": "arXiv:2608.10538v1",
+    "title": "SKILLER: Language-Level Reinforcement Learning for Reusable Skill Extraction in Small Language Models",
+    "authors": [
+      "Chenhao Dang",
+      "Siyuan Xiong",
+      "Conghui He",
+      "Weijia Li"
+    ],
+    "source_type": "arXiv preprint / AI-ML systems paper",
+    "version": "v1",
+    "date": "2026-08-11",
+    "stable_identifier": "https://arxiv.org/abs/2608.10538v1",
+    "source_file": "2608.10538v1.pdf",
+    "page_count": 15,
+    "sha256": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+    "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1"
+  },
+  "extraction_metadata": {
+    "extraction_run_id": "2608.10538v1-full-v1",
+    "extractor_type": "language_model",
+    "extractor_identifier": "openai-chatgpt-literature-review",
+    "model_name": "GPT-5.6 Sol",
+    "extracted_at": "2026-08-13T03:29:30.673137+00:00",
+    "schema_version": "1.0",
+    "review_status": "needs_review"
+  },
+  "atom_count": 41,
+  "atom_counts_by_kind": {
+    "author_conclusion": 2,
+    "data_availability": 1,
+    "limitation": 1,
+    "method": 10,
+    "population_description": 5,
+    "qualitative_result": 7,
+    "quantitative_result": 14,
+    "study_objective": 1
+  },
+  "atoms": [
+    {
+      "atom_id": "8dfe156c-1e6c-5e95-9907-977ec7206dee",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The study proposes SKILLER to automatically generate and refine executor-specific natural-language skills for compact language-model agents.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "we propose SKILLER",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "objective",
+        "skill_generation"
+      ]
+    },
+    {
+      "atom_id": "8649ed81-74d0-5187-b72b-9d5c03d0efbc",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "method",
+      "canonical_statement": "SKILLER treats the textual skill, rather than compact-model weights, as the optimizable policy and keeps the compact executor frozen.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "without updating the parameters of the compact model itself",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "policy_optimization",
+        "frozen_model"
+      ]
+    },
+    {
+      "atom_id": "98f0bcc0-3a5d-5352-85e7-f15c9217dca3",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "method",
+      "canonical_statement": "The environment wraps benchmark tools, workspace, and the official verifier around the compact model and returns an execution trajectory, scalar reward, and verifier diagnostics.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "invokes the official verifier to obtain the scalar reward",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "environment",
+        "verifier"
+      ]
+    },
+    {
+      "atom_id": "1e9f31de-db26-5db6-a836-86b25efb4302",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "method",
+      "canonical_statement": "At each step the optimization state is the quadruple of task instance, current trajectory, reference trajectory, and verifier diagnostics; the reward is binary success or normalized test pass rate when partial credit exists.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "form the structured state quadruple",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "state",
+        "reward"
+      ]
+    },
+    {
+      "atom_id": "e241d48c-4caf-59a8-bf7f-c02e886420a9",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "method",
+      "canonical_statement": "The critic contrasts the current trajectory with a successful reference, identifies the earliest causal divergence, and emits localized natural-language skill-modification suggestions.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "locate the earliest causal divergence",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "critic",
+        "causal_error"
+      ]
+    },
+    {
+      "atom_id": "8d3ddf64-94c6-5b8c-ae20-589298b5fbeb",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "method",
+      "canonical_statement": "Replay memory stores failure signatures with diagnostics, critic summaries, and accepted edits with outcomes, supplying prior evidence to later critic and actor steps and supporting retention or rollback.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "retains three forms of reusable evidence",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "replay_memory",
+        "rollback"
+      ]
+    },
+    {
+      "atom_id": "6b078c6f-267b-5093-81a6-85de4e534db6",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "method",
+      "canonical_statement": "The actor applies bounded Insert, Replace, Create, or Delete edits, preserves effective content, and may synthesize deterministic task-local helper scripts.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "four explicit editing operations",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "actor",
+        "bounded_edits",
+        "helper_scripts"
+      ]
+    },
+    {
+      "atom_id": "4d94ed57-36ae-55ac-b86e-383980d3cd03",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "method",
+      "canonical_statement": "A successful reference trajectory is privileged optimization evidence but is not provided to the compact model at runtime, and reference evidence is not inserted as a precomputed answer.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "never introduced as a direct runtime dependency",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "reference_trajectory",
+        "anti_leakage"
+      ]
+    },
+    {
+      "atom_id": "20cba47c-b503-512d-9d8e-fff042c7cb5c",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "method",
+      "canonical_statement": "The evaluation uses Qwen3.5-9B and Qwen3.5-4B as compact executors in the OpenCode agent loop and GPT-5.4 only during offline skill generation as actor and critic; compact-model evaluation tokens are excluded from reported generation cost.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": "Models and baseline methods",
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "GPT-5.4",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "models",
+        "cost_scope"
+      ]
+    },
+    {
+      "atom_id": "c56595f7-d179-56b8-b4b7-301ecd99237d",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "population_description",
+      "canonical_statement": "The SkillsBench evaluation uses 26 tasks selected because each can be solved using a single skill.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "subset of 26 tasks",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "SkillsBench single-skill subset",
+        "sample_size": 26,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark",
+        "skillsbench"
+      ]
+    },
+    {
+      "atom_id": "b7acc4f4-a403-5647-af3e-cc786462fa08",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "population_description",
+      "canonical_statement": "The SWE-Skills-Bench evaluation uses 10 selected tasks comprising 117 instances where the original benchmark reports that adding a skill changes performance.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "This criterion yields 10 tasks and 117 instances",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "Selected SWE-Skills-Bench instances",
+        "sample_size": 117,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark",
+        "swe_skills_bench",
+        "selected_subset"
+      ]
+    },
+    {
+      "atom_id": "175c850f-469d-5c28-bd58-1497412c2a77",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "population_description",
+      "canonical_statement": "SkillLearnBench is evaluated using its official configuration across 100 verified task instances.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "100 verified task instances",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "SkillLearnBench verified task instances",
+        "sample_size": 100,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark",
+        "skilllearnbench"
+      ]
+    },
+    {
+      "atom_id": "2ba12237-9d17-5cef-8c78-16935f9f48de",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "population_description",
+      "canonical_statement": "GAIA evaluation covers 165 validation-set tasks; stratified skill generation uses 83 instances and the remaining 82 form the zero-shot test split.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "generation split contains 83 instances",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "GAIA validation set",
+        "sample_size": 165,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark",
+        "gaia",
+        "data_split"
+      ]
+    },
+    {
+      "atom_id": "87e2d287-a213-52ae-9570-1488f958b867",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "population_description",
+      "canonical_statement": "EarthBench evaluation covers 248 samples; stratified skill generation uses 124 instances and the remaining 124 form the zero-shot test split.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "generation split contains 124 instances",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "EarthBench evaluation samples",
+        "sample_size": 248,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark",
+        "earthbench",
+        "data_split"
+      ]
+    },
+    {
+      "atom_id": "f408ad08-0419-5e6c-8654-03569aaf3e27",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "method",
+      "canonical_statement": "Main reported benchmark results are averages over three executions of the same skill, and the main experimental setup states a five-step SKILLER reinforcement-learning schedule across tasks.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "average performance across three executions",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "evaluation_protocol",
+        "repeats"
+      ]
+    },
+    {
+      "atom_id": "2b74fe26-1f15-52c2-98fb-0d4807bd9e54",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The abstract reports absolute gains of 4.3-20.4 percentage points for Qwen3.5-9B and 1.8-13.3 points for Qwen3.5-4B over compared skill-generation/evolution methods, while claiming near-frontier single-skill SkillsBench performance.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "absolute gains ranging from 4.3 to 20.4 percentage points",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "abstract_claim",
+        "performance"
+      ]
+    },
+    {
+      "atom_id": "63bf96a9-9f66-507a-8297-3ed281bc198d",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-9B for SkillsBench, SKILLER scored 73.91% versus SkillX at 60.87%, a calculated difference of +13.04 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 73.91",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "SkillsBench evaluation set",
+        "sample_size": 26,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-9B"
+        },
+        {
+          "concept": {
+            "text": "SkillX",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "SkillsBench official score/pass rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "13.04",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "73.91",
+            "unit": "%"
+          },
+          {
+            "arm_label": "SkillX",
+            "event_count": null,
+            "sample_size": null,
+            "value": "60.87",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 73.91; SkillX 60.87"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "skillsbench",
+        "qwen3_5_9b"
+      ]
+    },
+    {
+      "atom_id": "c2dd44df-f53d-59f8-8acc-6d891ace7046",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-9B for SkillLearnBench, SKILLER scored 32.11% versus Human-authored at 30.00%, a calculated difference of +2.11 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 32.11",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "SkillLearnBench evaluation set",
+        "sample_size": 100,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-9B"
+        },
+        {
+          "concept": {
+            "text": "Human-authored",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "SkillLearnBench accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "2.11",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "32.11",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Human-authored",
+            "event_count": null,
+            "sample_size": null,
+            "value": "30.00",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 32.11; Human-authored 30.00"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "skilllearnbench",
+        "qwen3_5_9b"
+      ]
+    },
+    {
+      "atom_id": "8cf100cc-8681-5806-853e-28bc98f28629",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-9B for SWE-Skills-Bench, SKILLER scored 82.80% versus Manus at 62.40%, a calculated difference of +20.40 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 82.80",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "SWE-Skills-Bench evaluation set",
+        "sample_size": 117,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-9B"
+        },
+        {
+          "concept": {
+            "text": "Manus",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "SWE-Skills-Bench pass rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "20.40",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "82.80",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Manus",
+            "event_count": null,
+            "sample_size": null,
+            "value": "62.40",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 82.80; Manus 62.40"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "swe_skills_bench",
+        "qwen3_5_9b"
+      ]
+    },
+    {
+      "atom_id": "124e807c-a1c6-50eb-862d-984b35640c9f",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-9B for GAIA, SKILLER scored 49.40% versus SkillX at 49.40%, a calculated difference of +0.00 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 49.40",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "GAIA evaluation set",
+        "sample_size": 165,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-9B"
+        },
+        {
+          "concept": {
+            "text": "SkillX",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "GAIA official score",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "0.00",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.40",
+            "unit": "%"
+          },
+          {
+            "arm_label": "SkillX",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.40",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 49.40; SkillX 49.40"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "gaia",
+        "qwen3_5_9b"
+      ]
+    },
+    {
+      "atom_id": "fd0d2648-c8f7-507b-b65d-494b8342c87a",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-9B for EarthBench, SKILLER scored 76.08% versus AutoSkill at 71.77%, a calculated difference of +4.31 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 76.08",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "EarthBench evaluation set",
+        "sample_size": 248,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-9B"
+        },
+        {
+          "concept": {
+            "text": "AutoSkill",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "EarthBench accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "4.31",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "76.08",
+            "unit": "%"
+          },
+          {
+            "arm_label": "AutoSkill",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.77",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 76.08; AutoSkill 71.77"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "earthbench",
+        "qwen3_5_9b"
+      ]
+    },
+    {
+      "atom_id": "99b62cb6-21ed-544a-9372-8ee235ef0c6a",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-4B for SkillsBench, SKILLER scored 42.03% versus SkillX at 43.48%, a calculated difference of -1.45 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 42.03",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "SkillsBench evaluation set",
+        "sample_size": 26,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-4B"
+        },
+        {
+          "concept": {
+            "text": "SkillX",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "SkillsBench official score/pass rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "-1.45",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "42.03",
+            "unit": "%"
+          },
+          {
+            "arm_label": "SkillX",
+            "event_count": null,
+            "sample_size": null,
+            "value": "43.48",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 42.03; SkillX 43.48"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "skillsbench",
+        "qwen3_5_4b"
+      ]
+    },
+    {
+      "atom_id": "3d7bf9f5-dd45-53d5-ab20-01acf687dfa5",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-4B for SkillLearnBench, SKILLER scored 33.00% versus Manus at 31.17%, a calculated difference of +1.83 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 33.00",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "SkillLearnBench evaluation set",
+        "sample_size": 100,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-4B"
+        },
+        {
+          "concept": {
+            "text": "Manus",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "SkillLearnBench accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "1.83",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "33.00",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Manus",
+            "event_count": null,
+            "sample_size": null,
+            "value": "31.17",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 33.00; Manus 31.17"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "skilllearnbench",
+        "qwen3_5_4b"
+      ]
+    },
+    {
+      "atom_id": "b5734520-f554-55b6-bcdb-978e2dfb0915",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-4B for SWE-Skills-Bench, SKILLER scored 66.70% versus Manus at 53.40%, a calculated difference of +13.30 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 66.70",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "SWE-Skills-Bench evaluation set",
+        "sample_size": 117,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-4B"
+        },
+        {
+          "concept": {
+            "text": "Manus",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "SWE-Skills-Bench pass rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "13.30",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "66.70",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Manus",
+            "event_count": null,
+            "sample_size": null,
+            "value": "53.40",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 66.70; Manus 53.40"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "swe_skills_bench",
+        "qwen3_5_4b"
+      ]
+    },
+    {
+      "atom_id": "13867da5-09a2-5cce-b614-92ac68461ed5",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-4B for GAIA, SKILLER scored 43.78% versus SkillX at 44.18%, a calculated difference of -0.40 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 43.78",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "GAIA evaluation set",
+        "sample_size": 165,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-4B"
+        },
+        {
+          "concept": {
+            "text": "SkillX",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "GAIA official score",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "-0.40",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "43.78",
+            "unit": "%"
+          },
+          {
+            "arm_label": "SkillX",
+            "event_count": null,
+            "sample_size": null,
+            "value": "44.18",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 43.78; SkillX 44.18"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "gaia",
+        "qwen3_5_4b"
+      ]
+    },
+    {
+      "atom_id": "82610307-981e-5073-985e-c37ea24ac83f",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-4B for EarthBench, SKILLER scored 71.51% versus Manus at 71.51%, a calculated difference of +0.00 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 71.51",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "EarthBench evaluation set",
+        "sample_size": 248,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-4B"
+        },
+        {
+          "concept": {
+            "text": "Manus",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "EarthBench accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "0.00",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.51",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Manus",
+            "event_count": null,
+            "sample_size": null,
+            "value": "71.51",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 71.51; Manus 71.51"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "earthbench",
+        "qwen3_5_4b"
+      ]
+    },
+    {
+      "atom_id": "a5552790-686a-5b9d-8c0a-6224f1d56994",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-9B for GAIA zero-shot split, SKILLER scored 49.59% versus AutoSkill at 47.97%, a calculated difference of +1.62 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 49.59",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "GAIA zero-shot split evaluation set",
+        "sample_size": 82,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-9B"
+        },
+        {
+          "concept": {
+            "text": "AutoSkill",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "GAIA zero-shot score",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "1.62",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.59",
+            "unit": "%"
+          },
+          {
+            "arm_label": "AutoSkill",
+            "event_count": null,
+            "sample_size": null,
+            "value": "47.97",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 49.59; AutoSkill 47.97"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "gaia_zero_shot_split",
+        "qwen3_5_9b"
+      ]
+    },
+    {
+      "atom_id": "5c37b604-eb4d-5af7-943a-4c05bc9482f8",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-9B for EarthBench zero-shot split, SKILLER scored 72.31% versus Manus at 70.43%, a calculated difference of +1.88 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 72.31",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "EarthBench zero-shot split evaluation set",
+        "sample_size": 124,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-9B"
+        },
+        {
+          "concept": {
+            "text": "Manus",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "EarthBench zero-shot accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "1.88",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "72.31",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Manus",
+            "event_count": null,
+            "sample_size": null,
+            "value": "70.43",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 72.31; Manus 70.43"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "earthbench_zero_shot_split",
+        "qwen3_5_9b"
+      ]
+    },
+    {
+      "atom_id": "779497e4-0988-5552-99d4-083cea5ac013",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-4B for GAIA zero-shot split, SKILLER scored 40.65% versus No-skill at 34.55%, a calculated difference of +6.10 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 40.65",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "GAIA zero-shot split evaluation set",
+        "sample_size": 82,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-4B"
+        },
+        {
+          "concept": {
+            "text": "No-skill",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "GAIA zero-shot score",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "6.10",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "40.65",
+            "unit": "%"
+          },
+          {
+            "arm_label": "No-skill",
+            "event_count": null,
+            "sample_size": null,
+            "value": "34.55",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 40.65; No-skill 34.55"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "gaia_zero_shot_split",
+        "qwen3_5_4b"
+      ]
+    },
+    {
+      "atom_id": "69ddc822-6982-5e67-811f-bd534f84a336",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On Qwen3.5-4B for EarthBench zero-shot split, SKILLER scored 69.62% versus Manus at 70.97%, a calculated difference of -1.35 percentage points.",
+      "assertion_origin": "calculated_from_reported_data",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER (ours) 69.62",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": {
+        "label": "EarthBench zero-shot split evaluation set",
+        "sample_size": 124,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "SKILLER",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": "skill generation/evolution for Qwen3.5-4B"
+        },
+        {
+          "concept": {
+            "text": "Manus",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "EarthBench zero-shot accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in percentage points",
+        "estimate": "-1.35",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "SKILLER",
+            "event_count": null,
+            "sample_size": null,
+            "value": "69.62",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Manus",
+            "event_count": null,
+            "sample_size": null,
+            "value": "70.97",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": "SKILLER 69.62; Manus 70.97"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "earthbench_zero_shot_split",
+        "qwen3_5_4b"
+      ]
+    },
+    {
+      "atom_id": "2120bbe7-95d2-5315-ad4b-c02f1848d067",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "On SkillsBench, the SKILLER-generated skill profile averaged 534.33 words, TF-IDF similarity 0.07, 2.96 scripts, 15,747 lines of code, and 0.47 references per task, combining human-like low TF-IDF with the highest script count and code volume among listed methods.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER 534.33 0.07 2.96 15,747 0.47",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "structural_analysis",
+        "skillsbench"
+      ]
+    },
+    {
+      "atom_id": "3b76a9b5-b1bd-5db3-9f57-bd80b83a627f",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Across five benchmarks on Qwen3.5-9B, SKILLER used 2.68M strong-model input tokens and 0.15M output tokens, cost $8.95, and achieved average score 62.86; SkillX cost $14.55 with average score 52.60.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER 2.68M 0.15M 8.95 62.86",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "cost_effectiveness",
+        "token_use"
+      ]
+    },
+    {
+      "atom_id": "cadbe99b-4aa8-5a18-935b-04ee96a3a47d",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "State ablation on Qwen3.5-9B shows the largest degradations when removing the task instance or current trajectory: SkillsBench falls from 73.91 to 1.45 or 2.44, and SWE-Skills-Bench from 82.80 to 20.51 or 24.87.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "w/o x 1.45 20.51 39.76",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "state"
+      ]
+    },
+    {
+      "atom_id": "7534fbea-6146-5b8a-a714-41cb09bc61cb",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Critic ablation shows that removing the Generation operation produces the largest loss among critic-operation ablations, with scores of 36.44 on SkillsBench, 24.90 on SWE-Skills-Bench, and 42.15 on GAIA versus 73.91, 82.80, and 49.40 for full SKILLER.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "w/o Generation 36.44 24.90 42.15",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "critic"
+      ]
+    },
+    {
+      "atom_id": "c9b106ca-b5b4-542f-b5f9-e06e449f6e1b",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Actor ablation shows that removing helper-script synthesis reduces Qwen3.5-9B scores to 55.34 on SkillsBench and 52.30 on SWE-Skills-Bench, the strongest degradation among tested actor components on those two benchmarks.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 7",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "w/o Scripts 55.34 52.30 43.68",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "actor",
+        "helper_scripts"
+      ]
+    },
+    {
+      "atom_id": "a5aa17bd-923a-50f5-b9be-641c1414b358",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "method",
+      "canonical_statement": "The released SkillsBench implementation uses task-specific skill bundles and buffers, 30 tool steps per executor rollout, executor temperature 0.2, actor/critic temperature 0.3, three recent history records, bounded edits, oracle-use rejection, skill snapshots, and rollback to the most recent passing snapshot after regression.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "restores the most recent passing snapshot",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "implementation",
+        "rollback",
+        "skillsbench"
+      ]
+    },
+    {
+      "atom_id": "2ba8c91a-df4f-5d13-8fff-b7ce79b060a5",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "In the springboot-tdd qualitative example, three saved skill versions retain a seven-phase INIT-to-CONCLUDE workflow while progressively adding path/search budgets, evidence limits, interface contracts, and verifier-completion requirements.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "figure",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 6",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "Preserved structure: INIT",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "qualitative_evolution",
+        "swe_skills_bench"
+      ]
+    },
+    {
+      "atom_id": "5d5430fb-1e8a-51db-800d-9785d4a6242c",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "limitation",
+      "canonical_statement": "The SWE-Skills-Bench subset is intentionally selected for tasks where adding a skill changes performance, and the paper states that its results should not be interpreted as estimates over every task in the original benchmark.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "should not be interpreted as estimates over every task",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "selection_bias",
+        "swe_skills_bench"
+      ]
+    },
+    {
+      "atom_id": "430716d3-4b24-5629-baa7-f47ad5f435ea",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "data_availability",
+      "canonical_statement": "The paper states that the SKILLER project is available at https://github.com/DANG-ai/SKILLER.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "abstract",
+        "page": "1",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "The project is available at https://github.com/DANG-ai/SKILLER",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "code_availability"
+      ]
+    },
+    {
+      "atom_id": "271df034-11f2-512e-be92-217fa3f3b1de",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors conclude that executor-specific natural-language skill optimization can let compact models outperform unoptimized models with more than twice their parameter scale on structured tasks and can provide a cost-effective agent-deployment paradigm.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "more than twice their parameter scale",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "author_conclusion",
+        "deployment_claim"
+      ]
+    },
+    {
+      "atom_id": "8ee05e8e-9b6f-5e41-b0e0-075fdc482d21",
+      "publication_id": "e7cd11fe-0c6c-5965-a2c4-fa3c143a48e1",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "SkillLearnBench learning is nonmonotonic: Table 8 reports SKILLER Step 2 as the best listed checkpoint at 32.11% accuracy, while later steps retain most of the gain but do not improve on that checkpoint.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 8",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": "SKILLER Step 2 31 30 31 30.67 32.11",
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-chatgpt-literature-review",
+        "extracted_at": "2026-08-13T03:29:30.673137Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "5.6 Sol",
+        "prompt_version": "@ATOM-2026-08",
+        "input_document_hash": "80fa5ef0ef8feb8025da244afda2b7a821d8da90dba196e4a16733e76fda201f",
+        "extraction_run_id": "2608.10538v1-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T03:29:30.673137Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "learning_dynamics",
+        "skilllearnbench"
+      ]
+    }
+  ]
+}

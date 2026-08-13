@@ -1,0 +1,4012 @@
+{
+  "source_metadata": {
+    "source_id": "2608.10509v1",
+    "title": "MAP-Graph: Provenance-Aware Shared Memory for Multi-Agent Workflows",
+    "authors": [
+      "Yiqi Wang",
+      "Zihao Yan",
+      "Jiaqi Zhang",
+      "Zhangkai Wu",
+      "Mingkai Zheng",
+      "Zequn Sun",
+      "Yanming Zhu",
+      "Taotao Cai"
+    ],
+    "source_type": "arXiv preprint / AI multi-agent systems benchmark and architecture paper",
+    "version_date": "arXiv:2608.10509v1, 11 Aug 2026",
+    "stable_identifier": "arXiv:2608.10509v1",
+    "drive_source_file": "2608.10509v1.pdf",
+    "drive_file_id": "17QlChnIAjfk9nLJ5OVXGev-2rq-rmXen",
+    "sha256": "61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+    "page_count": 14,
+    "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025"
+  },
+  "schema_version": "1.0",
+  "atom_count": 46,
+  "atom_counts_by_kind": {
+    "author_conclusion": 1,
+    "limitation": 6,
+    "method": 13,
+    "qualitative_result": 1,
+    "quantitative_result": 18,
+    "study_objective": 1,
+    "subgroup_result": 6
+  },
+  "atoms": [
+    {
+      "atom_id": "e5f7940a-9ed3-45e9-a2b5-bf8cfa6fa90a",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The evaluation asks whether MAP-Graph improves utility, prevents poisoned/private/revoked memory from crossing read or action boundaries, and preserves those effects across domains, scenarios, and model backbones.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "RQ1",
+        "RQ2",
+        "RQ3",
+        "agent-memory"
+      ]
+    },
+    {
+      "atom_id": "ca65c7aa-6ce6-4e7f-b42f-e54dd2f24172",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "MAP-Graph is implemented as a task-scoped memory backend that couples a NetworkX MultiDiGraph with an ephemeral Chroma collection through shared memory identifiers and resets both between tasks.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "architecture",
+        "provenance-graph",
+        "vector-memory"
+      ]
+    },
+    {
+      "atom_id": "eccf29a1-991c-473b-86f5-b72f5cdba214",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "The provenance graph uses eight registered node types (User, Agent, Tool, Resource, Message, Memory, Claim, Action) and ten registered edge types for authorization, observation, forwarding, derivation, summarization, writing, reading, verification, invalidation, and action use.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "graph-schema",
+        "typed-provenance"
+      ]
+    },
+    {
+      "atom_id": "a9f56fba-0273-4350-9c33-57bc7c7bae04",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "Graph construction uses observable workflow state and task-provided metadata and does not require private chain-of-thought.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "observable-trace",
+        "privacy"
+      ]
+    },
+    {
+      "atom_id": "092040a8-d239-4143-827b-ce11added032",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "A derived memory inherits the intersection of referenced permission scopes; if no referenced scope exists all task agents are eligible, and if the intersection is empty access falls back to the writing agent.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "permission-scope",
+        "inheritance"
+      ]
+    },
+    {
+      "atom_id": "8ec61055-c659-40a2-9b0a-7918b2ca80c3",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "Retrieval first removes permission-ineligible records with CanRead and only then ranks eligible records, preventing semantic similarity from overriding a detected access restriction.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "permission-filter",
+        "retrieval",
+        "hard-constraint"
+      ]
+    },
+    {
+      "atom_id": "b1ca27ce-5643-4de8-8d34-4a35ee1b8248",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "For eligible memories, MAP-Graph multiplies semantic similarity by clipped path trust; path trust is the product of source trust, path integrity, transformation factor, permission validity, verification bonus, and writer reliability, and the top five scores are returned.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "path-trust",
+        "reranking",
+        "Equation 4"
+      ]
+    },
+    {
+      "atom_id": "8f9399fa-4d90-4a9d-939c-ecc956e149eb",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "At action time MAP-Graph uses risk-indexed thresholds of 0.30 for answer actions, 0.60 for low/medium-risk non-answer actions, and 0.85 for high-risk non-answer actions, with ordered rules that can return Block, Reverify, AskUser, Redact, or Allow.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "action-gate",
+        "risk-sensitive",
+        "thresholds"
+      ]
+    },
+    {
+      "atom_id": "816ab708-1698-40b1-a5b1-ab43d8eef52e",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "Affected descendants are retained and marked rather than deleted, so containment restricts retrieval or action use while preserving lineage for audit.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "containment",
+        "audit",
+        "lineage"
+      ]
+    },
+    {
+      "atom_id": "fb656645-ce15-40b2-9543-f0cbf849e512",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "The full benchmark contains 2,700 synthetic tasks generated with seed 42, evenly spanning corporate workflow, software engineering, and research assistance and six experiment groups; oracle labels are 960 Allow, 1,140 Block, 210 Reverify, and 390 Redact.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark",
+        "synthetic",
+        "dataset"
+      ]
+    },
+    {
+      "atom_id": "d7d09d6b-9d58-4f98-9123-e16f861363d1",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "The main comparison evaluates seven baselines plus MAP-Graph on the same 2,700 tasks, six ablations on the same task set, and selected methods across three generation backbones on a fixed stratified 540-task subset.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "baselines",
+        "ablations",
+        "backbone-transfer"
+      ]
+    },
+    {
+      "atom_id": "c6679791-7d64-44cd-bb7d-9f9084337f66",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "Before execution, the runtime sanitizer removes oracle decisions, evaluator rationales, experiment/family/variant identifiers, and should_be_used annotations while retaining provenance, visibility, ownership, trust, risk, permission fields, and authorized source text.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C.1",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "sanitization",
+        "benchmark-leakage-control"
+      ]
+    },
+    {
+      "atom_id": "d42d8824-b2c7-4f16-9bac-ee9347bb53d0",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "Main experiments use Qwen2.5-7B-Instruct at temperature 0 with one four-role round, at most five retrieved memories, and normalized BAAI/bge-small-en-v1.5 embeddings with k=5 for embedding-based methods.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "implementation-settings",
+        "Qwen2.5-7B",
+        "embeddings"
+      ]
+    },
+    {
+      "atom_id": "2501e80c-ad0e-4e18-acd9-9472749fbd97",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "method",
+      "canonical_statement": "Reported 95% intervals use 2,000 cluster-bootstrap samples over semantic families and quantify within-run case-family variation rather than model-inference nondeterminism.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "11",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C.3",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "bootstrap",
+        "uncertainty"
+      ]
+    },
+    {
+      "atom_id": "ca01a223-5df9-4e11-9425-3d4850ac0a6b",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "MAP-Graph achieved 94.96% task success rate (TSR), compared with 74.67% for B6 Flat Provenance, the strongest TSR baseline.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks across three domains",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B6: Flat Provenance",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success rate (TSR)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Oracle-Allow cases require Allow; non-Allow cases credit any safe intervention.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Task success rate (TSR)",
+        "estimate": "94.96",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "94.96",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B6: Flat Provenance",
+            "event_count": null,
+            "sample_size": null,
+            "value": "74.67",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main-result",
+        "Task success rate (TSR)"
+      ]
+    },
+    {
+      "atom_id": "9c5e1ca7-bb86-4748-98d5-130aca9b5b0f",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "MAP-Graph achieved 72.70% exact decision accuracy, compared with 51.07% for B5 Adapted MemLineage, the strongest exact-accuracy baseline.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks across three domains",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B5: Adapted MemLineage",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Exact decision accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Fraction of final decisions exactly matching the oracle label.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Exact decision accuracy",
+        "estimate": "72.7",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "72.7",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B5: Adapted MemLineage",
+            "event_count": null,
+            "sample_size": null,
+            "value": "51.07",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main-result",
+        "Exact decision accuracy"
+      ]
+    },
+    {
+      "atom_id": "04037e62-9511-486d-9521-14116accb777",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "MAP-Graph achieved 90.22% clean-task success, compared with 88.78% for B1 Shared Vector Memory, the highest clean baseline in Table 1.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks across three domains",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B1: Shared Vector Memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Clean task success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Allow rate on the clean-utility and clean-compression groups.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Clean task success",
+        "estimate": "90.22",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "90.22",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B1: Shared Vector Memory",
+            "event_count": null,
+            "sample_size": null,
+            "value": "88.78",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main-result",
+        "Clean task success"
+      ]
+    },
+    {
+      "atom_id": "2eaeabbd-14d4-4b01-b16c-774d25a76376",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "MAP-Graph had a 1.52% unsafe-action rate, compared with 20.81% for B6 Flat Provenance, the lowest unsafe baseline in Table 1.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks across three domains",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B6: Flat Provenance",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Unsafe action rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Impermissible execution rate across all benchmark tasks.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Unsafe action rate",
+        "estimate": "1.52",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "1.52",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B6: Flat Provenance",
+            "event_count": null,
+            "sample_size": null,
+            "value": "20.81",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main-result",
+        "Unsafe action rate"
+      ]
+    },
+    {
+      "atom_id": "706eae05-904a-429b-9a1b-4cbafc92a35b",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "MAP-Graph had 0.00% attack success rate in the poisoned-memory group, compared with 22.22% for B5 Adapted MemLineage, the lowest baseline ASR.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks across three domains",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B5: Adapted MemLineage",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Attack success rate (ASR)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Impermissible execution rate in the poisoned-memory group.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Attack success rate (ASR)",
+        "estimate": "0.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B5: Adapted MemLineage",
+            "event_count": null,
+            "sample_size": null,
+            "value": "22.22",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main-result",
+        "Attack success rate (ASR)"
+      ]
+    },
+    {
+      "atom_id": "3a131dda-a6f5-4106-a251-387d3496ea67",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "MAP-Graph had 0.00% measured private-memory leakage, compared with 18.00% for B2 Isolated Vector Memory, the lowest baseline leakage rate.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks across three domains",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B2: Isolated Vector Memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Private-memory leakage rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Private cases ending in Allow or exposing the canary.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Private-memory leakage rate",
+        "estimate": "0.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B2: Isolated Vector Memory",
+            "event_count": null,
+            "sample_size": null,
+            "value": "18.0",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main-result",
+        "Private-memory leakage rate"
+      ]
+    },
+    {
+      "atom_id": "71941abd-9f1c-4d84-814b-0967434e98a4",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "MAP-Graph blocked every observed unauthorized read (0.00% conditional unauthorized access), whereas B4 Adapted Collaborative Memory allowed 43.08%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks across three domains",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B4: Adapted Collaborative Memory",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Conditional unauthorized access (UAcc)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Successful unauthorized reads divided by observed unauthorized-read attempts.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Conditional unauthorized access (UAcc)",
+        "estimate": "0.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B4: Adapted Collaborative Memory",
+            "event_count": null,
+            "sample_size": null,
+            "value": "43.08",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main-result",
+        "Conditional unauthorized access (UAcc)"
+      ]
+    },
+    {
+      "atom_id": "0fe1a11b-3ee0-41fd-b6f7-96ea4e177b87",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "MAP-Graph had 0.00% revocation violation, compared with 23.78% for B5 Adapted MemLineage, the lowest baseline revocation violation rate.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks across three domains",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B5: Adapted MemLineage",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Revocation violation rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Allow after permission withdrawal.",
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Revocation violation rate",
+        "estimate": "0.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B5: Adapted MemLineage",
+            "event_count": null,
+            "sample_size": null,
+            "value": "23.78",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "main-result",
+        "Revocation violation rate"
+      ]
+    },
+    {
+      "atom_id": "cf773226-fa25-4a0c-8a39-cfa5b2339b85",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "subgroup_result",
+      "canonical_statement": "In the action-risk sensitivity group, MAP-Graph produced 41 impermissible Allow decisions among 450 tasks (9.11%), the residual safety failure concentrated in this scenario.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Action-risk sensitivity benchmark tasks (Exp-5)",
+        "sample_size": 450,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Impermissible Allow rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Impermissible Allow outcomes in Exp-5",
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "percent",
+        "estimate": "9.11",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "9.11",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Exp-5",
+        "residual-failure"
+      ]
+    },
+    {
+      "atom_id": "d168190d-f516-4c6d-ba25-e8c9f13b6a12",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "subgroup_result",
+      "canonical_statement": "In Exp-5, MAP-Graph achieved 89.33% TSR versus 68.22% for B6 Flat Provenance, while its unsafe-action rate was 9.11%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "13",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 7",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Action-risk sensitivity benchmark tasks (Exp-5)",
+        "sample_size": 450,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B6: Flat Provenance",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success rate (TSR)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Task success rate (TSR)",
+        "estimate": "89.33",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "89.33",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B6: Flat Provenance",
+            "event_count": null,
+            "sample_size": null,
+            "value": "68.22",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Exp-5",
+        "scenario-result"
+      ]
+    },
+    {
+      "atom_id": "fe6a1bd4-6844-4664-bb9c-5811c0597a9c",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Removing the action-time gate increased the unsafe-action rate from 1.52% with full MAP-Graph to 27.00%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks used for ablation variants",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "No action-time gate",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Unsafe action rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Unsafe action rate",
+        "estimate": "27.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No action-time gate",
+            "event_count": null,
+            "sample_size": null,
+            "value": "27.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Full MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "1.52",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "Unsafe action rate"
+      ]
+    },
+    {
+      "atom_id": "e58dae32-b29e-4a69-81ef-49d87d3cf97c",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Removing containment increased the unsafe-action rate from 1.52% with full MAP-Graph to 25.41%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks used for ablation variants",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "No containment",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Unsafe action rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Unsafe action rate",
+        "estimate": "25.41",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No containment",
+            "event_count": null,
+            "sample_size": null,
+            "value": "25.41",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Full MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "1.52",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "Unsafe action rate"
+      ]
+    },
+    {
+      "atom_id": "d263e237-d1ac-4cc8-b903-b8e500f48bad",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Removing the permission filter increased conditional unauthorized access from 0.00% to 100.00%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks used for ablation variants",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "No permission filter",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Conditional unauthorized access (UAcc)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Conditional unauthorized access (UAcc)",
+        "estimate": "100.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No permission filter",
+            "event_count": null,
+            "sample_size": null,
+            "value": "100.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Full MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.0",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "Conditional unauthorized access (UAcc)"
+      ]
+    },
+    {
+      "atom_id": "33f03d1d-fa6d-4e30-b083-cfee9a125ed0",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Removing the permission filter increased TSR from 94.96% to 96.00%, despite the access-control failure measured by UAcc.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks used for ablation variants",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "No permission filter",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success rate (TSR)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Task success rate (TSR)",
+        "estimate": "96.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No permission filter",
+            "event_count": null,
+            "sample_size": null,
+            "value": "96.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Full MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "94.96",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "Task success rate (TSR)"
+      ]
+    },
+    {
+      "atom_id": "8ddef760-9bff-4cb4-bfe0-482fad69d243",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Removing trust propagation reduced TSR from 94.96% to 87.37%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks used for ablation variants",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "No trust propagation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success rate (TSR)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Task success rate (TSR)",
+        "estimate": "87.37",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No trust propagation",
+            "event_count": null,
+            "sample_size": null,
+            "value": "87.37",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Full MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "94.96",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "Task success rate (TSR)"
+      ]
+    },
+    {
+      "atom_id": "87ca3e36-c064-4be7-bcb6-618d6ed0774e",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Removing trust propagation increased the unsafe-action rate from 1.52% to 8.56%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks used for ablation variants",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "No trust propagation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Unsafe action rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Unsafe action rate",
+        "estimate": "8.56",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "No trust propagation",
+            "event_count": null,
+            "sample_size": null,
+            "value": "8.56",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Full MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "1.52",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "Unsafe action rate"
+      ]
+    },
+    {
+      "atom_id": "524ce0c8-f633-48fa-8c9e-583ed114866d",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The compressed-graph variant retained 94.33% TSR versus 94.96% for full MAP-Graph.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks used for ablation variants",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Compressed graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success rate (TSR)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Task success rate (TSR)",
+        "estimate": "94.33",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Compressed graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "94.33",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Full MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "94.96",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "Task success rate (TSR)"
+      ]
+    },
+    {
+      "atom_id": "c8416780-d0cf-4829-bf6d-e8ce0136e462",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The compressed-graph variant reduced mean exported graph edges from 246.78 to 70.68 while retaining the decision mechanisms.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "13",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 10",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks used for ablation variants",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Compressed graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Mean exported graph edges",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean edge count",
+        "estimate": "70.68",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Compressed graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "70.68",
+            "unit": "edges"
+          },
+          {
+            "arm_label": "Full MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "246.78",
+            "unit": "edges"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "compression",
+        "graph-size"
+      ]
+    },
+    {
+      "atom_id": "a449bd9a-f965-4129-9448-fd2f60136a5c",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "subgroup_result",
+      "canonical_statement": "On the 540-task Qwen2.5-7B-Instruct transfer subset, MAP-Graph achieved 72.59% exact decision accuracy versus 49.26% for B5 Adapted MemLineage, the strongest exact-accuracy baseline in that backbone block.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Fixed stratified 540-task transfer subset evaluated with Qwen2.5-7B-Instruct",
+        "sample_size": 540,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B5: Adapted MemLineage",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Exact decision accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Fraction of final decisions exactly matching the oracle label.",
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Exact decision accuracy",
+        "estimate": "72.59",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "72.59",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B5: Adapted MemLineage",
+            "event_count": null,
+            "sample_size": null,
+            "value": "49.26",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "backbone-transfer",
+        "Qwen2.5-7B-Instruct"
+      ]
+    },
+    {
+      "atom_id": "c63dfa33-abfc-4fc5-9504-0a2a74a44fe3",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "subgroup_result",
+      "canonical_statement": "On the 540-task GLM-4-9B-0414 transfer subset, MAP-Graph achieved 74.81% exact decision accuracy versus 72.59% for B5 Adapted MemLineage, the strongest exact-accuracy baseline in that backbone block.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Fixed stratified 540-task transfer subset evaluated with GLM-4-9B-0414",
+        "sample_size": 540,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B5: Adapted MemLineage",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Exact decision accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Fraction of final decisions exactly matching the oracle label.",
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Exact decision accuracy",
+        "estimate": "74.81",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "74.81",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B5: Adapted MemLineage",
+            "event_count": null,
+            "sample_size": null,
+            "value": "72.59",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "backbone-transfer",
+        "GLM-4-9B-0414"
+      ]
+    },
+    {
+      "atom_id": "c50e61af-a3d0-4a7e-8213-c64c00fe7ce4",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "subgroup_result",
+      "canonical_statement": "On the 540-task Llama-3.1-8B-Instruct transfer subset, MAP-Graph achieved 80.00% exact decision accuracy versus 70.93% for B5 Adapted MemLineage, the strongest exact-accuracy baseline in that backbone block.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Fixed stratified 540-task transfer subset evaluated with Llama-3.1-8B-Instruct",
+        "sample_size": 540,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B5: Adapted MemLineage",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Exact decision accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": "Fraction of final decisions exactly matching the oracle label.",
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Exact decision accuracy",
+        "estimate": "80.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "80.0",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B5: Adapted MemLineage",
+            "event_count": null,
+            "sample_size": null,
+            "value": "70.93",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "backbone-transfer",
+        "Llama-3.1-8B-Instruct"
+      ]
+    },
+    {
+      "atom_id": "3def86e1-12bf-47cb-979c-2e53b88399d7",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "subgroup_result",
+      "canonical_statement": "On the GLM-4-9B-0414 transfer subset, MAP-Graph TSR was 86.30%, below B6 Flat Provenance at 88.89%, demonstrating that utility did not dominate every baseline under every backbone.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Fixed stratified 540-task transfer subset evaluated with GLM-4-9B-0414",
+        "sample_size": 540,
+        "subgroup": true,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "B6: Flat Provenance",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task success rate (TSR)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Task success rate (TSR)",
+        "estimate": "86.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "86.3",
+            "unit": "%"
+          },
+          {
+            "arm_label": "B6: Flat Provenance",
+            "event_count": null,
+            "sample_size": null,
+            "value": "88.89",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "backbone-transfer",
+        "utility-safety-tradeoff"
+      ]
+    },
+    {
+      "atom_id": "3d266617-6711-45d3-8e28-db16278111f8",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "On the common 540-task transfer subset, MAP-Graph rejected every observed unauthorized read under Qwen2.5-7B, GLM-4-9B, and Llama-3.1-8B.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 11",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "backbone-transfer",
+        "access-control"
+      ]
+    },
+    {
+      "atom_id": "70adb44f-29f9-450b-bc6a-36ff4ac26cf6",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "MAP-Graph made 737 exact-decision errors among 2,700 main-run tasks.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix F.6",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks across three domains",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Exact-decision errors",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "count",
+        "estimate": "737",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "MAP-Graph",
+            "event_count": null,
+            "sample_size": null,
+            "value": "737",
+            "unit": "errors"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "error-analysis"
+      ]
+    },
+    {
+      "atom_id": "8e9fa041-7b77-4ee0-8d2f-83be18345129",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Of MAP-Graph’s 737 exact-decision errors, 601 were safe but non-exact interventions, 95 were unnecessary interventions on oracle-Allow tasks, and 41 were impermissible Allow decisions, all in Exp-5.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "14",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix F.6",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": {
+        "label": "Controlled synthetic benchmark tasks across three domains",
+        "sample_size": 2700,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "MAP-Graph",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Impermissible Allow errors",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "safety",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "count",
+        "estimate": "41",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Impermissible Allow errors",
+            "event_count": null,
+            "sample_size": null,
+            "value": "41",
+            "unit": "errors"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "error-analysis",
+        "Exp-5"
+      ]
+    },
+    {
+      "atom_id": "dd34908c-5f20-4556-9004-55f5bec4d414",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "limitation",
+      "canonical_statement": "The benchmark is synthetic and templated, actions are simulated, and each task uses only one four-agent round.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "external-validity",
+        "simulation"
+      ]
+    },
+    {
+      "atom_id": "860196a6-8680-4e08-abc7-c75866d57c6e",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "limitation",
+      "canonical_statement": "A single temperature-zero run does not estimate inference nondeterminism, and a nontrivial fraction of outer calls reached the 2,048-token cap.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "single-run",
+        "nondeterminism",
+        "token-cap"
+      ]
+    },
+    {
+      "atom_id": "e2c728cc-51ec-4df4-bb1a-dcc41d95866d",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "limitation",
+      "canonical_statement": "TSR can credit a safe but non-exact intervention, so it must be interpreted together with exact decision accuracy.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "metric-interpretation",
+        "TSR"
+      ]
+    },
+    {
+      "atom_id": "c6d45ed1-c67c-4480-95fe-947e2b83e3e3",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "limitation",
+      "canonical_statement": "B3 through B5 are benchmark adaptations of prior systems rather than complete reproductions.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "baseline-validity",
+        "adaptations"
+      ]
+    },
+    {
+      "atom_id": "37b08720-d999-451a-bebe-c9a646b0fe66",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "limitation",
+      "canonical_statement": "Latency is not reported as a paper-facing metric because experiments used concurrent remote shared endpoints, preventing separation of provider queuing from local memory overhead.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "12",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix E.2",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "latency",
+        "cost"
+      ]
+    },
+    {
+      "atom_id": "05b9924e-35fb-4daf-89ee-0eccb3ea96d9",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "limitation",
+      "canonical_statement": "MAP-Graph does not implement a generic supersession or contradiction state machine and does not claim automatic open-domain conflict resolution or a universal notion of truth.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "scope-boundary",
+        "truth-maintenance"
+      ]
+    },
+    {
+      "atom_id": "e79d4f9a-6be5-48b3-b8de-91d3f41d67b3",
+      "publication_id": "3b2c69ba-47d3-5c84-bf6e-a54286d93025",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "Within the controlled benchmark, the authors conclude that provenance can be used as an operational control for retrieval and actions rather than only as post-hoc audit metadata, while calling for repeated, less templated, cross-session, and deployment-scale testing.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "openai-literature-review-project",
+        "extracted_at": "2026-08-13T02:57:34.933974Z",
+        "software_name": "ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-project-macro-2026-08",
+        "input_document_hash": "sha256:61136a641d010af3b81880e757465406c0b1fcd25cfbfb303efc7199879fcb55",
+        "extraction_run_id": "2608.10509v1-task14-atom-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "extracted",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T02:57:34.933974Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "author-conclusion",
+        "deployment-gap"
+      ]
+    }
+  ]
+}

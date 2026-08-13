@@ -1,0 +1,4483 @@
+[
+  {
+    "atom_id": "78f008f6-3f65-521e-b3a5-11eb1996d657",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "study_objective",
+    "canonical_statement": "The study evaluates whether white-box, black-box consistency, and reflexive uncertainty-quantification methods developed for single-turn language-model outputs remain useful for predicting success of multi-turn LLM-agent trajectories.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "abstract",
+      "page": "1",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "agent_uq",
+      "study_objective"
+    ]
+  },
+  {
+    "atom_id": "a0352add-5c24-52f9-8b47-1fb6beab995c",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "The evaluation uses four multi-turn tool-use datasets: 200 BFCL-v4 tasks and 114 retail, 50 airline, and 114 telecom tasks from tau2-bench.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "datasets",
+      "bfcl-v4",
+      "tau2-bench"
+    ]
+  },
+  {
+    "atom_id": "53059123-1aec-5b6b-a237-8eb8dce2bd6d",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "outcome_definition",
+    "canonical_statement": "Completed trajectories are labeled with each benchmark's binary success reward based on state, response, required-action, or related task checks, and this binary label is the prediction target for uncertainty scoring.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": "Binary benchmark reward for completed trajectory",
+      "outcome_type": "primary",
+      "measurement_method": "Benchmark-specific grading",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "trajectory_success",
+      "benchmark_reward"
+    ]
+  },
+  {
+    "atom_id": "f239f342-6016-520c-92a4-4cecbf1e820a",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "Five scored agent models are evaluated: gpt-4o-mini, gpt-oss-20b, Qwen2.5-7B, Qwen3.5-9B, and MiniMax-M3.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "models"
+    ]
+  },
+  {
+    "atom_id": "5748a4c2-bf04-5a50-9ab7-d5d08341c4e3",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "For each task the study records one greedy reference trajectory at temperature 0 with top-5 token log probabilities and three additional sampled trajectories at temperature 0.7 for black-box consistency measurement.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "sampling",
+      "greedy_reference",
+      "m=3"
+    ]
+  },
+  {
+    "atom_id": "82183143-055e-50af-a897-970f688feb20",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "White-box scores are computed over the committed action-token span of each agent turn rather than over the full generation or reasoning tokens.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "3",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "white_box",
+      "action_tokens"
+    ]
+  },
+  {
+    "atom_id": "e5e32081-0dec-5f85-a1c6-36c236b164e2",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "Cross-turn white-box aggregation includes first, last, arithmetic mean, minimum, and position-weighted early and late combinations of per-turn confidence.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "3",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "white_box",
+      "aggregation"
+    ]
+  },
+  {
+    "atom_id": "f520a8f6-cac3-5ecc-99e5-94900d52da0e",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "The black-box consistency family includes final-message non-contradiction probability, first-action consistency, action-set consistency, action-distribution consistency, action-edit consistency, and trajectory-equivalence rate.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "3",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "black_box",
+      "consistency"
+    ]
+  },
+  {
+    "atom_id": "550182a8-b2e4-5ffe-8d1d-2986761857e6",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "Non-Contradiction Probability compares the reference and sampled final messages using bidirectional contradiction probabilities from microsoft/deberta-large-mnli.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "4",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "NCP",
+      "NLI"
+    ]
+  },
+  {
+    "atom_id": "eb1d7f8e-f929-55d3-bf09-1b508192ba42",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "First-Action Consistency is the fraction of sampled trajectories whose first action type matches the reference trajectory's first action type.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "4",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "FAC",
+      "action_consistency"
+    ]
+  },
+  {
+    "atom_id": "5099a75d-7162-580a-a50e-d944c34fc946",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "Action-Set Consistency is the mean Jaccard similarity between the unique action-type sets of the reference and sampled trajectories.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "4",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "ASC",
+      "action_consistency"
+    ]
+  },
+  {
+    "atom_id": "ac81802c-a344-5ea8-98aa-7681cccb50d1",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "Action-Distribution Consistency is one minus the mean Jensen-Shannon divergence between action-type frequency distributions of the reference and sampled trajectories.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "4",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "ADC",
+      "action_consistency"
+    ]
+  },
+  {
+    "atom_id": "79be8927-d1bf-5e48-bd9c-f62a3b1ca2cd",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "Action-Edit Consistency is one minus normalized Levenshtein edit distance between ordered action-type sequences, making it sensitive to action order and trajectory length.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "4",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "AEC",
+      "action_consistency"
+    ]
+  },
+  {
+    "atom_id": "b23fc6fe-4856-5a4f-ab68-3b91ffa982e5",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "Trajectory Equivalence Rate uses gemini-flash-lite to judge whether each sampled full trajectory reaches the same task-relevant outcome as the reference trajectory without showing the judge the hidden task instructions or reward.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "4",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "TER",
+      "trajectory_equivalence",
+      "LLM_judge"
+    ]
+  },
+  {
+    "atom_id": "effe0211-da6c-59bc-9d63-2e425b704043",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "The P(True) reflexive scorer asks the scored model whether its trajectory succeeded and uses the probability assigned to the TRUE token as confidence.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "reflexive",
+      "P(True)"
+    ]
+  },
+  {
+    "atom_id": "364dda2f-567e-5187-a933-9b4d8d5be057",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "The verbalized-confidence reflexive scorer asks the model for a Yes/No success judgment and the probability that the judgment is correct, converting a No judgment to success confidence by taking its complement.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "reflexive",
+      "verbalized_confidence"
+    ]
+  },
+  {
+    "atom_id": "746e6c13-149d-54ec-90fb-470f745ee6ee",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "AUROC is the primary discrimination metric; the study also reports task-clustered bootstrap uncertainty, AUPRC, selective-prediction prediction rejection ratio, and expected calibration error.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "metrics",
+      "AUROC",
+      "AUPRC",
+      "PRR",
+      "ECE"
+    ]
+  },
+  {
+    "atom_id": "370dae65-a6c2-5197-b940-b51ca566b477",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "For tau2-bench, the simulated user is fixed to gpt-4.1-mini at temperature 0 to minimize simulator-side sampling variance.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "user_simulator",
+      "tau2-bench"
+    ]
+  },
+  {
+    "atom_id": "bc7f4fe7-c7ab-59d8-8700-89eb790d46e1",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "The SAUP-inspired propagation controls are adaptations to action-level traces rather than faithful reproductions of SAUP because the recorded traces lack clean ReAct thought spans and step-level situational labels.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "12",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix A.1",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "SAUP",
+      "propagation_control"
+    ]
+  },
+  {
+    "atom_id": "87988f34-b1b5-5fc9-96e6-2697479fe571",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "method",
+    "canonical_statement": "The study uses a text-action interface as a measurement surface so committed action tokens are observable and carry comparable token log probabilities across the evaluated model/provider stack.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "18",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix I",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "action_interface",
+      "white_box"
+    ]
+  },
+  {
+    "atom_id": "034632b3-5b26-5a09-b2a7-2d411acb5b09",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Across model-dataset cells, scorer rankings under AUPRC and PRR closely agree with AUROC rankings, with median Spearman correlations of 0.94 and 0.95, respectively.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "Model-dataset cells across BFCL-v4 and tau2-bench",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "UQ scorer rankings",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Rank agreement with AUROC",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Median Spearman rank correlation",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Spearman rank correlation with AUPRC",
+      "estimate": "0.94",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "Median Spearman rank correlation 0.94 with AUPRC and 0.95 with PRR"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "metric_agreement"
+    ]
+  },
+  {
+    "atom_id": "0bb4185a-482d-58e5-8729-5e625895908d",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For columns with at least 20 minority-class trajectories, the 95% task-clustered bootstrap intervals around main AUROC estimates have median half-width 0.10.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "Model-domain columns with at least 20 minority-class trajectories",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Task-clustered bootstrap AUROC estimation",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "AUROC interval half-width",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "1000-resample task-clustered bootstrap",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Median 95% interval half-width",
+      "estimate": "0.1",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "bootstrap",
+      "uncertainty"
+    ]
+  },
+  {
+    "atom_id": "8e9e5497-84d2-5aac-8c09-f93ec8d3efe0",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "The largest tau2-bench white-box AUROC point estimate is 0.725 for SP with mean aggregation on Qwen3.5-9B telecom; changing the aggregation for the same base score can reduce AUROC to about 0.228.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "Qwen3.5-9B on tau2-bench telecom",
+      "sample_size": 114,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Sequence Probability with mean aggregation",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "AUROC",
+      "estimate": "0.725",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "white_box",
+      "aggregation_instability",
+      "telecom"
+    ]
+  },
+  {
+    "atom_id": "bfa6e34f-d401-5403-a1a7-9390dd95b844",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Across the full white-box grid, 91 of 240 model-dataset-scorer cells have AUROC below 0.5.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "240 white-box model-dataset-scorer cells",
+      "sample_size": 240,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "White-box UQ scorers",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Sub-chance discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Count of AUROC values below 0.5",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Cells with AUROC below 0.5",
+      "estimate": "91",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "white_box",
+      "anti_correlation"
+    ]
+  },
+  {
+    "atom_id": "6a07ce24-4486-5def-b0ff-7d09568c3493",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Twenty-one of the 240 white-box cells have 95% bootstrap intervals lying entirely below AUROC 0.5.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "240 white-box model-dataset-scorer cells",
+      "sample_size": 240,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "White-box UQ scorers",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Bootstrap-resolved sub-chance discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "95% task-clustered bootstrap",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Cells with interval entirely below AUROC 0.5",
+      "estimate": "21",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "white_box",
+      "resolved_anti_correlation",
+      "bootstrap"
+    ]
+  },
+  {
+    "atom_id": "d06ce7b5-471a-5568-9f84-90d8502564c5",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For gpt-4o-mini, LNSP with minimum aggregation has AUROC 0.72 on retail but 0.24 on telecom, illustrating model-domain dependence of the same white-box aggregation rule.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "figure",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 1",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "gpt-4o-mini on tau2 retail and telecom",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "LNSP minimum aggregation",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Retail AUROC",
+      "estimate": "0.72",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "Retail 0.72; telecom 0.24"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "white_box",
+      "LNSP",
+      "aggregation_instability"
+    ]
+  },
+  {
+    "atom_id": "2f1fa74c-e1e1-5bec-b111-c7646143103a",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For gpt-4o-mini, LNSP-minimum selective prediction has PRR 0.44 on retail but -0.28 on telecom.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "gpt-4o-mini on tau2 retail and telecom",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "LNSP minimum aggregation",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Selective prediction",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Prediction rejection ratio",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Retail PRR",
+      "estimate": "0.44",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "Retail PRR 0.44; telecom PRR -0.28"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "white_box",
+      "selective_prediction",
+      "sign_instability"
+    ]
+  },
+  {
+    "atom_id": "b7932fcb-a8bc-5187-889d-f55257b41a14",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "The strongest SAUP-inspired propagation control averages 0.434 AUROC across the 15 tau2 model-domain cells, below the best fixed naive aggregation at 0.53.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "12",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix A.1",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "15 tau2 model-domain cells",
+      "sample_size": 15,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Prop-PD SAUP-inspired control",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Mean AUROC",
+      "estimate": "0.434",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "SAUP",
+      "propagation_control"
+    ]
+  },
+  {
+    "atom_id": "260ff8bb-8297-5885-92e5-d0bc7a200e95",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On BFCL-v4, action- or trajectory-level consistency reaches approximately 0.71 to 0.77 AUROC for four of the five evaluated models.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "BFCL-v4 model columns",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Action- or trajectory-level consistency scorers",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Upper AUROC",
+      "estimate": "0.77",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "about 0.71–0.77 AUROC for four models"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "black_box",
+      "BFCL-v4"
+    ]
+  },
+  {
+    "atom_id": "8658b01a-ea4b-5b0c-8301-cdccd16f54aa",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Trajectory Equivalence Rate reaches 0.868 AUROC for Qwen3.5-9B on tau2-airline.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "14",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "Qwen3.5-9B on tau2-airline",
+      "sample_size": 50,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Trajectory Equivalence Rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "AUROC",
+      "estimate": "0.868",
+      "interval": {
+        "lower": "0.728",
+        "upper": "0.977",
+        "confidence_level_percent": "95",
+        "interval_type": "confidence_interval"
+      },
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "TER",
+      "airline",
+      "black_box"
+    ]
+  },
+  {
+    "atom_id": "fb8a65db-af24-5acf-8e04-b2d93489bc05",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Action-Set Consistency reaches 0.819 AUROC for gpt-oss-20b on tau2-airline.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "19",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 9",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "gpt-oss-20b on tau2-airline",
+      "sample_size": 50,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Action-Set Consistency",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "AUROC",
+      "estimate": "0.819",
+      "interval": {
+        "lower": "0.685",
+        "upper": "0.93",
+        "confidence_level_percent": "95",
+        "interval_type": "confidence_interval"
+      },
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "ASC",
+      "airline",
+      "black_box"
+    ]
+  },
+  {
+    "atom_id": "b05662e7-777b-5ba5-adcc-ae8878dcc3e2",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Trajectory Equivalence Rate falls to 0.342 AUROC for gpt-4o-mini on tau2-telecom, where the greedy trajectory success rate is 11%.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "gpt-4o-mini on tau2-telecom",
+      "sample_size": 114,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Trajectory Equivalence Rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "AUROC",
+      "estimate": "0.342",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "TER",
+      "telecom",
+      "failure_failure"
+    ]
+  },
+  {
+    "atom_id": "36a050c7-e9f2-56a1-9e45-bd249eb3496a",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On BFCL-v4, P(True) AUROC ranges from about 0.746 to 0.852 across the five scored models.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "Five model columns on BFCL-v4",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "P(True) reflexive scoring",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Maximum AUROC",
+      "estimate": "0.852",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "range 0.746–0.852"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "reflexive",
+      "BFCL-v4",
+      "P(True)"
+    ]
+  },
+  {
+    "atom_id": "4e305314-8122-53f7-b241-96f77d5b1720",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Across tau2-bench, the best reflexive AUROC reported by domain is 0.710 on retail, 0.852 on telecom, and 0.703 on airline.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "tau2-bench model-domain cells",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Best reflexive scorer by domain",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Telecom best AUROC",
+      "estimate": "0.852",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "Retail 0.710; telecom 0.852; airline 0.703"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "reflexive",
+      "tau2-bench"
+    ]
+  },
+  {
+    "atom_id": "7327a877-e289-51a3-b498-65d99af32690",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Qwen3.5-9B and MiniMax-M3 each succeed on 74% of airline tasks, yet Qwen3.5-9B has weak reflexive AUROC while MiniMax-M3 retains a stronger P(True) signal, showing that reflexive-scorer usefulness does not track task success rate directly.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "Qwen3.5-9B and MiniMax-M3 on tau2-airline",
+      "sample_size": 50,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Reflexive scoring",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Greedy trajectory success rate",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Benchmark reward rate",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Success rate",
+      "estimate": "0.74",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "reflexive",
+      "airline",
+      "success_rate"
+    ]
+  },
+  {
+    "atom_id": "c1177d57-7087-58ab-a99b-19ed7e18cc2a",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "At the family level, action consistency has mean peak-per-cell AUROC 0.705, reflexive scoring 0.691, judged consistency 0.686, white-box scoring 0.628, and message consistency 0.603.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 2",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "Available model-benchmark cells",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Action consistency family",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Family-level discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Mean of family highest AUROC per cell",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Mean AUROC",
+      "estimate": "0.705",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "Action consistency 0.705; reflexive 0.691; judged consistency 0.686; white-box 0.628; message consistency 0.603"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "family_comparison",
+      "compute_budget"
+    ]
+  },
+  {
+    "atom_id": "f0170d39-2b59-5f5d-9bb9-bc025189ab98",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "The gemini-flash-lite judge used by TER adds approximately $0.002 per task beyond the cost of sampled trajectories.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "TER-scored tasks",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "gemini-flash-lite trajectory-equivalence judge",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Auxiliary judging cost",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Reported per-task cost",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "USD per task",
+      "estimate": "0.002",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "TER",
+      "cost"
+    ]
+  },
+  {
+    "atom_id": "3ee83637-c7f5-57de-98a8-230b9367c121",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "In the agent-only prefix-conditioned airline ablation with gpt-4o-mini, the best local next-action consistency score reaches only 0.588 AUROC.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "22",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 12",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "gpt-4o-mini tau2-airline tasks",
+      "sample_size": 50,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Mean action-name agreement",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "AUROC",
+      "estimate": "0.588",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "agent_only",
+      "prefix_conditioned",
+      "ablation"
+    ]
+  },
+  {
+    "atom_id": "8203b76a-c580-5dcb-a630-f38b9b364b31",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Against database-state ground truth on retail and airline, the trajectory-equivalence judge attains precision 0.88, recall 0.93, and F1 0.90 over 1,365 judged pairs with determinate database-state equivalence.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "15",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix F",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "Determinate retail and airline trajectory pairs",
+      "sample_size": 1365,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "gemini-flash-lite trajectory-equivalence judge",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Database-state equivalence classification",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Precision/recall/F1",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Precision",
+      "estimate": "0.88",
+      "interval": {
+        "lower": "0.85",
+        "upper": "0.9",
+        "confidence_level_percent": "95",
+        "interval_type": "confidence_interval"
+      },
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "Precision 0.88; recall 0.93; F1 0.90"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "TER",
+      "judge_validation"
+    ]
+  },
+  {
+    "atom_id": "6200bfb6-afdd-5ef9-b5fa-3a4e2098addc",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Replacing gemini-flash-lite with gemini-flash on airline yields 91% judge agreement (Cohen kappa 0.81) and changes TER AUROC by 0.021 on average and at most 0.062 across the five models.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "15",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix F",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "Airline trajectory pairs across five scored models",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "gemini-flash versus gemini-flash-lite judge",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Judge agreement",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Pairwise agreement",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Agreement proportion",
+      "estimate": "0.91",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "TER",
+      "judge_sensitivity"
+    ]
+  },
+  {
+    "atom_id": "aabe88fe-d1f6-59a5-b752-ba12478f384c",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Increasing sampled trajectories from m=1 to m=3 raises mean TER AUROC across the 15 tau2 model-domain cells from 0.63 to 0.68; on airline the mean rises from 0.62 to 0.69.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "16",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix F",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "15 tau2 model-domain cells",
+      "sample_size": 15,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "TER with m=3 sampled trajectories",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Mean AUROC at m=3",
+      "estimate": "0.68",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "m=1 0.63; m=3 0.68; airline 0.62 to 0.69"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "TER",
+      "sample_budget"
+    ]
+  },
+  {
+    "atom_id": "4d518860-2c43-53f2-ab79-199372d87127",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For Qwen3.5-9B on airline, TER AUROC increases from 0.76 at one sampled draw to 0.87 at three sampled draws.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "16",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix F",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "Qwen3.5-9B on tau2-airline",
+      "sample_size": 50,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "TER with three sampled trajectories",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "AUROC at m=3",
+      "estimate": "0.87",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "m=1 0.76; m=3 0.87"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "TER",
+      "sample_budget",
+      "airline"
+    ]
+  },
+  {
+    "atom_id": "2b0ca9e3-da11-582c-8ef6-58561228a168",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Across tau2-bench trajectory pairs, TER averages 0.95 for success-success pairs but 0.40 for failure-failure pairs; on airline the corresponding values are 0.87 and 0.37.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "20",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 10",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "tau2 original-versus-sample trajectory pairs",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Trajectory Equivalence Rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Pairwise trajectory consistency",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Mean TER by pair outcome",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Success-success mean TER",
+      "estimate": "0.95",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "All tau2 success-success 0.95; failure-failure 0.40; airline 0.87 and 0.37"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "TER",
+      "failure_failure",
+      "stuck_policy"
+    ]
+  },
+  {
+    "atom_id": "632ef99f-8347-5f4f-9280-81d16f6809c0",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "In tau2 retail with gpt-4o-mini, native tool calling succeeds on 46 of 114 greedy tasks (40.4%) versus 42 of 114 (36.8%) with the text-action interface; the 3.5 percentage-point difference is not significant at the 5% level.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "19",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix I",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "gpt-4o-mini tau2-retail tasks",
+      "sample_size": 114,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Native tool-calling interface",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Text-action interface",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Greedy trajectory success",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Benchmark success rate",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Native success proportion",
+      "estimate": "0.404",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": "not significant at 5% level",
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "Native 46/114 (40.4%); text-action 42/114 (36.8%)"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "native_tool_calling",
+      "ablation",
+      "retail"
+    ]
+  },
+  {
+    "atom_id": "ecf9d9ba-bdc7-5313-8f91-b9e7a846bc6f",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "In the same retail interface ablation, TER AUROC is 0.759 with text actions and 0.761 with native tool calling, while AEC is 0.678 and 0.681, respectively.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "22",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 13",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "gpt-4o-mini tau2-retail tasks",
+      "sample_size": 114,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Native tool-calling interface",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Text-action interface",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Native TER AUROC",
+      "estimate": "0.761",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "TER 0.759 text-action vs 0.761 native; AEC 0.678 vs 0.681"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "native_tool_calling",
+      "TER",
+      "AEC"
+    ]
+  },
+  {
+    "atom_id": "d566908f-b622-589c-9a65-a284420c9f6c",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "In the retail interface ablation, NCP AUROC decreases from 0.762 with text actions to 0.716 with native tool calling.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "22",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 13",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "gpt-4o-mini tau2-retail tasks",
+      "sample_size": 114,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Native tool-calling interface",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Text-action interface",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "Native NCP AUROC",
+      "estimate": "0.716",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": "Text-action 0.762; native 0.716"
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "native_tool_calling",
+      "NCP"
+    ]
+  },
+  {
+    "atom_id": "c6b81fea-4957-5289-a7e8-b9a783d8185d",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Simple negated trajectory turn-count and tool-call-count baselines can themselves predict success substantially above chance in some tau2 model-domain cells, including turn-count AUROC 0.83 for Qwen2.5-7B telecom.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "19",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 8",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "Qwen2.5-7B tau2-telecom tasks",
+      "sample_size": 114,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Negated agent turn count baseline",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Trajectory success discrimination",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "primary",
+      "measurement_method": "AUROC",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "AUROC",
+      "estimate": "0.83",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "trajectory_length",
+      "baseline"
+    ]
+  },
+  {
+    "atom_id": "d23c6e43-5d14-5e8e-90ba-583404cc07f1",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "On airline, the highest observed consistency AUROC exceeds the highest observed reflexive AUROC for all five scored models, but only the Qwen3.5-9B paired difference cleanly excludes zero: 0.438 with 95% interval 0.244 to 0.614.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "table",
+      "page": "19",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 9",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": {
+      "label": "Qwen3.5-9B tau2-airline tasks",
+      "sample_size": 50,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "Top consistency scorer",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "exposure",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Top reflexive scorer",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Paired AUROC difference",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "secondary",
+      "measurement_method": "Task-paired bootstrap",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "AUROC difference",
+      "estimate": "0.438",
+      "interval": {
+        "lower": "0.244",
+        "upper": "0.614",
+        "confidence_level_percent": "95",
+        "interval_type": "confidence_interval"
+      },
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [],
+      "original_result_text": null
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "paired_bootstrap",
+      "airline",
+      "consistency_vs_reflexive"
+    ]
+  },
+  {
+    "atom_id": "e135edae-059f-55fd-8ecb-cca8192148a4",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "Within the airline consistency family, TER is the highest-AUROC scorer for three models, ASC is highest for gpt-oss-20b, and AEC is highest for MiniMax-M3, so judged trajectory equivalence does not uniformly dominate symbolic consistency.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "14",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix E",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "airline",
+      "consistency_family",
+      "model_dependence"
+    ]
+  },
+  {
+    "atom_id": "3d358476-75ed-5a72-a679-b40068d467c7",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "Calibration is uneven across reflexive scorers and model-domain cells; some telecom cells have low ECE while several airline and telecom combinations are substantially miscalibrated.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "calibration",
+      "ECE",
+      "reflexive"
+    ]
+  },
+  {
+    "atom_id": "f95453d2-8ab2-5084-b69e-d4ca06a2f4ab",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "author_conclusion",
+    "canonical_statement": "No uncertainty-quantification family or individual scorer is uniformly reliable across the evaluated models and domains.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "main_conclusion",
+      "transferability"
+    ]
+  },
+  {
+    "atom_id": "f0b4409f-4379-5ff5-80af-9f277278431e",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "author_conclusion",
+    "canonical_statement": "White-box action-token confidence is not a reliable drop-in trajectory-level uncertainty method unless the cross-turn aggregation rule is validated for the target model and domain.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "white_box",
+      "deployment_validation"
+    ]
+  },
+  {
+    "atom_id": "f0b17a51-ac8d-517c-903f-3b541643f98f",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "author_conclusion",
+    "canonical_statement": "Reflexive scoring is presented as the lowest-cost broadly useful practical baseline when a pre-outcome transcript self-assessment is acceptable.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "reflexive",
+      "practical_guidance"
+    ]
+  },
+  {
+    "atom_id": "5ff8e7a7-c289-5d4b-8c71-d6d1d12edee6",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "author_conclusion",
+    "canonical_statement": "Sampled-trajectory consistency is most attractive when repeated runs are already in the evaluation budget, pass-at-k style sampling is needed for another reason, or a high-stakes setting can afford extra trajectories for stronger failure ranking.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "black_box",
+      "practical_guidance",
+      "compute_budget"
+    ]
+  },
+  {
+    "atom_id": "a0b6d698-5c51-5b1d-a789-58f56dd14f46",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "author_conclusion",
+    "canonical_statement": "The authors recommend future work with step-level labels, experiments that act on per-turn uncertainty during execution, and evaluation on additional agent environments such as web-browsing tasks.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "future_work"
+    ]
+  },
+  {
+    "atom_id": "7f0ecb20-158f-54eb-8011-96bb441fc9fa",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "author_conclusion",
+    "canonical_statement": "The authors recommend per-deployment validation rather than assuming uncertainty signals transfer safely across models and domains.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "safety",
+      "deployment_validation"
+    ]
+  },
+  {
+    "atom_id": "db0684d8-27e5-5c12-aed0-3c9fbc5a7afa",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "limitation",
+    "canonical_statement": "The benchmark scope is limited to the BFCL-v4 multi-turn subset and three tau2-bench text domains; generalization to other tool-use benchmarks, web agents, embodied agents, and more open-ended tasks is untested.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "external_validity",
+      "benchmark_scope"
+    ]
+  },
+  {
+    "atom_id": "5b43ba0d-39ce-51e9-9f6e-62160a0b183e",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "limitation",
+    "canonical_statement": "The trajectory-success target is benchmark reward and can contain label noise from database-state, assertion, action, and final-message checks; this noise limits attainable discrimination and can distort calibration.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "label_noise",
+      "calibration"
+    ]
+  },
+  {
+    "atom_id": "5bf9cabd-f66a-5a7b-ada7-c661d0a28eec",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "limitation",
+    "canonical_statement": "Because full sampled trajectories resample the simulated user together with the agent, black-box consistency measures variability of the joint agent-user system rather than agent uncertainty in isolation.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "simulator_confound",
+      "black_box"
+    ]
+  },
+  {
+    "atom_id": "dbd2dc91-cb5c-5db3-9084-4c94e5b0f6e0",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "limitation",
+    "canonical_statement": "White-box findings depend on the text-action interface used to expose action-token probabilities; the native tool-calling robustness check covers only gpt-4o-mini on retail and does not establish cross-model interface invariance.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "action_interface",
+      "external_validity"
+    ]
+  },
+  {
+    "atom_id": "d611c67e-c32d-5b31-bdb6-5d13478f00d3",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "limitation",
+    "canonical_statement": "Per-domain task counts are modest, especially airline with 50 tasks, producing wide bootstrap intervals and leaving many within-column scorer rankings unresolved.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "statistical_power",
+      "bootstrap"
+    ]
+  },
+  {
+    "atom_id": "94cf34d3-c4cb-530c-ac7a-0c0231c05fb5",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "limitation",
+    "canonical_statement": "Trajectory Equivalence Rate depends on a single external judge model; the study validates it against database-state ground truth and one larger-judge swap but does not test every domain or more distant judge families.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "TER",
+      "judge_dependence"
+    ]
+  },
+  {
+    "atom_id": "cbf7269c-4afc-590a-a350-31a6dd19e111",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "limitation",
+    "canonical_statement": "The study scores committed action spans and completed-trajectory success; observation uncertainty, reasoning-token uncertainty, step-level labels by action/tool type, and online use of uncertainty for abstention, clarification, or escalation are outside scope.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "uncertainty_scope",
+      "online_control"
+    ]
+  },
+  {
+    "atom_id": "bdaba32c-0b66-51a6-b270-554ed2ccae7e",
+    "publication_id": "582353ae-9e98-5f62-9a96-147987798ad8",
+    "atom_kind": "limitation",
+    "canonical_statement": "All evaluated uncertainty signals are measured after completed trajectories, so the experiments do not establish that using these signals as mid-run safety gates would prevent harmful or irreversible actions.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "discussion",
+      "page": "9",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "openai-gpt-5.6-sol",
+      "extracted_at": "2026-08-13T06:53:35.834495Z",
+      "software_name": "ChatGPT Literature Review workflow",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": "2026-08-13",
+      "prompt_version": "@ATOM project macro",
+      "input_document_hash": "sha256:48f22b79f54774bf6b4570093b3adfdda004ffab38e67729401b927195a8a9b8",
+      "extraction_run_id": "2608.11552v1-atom-v1",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "extracted",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-13T06:53:35.834495Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "ethical_boundary",
+      "safety"
+    ]
+  }
+]

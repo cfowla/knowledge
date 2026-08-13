@@ -1,0 +1,5270 @@
+{
+  "source_metadata": {
+    "source_id": "arXiv:2608.11772v1",
+    "title": "Diagnosis Before Recovery: Turning Agent Failures into Selective Self-Correction",
+    "authors": [
+      "Pan Wang",
+      "Yihao Hu",
+      "Hang Wang",
+      "Zirui Lv",
+      "Xin Zhang",
+      "Jianshe Li",
+      "Jiang-Ming Yang",
+      "Wei Wu",
+      "Yongqi Tong"
+    ],
+    "source_type": "arXiv preprint",
+    "version": "v1",
+    "arxiv_id": "2608.11772v1",
+    "arxiv_category": "cs.CL",
+    "submitted_date": "2026-08-12",
+    "doi": "10.48550/arXiv.2608.11772",
+    "evaluated_file": "2608.11772v1.pdf",
+    "file_sha256": "6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+    "page_count": 17,
+    "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2"
+  },
+  "atom_count": 58,
+  "atom_counts_by_kind": {
+    "author_conclusion": 1,
+    "limitation": 8,
+    "method": 13,
+    "population_description": 1,
+    "qualitative_result": 2,
+    "quantitative_result": 32,
+    "study_objective": 1
+  },
+  "atom_counts_by_origin": {
+    "normalized_from_source": 58
+  },
+  "atoms": [
+    {
+      "atom_id": "abcf6d2f-20aa-5b58-8c24-3e5c2c503680",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The study evaluates whether diagnosing task-family failure modes before recovery can make language-agent self-correction more reliable and cost-aware than generic recovery playbooks.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "introduction",
+        "page": "2",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "DARC",
+        "diagnosis-guided recovery",
+        "self-correction"
+      ]
+    },
+    {
+      "atom_id": "ee52732d-28b4-542a-ba42-aa7bd2ff98ff",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "DARC constructs a recovery harness in two stages: development-set failure diagnosis restricts admissible interventions, then training-set verifier feedback distills a frozen cost-aware fallback policy.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 1",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "DARC",
+        "recovery harness"
+      ]
+    },
+    {
+      "atom_id": "868a1530-f400-5122-b6f3-45960eb20eec",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "DARC assigns one dominant failure mode at the task-family level from development-set failure profiles and freezes that diagnosis before test evaluation.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "failure diagnosis",
+        "frozen policy"
+      ]
+    },
+    {
+      "atom_id": "65fb7ea6-b7af-5917-aa3e-1cf5ad51a6c5",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "The candidate recovery-intervention library is fixed before test evaluation; DARC restricts this pre-specified library rather than inventing new interventions at test time.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "intervention library",
+        "test-time boundary"
+      ]
+    },
+    {
+      "atom_id": "6be0a7ad-710c-5b04-b605-c1a8b5e5e091",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "DARC uses training-set verifier outcomes to estimate intervention success and cost, while the reported protocol does not use test labels.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "supervision accounting",
+        "test labels"
+      ]
+    },
+    {
+      "atom_id": "55a7d365-e8e8-59bc-a507-92f3e616ec27",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "Candidate recovery policies are evaluated as short-circuit chains: interventions are tried in order and the chain stops when one succeeds.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "policy distillation",
+        "short-circuit"
+      ]
+    },
+    {
+      "atom_id": "862fc202-50d3-5633-8e4c-578712ad74fe",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "The deployment objective trades empirical task success against recovery cost above a free-cost allowance using a penalty parameter lambda.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "success-cost objective",
+        "policy distillation"
+      ]
+    },
+    {
+      "atom_id": "f048c36e-761b-576e-9372-c2e7a5b9b4c1",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "For the finite candidate spaces studied, the success component is a monotone submodular coverage objective over recovery interventions.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "submodularity",
+        "coverage"
+      ]
+    },
+    {
+      "atom_id": "e7d02cb0-618d-5e55-84f1-b50ee69eeafc",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "For a fixed finite chain class with bounded per-task cost, the paper gives a uniform-convergence argument in which reducing the admissible intervention set reduces the candidate policy class and finite-sample search risk.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "15",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix A.2",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "uniform convergence",
+        "finite policy class"
+      ]
+    },
+    {
+      "atom_id": "c43806cc-134a-52c3-8a91-49e835fdb7f3",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "ALFWorld is instantiated as an action-validity setting with recovery based on action pruning and admissibility guards.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 11",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [
+        {
+          "concept": {
+            "text": "Action-validity recovery harness",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "ALFWorld",
+        "action validity"
+      ]
+    },
+    {
+      "atom_id": "3d66027c-e665-5d77-836a-ad67dff3237b",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "AppWorld is instantiated as a procedure-breadth setting using Auto-Knowledge, local induction, and retrieval fallback interventions.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 11",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [
+        {
+          "concept": {
+            "text": "Procedural recovery harness",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "AppWorld",
+        "procedure breadth"
+      ]
+    },
+    {
+      "atom_id": "09c49186-b988-5c17-bc1f-e482191b0630",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "XBRL Finance is instantiated as a format-precision setting in which the admissible recovery interventions are retrieval few-shot demonstrations and retrieval-budget selection.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 11",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [
+        {
+          "concept": {
+            "text": "Format-precision retrieval harness",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "Finance",
+        "format precision"
+      ]
+    },
+    {
+      "atom_id": "90aac516-4709-5257-83f6-c22036192613",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "The main experiments compare DARC with Base LLM, ICL, MIPROv2, GEPA, and ACE; applicable offline-adaptation methods use the same training split and adaptation budget available to DARC.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "baselines",
+        "experimental setup"
+      ]
+    },
+    {
+      "atom_id": "dbbcbc76-2e35-5176-b6db-33bc3940eee9",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "method",
+      "canonical_statement": "For the headline AppWorld Test-Normal comparison, the analysis treats 56 scenarios (168 tasks) as independent clusters, uses 20,000 shared scenario-cluster bootstrap resamples for 95% confidence intervals, and applies paired tests with Holm correction.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "AppWorld Test-Normal: 168 tasks nested in 56 scenarios",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "AppWorld",
+        "statistics",
+        "bootstrap"
+      ]
+    },
+    {
+      "atom_id": "c2ef88a9-8d8a-5384-b6ae-790d046bbb02",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "population_description",
+      "canonical_statement": "AppWorld Test-Normal contains 168 tasks nested within 56 scenarios, with three tasks per scenario.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "AppWorld Test-Normal scenarios and tasks",
+        "sample_size": 168,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "AppWorld",
+        "evaluation split"
+      ]
+    },
+    {
+      "atom_id": "f13617c5-f852-5804-abba-96c19cb24aa7",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On ALFWorld valid_unseen with DeepSeek-V4-Flash, DARC achieved 90.30% success versus 39.55% for the base agent and 54.48% for ACE.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "DeepSeek-V4-Flash / valid_unseen",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Base LLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "ACE",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "ALFWorld task success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "90.30",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "90.30",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Base LLM",
+            "event_count": null,
+            "sample_size": null,
+            "value": "39.55",
+            "unit": "%"
+          },
+          {
+            "arm_label": "ACE",
+            "event_count": null,
+            "sample_size": null,
+            "value": "54.48",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ALFWorld",
+        "DeepSeek-V4-Flash",
+        "main result"
+      ]
+    },
+    {
+      "atom_id": "550de83c-156b-5601-a515-b15a20c36779",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On AppWorld Test-Normal with DeepSeek-V4-Flash, DARC achieved 95.83% Task Goal Completion versus 23.21% for the base agent and 54.76% for ACE.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "DeepSeek-V4-Flash / Test-Normal TGC",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "AppWorld Test-Normal",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Base LLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "ACE",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task Goal Completion (TGC)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "completion rate",
+        "estimate": "95.83",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "95.83",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Base LLM",
+            "event_count": null,
+            "sample_size": null,
+            "value": "23.21",
+            "unit": "%"
+          },
+          {
+            "arm_label": "ACE",
+            "event_count": null,
+            "sample_size": null,
+            "value": "54.76",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "AppWorld",
+        "DeepSeek-V4-Flash",
+        "TGC"
+      ]
+    },
+    {
+      "atom_id": "295c53a2-76e6-5d8a-b1c4-d67c7171d731",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On AppWorld Test-Normal with DeepSeek-V4-Flash, DARC achieved 87.50% Scenario Goal Completion versus 7.14% for the base agent and 39.29% for ACE.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "DeepSeek-V4-Flash / Test-Normal SGC",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "AppWorld Test-Normal",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Base LLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "ACE",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Scenario Goal Completion (SGC)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "completion rate",
+        "estimate": "87.50",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "87.50",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Base LLM",
+            "event_count": null,
+            "sample_size": null,
+            "value": "7.14",
+            "unit": "%"
+          },
+          {
+            "arm_label": "ACE",
+            "event_count": null,
+            "sample_size": null,
+            "value": "39.29",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "AppWorld",
+        "DeepSeek-V4-Flash",
+        "SGC"
+      ]
+    },
+    {
+      "atom_id": "54e13d1c-17e1-5023-b7b7-ccbc455de6ca",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On XBRL Finance with DeepSeek-V4-Flash, DARC achieved 94.50% average accuracy versus 80.50% for ACE and 74.00% for MIPROv2.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 4",
+        "table_row": "DeepSeek-V4-Flash / Average",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "XBRL Finance evaluation tasks",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "ACE",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "MIPROv2",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Average Finance accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy",
+        "estimate": "94.50",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "94.50",
+            "unit": "%"
+          },
+          {
+            "arm_label": "ACE",
+            "event_count": null,
+            "sample_size": null,
+            "value": "80.50",
+            "unit": "%"
+          },
+          {
+            "arm_label": "MIPROv2",
+            "event_count": null,
+            "sample_size": null,
+            "value": "74.00",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Finance",
+        "DeepSeek-V4-Flash",
+        "main result"
+      ]
+    },
+    {
+      "atom_id": "749dd50f-66ff-57a5-b7bb-f723394c62b1",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "DARC does not uniformly dominate every AppWorld challenge metric; ACE matches or exceeds DARC on some challenge metrics for Qwen3.5-27B and Qwen3.6-27B.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "AppWorld",
+        "heterogeneous results",
+        "ACE"
+      ]
+    },
+    {
+      "atom_id": "03bf21ee-b2cd-5a8a-9508-9242ae171982",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "A Finance policy distilled on Formula and transferred to FiNER tags reached 89.50% accuracy versus 90.00% for the target-tuned DARC policy.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": "Formula → FiNER",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "Finance FiNER tag task",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC frozen transfer policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "DARC target-tuned policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "FiNER tag accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy",
+        "estimate": "89.50",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC frozen",
+            "event_count": null,
+            "sample_size": null,
+            "value": "89.50",
+            "unit": "%"
+          },
+          {
+            "arm_label": "DARC target-tuned",
+            "event_count": null,
+            "sample_size": null,
+            "value": "90.00",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Finance",
+        "cross-task transfer"
+      ]
+    },
+    {
+      "atom_id": "5f9316d2-4783-5321-95ce-7888f57e1c5c",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "A Finance policy distilled on FiNER tags and transferred to Formula reached 96.00% accuracy versus 99.00% for the target-tuned DARC policy.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": "FiNER → Formula",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "Finance Formula task",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC frozen transfer policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "DARC target-tuned policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Formula accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy",
+        "estimate": "96.00",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC frozen",
+            "event_count": null,
+            "sample_size": null,
+            "value": "96.00",
+            "unit": "%"
+          },
+          {
+            "arm_label": "DARC target-tuned",
+            "event_count": null,
+            "sample_size": null,
+            "value": "99.00",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Finance",
+        "cross-task transfer"
+      ]
+    },
+    {
+      "atom_id": "9b604669-cf53-5553-9282-5b7f18068bb0",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The ALFWorld action-validity policy frozen on valid_seen transferred to valid_unseen with 90.30% success.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": "seen → unseen",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC frozen action-validity policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "ALFWorld task success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "90.30",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC frozen",
+            "event_count": null,
+            "sample_size": null,
+            "value": "90.30",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ALFWorld",
+        "transfer"
+      ]
+    },
+    {
+      "atom_id": "30b96c8d-94ca-5fe0-9322-bced7fc8eb5f",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the diagnosis ablation, the correct ALFWorld recovery policy achieved 91.94% success versus 52.24% for both the generic and mismatched policies.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": "ALFWorld / Success",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld ablation evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Correct diagnosis-guided recovery policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Generic recovery policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Mismatched recovery policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "ALFWorld task success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "91.94",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Correct",
+            "event_count": null,
+            "sample_size": null,
+            "value": "91.94",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Generic",
+            "event_count": null,
+            "sample_size": null,
+            "value": "52.24",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Mismatched",
+            "event_count": null,
+            "sample_size": null,
+            "value": "52.24",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "diagnosis",
+        "ALFWorld"
+      ]
+    },
+    {
+      "atom_id": "3ebfcb78-6664-5405-b800-e339c613d27c",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On AppWorld under the stricter diagnosis-ablation protocol, the correct recovery policy achieved 70.24% TGC versus 61.90% generic and 64.88% mismatched.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": "AppWorld / TGC",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "AppWorld diagnosis-ablation evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Correct diagnosis-guided recovery policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Generic recovery policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Mismatched recovery policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Task Goal Completion (TGC)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "completion rate",
+        "estimate": "70.24",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Correct",
+            "event_count": null,
+            "sample_size": null,
+            "value": "70.24",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Generic",
+            "event_count": null,
+            "sample_size": null,
+            "value": "61.90",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Mismatched",
+            "event_count": null,
+            "sample_size": null,
+            "value": "64.88",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "diagnosis",
+        "AppWorld"
+      ]
+    },
+    {
+      "atom_id": "5228d4ff-afe1-510d-93c9-0d65bca6f394",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On AppWorld under the stricter diagnosis-ablation protocol, the correct recovery policy achieved 53.57% SGC versus 50.00% generic and 46.43% mismatched.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": "AppWorld / SGC",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "AppWorld diagnosis-ablation evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Correct diagnosis-guided recovery policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Generic recovery policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Mismatched recovery policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Scenario Goal Completion (SGC)",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "completion rate",
+        "estimate": "53.57",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Correct",
+            "event_count": null,
+            "sample_size": null,
+            "value": "53.57",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Generic",
+            "event_count": null,
+            "sample_size": null,
+            "value": "50.00",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Mismatched",
+            "event_count": null,
+            "sample_size": null,
+            "value": "46.43",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "diagnosis",
+        "AppWorld"
+      ]
+    },
+    {
+      "atom_id": "ec5c2ee6-eb83-5217-965b-c473b2d6309b",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the Finance diagnosis ablation, the correct recovery policy achieved 94.50% macro accuracy versus 80.50% generic and 37.75% mismatched.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 6",
+        "table_row": "Finance / Macro",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "Finance diagnosis-ablation evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Correct diagnosis-guided recovery policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Generic recovery policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Mismatched recovery policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Finance macro accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy",
+        "estimate": "94.50",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Correct",
+            "event_count": null,
+            "sample_size": null,
+            "value": "94.50",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Generic",
+            "event_count": null,
+            "sample_size": null,
+            "value": "80.50",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Mismatched",
+            "event_count": null,
+            "sample_size": null,
+            "value": "37.75",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "diagnosis",
+        "Finance"
+      ]
+    },
+    {
+      "atom_id": "a2275be1-6526-528c-86da-175cdda14e64",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On the 134-task ALFWorld valid_unseen fairness rerun, adding matched task metadata to the base agent increased success from 39.55% to 43.28%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 7",
+        "table_row": "Base + matched metadata",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": 134,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Base LLM + matched metadata",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Base LLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "ALFWorld task success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "43.28",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Base + matched metadata",
+            "event_count": null,
+            "sample_size": null,
+            "value": "43.28",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Base LLM",
+            "event_count": null,
+            "sample_size": null,
+            "value": "39.55",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ALFWorld",
+        "fairness control"
+      ]
+    },
+    {
+      "atom_id": "b490c3f0-4696-55bf-a942-c7d7a02dfc01",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On the same ALFWorld rerun, restricting ACE to a random top-12 action view reduced success from 54.48% to 25.37%.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 7",
+        "table_row": "ACE + random top-k",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": 134,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "ACE + random top-12 action view",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "ACE",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "ALFWorld task success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "25.37",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "ACE + random top-12",
+            "event_count": null,
+            "sample_size": null,
+            "value": "25.37",
+            "unit": "%"
+          },
+          {
+            "arm_label": "ACE",
+            "event_count": null,
+            "sample_size": null,
+            "value": "54.48",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ALFWorld",
+        "action restriction control"
+      ]
+    },
+    {
+      "atom_id": "b1b05de2-42ec-5e4a-be6b-b5e1f67673e9",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On the ALFWorld fairness rerun, DARC ranked recovery achieved 90.30% success with 0.575 invalid actions per episode.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 7",
+        "table_row": "DARC, ranked recovery",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": 134,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC ranked recovery",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "ALFWorld task success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "90.30",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC ranked recovery",
+            "event_count": null,
+            "sample_size": null,
+            "value": "90.30",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ALFWorld",
+        "fairness",
+        "ranked recovery"
+      ]
+    },
+    {
+      "atom_id": "8b923e2f-13f3-5a67-880e-2d320f310b94",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On the ALFWorld fairness rerun, the DARC full guard achieved 89.55% success with 0.112 invalid actions per episode.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 7",
+        "table_row": "DARC, full guard",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": 134,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC full guard",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "ALFWorld task success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "89.55",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC full guard",
+            "event_count": null,
+            "sample_size": null,
+            "value": "89.55",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ALFWorld",
+        "fairness",
+        "full guard"
+      ]
+    },
+    {
+      "atom_id": "dfce4441-c1fe-5dfb-bc61-4316d8775396",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the ALFWorld 2×2 factorial, the full action view without the recovery prompt solved 53 of 134 tasks (39.55%).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 13",
+        "table_row": "Full admissible set / Absent",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": 134,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Full action view without recovery prompt",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Solved tasks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "39.55",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Full view, prompt absent",
+            "event_count": null,
+            "sample_size": null,
+            "value": "39.55",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "factorial",
+        "ALFWorld"
+      ]
+    },
+    {
+      "atom_id": "c01dc04f-84e3-5952-8a99-8b9754d21260",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the ALFWorld 2×2 factorial, adding the recovery prompt to the full action view solved 52 of 134 tasks (38.81%).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 13",
+        "table_row": "Full admissible set / Present",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": 134,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Full action view with recovery prompt",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Solved tasks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "38.81",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Full view, prompt present",
+            "event_count": null,
+            "sample_size": null,
+            "value": "38.81",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "factorial",
+        "ALFWorld"
+      ]
+    },
+    {
+      "atom_id": "3b97af6b-ef1a-5c75-8bcc-9ae02ddb5c88",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the ALFWorld 2×2 factorial, using the guard-ranked top-12 action view without the recovery prompt solved 58 of 134 tasks (43.28%).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 13",
+        "table_row": "Guard-ranked top-12 / Absent",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": 134,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Guard-ranked top-12 without recovery prompt",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Solved tasks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "43.28",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Ranked top-12, prompt absent",
+            "event_count": null,
+            "sample_size": null,
+            "value": "43.28",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "factorial",
+        "ALFWorld"
+      ]
+    },
+    {
+      "atom_id": "bcb8eabe-f728-5eb8-8653-5d0c607e967c",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the ALFWorld 2×2 factorial, pairing the guard-ranked top-12 action view with the recovery prompt solved 119 of 134 tasks (88.81%).",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 13",
+        "table_row": "Guard-ranked top-12 / Present",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": 134,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Guard-ranked top-12 with recovery prompt",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Solved tasks",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "88.81",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Ranked top-12, prompt present",
+            "event_count": null,
+            "sample_size": null,
+            "value": "88.81",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "factorial",
+        "ALFWorld"
+      ]
+    },
+    {
+      "atom_id": "835af99a-4dc5-5846-8c95-34149f75a0ab",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The ALFWorld factorial difference-in-differences interaction for restricted action view × recovery prompt was reported as +46.27 percentage points.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix F",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": 134,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Restricted action view × recovery prompt interaction",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Interaction effect on task success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "percentage-point interaction",
+        "estimate": "46.27",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Interaction",
+            "event_count": null,
+            "sample_size": null,
+            "value": "46.27",
+            "unit": "percentage points"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "factorial",
+        "interaction",
+        "ALFWorld"
+      ]
+    },
+    {
+      "atom_id": "4c69d84a-f184-517d-8afe-746e44371788",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Forcing the action guard’s top-1 command at every step without a language model achieved 40.33% success on ALFWorld valid_unseen.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix F / Auxiliary controls",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": 134,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Guard top-1 command without language model",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "ALFWorld task success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "40.33",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Guard top-1 only",
+            "event_count": null,
+            "sample_size": null,
+            "value": "40.33",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ALFWorld",
+        "auxiliary control"
+      ]
+    },
+    {
+      "atom_id": "30ab5f91-b845-585f-9537-5c47a31fdf51",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Applying the ranked view and recovery prompt to a plain base agent reached 82.28% success, leaving 6.53 percentage points attributed to the remaining harness components.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix F / Auxiliary controls",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld valid_unseen",
+        "sample_size": 134,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "Base agent + ranked view + recovery prompt",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "ALFWorld task success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "82.28",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Base + ranked view + prompt",
+            "event_count": null,
+            "sample_size": null,
+            "value": "82.28",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ALFWorld",
+        "auxiliary control"
+      ]
+    },
+    {
+      "atom_id": "49d97a7e-3fbd-50aa-9626-c472bc5c2610",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the preliminary Qwen3-8B weight-space extension, DARC-GRPO achieved 10.55% macro success, a +4.74 percentage-point gain over the 5.81% base.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 8",
+        "table_row": "DARC-GRPO",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld weight-space extension",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC-GRPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Base Qwen3-8B",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Macro ALFWorld success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "10.55",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC-GRPO",
+            "event_count": null,
+            "sample_size": null,
+            "value": "10.55",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Base Qwen3-8B",
+            "event_count": null,
+            "sample_size": null,
+            "value": "5.81",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "weight-space training",
+        "GRPO",
+        "proof of concept"
+      ]
+    },
+    {
+      "atom_id": "38954526-3e01-5416-a45d-d01150e4c909",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the preliminary Qwen3-8B weight-space extension, DARC-OPSD achieved 8.00% macro success, a +2.19 percentage-point gain over the 5.81% base.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 8",
+        "table_row": "DARC-OPSD",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld weight-space extension",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC-OPSD",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Base Qwen3-8B",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Macro ALFWorld success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "8.00",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC-OPSD",
+            "event_count": null,
+            "sample_size": null,
+            "value": "8.00",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Base Qwen3-8B",
+            "event_count": null,
+            "sample_size": null,
+            "value": "5.81",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "weight-space training",
+        "OPSD",
+        "proof of concept"
+      ]
+    },
+    {
+      "atom_id": "425c6cf0-e22e-5572-90c9-7efda5502480",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "limitation",
+      "canonical_statement": "The weight-space training extension is based on single-seed runs with modest absolute gains, and the authors treat it as a proof of concept rather than a verified training recipe.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "weight-space training",
+        "single seed"
+      ]
+    },
+    {
+      "atom_id": "6f004d26-6027-5c84-8b75-a7b703f3b6ed",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The distilled Finance policy selected k=2 for Formula and k=1 for Tags, yielding 94.50% macro accuracy with a mean retrieval budget of 1.5 demonstrations.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 9",
+        "table_row": "DARC policy",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "Finance retrieval-budget distillation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC retrieval-budget policy",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Finance macro accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "accuracy",
+        "estimate": "94.50",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC policy",
+            "event_count": null,
+            "sample_size": null,
+            "value": "94.50",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "Finance",
+        "retrieval budget",
+        "cost"
+      ]
+    },
+    {
+      "atom_id": "1f7f2c19-00a0-5d24-8847-1f85463bbe99",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Finance tag accuracy was non-monotonic with retrieval budget: fixed k=8 and k=16 slightly reduced tag accuracy relative to smaller budgets.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 9",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "Finance",
+        "retrieval budget",
+        "non-monotonic"
+      ]
+    },
+    {
+      "atom_id": "54078de6-5e4f-52ae-92d4-d59aafdf8e4f",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On ALFWorld with DeepSeek-V4-Flash, DARC averaged 15.83 environment steps per episode versus 34.56 for the base agent.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 10",
+        "table_row": "Env Steps",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld DeepSeek-V4-Flash efficiency evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Base LLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Environment steps per episode",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean environment steps",
+        "estimate": "15.83",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "15.83",
+            "unit": "steps/episode"
+          },
+          {
+            "arm_label": "Base LLM",
+            "event_count": null,
+            "sample_size": null,
+            "value": "34.56",
+            "unit": "steps/episode"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ALFWorld",
+        "efficiency",
+        "cost"
+      ]
+    },
+    {
+      "atom_id": "01c4fcfd-97be-527a-9019-f2af0212971f",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On ALFWorld with DeepSeek-V4-Flash, DARC averaged 0.091 invalid actions per episode versus 1.288 for the base agent.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 10",
+        "table_row": "Invalid/ep.",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld DeepSeek-V4-Flash efficiency evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Base LLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Invalid actions per episode",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean invalid actions per episode",
+        "estimate": "0.091",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "0.091",
+            "unit": "invalid actions/episode"
+          },
+          {
+            "arm_label": "Base LLM",
+            "event_count": null,
+            "sample_size": null,
+            "value": "1.288",
+            "unit": "invalid actions/episode"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ALFWorld",
+        "efficiency",
+        "action validity"
+      ]
+    },
+    {
+      "atom_id": "26bf8ec0-56b3-51a8-b192-0387f2336b50",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On ALFWorld with DeepSeek-V4-Flash, DARC achieved 6.02 successes per 100 environment steps versus 1.16 for the base agent.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 10",
+        "table_row": "Succ./100 steps",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld DeepSeek-V4-Flash efficiency evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Base LLM",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Successes per 100 environment steps",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "successes per 100 steps",
+        "estimate": "6.02",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "DARC",
+            "event_count": null,
+            "sample_size": null,
+            "value": "6.02",
+            "unit": "successes/100 steps"
+          },
+          {
+            "arm_label": "Base LLM",
+            "event_count": null,
+            "sample_size": null,
+            "value": "1.16",
+            "unit": "successes/100 steps"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "ALFWorld",
+        "efficiency"
+      ]
+    },
+    {
+      "atom_id": "c99664a6-6afb-5c7a-93c3-c3831afeb0d3",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the matched ALFWorld full-library-cascade control, the diagnosed cascade achieved 99.25% test success versus 98.51% for the full-library cascade; the reported +0.75 percentage-point difference had a 95% CI of 0.00 to 2.24 and was not significant.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "17",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 14",
+        "table_row": "Test",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld matched cascade control",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC diagnosed cascade",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full-library cascade",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "ALFWorld test success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "success rate",
+        "estimate": "99.25",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Diagnosed cascade",
+            "event_count": null,
+            "sample_size": null,
+            "value": "99.25",
+            "unit": "%"
+          },
+          {
+            "arm_label": "Full-library cascade",
+            "event_count": null,
+            "sample_size": null,
+            "value": "98.51",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "diagnosis isolation",
+        "full-library cascade",
+        "ALFWorld"
+      ]
+    },
+    {
+      "atom_id": "160697d0-d19f-5615-9d5e-8bc6e9eb24c2",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The diagnosed ALFWorld cascade searched 40 candidate policies versus 400 for the full-library cascade.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "17",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 14",
+        "table_row": "Search space",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld matched cascade control",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC diagnosed cascade",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full-library cascade",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Candidate policies searched",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "policy count",
+        "estimate": "40",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Diagnosed cascade",
+            "event_count": null,
+            "sample_size": null,
+            "value": "40",
+            "unit": "candidate policies"
+          },
+          {
+            "arm_label": "Full-library cascade",
+            "event_count": null,
+            "sample_size": null,
+            "value": "400",
+            "unit": "candidate policies"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "diagnosis isolation",
+        "search efficiency"
+      ]
+    },
+    {
+      "atom_id": "2bb8e053-8919-5515-ba1d-2d2fc2af5554",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under resampling in the matched ALFWorld cascade control, the diagnosed cascade selected 14 distinct chains versus 34 for the full-library cascade.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "17",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 14",
+        "table_row": "Distinct chains",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "ALFWorld matched cascade control",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "DARC diagnosed cascade",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Full-library cascade",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Distinct selected recovery chains under resampling",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "distinct chain count",
+        "estimate": "14",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "Diagnosed cascade",
+            "event_count": null,
+            "sample_size": null,
+            "value": "14",
+            "unit": "chains"
+          },
+          {
+            "arm_label": "Full-library cascade",
+            "event_count": null,
+            "sample_size": null,
+            "value": "34",
+            "unit": "chains"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "diagnosis isolation",
+        "stability"
+      ]
+    },
+    {
+      "atom_id": "7af66096-dfe4-505e-9998-3d984a4ab508",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On 72 development traces, the LLM automatic diagnosis achieved 97.22% agreement and Macro-F1 0.972 against a verifier-backed reference.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "table",
+        "page": "17",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 15",
+        "table_row": "LLM Automatic Diagnosis",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": {
+        "label": "Sampled development traces",
+        "sample_size": 72,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "LLM automatic diagnosis",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Verifier-backed reference",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Agreement with verifier-backed failure-mode reference",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "not_specified",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "agreement rate",
+        "estimate": "97.22",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [
+          {
+            "arm_label": "LLM automatic diagnosis",
+            "event_count": null,
+            "sample_size": null,
+            "value": "97.22",
+            "unit": "%"
+          }
+        ],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "automatic diagnosis",
+        "agreement",
+        "Macro-F1 0.972"
+      ]
+    },
+    {
+      "atom_id": "29745025-f6cb-5c13-9aef-edcc37cf46f8",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "limitation",
+      "canonical_statement": "The evaluated system uses a static task-family-level diagnosis with one dominant failure mode per benchmark family; dynamic instance-level routing for mixed-mode failures is left to future work.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "static diagnosis",
+        "mixed-mode failures"
+      ]
+    },
+    {
+      "atom_id": "0478a090-48e3-5a97-bd7d-e330516f96d0",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "limitation",
+      "canonical_statement": "The offline evidence-matrix proxy assumes a controlled retry protocol in which later interventions are invoked only after earlier failures and success/cost can be attributed to the invoked intervention; resettable environments or evidence-only differences are used to support this assumption.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "offline evidence matrix",
+        "retry protocol"
+      ]
+    },
+    {
+      "atom_id": "ed5e88d8-0623-5f93-92c8-f1a6eb8074a2",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "limitation",
+      "canonical_statement": "The structural coverage and finite-class arguments do not establish transfer across new failure modes; that remains an empirical question.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "generalization",
+        "new failure modes"
+      ]
+    },
+    {
+      "atom_id": "fe426fcd-3972-5dc0-8965-2601934bfc8c",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "limitation",
+      "canonical_statement": "The AppWorld confidence intervals in the headline analysis quantify scenario-sampling uncertainty rather than variation across model-training seeds.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": "Figure 2",
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "uncertainty",
+        "training seeds"
+      ]
+    },
+    {
+      "atom_id": "40ca8ef0-5ab1-51f7-babf-4e3dbc6f6d4a",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "limitation",
+      "canonical_statement": "In the AppWorld diagnosis ablation, confidence intervals overlap despite a directional advantage for the correct policy.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "results",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "AppWorld",
+        "ablation uncertainty"
+      ]
+    },
+    {
+      "atom_id": "39dc338e-c65b-58cd-9ae4-99de8914083b",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "limitation",
+      "canonical_statement": "The ALFWorld factorial decomposition is a single-run, temperature-0 analysis on one split and one backbone; corresponding factorial analyses for AppWorld and Finance are not available.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "16",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix F / Scope of this decomposition",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "factorial",
+        "external validity"
+      ]
+    },
+    {
+      "atom_id": "63b5711e-4903-54d6-885a-a664a9b6f774",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "limitation",
+      "canonical_statement": "The matched full-library recovery-cascade comparison that isolates diagnosis was reported for ALFWorld; extending this stronger baseline to the other task families remains future work.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "17",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G-H",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "limitation",
+        "matched baseline",
+        "scope"
+      ]
+    },
+    {
+      "atom_id": "667ad482-8058-537e-9d4e-130ed77ee4dc",
+      "publication_id": "39a44f4a-7c06-51f2-940c-99820fc391c2",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors conclude that agent failures need not uniformly trigger more context: profiling failures to restrict admissible recovery interventions and distilling a cost-aware policy can turn self-correction into selective recovery-interface design.",
+      "assertion_origin": "normalized_from_source",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "hybrid",
+        "extractor_identifier": "chatgpt-literature-review",
+        "extracted_at": "2026-08-13T06:53:20.739142Z",
+        "software_name": "OpenAI ChatGPT",
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": null,
+        "prompt_version": "@ATOM-2026-08-13",
+        "input_document_hash": "sha256:6c42ed2cfceb960b48991e9b2381af5d8d1b1bdce08efe70e2d9a926f22551d4",
+        "extraction_run_id": "2608.11772v1-primary-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-13T06:53:20.739142Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "author conclusion",
+        "DARC",
+        "selective self-correction"
+      ]
+    }
+  ]
+}

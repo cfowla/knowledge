@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA — A data-driven approach to optimized medication dosing: a focus on heparin</title>
+<style>
+:root{--bg:#f5f7fa;--card:#fff;--ink:#18212b;--muted:#5c6a79;--line:#dce3ea;--accent:#285b8f;--good:#176b45;--warn:#8a5b00;--bad:#8b2d2d;--code:#101923;--codeink:#e9f0f8}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}.wrap{max-width:1120px;margin:auto;padding:24px}header{background:linear-gradient(135deg,#17324e,#285b8f);color:#fff;padding:34px 0;border-bottom:5px solid #b7cee4}header .wrap{padding-top:0;padding-bottom:0}h1{font-size:clamp(1.8rem,3.5vw,2.7rem);line-height:1.1;margin:0 0 10px}header p{margin:4px 0;color:#eaf3fb}.tag{display:inline-block;padding:3px 8px;border:1px solid #adc6de;border-radius:999px;margin:4px 5px 0 0;background:#f0f6fb;color:#234b73;font-size:.82rem}nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:18px 0;box-shadow:0 2px 8px rgba(20,40,60,.05)}nav.toc a{display:inline-block;margin:4px 12px 4px 0;color:var(--accent);text-decoration:none}h2{color:#173f69;border-bottom:1px solid var(--line);padding-bottom:7px;margin-top:0}h3{color:#275781;margin-top:22px}.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.mini-card{border:1px solid var(--line);border-radius:10px;padding:12px;background:#fbfcfe}.mini-card b{display:block;color:#28435e;margin-bottom:3px}.verdict,.warning,.badnote,.goodnote{border-radius:10px;padding:13px 15px;margin:12px 0}.verdict{background:#edf5ff;border-left:5px solid var(--accent)}.warning{background:#fff8e8;border-left:5px solid var(--warn)}.badnote{background:#fff0f0;border-left:5px solid var(--bad)}.goodnote{background:#edf9f2;border-left:5px solid var(--good)}table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.93rem}th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top}th{background:#eef3f8;text-align:left}pre{background:var(--code);color:var(--codeink);padding:14px;border-radius:10px;overflow:auto;white-space:pre-wrap}.muted{color:var(--muted)}.score{font-size:1.5rem;font-weight:800;color:#173f69}.section-summary{border-left:3px solid #c8d7e6;padding-left:14px;margin:15px 0}.small{font-size:.88rem}.nowrap{white-space:nowrap}@media print{body{background:#fff}.wrap{max-width:none}section,nav.toc{box-shadow:none;break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>A data-driven approach to optimized medication dosing: a focus on heparin</h1>
+<p>Summary, Evaluation, and Appraisal reference artifact</p>
+<p>Mohammad M. Ghassemi; Stefan E. Richter; Ifeoma M. Eche; Tszyi W. Chen; John Danziger; Leo A. Celi</p>
+</div></header>
+<div class="wrap">
+<nav class="toc" aria-label="Table of contents">
+<b>Contents:</b>
+<a href="#metadata">Metadata</a><a href="#synthesis">One-page synthesis</a><a href="#manifest">Coverage manifest</a><a href="#sections">Section condensation</a><a href="#visuals">Figures & tables</a><a href="#appraisal">Appraisal</a><a href="#takeaways">Takeaways</a><a href="#provenance">Provenance</a>
+</nav>
+
+<section id="metadata"><h2>Metadata</h2>
+<div class="meta-grid">
+<div class="mini-card"><b>Source</b>Intensive Care Medicine. 2014;40:1332–1339.</div>
+<div class="mini-card"><b>Source type</b>Original research article; retrospective observational modeling study.</div>
+<div class="mini-card"><b>Identifier</b>DOI: 10.1007/s00134-014-3406-5</div>
+<div class="mini-card"><b>Publication timeline</b>Received 4 Apr 2014; accepted 11 Jul 2014; published online 5 Aug 2014.</div>
+<div class="mini-card"><b>Data source</b>MIMIC-II; single-center ICU data from Beth Israel Deaconess Medical Center.</div>
+<div class="mini-card"><b>Final analyzed cohort</b>1,511 adults receiving IV unfractionated heparin.</div>
+</div>
+<div class="warning"><b>Scope warning.</b> This paper develops and internally evaluates a retrospective prediction/dosing framework. It does not prospectively test patient-specific dosing, demonstrate reduced bleeding or thrombosis, or establish a clinically validated replacement for weight-based UFH dosing.</div>
+<div><span class="tag">UFH</span><span class="tag">aPTT</span><span class="tag">MIMIC-II</span><span class="tag">clinical informatics</span><span class="tag">logistic regression</span><span class="tag">dose optimization</span></div>
+</section>
+
+<section id="synthesis"><h2>One-page synthesis</h2>
+<div class="verdict"><b>Core thesis.</b> A pair of multivariable logistic models can estimate the probabilities of sub- and supra-therapeutic aPTT as patient characteristics and initial UFH infusion rate vary; the residual probability can then be treated as the modeled probability of therapeutic aPTT and optimized over candidate doses.</div>
+<p>The investigators selected 1,511 complete-case, non-transfer adult ICU patients from MIMIC-II who received IV UFH and had an aPTT measured 4–8 hours after initiation. The primary outcome was aPTT category at that time: &lt;60 s, 60–100 s, or &gt;100 s. Covariates included weight-normalized infusion rate, age, sex, ethnicity, ICU type, SOFA, Elixhauser score, creatinine, liver injury, and measurement time. Two logistic regressions separately modeled sub- and supra-therapeutic aPTT; ten-fold cross-validation produced mean AUCs of 0.78 and 0.79, respectively.</p>
+<p>The combined three-state model had VUS 0.48 versus 0.42 for a weight-based model, with a reported likelihood-ratio p&lt;0.01. The gain was statistically detectable but modest. The paper is most useful as an early clinical-informatics design pattern for individualized dosing, not as dosing evidence: it relies on retrospective single-center data, complete-case selection, uncertain heparin indication, incomplete bolus information, an institution-specific aPTT target, and a surrogate laboratory endpoint without prospective or external validation.</p>
+<div class="badnote"><b>Primary appraisal constraint.</b> The central model predicts aPTT category rather than clinical benefit or harm. A modest discrimination improvement therefore cannot be translated directly into safer or more effective anticoagulation.</div>
+</section>
+
+<section id="manifest"><h2>Source coverage manifest</h2>
+<table><tr><th>Item</th><th>Coverage</th></tr>
+<tr><td>Source ID</td><td>s00134-014-3406-5.pdf; 8-page retrieved PDF.</td></tr>
+<tr><td>Headings mapped</td><td>Abstract; Introduction; Materials and methods (Study population; Study covariates and outcome; Guideline development; Model analysis and validation; Alternative models); Results (Main analysis; Bolus subset; Heparin indication subset); Discussion; Conclusion; Acknowledgments/disclosures; References.</td></tr>
+<tr><td>Main-text figures</td><td>3 — Figures 1, 2, and 3; all reconciled below as structured visual blocks.</td></tr>
+<tr><td>Main-text tables</td><td>2 — Tables 1 and 2; both reconciled below as structured tables.</td></tr>
+<tr><td>Equation / workflow</td><td>Equation 1 and the dose-optimization workflow; represented below as a structured model block.</td></tr>
+<tr><td>Supplement / appendix</td><td>Electronic supplementary material is referenced repeatedly but is not contained in the retrieved PDF. Appendix-only figures/tables/models are not independently appraised here.</td></tr>
+<tr><td>Omissions</td><td>Reference list is not condensed. Supplement-only content is omitted because it was not present in the retrieved source file.</td></tr>
+</table>
+</section>
+
+<section id="sections"><h2>Section condensation</h2>
+<div class="section-summary"><h3>Abstract</h3><p>The paper proposes retrospective, data-driven individualized dosing for drugs with sensitive therapeutic windows, illustrated with IV UFH. In 1,511 MIMIC-II patients, the authors fit separate multivariable logistic models for sub- and supra-therapeutic aPTT, combined them to estimate the probability of therapeutic aPTT, and optimized that probability across candidate initial doses.</p><p>Mean validation AUC was 0.78 for sub-therapeutic and 0.79 for supra-therapeutic models. The combined model improved VUS from 0.42 for weight alone to 0.48. The abstract explicitly frames randomized prospective evaluation as the next step rather than claiming clinical validation.</p></div>
+<div class="section-summary"><h3>Introduction</h3><p>The rationale is that weight-only UFH dosing ignores clinically relevant heterogeneity and that retrospective ICU data can include patients often excluded from trials. The article cites BIDMC's weight-based protocol and the importance of achieving an appropriate aPTT window promptly while avoiding excessive anticoagulation.</p><p>The authors position the work as a generalizable statistical method for drugs with therapeutic windows, using heparin because of common use, narrow therapeutic management, and variable dosing practice. The target is not direct clinical outcome optimization; it is the probability of falling within a chosen aPTT category after initial infusion.</p></div>
+<div class="section-summary"><h3>Materials and methods — Study population</h3><p>From 4,779 adults who received heparin in MIMIC-II, 2,873 had aPTT measured 4–8 hours after initiation, 2,125 remained after excluding missing covariates, and 1,511 remained after excluding inter-hospital transfers. Transfer exclusions were intended to reduce uncertainty about pre-ICU heparin exposure and external procedures.</p><p>Additional aPTT windows were constructed empirically around 12 and 24 hours, but the predictive model focused on the first 4–8-hour aPTT. This is a complete-case cohort rather than a randomly sampled or prospectively enrolled population.</p></div>
+<div class="section-summary"><h3>Materials and methods — Covariates and outcome</h3><p>The 4–8-hour aPTT was categorized as sub-therapeutic (&lt;60 s), therapeutic (60–100 s), or supra-therapeutic (&gt;100 s) using BIDMC thresholds. Covariates included initial weight-normalized infusion rate, time to aPTT, age, sex, white/nonwhite ethnicity, Elixhauser score, medical versus surgical ICU, SOFA, creatinine, and liver injury defined by AST or ALT &gt;5× ULN.</p><p>Bolus data were missing for most patients, so bolus was excluded from the primary model. Heparin indication was also unavailable in a substantial fraction; ICU type served as a proxy and indication was explored only in a subset using ICD-9 coding.</p></div>
+<div class="section-summary"><h3>Materials and methods — Guideline development and validation</h3><p>The authors fit two independent multivariable logistic regressions for sub- and supra-therapeutic aPTT. Therapeutic probability was calculated as the residual probability. For each patient profile, this three-state probability function could be evaluated across a range of initial infusion rates and the dose with the highest modeled therapeutic probability selected.</p><p>Ten-fold cross-validation assessed the two binary models with AUC and Hosmer–Lemeshow testing. VUS evaluated three-class discrimination, compared with a weight-based alternative. Additional multinomial/ordinal logistic, neural-network, ensemble, and multiclass SVM approaches were tested with a 70/30 development/test split and were reported as inferior on the held-out task.</p></div>
+<div class="section-summary"><h3>Results — Main analysis</h3><p>At ~6 hours, 747/1,511 patients were below 60 s, 382 were 60–100 s, and 382 were above 100 s. Figure 1 shows broad initial infusion-rate variability and frequent non-therapeutic aPTT across the dose distribution, including at rates compatible with institutional guidelines.</p><p>Several covariates were associated with aPTT category. Higher heparin infusion rate strongly increased odds of supra-therapeutic aPTT (OR 1.27 per reported unit, 95% CI 1.23–1.32) and decreased odds of sub-therapeutic aPTT (OR 0.79, 95% CI 0.77–0.82). Age, SOFA, ethnicity, sex, and ICU type were also statistically associated; creatinine was not. The full model's VUS was 0.48 versus 0.42 for weight alone.</p></div>
+<div class="section-summary"><h3>Results — Bolus and indication subsets</h3><p>Only 485 patients had initial bolus information and 353 remained after transfer exclusions. In that subset, weight-normalized bolus was not statistically associated with 6-hour aPTT in the subgroup model; the authors interpret this as reassurance but acknowledge that the missingness prevents strong conclusions about bolus effects.</p><p>For patients whose indication could be inferred from ICD-9 coding, adding indication increased AUC by less than 0.02. Main-text discussion of appendix results notes substantial diagnostic heterogeneity and that 55.7% had a primary diagnosis the authors classified as not requiring anticoagulation, emphasizing uncertainty about indication capture.</p></div>
+<div class="section-summary"><h3>Discussion</h3><p>The authors interpret the observed variation as evidence of both practice variability and patient heterogeneity. Figures 2 and 3 illustrate that otherwise different patient profiles produce different modeled dose–response probability curves and that the full-featured model can shift the predicted dose maximizing therapeutic aPTT compared with weight alone.</p><p>Limitations are substantial: incomplete bolus data, unreliable indication, retrospective variable availability, protocol-era mixing, institution-specific thresholds, no external validation, and no prospective trial. The paper also recognizes that aPTT may be an imperfect or even clinically insufficient endpoint and argues for future inclusion of anti-Xa and bleeding/thrombotic outcomes.</p></div>
+<div class="section-summary"><h3>Conclusion</h3><p>The authors conclude that a pair of logistic risk models can be used to estimate over- and under-dosing probabilities and thereby select an initial dose expected to maximize the probability of a target therapeutic range. They propose the framework as transferable to other titrated or concentration-monitored drugs.</p><p>The claim is methodological, not practice-changing: the article calls for larger datasets, external validation, and prospective randomized evaluation before relying on the approach for clinical dosing.</p></div>
+</section>
+
+<section id="visuals"><h2>Figures, tables, equation, and workflow</h2>
+<h3>Table 1 — Cohort features by 6-hour aPTT category</h3>
+<table><tr><th>Characteristic</th><th>aPTT &lt;60 s<br>n=747</th><th>60–100 s<br>n=382</th><th>aPTT &gt;100 s<br>n=382</th></tr>
+<tr><td>Age, y</td><td>67.3 (14.8)</td><td>68.6 (15.6)</td><td>70.5 (14.8)</td></tr>
+<tr><td>SOFA</td><td>5.3 (4.1)</td><td>5.2 (4.0)</td><td>6.4 (4.3)</td></tr>
+<tr><td>Elixhauser</td><td>5.2 (5.1)</td><td>5.6 (5.1)</td><td>7.0 (5.7)</td></tr>
+<tr><td>Heparin dose, U/kg/h</td><td>11.0 (4.6)</td><td>12.7 (3.7)</td><td>14.8 (3.9)</td></tr>
+<tr><td>Measurement time, h</td><td>6.3 (1.0)</td><td>6.2 (1.1)</td><td>6.3 (1.0)</td></tr>
+<tr><td>Creatinine, mg/dL</td><td>1.5 (1.5)</td><td>1.6 (1.5)</td><td>1.7 (1.6)</td></tr>
+<tr><td>White, %</td><td>69</td><td>66</td><td>69</td></tr>
+<tr><td>Male, %</td><td>59</td><td>58</td><td>49</td></tr>
+<tr><td>Medical ICU, %</td><td>65</td><td>72</td><td>79</td></tr>
+<tr><td>Pulmonary embolism, %</td><td>6</td><td>9</td><td>14</td></tr>
+<tr><td>Obesity, %</td><td>37</td><td>31</td><td>31</td></tr>
+<tr><td>AST/ALT &gt;5× ULN, %</td><td>6</td><td>6</td><td>6</td></tr></table>
+<p class="small muted">Representation: structured table. Interpretation is descriptive; these unadjusted category summaries do not establish independent effects.</p>
+
+<h3>Figure 1 — Initial dose distribution versus aPTT category</h3>
+<pre>Purpose: Show how 6-hour aPTT categories distribute across initial weight-normalized UFH infusion rates.
+Structure: Stacked histogram of case counts by initial U/kg/h; colors indicate sub-therapeutic, therapeutic, supra-therapeutic aPTT.
+Main pattern: Non-therapeutic responses occur throughout the dose range; many patients received doses outside institutional guideline levels.
+Interpretation: Weight-normalized dose matters, but dose alone does not determine 6-hour aPTT category.
+Limits: Descriptive distribution; confounding by indication, clinician dose selection, bolus, and patient risk factors remains.
+Representation: structured visual block.</pre>
+
+<h3>Table 2 — Multivariable logistic models</h3>
+<table><tr><th>Covariate</th><th>Supra-therapeutic OR (95% CI)</th><th>p</th><th>Sub-therapeutic OR (95% CI)</th><th>p</th></tr>
+<tr><td>Age</td><td>1.01 (1.01–1.02)</td><td>&lt;0.01</td><td>0.98 (0.97–0.99)</td><td>&lt;0.01</td></tr>
+<tr><td>SOFA</td><td>1.09 (1.05–1.13)</td><td>&lt;0.01</td><td>0.96 (0.94–1.00)</td><td>0.02</td></tr>
+<tr><td>Elixhauser</td><td>1.01 (0.99–1.03)</td><td>0.42</td><td>1.01 (0.99–1.03)</td><td>0.56</td></tr>
+<tr><td>Heparin dose, U/kg/h</td><td>1.27 (1.23–1.32)</td><td>&lt;0.01</td><td>0.79 (0.77–0.82)</td><td>&lt;0.01</td></tr>
+<tr><td>Measurement time</td><td>0.99 (0.87–1.12)</td><td>0.86</td><td>1.04 (0.93–1.16)</td><td>0.49</td></tr>
+<tr><td>Creatinine</td><td>0.98 (0.89–1.07)</td><td>0.64</td><td>1.01 (0.93–1.10)</td><td>0.83</td></tr>
+<tr><td>White ethnicity</td><td>0.56 (0.40–0.79)</td><td>&lt;0.01</td><td>1.64 (1.20–2.23)</td><td>&lt;0.01</td></tr>
+<tr><td>Male sex</td><td>0.60 (0.46–0.78)</td><td>&lt;0.01</td><td>1.44 (1.13–1.82)</td><td>&lt;0.01</td></tr>
+<tr><td>Medical ICU</td><td>1.60 (1.17–2.17)</td><td>&lt;0.01</td><td>0.62 (0.48–0.79)</td><td>&lt;0.01</td></tr>
+<tr><td>AST/ALT &gt;5× ULN</td><td>1.28 (0.72–2.29)</td><td>0.40</td><td>0.77 (0.46–1.29)</td><td>0.33</td></tr></table>
+<div class="mini-card"><b>Validation</b>Supra model AUC 0.79 (SD 0.02), HL p=0.118. Sub model AUC 0.78 (SD 0.03), HL p=0.158.</div>
+<p class="small muted">Representation: structured table. The source reports associations from retrospective modeling; coefficients should not be read as causal effects.</p>
+
+<h3>Equation 1 / dose-selection workflow</h3>
+<pre>P(therapeutic) = 1 − [P(supra-therapeutic) + P(sub-therapeutic)]
+
+Inputs:
+  patient covariates + candidate initial weight-normalized UFH infusion rate
+Process:
+  logistic model 1 → P(sub-therapeutic aPTT)
+  logistic model 2 → P(supra-therapeutic aPTT)
+  residual probability → P(therapeutic aPTT)
+  repeat across viable dose range
+Output:
+  candidate dose with maximal modeled P(therapeutic)
+Failure boundaries:
+  model validity depends on source population, covariate completeness, chosen aPTT thresholds,
+  and prospective/external validation that was not performed in this paper.</pre>
+
+<h3>Figure 2 — Patient-specific probability curves</h3>
+<pre>Purpose: Demonstrate heterogeneity in modeled dose-response probability curves.
+Patients: (1) 40-year-old nonwhite female, SICU, SOFA 13; (2) 20-year-old white male, SICU, SOFA 5.
+Axes: Initial heparin dose (U/kg/h) versus modeled probability.
+Main pattern: The dose maximizing therapeutic probability differs between profiles; sub- and supra-therapeutic curves shift accordingly.
+Limits: Illustrative model outputs, not observed counterfactual patient outcomes.
+Representation: structured visual block.</pre>
+
+<h3>Figure 3 — Full-featured versus weight-alone model</h3>
+<pre>Purpose: Compare modeled therapeutic-state probabilities for the 20-year-old white male SICU example.
+Comparison: all-feature model versus weight-alone model.
+Reported pattern: the full-featured model is described as yielding a 5–10 percentage-point higher probability of therapeutic aPTT at the recommended initial dose.
+Interpretation: additional patient features can shift the modeled optimum.
+Limits: single illustrative profile; predicted probabilities do not establish realized clinical benefit.
+Representation: structured visual block.</pre>
+</section>
+
+<section id="appraisal"><h2>Evaluation and appraisal</h2>
+<div class="verdict"><b>Verdict: Read soon.</b> High value as an early, concrete example of retrospective individualized dose modeling in UFH; inadequate as evidence for direct clinical dosing.</div>
+<div class="rating-grid">
+<div class="mini-card"><div class="score">8/10</div><b>Relevance</b>Directly addresses UFH dosing variability and data-driven clinical pharmacotherapy. <span class="muted">Limit:</span> the endpoint is aPTT category rather than clinical outcomes. <span class="muted">Raise:</span> prospective dosing trial with safety/efficacy outcomes.</div>
+<div class="mini-card"><div class="score">7/10</div><b>Novelty</b>For its era, the paired-risk-model optimization framing was a useful individualized-dosing concept. <span class="muted">Limit:</span> relies on standard logistic regression and established clinical variables. <span class="muted">Lower:</span> if considered only against later ML dosing literature.</div>
+<div class="mini-card"><div class="score">5/10</div><b>Method strength</b>Clear cohort construction, multivariable modeling, cross-validation, calibration testing, and comparator. <span class="muted">Limit:</span> retrospective complete-case, single-center design with unresolved indication/bolus confounding. <span class="muted">Raise:</span> prespecified external validation and prospective evaluation.</div>
+<div class="mini-card"><div class="score">4/10</div><b>Evidence strength</b>The model shows reproducible internal discrimination and a statistically significant VUS gain. <span class="muted">Limit:</span> modest VUS difference and surrogate endpoint with no clinical outcome validation. <span class="muted">Raise:</span> demonstrated improvement in target attainment without excess bleeding/thrombosis.</div>
+<div class="mini-card"><div class="score">3/10</div><b>External validity</b>Population is restricted to MIMIC-II/BIDMC ICU patients and institution-specific aPTT thresholds. <span class="muted">Limit:</span> no external site or temporal validation. <span class="muted">Raise:</span> multisite, contemporary validation across indications and monitoring strategies.</div>
+<div class="mini-card"><div class="score">5/10</div><b>Implementation value</b>The mathematical workflow is simple and conceptually implementable. <span class="muted">Limit:</span> missing clinical validation and source-specific coefficients/thresholds constrain safe deployment. <span class="muted">Raise:</span> validated recalibration, complete indication/bolus data, governance, and prospective monitoring.</div>
+</div>
+<h3>Clinical validity</h3>
+<p><b>Question:</b> Can patient characteristics improve prediction of early aPTT category beyond weight alone and support selection of an initial UFH infusion rate? <b>Answer from this source:</b> internally, yes to a modest degree for prediction; no evidence here establishes improved patient outcomes or safe clinical superiority.</p>
+<p><b>Bias and uncertainty:</b> complete-case selection, clinician-selected treatment, unmeasured bolus exposure, uncertain indication, protocol-era mixing, possible residual confounding, and institution-specific target definitions all constrain causal or practice-level interpretation. The paper itself appropriately calls for external and randomized validation.</p>
+<h3>Best use / do not use</h3>
+<table><tr><th>Best use</th><th>Do not use for</th></tr><tr><td>Historical and methodological reference for individualized dosing models; evidence-graph node connecting weight-based UFH dosing to later ML/decision-support work; source of covariate associations and validation design.</td><td>Directly selecting a UFH dose, changing aPTT targets, inferring reduced bleeding/thrombosis, or treating retrospective ORs as causal dosing rules.</td></tr></table>
+</section>
+
+<section id="takeaways"><h2>Implementation / practice takeaways</h2>
+<div class="takeaway-grid">
+<div class="mini-card"><b>Reusable architecture</b>Model under- and over-target risks separately, derive in-target probability, then optimize across candidate doses.</div>
+<div class="mini-card"><b>Validation lesson</b>Internal AUC/VUS gains are insufficient for dosing deployment; external, temporal, and prospective validation are load-bearing.</div>
+<div class="mini-card"><b>Data lesson</b>Bolus exposure, indication, monitoring method, protocol version, and clinical outcomes should be first-class variables in any modern replication.</div>
+<div class="mini-card"><b>Endpoint lesson</b>Laboratory target attainment is a surrogate. A stronger study would jointly evaluate anti-Xa/aPTT behavior, bleeding, thrombosis, time in range, and dose-adjustment burden.</div>
+</div>
+<div class="goodnote"><b>Evidence-graph placement.</b> This source is a useful bridge between conventional weight-based UFH nomograms and later predictive/ML dosing studies. Its strongest contribution is the modeling framework and documentation of heterogeneity, not a validated dosing recommendation.</div>
+</section>
+
+<section id="provenance"><h2>Provenance and QA</h2>
+<p><b>Evaluated file:</b> s00134-014-3406-5.pdf (retrieved from the user-specified Google Drive folder).<br>
+<b>PDF SHA-256:</b> 9bcc5038ccc5fb7b91ecf42493ade98dee431e909f7dc6d057e4928b10e92787<br>
+<b>Stable identifier:</b> DOI 10.1007/s00134-014-3406-5<br>
+<b>Generation date:</b> 2026-08-12<br>
+<b>Coverage caveat:</b> The electronic supplement/appendix referenced by the article was not present in the retrieved 8-page PDF; appendix-only content was not independently evaluated.</p>
+<p class="small muted">QA status: all main-text tables and figures reconciled; equation/workflow represented; section map complete; appraisal assigned after source extraction; no external clinical-practice claims added to the source synthesis.</p>
+</section>
+</div>
+</body></html>
