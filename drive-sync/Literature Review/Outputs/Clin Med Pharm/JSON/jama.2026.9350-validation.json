@@ -1,0 +1,66 @@
+{
+  "source": {
+    "primary_file": "jama.2026.9350.pdf",
+    "doi": "10.1001/jama.2026.9350",
+    "publication_id": "4740308e-18b2-567f-b710-ac944b5043b1",
+    "primary_sha256": "91b6000ff499bd5f3f2089920b2256a53f38325e8efe685024d4ef84bac65e0f",
+    "supporting_files": [
+      {
+        "file": "jama.2026.9350.supp1.pdf",
+        "role": "protocol/supporting methods",
+        "sha256": "a3d0313c49ee63514abb08e96e131631472aadf85e326761fd57750d8c13e292"
+      },
+      {
+        "file": "jama.2026.9350.supp2.pdf",
+        "role": "statistical supplement/supporting results",
+        "sha256": "215662bacd36a2733aa42f83d917053ed31fdca1c0854a5fa5e0339e703e4036"
+      }
+    ]
+  },
+  "schema_version": "1.0",
+  "atom_count": 43,
+  "atom_counts_by_kind": {
+    "adverse_event": 6,
+    "author_conclusion": 1,
+    "comparator_description": 1,
+    "conflict_of_interest": 1,
+    "data_availability": 1,
+    "eligibility_criterion": 2,
+    "funding_disclosure": 1,
+    "intervention_description": 2,
+    "limitation": 2,
+    "method": 5,
+    "other": 1,
+    "outcome_definition": 2,
+    "population_description": 1,
+    "quantitative_result": 11,
+    "study_objective": 1,
+    "subgroup_result": 5
+  },
+  "structural_validation": {
+    "passed": true,
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "passed": true,
+    "errors": [],
+    "warnings": []
+  },
+  "overall_valid": true,
+  "extraction_limitations": [
+    "The primary article directs readers to Supplement 3 for the Data Sharing Statement, but Supplement 3 was not among the companion materials supplied for this task; detailed data-sharing terms therefore could not be extracted.",
+    "Supplement 1 uses a PDF encoding that yields poor text extraction; protocol details used here were checked against rendered pages, especially the objectives and statistical-design pages.",
+    "Supplement 1 contains an internal version-label inconsistency near the statistical considerations: the body refers to an Update #03 sample-size change while the visible footer identifies Version Date 09/20/2022 / Update #02. The primary article independently reports the target increase to 445.",
+    "Prespecified subgroup findings are represented as exploratory subgroup atoms and should not be treated as independently confirmatory treatment effects.",
+    "For raw two-arm results, the MVP QuantitativeResult schema requires a single estimate; the principal reported estimate is stored in estimate and both arm observations are preserved under arms where applicable."
+  ],
+  "schema_gaps": [
+    "The MVP quantitative-result object does not natively encode paired raw arm medians/rates with separate uncertainty intervals for each arm; arm values are retained in arms and additional source detail in original_result_text."
+  ],
+  "validation_note": "Pydantic structural validation used literature.py; atom-kind sufficiency validation used literature_atoms.py.",
+  "json_schema_serialization_validation": {
+    "passed": true,
+    "schema_file": "literature_atom.schema.json",
+    "errors": []
+  }
+}
