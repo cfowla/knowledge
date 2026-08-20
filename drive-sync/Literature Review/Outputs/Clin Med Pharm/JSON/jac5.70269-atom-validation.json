@@ -1,0 +1,82 @@
+{
+  "source_metadata": {
+    "title": "Large Language Models as Clinical Support Tools in Drug Information Services: Performance Comparison With Pharmacists",
+    "authors": [
+      "Nuntapong Boonrit",
+      "Najwa Bin-useng",
+      "Aphichaya Sirijariyawat",
+      "Tanawan Chaithong",
+      "Suppakun Rattayarungsri",
+      "Sutima Yodsri",
+      "Ashley M. Hopkins",
+      "Warit Ruanglertboon"
+    ],
+    "journal": "Journal of the American College of Clinical Pharmacy",
+    "year": 2026,
+    "volume": "9",
+    "article": "e70269",
+    "doi": "10.1002/jac5.70269",
+    "source_type": "research report; comparative evaluation of LLM responses to real-world drug information questions",
+    "main_drive_file_id": "1ANRlaJ3WU4rdwuhqc4Rx1eS1akPF5sfl",
+    "supplement_drive_file_id": "1AGSdaqZYcNsyMwYdW5AX_ZSsz0o3jlk1",
+    "main_sha256": "82fa0facc1294277ba1ed7dd0c17c69a709708d62237544250f8b3603b4cea73",
+    "supplement_sha256": "07ba46bcd71e0534a82942997d8e3a3b10610aa70269fd6973e397bbc1ca941c",
+    "publication_id": "6639f354-3fb1-55a5-bcc0-ae94d4ad6806"
+  },
+  "atom_count_total": 79,
+  "atom_counts_by_kind": {
+    "author_conclusion": 2,
+    "conflict_of_interest": 1,
+    "data_availability": 1,
+    "eligibility_criterion": 2,
+    "exposure_description": 1,
+    "funding_disclosure": 1,
+    "limitation": 8,
+    "method": 11,
+    "other": 1,
+    "population_description": 1,
+    "qualitative_result": 7,
+    "quantitative_result": 42,
+    "study_objective": 1
+  },
+  "structural_validation": {
+    "validator": "Pydantic LiteratureAtom model from literature.py",
+    "status": "pass",
+    "errors": []
+  },
+  "schema_contract_validation": {
+    "validator": "literature_atom.schema.json Draft 2020-12",
+    "status": "pass",
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "validator": "validate_literature_atom_sufficiency from literature_atoms.py",
+    "status": "pass",
+    "errors": [],
+    "warnings": []
+  },
+  "cross_source_consistency_review": {
+    "status": "pass_with_notes",
+    "issues": [
+      {
+        "code": "supporting_source_boundary",
+        "description": "The DOCX supplement belongs to the same publication and supplies Tables S1 and S2. It was not treated as a separate study."
+      },
+      {
+        "code": "source_reported_model_identifiers",
+        "description": "Model and platform labels are preserved as reported by the article. No external verification of those labels was used to rewrite source facts."
+      },
+      {
+        "code": "reference_standard_scope",
+        "description": "Pharmacist-provided DIC responses were the reference standard only for concordance. The source does not establish them as an independently adjudicated clinical truth standard."
+      }
+    ]
+  },
+  "extraction_limitations": [
+    "Atoms remain review_status=needs_review because this run did not include human verification.",
+    "Table 7 multi-metric citation-error profiles are preserved as qualitative_result row atoms because the current QuantitativeResult object represents one effect measure per atom.",
+    "The 102 individual questions in Supporting Table S2 were inspected as the benchmark dataset but were not atomized one by one because they are inputs, not study findings.",
+    "Bibliography entries were extracted to Markdown and were not treated as evidence atoms."
+  ],
+  "schema_gaps": []
+}

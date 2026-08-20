@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TileMix: Tile-Centric Mixed-Precision Attention for LLM Inference Acceleration | SEA</title>
+<style>
+:root {
+  --bg:#f4f6f8; --paper:#ffffff; --ink:#18212b; --muted:#586678; --line:#d8e0e8;
+  --blue:#164f86; --blue2:#eaf2fa; --green:#23663d; --green2:#eaf6ef;
+  --amber:#835d12; --amber2:#fff6dc; --red:#8b2c2c; --red2:#fff0f0; --code:#111a24;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
+header{background:#102a43;color:white;padding:48px 22px 38px;border-bottom:5px solid #8db3d7}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+header .kicker{font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;color:#c9ddf0;font-weight:700}
+header h1{font-size:clamp(2rem,5vw,3.7rem);line-height:1.04;margin:.5rem 0 1rem;max-width:1000px}
+header p{max-width:900px;color:#e7f0f8;margin:.3rem 0}
+nav.toc,section{background:var(--paper);border:1px solid var(--line);border-radius:14px;margin:20px auto;padding:24px;box-shadow:0 2px 6px rgba(20,40,60,.04)}
+nav.toc{max-width:1120px}
+nav.toc a{color:var(--blue);text-decoration:none;margin-right:18px;display:inline-block;padding:5px 0}
+h2{margin:0 0 14px;color:#123d68;font-size:1.65rem}
+h3{margin:.3rem 0 .55rem;color:#1d3f5e}
+p{margin:.55rem 0 1rem}
+.meta-grid,.takeaway-grid,.rating-grid,.evidence-grid{display:grid;gap:14px}
+.meta-grid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.meta,.mini-card,.rating-card,.evidence-card{border:1px solid var(--line);border-radius:11px;padding:15px;background:#fbfcfd}
+.meta dt,.rating-card dt{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700}
+.meta dd,.rating-card dd{margin:3px 0 12px}
+.verdict{border-left:6px solid var(--green);background:var(--green2);padding:16px 18px;border-radius:8px;margin:14px 0}
+.warning{border-left:6px solid var(--amber);background:var(--amber2);padding:16px 18px;border-radius:8px;margin:14px 0}
+.badnote{border-left:6px solid var(--red);background:var(--red2);padding:16px 18px;border-radius:8px;margin:14px 0}
+.goodnote{border-left:6px solid var(--blue);background:var(--blue2);padding:16px 18px;border-radius:8px;margin:14px 0}
+.section-summary{border-top:1px solid var(--line);padding-top:16px;margin-top:16px}
+.section-summary:first-of-type{border-top:0;padding-top:0}
+.evidence-grid{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+.eyebrow{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
+.note{color:var(--muted);font-size:.94rem}
+.rating-grid{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.rating-card .score{font-size:2.4rem;color:var(--blue);font-weight:800;float:right;margin-left:10px}
+.rating-card .score span{font-size:.9rem;color:var(--muted);font-weight:600}
+.takeaway-grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.93rem}
+th,td{border:1px solid var(--line);padding:10px;vertical-align:top;text-align:left}
+th{background:#edf3f8;color:#264762}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre{background:var(--code);color:#e8f1fa;border-radius:10px;padding:16px;overflow:auto;white-space:pre-wrap}
+.tags{margin-top:8px}
+.tag{display:inline-block;background:#edf3f8;border:1px solid #d4e0ea;border-radius:999px;padding:3px 9px;margin:3px 4px 3px 0;font-size:.78rem}
+footer{max-width:1120px;margin:20px auto 40px;padding:20px 22px;color:var(--muted);font-size:.9rem}
+a{color:var(--blue)}
+@media print{body{background:white}header{background:white;color:black;border-bottom:2px solid #333}header p,header .kicker{color:#444}nav.toc{display:none}section{box-shadow:none;break-inside:avoid}a{color:black;text-decoration:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">Summary, evaluation, and appraisal · arXiv 2608.17336v1</div>
+    <h1>TileMix: Tile-Centric Mixed-Precision Attention for LLM Inference Acceleration</h1>
+    <p>Hanzhi Zhang, Qiao Zhang, Qinglei Cao, Heng Fan, Yan Huang, Kewei Sha, Yunhe Feng</p>
+    <p>AI/ML systems appraisal focused on long-context inference, precision routing, kernel design, quality retention, and measured A100 prefill performance.</p>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#metadata">Metadata</a>
+  <a href="#synthesis">Synthesis</a>
+  <a href="#coverage">Coverage</a>
+  <a href="#sections">Section summary</a>
+  <a href="#visuals">Figures and tables</a>
+  <a href="#appraisal">Appraisal</a>
+  <a href="#takeaways">Implementation takeaways</a>
+  <a href="#provenance">Provenance</a>
+</nav>
+
+<main class="wrap">
+<section id="metadata">
+  <h2>Metadata</h2>
+  <dl class="meta-grid">
+    <div class="meta"><dt>Source type</dt><dd>arXiv preprint</dd><dt>Version</dt><dd>v1</dd></div>
+    <div class="meta"><dt>Submitted</dt><dd>18 August 2026</dd><dt>Primary category</dt><dd>cs.AI</dd></div>
+    <div class="meta"><dt>Identifier</dt><dd>arXiv:2608.17336</dd><dt>License</dt><dd>CC BY 4.0</dd></div>
+    <div class="meta"><dt>Design</dt><dd>Systems method with benchmark and numerical evaluation</dd><dt>Hardware</dt><dd>NVIDIA A100 40GB</dd></div>
+  </dl>
+  <div class="warning"><strong>Scope warning.</strong> This paper supports an A100-specific long-context prefill result for FP16/INT8 routed attention. It does not establish performance on newer GPU generations, other low-precision formats, production serving traces, or adaptive routing policies.</div>
+</section>
+
+<section id="synthesis">
+  <h2>One-page synthesis</h2>
+  <div class="verdict"><strong>Verdict: Skim deeply.</strong> The full paper is stronger than the task-queue briefing. It has a real end-to-end A100 speed result and enough kernel detail to be useful. The result is still narrow. Treat it as a design and benchmarking reference for inference-serving work, not as evidence that mixed precision broadly improves long-context model quality.</div>
+  <p>TileMix changes where low precision is used inside dense attention. The kernel keeps every legal token interaction, partitions the score matrix into hardware-aligned tiles, and routes groups of key tiles through either FP16 or INT8 score computation. A compact 64-bit mask drives constant-time route lookup inside the streaming attention loop. Both arithmetic paths feed one online-softmax state, so precision can vary spatially without turning the method into sparse attention.</p>
+  <p>The strongest systems result is Table 2. At 4k-token prefill on LLaMA 3.2 3B-Instruct, batch size 8, SpTrans75 reaches 31.80 K tokens/s versus 14.33 K tokens/s for FlashAttention and 29.80 K tokens/s for the matched all-INT8 One path. That is a calculated 2.219-fold throughput relative to FlashAttention and about 6.7% above One for that setting. The timing includes quantization, scale restoration, routing, staging, and scheduling. This matters because it is not an isolated Tensor Core microbenchmark.</p>
+  <p>Quality is more complicated. Uniform INT8 often loses accuracy on LongEval and LV-Eval, and mixed routing often recovers part of the loss. The best layout depends on task, model, context length, and INT8 coverage. The large SpTrans gains on 16k factual recall are especially odd. LLaMA 3.2 3B reports 21.65 for SpTrans75 versus 6.72 for FP16. Appendix results show the same kind of jump on Qwen. The authors call this a recurring layout-task interaction. Without a mechanism or independent replication, the result should stay in the evidence record but should not be read as a general accuracy benefit.</p>
+  <div class="tags">
+    <span class="tag">long-context prefill</span><span class="tag">mixed precision</span><span class="tag">dense attention</span>
+    <span class="tag">INT8 Tensor Cores</span><span class="tag">A100</span><span class="tag">Triton-style fused kernel</span>
+  </div>
+</section>
+
+<section id="coverage">
+  <h2>Coverage manifest</h2>
+  <pre>SOURCE COVERAGE MANIFEST
+source_id: arXiv:2608.17336v1
+exact_title: TileMix: Tile-Centric Mixed-Precision Attention for LLM Inference Acceleration
+source_type: preprint / systems method
+date_or_version: 2026-08-18 / v1
+main_sections: Abstract; Introduction; Related Work; Preliminaries; TileMix method; Experiments; Conclusion; Limitations; Ethical Considerations
+main_figures: Figures 1-5
+main_tables: Tables 1-3
+appendices: A-G
+appendix_figures: Figures 6-9
+appendix_tables: Tables 4-21
+visual_strategy: structured extraction for every main-text figure and table; selected appendix evidence condensed below
+omissions: bibliography; notation-only detail beyond what is needed to interpret the method; individual appendix cells that do not alter the appraisal
+coverage_decision: full main-text coverage with targeted appendix reconciliation</pre>
+  <p>Every main-text figure and table is represented below as a structured block. Appendix material is included when it changes interpretation of memory cost, cross-model generalization, numerical behavior, or the 16k factual-recall anomaly.</p>
+</section>
+
+<section id="sections">
+  <h2>Section condensation</h2>
+  <div class="section-summary">
+    <h3>Abstract</h3>
+    <p>The paper frames long-context prefill as a dense-attention compute and memory problem. TileMix makes precision a spatial routing decision over score-tile groups inside a fused dense-attention kernel. It uses FP16 and INT8 score paths, keeps dense legal connectivity, requires no training, and supports grouped-query attention, variable-length batches, and an INT8 KV-cache interface.</p>
+    <p>The abstract claims quality recovery relative to uniform INT8 and higher prefill throughput than FP16 across LongEval, LV-Eval, and A100 benchmarks on LLaMA, Qwen, and Vicuna. The source also links a public implementation.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Introduction</h3>
+    <p>The authors separate three existing efficiency directions: low-precision quantization, sparse attention, and IO-aware fused attention. Their stated gap is spatial precision routing inside a fused dense-attention loop. TileMix keeps the attention graph dense and changes the arithmetic used for selected score tiles.</p>
+    <p>The engineering difficulty is shared state. FP16 and INT8 score paths have different rounding, accumulation, and rescaling behavior, yet both must update the same running maximum, normalizer, and output accumulator. The paper treats this as a kernel design problem rather than a model-training method.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Related work</h3>
+    <p>The paper positions TileMix next to quantized attention, sparse long-context attention, and FlashAttention-style fused kernels. Sparse layouts such as BigBird and Sparse Transformer appear again as precision-routing templates. Their spatial patterns select which groups stay in FP16 rather than which interactions are removed.</p>
+    <p>The related-work section supports the design motivation. It does not, by itself, establish that TileMix is the first possible implementation of mixed precision inside fused attention. The novelty score in this appraisal therefore remains source-grounded rather than an exhaustive patent or code-prior-art claim.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Preliminaries</h3>
+    <p>The kernel uses tiled attention and online softmax so it never needs to materialize the full L by L score matrix. On A100, the low-precision path uses INT8 Tensor Core MMA with INT32 accumulation, followed by scale restoration.</p>
+    <p>Because every score tile contributes to one shared softmax state, path-specific numerical errors can propagate across later normalization and output accumulation. The paper later measures this directly rather than assuming FP16 and INT8 routes are numerically interchangeable.</p>
+  </div>
+  <div class="section-summary">
+    <h3>TileMix method</h3>
+    <p>Each query-tile row streams key and value tiles. A routing group can control one or several adjacent key tiles. For each KV head and query-tile row, the policy packs up to 64 binary route decisions into one word. A shift-and-mask selects INT8 or FP16 for the current group. Legality masks remain separate, so routing does not remove legal attention edges.</p>
+    <p>The main configuration uses blockwise symmetric INT8 quantization for Q and K with 128-token query blocks and 64-token key blocks. V and PV stay FP16 in the primary path. The quantize-once mode materializes Q8, K8, and scales once per attention call, while the appendix also describes an on-the-fly mode. Static data-free templates set the evaluated routing policy.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Experiments</h3>
+    <p>Evaluation covers LongEval exact-match line retrieval, 11 English and Chinese LV-Eval tasks, prefill throughput and TOPS, and numerical deviation from a Torch FP16 reference. The main model is LLaMA 3.2 3B. Appendices add Qwen2 7B, Qwen2.5 7B, and Vicuna 7B. Baselines include FP16, the matched all-INT8 One path, FlashAttention, sparse long-context methods, and SageAttention.</p>
+    <p>All implementation measurements use A100 40GB GPUs. Throughput uses batch size 8, three warmups, and five timed iterations under the same wrapper. The reported timing includes quantization and route overhead. Quality results show that mixed routing often recovers accuracy lost under uniform INT8, but policy ranking changes across tasks. Numerical deviation generally rises as INT8 coverage increases.</p>
+  </div>
+  <div class="section-summary">
+    <h3>Conclusion and limitations</h3>
+    <p>The authors conclude that tile-group precision routing provides an accuracy-efficiency control inside dense attention. Their implementation supports FP16/INT8 score routing, grouped-query attention, variable-length batches, and an INT8 KV-cache interface.</p>
+    <p>The stated scope is forward inference during long-context prefill on A100. Other numerical formats need separate scale and scheduling support. The evaluated policies are static. The kernel interface can accept adaptive policies, but the paper does not test them.</p>
+  </div>
+</section>
+
+<section id="visuals">
+  <h2>Main figures and tables</h2>
+  <div class="evidence-grid"><article class="evidence-card">
+      <div class="eyebrow">Figure 1 · Structured block</div>
+      <h3>Strategy comparison</h3>
+      <p>Compares quantization, sparse attention, IO-aware fused attention, and TileMix. TileMix keeps legal interactions dense and changes only the score-computation precision by tile group.</p>
+      <p class="note">Conceptual figure. It motivates the design but does not provide performance evidence.</p>
+    </article><article class="evidence-card">
+      <div class="eyebrow">Figure 2 · Structured block</div>
+      <h3>Fused attention with tile-group routing</h3>
+      <p>Shows BLOCK_M x BLOCK_N score tiles, FP16 versus INT8 dispatch, shared online-softmax state, and a 64-bit routing word indexed by KV head and query-tile row.</p>
+      <p class="note">This is the core execution diagram and is load-bearing for understanding the method.</p>
+    </article><article class="evidence-card">
+      <div class="eyebrow">Figure 3 · Structured block</div>
+      <h3>Key-tile grouping and bitmask encoding</h3>
+      <p>Adjacent key tiles can share one routing bit. Grouping keeps the number of decisions per query-tile row at 64 or fewer while preserving hardware-aligned compute tiles.</p>
+      <p class="note">Grouping trades routing granularity for compact metadata at long sequence lengths.</p>
+    </article><article class="evidence-card">
+      <div class="eyebrow">Figure 4 · Structured block</div>
+      <h3>Shift-and-mask routing lookup</h3>
+      <p>A constant-time shift-and-mask extracts the routing bit for the current key-tile group from the packed word.</p>
+      <p class="note">The figure supports the claim that routing lookup can stay inside the streaming inner loop without a large metadata structure.</p>
+    </article><article class="evidence-card">
+      <div class="eyebrow">Figure 5 · Structured block</div>
+      <h3>LongEval retrieval accuracy</h3>
+      <p>LLaMA 3.2 3B retrieval accuracy changes with both INT8 coverage and spatial layout. Row-random and SpTrans are more tolerant of higher INT8 coverage than several other layouts.</p>
+      <p class="note">The figure argues against treating INT8 coverage alone as the policy variable.</p>
+    </article><article class="evidence-card">
+      <div class="eyebrow">Table 1 · Structured block</div>
+      <h3>LV-Eval long-context QA</h3>
+      <p>Across 11 English and Chinese tasks at 16k to 64k, uniform INT8 often trails FP16. Mixed TileMix settings often recover part of that loss. SpTrans shows a large 16k factual-recall anomaly.</p>
+      <p class="note">The unusual 16k SpTrans result is preserved as reported data. It is not treated as evidence of a general accuracy improvement.</p>
+    </article><article class="evidence-card">
+      <div class="eyebrow">Table 2 · Structured block</div>
+      <h3>Prefill throughput and TOPS</h3>
+      <p>For LLaMA 3.2 3B-Instruct, SpTrans75 reaches 31.80 K tokens/s at 4k versus 14.33 for FlashAttention and 29.80 for One. At 8k, Torch and FlashAttention are reported OOM while TileMix configurations run.</p>
+      <p class="note">Timings include quantization, scale restoration, routing, staging, and scheduling. This is the paper&#x27;s strongest implementation result.</p>
+    </article><article class="evidence-card">
+      <div class="eyebrow">Table 3 · Structured block</div>
+      <h3>Mean absolute output deviation</h3>
+      <p>At 8k, mean absolute deviation from the Torch FP16 reference rises from 6.84e-5 at 0% INT8 to 8.34e-4 at 5%, then 6.32e-3 at 10% and 6.84e-3 at 25%.</p>
+      <p class="note">The large step between 5% and 10% at 8k shows that numerical behavior is not a smooth linear function of coverage.</p>
+    </article></div>
+  <h3 style="margin-top:24px">Appendix reconciliation</h3>
+  <table>
+    <thead><tr><th>Item</th><th>Content</th><th>Representation</th><th>Decision</th></tr></thead>
+    <tbody><tr><td>Table 4</td><td>Notation</td><td>Omitted from detailed extraction</td><td>Reference notation only. Definitions used in method summaries.</td></tr><tr><td>Figure 6</td><td>Attention-layout visualization</td><td>Structured summary</td><td>Supports the motivation for static spatial templates. It is qualitative and does not validate a routing policy.</td></tr><tr><td>Figure 7</td><td>Storage and execution layouts</td><td>Structured summary</td><td>Distinguishes quantize-once, on-the-fly quantization, and the optional INT8 KV-cache path.</td></tr><tr><td>Table 5</td><td>Memory and data movement</td><td>Structured summary</td><td>Quantize-once uses 136.01 MiB resident HBM in the representative case versus 96 MB for FlashAttention/on-the-fly, while reducing one INT8 QK operand read from 32 KB to 16.25 KB.</td></tr><tr><td>Figures 8-9 and Table 6</td><td>LongEval across Qwen and Vicuna</td><td>Structured summary</td><td>Extend the retrieval finding across Qwen2.5 7B, Qwen2 7B, and Vicuna 7B. Uniform INT8 often degrades with length; mixed routing often recovers accuracy.</td></tr><tr><td>Tables 7-10</td><td>LV-Eval model-family extensions</td><td>Condensed structured summary</td><td>Support cross-model quality trends and the recurring 16k SpTrans factual-recall interaction. Individual cells are not reproduced because the main appraisal does not depend on every value.</td></tr><tr><td>Tables 11-14</td><td>Efficiency across model families</td><td>Condensed structured summary</td><td>Show that TileMix generally beats FP16/Flash baselines on the tested A100 path, but mixed layouts do not uniformly beat the all-INT8 One path on every model and length.</td></tr><tr><td>Tables 15-21</td><td>Numerical analysis</td><td>Condensed structured summary</td><td>Test depth, sequence length, FlashAttention differences, FP16 versus FP32 accumulation, larger-model behavior, and positional/heavy-hitter exposure. Coverage and routing pattern dominate the practical numerical tradeoff more than accumulator precision in the reported controls.</td></tr></tbody>
+  </table>
+</section>
+
+<section id="appraisal">
+  <h2>Evaluation and appraisal</h2>
+  <div class="rating-grid"><article class="rating-card">
+      <div class="score">7<span>/10</span></div>
+      <h3>Relevance</h3>
+      <p>Directly relevant to inference-kernel work, but narrow for broader agent or clinical AI workflows.</p>
+      <dl><dt>Evidence basis</dt><dd>Dense long-context prefill, mixed precision, end-to-end A100 measurements.</dd>
+          <dt>Main limiter</dt><dd>No serving-stack or application-level evaluation.</dd>
+          <dt>What would raise it</dt><dd>Production serving results on current accelerators would raise it.</dd></dl>
+    </article><article class="rating-card">
+      <div class="score">8<span>/10</span></div>
+      <h3>Novelty</h3>
+      <p>The paper makes precision a spatial routing decision inside a fused dense-attention loop rather than using one precision path for the full call.</p>
+      <dl><dt>Evidence basis</dt><dd>Tile-group routing, packed masks, shared online softmax, dense legal connectivity.</dd>
+          <dt>Main limiter</dt><dd>Novelty is assessed from the paper and its related-work framing, not an independent exhaustive prior-art review.</dd>
+          <dt>What would raise it</dt><dd>Direct head-to-head comparison with more mixed-precision fused kernels would sharpen the claim.</dd></dl>
+    </article><article class="rating-card">
+      <div class="score">7<span>/10</span></div>
+      <h3>Method strength</h3>
+      <p>The benchmark protocol is reasonably controlled and includes quantization and routing overhead.</p>
+      <dl><dt>Evidence basis</dt><dd>Same A100 hardware and wrapper, batch size 8, warmups and timed iterations, multiple model families and long-context tasks.</dd>
+          <dt>Main limiter</dt><dd>Single GPU generation, static routing policies, and limited uncertainty reporting.</dd>
+          <dt>What would raise it</dt><dd>Multi-hardware replication, repeated-run dispersion, and adaptive-policy ablations would raise it.</dd></dl>
+    </article><article class="rating-card">
+      <div class="score">6<span>/10</span></div>
+      <h3>Evidence strength</h3>
+      <p>The results support an A100 prefill tradeoff, but they do not establish broad model-quality gains or hardware generality.</p>
+      <dl><dt>Evidence basis</dt><dd>LongEval, LV-Eval, throughput, memory accounting, and numerical-deviation studies.</dd>
+          <dt>Main limiter</dt><dd>Preprint status, anomalous factual-recall interaction, no confidence intervals for main quality or throughput tables.</dd>
+          <dt>What would raise it</dt><dd>Independent replication and explicit statistical uncertainty would raise it.</dd></dl>
+    </article><article class="rating-card">
+      <div class="score">4<span>/10</span></div>
+      <h3>External validity</h3>
+      <p>The tested scope is constrained to A100 FP16/INT8 prefill and a small set of 3B to 7B model families.</p>
+      <dl><dt>Evidence basis</dt><dd>LLaMA, Qwen, and Vicuna are covered, but all implementation measurements use A100.</dd>
+          <dt>Main limiter</dt><dd>No H100/B200, other low-precision formats, production serving, or adaptive routing evaluation.</dd>
+          <dt>What would raise it</dt><dd>Results across newer accelerators and real serving traces would raise it.</dd></dl>
+    </article><article class="rating-card">
+      <div class="score">7<span>/10</span></div>
+      <h3>Implementation value</h3>
+      <p>The paper gives enough kernel, quantization, metadata, and memory detail to guide an implementation experiment.</p>
+      <dl><dt>Evidence basis</dt><dd>Block sizes, bitmask representation, quantize-once and on-the-fly modes, end-to-end timing, linked code.</dd>
+          <dt>Main limiter</dt><dd>The best static policy depends on task and model, so the paper does not provide one deployment policy that transfers cleanly.</dd>
+          <dt>What would raise it</dt><dd>A policy-selection recipe tied to measurable workload features would raise it.</dd></dl>
+    </article></div>
+  <div class="goodnote"><strong>Best use.</strong> Keep this as a kernel-design and benchmark reference for mixed-precision long-context prefill. It is particularly useful if an implementation targets A100-class INT8 Tensor Cores or needs a concrete example of dense attention with per-region precision control.</div>
+  <div class="badnote"><strong>Do not use for.</strong> Do not generalize the 2.219-fold 4k result to newer GPUs or production serving. Do not treat the 16k SpTrans factual-recall jump as proof that mixed precision improves reasoning or factual accuracy. Do not infer that the static routing templates are optimal policies.</div>
+  <div class="warning"><strong>Main unresolved question.</strong> The paper demonstrates that placement matters, but it does not solve policy selection. A deployment still needs a principled way to decide which tile groups deserve FP16 for a given model, task, context length, and hardware target.</div>
+  <p><strong>Confidence in appraisal: moderate.</strong> The paper provides enough implementation and benchmark detail for a useful systems judgment. Confidence is capped by preprint status, A100-only execution, limited uncertainty reporting, and the unexplained factual-recall interaction.</p>
+</section>
+
+<section id="takeaways">
+  <h2>Implementation takeaways</h2>
+  <div class="takeaway-grid">
+    <article class="mini-card"><h3>Precision can be routed without sparsity</h3><p>Keep legality and arithmetic choice as separate masks. This preserves dense token connectivity while allowing heterogeneous score computation.</p></article>
+    <article class="mini-card"><h3>Pack route metadata aggressively</h3><p>One 64-bit word per KV head and query-tile row gives constant-time inner-loop lookup. Group adjacent key tiles when long contexts would otherwise exceed 64 decisions.</p></article>
+    <article class="mini-card"><h3>Benchmark the full path</h3><p>Quantization, rescaling, memory staging, route lookup, and scheduling can erase theoretical INT8 gains. TileMix includes these costs in its throughput numbers.</p></article>
+    <article class="mini-card"><h3>Track memory separately from bandwidth</h3><p>Quantize-once increases resident HBM but reduces INT8 operand reads. The on-the-fly mode preserves the FlashAttention-like resident footprint while doing more conversion work per tile.</p></article>
+    <article class="mini-card"><h3>Treat routing layout as a quality variable</h3><p>INT8 coverage is not enough to predict quality. FP16 placement changes LongEval and LV-Eval behavior, so policy evaluation belongs in the deployment test matrix.</p></article>
+    <article class="mini-card"><h3>Measure numerical error by coverage and depth</h3><p>The appendix shows that routed-precision error depends on more than sequence length. Coverage, layout, and model depth deserve explicit numerical checks.</p></article>
+  </div>
+</section>
+
+<section id="provenance">
+  <h2>Provenance</h2>
+  <p><strong>Evaluated source:</strong> TileMix: Tile-Centric Mixed-Precision Attention for LLM Inference Acceleration, arXiv:2608.17336v1, submitted 18 August 2026.</p>
+  <p><strong>Source URL:</strong> <a href="https://arxiv.org/abs/2608.17336">https://arxiv.org/abs/2608.17336</a></p>
+  <p><strong>Full text:</strong> <a href="https://arxiv.org/html/2608.17336v1">https://arxiv.org/html/2608.17336v1</a></p>
+  <p><strong>Generated:</strong> 19 August 2026. This appraisal separates source-reported findings from independent evaluation. Calculated throughput ratios use values reported in Table 2.</p>
+</section>
+</main>
+<footer>SEA artifact prepared under summary-evaluation-appraisal-protocol-v4-compact.md. Main-text figures and tables reconciled. Appendix evidence included when it changes interpretation.</footer>
+</body>
+</html>

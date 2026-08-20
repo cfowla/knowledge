@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StagedWorkspace: A Versioned Workspace for Knowledge-Work Agents | SEA</title>
+<style>
+:root{--bg:#f4f6f9;--card:#fff;--ink:#17202a;--muted:#566577;--line:#d9e0e8;--blue:#174a7e;--blue2:#eaf2fb;--green:#17633a;--greenbg:#eaf7ef;--amber:#775300;--amberbg:#fff5d9;--red:#7c2525;--redbg:#fff0f0;--code:#0f1720;--codeink:#edf3fa}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:1120px;margin:auto;padding:28px 22px 52px}header{background:linear-gradient(135deg,#10283f,#1d568d);color:#fff;padding:42px 0;border-bottom:5px solid #cbdced}header .wrap{padding-top:0;padding-bottom:0}header h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;margin:0 0 12px}header p{max-width:900px;margin:8px 0;color:#e8f1fa}.eyebrow{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:#cfe2f6}nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:20px 0;box-shadow:0 2px 8px rgba(16,40,63,.05)}nav.toc h2,section h2{margin-top:0;color:#133f69}h2{font-size:1.55rem}h3{color:#1d4f7c;margin:1.3rem 0 .4rem}h4{margin:1rem 0 .35rem;color:#33485d}p{margin:.6rem 0 1rem}.muted{color:var(--muted)}a{color:#155a99}.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.mini-card{border:1px solid var(--line);border-radius:11px;padding:14px;background:#fbfcfe}.mini-card .label{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700}.mini-card .value{font-weight:650;margin-top:3px}.verdict,.warning,.goodnote,.badnote{border-radius:10px;padding:14px 16px;margin:14px 0}.verdict{background:var(--blue2);border-left:5px solid var(--blue)}.goodnote{background:var(--greenbg);border-left:5px solid var(--green)}.warning{background:var(--amberbg);border-left:5px solid var(--amber)}.badnote{background:var(--redbg);border-left:5px solid var(--red)}.tag{display:inline-block;padding:3px 8px;margin:2px 4px 2px 0;border-radius:999px;background:#edf2f7;border:1px solid #d9e2ec;font-size:.8rem;color:#34485b}.section-summary{border-top:1px solid var(--line);padding-top:9px;margin-top:12px}.section-summary:first-of-type{border-top:0}table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:.92rem}th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top}th{background:#eef3f8;text-align:left;color:#233f5c}pre{background:var(--code);color:var(--codeink);padding:15px;border-radius:10px;overflow:auto;white-space:pre-wrap;font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.rating{font-size:1.7rem;font-weight:800;color:#173f68}.score-note{font-size:.9rem;color:var(--muted)}ul,ol{padding-left:1.25rem}li{margin:.35rem 0}.tight li{margin:.2rem 0}.qa-pass{font-weight:700;color:var(--green)}footer{color:var(--muted);font-size:.88rem;padding-top:10px}@media print{body{background:#fff}.wrap{max-width:none;padding:16px}header{background:#fff;color:#000;border-bottom:2px solid #000;padding:15px 0}header p,.eyebrow{color:#333}nav.toc,section{box-shadow:none;break-inside:avoid-page}a{color:#000;text-decoration:none}pre{white-space:pre-wrap;color:#000;background:#f2f2f2;border:1px solid #bbb}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="eyebrow">Summary, Evaluation, and Appraisal | arXiv v1 | generated 2026-08-19</div>
+<h1>StagedWorkspace: A Versioned Workspace for Knowledge-Work Agents</h1>
+<p>Yining Hua, Hongbin Na, Yifan Zhou, Akshay Kalose, Cyrus Ayubcha, and Levi Lian. arXiv:2608.18050, submitted 2026-08-18.</p>
+<p>This appraisal focuses on the workspace-state contract, synchronized native and parsed representations, review diffs, benchmark evidence, and patterns that can transfer to document and provenance pipelines.</p>
+</div></header>
+<main class="wrap">
+<nav class="toc" aria-label="Table of contents"><h2>Contents</h2><ol class="tight">
+<li><a href="#metadata">Metadata and scope</a></li><li><a href="#synthesis">One-page synthesis</a></li><li><a href="#coverage">Coverage manifest</a></li><li><a href="#sections">Section condensation</a></li><li><a href="#visuals">Figures, tables, and workflows</a></li><li><a href="#appraisal">Evaluation and appraisal</a></li><li><a href="#takeaways">Implementation takeaways</a></li><li><a href="#qa">QA and provenance</a></li>
+</ol></nav>
+
+<section id="metadata"><h2>Metadata and scope</h2><div class="meta-grid">
+<div class="mini-card"><div class="label">Source type</div><div class="value">AI/ML systems preprint</div></div>
+<div class="mini-card"><div class="label">Identifier</div><div class="value">arXiv:2608.18050, v1</div></div>
+<div class="mini-card"><div class="label">Submission date</div><div class="value">2026-08-18</div></div>
+<div class="mini-card"><div class="label">Design</div><div class="value">Matched mechanism ablations plus contextual complete-system benchmark comparisons</div></div>
+<div class="mini-card"><div class="label">Benchmarks</div><div class="value">OfficeQA and APEX</div></div>
+<div class="mini-card"><div class="label">Primary domain</div><div class="value">Versioned agent workspaces for mixed-format knowledge work</div></div>
+</div>
+<div class="warning"><strong>Scope warning.</strong> The paper tests Office-style document and professional knowledge-work tasks. It does not validate this architecture for scientific curation, clinical pipelines, or other high-stakes decisions. The authors also call for qualified human review in high-stakes settings.</div>
+</section>
+
+<section id="synthesis"><h2>One-page synthesis</h2>
+<div class="verdict"><strong>Verdict: Read first.</strong> The paper is unusually useful for document-agent architecture because it makes workspace state explicit and tests the two mechanisms most relevant to stale-state failures: synchronized parsed/native access and reviewable diffs.</div>
+<p><strong>Core thesis.</strong> Knowledge-work agents fail when the representation used for search, the native file used for editing, and the state shown for review drift apart. StagedWorkspace defines a versioned workspace in which the native file tree is authoritative, parsed records carry source hashes and freshness state, and diffs are derived from accepted versus current workspace versions. This gives search, execution, and review a shared state contract.</p>
+<p><strong>Best evidence.</strong> The strongest claims come from paired read-axis ablations. On OfficeQA, dual parsed-plus-native access improved Pass@1 over artifact-only access by 12.1 points for GPT-5.4, 10.1 for Gemini 3 Flash, and 8.3 for Gemini 3.1 Pro. On APEX, dual access improved mean rubric score over parsed-only access by 4.7 points for Gemini 3 Flash, 5.5 for GPT-5.4 Mini, and 9.2 for GPT-5.4 Nano. Those paired comparisons support a mechanism claim inside this evaluation setup. The complete-system leaderboard rows are useful context, but they are not causal because attempt budgets, harnesses, parsers, and retrieval systems differ.</p>
+<p><strong>Main limit.</strong> The evidence remains tied to two benchmarks and one workspace stack. Review-diff evidence comes from only 57 APEX file-editing tasks. A large residual failure slice also remains: 188 of 452 APEX tasks were all-arm-zero for at least one completed model triplet. Better state handling does not solve numerical reasoning, ambiguous table scope, planning errors, or domain mistakes.</p>
+<div><span class="tag">content hashes</span><span class="tag">freshness</span><span class="tag">native artifact authority</span><span class="tag">parsed cache</span><span class="tag">staged changes</span><span class="tag">review diffs</span><span class="tag">paired ablation</span><span class="tag">provenance</span></div>
+</section>
+
+<section id="coverage"><h2>Coverage manifest</h2>
+<table><tbody>
+<tr><th>Source ID</th><td>arXiv:2608.18050v1</td></tr>
+<tr><th>Exact title</th><td>StagedWorkspace: A Versioned Workspace for Knowledge-Work Agents</td></tr>
+<tr><th>Source structure</th><td>Abstract; 1 Introduction; 2 Related Work; 3 Methods with workspace, agent loop, dual artifact access, and experimental design subsections; 4 Results; 5 Discussion with limitations and future directions; 6 Conclusion; acknowledgments and funding; Appendices A through F.</td></tr>
+<tr><th>Main figures</th><td>Figure 1 workspace-state contract; Figure 2 synchronization and stale-cache handling; Figure 3 cost-score diagnostics; Figure 4 HarFeast mechanism trace.</td></tr>
+<tr><th>Main tables</th><td>Table 1 read-axis arms; Table 2 complete-system benchmark results; Table 3 mechanism ablations.</td></tr>
+<tr><th>Operational appendices retained</th><td>Appendix A tool routing and version semantics; Appendix B execution and grading protocols; Appendix C design probes; Appendix D efficiency, parser checks, trajectory review, and residual failures; Appendix F reproducibility and responsible-release notes.</td></tr>
+<tr><th>Visual strategy</th><td>Every main-text figure and table is reconstructed below as a structured block. No screenshots are embedded because the claims can be represented faithfully with text and numeric tables.</td></tr>
+<tr><th>Omissions</th><td>Bibliography entries are provenance infrastructure and are not condensed. Raw grader prompts and repetitive low-level appendix tables are summarized rather than reproduced because they do not change the main interpretation. No main-text figure, table, or workflow is omitted.</td></tr>
+</tbody></table>
+</section>
+
+<section id="sections"><h2>Section condensation</h2>
+<div class="section-summary"><h3>Abstract</h3><p>The abstract frames stale workspace state as a systems problem, not only a model problem. StagedWorkspace combines versioned native files, parsed views tied to content hashes, and review diffs. The headline result is that dual parsed/native access has the highest point estimate for every tested model, with OfficeQA gains of 8.3 to 12.1 points over artifact-only access and APEX mean-rubric gains of 4.7 to 9.2 over parsed-only access.</p><p>The abstract also reports large same-model complete-system improvements, including Gemini 3.1 Pro at 63.9% on OfficeQA and GPT-5.4 Nano at 42.1 mean rubric on APEX. Those numbers are attention-grabbing, but the paper later marks the published comparison rows as non-paired. They should not be read as isolated estimates of the workspace mechanism.</p></div>
+<div class="section-summary"><h3>1 Introduction</h3><p>The introduction identifies a practical mismatch in agent systems. Search-friendly parsed text is easy to retrieve, but the native file carries formatting, formulas, embedded objects, and the artifact that must ultimately be submitted. If those two views drift, the agent can reason over stale text or modify a file that no longer matches what it reviewed.</p><p>The paper's answer is an explicit workspace-state contract. One native workspace version, one hash-linked parsed index, and one derived review state define what is current. This is the paper's most reusable design contribution because it makes freshness and provenance testable rather than implicit.</p></div>
+<div class="section-summary"><h3>2 Related Work</h3><p>The paper places itself among agent file systems, retrieval systems, document parsers, code-agent workspaces, and artifact-editing agents. Its distinction is not a new parser or file editor. It is the contract connecting native files, parsed content, staged mutations, and review.</p><p>The related-work argument is plausible, but novelty rests more on integration and explicit state semantics than on inventing version control or content hashing. Those mechanisms are familiar in software systems. The value is applying them consistently to mixed-format agent work.</p></div>
+<div class="section-summary"><h3>3 Methods</h3><p>At synchronization point t, W_t is the native workspace, C_t is the parsed record set keyed by source path and content hash, and Delta_t is the review diff between the accepted baseline and current workspace. W_t remains authoritative for execution and submission. A parsed record is current only when its source hash matches the native file. Mutating tool batches trigger hash scans and targeted refreshes, which avoids treating old parsed output as current.</p><p>The experiment separates two mechanisms. The read axis compares dual, artifact-only, and parsed-only views under fixed model, prompt, parser, retriever, grader, file tracker, and tool budget. The review axis compares visible versus hidden diff tools while keeping dual access fixed. Three independent attempts per task are used for the mechanism studies, with 10,000 bootstrap resamples for uncertainty and matched resampling for paired comparisons.</p></div>
+<div class="section-summary"><h3>4 Results</h3><p>OfficeQA gives the cleanest read-axis signal against artifact-only access. Dual access improves Pass@1 by 12.1 points for GPT-5.4 with p=.005, 10.1 for Gemini 3 Flash with p=.010, and 8.3 for Gemini 3.1 Pro with p=.041. The dual-versus-parsed contrast is strongest for Gemini 3.1 Pro at +9.0 points with p=.018. The other two OfficeQA dual-versus-parsed differences are positive but not reported as significant.</p><p>APEX shows the opposite restricted-view weakness. Dual access improves mean rubric over parsed-only by 4.7 points for Gemini 3 Flash with p=.028, 5.5 for GPT-5.4 Mini with p=.014, and 9.2 for GPT-5.4 Nano with p=.0002. Differences versus artifact-only are positive but non-significant. Visible diffs also have higher observed scores on the 57-task review subset, with gains of 2.5, 8.5, and 3.8 points across the three models. The paper does not present that small subset as broad proof of review causality.</p></div>
+<div class="section-summary"><h3>5 Discussion, limitations, and future directions</h3><p>The discussion correctly narrows the causal claim to the paired mechanism ablations. It also notes that final-answer graders cannot directly detect every workspace-state success, that hand-coded trajectories are illustrative, and that fixed parser and retriever choices prevent a clean decomposition of every component. The state contract therefore has evidence as a useful architecture, not evidence as the unique minimal architecture.</p><p>The residual APEX failures matter. The system still fails on reasoning, ambiguous scope, wrong computations, planning, domain knowledge, and rubric alignment. Future work proposed by the authors includes varying parser and retriever choices, testing larger edit-heavy suites, adding human review, and defining acceptance criteria over state transitions rather than grading only final outputs.</p></div>
+<div class="section-summary"><h3>6 Conclusion and responsible release</h3><p>The conclusion argues that native files, synchronized parsed views, and reviewable staged changes should be treated as parts of one workspace state. The benchmark results support this claim inside the tested setup, especially when either artifact-only or parsed-only access removes information needed by the task.</p><p>Reducto provided in-kind parser API credits. The authors plan a sanitized research implementation on GitHub and state that this was not the production code path used for the reported runs. The paper reports no new dataset or model release and warns that high-stakes uses require qualified human review.</p></div>
+</section>
+
+<section id="visuals"><h2>Figures, tables, and workflows</h2>
+<h3>Figure 1. Workspace-state contract</h3><pre>Purpose: Define one authoritative native workspace and two derived views.
+Core state:
+  W_t = current native workspace files
+  C_t = parsed records keyed by source path and content hash
+  Delta_t = review diff between accepted baseline W_0 and current W_t
+Freshness rule:
+  parsed record is current iff recorded source hash == hash of native file
+Authority:
+  native W_t is used for execution and submission
+  parsed C_t is a searchable derived view
+  Delta_t is a review view, not a second artifact copy
+Failure prevented: agent reads stale parsed content after the native file changes.</pre>
+<div class="goodnote">This figure carries the architecture. The key choice is not "keep two copies." It is "keep one authoritative artifact and make every derived representation prove freshness against it."</div>
+
+<h3>Figure 2. Synchronization after mutation</h3><pre>Agent mutates native artifact
+  -> hash scan detects changed paths
+  -> workspace state advances
+  -> affected parsed entries are invalidated or marked stale
+  -> only changed files are reparsed
+  -> parsed cache regains hash agreement with native workspace
+  -> review diff updates from accepted state to current state</pre>
+<p>The selective refresh path is important for large document collections. It gives the agent a cheap freshness check without reparsing the full workspace after every edit.</p>
+
+<h3>Table 1. Read-axis arms</h3><table><thead><tr><th>Arm</th><th>Search/read view</th><th>Native artifact access</th><th>Implication</th></tr></thead><tbody>
+<tr><td>Dual</td><td>Parsed search and retrieval with freshness metadata</td><td>Yes</td><td>Search and execution can use the representation best suited to each operation.</td></tr>
+<tr><td>Artifact-only</td><td>Raw/native file access and fallbacks</td><td>Yes</td><td>Preserves executable artifacts but weakens search over difficult formats.</td></tr>
+<tr><td>Parsed-only</td><td>Parsed search and retrieval</td><td>No native deliverable manipulation</td><td>Strong text access but cannot reliably operate on native files when task success requires the artifact itself.</td></tr>
+</tbody></table>
+
+<h3>Table 2. Complete-system results</h3><p class="muted">These rows compare full systems and published results. They are not paired mechanism estimates.</p>
+<table><thead><tr><th>Benchmark / model</th><th>SW-Agent result</th><th>Published same-model result</th><th>Interpretation</th></tr></thead><tbody>
+<tr><td>OfficeQA, GPT-5.4</td><td>64.7% Pass@1</td><td>56.4%</td><td>Contextual improvement, not causal isolation.</td></tr>
+<tr><td>OfficeQA, Gemini 3.1 Pro</td><td>63.9%</td><td>29.3%</td><td>Large gap, but harness and attempt differences matter.</td></tr>
+<tr><td>OfficeQA, Gemini 3 Flash</td><td>57.8%</td><td>33.1%</td><td>Same caution.</td></tr>
+<tr><td>APEX, GPT-5.4 Nano</td><td>25.0% task pass; 42.1 mean rubric</td><td>16.9%; 25.5</td><td>+8.1 pass points and +16.6 mean-rubric points, non-paired.</td></tr>
+<tr><td>APEX, Gemini 3 Flash</td><td>30.9%; 47.8</td><td>24.0%; 39.5</td><td>+6.9 pass points and +8.3 mean-rubric points, non-paired.</td></tr>
+<tr><td>APEX, GPT-5.4 Mini</td><td>28.2%; 44.3</td><td>24.6%; 37.5</td><td>+3.6 pass points and +6.8 mean-rubric points, non-paired.</td></tr>
+<tr><td>APEX, Gemini 3.1 Pro</td><td>36.1%; 50.5</td><td>33.5%; 48.2</td><td>Smaller gap at the stronger-model end.</td></tr>
+<tr><td>APEX, GPT-5.4</td><td>37.7%; 53.6</td><td>36.0%; 52.7</td><td>Small contextual gap, consistent with a ceiling effect.</td></tr>
+</tbody></table>
+
+<h3>Table 3. Mechanism ablations</h3><table><thead><tr><th>Benchmark / model</th><th>Dual</th><th>Restricted arm</th><th>Paired lift</th><th>Inference</th></tr></thead><tbody>
+<tr><td>OfficeQA, GPT-5.4</td><td>64.7</td><td>Artifact 52.6</td><td>+12.1 pp</td><td>p=.005</td></tr>
+<tr><td>OfficeQA, Gemini 3 Flash</td><td>57.8</td><td>Artifact 47.7</td><td>+10.1 pp</td><td>p=.010</td></tr>
+<tr><td>OfficeQA, Gemini 3.1 Pro</td><td>63.9</td><td>Artifact 55.6</td><td>+8.3 pp</td><td>p=.041</td></tr>
+<tr><td>OfficeQA, Gemini 3.1 Pro</td><td>63.9</td><td>Parsed 54.9</td><td>+9.0 pp</td><td>p=.018</td></tr>
+<tr><td>APEX, Gemini 3 Flash</td><td>47.8 mean rubric</td><td>Parsed 43.1</td><td>+4.7</td><td>p=.028</td></tr>
+<tr><td>APEX, GPT-5.4 Mini</td><td>44.3</td><td>Parsed 38.8</td><td>+5.5</td><td>p=.014</td></tr>
+<tr><td>APEX, GPT-5.4 Nano</td><td>42.1</td><td>Parsed 32.9</td><td>+9.2</td><td>p=.0002</td></tr>
+<tr><td>APEX review subset, Flash</td><td>Visible diff 50.2</td><td>Hidden 47.6</td><td>+2.5</td><td>57-task subset</td></tr>
+<tr><td>APEX review subset, Mini</td><td>Visible diff 49.4</td><td>Hidden 40.9</td><td>+8.5</td><td>57-task subset</td></tr>
+<tr><td>APEX review subset, Nano</td><td>Visible diff 51.9</td><td>Hidden 48.1</td><td>+3.8</td><td>57-task subset</td></tr>
+</tbody></table>
+<p>For APEX, dual versus artifact-only differences are positive but do not pass p&lt;.05. For OfficeQA, the dual-versus-parsed differences for GPT-5.4 and Gemini 3 Flash are positive but not reported as significant. This asymmetry fits the paper's mechanism story: OfficeQA depends heavily on search over PDF collections, while APEX often requires manipulating native deliverables.</p>
+
+<h3>Figure 3. Cost-score diagnostics</h3><pre>OfficeQA: dual access is faster than the Reducto parsed-only arm for all three displayed models.
+GPT-5.4 example:
+  dual score 64.7, average cost $0.84/task
+  artifact-only score 52.6, average cost $0.85/task
+The plots do not show a universal cost advantage. APEX tradeoffs are mixed.
+Interpretation: dual access can improve score without necessarily imposing a large cost penalty, but efficiency is model and task dependent.</pre>
+
+<h3>Figure 4. HarFeast workbook trace</h3><pre>Task: operate on a roughly 3,000-row workbook.
+Dual trajectory:
+  parsed search finds the survey-column guidance
+  -> agent identifies the relevant columns and conditions
+  -> pandas operates on the same hydrated native workbook
+  -> native artifact remains the deliverable
+Artifact-only failure:
+  agent can manipulate the workbook but miscomposes the filter.
+Parsed-only failure:
+  agent finds the instructions but cannot execute the needed native workbook operation.
+Interpretation: the trace gives a concrete case where search and native execution are complementary.</pre>
+
+<h3>Appendix evidence that changes interpretation</h3>
+<table><thead><tr><th>Appendix item</th><th>Load-bearing detail</th><th>Why retained</th></tr></thead><tbody>
+<tr><td>A.1 tool routing</td><td>Text search uses parsed views when available; visual review and Python or shell operations use native bytes; parsed-only lacks native deliverable operations.</td><td>Defines what "dual" means operationally.</td></tr>
+<tr><td>A.3 paired discordance</td><td>Supports task-level paired interpretation rather than relying only on aggregate point estimates.</td><td>Method-strength evidence.</td></tr>
+<tr><td>D.1 parser check</td><td>Parsed-only OfficeQA Pass@1 shifts by less than 2 points across two parser exports of the same corpus.</td><td>Reduces, but does not eliminate, parser-specific concern.</td></tr>
+<tr><td>D.3 residual failures</td><td>188/452 APEX tasks all-arm-zero for at least one completed triplet; Investment Banking 82/132, 62.1%.</td><td>Prevents interpreting state management as a general reasoning solution.</td></tr>
+<tr><td>F responsible release</td><td>Sanitized implementation planned; high-stakes use requires qualified human review.</td><td>Reproducibility and deployment boundary.</td></tr>
+</tbody></table>
+</section>
+
+<section id="appraisal"><h2>Evaluation and appraisal</h2>
+<div class="rating-grid">
+<div class="mini-card"><div class="label">Relevance</div><div class="rating">9/10</div><div class="score-note">Direct fit for document agents, provenance, stale-state control, and versioned workspace design.</div></div>
+<div class="mini-card"><div class="label">Novelty</div><div class="rating">8/10</div><div class="score-note">The mechanisms are familiar in software systems, but the explicit mixed-format agent contract and paired tests add real value.</div></div>
+<div class="mini-card"><div class="label">Method strength</div><div class="rating">8/10</div><div class="score-note">Matched arms, repeated attempts, controlled components, and paired bootstrap analysis support the main mechanism claims.</div></div>
+<div class="mini-card"><div class="label">Evidence strength</div><div class="rating">7/10</div><div class="score-note">Good causal evidence inside the tested setup, tempered by two benchmarks, one stack, a small review subset, and outcome-focused graders.</div></div>
+<div class="mini-card"><div class="label">External validity</div><div class="rating">6/10</div><div class="score-note">Professional and Office-style tasks are useful, but scientific, clinical, multi-user, and long-running workflows are untested.</div></div>
+<div class="mini-card"><div class="label">Implementation value</div><div class="rating">9/10</div><div class="score-note">Hashes, stale/current semantics, journaled operations, tool routing, and review diffs are specific enough to implement.</div></div>
+</div>
+<h3>Score basis</h3><table><thead><tr><th>Dimension</th><th>Evidence basis</th><th>Principal limit</th><th>What would raise the score</th></tr></thead><tbody>
+<tr><td>Relevance</td><td>Architecture directly addresses version drift between parsed content and native files.</td><td>Paper targets knowledge work, not specialized scientific or clinical data pipelines.</td><td>Evaluation on citation-heavy scientific review, EHR-derived artifacts, or regulated document workflows.</td></tr>
+<tr><td>Novelty</td><td>Defines W_t, C_t, and Delta_t as one synchronized agent workspace and evaluates missing-view ablations.</td><td>Content hashing, version control, and diffs are established systems techniques.</td><td>Evidence that the state contract yields benefits unavailable from simpler cache invalidation or transaction models.</td></tr>
+<tr><td>Method strength</td><td>Three-arm read ablation, review ablation, fixed harness components, repeated attempts, paired bootstrap.</td><td>Parser and retriever remain fixed; review axis uses only 57 tasks.</td><td>Cross-parser, cross-retriever, and larger review-axis factorial experiments.</td></tr>
+<tr><td>Evidence strength</td><td>Directionally consistent paired read-axis gains across several models and two different task families.</td><td>Many complete-system rows are non-paired; final graders miss intermediate state correctness.</td><td>State-transition metrics, preregistered analysis, independent replication, and direct stale-state error rates.</td></tr>
+<tr><td>External validity</td><td>OfficeQA and APEX cover retrieval, mixed files, and professional artifact work.</td><td>No scientific, clinical, multi-user concurrency, or long-duration production evaluation.</td><td>Independent deployment studies across document ecosystems and high-stakes review settings.</td></tr>
+<tr><td>Implementation value</td><td>Paper specifies authority, content hashes, staged journal fields, selective reparsing, tool routing, and format-aware review.</td><td>Sanitized code is planned rather than available as the exact production path used for reported runs.</td><td>Reproducible reference implementation, migration guidance, and failure-injection tests.</td></tr>
+</tbody></table>
+<div class="badnote"><strong>Do not overclaim.</strong> The paper does not show that versioned workspace state makes agents generally reliable, that visible diffs always improve editing, or that the full-system leaderboard gains are caused only by the workspace. It also does not establish safety for clinical or other high-stakes use.</div>
+</section>
+
+<section id="takeaways"><h2>Implementation takeaways</h2>
+<div class="takeaway-grid">
+<div class="mini-card"><h3>1. Make one file tree authoritative</h3><p>Parsed text, thumbnails, embeddings, and review views should never become competing sources of truth. Native artifacts own execution and submission state.</p></div>
+<div class="mini-card"><h3>2. Put a content hash on every derived record</h3><p>Every parsed page, chunk, embedding, or extracted table should carry the source path and source hash. A hash mismatch means stale, not "probably current."</p></div>
+<div class="mini-card"><h3>3. Invalidate narrowly after writes</h3><p>After mutation, scan hashes and refresh only affected files. This keeps freshness checks cheap enough to run on every edit cycle.</p></div>
+<div class="mini-card"><h3>4. Journal mutations against a base version</h3><p>Record actor, path, base hash, operation, and payload. Reject or rebase an operation if the base hash no longer matches the target.</p></div>
+<div class="mini-card"><h3>5. Route tools by representation</h3><p>Use parsed content for search and text retrieval. Use native bytes for rendering, formulas, programmatic edits, and final deliverables. Do not force one representation to handle both jobs.</p></div>
+<div class="mini-card"><h3>6. Review changes, not just files</h3><p>Produce format-aware diffs tied to accepted and current versions. The reviewer should see what changed and which source version generated the view.</p></div>
+<div class="mini-card"><h3>7. Evaluate state transitions directly</h3><p>Add checks for stale reads, wrong-base writes, unsynchronized cache entries, unreviewed mutations, and submission from the wrong version. Final-answer accuracy alone cannot catch these failures.</p></div>
+</div>
+<div class="goodnote"><strong>Best transfer to the ATOM/SEA pipeline.</strong> Treat the primary source file as authoritative, key parsed text and visual extractions to a source hash, store extraction-run provenance, and require every generated atom or appraisal artifact to name the exact source version it came from. Re-extraction should be triggered by a hash change, not by filename reuse.</div>
+</section>
+
+<section id="qa"><h2>QA and provenance</h2>
+<ul>
+<li class="qa-pass">Pass: exact title, arXiv ID, v1 date, authors, source type, and scope warning included.</li>
+<li class="qa-pass">Pass: all four main-text figures and all three main-text tables reconciled.</li>
+<li class="qa-pass">Pass: paired mechanism evidence separated from non-paired complete-system comparisons.</li>
+<li class="qa-pass">Pass: quantitative magnitudes, model names, benchmark sizes, uncertainty method, and residual failures preserved.</li>
+<li class="qa-pass">Pass: appraisal scores assigned after source mapping and evidence extraction.</li>
+<li class="qa-pass">Pass: no remote scripts, fonts, images, or styles; file is self-contained.</li>
+</ul>
+<h3>Provenance</h3><p>Primary source: Yining Hua, Hongbin Na, Yifan Zhou, Akshay Kalose, Cyrus Ayubcha, and Levi Lian. <em>StagedWorkspace: A Versioned Workspace for Knowledge-Work Agents</em>. arXiv:2608.18050v1. Submitted 2026-08-18. Evaluated from the arXiv v1 full text and PDF on 2026-08-19.</p>
+<p>Source identifier: https://arxiv.org/abs/2608.18050</p>
+<p>Appraisal caveat: this file summarizes and critiques the preprint as published. It does not independently reproduce the benchmark runs or verify a later code release.</p>
+</section>
+<footer>SEA artifact generated under the project Summary, Evaluation, and Appraisal protocol. This artifact supports source understanding and technical design review. It does not replace primary-source reading or qualified review for high-stakes use.</footer>
+</main></body></html>

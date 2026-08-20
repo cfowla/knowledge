@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D^2ACCI: Summary, Evaluation, and Appraisal</title>
+<style>
+:root{--bg:#f5f7fa;--card:#fff;--ink:#17212b;--muted:#566575;--line:#dbe2ea;--accent:#174a7e;--good:#145c38;--warn:#7a5200;--bad:#842626;--code:#101923;--codeink:#eef5ff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{max-width:1120px;margin:auto;padding:24px}header{background:#102d4c;color:white;padding:34px 24px;border-bottom:5px solid #aac7e6}header .wrap{padding:0}h1{margin:0 0 8px;font-size:2rem;line-height:1.2}header p{margin:6px 0;color:#e4edf7}nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin:18px 0}h2{margin-top:0;color:#123f6d}h3{color:#1b4e7f}.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.mini-card{border:1px solid var(--line);border-radius:10px;padding:12px;background:#fbfcfe}.verdict{border-left:5px solid var(--accent);background:#eef5fc;padding:14px;border-radius:8px}.warning{border-left:5px solid var(--warn);background:#fff7e3;padding:14px;border-radius:8px}.goodnote{border-left:5px solid var(--good);background:#edf8f2;padding:14px;border-radius:8px}.badnote{border-left:5px solid var(--bad);background:#fff0f0;padding:14px;border-radius:8px}table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.94rem}th,td{border:1px solid var(--line);padding:8px;vertical-align:top}th{background:#eef3f8;text-align:left}pre{background:var(--code);color:var(--codeink);padding:14px;border-radius:10px;overflow:auto;white-space:pre-wrap}.tag{display:inline-block;background:#e9f0f7;border:1px solid #d2dfec;padding:2px 8px;border-radius:999px;margin:2px;font-size:.85rem}.muted{color:var(--muted)}a{color:#174a7e}@media print{body{background:white}.wrap{max-width:none}header,section,nav.toc{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>D^2ACCI: A Dual-Loop Diagnostic Protocol for Evidence-Preserving Agent Memory</h1><p>Summary, Evaluation, and Appraisal of arXiv:2608.17756v1</p><p>Xule Liu, Yijun Liu, Chao Li, Shao Kun | Submitted 18 August 2026 | cs.AI preprint</p></div></header>
+<main class="wrap">
+<nav class="toc"><h2>Contents</h2><ol><li><a href="#metadata">Metadata</a></li><li><a href="#synthesis">One-page synthesis</a></li><li><a href="#coverage">Coverage manifest</a></li><li><a href="#methods">Protocol and methods</a></li><li><a href="#results">Results</a></li><li><a href="#visuals">Figures, tables, and algorithms</a></li><li><a href="#appraisal">Evaluation and appraisal</a></li><li><a href="#takeaways">Implementation takeaways</a></li><li><a href="#provenance">Provenance</a></li></ol></nav>
+<section id="metadata"><h2>Metadata</h2><div class="meta-grid">
+<div class="mini-card"><strong>Source type</strong><br>Preprint, agent memory evaluation and system methods</div>
+<div class="mini-card"><strong>Identifier</strong><br>arXiv:2608.17756v1</div>
+<div class="mini-card"><strong>Primary system</strong><br>MemStack under the D^2ACCI protocol</div>
+<div class="mini-card"><strong>Benchmarks</strong><br>LoCoMo, LongMemEval-S, PersonaMem-V2</div>
+<div class="mini-card"><strong>Main evaluation tools</strong><br>Paired ablation, exact McNemar testing, BCa bootstrap, slice monitors, DCR, audit relabeling</div>
+<div class="mini-card"><strong>Scope warning</strong><br>This is benchmark evidence from one memory stack. It does not establish general agent safety or online deployment reliability.</div>
+</div></section>
+<section id="synthesis"><h2>One-page synthesis</h2><div class="verdict"><strong>Verdict: Read first.</strong> The strongest contribution is not a new memory architecture. It is a concrete acceptance contract for changing memory systems without losing the evidence needed to explain regressions.</div>
+<p>D^2ACCI treats persistent memory as an evolving runtime system. The inner loop ingests, stores, retrieves, filters, assembles context, and generates an answer. The outer loop compares a candidate against a baseline on paired samples, checks protected slices, measures whether traces are sufficient to localize failures, and then accepts, monitors, rejects, or leaves the change behind a feature flag. This is directly useful for agent reliability work because it turns "did the score go up?" into a reproducible decision with saved evidence.</p>
+<p>The paper's empirical case is stronger than a conceptual proposal. It evaluates MemStack on three public memory benchmarks and runs controlled paired feature ablations. Supplement extraction improved LoCoMo by 2.71 percentage points, session-memory retrieval improved LongMemEval by 3.67 points, and Forget Guard improved PersonaMem-V2 by 1.92 points. BM25/RRF was null on both tested open-ended benchmarks and was retained as a monitored feature flag rather than promoted. The diagnostic audit also found that enriched traces materially improved root-cause agreement compared with result-only outputs.</p>
+<div class="goodnote"><strong>Best reusable idea.</strong> Keep performance and diagnosability as separate acceptance criteria. A change that improves accuracy but destroys failure-localization evidence should not be promoted automatically.</div>
+<div class="warning"><strong>Main limit.</strong> The protocol is instantiated in one memory stack, some cross-benchmark ablations remain incomplete, and online or cross-stack validation is future work.</div>
+<p><span class="tag">agent memory</span><span class="tag">evaluation</span><span class="tag">observability</span><span class="tag">paired ablation</span><span class="tag">regression control</span><span class="tag">provenance</span></p></section>
+<section id="coverage"><h2>Coverage manifest</h2><table><tr><th>Item</th><th>Coverage</th></tr>
+<tr><td>Source identity</td><td>Title, authors, version, category, benchmark setting captured.</td></tr>
+<tr><td>Sections</td><td>Abstract, introduction, D^2ACCI framework, MemStack instantiation, D^2ACCI-Eval and DCR, experiments, trace-guided failure analysis, related work, conclusion.</td></tr>
+<tr><td>Figures</td><td>Figures 1 to 3 represented as structured text blocks.</td></tr>
+<tr><td>Tables</td><td>Tables 1 to 4 represented with load-bearing values.</td></tr>
+<tr><td>Algorithms</td><td>Algorithms 1 and 2 represented as ordered workflow blocks.</td></tr>
+<tr><td>Appendices or supplements</td><td>No appendix is present in the 9-page PDF. The paper refers to supplementary audit details, but these were not independently inspected.</td></tr>
+<tr><td>Visual strategy</td><td>Structured reconstruction from parsed PDF text and captions. Web screenshot rendering returned an arXiv cache-miss error, so no raster crops are embedded.</td></tr>
+<tr><td>Omissions</td><td>Bibliography is not condensed. Individual cited systems are discussed only where needed to interpret comparator limits.</td></tr></table></section>
+<section id="methods"><h2>Protocol and methods</h2>
+<h3>Problem and dual-loop design</h3><p>The paper starts from a practical failure mode in persistent memory. A wrong answer can originate in ingestion, consolidation, retrieval, filtering, context packing, or generation, but end-to-end accuracy does not identify the stage. D^2ACCI therefore records a diagnostic state for each sample and separates runtime execution from system-change evaluation.</p>
+<p>The outer loop is a fixed gate. Candidate and baseline runs use stable sample IDs. Outcomes are paired and partitioned into improved, regressed, both wrong, and both correct sets. Developers pre-specify protected slices before examining candidate results. The gate can then reject significant harm, feature-flag insufficient trace coverage or inconclusive evidence, accept with monitoring for slice regressions, or accept positive paired evidence.</p>
+<h3>Diagnostic stage taxonomy</h3><pre><code>Earliest actionable failure stage
+1. ingestion miss
+2. retrieval miss
+3. context-assembly error
+4. constraint error
+5. generation error
+6. component hurt
+7. unresolved ambiguity</code></pre>
+<h3>DCR</h3><p>DCR measures observability. For each failed or discordant case, the protocol counts how many stages contain the minimum fields needed for inspection. DCR at threshold tau is the proportion of cases with at least tau actionable stages. The default gate uses DCR@3 and requires at least 0.90 coverage. The paper also reports sensitivity at thresholds 1, 5, and 6.</p>
+<pre><code>Actionability examples
+Ingestion: source-turn or memory IDs
+Retrieval: top-k items and scores
+Filtering: filter or reranking decisions
+Assembly: final packed context
+Constraints: constraint IDs and guard decisions
+Generation: output plus judge metadata</code></pre>
+<h3>Experimental setup</h3><p>LoCoMo contributes 1,540 non-adversarial questions from 10 conversations. LongMemEval-S contributes 500 curated questions. PersonaMem-V2 contributes 5,000 multiple-choice questions over 200 personas. Open-ended answering uses GPT-4.1-mini. GPT-4o-mini judges open-ended answers with three deterministic runs and majority vote. BGE-M3 supplies embeddings. Paired confidence intervals use BCa bootstrap with 10,000 resamples, and McNemar tests use the exact two-sided binomial form.</p>
+<p>The paper treats published systems as reference context, not controlled baselines. Its main causal claims come from internal paired ablations where one feature flag changes and the rest of the stack, prompts, model settings, and judge settings stay fixed.</p></section>
+<section id="results"><h2>Results</h2>
+<h3>Main benchmark performance</h3><table><tr><th>Benchmark</th><th>Evaluation set</th><th>MemStack</th><th>Primary reported reference</th><th>Difference</th></tr>
+<tr><td>LoCoMo</td><td>1,540 non-adversarial QA</td><td>93.59%</td><td>MemBrain 93.25%</td><td>+0.34 pp</td></tr>
+<tr><td>LongMemEval-S</td><td>500 questions</td><td>90.93%</td><td>MemBrain 85.60%</td><td>+5.33 pp</td></tr>
+<tr><td>PersonaMem-V2</td><td>5,000 MCQ, 200 personas</td><td>57.20%</td><td>MemBrain 55.72%</td><td>+1.48 pp</td></tr></table>
+<p>The paper explicitly does not treat the small LoCoMo margin as a contribution. It also warns that external reference rows are not fully normalized same-stack baselines.</p>
+<h3>Paired diagnostic ablations</h3><table><tr><th>Benchmark</th><th>Ablation</th><th>Full minus ablated</th><th>p</th><th>95% CI, pp</th><th>D^2ACCI decision</th></tr>
+<tr><td>LoCoMo</td><td>No BM25/RRF</td><td>-0.41 pp</td><td>0.4426</td><td>-1.36 to 0.56</td><td>Feature-flag</td></tr>
+<tr><td>LoCoMo</td><td>No Supplement</td><td>+2.71 pp</td><td>0.0009</td><td>1.26 to 4.20</td><td>Accept, multi-hop monitor</td></tr>
+<tr><td>LongMemEval</td><td>No BM25/RRF</td><td>+1.00 pp</td><td>0.4583</td><td>-1.13 to 3.13</td><td>Feature-flag</td></tr>
+<tr><td>LongMemEval</td><td>No Session</td><td>+3.67 pp</td><td>0.0026</td><td>1.33 to 6.00</td><td>Accept, knowledge-update monitor</td></tr>
+<tr><td>PersonaMem-V2</td><td>No Forget Guard</td><td>+1.92 pp</td><td>0.0030</td><td>0.64 to 3.18</td><td>Accept, slice monitor</td></tr></table>
+<p>Benjamini-Hochberg correction across the five tests retains the three accepted rows at q=0.01 and leaves BM25/RRF null. The paper correctly treats a null result as "not promotable" rather than proof of zero effect.</p>
+<h3>Trace audit and DCR</h3><table><tr><th>Condition</th><th>Fine kappa vs Human A</th><th>Coarse kappa</th></tr><tr><td>Enriched GPT-4o trace relabel</td><td>0.571</td><td>0.619</td></tr><tr><td>Result-only GPT-4o relabel</td><td>0.258</td><td>0.272</td></tr><tr><td>Human B</td><td>0.674</td><td>0.711</td></tr></table>
+<p>Result-only relabeling assigned 36 of 60 cases to unresolved, which is consistent with the paper's core claim that answer-level outputs often do not preserve enough evidence to identify the failing stage.</p>
+<table><tr><th>Diagnostic set</th><th>DCR@3</th></tr><tr><td>LoCoMo No-BM25/RRF discordances, n=127</td><td>99.21%</td></tr><tr><td>LoCoMo No-Supplement cases, n=190</td><td>99.47%</td></tr><tr><td>LongMemEval No-Session cases, n=73</td><td>98.63%</td></tr><tr><td>PersonaMem-V2 No-Forget-Guard cases, n=2,700</td><td>100.00%</td></tr><tr><td>LoCoMo result-only check, n=110</td><td>0%</td></tr></table>
+<h3>Failure boundary</h3><p>A rule-based trace audit of 2,140 wrong PersonaMem-V2 cases assigned 57.1% to generation or option scoring, 29.8% to constraint handling, 13.0% to retrieval misses, and 0.1% to ingestion misses. The paper's useful engineering conclusion is that most errors in this setting were no longer retrieval problems. More memory optimization would have attacked the wrong layer.</p></section>
+<section id="visuals"><h2>Figures, tables, and algorithms</h2>
+<h3>Figure 1. End-to-end evaluation versus D^2ACCI</h3><pre><code>Purpose: Contrast a single aggregate score with stage-instrumented evaluation.
+Structure: Current pipeline hides ingestion, retrieval, filtering, and generation state. D^2ACCI emits source IDs, top-k retrieval, filter logs, and answer/judge evidence.
+Interpretation: The figure motivates failure attribution and paired gating.
+Limit: It is conceptual, not empirical evidence by itself.</code></pre>
+<h3>Algorithm 1. Dual-loop memory-system iteration</h3><pre><code>1. Run the inner memory pipeline and emit diagnostic state.
+2. State a candidate hypothesis, target slice, and expected failure mechanism.
+3. Implement the candidate in shared core or behind a feature flag.
+4. Run paired baseline and candidate artifacts.
+5. Compute improved, regressed, both-wrong, and both-correct sets.
+6. Label root causes for regressions and persistent errors.
+7. Run paired statistics, slice checks, and DCR.
+8. Accept, roll back, or gate the feature. Archive artifacts and rejected priors.</code></pre>
+<h3>Figure 2. MemStack under D^2ACCI</h3><pre><code>Inner loop: ingestion -> L0/L1/L2/session stores -> hybrid retrieval -> constraint/Forget Guard -> context assembly -> generation.
+Trace boundaries: IDs, memory layers, retrieval ranks, filter decisions, token-budget packing, judge metadata.
+Outer loop: paired statistics + slice deltas + DCR + discordance audit -> gate decision -> feature flags for next iteration.
+Value: It makes each candidate feature independently testable and keeps evidence needed for replay.</code></pre>
+<h3>Algorithm 2. Gate-replay decision contract</h3><pre><code>Incomplete report -> Feature-Flag
+Significant negative paired effect -> Reject
+DCR below minimum -> Feature-Flag
+Inconclusive paired evidence -> Feature-Flag
+Protected slice regression beyond epsilon -> Accept with Monitor
+Otherwise -> Accept
+Always archive decision, rationale, checks, monitors, and priors.</code></pre>
+<h3>Table 1. Main results</h3><p>Covered in the main benchmark table above. The table also shows weaker slices that become monitoring targets, including open LoCoMo, multi-session LongMemEval, and therapy/background PersonaMem-V2.</p>
+<h3>Table 2. Audit-label contrast</h3><p>Covered in the trace audit table above. The load-bearing result is the gap between enriched-trace and result-only relabeling.</p>
+<h3>Table 3. Paired ablations and gate decisions</h3><p>Covered in the paired ablation table above. This is the paper's strongest empirical table because it shows where a metric-only policy and D^2ACCI produce different decisions.</p>
+<h3>Table 4. Archived anti-patterns</h3><table><tr><th>Anti-pattern</th><th>Observed behavior</th><th>Resolution</th></tr><tr><td>Over-merge, threshold 0.75</td><td>Distinct facts collapse into one memory representation.</td><td>Reverted</td></tr><tr><td>Distractor amplification</td><td>Option-aware filtering surfaces distractor evidence.</td><td>Rejected</td></tr><tr><td>Non-monotonic expansion</td><td>Some targets recover while off-target noise increases, 57.34% to 57.24%.</td><td>Slice-gated</td></tr></table>
+<h3>Figure 3. LoCoMo iteration trajectory</h3><pre><code>Accuracy path: 83.1 -> 88.8 -> 90.7 -> 88.2 -> 92.7 -> 93.6 percent.
+Gate behavior: accepted changes are retained with monitors where needed. The t3 aggressive merge change is rejected after traces localize over-merging.
+Replay: all five gate decisions match the human-in-the-loop outcomes, with less than one second reported per candidate replay.</code></pre></section>
+<section id="appraisal"><h2>Evaluation and appraisal</h2>
+<div class="rating-grid">
+<div class="mini-card"><strong>Relevance: 9/10</strong><br>Direct fit for agent reliability, evaluation, provenance, and controlled iteration.<br><span class="muted">Evidence basis:</span> explicit paired gates, trace schemas, protected slices, artifact replay.<br><span class="muted">Limit:</span> memory systems rather than general agent behavior.<br><span class="muted">Would rise:</span> demonstration across non-memory agent stacks.</div>
+<div class="mini-card"><strong>Novelty: 8/10</strong><br>The primitives are familiar, but the paper binds them into a concrete promotion contract and adds graded DCR.<br><span class="muted">Evidence basis:</span> Algorithms 1 and 2, DCR, archive/replay logic.<br><span class="muted">Limit:</span> paired tests, traces, and feature flags are not individually new.<br><span class="muted">Would fall:</span> if comparable prior work already used the same combined gate contract.</div>
+<div class="mini-card"><strong>Method strength: 8/10</strong><br>Controlled same-stack paired ablations, exact McNemar tests, BCa bootstrap, multiple-comparison correction, and pre-specified slice monitoring are appropriate for the claims.<br><span class="muted">Evidence basis:</span> five paired ablations and audit packet.<br><span class="muted">Limit:</span> one primary stack and incomplete cross-benchmark replication.<br><span class="muted">Would rise:</span> full replication matrix and independent reproduction.</div>
+<div class="mini-card"><strong>Evidence strength: 7/10</strong><br>The strongest claims are supported by paired changes and uncertainty estimates, and null results are preserved.<br><span class="muted">Evidence basis:</span> Table 3, Table 2 audit, DCR masking analysis.<br><span class="muted">Limit:</span> preprint, model-judge dependence, and no independent audit of the artifact bundle here.<br><span class="muted">Would rise:</span> external reproduction with human adjudication at larger scale.</div>
+<div class="mini-card"><strong>External validity: 5/10</strong><br>Three benchmarks cover different memory failure profiles, but the implementation evidence remains tied to MemStack and benchmark evaluation.<br><span class="muted">Evidence basis:</span> LoCoMo, LongMemEval, PersonaMem-V2, small Mem0-compatible slice.<br><span class="muted">Limit:</span> online and cross-stack evaluation are future work.<br><span class="muted">Would rise:</span> production traces, other memory stacks, and non-memory agent workflows.</div>
+<div class="mini-card"><strong>Implementation value: 9/10</strong><br>The paper gives a clear gate order, stage trace requirements, artifact outputs, and examples of rejected changes.<br><span class="muted">Evidence basis:</span> Algorithms 1 and 2, Figure 2, DCR predicates, archived anti-patterns.<br><span class="muted">Limit:</span> code and supplementary artifact package were not independently inspected here.<br><span class="muted">Would rise:</span> verified public implementation with schema and replay fixtures.</div>
+</div>
+<h3>Strengths</h3><p>The paper tests the decision rule against cases where a headline metric is misleading. BM25/RRF is the cleanest example. A metric-only policy gives contradictory benchmark-specific promote/demote outcomes, while D^2ACCI keeps it feature-flagged because paired evidence is null. That is a real decision difference, not just a logging improvement.</p>
+<p>The trace audit is also well targeted. It does not claim that DCR itself proves the root cause is correct. Instead, DCR measures whether the evidence needed to inspect a stage exists. The separate relabeling audit then tests whether richer traces improve agreement. Keeping observability and correctness separate is methodologically sound.</p>
+<h3>Limitations</h3><p>The work is still benchmark-centric. One stack generates the primary evidence, external system numbers are not controlled baselines, and some cross-benchmark ablations remain incomplete. A 60-case audit is useful but small for a general claim about diagnostic labeling.</p>
+<p>DCR can verify that required fields exist, not that those fields are truthful or causally sufficient. The authors acknowledge this indirectly by listing automated trace verification as future work. A production implementation would need integrity checks for trace provenance, schema versioning, missing-event detection, and protection against a faulty component emitting plausible but incorrect diagnostics.</p>
+<div class="badnote"><strong>Do not overclaim.</strong> DCR is an observability metric. High DCR does not mean the model is accurate, the trace is causally correct, or the memory system is safe.</div></section>
+<section id="takeaways"><h2>Implementation takeaways</h2><div class="takeaway-grid">
+<div class="mini-card"><strong>For agent evaluation</strong><br>Require paired baseline and candidate runs on stable IDs. Save discordances, not only summary metrics.</div>
+<div class="mini-card"><strong>For protected slices</strong><br>Register the slices before inspecting the candidate. Treat a slice regression as a first-class gate result.</div>
+<div class="mini-card"><strong>For tracing</strong><br>Use typed stage records with source IDs, retrieval scores, filter decisions, packed context, constraint IDs, and judge metadata.</div>
+<div class="mini-card"><strong>For provenance</strong><br>Archive rejected and null changes with the same seriousness as accepted changes. Future iterations need those priors.</div>
+<div class="mini-card"><strong>For automated replay</strong><br>Make the promotion rule deterministic from saved reports so a gate decision can be reproduced without re-reading ad hoc notes.</div>
+<div class="mini-card"><strong>For the literature pipeline</strong><br>The DCR idea maps well to extraction QA: separately track whether a claim has enough provenance and context to diagnose an extraction failure, rather than treating schema validity as proof of sufficiency.</div>
+</div></section>
+<section id="provenance"><h2>Provenance and QA</h2><p>Primary source: D^2ACCI: A Dual-Loop Diagnostic Protocol for Evidence-Preserving Agent Memory, arXiv:2608.17756v1, submitted 18 August 2026. Evaluated from the arXiv primary PDF and metadata page on 19 August 2026.</p><p>Source URL: https://arxiv.org/abs/2608.17756</p><p>PDF URL: https://arxiv.org/pdf/2608.17756</p><p>QA status: all main-text figures, tables, and algorithms reconciled; section map complete; no unfinished markers; appraisal scores assigned after extraction. Screenshot rendering was unavailable because the web PDF renderer returned a cache-miss error, so visual coverage uses structured reconstruction from parsed source text and captions.</p></section>
+</main></body></html>

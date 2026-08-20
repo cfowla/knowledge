@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TRUSS: Towards Task-Reliable and User-Safe Automated Agent Skill Generation | SEA</title>
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--ink:#17202a;--muted:#536170;--line:#d7dee7;--accent:#204f7a;--good:#0d653d;--warn:#805800;--bad:#8a2424;--code:#111c2a;--codeink:#ecf3fa}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:#173a5e;color:white;padding:2.5rem 1.25rem} header .wrap{max-width:1120px;margin:auto} header h1{font-size:clamp(1.8rem,3.8vw,3rem);line-height:1.12;margin:0 0 .8rem} header p{max-width:850px;margin:.35rem 0;color:#e2ebf4}
+.wrap{max-width:1120px;margin:auto;padding:1.1rem} nav.toc,section{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:1rem 0;padding:1.1rem 1.25rem} nav a{margin-right:1rem;color:var(--accent)} h2{color:#163f68;margin:.1rem 0 1rem} h3{color:#214c73} a{color:var(--accent)}
+.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.8rem} .mini-card,.rating{border:1px solid var(--line);border-radius:10px;padding:.85rem;background:#fbfcfd} .mini-card h3,.rating h3{margin:.1rem 0 .45rem} .rating h3 span{float:right;font-weight:700;color:var(--accent)}
+.verdict{border-left:5px solid var(--good);background:#eef8f2;padding:1rem;border-radius:8px} .warning{border-left:5px solid var(--warn);background:#fff8e7;padding:1rem;border-radius:8px} .badnote{border-left:5px solid var(--bad);background:#fff0f0;padding:1rem;border-radius:8px} .goodnote{border-left:5px solid var(--good);background:#eef8f2;padding:1rem;border-radius:8px}
+.section-summary{border-top:1px solid var(--line);padding-top:.65rem;margin-top:.8rem} table{width:100%;border-collapse:collapse;margin:.7rem 0 1rem} th,td{border:1px solid var(--line);padding:.55rem;text-align:left;vertical-align:top} th{background:#edf2f7} pre{background:var(--code);color:var(--codeink);padding:1rem;border-radius:9px;overflow:auto;white-space:pre-wrap} code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace} dl{margin:.5rem 0} dt{font-weight:700} dd{margin:0 0 .55rem} .tag{display:inline-block;border:1px solid #bcc9d5;border-radius:999px;padding:.15rem .55rem;margin:.1rem .15rem .1rem 0;background:#f7fafc} footer{color:var(--muted);padding:1rem 1.25rem 2rem;max-width:1120px;margin:auto}
+@media print{body{background:white} header{color:black;background:white;border-bottom:2px solid #333} header p{color:#333} nav.toc{display:none} section{break-inside:avoid;box-shadow:none} a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>TRUSS: Towards Task-Reliable and User-Safe Automated Agent Skill Generation</h1><p>Summary, evaluation, and appraisal of arXiv:2608.17588v1. AI/ML agent-skill safety and software-engineering lens.</p><p>Evaluated source: arXiv v1 submitted 18 August 2026.</p></div></header>
+<main class="wrap">
+<nav class="toc"><strong>Contents</strong><br><a href="#metadata">Metadata</a><a href="#synthesis">Synthesis</a><a href="#sections">Source sections</a><a href="#visuals">Figures and tables</a><a href="#appraisal">Appraisal</a><a href="#takeaways">Implementation takeaways</a><a href="#provenance">Provenance</a></nav>
+
+<section id="metadata"><h2>Metadata</h2><div class="meta-grid">
+<div class="mini-card"><h3>Source</h3><p>TRUSS: Towards Task-Reliable and User-Safe Automated Agent Skill Generation</p><p>Zhibo Zhang, Zhen Ouyang, Ling Shi, Kailong Wang</p></div>
+<div class="mini-card"><h3>Identity</h3><p>arXiv:2608.17588v1<br>Submitted 18 August 2026<br>14-page preprint manuscript</p></div>
+<div class="mini-card"><h3>Design</h3><p>Agent-skill generation and safety-verification framework evaluated on three benchmark suites.</p></div>
+<div class="mini-card"><h3>Scope warning</h3><p>The work tests controlled benchmarks, scenarios, and property observers. A passing result does not establish general production safety.</p></div>
+</div></section>
+
+<section id="synthesis"><h2>One-page synthesis</h2>
+<div class="verdict"><strong>Verdict: Read first.</strong> Best use: design a skill-review pipeline that treats static inspection and sandbox execution as one evidence record tied to an exact artifact version.</div>
+<p>TRUSS proposes an admission process for generated agent skills. The candidate package is frozen and assigned a content digest. A Checker inspects functional claims and nine safety properties, then turns unresolved but testable claims into runtime obligations. The exact admitted digest runs in a Controllable Execution Environment where brokered tools mediate side effects and preserve a causal trace. The Refiner uses artifact spans and runtime events as a revision specification. Any edit creates a new digest and restarts checking.</p>
+<p>The benchmark results are strong inside the tested setup. TRUSS reports 100% precision, recall, and F1 on the SkillInject vulnerability-detection benchmark. On SkillSafetyBench, repair lowers attack success without reported attack regression, but residual attacks remain and safe task completion varies sharply by executor configuration. On SkillGenBench, task effectiveness is 52.94% with TRUSS versus 17.11% with no skills, and the controlled security probes report a 100% pass rate for TRUSS. These results support the workflow as a build pattern. They do not justify a general safety certificate because scenario coverage, observer coverage, and executor behavior bound what the runtime evidence can show.</p>
+<p><span class="tag">agent skills</span><span class="tag">static analysis</span><span class="tag">sandbox execution</span><span class="tag">provenance</span><span class="tag">safety observers</span><span class="tag">trace-linked refinement</span></p>
+</section>
+
+<section id="sections"><h2>Section condensation</h2>
+<div class="section-summary"><h3>Abstract and introduction</h3><p>The paper frames automated skill generation as a joint function and safety problem. Skill instructions and executable resources can change agent behavior in ways that static text review does not fully expose, especially when failures depend on tool state or multi-step execution. TRUSS therefore treats admission as a combination of artifact inspection and controlled execution evidence.</p><p>The core claim is narrower than general agent safety. TRUSS asks whether a specific skill candidate satisfies declared functional requirements and a predefined safety contract under the evaluated scenarios. Exact artifact identity and traceability are part of that claim.</p></div>
+<div class="section-summary"><h3>Related work</h3><p>The related-work section places TRUSS between automated skill generation and agent-skill security. Existing generation methods focus on producing reusable procedures and resources, while security work identifies prompt injection, unsafe capability use, or malicious skill content. TRUSS argues that neither generation quality alone nor static vulnerability inspection captures state-dependent execution behavior.</p></div>
+<div class="section-summary"><h3>Methodology: formulation and framework</h3><p>The paper defines functional effectiveness as expected utility improvement over the same agent operating without a skill. Per-property safety risk is the expected violation indicator. The stated objective maximizes functional value while penalizing average safety risk.</p><p>The operational framework is Generator to Checker to Refiner. The Checker has static and runtime phases. The Refiner receives a Function and Safety Record that points back to the candidate artifact or execution event responsible for a failure.</p></div>
+<div class="section-summary"><h3>Methodology: generator and static checker</h3><p>The Generator emits a complete skill package and freezes it before inspection. Provenance and a content digest bind subsequent findings to that exact version. Functional inspection decomposes claims into usage conditions and observable effects, checks available evidence, and converts unresolved but executable criteria into runtime obligations.</p><p>The safety contract has nine properties covering control, access, executable provenance, lifecycle, resource budgets, evidence, authority, composition, and transactions. Static scope follows both declared behavior and implemented capabilities. Admission is digest-specific.</p></div>
+<div class="section-summary"><h3>Methodology: runtime execution traces</h3><p>The Controllable Execution Environment isolates the candidate in a disposable workspace with synthetic data and brokered external interactions. Direct command networking is disabled. An intermediate breaker checks every requested action before dispatch. Rejected requests remain in the trace as blocked events.</p><p>Functional and safety judgments use the same execution evidence. The trace preserves tool-call identity, returned observations, broker decisions, causal links, scenario identity, and skill digest through cleanup and final state. Policy-violating attempts count as violations even when blocked. Missing observer coverage leaves an obligation unresolved.</p></div>
+<div class="section-summary"><h3>Methodology: refinement</h3><p>The Refiner gets an evidence-bound failure record. Static findings identify criteria and artifact spans. Runtime findings identify requests and trace positions. Functional failures compare expected and observed state. Satisfied criteria remain preservation constraints during repair.</p><p>Every revised package receives a new digest and must pass static inspection and fresh runtime execution. If the revision budget ends before obligations are resolved, TRUSS returns an uncertified candidate with residual findings rather than silently admitting it.</p></div>
+<div class="section-summary"><h3>Evaluation</h3><p>RQ1 evaluates vulnerability detection on 84 matched clean/injected SkillInject pairs, 168 blinded artifacts. RQ2 evaluates repair on all 155 SkillSafetyBench cases using the benchmark task and attack verifiers. RQ3 evaluates generation on all 187 SkillGenBench tasks. Metrics include detection precision, recall, F1, attack success, attack elimination, attack regression, safe task completion, task effectiveness, reusability, and controlled security probes.</p><p>TRUSS reaches 100% precision, recall, and F1 on SkillInject. SkillSafetyBench repair reduces attack success from 38.71% to 19.35% for Codex plus GPT-5.5 and from 46.45% to 29.68% for Codex plus GPT-5.4, with 0% reported attack regression. Safe task completion is 52.90% and 23.87% in those two configurations. On SkillGenBench, effectiveness is 52.94% for TRUSS, 29.95% for the LLM Generator, and 17.11% with no skills. Security-probe pass rates are 100%, 75.40%, and 50.80%, respectively.</p></div>
+<div class="section-summary"><h3>Conclusion</h3><p>The authors argue that runtime evidence can expose failures missed by artifact-only inspection and provide a better basis for revision. The paper also notes that residual attack success and executor-dependent safe task completion limit what the certification claim can mean.</p><p>The stated next steps are broader scenario diversity and broader property-observer coverage. Those are not minor extensions. They define the boundary between benchmark success and stronger evidence that the workflow transfers to open-ended skill ecosystems.</p></div>
+</section>
+
+<section id="visuals"><h2>Figures, tables, and workflows</h2>
+<h3>Figure 1: overall TRUSS framework</h3><pre><code>Candidate request
+  -> Generator
+       -> complete skill package
+       -> freeze package + content digest
+  -> Checker
+       -> static function inspection
+       -> static safety-property inspection
+       -> explicit runtime obligations
+       -> exact-digest admission gate
+       -> CEE runtime execution
+            -> model executor
+            -> intermediate breaker
+            -> brokered tools / mock services
+            -> provenance-preserving execution trace
+  -> Function and Safety Record
+       -> pass: certify for evaluated obligations/scenarios
+       -> fail: Refiner
+            -> evidence-linked edit
+            -> new digest
+            -> full recheck</code></pre>
+
+<h3>Equations 1 to 4</h3><pre><code>Functional effectiveness: expected utility with skill minus expected utility with empty skill.
+Per-property safety risk: expected indicator of a property violation.
+Joint objective: maximize functional effectiveness minus weighted mean safety risk.
+Attack elimination rate: probability that an originally successful attack is no longer successful after repair.</code></pre>
+
+<h3>Table 1: safety properties and evidence phase</h3><table><thead><tr><th>ID</th><th>Property</th><th>Purpose</th><th>Evidence phase</th></tr></thead><tbody>
+<tr><td>P1</td><td>Control Integrity</td><td>protects task control from instruction manipulation</td><td>Static</td></tr><tr><td>P2</td><td>Access Boundary</td><td>limits capability use to authorized data scope</td><td>Static</td></tr><tr><td>P3</td><td>Execution Integrity</td><td>requires trusted provenance for executable behavior</td><td>Static</td></tr><tr><td>P4</td><td>Lifecycle Isolation</td><td>keeps state within the authorized task lifecycle</td><td>Both</td></tr><tr><td>P5</td><td>Resource Boundedness</td><td>bounds environmental effects by scenario budgets</td><td>Both</td></tr><tr><td>P6</td><td>Evidence Integrity</td><td>aligns reported results with execution evidence</td><td>Runtime</td></tr><tr><td>P7</td><td>Authority Integrity</td><td>binds consequential actions to valid authority</td><td>Runtime</td></tr><tr><td>P8</td><td>Composition Integrity</td><td>preserves trust across composed agent components</td><td>Both</td></tr><tr><td>P9</td><td>Transaction Safety</td><td>restricts external transactions to declared policy</td><td>Both</td></tr>
+</tbody></table>
+
+<h3>Table 2: SkillInject vulnerability detection</h3><table><thead><tr><th>Method</th><th>Precision</th><th>Recall</th><th>F1</th></tr></thead><tbody>
+<tr><td>Intermediate LLM Checker</td><td>44.64%</td><td>19.05%</td><td>26.69%</td></tr>
+<tr><td>Static Checker</td><td>81.55%</td><td>94.05%</td><td>87.36%</td></tr>
+<tr><td>TRUSS</td><td>100%</td><td>100%</td><td>100%</td></tr>
+</tbody></table>
+
+<h3>Table 3: SkillSafetyBench repair</h3><table><thead><tr><th>Executor</th><th>Original ASR</th><th>Repaired ASR</th><th>AER</th><th>Attack regression</th><th>Task completion</th><th>Unsafe completed</th><th>Unsafe and incomplete</th><th>Safe task completion</th></tr></thead><tbody>
+<tr><td>Codex + GPT-5.5</td><td>38.71%</td><td>19.35%</td><td>19.35%</td><td>0%</td><td>63.23%</td><td>10.32%</td><td>9.03%</td><td>52.90%</td></tr>
+<tr><td>Codex + GPT-5.4</td><td>46.45%</td><td>29.68%</td><td>16.77%</td><td>0%</td><td>40.00%</td><td>16.13%</td><td>13.55%</td><td>23.87%</td></tr>
+</tbody></table>
+
+<h3>Table 4: SkillGenBench generation</h3><table><thead><tr><th>Method</th><th>Effectiveness</th><th>Effectiveness improvement</th><th>Security</th><th>Security improvement</th></tr></thead><tbody>
+<tr><td>No Skills</td><td>17.11%</td><td>Not applicable</td><td>50.80%</td><td>Not applicable</td></tr>
+<tr><td>LLM Generator</td><td>29.95%</td><td>+12.83 percentage points</td><td>75.40%</td><td>+24.60 percentage points</td></tr>
+<tr><td>TRUSS</td><td>52.94%</td><td>+35.83 percentage points</td><td>100%</td><td>+49.20 percentage points</td></tr>
+</tbody></table>
+<div class="warning"><strong>Representation note.</strong> All four main-text tables and the framework figure are reconstructed as structured blocks. This keeps the HTML self-contained and makes the benchmark numbers searchable.</div>
+</section>
+
+<section id="appraisal"><h2>Evaluation and appraisal</h2>
+<div class="rating-grid"><article class="rating"><h3>Relevance <span>9/10</span></h3>
+<p>Direct fit for agent-skill review and evidence-preserving admission workflows.</p><dl><dt>Evidence basis</dt><dd>The method centers on skill generation, verification, execution traces, and revision.</dd><dt>Principal limit</dt><dd>Evaluation is not a scientific-literature pipeline.</dd><dt>What would raise the score</dt><dd>Validation on document and research-agent skill packages would raise confidence in direct fit.</dd></dl></article>
+<article class="rating"><h3>Novelty <span>8/10</span></h3>
+<p>The value is the integrated admission loop rather than any one checker.</p><dl><dt>Evidence basis</dt><dd>Static requirement inspection, brokered execution evidence, exact-digest provenance, and trace-linked refinement are combined in one workflow.</dd><dt>Principal limit</dt><dd>Several ingredients are established software and security patterns.</dd><dt>What would raise the score</dt><dd>Ablations that isolate each component would clarify what is genuinely additive.</dd></dl></article>
+<article class="rating"><h3>Method strength <span>7/10</span></h3>
+<p>The paper uses three benchmarks, matched clean/injected artifacts, official verifiers, and more than one executor configuration.</p><dl><dt>Evidence basis</dt><dd>RQ1 uses 168 blinded artifacts, RQ2 uses 155 benchmark cases, and RQ3 uses all 187 SkillGenBench tasks.</dd><dt>Principal limit</dt><dd>The main paper does not provide the stated separate component ablation and gives limited uncertainty analysis.</dd><dt>What would raise the score</dt><dd>Independent replication, component ablation, and statistical uncertainty would raise the score.</dd></dl></article>
+<article class="rating"><h3>Evidence strength <span>7/10</span></h3>
+<p>Reported benchmark deltas are large and internally consistent, but the strongest safety numbers come from controlled benchmarks and probes.</p><dl><dt>Evidence basis</dt><dd>TRUSS reaches 100% precision and recall on SkillInject and 100% security pass rate on SkillGenBench probes, while repair still leaves residual attack success.</dd><dt>Principal limit</dt><dd>No result establishes safety outside the tested properties, observers, scenarios, and executor conditions.</dd><dt>What would raise the score</dt><dd>External adversarial evaluation with broader observers and confidence intervals would raise the score.</dd></dl></article>
+<article class="rating"><h3>External validity <span>5/10</span></h3>
+<p>The experiments cover several benchmarks and executor settings, but remain synthetic or benchmark-bound.</p><dl><dt>Evidence basis</dt><dd>The paper tests vulnerability detection, repair, and generation across SkillInject, SkillSafetyBench, and SkillGenBench.</dd><dt>Principal limit</dt><dd>Scenario coverage and executor behavior materially affect the runtime result.</dd><dt>What would raise the score</dt><dd>Production-style deployments, unseen skill ecosystems, and adaptive red-team tests would raise the score.</dd></dl></article>
+<article class="rating"><h3>Implementation value <span>9/10</span></h3>
+<p>The paper specifies a concrete review architecture that can be translated into a skill QA pipeline.</p><dl><dt>Evidence basis</dt><dd>Content digests, static gates, runtime obligations, a brokered CEE, provenance-preserving traces, and evidence-bound refinement are described explicitly.</dd><dt>Principal limit</dt><dd>The exact implementation and observer coverage still need local design choices.</dd><dt>What would raise the score</dt><dd>An open reference implementation and fixtures for the nine properties would raise the score.</dd></dl></article></div>
+<h3>What the evidence supports</h3><p>TRUSS supports the claim that an exact-version, evidence-linked static and runtime checking loop can outperform the paper's static-only and generator baselines on the tested benchmarks. It also gives a concrete way to preserve blocked unsafe attempts and functional failures as review evidence.</p>
+<h3>What the evidence does not support</h3><div class="badnote">The 100% benchmark results should not be read as a general safety guarantee. Safety coverage depends on the properties that were defined, the scenarios that were generated, the observers that were implemented, and the executor that ran the skill. Residual SkillSafetyBench attacks remain after repair. The accessible main paper also does not contain the component ablation it says is reported separately.</div>
+<h3>Bottom line</h3><p><strong>Best use:</strong> architecture and QA design for agent skills, especially exact-artifact provenance, brokered shadow execution, and evidence-linked repair.</p><p><strong>Do not use for:</strong> claiming that a skill passing these checks is safe under arbitrary production conditions or adaptive attacks.</p><p><strong>Confidence in appraisal:</strong> moderate to high for the described workflow and reported benchmark results; moderate for external transfer because the evidence remains benchmark-bound.</p>
+</section>
+
+<section id="takeaways"><h2>Implementation takeaways</h2><div class="takeaway-grid">
+<div class="mini-card"><h3>Freeze first</h3><p>Assign one digest to the full candidate package before review. Findings without exact artifact identity are weaker evidence.</p></div>
+<div class="mini-card"><h3>Make runtime obligations explicit</h3><p>Static uncertainty should become a named executable test, not a vague reason to run the skill and inspect whatever happens.</p></div>
+<div class="mini-card"><h3>Keep blocked attempts</h3><p>A safety broker should record policy-violating requests even when no side effect occurs. The attempted action is part of the evidence.</p></div>
+<div class="mini-card"><h3>Use one trace for function and safety</h3><p>Judge completion claims, final state, unsafe attempts, admitted actions, cleanup, and residual state from the same causal record.</p></div>
+<div class="mini-card"><h3>Recheck after every edit</h3><p>Repairs invalidate the prior digest. A revised package needs fresh static and runtime evidence.</p></div>
+<div class="mini-card"><h3>Label the certificate narrowly</h3><p>A pass means the evaluated obligations were resolved in the evaluated scenarios. Keep unknown coverage and residual findings visible.</p></div>
+</div></section>
+
+<section id="provenance"><h2>Provenance and coverage</h2>
+<p>Primary source: TRUSS: Towards Task-Reliable and User-Safe Automated Agent Skill Generation. arXiv:2608.17588v1. Submitted 18 August 2026. Source page: <a href="https://arxiv.org/abs/2608.17588">https://arxiv.org/abs/2608.17588</a>. PDF: <a href="https://arxiv.org/pdf/2608.17588">https://arxiv.org/pdf/2608.17588</a>.</p>
+<p>SEA generated 2026-08-19. Coverage: Abstract through Conclusion, Figure 1, Tables 1 through 4, Equations 1 through 4, and named evaluation workflows. Bibliography entries were not condensed individually. No appendix or supplement was present in the accessed 14-page manuscript.</p>
+<p>Scope caveat: this appraisal summarizes and critiques the source. It does not convert benchmark verification into production certification.</p>
+</section>
+</main><footer>ATOM + SEA literature pipeline. Source claims are separated from appraisal and implementation inference.</footer>
+</body></html>

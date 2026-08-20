@@ -1,0 +1,2112 @@
+[
+  {
+    "atom_id": "28a10c61-4916-4081-b58d-e9a0f7701420",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "study_objective",
+    "canonical_statement": "The study evaluates whether score-tile-group precision routing can accelerate long-context dense-attention prefill while retaining model quality relative to uniform INT8 and FP16 attention baselines.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "abstract",
+      "page": "1",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "long-context",
+      "mixed-precision-attention",
+      "prefill"
+    ]
+  },
+  {
+    "atom_id": "08e86ff2-45ff-4303-afa0-b7ac617e0434",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "method",
+    "canonical_statement": "TileMix partitions dense attention into hardware-aligned score tiles and assigns each legal key-tile group to either FP16 or INT8 score computation without removing token interactions.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "4",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 2",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "dense-attention",
+      "tile-routing",
+      "training-free"
+    ]
+  },
+  {
+    "atom_id": "74858424-823e-493b-bb1c-c48d407eca64",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "method",
+    "canonical_statement": "For each KV head and query-tile row, TileMix packs up to 64 tile-group routing decisions into one 64-bit word and retrieves each decision with a shift-and-mask operation inside the attention inner loop.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figures 3-4",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "bitmask",
+      "constant-time-routing"
+    ]
+  },
+  {
+    "atom_id": "2fcd54c6-ae57-494c-9826-1a9c08b49164",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "method",
+    "canonical_statement": "The evaluated routing policies are static, data-free spatial templates that determine FP16 versus INT8 execution while causal and sequence-boundary masks independently determine whether interactions are legal.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "5",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "static-routing",
+      "dense-connectivity"
+    ]
+  },
+  {
+    "atom_id": "63b4dfd5-572c-422e-afcc-a11e14d0d8bb",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "method",
+    "canonical_statement": "The primary score path quantizes query and key blocks to signed symmetric INT8 using absmax scaling, with evaluated block sizes of 128 query tokens and 64 key tokens.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "12",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix C",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "quantization",
+      "INT8",
+      "blockwise"
+    ]
+  },
+  {
+    "atom_id": "811e63b3-c64b-4bbb-be6e-57a8b70802ad",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "method",
+    "canonical_statement": "INT8-routed score tiles use INT8 Tensor Core multiplication with INT32 accumulation and scale restoration, while FP16-routed tiles use FP16 score computation; both paths enter a shared floating-point score domain before online-softmax updates.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "12",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix C",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "tensor-core",
+      "online-softmax"
+    ]
+  },
+  {
+    "atom_id": "44478794-2b65-46ad-8de4-39d63c9a254c",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "method",
+    "canonical_statement": "The primary implementation quantizes query and key operands once per attention call, reuses those INT8 operands across routed groups, and includes quantization, scale preparation, routing, rescaling, memory staging, and fused-attention work in reported implementation-level timing.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "12",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix C",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "quantize-once",
+      "end-to-end-timing"
+    ]
+  },
+  {
+    "atom_id": "4e17184c-1e50-422f-8681-548ca4dac5cf",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "method",
+    "canonical_statement": "The evaluation tests long-context retrieval, long-context question answering, prefill efficiency, and numerical behavior on LLaMA 3.2 3B, with appendix extensions to Vicuna-7B, Qwen2-7B, and Qwen2.5-7B.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "evaluation-design",
+      "model-families"
+    ]
+  },
+  {
+    "atom_id": "19b10dd9-fd41-4c27-96eb-f5810d1693a1",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "method",
+    "canonical_statement": "All throughput experiments use NVIDIA A100 40GB GPUs, batch size 8, three warmup iterations, and five timed iterations under the same model wrapper; reported throughput includes routing and quantization overhead.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "methods",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "A100",
+      "benchmark-protocol",
+      "throughput"
+    ]
+  },
+  {
+    "atom_id": "57b685a2-5a09-4c9a-a40a-fc7cf47e900d",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "On LongEval with LLaMA 3.2 3B, retrieval quality depends on both the fraction of tile groups routed to INT8 and the spatial placement of the groups retained in FP16; row-random and Sparse Transformer layouts retain stronger accuracy at higher INT8 coverage than several other layouts.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "6",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": "Figure 5",
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": {
+      "label": "LLaMA 3.2 3B evaluated on LongEval across prompt lengths from about 3.1k to 38.7k tokens",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "TileMix mixed-precision routing layouts",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "LongEval exact-match line retrieval accuracy",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "Exact-match retrieval",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "LongEval",
+      "routing-layout"
+    ]
+  },
+  {
+    "atom_id": "48a9ca11-cbc4-4898-8c26-7f2ef75a5473",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "Across the LLaMA 3.2 3B LV-Eval table, the all-INT8 One configuration often scores below FP16, while mixed TileMix configurations generally narrow the difference by retaining selected score-tile groups in FP16.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": {
+      "label": "LLaMA 3.2 3B on 11 English and Chinese LV-Eval datasets at 16k, 32k, and 64k contexts",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "TileMix mixed-precision routing",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "One, all legal score-tile groups routed to INT8",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FP16 attention",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "control",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "LV-Eval long-context question-answering accuracy",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "LV-Eval",
+      "quality"
+    ]
+  },
+  {
+    "atom_id": "85caca89-dd23-4c16-9ceb-3e5f7aa84465",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For LLaMA 3.2 3B on the 16k factrecall_en LV-Eval setting, SpTrans75 scored 21.65 compared with 6.72 for FP16 and 4.45 for the all-INT8 One configuration.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 1",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": {
+      "label": "LLaMA 3.2 3B on LV-Eval factrecall_en at 16k context",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "SpTrans75 TileMix routing",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FP16 attention",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "One, 100% INT8",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "LV-Eval factrecall_en score",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "LV-Eval score",
+      "estimate": "21.65",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "SpTrans75",
+          "event_count": null,
+          "sample_size": null,
+          "value": "21.65",
+          "unit": "score"
+        },
+        {
+          "arm_label": "FP16",
+          "event_count": null,
+          "sample_size": null,
+          "value": "6.72",
+          "unit": "score"
+        },
+        {
+          "arm_label": "One",
+          "event_count": null,
+          "sample_size": null,
+          "value": "4.45",
+          "unit": "score"
+        }
+      ],
+      "original_result_text": "SpTrans75 21.65; FP16 6.72; One 4.45 at 16k factrecall_en."
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "LV-Eval",
+      "factrecall_en",
+      "layout-task-interaction"
+    ]
+  },
+  {
+    "atom_id": "c618db75-a511-4897-9d86-ca83f94737bf",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "The authors report that the unusually strong SpTrans factual-recall result at 16k recurs across LLaMA and Qwen model families and coverage ratios, which they describe as a consistent layout-task interaction.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "7",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": {
+      "label": "LLaMA and Qwen model-family LV-Eval factual-recall evaluations",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "SpTrans TileMix routing",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "16k factual-recall performance",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "layout-task-interaction",
+      "requires-mechanistic-follow-up"
+    ]
+  },
+  {
+    "atom_id": "e7575c03-2ba2-406f-abfe-1539e54b237c",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "At 4k-token prefill for LLaMA 3.2 3B-Instruct on A100 with batch size 8, SpTrans75 achieved 31.80 K tokens/s versus 14.33 K tokens/s for FlashAttention and 29.80 K tokens/s for One.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 2",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": {
+      "label": "LLaMA 3.2 3B-Instruct on NVIDIA A100 40GB, batch size 8, 4k-token prefill",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "SpTrans75 TileMix routing",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlashAttention",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "One, 100% INT8 TileMix path",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "End-to-end prefill throughput",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": "K tokens per second",
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "prefill throughput",
+      "estimate": "31.8",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "SpTrans75",
+          "event_count": null,
+          "sample_size": null,
+          "value": "31.8",
+          "unit": "K tokens/s"
+        },
+        {
+          "arm_label": "FlashAttention",
+          "event_count": null,
+          "sample_size": null,
+          "value": "14.33",
+          "unit": "K tokens/s"
+        },
+        {
+          "arm_label": "One",
+          "event_count": null,
+          "sample_size": null,
+          "value": "29.8",
+          "unit": "K tokens/s"
+        }
+      ],
+      "original_result_text": "4k throughput: SpTrans75 31.80, FlashAttention 14.33, One 29.80 K tokens/s."
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "throughput",
+      "A100",
+      "4k"
+    ]
+  },
+  {
+    "atom_id": "67dc37c9-2bb1-4f74-9001-172e27606634",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "Using the reported 4k throughput values, SpTrans75 delivered a calculated 2.219-fold throughput relative to FlashAttention.",
+    "assertion_origin": "calculated_from_reported_data",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 2",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": {
+      "label": "LLaMA 3.2 3B-Instruct on NVIDIA A100 40GB, batch size 8, 4k-token prefill",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "SpTrans75 TileMix routing",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlashAttention",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Calculated prefill throughput ratio",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "throughput ratio",
+      "estimate": "2.219120725750174459176552687",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "SpTrans75/FlashAttention",
+          "event_count": null,
+          "sample_size": null,
+          "value": "2.219120725750174459176552687",
+          "unit": "fold"
+        }
+      ],
+      "original_result_text": "Calculated from 31.80 K tokens/s divided by 14.33 K tokens/s."
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "calculated",
+      "throughput-ratio"
+    ]
+  },
+  {
+    "atom_id": "d0ffda81-67e4-4c4e-906e-e4180a834d4b",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "At 8k-token prefill with batch size 8, the reported Torch and FlashAttention baselines ran out of memory, while One and the tested mixed TileMix configurations produced throughput measurements.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 2",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": {
+      "label": "LLaMA 3.2 3B-Instruct on NVIDIA A100 40GB, batch size 8, 8k-token prefill",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "TileMix mixed-precision configurations",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "Torch FP16 attention",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlashAttention",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Benchmark completion and prefill throughput",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "OOM",
+      "8k",
+      "A100"
+    ]
+  },
+  {
+    "atom_id": "61365990-f222-40be-8c38-f4614a362b57",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "In the representative 8k storage accounting, quantize-once TileMix used 136.01 MiB of resident HBM compared with 96 MB for FlashAttention and on-the-fly TileMix.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "14",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 5",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix D",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": {
+      "label": "Representative attention configuration with Hq=32, Hk=8, sequence length 8192, head dimension 128, BLKQ=128, BLKK=64",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "TileMix quantize-once",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FlashAttention",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "TileMix on-the-fly",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Resident HBM footprint",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "resident HBM",
+      "estimate": "136.01",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "TileMix quantize-once",
+          "event_count": null,
+          "sample_size": null,
+          "value": "136.01",
+          "unit": "MiB"
+        },
+        {
+          "arm_label": "FlashAttention",
+          "event_count": null,
+          "sample_size": null,
+          "value": "96",
+          "unit": "MB"
+        },
+        {
+          "arm_label": "TileMix on-the-fly",
+          "event_count": null,
+          "sample_size": null,
+          "value": "96",
+          "unit": "MB"
+        }
+      ],
+      "original_result_text": "Representative resident HBM: quantize-once 136.01 MiB; FlashAttention 96 MB; on-the-fly 96 MB."
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "memory",
+      "quantize-once"
+    ]
+  },
+  {
+    "atom_id": "0792fc59-6f3f-4f11-835a-b1d69616e712",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "For one INT8-routed QK tile event in the representative storage accounting, quantize-once TileMix reduced operand reads from 32 KB with on-the-fly execution to 16.25 KB.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "14",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 5",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix D",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": {
+      "label": "Representative attention configuration with Hq=32, Hk=8, sequence length 8192, head dimension 128",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "TileMix quantize-once",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "TileMix on-the-fly",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Global/L2 operand read per INT8-routed QK tile event",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "operand read",
+      "estimate": "16.25",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "TileMix quantize-once",
+          "event_count": null,
+          "sample_size": null,
+          "value": "16.25",
+          "unit": "KB"
+        },
+        {
+          "arm_label": "TileMix on-the-fly",
+          "event_count": null,
+          "sample_size": null,
+          "value": "32",
+          "unit": "KB"
+        }
+      ],
+      "original_result_text": "INT8 QK operand read: 16.25 KB quantize-once versus 32 KB on-the-fly."
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "memory-traffic",
+      "quantize-once"
+    ]
+  },
+  {
+    "atom_id": "2b59a194-4259-4dde-a84d-7fb653f5c057",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "quantitative_result",
+    "canonical_statement": "At 8k sequence length, mean absolute output deviation from the fixed Torch FP16 reference was 6.84e-5 at 0% INT8, 8.34e-4 at 5%, 6.32e-3 at 10%, and 6.84e-3 at 25% INT8 coverage.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 3",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": {
+      "label": "Randomized attention-input numerical evaluation at 8k sequence length",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "TileMix 0%, 5%, 10%, and 25% INT8 coverage",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Mean absolute output deviation from Torch FP16 reference",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": {
+      "effect_measure": "mean absolute output deviation",
+      "estimate": "0.00632",
+      "interval": null,
+      "p_value": null,
+      "p_value_text": null,
+      "adjusted": null,
+      "adjustment_variables": [],
+      "arms": [
+        {
+          "arm_label": "0% INT8",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.0000684",
+          "unit": "absolute deviation"
+        },
+        {
+          "arm_label": "5% INT8",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.000834",
+          "unit": "absolute deviation"
+        },
+        {
+          "arm_label": "10% INT8",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.00632",
+          "unit": "absolute deviation"
+        },
+        {
+          "arm_label": "25% INT8",
+          "event_count": null,
+          "sample_size": null,
+          "value": "0.00684",
+          "unit": "absolute deviation"
+        }
+      ],
+      "original_result_text": "At 8k: 0%=6.84e-5; 5%=8.34e-4; 10%=6.32e-3; 25%=6.84e-3."
+    },
+    "supersedes_atom_id": null,
+    "tags": [
+      "numerical-deviation",
+      "coverage"
+    ]
+  },
+  {
+    "atom_id": "91636f7e-c148-469a-953b-c53f02f7ce3b",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "The numerical analysis reports that output deviation generally rises with INT8 coverage and that sequence length alone is not the dominant control compared with coverage, routing pattern, and model depth.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "19",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix G",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": {
+      "label": "Random-input numerical evaluations across sequence lengths, routing patterns, and model depths",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "TileMix precision-routing configurations",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Numerical deviation from FP16 references",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "numerical-stability",
+      "coverage"
+    ]
+  },
+  {
+    "atom_id": "531ccb58-ef19-4f40-a03c-1a08a50e7fc9",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "qualitative_result",
+    "canonical_statement": "Appendix accumulation controls report only small changes when switching selected accumulators between FP16 and FP32 compared with the larger numerical differences associated with routing layout and INT8 coverage.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "supplement",
+      "page": "20",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Table 19",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": "Appendix G",
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": {
+      "label": "TileMix numerical accumulation-control experiments",
+      "sample_size": null,
+      "subgroup": false,
+      "inclusion_criteria": [],
+      "exclusion_criteria": []
+    },
+    "exposures": [
+      {
+        "concept": {
+          "text": "FP16 accumulation",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "intervention",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      },
+      {
+        "concept": {
+          "text": "FP32 accumulation",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "role": "comparator",
+        "dose_value": null,
+        "dose_unit": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "details": null
+      }
+    ],
+    "outcome": {
+      "concept": {
+        "text": "Maximum and mean absolute numerical differences",
+        "code": null,
+        "system": null,
+        "version": null
+      },
+      "definition": null,
+      "outcome_type": "not_specified",
+      "measurement_method": null,
+      "time_horizon_value": null,
+      "time_horizon_unit": null
+    },
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "accumulation",
+      "numerical-stability"
+    ]
+  },
+  {
+    "atom_id": "bb16754a-def7-4871-85e1-22f40434bb51",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "limitation",
+    "canonical_statement": "The implementation and reported experiments target forward inference during long-context prefill rather than training or a broad set of decode workloads.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "conclusion",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "scope",
+      "prefill-only"
+    ]
+  },
+  {
+    "atom_id": "b8cb7745-86c3-4311-a9e2-924a262b606b",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "limitation",
+    "canonical_statement": "The evaluated mixed-precision kernel uses FP16 and INT8 Tensor Core paths on NVIDIA A100 GPUs; the paper does not evaluate other GPU generations or numerical formats.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "conclusion",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "A100-only",
+      "hardware-generalization"
+    ]
+  },
+  {
+    "atom_id": "08bf94a5-5677-4747-ad31-7dbc2037273b",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "limitation",
+    "canonical_statement": "The reported routing policies are static templates; the kernel can accept other static or adaptive policies, but adaptive routing is not evaluated in this study.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "conclusion",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "static-policy",
+      "adaptive-routing-not-tested"
+    ]
+  },
+  {
+    "atom_id": "5258d6aa-4de7-43a7-83bc-b157ade29b61",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "limitation",
+    "canonical_statement": "The main throughput and LV-Eval comparisons do not report confidence intervals or run-dispersion estimates, so the paper does not quantify uncertainty around those benchmark differences beyond the stated timing protocol.",
+    "assertion_origin": "extractor_inference",
+    "source_anchor": {
+      "section": "results",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": "Tables 1-2",
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "appraisal",
+      "uncertainty-not-reported"
+    ]
+  },
+  {
+    "atom_id": "ca212fe1-3e0c-4ab2-bc75-c9b81a3301dc",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "author_conclusion",
+    "canonical_statement": "The authors conclude that tile-group precision routing provides a controllable accuracy-efficiency tradeoff for dense long-context attention by varying FP16 and INT8 arithmetic across legal score-tile groups.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "conclusion",
+      "page": "8",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "author-conclusion",
+      "accuracy-efficiency"
+    ]
+  },
+  {
+    "atom_id": "cef3c3c9-1ba8-408e-8ce8-686662aa0537",
+    "publication_id": "8a45fe5e-dc12-5e00-a0c0-50b65f2b1ca3",
+    "atom_kind": "data_availability",
+    "canonical_statement": "The paper states that a TileMix implementation is publicly available in a linked GitHub repository.",
+    "assertion_origin": "directly_reported",
+    "source_anchor": {
+      "section": "abstract",
+      "page": "1",
+      "paragraph": null,
+      "sentence": null,
+      "table": null,
+      "table_row": null,
+      "table_column": null,
+      "figure": null,
+      "supplement": null,
+      "character_start": null,
+      "character_end": null,
+      "verbatim_excerpt": null,
+      "excerpt_hash": null
+    },
+    "provenance": {
+      "extractor_type": "language_model",
+      "extractor_identifier": "OpenAI ChatGPT",
+      "extracted_at": "2026-08-19T15:30:00Z",
+      "software_name": "ChatGPT",
+      "software_version": null,
+      "model_name": "GPT-5.6 Sol",
+      "model_version": null,
+      "prompt_version": "ATOM+SEA project macro 2026-08-19",
+      "input_document_hash": null,
+      "extraction_run_id": "arxiv-2608.17336-v1-task8-20260819",
+      "reviewer_identifier": null,
+      "reviewed_at": null
+    },
+    "review_status": "needs_review",
+    "schema_version": "1.0",
+    "atom_version": 1,
+    "created_at": "2026-08-19T15:30:00Z",
+    "population": null,
+    "exposures": [],
+    "outcome": null,
+    "quantitative_result": null,
+    "supersedes_atom_id": null,
+    "tags": [
+      "code-availability"
+    ]
+  }
+]
