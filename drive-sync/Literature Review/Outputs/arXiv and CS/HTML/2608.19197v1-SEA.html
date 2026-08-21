@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEA | arXiv:2608.19197v1</title>
+<style>
+:root{--bg:#f5f7fa;--card:#fff;--ink:#17212b;--muted:#5a6875;--line:#d9e0e7;--accent:#294f7d;--warn:#805a16;--good:#246244}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:#17324f;color:white;padding:2.4rem 1.2rem} header .wrap,main.wrap{max-width:1120px;margin:auto} h1{font-size:2rem;line-height:1.15;margin:.2rem 0}
+header p{max-width:900px;margin:.4rem 0;color:#e5edf5} nav{display:flex;gap:.75rem;flex-wrap:wrap;margin:1rem 0 1.4rem}
+nav a{color:var(--accent);text-decoration:none;background:white;border:1px solid var(--line);padding:.35rem .55rem;border-radius:8px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem;margin:1rem 0}
+h2{color:#183f68;margin:.1rem 0 .8rem} h3{color:#294f7d} h4{margin:.2rem 0} .muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.8rem} .mini-card,.rating{border:1px solid var(--line);border-radius:10px;padding:.8rem;background:#fbfcfe}
+.mini-card h4 span{float:right;font-weight:400;color:var(--muted);font-size:.85em} .callout{border-left:5px solid var(--accent);padding:.8rem 1rem;background:#eef4fa;border-radius:8px}
+.warning{border-left-color:var(--warn);background:#fff7e8} .good{border-left-color:var(--good);background:#edf7f1}
+table{border-collapse:collapse;width:100%;font-size:.94rem} th,td{border:1px solid var(--line);padding:.5rem;vertical-align:top} th{background:#eef3f8;text-align:left}
+pre{background:#101a27;color:#e8f0f7;padding:1rem;border-radius:9px;overflow:auto;white-space:pre-wrap} .rating .score{float:right;font-weight:800;color:var(--accent);font-size:1.15rem}
+ul{padding-left:1.3rem} footer{max-width:1120px;margin:1rem auto 2rem;color:var(--muted);padding:0 1.2rem;font-size:.9rem}
+@media print{body{background:white} section{break-inside:avoid;box-shadow:none} nav{display:none}}
+</style></head>
+<body>
+<header><div class="wrap"><div class="muted" style="color:#bcd0e3">arXiv:2608.19197v1 | preprint | 19 Aug 2026</div>
+<h1>SPADE: Self-Play in Adaptive Synthetic Executable Environments</h1><p>Summary, evaluation, and appraisal with an AI/ML systems lens.</p></div></header>
+<main class="wrap">
+<nav><a href="#metadata">Metadata</a><a href="#synthesis">Synthesis</a><a href="#sections">Sections</a><a href="#visuals">Figures and tables</a><a href="#appraisal">Appraisal</a><a href="#takeaways">Takeaways</a><a href="#provenance">Provenance</a></nav>
+
+<section id="metadata"><h2>Metadata</h2><div class="grid">
+<div class="mini-card"><b>Authors</b><p>Bo Liu; Simon Yu; Yiding Jiang; Ao Qu; Andrew Zhao; Zichen Liu; Junsu Kim; Zijian Zhou; Seungone Kim; Tongzheng Ren; Mickel Liu; Hanfei Yu; Zhaorun Chen; Weiyan Shi; Paul Pu Liang; Luke Zettlemoyer; Yejin Choi; Natasha Jaques</p></div>
+<div class="mini-card"><b>Source</b><p>arXiv:2608.19197v1 [cs.CL, cs.AI], submitted 2026-08-19</p></div>
+<div class="mini-card"><b>Design</b><p>Self-play reinforcement-learning systems study with matched fixed-environment baselines, ablations, held-out benchmark evaluation, and extended environment-quality analysis.</p></div>
+<div class="mini-card"><b>Scope warning</b><p>This preprint shows benchmark and synthetic-environment results. It does not establish open-ended capability growth, real-world agent safety, or superiority to other published environment systems under matched protocols.</p></div>
+</div></section>
+
+<section id="synthesis"><h2>One-page synthesis</h2>
+<div class="callout good"><b>Verdict: Read first.</b> SPADE is a strong systems paper for anyone building agent post-training or adaptive evaluation infrastructure. Its main contribution is not merely generating more tasks. It turns executable environment generation into a trained role that co-adapts with the learner.</div>
+<p>SPADE uses one model as both Environment Designer and Reasoning Agent. The designer writes complete Python environments with a Gym-style <code>reset()/step()</code> contract and a privileged hint. The agent plays each environment with and without the hint. The difference in mean return becomes hint-based regret, which rewards environments that are solvable with guidance but not yet mastered without it. Corpus grounding supplies topic breadth, while an environment memory carries difficulty information across regeneration cycles.</p>
+<p>The controlled games evidence is the strongest part. At Qwen3-30B-A3B, the eight-benchmark mean reaches 58.3, up 8.1 points over the untrained base and 5.3 over the matched fixed-environment RLVE baseline. Component ablations reduce the mean to 53.2 without memory and 53.5 without corpus grounding; freezing the designer while removing memory drops to 40.5, below the untrained base. The tool-use setting also improves strongly, but cross-paper comparisons to AgentScaler, Agent-World, AWM, and EnvScaler are contextual rather than controlled.</p>
+<div class="callout warning"><b>Load-bearing limits.</b> Headline results lack uncertainty intervals; some ablations change more than one component; most evidence uses Qwen3; the Nemotron check is narrower; fixed benchmarks do not measure open-ended growth; and some environment-quality claims rely on LLM rubrics or step-level proxies. The paper itself also documents tool-use validation gaps where success criteria can miss instruction qualifiers.</div>
+</section>
+
+<section id="sections"><h2>Section condensation</h2>
+<h3>Introduction and related work</h3><p>The paper frames training environments as a bottleneck for agentic RL. Fixed human-curated or statically synthesized pools eventually saturate. SPADE combines ideas from self-play, unsupervised environment design, corpus grounding, and executable environment synthesis, but differs by training the environment generator itself and by generating complete MDPs rather than isolated problems.</p>
+<h3>Preliminaries and SPADE method</h3><p>The method uses a shared policy in two prompted roles. The Environment Designer emits executable code plus a task-specific hint; the Reasoning Agent interacts with the environment. Hint-based regret is the mean return with the hint minus the mean return without it. The deployed designer reward blends floored regret with a difficulty-band anchor. Role-specific advantages, delayed designer updates, and truncated importance sampling stabilize the shared-policy optimization.</p>
+<p>Corpus grounding and memory solve different problems. Fresh pretraining-corpus documents diversify what environments are about. Memory stores regret-scored prior environments and skill labels so the next generation round can vary useful frontier examples while avoiding mastered or hopeless tasks. Candidates are syntax- and execution-tested before entering the pool; tool-use environments receive additional deterministic and semantic feasibility checks.</p>
+<h3>Experimental setup</h3><p>The main games study trains Qwen3 4B, 8B, and 30B-A3B backbones for 400 rollouts. Games use 24 environments per rollout with three of six cognitive-skill categories active at a time. All eight games benchmarks are held out. Fixed-env GRPO and fixed-env RLVE are retrained from the same base models for the same iteration budget. Tool-use environments simulate function-calling APIs, mutable backend state, and sequential instructions.</p>
+<h3>Results</h3><p>SPADE improves the eight-benchmark games mean at every tested Qwen3 scale: 38.9 to 44.1 at 4B, 49.8 to 55.5 at 8B, and 50.2 to 58.3 at 30B-A3B. At 30B-A3B the strongest matched fixed-environment baseline scores 53.0. Gains are especially large on the procedural Reasoning-Gym categories, while GPQA-Diamond and LiveCodeBench-v6 also improve.</p>
+<p>In tool use, the 30B-A3B model improves BFCL v4 multi-turn by 5.7 points, tau2-bench by 3.6, and ACEBench-Agent by 13.9. These within-model gains are interpretable. Published competitor rows should not be read as clean rankings because the training and evaluation protocols differ.</p>
+<h3>Ablations, scaling, and environment analysis</h3><p>Full SPADE outperforms removing memory, removing corpus grounding, freezing the designer, and replacing the self-play designer with a fixed GPT-5.5 designer. Hint-based regret also beats the EMA learning-potential alternative. The model-scale result is notable: gains over base increase from 5.2 at 4B to 8.1 at 30B-A3B while matched fixed-env GRPO stays near 1.2 points.</p>
+<p>Extended analysis supports the proposed division of labor between corpus and learning. The learnable-band share rises from 0.16 to 0.31. Raw generated programs are executable at 84.9% as emitted and 90.3% after stripping Markdown fences, with 100% post-filter validity after the training sanitizer. Corpus grounding preserves diversity: Vendi/n is 0.68 for full SPADE versus 0.04 without corpus grounding.</p>
+<h3>Discussion and conclusion</h3><p>The authors argue that learnable environment design extends the useful life of post-training beyond fixed pools and that one executable interface can cover reasoning and multi-step tool use. They explicitly limit the claim: environment complexity remains bounded by model scale and context, GRPO itself is fixed and human-authored, hint-based regret has no optimal-curriculum proof, and evaluation remains fixed-task.</p>
+</section>
+
+<section id="visuals"><h2>Figures, tables, algorithms, and appendix evidence</h2>
+<h3>Main-text figures</h3><div class="grid"><div class="mini-card"><h4>Figure 1 <span>PDF 1</span></h4><p>Overview of the dual-role self-play loop and relative benchmark improvements across games and tool use.</p></div>
+<div class="mini-card"><h4>Figure 2 <span>PDF 3</span></h4><p>Four generated environments across one 30B-A3B run, showing the curriculum becoming more stateful and multi-turn over training.</p></div>
+<div class="mini-card"><h4>Figure 3 <span>PDF 6</span></h4><p>Core framework: corpus and memory feed the Environment Designer, hint/no-hint rollouts define designer regret, task return trains the Reasoning Agent, and both update shared weights.</p></div>
+<div class="mini-card"><h4>Figure 4 <span>PDF 8</span></h4><p>Two positive-regret examples demonstrating how privileged hints alter Reasoning Agent search behavior and return.</p></div>
+<div class="mini-card"><h4>Figure 5 <span>PDF 10</span></h4><p>Held-out games benchmark trajectories for the 30B-A3B run, showing gains in science, code, and procedural reasoning while competition math is largely preserved.</p></div>
+<div class="mini-card"><h4>Figure 6 <span>PDF 13</span></h4><p>Learnable-share dynamics: full SPADE raises the fraction of generated environments with intermediate solve rates to roughly one-third late in training.</p></div>
+<div class="mini-card"><h4>Figure 7 <span>PDF 13</span></h4><p>Environment diversity comparison showing corpus-grounded runs remain diverse while the no-corpus ablation collapses.</p></div>
+<div class="mini-card"><h4>Figure 8 <span>PDF 13</span></h4><p>Environment evolution: formula disclosure declines across training; the no-corpus ablation repeats the same rotating-maze task.</p></div>
+<div class="mini-card"><h4>Figure 9 <span>PDF 14</span></h4><p>Reasoning Agent behavior shifts from front-loaded derivation and format failure toward evidence-first interaction and later derivation.</p></div>
+<div class="mini-card"><h4>Figure 10 <span>PDF 15</span></h4><p>Training curves for full and partial/frozen-designer ablations; partial variants peak early and degrade while full SPADE remains strongest late.</p></div>
+<div class="mini-card"><h4>Figure 11 <span>PDF 16</span></h4><p>Environment Designer reward ablation comparing hint-based regret, EMA learning potential, and a frozen control.</p></div>
+<div class="mini-card"><h4>Figure 12 <span>PDF 17</span></h4><p>Scale analysis: SPADE gain rises from +5.2 at 4B to +8.1 at 30B-A3B, while matched fixed-env GRPO stays near +1.2; smaller models show noisier regret.</p></div>
+<div class="mini-card"><h4>Figure 13 <span>PDF 16</span></h4><p>Curriculum-breadth comparison: six-skill training outperforms the restricted two-skill curriculum on the eight-benchmark mean.</p></div></div>
+<h3>Main-text tables</h3><div class="grid"><div class="mini-card"><h4>Table 1 <span>PDF 9</span></h4><p>Matched games-setting results across Qwen3 4B, 8B, and 30B-A3B, including fixed-env GRPO, fixed-env RLVE, and SPADE on eight held-out benchmarks.</p></div>
+<div class="mini-card"><h4>Table 2 <span>PDF 11</span></h4><p>Tool-use benchmark results for SPADE across three Qwen3 scales plus contextual published rows from other environment-synthesis systems; cross-paper comparability is limited.</p></div>
+<div class="mini-card"><h4>Table 3 <span>PDF 14</span></h4><p>Component and frozen-designer ablations for the 30B-A3B games setting.</p></div></div>
+<h3>Algorithm 1</h3><div class="mini-card"><p>Generates candidate environments, validates them, produces privileged hints, collects grouped hint/no-hint Reasoning Agent rollouts, constructs designer and agent advantages, and performs a joint clipped-policy update on the shared model.</p></div>
+<h3>Selected appendix evidence</h3><div class="grid"><div class="mini-card"><h4>Table 5 <span>PDF 44</span></h4><p><strong>structured</strong>: Training hyperparameters and implementation details are required for reproducibility.</p></div>
+<div class="mini-card"><h4>Table 6 <span>PDF 46</span></h4><p><strong>structured</strong>: Full ablation breakdown supports the reward and curriculum-breadth claims.</p></div>
+<div class="mini-card"><h4>Table 7 <span>PDF 53</span></h4><p><strong>structured</strong>: Environment-quality metrics directly test learnability, well-posedness, verifiability, and structural richness.</p></div>
+<div class="mini-card"><h4>Table 8 <span>PDF 55</span></h4><p><strong>structured</strong>: Matched diversity ablations quantify the role of corpus grounding.</p></div>
+<div class="mini-card"><h4>Figure 14 <span>PDF 45</span></h4><p><strong>structured</strong>: Per-benchmark curriculum-breadth trajectories support the main scaling claim.</p></div>
+<div class="mini-card"><h4>Figure 15 <span>PDF 46</span></h4><p><strong>structured</strong>: Nemotron cross-family check addresses Qwen-specificity, though only Reasoning-Gym is evaluated.</p></div>
+<div class="mini-card"><h4>Figures 16-18 <span>PDF 54-56</span></h4><p><strong>structured</strong>: Reward-granularity, skill-learning, and diversity dynamics support environment-quality claims.</p></div>
+<div class="mini-card"><h4>Figure 19 and J qualitative examples <span>PDF 57+</span></h4><p><strong>condensed</strong>: Representative examples are useful, but full generated source listings are not reproduced in the SEA artifact.</p></div>
+<div class="mini-card"><h4>Table 4 <span>PDF 28</span></h4><p><strong>omitted</strong>: Notation table is reference infrastructure and does not change interpretation.</p></div>
+<div class="mini-card"><h4>Full generated environment source listings <span>PDF 60+</span></h4><p><strong>omitted</strong>: Hundreds of lines of code are reproducibility examples rather than load-bearing evidence; their existence and role are noted.</p></div></div>
+</section>
+
+<section id="appraisal"><h2>Evaluation and appraisal</h2>
+<div class="grid"><div class="rating"><div class="score">9.5/10</div><h4>Relevance</h4><p>Direct fit to adaptive agent training, executable environments, curriculum design, and agent reliability.</p><p><b>Limit:</b> The paper evaluates a training loop rather than clinical deployment.</p><p><b>Would change:</b> Would rise only with direct integration into a production agent stack.</p></div>
+<div class="rating"><div class="score">9/10</div><h4>Novelty</h4><p>Moves from fixed synthetic task pools to an RL-trained environment designer that emits full executable MDPs.</p><p><b>Limit:</b> Builds on self-play, UED, corpus grounding, and GRPO rather than inventing each component from scratch.</p><p><b>Would change:</b> Independent replications would clarify how much novelty translates into durable capability.</p></div>
+<div class="rating"><div class="score">8/10</div><h4>Method strength</h4><p>Matched fixed-environment baselines, component ablations, held-out benchmarks, run configs, and released evaluation artifacts provide a strong experimental core.</p><p><b>Limit:</b> Several ablations change more than one component, and best-checkpoint selection is used for some comparisons.</p><p><b>Would change:</b> Matched repeats with confidence intervals and single-factor ablations would strengthen causal attribution.</p></div>
+<div class="rating"><div class="score">7.5/10</div><h4>Evidence strength</h4><p>The controlled games results and ablations consistently support the adaptive-environment claim across three Qwen3 scales.</p><p><b>Limit:</b> No uncertainty intervals are reported for headline suite differences, and some environment-quality metrics use LLM rubrics or proxies.</p><p><b>Would change:</b> Multiple seeds, uncertainty reporting, and independent replication would raise confidence.</p></div>
+<div class="rating"><div class="score">6.5/10</div><h4>External validity</h4><p>Tool use and games span distinct environment families, and a limited Nemotron check reduces Qwen-only concern.</p><p><b>Limit:</b> Most headline evidence is Qwen3-based; the Nemotron check covers only Reasoning-Gym, and all evaluations remain fixed benchmarks.</p><p><b>Would change:</b> Broader backbone families, domains, and real interactive deployments are needed.</p></div>
+<div class="rating"><div class="score">9/10</div><h4>Implementation value</h4><p>The paper specifies prompts, pool lifecycle, validation gates, training hyperparameters, code, configs, evaluation JSONs, and figure scripts.</p><p><b>Limit:</b> The system remains expensive and operationally complex, and some tool-use success criteria miss instruction qualifiers.</p><p><b>Would change:</b> A smaller reproducible reference implementation and cost accounting would improve transferability.</p></div></div>
+<h3>Evidence reading</h3>
+<table><tr><th>Question</th><th>Assessment</th></tr>
+<tr><td>Does adaptive design beat matched fixed pools?</td><td><b>Yes, within the reported Qwen3 games setup.</b> The matched RLVE and GRPO baselines plus trajectory behavior make this the most defensible headline claim.</td></tr>
+<tr><td>Is hint-based regret uniquely necessary?</td><td><b>No.</b> EMA learning potential also improves substantially. Hint-based regret performs better in the reported reward ablation, but the result supports "better reward signal" more strongly than "only viable reward."</td></tr>
+<tr><td>Does corpus grounding matter?</td><td><b>Strongly supported.</b> Removing it lowers downstream performance and collapses environment diversity under matched analysis.</td></tr>
+<tr><td>Does memory matter?</td><td><b>Supported.</b> Removing memory lowers the selected suite mean, though the full causal story interacts with designer adaptation.</td></tr>
+<tr><td>Does SPADE beat other synthesis systems?</td><td><b>Not established by a controlled comparison.</b> Published rows differ in base models, data, budgets, benchmark versions, simulators, and harnesses.</td></tr>
+<tr><td>Does this demonstrate open-ended self-improvement?</td><td><b>No.</b> It demonstrates adaptive synthetic-environment post-training with gains on fixed held-out benchmarks.</td></tr>
+</table>
+</section>
+
+<section id="takeaways"><h2>Implementation takeaways</h2>
+<ul>
+<li>Treat environment generation as a stateful training service, not a one-time data synthesis job.</li>
+<li>Separate novelty supply from difficulty tracking: external corpus for breadth, memory for frontier control.</li>
+<li>Make generated environments executable and self-verifying, then gate them before learner exposure.</li>
+<li>Evaluate adaptive generation against matched static-pool baselines, not only against unrelated published systems.</li>
+<li>Log rejected environments, per-environment rewards, sanitizer interventions, and success-criterion bindings. SPADE's own limitations show why these traces matter.</li>
+<li>Keep open-endedness claims separate from fixed-benchmark improvement. The paper is build-useful now; the broader continual-self-improvement thesis remains unproven.</li>
+</ul>
+</section>
+
+<section id="provenance"><h2>Provenance and pipeline status</h2>
+<p><b>Primary source:</b> SPADE: Self-Play in Adaptive Synthetic Executable Environments, arXiv:2608.19197v1, v1 submitted 2026-08-19.</p>
+<p><b>Evaluated file:</b> 2608.19197v1.pdf, SHA-256 <code>2459c2b53e79ebf0ceec4879b4163d0f992c7f1073e7503408b2399e1911fe6e</code>.</p>
+<p><b>ATOM:</b> 55 atoms. Structural validation passed; JSON schema validation passed; sufficiency validation passed with 0 errors and 0 warnings. Review status remains <code>needs_review</code>.</p>
+<p><b>ATOM counts:</b> author_conclusion: 1, data_availability: 1, funding_disclosure: 1, limitation: 7, method: 19, qualitative_result: 2, quantitative_result: 23, study_objective: 1.</p>
+<p><b>SEA coverage:</b> 13 main-text figures, 3 main-text tables, Algorithm 1, and selected empirical/methodological appendix material. 141 bibliography entries were extracted separately.</p>
+<p><b>Generation date:</b> 2026-08-20.</p>
+</section>
+</main><footer>This appraisal supports research review and implementation planning. It does not replace reading the primary source or independent replication.</footer>
+</body></html>

@@ -1,0 +1,4752 @@
+{
+  "source": {
+    "title": "RTPO: Reverse-Turn Policy Optimization for Stabilizing Agentic RL Training",
+    "arxiv_id": "2608.18682v1",
+    "source_type": "preprint",
+    "submitted": "2026-08-19",
+    "url": "https://arxiv.org/abs/2608.18682",
+    "primary_pdf": "2608.18682v1.pdf",
+    "pdf_sha256": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+    "pdf_pages": 50,
+    "publication_id": "258488ce-b866-422a-9372-d3af860e56a4"
+  },
+  "schema_version": "1.0",
+  "atom_count": 66,
+  "atoms": [
+    {
+      "atom_id": "7cdd90a8-1a74-4c20-b91d-51291059c8cf",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "study_objective",
+      "canonical_statement": "The study asks how multi-turn agentic RL can be stabilized by jointly addressing rollout–training consistency, turn-level credit assignment, and asynchronous policy drift.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "introduction",
+        "page": "2",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "agentic_rl",
+        "stability",
+        "rtpo"
+      ]
+    },
+    {
+      "atom_id": "7b28d788-bb38-4813-8472-a67b98945a5f",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "The authors model multi-turn interaction as a hierarchical Markov decision process with turn-level states defined by interaction history and turn-level actions defined by complete model responses.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "2",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "theory",
+        "h_mdp"
+      ]
+    },
+    {
+      "atom_id": "130df3d0-8c7f-4285-9839-229ef9a0e31e",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "The standard flattened PPO/GRPO-style objective assigns one trajectory-level advantage uniformly to unmasked tokens across the full interaction trajectory.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "flattened_trajectory",
+        "grpo",
+        "ppo"
+      ]
+    },
+    {
+      "atom_id": "01b3d541-3571-4323-9ae9-f1a7510e1c35",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "When rollout uses a truncated or summarized context but training recomputes likelihoods on the full flattened history, the importance-sampling denominator no longer matches the distribution that sampled the token.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "rollout_training_mismatch",
+        "importance_sampling"
+      ]
+    },
+    {
+      "atom_id": "44be4f82-e8d7-4ef9-9af4-7c27dceb09c9",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "The theoretical analysis identifies non-injective context compression as a potential source of state aliasing that can restrict optimization to an observation-induced policy class.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "state_aliasing",
+        "theory"
+      ]
+    },
+    {
+      "atom_id": "814d137c-d4fe-4a23-aade-8cabb31d6fda",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "The trajectory-level advantage is decomposed into downstream stochasticity, the true turn advantage, and an upstream state effect, showing why a single trajectory reward can misattribute credit at a turn.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "3",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "credit_assignment",
+        "theory"
+      ]
+    },
+    {
+      "atom_id": "43e4eeca-c5e8-4e12-b6f5-0d65f75049af",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "The authors show that independently clipping token-level importance ratios is not equivalent to correcting the full-trajectory importance ratio, with discrepancy compounding over long trajectories.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "policy_drift",
+        "importance_sampling"
+      ]
+    },
+    {
+      "atom_id": "2e8bee4c-cd94-4a69-a5a8-ade8aeb36286",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "RTPO represents a K-turn episode as a turn-boundary MDP whose per-turn conditioning context is exactly the context observed by the model at rollout time.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "rtpo",
+        "turn_boundary_mdp"
+      ]
+    },
+    {
+      "atom_id": "151025f7-5ace-447e-97cb-13cc7942553f",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "RTPO records the exact rollout conditioning context and old-policy log probabilities, then uses the same conditioning context during training while applying loss only to the current turn output tokens.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "4",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "rollout_training_consistency",
+        "rtpo"
+      ]
+    },
+    {
+      "atom_id": "7a6e3626-c3c0-4cbf-85ed-4156a8e9892d",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "RTPO trains turns in temporal reverse order from K−1 to 0 so that downstream turn policies have already been optimized and are held fixed when an earlier turn is updated.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "reverse_order",
+        "rtpo"
+      ]
+    },
+    {
+      "atom_id": "d2ecc065-4aa6-49bf-8adc-16fb2d847ccd",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "At each reverse phase, RTPO restores the trunk trajectory boundary state and generates G−1 sibling continuations from that same state to obtain a state-matched group-relative turn advantage.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "sparse_tree",
+        "siblings",
+        "credit_assignment"
+      ]
+    },
+    {
+      "atom_id": "9497f498-e569-4807-8681-69019124f57a",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "Only sibling rollouts contribute gradient updates at a turn; the trunk trajectory is retained as a state anchor and receives no gradient.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "selective_gradient",
+        "trunk"
+      ]
+    },
+    {
+      "atom_id": "247aa2eb-56ce-440c-a0a8-5673cefdac38",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Theorem 1 states that reverse-order turn-level optimization converges to recursive optimality under finite state/action spaces, Robbins–Monro step sizes, sufficient per-turn exploration, frozen downstream policies, and bounded rewards; global optimality additionally requires complete macro-action spaces.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "5",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "theorem_1",
+        "recursive_optimality"
+      ]
+    },
+    {
+      "atom_id": "3f5e48a8-47c9-4b9f-b9eb-de21bf133ea6",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "RTPO estimates a turn-level advantage by comparing sibling terminal returns from the same boundary state, removing the upstream state-contamination term from cross-state trajectory comparisons.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "theorem_2",
+        "credit_assignment"
+      ]
+    },
+    {
+      "atom_id": "698424d5-05aa-4238-aaa3-2b17128bbde3",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "RTPO uses a MAXQ-style decomposition in which the turn action value combines local reward and the discounted downstream continuation value; sibling terminal return serves as a Monte Carlo sample of that quantity.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "6",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "maxq",
+        "value_estimation"
+      ]
+    },
+    {
+      "atom_id": "4b3b0ddd-713b-41a7-a571-8524b28e7f5f",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Theorem 2 characterizes the sibling estimator as locally unbiased up to a finite-group multiplicative factor while eliminating upstream state contamination by holding the boundary state fixed.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "28",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix C.3",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "theorem_2",
+        "finite_group_bias"
+      ]
+    },
+    {
+      "atom_id": "4101f919-832f-4ef9-928c-2f474583b573",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "Before each reverse-stage sibling generation, RTPO synchronizes the current downstream parameters to the inference engine and continues siblings to termination under that same policy.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "7",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "on_policy_continuation",
+        "synchronization"
+      ]
+    },
+    {
+      "atom_id": "0657cad8-17d3-4db8-81e7-dfdfdf8e71d2",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "qualitative_result",
+      "canonical_statement": "Theorem 3 states that this on-policy continuation makes the full downstream trajectory importance weight identically one and reduces continuation-value error as downstream policies improve.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "theorem_3",
+        "policy_drift"
+      ]
+    },
+    {
+      "atom_id": "db1ceea4-ba81-4ac7-bb7a-0c6501ffc6a2",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "The main experiments use Qwen3-8B with thinking mode enabled for multi-turn agentic RL rollouts and compare RTPO with GRPO, ARPO, TreeGRPO, and SeeUPO across mathematical and knowledge-reasoning tasks.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "qwen3_8b",
+        "baselines",
+        "experimental_design"
+      ]
+    },
+    {
+      "atom_id": "1ed54422-2421-46cd-ad9c-79a528c63018",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "The main evaluation covers eight benchmarks spanning mathematical reasoning and knowledge-intensive question answering and reports accuracy together with tool-call behavior.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmarks",
+        "evaluation"
+      ]
+    },
+    {
+      "atom_id": "c07e43d0-8bbb-4dd6-abed-7cfefa1f6925",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "All methods are implemented in VeRL, with vLLM used for rollout generation and FSDP for distributed training.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "implementation",
+        "verl",
+        "vllm",
+        "fsdp"
+      ]
+    },
+    {
+      "atom_id": "060a3b24-bfb2-4758-8140-5dbc44ea49aa",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "The experiments include controlled analyses for rollout–training consistency, turn-level credit assignment, and on-policy versus off-policy continuation in addition to end-task performance.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "methods",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "ablation",
+        "controlled_experiment"
+      ]
+    },
+    {
+      "atom_id": "cf517b55-e115-4be4-b777-7e5e4b38a49b",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "The training setup uses a global sampling budget of 80,000 rollouts for mathematical reasoning and 16,000 for knowledge reasoning, with the authors stating that RTPO does not exceed baseline aggregate rollout compute.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "37",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix E.3",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "compute_budget",
+        "fairness"
+      ]
+    },
+    {
+      "atom_id": "754249fb-6934-4a67-9371-64842b530506",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "The maximum interaction horizon is three turns for mathematical reasoning and six turns for web search; RTPO uses two sibling rollouts per realized boundary in the default G=3 configuration.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "37",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix E.3",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "turn_horizon",
+        "sibling_count"
+      ]
+    },
+    {
+      "atom_id": "60d465c1-fdf4-4d67-a1c2-d27f989b4ad9",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "The authors report repeating each experiment three times and averaging performance to mitigate randomness.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "35",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix D",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "repeated_runs",
+        "evaluation"
+      ]
+    },
+    {
+      "atom_id": "cbe81b5d-d866-47f1-9535-49ac65972475",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "data_availability",
+      "canonical_statement": "The authors state that RTPO source code is provided in the supplementary material with installation instructions, versioned dependencies, and training/evaluation scripts.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "36",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix E.2",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "code_availability",
+        "reproducibility"
+      ]
+    },
+    {
+      "atom_id": "7c656603-70ee-4152-99d7-f8fea51b9bf6",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "For Qwen3 multi-turn context management, prior <think> content is removed before the next turn while commentary, tool call, and tool result are retained as the visible conditioning context.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "37",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix E.4",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "context_management",
+        "qwen3_chat_template"
+      ]
+    },
+    {
+      "atom_id": "a4dfc737-03e3-435c-a6df-2ffd39a18a13",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "method",
+      "canonical_statement": "Algorithm 1 separates RTPO into a trunk-rollout phase followed by reverse-order per-turn synchronization, on-policy sibling generation, group-advantage computation, and PPO updates over only current-turn tokens.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "36",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix E.1",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "algorithm_1",
+        "workflow"
+      ]
+    },
+    {
+      "atom_id": "1bad85d0-ead5-49e0-81f3-e17b5a0ab6c1",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "RTPO achieved 33.33% Pass@1 on AIME24.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "RTPO",
+        "table_column": "AIME24",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "AIME24 evaluation set",
+        "sample_size": 30,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "AIME24 performance",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "Pass@1 (%)",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Pass@1 (%)",
+        "estimate": "33.33",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "RTPO 33.33"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "rtpo",
+        "aime24"
+      ]
+    },
+    {
+      "atom_id": "8f93d892-d84e-4b95-9133-15db82616631",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "RTPO achieved 26.67% Pass@1 on AIME25.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "RTPO",
+        "table_column": "AIME25",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "AIME25 evaluation set",
+        "sample_size": 30,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "AIME25 performance",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "Pass@1 (%)",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Pass@1 (%)",
+        "estimate": "26.67",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "RTPO 26.67"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "rtpo",
+        "aime25"
+      ]
+    },
+    {
+      "atom_id": "bbc88958-49cc-47c0-83c9-ab9d52d799e9",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "RTPO achieved 67.50% Pass@1 on AMC23.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "RTPO",
+        "table_column": "AMC23",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "AMC23 evaluation set",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "AMC23 performance",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "Pass@1 (%)",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Pass@1 (%)",
+        "estimate": "67.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "RTPO 67.50"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "rtpo",
+        "amc23"
+      ]
+    },
+    {
+      "atom_id": "1311b451-dc96-4234-9599-2dfc5f347b03",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "RTPO achieved 86.20% Pass@1 on MATH500.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "RTPO",
+        "table_column": "MATH500",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "MATH500 evaluation set",
+        "sample_size": 500,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "MATH500 performance",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "Pass@1 (%)",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Pass@1 (%)",
+        "estimate": "86.2",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "RTPO 86.20"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "rtpo",
+        "math500"
+      ]
+    },
+    {
+      "atom_id": "21267ff0-54bf-4c0b-a00a-6a54d09d4ec9",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "RTPO achieved 94.84% Pass@1 on GSM8K.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "RTPO",
+        "table_column": "GSM8K",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "GSM8K evaluation set",
+        "sample_size": 1319,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "GSM8K performance",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "Pass@1 (%)",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Pass@1 (%)",
+        "estimate": "94.84",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "RTPO 94.84"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "rtpo",
+        "gsm8k"
+      ]
+    },
+    {
+      "atom_id": "0214468a-5406-400b-af57-81fe58b6da59",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "RTPO achieved 55.49% Pass@1 on OE-Math.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "RTPO",
+        "table_column": "OE-Math",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "OE-Math evaluation set",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "OE-Math performance",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "Pass@1 (%)",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Pass@1 (%)",
+        "estimate": "55.49",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "RTPO 55.49"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "rtpo",
+        "oe_math"
+      ]
+    },
+    {
+      "atom_id": "bd3eaa77-16e4-4f7c-b65f-bc2e5eff361c",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "RTPO achieved 64.89% best-span F1 on HotpotQA.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "RTPO",
+        "table_column": "HotpotQA",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "HotpotQA evaluation set",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "HotpotQA performance",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "best-span F1 (%)",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "best-span F1 (%)",
+        "estimate": "64.89",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "RTPO 64.89"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "rtpo",
+        "hotpotqa"
+      ]
+    },
+    {
+      "atom_id": "8a6a6a67-ee5d-47e9-9e41-601a8e380158",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "RTPO achieved 64.35% best-span F1 on 2Wiki.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "RTPO",
+        "table_column": "2Wiki",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "2Wiki evaluation set",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "2Wiki performance",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": "best-span F1 (%)",
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "best-span F1 (%)",
+        "estimate": "64.35",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "RTPO 64.35"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "rtpo",
+        "2wiki"
+      ]
+    },
+    {
+      "atom_id": "60da89b7-f3f4-4928-9c3a-f7e6df26f433",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Across the eight main benchmarks, RTPO achieved an overall accuracy score of 61.66.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 1",
+        "table_row": "RTPO",
+        "table_column": "Overall Acc",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "Eight-benchmark main evaluation suite",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Overall benchmark accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "overall accuracy",
+        "estimate": "61.66",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "RTPO overall 61.66"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "benchmark_result",
+        "overall"
+      ]
+    },
+    {
+      "atom_id": "6ddae987-d252-46fe-8099-a7d4c488dafa",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The paper reports RTPO improved overall accuracy by 21.50% relative to GRPO.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "Eight-benchmark main evaluation suite",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "GRPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Overall benchmark accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "relative improvement over GRPO (%)",
+        "estimate": "21.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "outperforming GRPO (+21.50%)"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "comparison",
+        "grpo"
+      ]
+    },
+    {
+      "atom_id": "a348802e-6fde-4910-b31c-9fc5b9ceddd2",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The paper reports RTPO improved overall accuracy by 10.76% relative to SeeUPO.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "Eight-benchmark main evaluation suite",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "SeeUPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Overall benchmark accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "relative improvement over SeeUPO (%)",
+        "estimate": "10.76",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "SeeUPO (+10.76%)"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "comparison",
+        "seeupo"
+      ]
+    },
+    {
+      "atom_id": "6f26ce3c-d03a-4d50-82d9-f3e650706550",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The paper reports RTPO improved overall accuracy by 66.78% relative to the untuned vanilla model.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "results",
+        "page": "8",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "Eight-benchmark main evaluation suite",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Vanilla Qwen3-8B",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Overall benchmark accuracy",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "relative improvement over vanilla (%)",
+        "estimate": "66.78",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "vanilla by 66.78%"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "comparison",
+        "vanilla"
+      ]
+    },
+    {
+      "atom_id": "5f6700e3-0548-4fea-8395-e3f992429d3d",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the controlled full-history credit-assignment setting, RTPO-CA achieved overall Pass@1 of 79.13 across four mathematical benchmarks.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "RTPO-CA",
+        "table_column": "Overall P@1",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "AMC23, AIME24, AIME25, and MATH500 controlled credit-assignment evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO-CA",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Overall mathematical benchmark Pass@1",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Pass@1 (%)",
+        "estimate": "79.13",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "credit_assignment",
+        "controlled_experiment"
+      ]
+    },
+    {
+      "atom_id": "3006d393-78c7-4515-af23-af8c2af58ad5",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the controlled full-history credit-assignment setting, RTPO-CA achieved overall Pass@4 of 86.55 across four mathematical benchmarks.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "9",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 2",
+        "table_row": "RTPO-CA",
+        "table_column": "Overall P@4",
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "AMC23, AIME24, AIME25, and MATH500 controlled credit-assignment evaluation",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO-CA",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Overall mathematical benchmark Pass@4",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Pass@4 (%)",
+        "estimate": "86.55",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "credit_assignment",
+        "controlled_experiment"
+      ]
+    },
+    {
+      "atom_id": "130457f7-9e07-417a-8967-9d0fe9e07a64",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On GAIA, on-policy RTPO changed output-hit rate by +5.83 percentage points versus the off-policy variant (23.30% to 29.13%).",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "GAIA",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "GAIA evaluation queries",
+        "sample_size": 103,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO on-policy continuation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "RTPO off-policy continuation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Output-hit rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in output-hit rate (percentage points)",
+        "estimate": "5.83",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "23.30% to 29.13% (+5.83 pp)"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "policy_drift",
+        "on_policy_continuation"
+      ]
+    },
+    {
+      "atom_id": "2f52040a-e178-4042-a3f6-89ecb56b77d6",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On XBench, on-policy RTPO changed output-hit rate by +7.00 percentage points versus the off-policy variant (8.00% to 15.00%).",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "XBench",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "XBench evaluation queries",
+        "sample_size": 100,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO on-policy continuation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "RTPO off-policy continuation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Output-hit rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in output-hit rate (percentage points)",
+        "estimate": "7.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "8.00% to 15.00% (+7.00 pp)"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "policy_drift",
+        "on_policy_continuation"
+      ]
+    },
+    {
+      "atom_id": "dc7554bd-eba0-47c0-b28d-7f177e10a27f",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On WebWalkerQA, on-policy RTPO changed output-hit rate by +3.50 percentage points versus the off-policy variant (6.00% to 9.50%).",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "WebWalkerQA",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "WebWalkerQA evaluation queries",
+        "sample_size": 200,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO on-policy continuation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "RTPO off-policy continuation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Output-hit rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in output-hit rate (percentage points)",
+        "estimate": "3.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "6.00% to 9.50% (+3.50 pp)"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "policy_drift",
+        "on_policy_continuation"
+      ]
+    },
+    {
+      "atom_id": "ad19047f-48c3-4e79-adaf-5d2607aaab60",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On HLE, on-policy RTPO changed output-hit rate by -0.33 percentage points versus the off-policy variant (12.45% to 12.12%).",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "table",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 3",
+        "table_row": "HLE",
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "HLE evaluation queries",
+        "sample_size": 2096,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO on-policy continuation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "RTPO off-policy continuation",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Output-hit rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute difference in output-hit rate (percentage points)",
+        "estimate": "-0.33",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "12.45% to 12.12% (-0.33 pp)"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "policy_drift",
+        "on_policy_continuation"
+      ]
+    },
+    {
+      "atom_id": "688b2600-c66f-49cc-b858-712ee57424dd",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "The appendix reports RTPO HotpotQA performance as 64.89±0.34 over three evaluation runs.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "38",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 5",
+        "table_row": "RTPO",
+        "table_column": "HotpotQA",
+        "figure": null,
+        "supplement": "Appendix F.1, Table 5",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "HotpotQA evaluation set",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "HotpotQA best-span F1",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "mean best-span F1 (%)",
+        "estimate": "64.89",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "64.89±0.34% over three evaluation runs"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "uncertainty",
+        "repeated_runs"
+      ]
+    },
+    {
+      "atom_id": "681fb5e1-4afd-47f0-b571-ac17b25bda08",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On the held-out 20-task τ3-Airline test set, RTPO (G=3) achieved Pass@1 of 17.50%.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "44",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 8",
+        "table_row": "RTPO (G = 3)",
+        "table_column": "Pass@1",
+        "figure": null,
+        "supplement": "Appendix G.1",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "τ3-Airline held-out test tasks",
+        "sample_size": 20,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO G=3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "τ3-Airline Pass@1",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Pass@1 (%)",
+        "estimate": "17.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "stateful_agent",
+        "held_out"
+      ]
+    },
+    {
+      "atom_id": "7c8748cf-5956-4e66-a36e-c2a7e77bc1c1",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On the held-out 20-task τ3-Airline test set, RTPO (G=3) achieved Pass@4 of 30.00%.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "44",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 8",
+        "table_row": "RTPO (G = 3)",
+        "table_column": "Pass@4",
+        "figure": null,
+        "supplement": "Appendix G.1",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "τ3-Airline held-out test tasks",
+        "sample_size": 20,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO G=3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "τ3-Airline Pass@4",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Pass@4 (%)",
+        "estimate": "30.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": null
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "stateful_agent",
+        "held_out"
+      ]
+    },
+    {
+      "atom_id": "b19f0051-c305-4a05-a94b-590c403b8181",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "On held-out τ3-Airline tasks, RTPO executed 74 of 83 attempted tool calls successfully, for an execution-success rate of 89.16%.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "44",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 9",
+        "table_row": "RTPO",
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G.1",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "τ3-Airline held-out test tasks",
+        "sample_size": 20,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Tool execution success",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "execution success (%)",
+        "estimate": "89.16",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "74/83 calls; 89.16%"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "tool_use",
+        "stateful_agent"
+      ]
+    },
+    {
+      "atom_id": "f7b95c0b-6ebe-465a-aa4d-9b6edbeed49f",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Increasing the sibling group from G=3 to G=4 increased τ3-Airline Pass@1 from 17.50% to 20.00%.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "45",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 10",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G.2",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "τ3-Airline held-out test tasks",
+        "sample_size": 20,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO G=4",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "RTPO G=3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "τ3-Airline Pass@1",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "primary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute Pass@1 improvement (percentage points)",
+        "estimate": "2.5",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "17.50% to 20.00%"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "sibling_group_size",
+        "sensitivity"
+      ]
+    },
+    {
+      "atom_id": "d1b1a1ff-c261-44ed-8c87-8a1ec853bf44",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Increasing the sibling group from G=3 to G=4 reduced the zero-advantage rate from 89.61% to 82.66%.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "45",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 10",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G.2",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "τ3-Airline RTPO training sibling comparisons",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO G=4",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "RTPO G=3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Zero-advantage rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "absolute zero-advantage reduction (percentage points)",
+        "estimate": "6.95",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "89.61% to 82.66%"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "signal_density",
+        "sensitivity"
+      ]
+    },
+    {
+      "atom_id": "2a243fb5-5345-4ce1-b3cf-6c21f925fa95",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Increasing the sibling group from G=3 to G=4 raised training GPU-hours from 21.48 to 28.06 and training-generation tokens from 846,207 to 2,139,039.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "45",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 11",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G.2",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "τ3-Airline RTPO training run",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO G=4",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "RTPO G=3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Training GPU-hours",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "GPU-hours",
+        "estimate": "28.06",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "G=3: 21.48 GPU-hours; G=4: 28.06 GPU-hours"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "compute_cost",
+        "sensitivity"
+      ]
+    },
+    {
+      "atom_id": "01141377-080c-4f5a-8b44-0923b27421a3",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the same Qwen3-1.7B hardware setting, RTPO (G=3) used 21.48 GPU-hours versus 15.20 for GRPO, an approximately 41.3% increase.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "46",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 15",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G.4",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "τ3-Airline training cost comparison",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO G=3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "GRPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Training GPU-hours",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "relative GPU-hour increase (%)",
+        "estimate": "41.3",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "15.20 vs 21.48 GPU-hours; +41.3%"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "compute_cost",
+        "training_overhead"
+      ]
+    },
+    {
+      "atom_id": "9e416958-215a-4603-80ff-9a3f5b667612",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "In the compute-matched τ3-Airline comparison, RTPO achieved Pass@4 of 35.00% versus 25.00% for GRPO while using 15.55 versus 15.20 GPU-hours.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "47",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 16",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G.4",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "τ3-Airline compute-matched comparison",
+        "sample_size": null,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO G=3 compute-matched",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "GRPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "τ3-Airline Pass@4",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "RTPO Pass@4 (%)",
+        "estimate": "35.0",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "RTPO 35.00%; GRPO 25.00%; 15.55 vs 15.20 GPU-hours"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "compute_matched",
+        "efficiency"
+      ]
+    },
+    {
+      "atom_id": "6b8868ea-8dbf-4575-833a-a911dca0012a",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "Under the matched maximum inference budget, RTPO achieved 0.104 successful trajectories per 1,000 response tokens, compared with 0.046 for GRPO and 0.064 for Tree-GRPO.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "47",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 17",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G.4",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "τ3-Airline held-out test tasks under matched inference budget",
+        "sample_size": 20,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO G=3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "GRPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        },
+        {
+          "concept": {
+            "text": "Tree-GRPO",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "comparator",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Successful trajectories per 1,000 response tokens",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "secondary",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "successes per 1,000 response tokens",
+        "estimate": "0.104",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "RTPO 0.104; GRPO 0.046; Tree-GRPO 0.064"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "inference_efficiency",
+        "compute_matched"
+      ]
+    },
+    {
+      "atom_id": "8e05ab66-2aad-409e-8779-246b974912a8",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "quantitative_result",
+      "canonical_statement": "During τ3-Airline online training, RTPO success peaked at 56.25% at Step 40 and then fell to 40.63% at Step 50.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "44",
+        "paragraph": null,
+        "sentence": null,
+        "table": "Table 7",
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G.1",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": {
+        "label": "τ3-Airline online training tasks",
+        "sample_size": 30,
+        "subgroup": false,
+        "inclusion_criteria": [],
+        "exclusion_criteria": []
+      },
+      "exposures": [
+        {
+          "concept": {
+            "text": "RTPO G=3",
+            "code": null,
+            "system": null,
+            "version": null
+          },
+          "role": "intervention",
+          "dose_value": null,
+          "dose_unit": null,
+          "route": null,
+          "frequency": null,
+          "duration": null,
+          "details": null
+        }
+      ],
+      "outcome": {
+        "concept": {
+          "text": "Online training success rate",
+          "code": null,
+          "system": null,
+          "version": null
+        },
+        "definition": null,
+        "outcome_type": "exploratory",
+        "measurement_method": null,
+        "time_horizon_value": null,
+        "time_horizon_unit": null
+      },
+      "quantitative_result": {
+        "effect_measure": "Step 50 success rate (%)",
+        "estimate": "40.63",
+        "interval": null,
+        "p_value": null,
+        "p_value_text": null,
+        "adjusted": null,
+        "adjustment_variables": [],
+        "arms": [],
+        "original_result_text": "Step 40 56.25%; Step 50 40.63%"
+      },
+      "supersedes_atom_id": null,
+      "tags": [
+        "late_stage_degradation",
+        "training_dynamics"
+      ]
+    },
+    {
+      "atom_id": "a54dd1cc-9a4b-4abf-8356-a6d42b68ed1f",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "limitation",
+      "canonical_statement": "RTPO depends on the quality of the sampled trunk because sibling branches are anchored to states visited by that trunk; poor early trunk decisions can yield low-value later states and near-zero turn advantages.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "42",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix F.4",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "trunk_quality",
+        "limitation"
+      ]
+    },
+    {
+      "atom_id": "5ebd210e-33a6-4f18-ab8a-bdda7302063f",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "limitation",
+      "canonical_statement": "Reverse multi-turn training adds cost that scales with the number of turns and sibling rollouts and requires repeated inference-engine synchronization for on-policy continuation.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "42",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix F.4",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "training_overhead",
+        "limitation"
+      ]
+    },
+    {
+      "atom_id": "db7e59f7-7ad2-452f-ba0c-bcc89cdb932f",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "limitation",
+      "canonical_statement": "RTPO intentionally applies gradients only to current-turn sibling tokens, leaving prefix, downstream-continuation, and trunk tokens unused for the PPO loss, which reduces training-token utilization.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "42",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix F.4",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "token_utilization",
+        "limitation"
+      ]
+    },
+    {
+      "atom_id": "2378b37b-bca5-46c6-b922-ae07d8ca1836",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "limitation",
+      "canonical_statement": "The strict convergence guarantee is for a turn-level tabular formulation with exactly fixed downstream policies; a shared neural policy only approximates that structure and does not inherit a global non-convex convergence guarantee.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "49",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G.9",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "theory_scope",
+        "neural_function_approximation",
+        "limitation"
+      ]
+    },
+    {
+      "atom_id": "edf1363a-a7b0-480f-a998-82d3f537c7fc",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "limitation",
+      "canonical_statement": "Even with G=4, the zero-advantage rate in the sparse binary-reward τ3-Airline environment remains above 80%, indicating a sparse and inefficient learning signal.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "50",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G.9",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "sparse_reward",
+        "limitation"
+      ]
+    },
+    {
+      "atom_id": "c78c50be-13bf-4e6f-a306-8549726535bf",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "limitation",
+      "canonical_statement": "The τ3-Airline online success rate declines from 56.25% at Step 40 to 40.63% at Step 50, which the authors identify as possible late-stage over-optimization on a limited sparse-reward training set.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "50",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G.9",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "over_optimization",
+        "limitation"
+      ]
+    },
+    {
+      "atom_id": "38168c5d-54df-4659-9fd9-e0c68c2ed842",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "limitation",
+      "canonical_statement": "The reported experiments are limited to three-run averages, Qwen3-4B/8B in the original experiments plus Qwen3-1.7B in supplementary evaluation, and turn horizons of three for math and six for web search; broader scales, seeds, horizons, and synchronization schedules remain untested.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "50",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix G.9",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "external_validity",
+        "limitation"
+      ]
+    },
+    {
+      "atom_id": "22e5d88b-53d1-47fb-aae2-fa17be01d234",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "limitation",
+      "canonical_statement": "The authors caution that stronger long-horizon agents may produce confident errors, misuse tools, or amplify harmful automation and recommend safety constraints, tool-use monitoring, privacy-preserving data handling, and human oversight for deployment.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "supplement",
+        "page": "43",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": "Appendix F.5",
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "broader_impact",
+        "safety"
+      ]
+    },
+    {
+      "atom_id": "27925360-5414-4759-8ac5-9fdb06435de8",
+      "publication_id": "258488ce-b866-422a-9372-d3af860e56a4",
+      "atom_kind": "author_conclusion",
+      "canonical_statement": "The authors conclude that RTPO unifies rollout–training consistency, turn-level credit assignment, and on-policy continuation into a more stable training framework for long-horizon tool-using agents.",
+      "assertion_origin": "directly_reported",
+      "source_anchor": {
+        "section": "conclusion",
+        "page": "10",
+        "paragraph": null,
+        "sentence": null,
+        "table": null,
+        "table_row": null,
+        "table_column": null,
+        "figure": null,
+        "supplement": null,
+        "character_start": null,
+        "character_end": null,
+        "verbatim_excerpt": null,
+        "excerpt_hash": null
+      },
+      "provenance": {
+        "extractor_type": "language_model",
+        "extractor_identifier": "chatgpt-literature-pipeline",
+        "extracted_at": "2026-08-20T13:49:51.457296Z",
+        "software_name": null,
+        "software_version": null,
+        "model_name": "GPT-5.6 Sol",
+        "model_version": "2026-08-20",
+        "prompt_version": "literature-atom-mvp+large-source-v1",
+        "input_document_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+        "extraction_run_id": "rtpo-full-v1",
+        "reviewer_identifier": null,
+        "reviewed_at": null
+      },
+      "review_status": "needs_review",
+      "schema_version": "1.0",
+      "atom_version": 1,
+      "created_at": "2026-08-20T13:49:51.457296Z",
+      "population": null,
+      "exposures": [],
+      "outcome": null,
+      "quantitative_result": null,
+      "supersedes_atom_id": null,
+      "tags": [
+        "author_conclusion",
+        "rtpo"
+      ]
+    }
+  ]
+}

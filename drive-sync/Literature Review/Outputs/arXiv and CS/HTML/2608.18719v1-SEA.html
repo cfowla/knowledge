@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEA — Competence, Not Accuracy (arXiv:2608.18719v1)</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#17202a;--muted:#5a6777;--line:#dce3ec;--accent:#214f86;--good:#0e6a3e;--warn:#8a5b00;--bad:#8b2424;--code:#101a29;--codefg:#eef4fb}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:15.5px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{max-width:1100px;margin:auto;padding:1.2rem}header{background:linear-gradient(135deg,#132b49,#245f9e);color:#fff;padding:2rem 1.4rem;border-radius:0 0 16px 16px}header h1{margin:0 0 .5rem;font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.12}header p{margin:.25rem 0;color:#e6eef8}.tag{display:inline-block;background:#eaf1f9;border:1px solid #cedaea;color:#24405f;border-radius:999px;padding:.16rem .55rem;margin:.15rem .2rem .15rem 0;font-size:.82rem}section,nav.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem;margin:1rem 0;box-shadow:0 1px 4px rgba(20,40,70,.04)}h2{color:#163f6d;margin:.15rem 0 .75rem}h3{color:#234c76;margin:1rem 0 .35rem}.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.7rem}.mini-card{border:1px solid var(--line);border-radius:10px;padding:.75rem;background:#fbfcfe}.mini-card strong{display:block;color:#27496b;margin-bottom:.2rem}.verdict{border-left:5px solid var(--good);background:#edf8f2;padding:.85rem 1rem;border-radius:10px}.warning{border-left:5px solid var(--warn);background:#fff7e7;padding:.85rem 1rem;border-radius:10px}.badnote{border-left:5px solid var(--bad);background:#fff0f0;padding:.85rem 1rem;border-radius:10px}.goodnote{border-left:5px solid var(--good);background:#edf8f2;padding:.85rem 1rem;border-radius:10px}.section-summary{border-top:1px solid var(--line);padding-top:.55rem;margin-top:.7rem}table{width:100%;border-collapse:collapse;margin:.7rem 0;font-size:.92rem}th,td{border:1px solid var(--line);padding:.45rem .55rem;text-align:left;vertical-align:top}th{background:#eef3f8}pre{background:var(--code);color:var(--codefg);padding:.85rem;border-radius:10px;overflow:auto;white-space:pre-wrap}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.muted{color:var(--muted)}a{color:var(--accent)}nav.toc a{text-decoration:none}ul{padding-left:1.3rem}.score{font-size:1.35rem;font-weight:750;color:#173f72}.small{font-size:.86rem}@media print{body{background:white}section,nav.toc{box-shadow:none;break-inside:avoid}header{border-radius:0}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<h1>Competence, Not Accuracy: A Diagnostic for Reference-Free Judge Gates in Skill Optimization</h1>
+<p>Summary, Evaluation, and Appraisal — arXiv:2608.18719v1</p>
+<p>Chenle Chen; Yangbo Wei; Chao Yao; Shaoqiang Lu; Junhong Qian; Chen Wu; Lei He</p>
+</div>
+</header>
+<main class="wrap">
+<nav class="toc" id="toc">
+<h2>Contents</h2>
+<ul>
+<li><a href="#metadata">Metadata</a></li><li><a href="#synthesis">One-page synthesis</a></li><li><a href="#sections">Section condensation</a></li><li><a href="#visuals">Figures, tables, and workflows</a></li><li><a href="#appraisal">Evaluation and appraisal</a></li><li><a href="#takeaways">Implementation takeaways</a></li><li><a href="#provenance">Provenance</a></li>
+</ul>
+</nav>
+<section id="metadata">
+<h2>Metadata</h2>
+<div class="meta-grid">
+<div class="mini-card"><strong>Source type</strong>arXiv preprint; AI/ML evaluation and optimization diagnostic</div>
+<div class="mini-card"><strong>Identifier</strong>arXiv:2608.18719v1; DOI 10.48550/arXiv.2608.18719</div>
+<div class="mini-card"><strong>Version/date</strong>v1, submitted 19 Aug 2026</div>
+<div class="mini-card"><strong>Length</strong>9 pages; 4 figures; 5 tables</div>
+<div class="mini-card"><strong>Core system</strong>SkillOpt target Haiku; primary judge Claude Sonnet; four open-weight judges in replication</div>
+<div class="mini-card"><strong>Tasks</strong>Research mathematics MCQ; factual QA free text; GPQA-Diamond MCQ</div>
+</div>
+<p class="warning"><strong>Scope warning.</strong> The paper motivates reference-free judge gating for open-ended generation, but the actual theory and experiments require objectively checkable, single-answer tasks with gold answers for offline audit. It establishes a pre-deployment necessary-condition screen, not a guarantee of safe or effective long-run judge-driven optimization.</p>
+<p><span class="tag">LLM-as-judge</span><span class="tag">skill optimization</span><span class="tag">reference-free evaluation</span><span class="tag">ROC-AUC</span><span class="tag">benchmark contamination</span><span class="tag">Goodhart risk</span></p>
+</section>
+<section id="synthesis">
+<h2>One-page synthesis</h2>
+<div class="verdict"><strong>Core thesis:</strong> before using a reference-free LLM judge as an acceptance gate, test whether it can actually discriminate correct from incorrect outputs on the target task. Under the paper's latent-solver model, above-chance task competence is necessary but not sufficient for above-chance judge discriminability.</div>
+<p>The paper formalizes a reference-free judge as a latent solver whose score largely reflects agreement with what the judge itself would answer. For answer-space size <em>k</em> and grading-context competence <em>c</em>, the idealized model yields AUC = 1/2 + (ck−1)/(2(k−1)); therefore AUC can exceed chance only when c &gt; 1/k. The authors also show why marginal AUC is misleading when item difficulty affects both the target and the judge: easy items are enriched among positives and hard items among negatives. Their within-question AUC removes additive item-only difficulty effects by comparing positive and negative episodes for the same question.</p>
+<p>Empirically, Sonnet's within-question AUC is essentially chance on research mathematics (0.489) but usable on factual QA (0.735). GPQA only permits a marginal estimate (0.735). A competence decomposition shows why headline benchmark accuracy is an optimistic gate-screening input: on GPQA Sonnet moves from 0.840 answered-only to 0.626 when non-convergence is counted, then to 0.547 on a less-exposed proxy; AUC inversion gives 0.602. Cross-provider replication reproduces the basic pattern. In the small closed-loop pilot, judges that fail the screen exhibit harmful false acceptance; the judge that passes has zero false accepts but over-rejects improvements. This makes the paper highly actionable as an evaluation design pattern, while leaving open whether the screen protects against sustained selection pressure, drift, or Goodhart effects.</p>
+</section>
+<section id="sections">
+<h2>Section condensation</h2>
+<div class="section-summary"><h3>1. Introduction</h3><p>Text-space skill optimizers evolve a persistent natural-language skill document while keeping model weights frozen. Existing acceptance gates rely on verifiable signals such as exact match or executable checks, limiting the paradigm to tasks with automatic verification. The authors propose a diagnostic question before replacing that verifier with an LLM judge: does the judge score contain enough answer-level signal to separate verifier-correct from verifier-incorrect outputs?</p><p>The paper explicitly does not solve genuinely open-ended judging. Its experiments use tasks with a single gold answer so the judge can be audited offline. The claimed contributions are a latent-solver theory of reference-free judging, a non-intervening probe and within-question estimator, contamination-aware competence measurements, and a small closed-loop test linking the screen to the type of gating errors.</p></div>
+<div class="section-summary"><h3>2. Related Work</h3><p>The paper situates itself between self-evolving agent skills, judge-based reward optimization, and LLM-as-judge reliability. Existing skill evolution systems commonly preserve a verifiable acceptance signal; reference-based judges such as those given gold answers are not the regime studied here. The authors focus on the specific failure introduced when the judge must supply its own standard without a reference.</p></div>
+<div class="section-summary"><h3>3. Method</h3><p>The judge-as-latent-solver model assumes that the judge implicitly forms an answer with competence c, disperses errors over the remaining choices, and scores consistency with the candidate answer. Under these assumptions, the derived AUC threshold is governed by competence relative to the chance floor. Noise shrinks AUC toward chance, and correlated wrong answers can reduce discrimination below the idealized bound; accordingly, the paper treats the formula as an upper bound and the competence threshold as necessary rather than sufficient.</p><p>The measurement pipeline records per-episode judge scores in parallel with a verifier-controlled optimizer, then computes marginal and within-question AUC with question-clustered bootstrap intervals. Competence is measured with empty-inclusive closed-book self-solve accuracy, a less-exposed proxy benchmark, and an AUC-inversion estimator with distinct assumptions. The authors distinguish closed-book solve competence from grading-context competence because candidate answers can scaffold the judge.</p></div>
+<div class="section-summary"><h3>4. Experiments</h3><p>Primary experiments use SkillOpt with Haiku as target and Sonnet as judge across research mathematics (210 episodes, 87 positive/123 negative), factual QA (360, 223/137), and GPQA-Diamond (198, 141/57). Sonnet's marginal/within-question AUC is 0.457/0.489 on math and 0.855/0.735 on factual QA; GPQA marginal AUC is 0.735 with no within-question strata. The large +0.12 marginal-minus-within-question gap on factual QA demonstrates why item difficulty can substantially inflate naive judge-discrimination estimates.</p><p>The closed-form upper bound is respected in every cleanly testable row; the GPQA×Haiku exception is also the row lacking both stratification and a contamination-free competence estimate. Sonnet GPQA competence estimates cluster around 0.55–0.63 after correcting censoring/exposure, far below the 0.840 answered-only headline. Four open-weight judges reproduce the task-level collapse-on-math / usable-on-factual pattern. The closed-loop pilot then shows failed screens with false-accept rates 0.33 and 0.50; the passing factual-QA judge has false-accept 0.00 but false-reject 0.44.</p></div>
+<div class="section-summary"><h3>5. Conclusion</h3><p>The authors frame the diagnostic as a cheap pre-deployment screen: estimate genuine competence on the target task and decline judge gating when competence does not clear the chance floor. Passing the screen does not predict competitive final performance and is not claimed to protect against long-run optimization dynamics; drift and Goodhart pressure are identified as the next unresolved step.</p></div>
+</section>
+<section id="visuals">
+<h2>Figures, tables, and workflows</h2>
+<h3>Figure 1 — Problem and screen</h3><pre><code>Purpose: contrast verifier gating with reference-free judge gating.
+Structure: verifier has gold answer → correct candidates can be identified; reference-free judge must re-solve; screen measures competence/discriminability before deployment.
+Main pattern: judge scores become near-random as competence approaches 1/k.
+Limit: clearing the floor is necessary, not sufficient.</code></pre>
+<h3>Figure 2 — Measurement pipeline</h3><pre><code>Verifier-controlled optimization → non-intervening judge probe → episode-level (score, verifier-label) dataset → marginal + within-question AUC, clustered bootstrap, competence/decontamination estimates → deployment screen.
+The judge does not affect acceptance during measurement, avoiding selection-pressure distortion of the sampled episode distribution.</code></pre>
+<h3>Figure 3 — Sonnet competence-gap decomposition on GPQA-Diamond</h3><pre><code>Answered-only: 84.0%
+Empty-inclusive, same items: 62.6%
+Less-exposed proxy B': 54.7%
+AUC-inversion estimate: 60.2%
+Decomposition emphasized by authors: 21.4 points censoring convention; 7.9 points exposure-associated residual.</code></pre>
+<h3>Figure 4 — Competence vs discriminability across open-weight judges</h3><pre><code>Across four judge families and three tasks, mathematics clusters near the competence floor with near-random AUC; factual QA has higher competence and higher AUC. V4-flash provides within-judge contrast: math 8% / AUC 0.31 versus GPQA 73% / AUC 0.76.</code></pre>
+<h3>Table 1 — Marginal vs within-question discriminability</h3>
+<table><thead><tr><th>Task</th><th>k</th><th>Marginal AUC</th><th>Within-question AUC</th><th>Confound share</th></tr></thead><tbody><tr><td>Research math</td><td>5</td><td>0.457</td><td>0.489</td><td>−0.03</td></tr><tr><td>Factual QA</td><td>∞</td><td>0.855</td><td>0.735</td><td>+0.12</td></tr><tr><td>GPQA-Diamond</td><td>4</td><td>0.735</td><td>n/a</td><td>—</td></tr></tbody></table>
+<h3>Table 2 — Closed-form bound versus observation</h3>
+<table><thead><tr><th>Task</th><th>Judge</th><th>c solve</th><th>Predicted bound</th><th>Observed AUC</th><th>Clean inequality?</th></tr></thead><tbody><tr><td>Math</td><td>Sonnet</td><td>0.267</td><td>0.542</td><td>0.489 within</td><td>yes</td></tr><tr><td>Factual</td><td>Sonnet</td><td>0.567</td><td>0.783</td><td>0.735 within</td><td>yes</td></tr><tr><td>Factual</td><td>Haiku</td><td>0.633</td><td>0.817</td><td>0.634 within</td><td>yes</td></tr><tr><td>GPQA</td><td>Sonnet</td><td>0.626</td><td>0.751</td><td>0.735 marginal</td><td>yes</td></tr><tr><td>GPQA</td><td>Haiku</td><td>0.540</td><td>0.694</td><td>0.794 marginal</td><td>no; confounded / competence mismatch</td></tr></tbody></table>
+<h3>Table 3 — GPQA competence estimates</h3>
+<table><thead><tr><th>Judge</th><th>Answered-only</th><th>Empty-inclusive</th><th>Proxy B'</th><th>AUC inversion</th></tr></thead><tbody><tr><td>Sonnet</td><td>0.840</td><td>0.626</td><td>0.547</td><td>0.602</td></tr><tr><td>Haiku</td><td>—</td><td>0.540</td><td>0.353</td><td>0.691</td></tr></tbody></table>
+<h3>Table 4 — Cross-provider competence and AUC</h3>
+<table><thead><tr><th>Judge</th><th>Math comp/AUC</th><th>Factual comp/AUC</th><th>GPQA comp/AUC</th></tr></thead><tbody><tr><td>DeepSeek-8B</td><td>14% / 0.45</td><td>35% / 0.75</td><td>37% / 0.48</td></tr><tr><td>Qwen-7B</td><td>21% / 0.32</td><td>33% / 0.77</td><td>26% / 0.55</td></tr><tr><td>MiMo-7B</td><td>11% / 0.57</td><td>42% / 0.67</td><td>42% / 0.47</td></tr><tr><td>V4-flash</td><td>8%* / 0.31</td><td>80% / 0.80</td><td>73% / 0.76</td></tr></tbody></table>
+<p class="small muted">* V4-flash mathematics has 75% non-convergence; competence is treated as a bound.</p>
+<h3>Table 5 — Closed-loop outcome</h3>
+<table><thead><tr><th>Task</th><th>Gate</th><th>Screen AUCw</th><th>Final verifier score</th><th>FA</th><th>FR</th></tr></thead><tbody><tr><td>Factual</td><td>Verifier</td><td>—</td><td>0.908</td><td>0.00</td><td>0.00</td></tr><tr><td>Factual</td><td>Judge (passes)</td><td>0.735</td><td>0.825</td><td>0.00</td><td>0.44</td></tr><tr><td>Factual</td><td>Judge (fails)</td><td>0.620</td><td>0.842</td><td>0.33</td><td>0.33</td></tr><tr><td>Factual</td><td>Random</td><td>—</td><td>0.875</td><td>0.33</td><td>0.50</td></tr><tr><td>Math</td><td>Verifier</td><td>—</td><td>0.363</td><td>0.00</td><td>0.00</td></tr><tr><td>Math</td><td>Judge (fails)</td><td>0.425</td><td>0.238</td><td>0.50</td><td>0.50</td></tr><tr><td>Math</td><td>Random</td><td>—</td><td>0.350</td><td>0.25</td><td>0.25</td></tr></tbody></table>
+<h3>Workflow extraction</h3><pre><code>1. Run the candidate judge as a shadow probe on verifier-controlled optimization episodes.
+2. Preserve episode-level scores and verifier labels; do not average to skill level.
+3. Feed answer content and reasoning to the judge so the score can depend on the candidate answer.
+4. Estimate within-question AUC where repeated item episodes permit it; cluster bootstrap by question.
+5. Measure empty-inclusive closed-book competence and cross-check with contamination-aware proxy / AUC inversion.
+6. Reject judge gating when competence fails to clear 1/k or discriminability is not credibly above chance.
+7. If promoted to closed loop, continue tracking false acceptance separately from aggregate final score.</code></pre>
+</section>
+<section id="appraisal">
+<h2>Evaluation and appraisal</h2>
+<div class="verdict"><strong>Verdict: Read first.</strong> Best use: design evidence for gating, judge evaluation, and skill-optimization validation layers. Do not use it as evidence that reference-free judges are ready for open-ended production gating.</div>
+<div class="rating-grid">
+<div class="mini-card"><strong>Relevance</strong><div class="score">9/10</div><span class="small">Directly addresses judge-gate validation in self-improving skill systems. Evidence: reusable probe, within-item discrimination metric, and closed-loop error analysis. Limiter: evaluated on checkable tasks. Would rise with open-ended/rubric-based validation.</span></div>
+<div class="mini-card"><strong>Novelty</strong><div class="score">8/10</div><span class="small">Useful synthesis of competence floor, AUC identification, and non-intervening screening. Limiter: latent-solver assumptions are intentionally simple. Would rise with a more general theory covering evidence-grounded/rubric judging.</span></div>
+<div class="mini-card"><strong>Method strength</strong><div class="score">7/10</div><span class="small">Strong measurement design: within-question estimator, clustered bootstrap, orthogonal competence estimates, cross-provider replication. Limiter: some key cells use marginal AUC and GPQA lacks repeated-item strata. Would rise with fully stratified replications and preregistered thresholds.</span></div>
+<div class="mini-card"><strong>Evidence strength</strong><div class="score">6/10</div><span class="small">The empirical pattern is coherent across tasks/providers and the closed-loop pilot is directionally supportive. Limiter: only 2–3 seeds in the intervention study and one theoretical-bound exception under confounded measurement. Would rise with larger repeated closed-loop experiments.</span></div>
+<div class="mini-card"><strong>External validity</strong><div class="score">5/10</div><span class="small">Multiple judge families help, but all tested tasks remain objective-answer benchmarks and one harness family drives the main optimization setting. Would rise with open-ended tasks, rubrics, retrieval-grounded judges, and deployment drift.</span></div>
+<div class="mini-card"><strong>Implementation value</strong><div class="score">9/10</div><span class="small">The paper provides a low-cost shadow-probe pattern and concrete measurement safeguards that can be implemented before granting a judge control. Limiter: no validated production threshold beyond the necessary chance-floor screen. Would rise with operating-characteristic thresholds tied to acceptable false-accept risk.</span></div>
+</div>
+<h3>Main strengths</h3><ul><li>Separates judge competence from headline benchmark accuracy and explicitly treats non-convergence as failure.</li><li>Identifies and fixes a subtle marginal-AUC difficulty confound with within-question pairing.</li><li>Measures judges out of the control loop before subjecting the optimizer to judge selection pressure.</li><li>Tracks false acceptance and false rejection separately rather than relying only on final score.</li><li>Cross-provider replication reduces the chance that the core pattern is Claude-specific.</li></ul>
+<h3>Main limitations</h3><ul><li>The motivating open-ended regime is not tested.</li><li>The latent-solver model is not appropriate whenever the judge has rubrics, retrieval, tools, or external evidence that make verification easier than solving.</li><li>GPQA cannot support within-question AUC, and the open-weight replication lacks per-episode scores.</li><li>The proxy-based contamination adjustment can mix exposure effects with dataset mismatch.</li><li>The closed-loop safety claim is preliminary because of only two to three seeds and no sustained adversarial/Goodhart pressure.</li></ul>
+<p class="badnote"><strong>Do not overclaim:</strong> competence above chance is not a sufficient deployment criterion, and this paper does not establish that a passing judge will remain safe under optimization pressure.</p>
+</section>
+<section id="takeaways">
+<h2>Implementation takeaways</h2>
+<div class="takeaway-grid">
+<div class="mini-card"><strong>Adopt the shadow-probe pattern</strong>Collect judge scores on real candidate episodes without letting the judge affect acceptance. This preserves the episode distribution while estimating prospective gate signal.</div>
+<div class="mini-card"><strong>Use within-item discrimination</strong>When multiple candidate episodes exist per item, compare correct vs incorrect outputs within the same item. Do not rely on marginal AUC when item difficulty can drive both correctness and judge score.</div>
+<div class="mini-card"><strong>Count non-convergence</strong>For competence screening, generation-budget failures should reduce competence rather than disappear from the denominator.</div>
+<div class="mini-card"><strong>Separate gate error types</strong>Measure false accepts separately from false rejects. A conservative judge may lower throughput or miss improvements without importing regressions; aggregate final score hides this distinction.</div>
+<div class="mini-card"><strong>Cross-check competence estimates</strong>Use at least two estimators with different failure modes when public benchmarks may be contaminated. Treat disagreement as uncertainty, not as a value to average away.</div>
+<div class="mini-card"><strong>Add a second-stage safety gate</strong>The paper's competence floor is only a first screen. Production systems still need drift/Goodhart monitoring, adversarial testing, and acceptable false-accept thresholds once the judge is in control.</div>
+</div>
+</section>
+<section id="provenance">
+<h2>Provenance</h2>
+<p><strong>Evaluated source:</strong> Chenle Chen et al. “Competence, Not Accuracy: A Diagnostic for Reference-Free Judge Gates in Skill Optimization.” arXiv:2608.18719v1, submitted 19 Aug 2026.</p>
+<p><strong>Primary source URL:</strong> https://arxiv.org/abs/2608.18719</p>
+<p><strong>Evaluated PDF:</strong> 2608.18719v1.pdf; SHA-256 26126ff4b4c59eec67bbf90a94f43fe81bcd9e1d8cb18790bfad95d6bc551b69.</p>
+<p><strong>Generated:</strong> 20 Aug 2026. Appraisal is based on the v1 preprint and should be revisited if a later version materially changes methods, tables, or closed-loop evidence.</p>
+</section>
+</main></body></html>

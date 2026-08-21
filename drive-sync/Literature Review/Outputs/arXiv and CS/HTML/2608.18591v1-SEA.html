@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA — Can a Lightweight Multimodal Model Estimate LLM Reasoning Performance?</title>
+<style>
+:root{--bg:#f5f7fa;--card:#fff;--ink:#17212b;--muted:#586879;--line:#d9e1ea;--accent:#194f8a;--accent2:#eaf2fb;--good:#17643b;--warn:#8a5a00;--bad:#8b2424;--code:#101a28;--codeink:#eaf1fb}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}.wrap{max-width:1120px;margin:auto;padding:24px}.hero{background:linear-gradient(135deg,#10263e,#1e5c9f);color:#fff;padding:36px 28px;border-radius:18px;margin-bottom:18px}.hero h1{margin:0 0 10px;font-size:clamp(1.75rem,4vw,2.7rem);line-height:1.12}.hero p{margin:0;color:#dfeaf7}.tag{display:inline-block;border-radius:999px;padding:.22rem .58rem;background:#e8f1fb;color:#173f70;font-size:.82rem;margin:.15rem .25rem .15rem 0}.hero .tag{background:rgba(255,255,255,.14);color:#fff}.toc,section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:16px 0;box-shadow:0 1px 4px rgba(18,39,63,.05)}h2{color:#133f70;margin-top:0}h3{color:#254f79}.toc ul{columns:2;gap:28px}.toc a{color:var(--accent);text-decoration:none}.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.mini-card{border:1px solid var(--line);border-radius:10px;padding:12px;background:#fbfcfe}.mini-card strong{display:block;color:#233f5d;margin-bottom:4px}.verdict,.goodnote,.warning,.badnote{border-radius:10px;padding:13px 15px;margin:12px 0}.verdict{background:#eaf2fb;border-left:5px solid var(--accent)}.goodnote{background:#edf8f1;border-left:5px solid var(--good)}.warning{background:#fff7e8;border-left:5px solid var(--warn)}.badnote{background:#fff0f0;border-left:5px solid var(--bad)}.section-summary{border-top:1px solid var(--line);padding-top:12px;margin-top:14px}.section-summary:first-of-type{border-top:0;padding-top:0}table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.89rem}th,td{border:1px solid var(--line);padding:7px 8px;vertical-align:top}th{background:#eef3f8;text-align:left}tbody tr:nth-child(even){background:#fafbfd}pre{background:var(--code);color:var(--codeink);padding:14px;border-radius:10px;overflow:auto;white-space:pre-wrap;font-size:.88rem}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.score{font-size:1.45rem;font-weight:750;color:#163f6b}.small{color:var(--muted);font-size:.9rem}.footer{color:var(--muted);font-size:.87rem}.nowrap{white-space:nowrap}@media(max-width:700px){.wrap{padding:12px}.toc ul{columns:1}.hero{padding:24px 18px}table{font-size:.8rem;display:block;overflow-x:auto}}@media print{body{background:#fff}.wrap{max-width:none}.hero,section,.toc{box-shadow:none;break-inside:avoid}.hero{background:#fff;color:#000;border:2px solid #222}.hero p,.hero .tag{color:#000}.hero .tag{border:1px solid #aaa}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="hero">
+<h1>Can a Lightweight Multimodal Model Estimate LLM Reasoning Performance? A Study for Compute-Optimal Document Inference</h1>
+<p>Zishan Ahmad · Vishal Vaddina · Phi Labs, Quantiphi · arXiv:2608.18591v1 · COLM 2026 conference paper</p>
+<div style="margin-top:12px"><span class="tag">AI/ML</span><span class="tag">test-time compute</span><span class="tag">multimodal estimation</span><span class="tag">reasoning budgets</span><span class="tag">cost optimization</span></div>
+</header>
+
+<nav class="toc" aria-label="Table of contents"><h2>Contents</h2><ul>
+<li><a href="#metadata">Metadata</a></li><li><a href="#synthesis">One-page synthesis</a></li><li><a href="#sections">Section condensation</a></li><li><a href="#visuals">Figures, tables, workflows</a></li><li><a href="#appraisal">Evaluation and appraisal</a></li><li><a href="#takeaways">Implementation takeaways</a></li><li><a href="#coverage">Coverage and omissions</a></li><li><a href="#provenance">Provenance and QA</a></li>
+</ul></nav>
+
+<section id="metadata"><h2>Metadata</h2><div class="meta-grid">
+<div class="mini-card"><strong>Exact title</strong>Can a Lightweight Multimodal Model Estimate LLM Reasoning Performance? A Study for Compute-Optimal Document Inference</div>
+<div class="mini-card"><strong>Authors</strong>Zishan Ahmad; Vishal Vaddina</div>
+<div class="mini-card"><strong>Source / version</strong>arXiv:2608.18591v1; submitted 19 August 2026; paper identifies itself as published at COLM 2026</div>
+<div class="mini-card"><strong>Source type</strong>AI/ML systems and benchmark paper</div>
+<div class="mini-card"><strong>Design</strong>Supervised estimator benchmark plus held-out downstream budget-allocation experiments and exploratory routing case study</div>
+<div class="mini-card"><strong>Evaluated material</strong>13-page primary PDF; one main figure; four tables including appendices; three appendices</div>
+</div>
+<div class="warning"><strong>Scope warning.</strong> The evidence supports pre-flight reasoning-budget selection for document-centric tasks in the tested model families. It does not establish general-purpose cross-provider routing, production robustness outside document tasks, or stable economics under future model/API pricing.</div>
+</section>
+
+<section id="synthesis"><h2>One-page synthesis</h2>
+<div class="verdict"><strong>Verdict: Read soon.</strong> The paper clears the promotion gate because the cost/latency trade-off is quantified, estimator overhead is charged into adjusted cost, held-out documents are separated at the base-document level, and the primary budget-selection result is consistent across most configurations. The routing result should be treated as exploratory rather than deployment-ready.</div>
+<p><strong>Core thesis.</strong> A lightweight multimodal model can estimate how a much larger reasoning model will perform at different inference budgets before the expensive model is called. The authors construct BudgetDoc, a dense 9,000-pair configuration dataset derived from 360 base documents across three document tasks, five frontier models, and five budget classes. DRB, a roughly 1B-parameter estimator combining SigLIP-2 and Qwen3-0.6B with cross-page fusion, reaches weighted F1 0.753 on 2,500 configuration pairs from 100 held-out base documents; its most operationally important class, near-perfect performance, has recall 0.932.</p>
+<p><strong>Why it matters.</strong> DRB-guided within-model budget selection reduced adjusted cost in 13 of 15 model–dataset settings and matched or improved F1 in 9 of 15. The strongest savings occur where maximum-budget reasoning is intrinsically expensive: GPT-5.2 fell from $0.09611 to $0.00093 per CDIP sample and from $0.31805 to $0.00428 on CheckboxQA, with F1 changes of +1.1% and −3.2%, respectively. The central caveat is that the estimator is less attractive when its own scan latency dominates; one Gemini CheckboxQA configuration incurred +146.9% latency. Cross-model selection further exposes calibration limits: F1 falls 6.4–11.2% across provider families despite substantial cost savings.</p>
+<div class="goodnote"><strong>Best use.</strong> Treat DRB as evidence for a pre-flight <em>budget allocator</em> placed before an expensive reasoning call, not as evidence that a single lightly trained model can safely route across arbitrary providers.</div>
+</section>
+
+<section id="sections"><h2>Section condensation</h2>
+<div class="section-summary"><h3>Abstract and 1. Introduction</h3><p>The paper frames “over-thinking” as a joint accuracy-and-cost failure mode: maximum test-time reasoning is not uniformly beneficial, and provider-internal controls still depend on the target model’s own difficulty estimate. The proposed alternative is external pre-flight estimation conditioned on the document, prompt, target model, and intended budget. Three contributions follow: BudgetDoc, DRB, and two downstream applications—budget optimization as the primary application and model selection as a secondary probe.</p><p>The authors claim the over-thinking penalty is visible across both Gemini and GPT families and motivate external hard budget caps as complementary to in-flight mechanisms. The paper’s own evidence directly establishes this only on the three document-centric benchmark families tested here.</p></div>
+<div class="section-summary"><h3>2. Related Work</h3><p>The review positions the work against test-time compute scaling, provider auto-thinking/reasoning-effort controls, pricing reversal/token-variance studies, post-hoc model evaluation, and LLM routing. The stated distinction is temporal and operational: DRB predicts performance before the target inference runs, rather than scoring output afterward or routing solely from prompt-level preferences.</p></div>
+<div class="section-summary"><h3>3.1 BudgetDoc</h3><p>BudgetDoc starts from RVL-CDIP, TAT-QA/TAT-DQA-style financial reasoning, and CheckboxQA. The authors select 120 base samples from each domain (360 total) and exhaustively profile five models over five budget classes, producing 9,000 labeled configuration–outcome pairs. Per-sample F1 is discretized into seven ordinal classes. Prompts are paraphrased with Gemini 2.5 Flash Lite to reduce syntactic overfitting.</p><p>Critically, splitting occurs at the base-document level: 240 documents generate 6,000 train pairs, 20 generate 500 validation pairs, and 100 held-out documents generate 2,500 test pairs. This is stronger than row-wise splitting for a dense combinatorial dataset because no configuration of a held-out document appears during training.</p></div>
+<div class="section-summary"><h3>3.2 DRB</h3><p>DRB combines a SigLIP-2-Large-patch16-512 visual encoder, a 12-layer Llama-style cross-page fusion transformer with hidden dimension 1152, a Qwen3-0.6B prompt encoder, learned target-model and budget embeddings, and a 2048-unit GELU MLP classifier. It predicts one of seven performance classes with cross-entropy loss. Appendix B reports 20 training epochs on an A100 80GB, AdamW, learning rate 5×10<sup>−5</sup>, batch size 4.</p></div>
+<div class="section-summary"><h3>3.3 Hierarchical scanning</h3><p>For a fixed target model, DRB evaluates budget levels from lowest to highest and stops when Class 6 is predicted; otherwise the highest predicted class is selected, with lower cost breaking ties. The exploratory routing experiment instead scores all model–budget pairs jointly, an acknowledged distribution shift beyond the intended fixed-model use case.</p></div>
+<div class="section-summary"><h3>4.1 Setup and 4.2 Estimation performance</h3><p>Downstream experiments use the same 100 held-out base documents across three task domains. Metrics are F1, API cost per sample, and latency. DRB comparisons use adjusted cost that explicitly charges local estimator compute at $0.00015/s based on a GCP n1-standard-4 plus T4 assumption. The fixed-model baseline is maximum/default high reasoning; the exploratory routing baseline is the best single model at its default/max setting.</p><p>On the 2,500-pair estimator test set, weighted F1 is 0.753. Class 6 dominates support (1,396/2,500) and reaches precision 0.798, recall 0.932, F1 0.860. Intermediate classes are materially less reliable, including Class 1 F1 0.463. This class imbalance and uneven performance are important when translating the headline metric into policy decisions.</p></div>
+<div class="section-summary"><h3>4.3 Per-sample reasoning-budget optimization</h3><p>DRB lowers adjusted cost in 13/15 model–dataset configurations, with reductions from 5.2% to 99.0%, and matches/improves F1 in 9/15. Several configurations improve both cost and F1 because lower reasoning avoids the observed over-thinking penalty. The largest absolute economic gains are concentrated in expensive GPT-5.2 maximum-effort baselines.</p><p>Not every configuration wins: GPT-5.1 on CheckboxQA and TAT-DQA becomes slightly more expensive after estimator overhead, and some settings lose F1 by up to 5.7%. Latency can rise substantially for cheaper Gemini settings. The result therefore supports selective deployment based on downstream inference economics rather than a universal DRB front-end.</p></div>
+<div class="section-summary"><h3>4.4 Model selection case study</h3><p>The authors explicitly state DRB is not trained as a router. Within Gemini, adjusted cost drops 9.6–75.9% with F1 losses 2.5–9.9%. Within GPT, cost falls roughly 98–99% but F1 drops about 9–10%. Across both families, F1 drops 6.4–11.2% while adjusted cost falls 59.6–95.2%. The case study demonstrates coarse cost-avoidance signal, not reliable cross-provider model selection.</p></div>
+<div class="section-summary"><h3>5. Analysis</h3><p>The analysis emphasizes that small-model estimation is useful primarily because high-confidence “easy” detections permit low budgets. DRB is presented as complementary to in-flight reasoning controls and most valuable when the gap between maximum-budget cost and sufficient-budget cost is large. TAT-DQA is consistently the hardest domain, while early stopping reportedly reduces budget scans to roughly 1.0–3.9 levels per sample.</p><p>The authors interpret performance across RVL-CDIP, CheckboxQA, and TAT-DQA as evidence of document-type generalization. That statement should remain bounded to structurally varied document tasks; the study does not externally test non-document text, code, agentic, or open-ended generation workloads.</p></div>
+<div class="section-summary"><h3>6. Conclusion, Limitations, Ethics</h3><p>The conclusion reiterates weighted F1 0.753, Class 6 recall 0.932, up to 99% cost reductions, and 9/15 F1 maintenance/improvement in the primary application. It treats model-selection transfer as partial and calls for explicit multi-provider supervision. The authors state BudgetDoc and the DRB baseline are released.</p><p>Reported limitations include the need for calibration data for new providers/architectures, restriction to document-centric tasks, and hierarchical-scan latency that can make the framework unattractive for real-time use. The ethics statement notes use of public benchmarks and commercial APIs and argues that avoiding unnecessary reasoning tokens may reduce compute expenditure.</p></div>
+</section>
+
+<section id="visuals"><h2>Figures, tables, and workflows</h2>
+<h3>Figure 1 — Over-thinking penalty</h3><pre><code>Purpose: Show mean F1 versus reasoning budget/effort across five models and three datasets.
+Structure: Gemini panels use budgets 0/512/1024/1536/2048; GPT panels use none/low/medium/high.
+Key reported examples:
+- Gemini 2.5 Flash, RVL-CDIP: 0.86 at budget 0 → 0.81 at 2048 (reported 6% penalty).
+- GPT-5.2, CheckboxQA: 0.68 at low effort → 0.58 at high effort (reported 12% penalty).
+Pattern: More reasoning is not monotonically beneficial; optimum varies by model and task.
+Limit: Aggregate curves motivate adaptive allocation but do not by themselves prove per-sample predictability.
+Representation: structured block; visually reconciled against rendered PDF.</code></pre>
+
+<h3>Table 1 — Reasoning-budget optimization</h3>
+<table><thead><tr><th>Dataset</th><th>Model</th><th>DRB F1</th><th>Baseline F1</th><th>ΔF1</th><th>Adj. DRB cost</th><th>Baseline cost</th><th>Adj. Δcost</th><th>Δ latency</th></tr></thead><tbody>
+<tr><td>CDIP</td><td>Gemini-2.5-Flash</td><td>.888</td><td>.840</td><td>+5.7%</td><td>$0.00169</td><td>$0.00427</td><td>−48.0%</td><td>+3.6s (+27.6%)</td></tr>
+<tr><td>CDIP</td><td>Gemini-3-Flash-Preview</td><td>.890</td><td>.920</td><td>−3.3%</td><td>$0.00965</td><td>$0.01292</td><td>−21.3%</td><td>+3.8s (+25.5%)</td></tr>
+<tr><td>CDIP</td><td>Gemini-3.1-Flash-Lite</td><td>.799</td><td>.762</td><td>+4.9%</td><td>$0.00482</td><td>$0.00752</td><td>−29.0%</td><td>+10.3s (+76.4%)</td></tr>
+<tr><td>CDIP</td><td>GPT-5.1</td><td>.815</td><td>.816</td><td>−0.1%</td><td>$0.00096</td><td>$0.01896</td><td>−92.2%</td><td>−15.5s (−40.7%)</td></tr>
+<tr><td>CDIP</td><td>GPT-5.2</td><td>.879</td><td>.869</td><td>+1.1%</td><td>$0.00093</td><td>$0.09611</td><td>−99.0%</td><td>−39.7s (−62.3%)</td></tr>
+<tr><td>CheckboxQA</td><td>Gemini-2.5-Flash</td><td>.559</td><td>.556</td><td>+0.4%</td><td>$0.00301</td><td>$0.00515</td><td>−31.4%</td><td>+3.8s (+31.9%)</td></tr>
+<tr><td>CheckboxQA</td><td>Gemini-3-Flash-Preview</td><td>.705</td><td>.670</td><td>+5.1%</td><td>$0.01746</td><td>$0.02126</td><td>−15.4%</td><td>+3.5s (+19.4%)</td></tr>
+<tr><td>CheckboxQA</td><td>Gemini-3.1-Flash-Lite</td><td>.668</td><td>.642</td><td>+4.0%</td><td>$0.00873</td><td>$0.01080</td><td>−14.3%</td><td>+22.0s (+146.9%)</td></tr>
+<tr><td>CheckboxQA</td><td>GPT-5.1</td><td>.503</td><td>.478</td><td>+5.2%</td><td>$0.00274</td><td>$0.00202</td><td>+35.6%</td><td>+6.5s (+45.5%)</td></tr>
+<tr><td>CheckboxQA</td><td>GPT-5.2</td><td>.651</td><td>.673</td><td>−3.2%</td><td>$0.00428</td><td>$0.31805</td><td>−98.5%</td><td>−144.3s (−85.4%)</td></tr>
+<tr><td>TAT-DQA</td><td>Gemini-2.5-Flash</td><td>.514</td><td>.504</td><td>+2.1%</td><td>$0.00088</td><td>$0.00149</td><td>−5.2%</td><td>−0.9s (−26.4%)</td></tr>
+<tr><td>TAT-DQA</td><td>Gemini-3-Flash-Preview</td><td>.542</td><td>.515</td><td>+5.2%</td><td>$0.00080</td><td>$0.00372</td><td>−64.3%</td><td>−2.1s (−29.2%)</td></tr>
+<tr><td>TAT-DQA</td><td>Gemini-3.1-Flash-Lite</td><td>.536</td><td>.568</td><td>−5.7%</td><td>$0.00040</td><td>$0.00156</td><td>−40.6%</td><td>−0.6s (−15.5%)</td></tr>
+<tr><td>TAT-DQA</td><td>GPT-5.1</td><td>.504</td><td>.519</td><td>−2.9%</td><td>$0.00032</td><td>$0.00031</td><td>+3.2%</td><td>+0.8s (+35.3%)</td></tr>
+<tr><td>TAT-DQA</td><td>GPT-5.2</td><td>.531</td><td>.547</td><td>−2.9%</td><td>$0.00057</td><td>$0.06084</td><td>−98.2%</td><td>−29.2s (−90.5%)</td></tr>
+</tbody></table>
+<div class="small">Pattern: adjusted cost improves in 13/15 settings; F1 matches/improves in 9/15. Latency is a first-order trade-off, especially for cheap Gemini configurations.</div>
+
+<h3>Table 2 — Exploratory model selection</h3>
+<table><thead><tr><th>Scope</th><th>Dataset</th><th>DRB F1</th><th>Oracle F1</th><th>ΔF1</th><th>Oracle cost</th><th>Adj. DRB cost</th><th>Adj. Δcost</th></tr></thead><tbody>
+<tr><td>Gemini family</td><td>CDIP</td><td>.897</td><td>.920</td><td>−2.5%</td><td>$0.01292</td><td>$0.00593</td><td>−54.1%</td></tr>
+<tr><td>Gemini family</td><td>CheckboxQA</td><td>.644</td><td>.670</td><td>−3.9%</td><td>$0.02126</td><td>$0.00513</td><td>−75.9%</td></tr>
+<tr><td>Gemini family</td><td>TAT-DQA</td><td>.512</td><td>.568</td><td>−9.9%</td><td>$0.00156</td><td>$0.00141</td><td>−9.6%</td></tr>
+<tr><td>GPT family</td><td>CDIP</td><td>.781</td><td>.869</td><td>−10.1%</td><td>$0.09611</td><td>$0.00121</td><td>−98.7%</td></tr>
+<tr><td>GPT family</td><td>CheckboxQA</td><td>.622</td><td>.673</td><td>−9.3%</td><td>$0.31805</td><td>$0.00183</td><td>−99.4%</td></tr>
+<tr><td>GPT family</td><td>TAT-DQA</td><td>.497</td><td>.545</td><td>−9.5%</td><td>$0.06084</td><td>$0.00061</td><td>−99.0%</td></tr>
+<tr><td>Cross-family</td><td>CDIP</td><td>.861</td><td>.920</td><td>−6.4%</td><td>$0.01292</td><td>$0.00476</td><td>−63.2%</td></tr>
+<tr><td>Cross-family</td><td>CheckboxQA</td><td>.602</td><td>.676</td><td>−10.9%</td><td>$0.02825</td><td>$0.00133</td><td>−95.2%</td></tr>
+<tr><td>Cross-family</td><td>TAT-DQA</td><td>.505</td><td>.569</td><td>−11.2%</td><td>$0.00156</td><td>$0.00063</td><td>−59.6%</td></tr>
+</tbody></table>
+<div class="badnote"><strong>Appraisal.</strong> This table is evidence against treating DRB as a mature router. Cost avoidance survives distribution shift, but quality calibration degrades materially when the candidate pool changes.</div>
+
+<h3>Table 3 — Estimator performance by class</h3>
+<table><thead><tr><th>Class / F1 bin</th><th>Precision</th><th>Recall</th><th>F1</th><th>Support</th></tr></thead><tbody>
+<tr><td>0 (&lt;.5)</td><td>.623</td><td>.491</td><td>.549</td><td>448</td></tr><tr><td>1 ([.5,.6))</td><td>.646</td><td>.361</td><td>.463</td><td>87</td></tr><tr><td>2 ([.6,.7))</td><td>.716</td><td>.671</td><td>.693</td><td>143</td></tr><tr><td>3 ([.7,.8))</td><td>.744</td><td>.569</td><td>.645</td><td>174</td></tr><tr><td>4 ([.8,.9))</td><td>.849</td><td>.656</td><td>.740</td><td>154</td></tr><tr><td>5 ([.9,.99))</td><td>.781</td><td>.653</td><td>.711</td><td>98</td></tr><tr><td>6 (≥.99)</td><td>.798</td><td>.932</td><td>.860</td><td>1396</td></tr><tr><td><strong>Weighted average</strong></td><td>.756</td><td>.765</td><td>.753</td><td>2500</td></tr>
+</tbody></table>
+<div class="small">Class 6 represents 55.8% of the estimator test pairs, so the weighted average is strongly influenced by the easiest/perfect-output class.</div>
+
+<h3>Table 4 — GPT effort sensitivity</h3>
+<table><thead><tr><th>Dataset</th><th>Model / effort</th><th>DRB F1</th><th>Baseline F1</th><th>ΔF1</th><th>Adj. DRB cost</th><th>Baseline cost</th><th>Adj. Δcost</th></tr></thead><tbody>
+<tr><td>CDIP</td><td>GPT-5.1 low</td><td>.815</td><td>.814</td><td>±0.0%</td><td>$0.00096</td><td>$0.01814</td><td>−91.8%</td></tr><tr><td>CDIP</td><td>GPT-5.1 medium</td><td>.815</td><td>.813</td><td>+0.2%</td><td>$0.00096</td><td>$0.02148</td><td>−93.1%</td></tr><tr><td>CDIP</td><td>GPT-5.1 high</td><td>.815</td><td>.816</td><td>−0.1%</td><td>$0.00096</td><td>$0.02900</td><td>−94.9%</td></tr>
+<tr><td>CDIP</td><td>GPT-5.2 low</td><td>.879</td><td>.873</td><td>+0.7%</td><td>$0.00093</td><td>$0.05738</td><td>−97.5%</td></tr><tr><td>CDIP</td><td>GPT-5.2 medium</td><td>.879</td><td>.876</td><td>+0.3%</td><td>$0.00093</td><td>$0.05851</td><td>−97.5%</td></tr><tr><td>CDIP</td><td>GPT-5.2 high</td><td>.879</td><td>.869</td><td>+1.1%</td><td>$0.00093</td><td>$0.06073</td><td>−97.6%</td></tr>
+<tr><td>CheckboxQA</td><td>GPT-5.1 low</td><td>.503</td><td>.491</td><td>+2.4%</td><td>$0.00274</td><td>$0.02418</td><td>−86.5%</td></tr><tr><td>CheckboxQA</td><td>GPT-5.1 medium</td><td>.503</td><td>.488</td><td>+3.1%</td><td>$0.00274</td><td>$0.03014</td><td>−89.2%</td></tr><tr><td>CheckboxQA</td><td>GPT-5.1 high</td><td>.503</td><td>.478</td><td>+5.2%</td><td>$0.00274</td><td>$0.05040</td><td>−93.5%</td></tr>
+<tr><td>CheckboxQA</td><td>GPT-5.2 low</td><td>.651</td><td>.663</td><td>−1.8%</td><td>$0.00428</td><td>$0.07439</td><td>−93.5%</td></tr><tr><td>CheckboxQA</td><td>GPT-5.2 medium</td><td>.651</td><td>.658</td><td>−1.1%</td><td>$0.00428</td><td>$0.07751</td><td>−93.8%</td></tr><tr><td>CheckboxQA</td><td>GPT-5.2 high</td><td>.651</td><td>.673</td><td>−3.2%</td><td>$0.00428</td><td>$0.12162</td><td>−96.0%</td></tr>
+<tr><td>TAT-DQA</td><td>GPT-5.1 low</td><td>.504</td><td>.513</td><td>−1.8%</td><td>$0.00032</td><td>$0.00210</td><td>−59.8%</td></tr><tr><td>TAT-DQA</td><td>GPT-5.1 medium</td><td>.504</td><td>.508</td><td>−0.8%</td><td>$0.00032</td><td>$0.00276</td><td>−69.4%</td></tr><tr><td>TAT-DQA</td><td>GPT-5.1 high</td><td>.504</td><td>.519</td><td>−2.9%</td><td>$0.00032</td><td>$0.00547</td><td>−84.5%</td></tr>
+<tr><td>TAT-DQA</td><td>GPT-5.2 low</td><td>.531</td><td>.540</td><td>−1.7%</td><td>$0.00057</td><td>$0.00511</td><td>−78.6%</td></tr><tr><td>TAT-DQA</td><td>GPT-5.2 medium</td><td>.531</td><td>.535</td><td>−0.7%</td><td>$0.00057</td><td>$0.00605</td><td>−81.9%</td></tr><tr><td>TAT-DQA</td><td>GPT-5.2 high</td><td>.531</td><td>.547</td><td>−2.9%</td><td>$0.00057</td><td>$0.00700</td><td>−84.4%</td></tr>
+</tbody></table>
+
+<h3>Workflow — BudgetDoc construction</h3><pre><code>Inputs: 360 base documents/prompts from 3 document tasks.
+Process: 5 target models × 5 budget classes per base document → 9,000 configuration-result pairs.
+Labels: per-sample F1 → 7 ordinal performance classes.
+Split: 240 train / 20 validation / 100 held-out test base documents.
+Boundary control: split by document, not configuration row.</code></pre>
+<h3>Workflow — DRB estimation</h3><pre><code>document pages → SigLIP-2 embeddings → cross-page fusion
+prompt → Qwen3-0.6B embedding
+model ID + budget → learned embeddings
+concatenate all representations → MLP → predicted performance class</code></pre>
+<h3>Workflow — Hierarchical budget selection</h3><pre><code>for budget in ascending_budget_levels:
+    class_hat = DRB(document, prompt, model, budget)
+    if class_hat == 6:
+        select budget and stop
+otherwise select budget with highest predicted class; lower cost breaks ties</code></pre>
+<h3>Workflow — Exploratory model-budget selection</h3><pre><code>score all candidate (model, budget) pairs with DRB
+select resource-efficient high-predicted-performance configuration
+warning: this is outside DRB's intended fixed-model training objective and shows calibration loss</code></pre>
+</section>
+
+<section id="appraisal"><h2>Evaluation and appraisal</h2>
+<div class="rating-grid">
+<div class="mini-card"><strong>Relevance</strong><div class="score">8.5 / 10</div><p>Directly useful for inference efficiency, routing architecture boundaries, and pre-flight control.</p><p class="small"><b>Evidence:</b> primary application directly measures F1, cost, and latency. <b>Limit:</b> document-only. <b>Would rise:</b> validation on code/agentic/text tasks.</p></div>
+<div class="mini-card"><strong>Novelty</strong><div class="score">8 / 10</div><p>Performance estimation conditioned jointly on document, model, and budget is a useful reframing beyond token prediction or post-hoc judging.</p><p class="small"><b>Evidence:</b> dense configuration benchmark and pre-flight estimator. <b>Limit:</b> built from familiar multimodal encoders and classifier components. <b>Would rise:</b> stronger evidence of advantage over simpler predictors.</p></div>
+<div class="mini-card"><strong>Method strength</strong><div class="score">6.5 / 10</div><p>Document-level splitting, exhaustive within-sample configuration sweeps, explicit estimator-overhead costing, and held-out deployment tests are solid design choices.</p><p class="small"><b>Limit:</b> only 360 base contexts and 100 held-out documents; no reported repeated-run uncertainty or simple-feature ablation establishing what drives estimator value. <b>Would rise:</b> larger external test sets, seeds/CIs, stronger ablations.</p></div>
+<div class="mini-card"><strong>Evidence strength</strong><div class="score">6.5 / 10</div><p>The fixed-model budget-allocation claim is supported across 15 configurations with explicit accuracy/cost/latency outcomes.</p><p class="small"><b>Limit:</b> headline weighted F1 is influenced by a large Class 6 majority, and some deployment configurations lose F1 or latency. <b>Would rise:</b> prospective replication and uncertainty estimates.</p></div>
+<div class="mini-card"><strong>External validity</strong><div class="score">5 / 10</div><p>Three structurally different document tasks and two provider families offer useful breadth within the document domain.</p><p class="small"><b>Limit:</b> no non-document workloads; new providers require calibration; routing across families degrades. <b>Would rise:</b> external providers, tasks, and time-shifted validation.</p></div>
+<div class="mini-card"><strong>Implementation value</strong><div class="score">8 / 10</div><p>The paper gives a clear architectural pattern, decision rule, cost formula, hardware assumption, and concrete failure boundary.</p><p class="small"><b>Limit:</b> economics are model-price and latency dependent. <b>Would rise:</b> open runtime logs, confidence calibration, abstention thresholds, and production monitoring results.</p></div>
+</div>
+<h3>Main strengths</h3><ul><li>Tests the actual decision objective—quality, cost, and latency—not estimator accuracy alone.</li><li>Prevents configuration leakage by splitting at the base-document level.</li><li>Charges estimator compute overhead against savings.</li><li>Clearly labels cross-model selection as exploratory and exposes its quality loss.</li><li>Preserves operationally relevant failure cases rather than reporting only average savings.</li></ul>
+<h3>Main limitations</h3><ul><li>Only 360 base documents and 100 held-out base documents underlie the dense 9,000-pair matrix.</li><li>Weighted F1 0.753 masks large class imbalance: Class 6 accounts for 1,396 of 2,500 test pairs.</li><li>No confidence intervals or repeated API-run/seed uncertainty are reported for key downstream comparisons.</li><li>The paper does not establish whether a simpler estimator using document length/layout statistics, task identity, or model-specific priors could capture much of the same signal.</li><li>Latency overhead can erase the practical value on cheap/fast models.</li><li>Cross-family quality losses are too large to support deployment as a general router.</li></ul>
+<div class="verdict"><strong>Bottom line.</strong> Preserve this paper as build-useful evidence for <em>within-model, pre-flight reasoning-budget allocation</em>. Do not use it as proof that lightweight estimator-based cross-provider routing is ready for deployment.</div>
+</section>
+
+<section id="takeaways"><h2>Implementation takeaways</h2><div class="takeaway-grid">
+<div class="mini-card"><strong>Separate budget allocation from model routing.</strong> First decide whether a chosen model needs expensive reasoning. Treat provider/model selection as a different calibrated problem.</div>
+<div class="mini-card"><strong>Optimize total system cost.</strong> Charge estimator hardware, scan count, latency, and downstream API spend; token savings alone can be misleading.</div>
+<div class="mini-card"><strong>Use high-confidence easy detection.</strong> The practical mechanism is identifying cases solvable at low budget. Add confidence thresholds and conservative fallback when uncertain.</div>
+<div class="mini-card"><strong>Preserve an abstention/default path.</strong> If calibration drifts or confidence is weak, fall back to provider default or a validated higher budget instead of forcing a low allocation.</div>
+<div class="mini-card"><strong>Calibrate per provider and task family.</strong> The routing case study shows that performance surfaces do not transfer cleanly across model families.</div>
+<div class="mini-card"><strong>Monitor latency separately from dollars.</strong> A cheap front-end can still be unacceptable if it adds 20–147% latency to a fast baseline.</div>
+<div class="mini-card"><strong>Validate outside documents before generalizing.</strong> Code, agentic workflows, long-form generation, and text-only QA may have different observable predictors of reasoning need.</div>
+<div class="mini-card"><strong>Track drift in both prices and model behavior.</strong> Recompute thresholds when API prices, reasoning-effort semantics, or model versions change.</div>
+</div></section>
+
+<section id="coverage"><h2>Coverage and omissions</h2>
+<p><strong>Coverage manifest:</strong> all substantive sections from Abstract through Ethics Statement are condensed. Figure 1, Tables 1–4, the BudgetDoc construction pipeline, DRB architecture, hierarchical scan, and exploratory joint model-budget selection are represented. Appendices A–C are included because they materially affect class-level estimator interpretation, compute-overhead costing, and GPT effort sensitivity.</p>
+<p><strong>Omission:</strong> the 12-entry bibliography is not evaluated item-by-item in this SEA; it is preserved separately as a reference Markdown file and used as provenance infrastructure. No load-bearing figure, table, workflow, or appendix is omitted.</p>
+</section>
+
+<section id="provenance"><h2>Provenance and QA</h2><div class="meta-grid">
+<div class="mini-card"><strong>Evaluated file</strong>2608.18591v1.pdf</div><div class="mini-card"><strong>SHA-256</strong><code>95c14fa2cfcd1972bf8a74a2fab035491f2d5dc028d59a1e11b72514dfc21f1d</code></div><div class="mini-card"><strong>Stable identifier</strong>arXiv:2608.18591v1</div><div class="mini-card"><strong>Generation date</strong>20 August 2026</div><div class="mini-card"><strong>Appraisal lens</strong>AI/ML benchmark + inference/routing systems</div><div class="mini-card"><strong>External verification</strong>arXiv metadata/full text used to obtain and verify the primary source; appraisal claims derive from the primary paper.</div>
+</div>
+<table><tbody><tr><th>Source identity</th><td>PASS — title, authors, version, and identifier reconciled.</td></tr><tr><th>Coverage</th><td>PASS — 13 pages; 1 figure; Tables 1–4; three appendices; four core workflows represented.</td></tr><tr><th>Quantitative preservation</th><td>PASS — estimator metrics, all Table 1 and Table 2 rows, Table 3 classes, Table 4 effort comparisons, costs, and latency deltas preserved.</td></tr><tr><th>Claims vs appraisal</th><td>PASS — source-reported findings are separated from independent limitations and implementation recommendations.</td></tr><tr><th>Output integrity</th><td>PASS — self-contained HTML with embedded CSS; no remote scripts/fonts/images; no internal chat/file citation syntax.</td></tr></tbody></table>
+<p class="footer">This artifact supports literature review and AI/ML system design. It does not replace primary-source reading or constitute a guarantee that reported economics will persist across provider pricing, model revisions, or deployment environments. Governing project source: summary-evaluation-appraisal-protocol-v4-compact.md.</p>
+</section>
+</main></body></html>

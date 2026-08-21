@@ -1,0 +1,80 @@
+{
+  "activated_macros": [
+    "@ATOM",
+    "@SEA"
+  ],
+  "source": {
+    "slug": "ACC-2024-HFrEF-ECDP",
+    "title": "2024 ACC Expert Consensus Decision Pathway for Treatment of Heart Failure With Reduced Ejection Fraction",
+    "doi": "10.1016/j.jacc.2023.12.024",
+    "publication_id": "6327d6a7-e707-565b-ad78-828ce1aca3a5"
+  },
+  "atom_count": 142,
+  "atom_counts_by_kind": {
+    "study_objective": 1,
+    "other": 129,
+    "limitation": 4,
+    "method": 4,
+    "author_conclusion": 2,
+    "conflict_of_interest": 2
+  },
+  "batch_counts": {
+    "acc-hfref-2024-global-v1": 15,
+    "acc-hfref-2024-gdmt-initiation-v1": 33,
+    "acc-hfref-2024-optimization-monitoring-v1": 28,
+    "acc-hfref-2024-coordination-adherence-v1": 14,
+    "acc-hfref-2024-special-populations-access-v1": 15,
+    "acc-hfref-2024-complexity-comorbidity-v1": 26,
+    "acc-hfref-2024-palliative-conclusion-v1": 9,
+    "acc-hfref-2024-governance-disclosure-v1": 2
+  },
+  "assertion_origin_counts": {
+    "normalized_from_source": 142
+  },
+  "review_status_counts": {
+    "needs_review": 142
+  },
+  "local_pydantic_contract_validation": "passed",
+  "local_json_schema_validation": "passed",
+  "sufficiency_validation": "passed_for_extracted_generic_kinds",
+  "structural_errors": [],
+  "json_schema_errors": [],
+  "sufficiency_errors": [],
+  "sufficiency_warnings": [],
+  "unique_atom_ids": true,
+  "shared_publication_id": true,
+  "governing_source_runtime_status": {
+    "literature.py": "searched in connected project sources; authoritative file not directly retrievable in this session",
+    "literature_atoms.py": "searched in connected project sources; authoritative file not directly retrievable in this session",
+    "literature_atom.schema.json": "searched in connected project sources; authoritative file not directly retrievable in this session",
+    "README(2).md": "searched in connected project sources; authoritative file not directly retrievable in this session",
+    "example_atom.json": "searched in connected project sources; authoritative file not directly retrievable in this session",
+    "summary-evaluation-appraisal-protocol-v4-compact.md": "searched in connected project sources; authoritative file not directly retrievable in this session",
+    "large-source-ATOM-SEA.md": "supplied in project context and applied",
+    "unslop.skill.md": "retrieved from project File Library and applied to prose artifacts"
+  },
+  "validation_boundary": "The authoritative project Pydantic model, sufficiency validator, serialization schema, and exact SEA v4 protocol were not directly retrievable. This run uses a strict local Pydantic contract and generated JSON Schema reconstructed from current validated project artifacts plus the supplied large-source guardrail. It does not claim execution of unavailable authoritative project code or the exact SEA v4 scoring rubric.",
+  "duplicate_review": {
+    "status": "passed",
+    "exact_duplicate_canonical_statements": 0
+  },
+  "consistency_review": {
+    "status": "passed_with_source_issues_preserved",
+    "findings": [
+      "Figure 1 describes Issue 8 as containing ten pathophysiologic targets and ten management principles, while Section 4.8 states that 12 pathophysiologic targets are listed in Table 14 and then enumerates Principles 1 through 11. The discrepancy is preserved rather than silently harmonized.",
+      "Section 4.1.4 states label lower limits of 25 mL/min/1.73 m2 for dapagliflozin and sotagliflozin and no lower-bound cutoff for empagliflozin, whereas Section 4.2.2 states initiation thresholds of 20 for empagliflozin, 30 for dapagliflozin, and 25 for sotagliflozin. The internal threshold mismatch is flagged and not reconciled.",
+      "The ECDP repeatedly frames itself as practical consensus guidance that may be superseded by new data and should not replace clinical judgment."
+    ]
+  },
+  "schema_gaps": [
+    "The recovered LiteratureAtom pattern has no dedicated expert_consensus_recommendation or decision_pathway_guidance atom kind. Practical consensus guidance is represented as atom_kind=\"other\" with descriptive tags.",
+    "The named authoritative LiteratureAtom model, sufficiency validator, and JSON Schema were searched in connected project sources but were not directly retrievable in this session. Validation uses a strict local recovered contract and does not claim execution of unavailable authoritative project code.",
+    "Trial effects summarized by this ECDP are secondary evidence. They were used in SEA evidence synthesis and were not promoted to primary-study quantitative-result atoms."
+  ],
+  "extraction_limitations": [
+    "The source is an expert consensus decision pathway, not primary empirical research. ATOM extraction captures the committee’s own guidance, methods, scope, and limitations rather than treating cited trial results as if ACC generated those data.",
+    "The ECDP contains dense tables and algorithms. The extraction captures independently reviewable management assertions and does not create one atom for every dose cell, contraindication bullet, or bibliography entry.",
+    "All atoms remain needs_review because no human source-verification step is represented.",
+    "No external current-practice verification was performed because @VERIFY was not activated."
+  ]
+}

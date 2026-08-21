@@ -1,0 +1,192 @@
+{
+  "source_id": "arXiv:2608.19197v1",
+  "exact_title": "SPADE: Self-Play in Adaptive Synthetic Executable Environments",
+  "source_type": "arXiv preprint / AI-ML systems and reinforcement-learning study",
+  "date_or_version": "v1, submitted 2026-08-19",
+  "stable_identifier": "arXiv:2608.19197v1",
+  "source_sha256": "2459c2b53e79ebf0ceec4879b4163d0f992c7f1073e7503408b2399e1911fe6e",
+  "page_count": 73,
+  "substantive_main_text_range": "PDF 1-18",
+  "reference_range": "PDF 19-26",
+  "sections": [
+    "Abstract",
+    "1 Introduction",
+    "2 Related Work",
+    "3 Preliminaries",
+    "4 SPADE",
+    "5 Experimental Setup",
+    "6 Experimental Results",
+    "7 Ablations",
+    "8 Scaling Results",
+    "9 Discussion",
+    "10 Conclusion"
+  ],
+  "appendices": [
+    "E Theoretical Analysis",
+    "F Method and Experiment Details",
+    "G Extended Ablations",
+    "H Extended Related Work",
+    "I Extended Quantitative Analysis",
+    "J Extended Qualitative Analysis"
+  ],
+  "main_text_figures": [
+    {
+      "id": "Figure 1",
+      "page": "PDF 1",
+      "summary": "Overview of the dual-role self-play loop and relative benchmark improvements across games and tool use."
+    },
+    {
+      "id": "Figure 2",
+      "page": "PDF 3",
+      "summary": "Four generated environments across one 30B-A3B run, showing the curriculum becoming more stateful and multi-turn over training."
+    },
+    {
+      "id": "Figure 3",
+      "page": "PDF 6",
+      "summary": "Core framework: corpus and memory feed the Environment Designer, hint/no-hint rollouts define designer regret, task return trains the Reasoning Agent, and both update shared weights."
+    },
+    {
+      "id": "Figure 4",
+      "page": "PDF 8",
+      "summary": "Two positive-regret examples demonstrating how privileged hints alter Reasoning Agent search behavior and return."
+    },
+    {
+      "id": "Figure 5",
+      "page": "PDF 10",
+      "summary": "Held-out games benchmark trajectories for the 30B-A3B run, showing gains in science, code, and procedural reasoning while competition math is largely preserved."
+    },
+    {
+      "id": "Figure 6",
+      "page": "PDF 13",
+      "summary": "Learnable-share dynamics: full SPADE raises the fraction of generated environments with intermediate solve rates to roughly one-third late in training."
+    },
+    {
+      "id": "Figure 7",
+      "page": "PDF 13",
+      "summary": "Environment diversity comparison showing corpus-grounded runs remain diverse while the no-corpus ablation collapses."
+    },
+    {
+      "id": "Figure 8",
+      "page": "PDF 13",
+      "summary": "Environment evolution: formula disclosure declines across training; the no-corpus ablation repeats the same rotating-maze task."
+    },
+    {
+      "id": "Figure 9",
+      "page": "PDF 14",
+      "summary": "Reasoning Agent behavior shifts from front-loaded derivation and format failure toward evidence-first interaction and later derivation."
+    },
+    {
+      "id": "Figure 10",
+      "page": "PDF 15",
+      "summary": "Training curves for full and partial/frozen-designer ablations; partial variants peak early and degrade while full SPADE remains strongest late."
+    },
+    {
+      "id": "Figure 11",
+      "page": "PDF 16",
+      "summary": "Environment Designer reward ablation comparing hint-based regret, EMA learning potential, and a frozen control."
+    },
+    {
+      "id": "Figure 12",
+      "page": "PDF 17",
+      "summary": "Scale analysis: SPADE gain rises from +5.2 at 4B to +8.1 at 30B-A3B, while matched fixed-env GRPO stays near +1.2; smaller models show noisier regret."
+    },
+    {
+      "id": "Figure 13",
+      "page": "PDF 16",
+      "summary": "Curriculum-breadth comparison: six-skill training outperforms the restricted two-skill curriculum on the eight-benchmark mean."
+    }
+  ],
+  "main_text_tables": [
+    {
+      "id": "Table 1",
+      "page": "PDF 9",
+      "summary": "Matched games-setting results across Qwen3 4B, 8B, and 30B-A3B, including fixed-env GRPO, fixed-env RLVE, and SPADE on eight held-out benchmarks."
+    },
+    {
+      "id": "Table 2",
+      "page": "PDF 11",
+      "summary": "Tool-use benchmark results for SPADE across three Qwen3 scales plus contextual published rows from other environment-synthesis systems; cross-paper comparability is limited."
+    },
+    {
+      "id": "Table 3",
+      "page": "PDF 14",
+      "summary": "Component and frozen-designer ablations for the 30B-A3B games setting."
+    }
+  ],
+  "algorithms": [
+    {
+      "id": "Algorithm 1",
+      "page": "PDF 6-7",
+      "summary": "End-to-end generation, validation, hint/no-hint rollout, reward construction, and joint GRPO update loop."
+    }
+  ],
+  "appendix_coverage": [
+    {
+      "id": "Table 5",
+      "page": "PDF 44",
+      "decision": "structured",
+      "reason": "Training hyperparameters and implementation details are required for reproducibility."
+    },
+    {
+      "id": "Table 6",
+      "page": "PDF 46",
+      "decision": "structured",
+      "reason": "Full ablation breakdown supports the reward and curriculum-breadth claims."
+    },
+    {
+      "id": "Table 7",
+      "page": "PDF 53",
+      "decision": "structured",
+      "reason": "Environment-quality metrics directly test learnability, well-posedness, verifiability, and structural richness."
+    },
+    {
+      "id": "Table 8",
+      "page": "PDF 55",
+      "decision": "structured",
+      "reason": "Matched diversity ablations quantify the role of corpus grounding."
+    },
+    {
+      "id": "Figure 14",
+      "page": "PDF 45",
+      "decision": "structured",
+      "reason": "Per-benchmark curriculum-breadth trajectories support the main scaling claim."
+    },
+    {
+      "id": "Figure 15",
+      "page": "PDF 46",
+      "decision": "structured",
+      "reason": "Nemotron cross-family check addresses Qwen-specificity, though only Reasoning-Gym is evaluated."
+    },
+    {
+      "id": "Figures 16-18",
+      "page": "PDF 54-56",
+      "decision": "structured",
+      "reason": "Reward-granularity, skill-learning, and diversity dynamics support environment-quality claims."
+    },
+    {
+      "id": "Figure 19 and J qualitative examples",
+      "page": "PDF 57+",
+      "decision": "condensed",
+      "reason": "Representative examples are useful, but full generated source listings are not reproduced in the SEA artifact."
+    },
+    {
+      "id": "Table 4",
+      "page": "PDF 28",
+      "decision": "omitted",
+      "reason": "Notation table is reference infrastructure and does not change interpretation."
+    },
+    {
+      "id": "Full generated environment source listings",
+      "page": "PDF 60+",
+      "decision": "omitted",
+      "reason": "Hundreds of lines of code are reproducibility examples rather than load-bearing evidence; their existence and role are noted."
+    }
+  ],
+  "reference_count": 141,
+  "visual_strategy": "All main-text figures, tables, and Algorithm 1 are represented as structured blocks. Selected appendix tables/figures with methodological or empirical weight are also represented. Full generated source listings are omitted with reason.",
+  "coverage_decision": "retain and complete full ATOM + SEA processing",
+  "omissions": [
+    "Pure bibliography is excluded from SEA condensation but extracted separately to Markdown.",
+    "Full prompt templates and generated source-code listings are summarized rather than reproduced verbatim."
+  ]
+}

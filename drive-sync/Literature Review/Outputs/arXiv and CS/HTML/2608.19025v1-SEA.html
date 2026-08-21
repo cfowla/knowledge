@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEA | arXiv:2608.19025v1</title>
+<style>
+:root{--ink:#17212b;--muted:#5a6978;--line:#d9e1e8;--paper:#f5f7fa;--card:#fff;--blue:#205d8f;--teal:#187568;--amber:#9b5c00;--red:#9c2f35}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:#10283d;color:#fff;padding:3.2rem 1.5rem 2.5rem}header .inner,.wrap{max-width:1100px;margin:auto}
+h1{font-size:clamp(2rem,4vw,3.3rem);line-height:1.08;margin:.35rem 0 1rem;max-width:1000px}h2{font-size:1.55rem;margin:0 0 1rem}h3{font-size:1.04rem;margin:.1rem 0 .5rem}p{margin:.45rem 0 1rem}a{color:#0b5e96}header a{color:#9fddff}
+.kicker{letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#9fddff}.wrap{padding:1.4rem}
+nav,section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.35rem;margin:1rem 0;box-shadow:0 5px 20px rgba(20,40,60,.05)}nav a{display:inline-block;margin:.2rem .8rem .2rem 0}
+.meta-grid,.rating-grid,.takeaway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem}.mini-card,.score{border:1px solid var(--line);border-radius:10px;padding:1rem;background:#fbfcfd}.mini-card b{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+.verdict{border-left:6px solid var(--teal);background:#eaf7f4;padding:1rem 1.2rem;border-radius:8px}.warning{border-left:6px solid var(--amber);background:#fff7e8;padding:1rem 1.2rem;border-radius:8px}.badnote{border-left:6px solid var(--red);background:#fff0f1;padding:1rem 1.2rem;border-radius:8px}.goodnote{border-left:6px solid var(--blue);background:#ecf5fc;padding:1rem 1.2rem;border-radius:8px}
+.tag{display:inline-block;border-radius:99px;background:#e8eef4;color:#31485c;padding:.25rem .65rem;margin:.15rem;font-size:.83rem}pre{white-space:pre-wrap;background:#13212e;color:#e5edf4;padding:1rem;border-radius:10px;overflow:auto}
+table{width:100%;border-collapse:collapse}th,td{padding:.65rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#edf3f7}.score span{float:right;color:var(--blue);font-size:1.1rem}.score small{color:var(--muted)}dt{font-weight:700;color:var(--muted)}dd{margin:0 0 .6rem}footer{max-width:1100px;margin:auto;padding:1rem 1.5rem 3rem;color:var(--muted)}
+@media print{body{background:#fff}nav{display:none}section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<header><div class="inner"><div class="kicker">Summary, evaluation, and appraisal</div><h1>Self-prompting and cross-model consensus enable reproducible data extraction from scientific literature with large language models</h1><p>Romanov, Bax, and Niederer | arXiv:2608.19025v1 | submitted 19 August 2026</p><p><a href="https://arxiv.org/abs/2608.19025">arXiv record</a> · <a href="https://arxiv.org/pdf/2608.19025">Primary PDF</a> · <a href="https://github.com/ValentinRoma26/romanov-2026-llm-extraction">Research materials</a></p></div></header>
+<main class="wrap">
+<nav class="toc"><strong>Contents</strong><br><a href="#metadata">Metadata</a><a href="#synthesis">Synthesis</a><a href="#sections">Section map</a><a href="#visuals">Figures and table</a><a href="#design">Design and disagreement</a><a href="#appraisal">Appraisal</a><a href="#takeaways">Pipeline takeaways</a><a href="#provenance">Provenance</a></nav>
+
+<section id="metadata"><h2>Metadata and scope</h2><div class="meta-grid">
+<div class="mini-card"><b>Source type</b>Preprint and multi-experiment AI/ML benchmark</div>
+<div class="mini-card"><b>Domain</b>Scientific extraction, prompt design, Deep Research, ensemble review</div>
+<div class="mini-card"><b>Study objects</b>18 cardiac-binding articles, a 19-reference discovery target, and 10 brain-organoid articles</div>
+<div class="mini-card"><b>Access mode</b>Consumer browser products, not controlled APIs</div>
+<div class="mini-card"><b>Models</b>Seven frontier models per experiment with five repeated runs</div>
+<div class="mini-card"><b>Materials</b>Prompts, raw outputs, curated workbooks, tutorial, and benchmark files released</div>
+</div><div class="warning"><strong>Scope warning.</strong> The paper supports a controlled division of labor for literature extraction. It does not validate unsupervised source discovery, guarantee accuracy in other domains, or show that browser results will persist after product updates.</div></section>
+
+<section id="synthesis"><h2>One-page synthesis</h2><div class="verdict"><strong>Verdict: Read first.</strong> This paper is unusually useful for an ATOM and SEA pipeline because it does not stop at average extraction accuracy. It shows where the workflow fails, how repeated runs expose instability, and when disagreement should send a case to a person.</div>
+<p>The fixed-corpus result is strong but conditional. With an expert prompt and the correct PDFs already supplied, the best model reached 95.7% overall accuracy and 99.5% on numerical affinity fields. Context was harder. Correct troponin-preparation identification reached 80.7%, and 19.2% of fields moved between correct and incorrect across five runs. The practical lesson is not "LLMs extract at 95%." A well-scoped corpus and explicit schema make extraction tractable. Context fields and unstable answers still need review.</p>
+<p>The autonomy experiment is the sharper warning. The best Deep Research agent recovered only 53.7% of the expert reference set on average. Two systems fabricated citations, including 27 of 60 unique citations from Qwen3.7-Plus. Cross-model consensus helped on the organoid task. A unanimous five-run vote matched human consensus 93.2% of the time, while a 3-2 split matched it only 55.2%. Five calls spread across different models reached 93.3% agreement with reviewer consensus versus 89.2% for five calls to one model. The clean pipeline rule is to verify citations independently, use several model families when possible, and send split votes to expert review.</p>
+<p><span class="tag">literature extraction</span><span class="tag">cross-model consensus</span><span class="tag">citation verification</span><span class="tag">human review</span><span class="tag">browser drift</span><span class="tag">source discovery</span></p></section>
+
+<section id="sections"><h2>Section condensation</h2>
+<div class="section-summary"><h3>Introduction and study design</h3><p>The authors treat scientific extraction as a provenance and context problem, not a value-copying task. They separate browser products from raw APIs because browser systems may add hidden instructions, retrieval, memory, moderation, and changing compute allocation.</p><p>Figure 1 defines four workflows with increasing autonomy: expert prompt plus fixed corpus; self-authored prompt plus fixed corpus; autonomous discovery plus extraction; and a reporting-guideline dataset compared with human reviewers.</p></div>
+<div class="section-summary"><h3>Expert prompt and fixed corpus</h3><p>Seven models processed 18 articles five times each. Scoring covered species, temperature, troponin preparation, measurement method, magnesium, and two affinity values. GPT-5.5 led at 95.7% overall. The three leading models averaged 92.6%, compared with 86.4% for the other four.</p><p>Numbers were easier than context. Models found K and Kd correctly in 99.0% and 99.8% of cases, but the troponin preparation in 80.7%. Across models, 76.4% of fields were correct in all five runs, 19.2% varied, and 4.4% were wrong in every run. Model consensus also exposed mistakes in the original reference dataset.</p></div>
+<div class="section-summary"><h3>Self-authored prompts</h3><p>Each model wrote three prompts and aggregated them. Aggregation improved rubric coverage, but rubric rank did not predict extraction rank well. GPT-5.5's master prompt scored 88.2% on the 38-component rubric and achieved 90.3% extraction accuracy.</p><p>Every self-authored master prompt underperformed the expert prompt. The measurement-method field fell most, by 27.5 percentage points on average. This supports expert-authored field definitions and conflict rules.</p></div>
+<div class="section-summary"><h3>Autonomous literature discovery</h3><p>Seven Deep Research agents ran five searches each for up to 20 pre-2005 sources. Opus 4.8 had the best mean reference recall at 53.7%. GPT-5.5 reached 38.9%. Qwen3.7-Plus and GLM-5.2 fabricated 45% and 29% of their unique citations. The other five systems produced none in this sample.</p><p>End-to-end extraction remained weak because missing sources dominated the result. Opus 4.8 reached 39.9% field accuracy. When a source condition was recovered and a number was supplied, the value was often close. Conditional numeric accuracy cannot repair low corpus recall.</p></div>
+<div class="section-summary"><h3>Organoid reporting and human disagreement</h3><p>Seven models assessed 10 hand-selected brain-organoid papers against 23 criteria. Two PhD reviewers agreed on 79.1% of binary calls. Mean LLM agreement across the two reviewers was 81.1%, so reviewer identity changed the apparent benchmark.</p><p>Vote margin carried useful information. Agreement with human consensus fell from 93.2% for 5-0 model votes to 65.0% for 4-1 votes and 55.2% for 3-2 votes. Cross-model allocation improved the five-call result by 4.1 percentage points over same-model repetition.</p></div>
+<div class="section-summary"><h3>Methods, availability, and conclusion</h3><p>The experiments used browser interfaces, recorded named model modes, retained quotations, and manually verified every discovered citation. The repository contains prompts, raw outputs, curated workbooks, and a tutorial. The paper reports generative AI use for analysis scripts and copy-editing.</p><p>The proposed split is sensible: experts define the task and evidence standard, models perform repeated extraction, and people resolve disputed or high-impact cases. The exact results are time-sensitive because the paper documents model and interface changes during data collection.</p></div>
+</section>
+
+<section id="visuals"><h2>Figure, table, and workflow coverage</h2><p>Coverage manifest: five main figures and one main table were identified. All are represented as structured blocks. Screenshots were not embedded because the reported values and workflow logic can be reconstructed from the paper text and released materials. The PDF did not bundle a supplement. The repository was inspected for prompts and data organization.</p>
+<pre><code>FIGURE 1 | Four-workflow study map
+1. Expert prompt + fixed corpus -> repeated extraction -> curated-data comparison
+2. User brief -> three model prompts -> master prompt -> extraction
+3. User brief -> Deep Research finds sources and values -> expert-corpus comparison
+4. Guideline + user brief -> master prompt -> reporting dataset -> human comparison
+Main limit: every added autonomy step creates another failure channel.</code></pre>
+<pre><code>FIGURE 2 + TABLE 1 | Expert-prompt benchmark
+Corpus: 18 primary articles; 39 conditions; 7 fields; 7 models; 5 runs
+Best overall: GPT-5.5, 95.7%
+Five-run majority: GPT-5.5 96.7%; GLM-5.1 93.0%; Opus 4.7 92.3%; Gemini 3.1 Pro 91.2%
+Run spread: 2.6 to 17.6 percentage points across models
+All models: always correct 76.4%; run-variable 19.2%; always wrong 4.4%
+Interpretation: repeated runs reveal instability but do not remove systematic error.</code></pre>
+<pre><code>FIGURE 3 | Self-authored prompt benchmark
+Prompt rubric: 38 components, maximum 76 points
+Aggregation improved rubric coverage for every model.
+Extraction fell versus the expert prompt for every model.
+Prompt-rubric rank vs accuracy rank: Spearman r=0.36, P=0.43
+Largest field loss: measurement method, -27.5 percentage points
+Interpretation: a prompt can look complete and still perform poorly.</code></pre>
+<pre><code>FIGURE 4 | Deep Research discovery
+Target: 19 expert references and 40 conditions
+Best mean reference recall: Opus 4.8, 53.7% ± 14.7 percentage points
+Hallucinations: Qwen3.7-Plus 27/60; GLM-5.2 20/69; five agents 0 in this sample
+Best pooled field accuracy: Opus 4.8, 39.9%
+Interpretation: source discovery, not number copying, is the main bottleneck.</code></pre>
+<pre><code>FIGURE 5 | Reporting criteria and disagreement
+Data: 10 organoid papers x 23 criteria x 7 models x 5 runs
+Human-human agreement: 79.1%
+Model-human mean agreement: 81.1%
+Agreement by vote: 5-0 93.2%; 4-1 65.0%; 3-2 55.2%
+Five calls: same model 89.2%; different models 93.3%
+Interpretation: vote margin is a review trigger, and model diversity matters.</code></pre>
+</section>
+
+<section id="design"><h2>Extraction design and disagreement workflow</h2><table><thead><tr><th>Decision</th><th>Paper evidence</th><th>Pipeline rule</th></tr></thead><tbody>
+<tr><td>Define the corpus before extraction</td><td>Accuracy exceeded 90% with expert-selected PDFs but fell below 40% when discovery and extraction were combined.</td><td>Keep source discovery separate. Maintain a cited search manifest.</td></tr>
+<tr><td>Specify fields, context, and conflicts</td><td>Self-authored prompts lost the most accuracy on measurement method and other context-heavy fields.</td><td>Keep expert-authored definitions and conflict rules in the governing protocol.</td></tr>
+<tr><td>Repeat, then compare models</td><td>One run could shift by more than 15 points. Cross-model calls beat same-model repetition in the organoid benchmark.</td><td>Use repeated calls for stability. Allocate some calls across model families when cost allows.</td></tr>
+<tr><td>Route by vote strength</td><td>5-0 votes aligned with reviewer consensus 93.2%. 3-2 votes aligned 55.2%.</td><td>Prioritize split votes and high-impact claims for human review.</td></tr>
+<tr><td>Verify every citation</td><td>Two agents fabricated 47 citations. Real citations also contained author, year, or journal errors.</td><td>Resolve identifiers against primary metadata before a citation enters the corpus.</td></tr>
+<tr><td>Keep source-type gates</td><td>Only one model noticed an included concept paper without being asked.</td><td>Classify source type before atomization and block unsupported primary-study claims.</td></tr>
+</tbody></table></section>
+
+<section id="appraisal"><h2>Evaluation and appraisal</h2><div class="rating-grid">
+<article class="score"><h3>Relevance <span>10/10</span></h3><p>The paper tests the exact failure boundaries that matter for a structured literature pipeline.</p><small>Evidence: fixed-corpus extraction, discovery, human review, and ensemble allocation. Limit: narrow scientific domains. A production-task mismatch would lower the score.</small></article>
+<article class="score"><h3>Novelty <span>8/10</span></h3><p>The linked progression from prompt design to source discovery and review routing adds real value.</p><small>Evidence: four escalating experiments. Limit: consensus and repeated extraction are not new alone. Independent replication would raise the score.</small></article>
+<article class="score"><h3>Method strength <span>7/10</span></h3><p>Repeated runs, manual citation checks, corrected ground truth, and released raw data support the main comparisons.</p><small>Limit: no preregistration, changing browsers, selected corpora, and limited inferential statistics. Frozen systems and blinded adjudication would raise the score.</small></article>
+<article class="score"><h3>Evidence strength <span>7/10</span></h3><p>The results support expert-scoped extraction and human review for discovery failures and disputed cases.</p><small>Limit: the experiments do not establish universal accuracy or causal superiority of consensus. External replication and failure-cost analysis would raise the score.</small></article>
+<article class="score"><h3>External validity <span>5/10</span></h3><p>The workflow pattern should transfer. The percentages probably will not.</p><small>Evidence: two domains and several model families. Limit: browser drift and a hand-selected organoid corpus. Prospective multi-domain testing would raise the score.</small></article>
+<article class="score"><h3>Implementation value <span>9/10</span></h3><p>The paper gives clear review gates and releases prompts, raw outputs, curated data, and a tutorial.</p><small>Limit: cost, latency, audit logging, and thresholds were not optimized. A production cost-risk study would raise the score.</small></article>
+</div><div class="badnote"><strong>Main concern.</strong> The numbers are tied to browser products in August 2026. The paper itself documents interface refusals, compute changes, and model replacement. Treat the controls as transferable. Treat the leaderboard as perishable.</div><p><strong>Best use:</strong> designing citation verification, consensus review, and human-escalation rules for ATOM and SEA. <strong>Do not use for:</strong> claiming automated review is complete, that majority vote proves truth, or that one model's browser result will persist.</p></section>
+
+<section id="takeaways"><h2>Implementation takeaways</h2><div class="takeaway-grid">
+<div class="mini-card"><b>Adopt now</b>Require primary PDFs, source-type classification, page or quote anchors, stability checks for high-value extraction, and independent citation resolution.</div>
+<div class="mini-card"><b>Use selectively</b>Cross-model calls help most for ambiguous claims, context-heavy fields, and quality-control samples. They do not replace an evidence standard.</div>
+<div class="mini-card"><b>Add to ATOM</b>Store run ID, model and interface, prompt version, input hash, vote distribution, and adjudication status. One final value hides the audit trail.</div>
+<div class="mini-card"><b>Add to SEA</b>Separate fixed-corpus extraction performance from search recall. Report citation and source-type failures beside claims about autonomous research.</div>
+<div class="mini-card"><b>Monitor</b>Re-run golden cases after model or browser updates. Product changes can alter behavior without a protocol change.</div>
+<div class="mini-card"><b>Do not overclaim</b>The study uses two narrow scientific domains and selected corpora. It supports workflow controls, not replacement of expert curation.</div>
+</div></section>
+
+<section id="provenance"><h2>Provenance and caveats</h2><p>Evaluated source: Romanov V, Bax M, Niederer S. arXiv:2608.19025v1. Primary PDF downloaded from https://arxiv.org/pdf/2608.19025. PDF SHA-256: <code>fee1c0a0c1111b112a61bcc6c9c9383194c49dd50bd88bcaa6ead345e0e04ac5</code>. Submitted 19 August 2026. Generated 20 August 2026.</p><p>Supporting materials inspected at https://github.com/ValentinRoma26/romanov-2026-llm-extraction, commit <code>64505f7c6a441aef04e55ebf018ed20d70eb7737</code>. The repository contains prompts, raw outputs, curated workbooks, and tutorial files. The preprint has not completed peer review. Exact model behavior is time-sensitive.</p></section>
+</main>
+<footer>This reference file summarizes and appraises a preprint. It does not replace reading the primary paper, checking the released data, or independently verifying citations.</footer>
+</body>
+</html>

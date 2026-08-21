@@ -1,0 +1,46 @@
+{
+  "source": {
+    "title": "Transformation of Heart Failure Care: Safe Prescribing and Use of SGLT2 Inhibitors (SGLT2i) in Patients With Stage C & D Heart Failure",
+    "organization": "American College of Cardiology",
+    "publication_year": 2024,
+    "document_identifier": "B24042",
+    "publication_id": "a09265cf-ac24-50cc-a2e2-7b3dbf907f11",
+    "input_file": "Infographic-SGLT2i.pdf",
+    "sha256": "20f687362d363fb2463af4281729ab1bd6b719a1fc222603a25c3a06dc0c8eea",
+    "source_type": "ACC clinical infographic / secondary clinical-policy summary"
+  },
+  "atom_count": 21,
+  "atom_counts_by_kind": {
+    "funding_disclosure": 1,
+    "limitation": 1,
+    "method": 1,
+    "other": 18
+  },
+  "structural_validation": {
+    "validator": "Pydantic LiteratureAtom",
+    "passed": true,
+    "errors": []
+  },
+  "json_schema_validation": {
+    "schema": "literature_atom.schema.json",
+    "passed": true,
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "validator": "validate_literature_atom_sufficiency",
+    "passed": true,
+    "errors": [],
+    "warnings": []
+  },
+  "extraction_limitations": [
+    "This is a one-page secondary clinical infographic and does not report primary trial methods, absolute event rates, effect estimates, confidence intervals, or a bibliography.",
+    "The infographic intentionally compresses clinical-policy content and duplicates several dosing and safety statements from the companion pocket guide; the two documents retain separate publication identities.",
+    "The HFmrEF line visually reads “LVEF ≤41-49%,” whereas the companion pocket guide defines HFmrEF as LVEF 41-49%; this was treated as a source ambiguity rather than silently corrected in the atom set.",
+    "The infographic was produced in 2024; current HFpEF policy should be checked against the 2026 ACC HFpEF ECDP.",
+    "No independent human verification was performed in this extraction run; atoms remain marked needs_review."
+  ],
+  "schema_gaps": [
+    "The current LiteratureAtom schema has no dedicated guideline_recommendation or clinical_practice_recommendation atom kind. Recommendation, dosing, contraindication, caution, and workflow assertions were therefore represented primarily as atom_kind=other with descriptive tags and source-appropriate context.",
+    "The schema has no dedicated field for guideline class of recommendation or evidence grade; displayed COR values were preserved in canonical statements, exposure details, and tags rather than invented as structured evidence metadata."
+  ]
+}

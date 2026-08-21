@@ -1,0 +1,246 @@
+{
+  "source_id": "arXiv:2608.18682v1",
+  "exact_title": "RTPO: Reverse-Turn Policy Optimization for Stabilizing Agentic RL Training",
+  "source_type": "preprint",
+  "date_or_version": "2026-08-19 / v1",
+  "stable_identifier": "https://doi.org/10.48550/arXiv.2608.18682",
+  "source_hash": "a9c60795ac94171d933d9a6cb872ec7f5f65dab53ac794cdd99915db006b395d",
+  "page_count": 50,
+  "substantive_page_range": "1-10 main text; 16-50 appendices",
+  "reference_page_range": "11-15",
+  "sections_or_headings": [
+    "Abstract",
+    "1 Introduction",
+    "2 Theoretical Analysis: Training Instability",
+    "2.1 Rollout–Training Mismatch",
+    "2.2 Trajectory-Only Credit Assignment",
+    "2.3 Long-Horizon Policy Drift",
+    "3 Method: Reverse-Turn Policy Optimization",
+    "3.1 Turn-Level Policy Optimization",
+    "3.2 Turn-Level Credit Assignment",
+    "3.3 Policy Drift Correction",
+    "4 Experimental Results and Analysis",
+    "4.1 Main Results",
+    "4.2 Rollout–Training Consistency Analysis",
+    "4.3 Effect of Turn-Level Credit Assignment",
+    "4.4 Policy Drift Correction",
+    "5 Concluding Remarks",
+    "Appendices A-G"
+  ],
+  "figures": [
+    {
+      "id": "Figure 1",
+      "location": "p3",
+      "decision": "include",
+      "representation": "structured block",
+      "reason": "Main-text diagnosis of three instability mechanisms."
+    },
+    {
+      "id": "Figure 2",
+      "location": "p5",
+      "decision": "include",
+      "representation": "structured block",
+      "reason": "Main RTPO workflow and reverse-turn structure."
+    },
+    {
+      "id": "Figure 3",
+      "location": "p9",
+      "decision": "include",
+      "representation": "structured block",
+      "reason": "Main rollout–training consistency evidence."
+    },
+    {
+      "id": "Figure 4",
+      "location": "p38",
+      "decision": "include",
+      "representation": "structured block",
+      "reason": "Implementation-relevant Qwen3 context template."
+    },
+    {
+      "id": "Figure 5",
+      "location": "p39",
+      "decision": "omit",
+      "representation": "omitted with reason",
+      "reason": "Qualitative math trajectory example; not load-bearing after table/tool audit coverage."
+    },
+    {
+      "id": "Figure 6",
+      "location": "p40",
+      "decision": "omit",
+      "representation": "omitted with reason",
+      "reason": "Qualitative knowledge-search trajectory example; not load-bearing after quantitative coverage."
+    }
+  ],
+  "tables": [
+    {
+      "id": "Table 1",
+      "location": "p8",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Main benchmark accuracy and tool calls"
+    },
+    {
+      "id": "Table 2",
+      "location": "p9",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Controlled credit-assignment comparison"
+    },
+    {
+      "id": "Table 3",
+      "location": "p10",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "On/off-policy continuation comparison"
+    },
+    {
+      "id": "Table 4",
+      "location": "p37",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Hyperparameters and rollout structures"
+    },
+    {
+      "id": "Table 5",
+      "location": "p38",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Three-run means and standard deviations"
+    },
+    {
+      "id": "Table 6",
+      "location": "p41",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Expanded on/off-policy output-hit results"
+    },
+    {
+      "id": "Table 7",
+      "location": "p44",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "τ3-Airline online training curve"
+    },
+    {
+      "id": "Table 8",
+      "location": "p44",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "τ3-Airline held-out evaluation"
+    },
+    {
+      "id": "Table 9",
+      "location": "p44",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "τ3-Airline tool execution quality"
+    },
+    {
+      "id": "Table 10",
+      "location": "p45",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Sibling-group signal density and performance"
+    },
+    {
+      "id": "Table 11",
+      "location": "p45",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Sibling-group performance/cost trade-off"
+    },
+    {
+      "id": "Table 12",
+      "location": "p45",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Aggregate trunk outcomes"
+    },
+    {
+      "id": "Table 13",
+      "location": "p46",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Failure-mode evolution"
+    },
+    {
+      "id": "Table 14",
+      "location": "p46",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Training-generation and response efficiency"
+    },
+    {
+      "id": "Table 15",
+      "location": "p46",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "End-to-end training cost"
+    },
+    {
+      "id": "Table 16",
+      "location": "p47",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Compute-matched comparison"
+    },
+    {
+      "id": "Table 17",
+      "location": "p47",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Matched inference budget"
+    },
+    {
+      "id": "Table 18",
+      "location": "p47",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Math accuracy/tool calls"
+    },
+    {
+      "id": "Table 19",
+      "location": "p48",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "GSM8K Python-use audit"
+    },
+    {
+      "id": "Table 20",
+      "location": "p48",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Synchronization-frequency endpoint comparison"
+    },
+    {
+      "id": "Table 21",
+      "location": "p49",
+      "decision": "include",
+      "representation": "structured summary",
+      "reason": "Training-time success/tool/cost evolution"
+    }
+  ],
+  "algorithms_or_workflows": [
+    {
+      "id": "Algorithm 1",
+      "location": "p36",
+      "decision": "include",
+      "representation": "structured workflow",
+      "reason": "Reproducibility-critical pseudocode."
+    }
+  ],
+  "appendices_or_supplements": [
+    "A Related Work",
+    "B Theoretical Analysis",
+    "C Method: RTPO Theoretical Proofs",
+    "D Experimental Details",
+    "E Implementation Details",
+    "F Additional Results and Insights",
+    "G Supplementary Theoretical Clarifications, Implementation Details, and Extended Experiments"
+  ],
+  "coverage_decision": "Full main text plus theory/implementation and extended experiments that materially affect validity, reproducibility, compute cost, or external validity.",
+  "omissions": [
+    "Pure bibliography excluded from atomization.",
+    "Appendix Figures 5-6 qualitative examples omitted from SEA visual blocks because they do not change the quantitative interpretation."
+  ]
+}

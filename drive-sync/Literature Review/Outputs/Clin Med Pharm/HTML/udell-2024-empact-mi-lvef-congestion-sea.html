@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEA - Udell 2024 EMPACT-MI LVEF and congestion analysis</title>
+<style>
+:root{--ink:#17212b;--muted:#5c6875;--line:#d9e0e7;--panel:#f6f8fa;--accent:#173f66;--accent2:#245b87;--good:#edf7f1;--warn:#fff7e8;--bad:#fff0ef}
+*{box-sizing:border-box} body{margin:0;background:#eef2f5;color:var(--ink);font:16px/1.55 Arial,Helvetica,sans-serif}
+main{max-width:1120px;margin:0 auto;background:white;min-height:100vh;padding:40px 46px 70px}
+h1{font-size:2rem;line-height:1.15;margin:0 0 8px;color:#102f4d} h2{font-size:1.35rem;margin:34px 0 12px;color:#173f66;border-bottom:1px solid var(--line);padding-bottom:6px}
+h3{font-size:1.05rem;margin:22px 0 8px;color:#245b87} p{margin:8px 0 12px} .muted{color:var(--muted)}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:18px 0}
+.card{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:var(--panel)}
+.label{display:block;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.callout{border-left:4px solid var(--accent2);background:#f2f7fb;padding:13px 16px;margin:16px 0}
+.good{background:var(--good);border-left-color:#2c7a50}.warn{background:var(--warn);border-left-color:#b97916}.bad{background:var(--bad);border-left-color:#b23b33}
+.table-wrap{overflow-x:auto;margin:12px 0 18px} table{border-collapse:collapse;width:100%;font-size:.92rem} th,td{border:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top} th{background:#eef3f7;color:#173f66}
+ul{margin:8px 0 14px;padding-left:22px} li{margin:4px 0}.score{font-weight:700}
+code{font-family:Consolas,Menlo,monospace;font-size:.9em} .small{font-size:.88rem}
+nav{background:#f6f8fa;border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:18px 0 26px} nav a{color:#245b87;text-decoration:none;margin-right:12px}
+footer{margin-top:38px;padding-top:15px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@media print{body{background:white}main{max-width:none;padding:20px}.card,.callout{break-inside:avoid}.table-wrap{overflow:visible}}
+</style>
+</head>
+<body><main>
+<h1>Left ventricular function, congestion, and empagliflozin after myocardial infarction</h1>
+<p class="muted">Summary, Evaluation, and Appraisal of Udell JA et al., J Am Coll Cardiol. 2024;83:2233-2246.</p>
+<div class="meta">
+<div class="card"><span class="label">Source type</span>Prespecified secondary analysis of EMPACT-MI</div>
+<div class="card"><span class="label">Trial</span>Randomized, double-blind, placebo-controlled, international</div>
+<div class="card"><span class="label">Population</span>6,522 randomized; 6,470 with analyzable LVEF and congestion data</div>
+<div class="card"><span class="label">Treatment</span>Empagliflozin 10 mg daily versus placebo</div>
+<div class="card"><span class="label">Follow-up</span>Median 17.9 months</div>
+<div class="card"><span class="label">Identifier</span>doi:10.1016/j.jacc.2024.03.405; NCT04509674</div>
+</div>
+<nav>
+<a href="#summary">Summary</a><a href="#methods">Methods</a><a href="#risk">Risk</a><a href="#treatment">Treatment</a><a href="#safety">Safety</a><a href="#appraisal">Appraisal</a><a href="#qa">QA</a>
+</nav>
+
+<section id="summary"><h2>Summary</h2>
+<div class="callout good"><strong>Bottom line.</strong> Within the high-risk post-MI population enrolled in EMPACT-MI, lower LVEF and clinical congestion identified progressively higher heart failure risk. Empagliflozin reduced first and recurrent heart failure hospitalizations, and the estimated treatment effect did not materially vary across baseline LVEF or congestion status. The trial did not show an all-cause mortality benefit.</div>
+<p>The paper answers two different questions. The placebo-arm analyses ask whether LVEF and congestion predict risk. Those are prognostic associations, not randomized comparisons of LVEF or congestion. The empagliflozin analyses ask whether randomized treatment benefit varies by those baseline factors. Keeping those questions separate is essential to interpreting the paper.</p>
+<p>The parent EMPACT-MI primary composite of first heart failure hospitalization or all-cause death was neutral. This secondary analysis does not change that result. Its most important treatment finding is the reduction in the heart failure hospitalization component, including recurrent events, with no evidence that baseline LVEF or congestion modified that benefit.</p>
+</section>
+
+<section id="methods"><h2>Clinical question and methods</h2>
+<h3>PICO</h3>
+<ul>
+<li><strong>Population:</strong> clinically stable patients randomized within 14 days after acute MI, with newly reduced LVEF below 45%, congestion requiring treatment, or both, plus at least one enrichment factor for heart failure risk.</li>
+<li><strong>Intervention:</strong> empagliflozin 10 mg orally once daily on top of standard care.</li>
+<li><strong>Comparator:</strong> matching placebo on top of standard care.</li>
+<li><strong>Outcomes:</strong> first HF hospitalization or all-cause death, first HF hospitalization, total HF hospitalizations, exploratory investigator-reported HF adverse events, and selected safety outcomes.</li>
+</ul>
+<p>Patients with preexisting heart failure, type 1 diabetes, or planned SGLT2 or SGLT1/2 inhibitor therapy were excluded. LVEF was measured locally before randomization. When a range rather than a number was reported, the midpoint was used for analysis. Congestion required symptoms or signs plus treatment during the index hospitalization.</p>
+<p>Time-to-first outcomes used Cox models. Total HF hospitalization analyses used negative binomial regression. Models adjusted for major baseline risk factors and tested treatment-by-subgroup interactions. Continuous LVEF analyses used cubic splines. Heart failure hospitalization endpoints were assessed by blinded site investigators using prespecified definitions, not by a central endpoint committee.</p>
+
+<h3>Baseline phenotype</h3>
+<p>Mean LVEF was 41.1% ± 9.1%, with a median of 40%. Congestion requiring treatment was present in 57.0%. Supplemental Table 1 shows that dyspnea was the most common qualifying symptom and pulmonary rales were the most common sign. Oral diuretic initiation or augmentation and IV diuretic or vasoactive treatment were each used in about 40% of the trial population.</p>
+<div class='table-wrap'><table><thead><tr><th>Characteristic</th><th>LVEF &lt;35%</th><th>LVEF 35% to &lt;45%</th><th>LVEF ≥45%</th></tr></thead><tbody><tr><td>Age, years</td><td>62.2 ± 11.3</td><td>63.5 ± 10.8</td><td>65.0 ± 10.8</td></tr><tr><td>Male</td><td>79.9%</td><td>75.4%</td><td>70.6%</td></tr><tr><td>STEMI</td><td>80.0%</td><td>75.3%</td><td>67.9%</td></tr><tr><td>NT-proBNP, pg/mL median</td><td>2658</td><td>1770</td><td>1424.2</td></tr><tr><td>eGFR, mL/min/1.73 m2</td><td>76.71 ± 20.53</td><td>77.03 ± 19.69</td><td>73.70 ± 19.83</td></tr><tr><td>MRA at baseline</td><td>52.0%</td><td>38.7%</td><td>31.4%</td></tr></tbody></table></div><p class="small muted">Selected values from Supplemental Table 2. The full table was reconciled but is not reproduced cell-for-cell.</p><div class='table-wrap'><table><thead><tr><th>Characteristic</th><th>Congestion</th><th>No congestion</th></tr></thead><tbody><tr><td>Age, years</td><td>64.6 ± 10.7</td><td>62.3 ± 11.0</td></tr><tr><td>Female</td><td>26.6%</td><td>22.7%</td></tr><tr><td>NSTEMI</td><td>28.8%</td><td>21.5%</td></tr><tr><td>NT-proBNP, pg/mL median</td><td>2010.1</td><td>1539.59</td></tr><tr><td>eGFR, mL/min/1.73 m2</td><td>73.32 ± 20.28</td><td>79.84 ± 18.85</td></tr><tr><td>MRA at baseline</td><td>47.2%</td><td>29.1%</td></tr><tr><td>Loop diuretic at baseline</td><td>50.0%</td><td>12.6%</td></tr></tbody></table></div><p class="small muted">Selected values from Supplemental Table 3. The diastolic blood pressure row contains a source-integrity problem discussed below and is not reproduced here.</p>
+</section>
+
+<section id="risk"><h2>Risk associated with LVEF and congestion</h2>
+<p>Among placebo-assigned participants, each 10-point reduction in baseline LVEF was associated with higher adjusted risk of the composite endpoint, first HF hospitalization, and total HF hospitalizations. The corresponding effect estimates were HR 1.49, HR 1.64, and RR 1.89. Congestion also independently identified higher risk, with HR 1.52 for the composite endpoint, HR 1.94 for first HF hospitalization, and RR 2.03 for total HF hospitalizations.</p>
+<div class="callout"><strong>Risk gradient.</strong> LVEF below 35% plus congestion was the highest-risk phenotype. The article used LVEF 35% to below 45% without congestion as the lowest-risk referent. For total HF hospitalizations, the highest-risk group had RR 7.46, 95% CI 3.99-13.97, versus that referent.</div>
+<div class='table-wrap'><table><thead><tr><th>Baseline phenotype</th><th>HF hospitalization or death HR</th><th>First HF hospitalization HR</th><th>Total HF hospitalization RR</th></tr></thead><tbody><tr><td>LVEF 35% to &lt;45%, no congestion</td><td>Referent</td><td>Referent</td><td>Referent</td></tr><tr><td>LVEF ≥45%, with or without congestion</td><td>1.39 (0.95-2.03)</td><td>1.60 (0.90-2.84)</td><td>1.52 (0.83-2.80)</td></tr><tr><td>LVEF 35% to &lt;45%, congestion</td><td>2.86 (1.85-4.42)</td><td>2.37 (1.37-4.11)</td><td>2.57 (1.42-4.66)</td></tr><tr><td>LVEF &lt;35%, no congestion</td><td>1.89 (1.31-2.73)</td><td>3.43 (1.80-6.50)</td><td>5.16 (2.48-10.73)</td></tr><tr><td>LVEF &lt;35%, congestion</td><td>3.55 (2.45-5.14)</td><td>5.67 (3.33-9.65)</td><td>7.46 (3.99-13.97)</td></tr></tbody></table></div><p class="small muted">Adjusted placebo-arm comparisons from Figure 2. P for trend was less than 0.0001 for all three endpoints.</p>
+<p>Figure 1's continuous spline analysis supports the same general pattern. Risk rises as LVEF falls, especially below the cohort median. The spline is descriptive of a nonlinear risk relation and should not be reduced to a single clinical cutoff beyond the thresholds tested in the paper.</p>
+</section>
+
+<section id="treatment"><h2>Effect of empagliflozin</h2>
+<h3>Overall randomized treatment effect</h3>
+<div class='table-wrap'><table><thead><tr><th>Outcome</th><th>Empagliflozin</th><th>Placebo</th><th>Adjusted effect</th></tr></thead><tbody><tr><td>First HF hospitalization or all-cause death</td><td>267/3260 (8.2%)</td><td>298/3262 (9.1%)</td><td>HR 0.90 (0.76-1.06)</td></tr><tr><td>First HF hospitalization</td><td>118/3260 (3.6%)</td><td>153/3262 (4.7%)</td><td>HR 0.77 (0.60-0.98)</td></tr><tr><td>Total HF hospitalizations</td><td>148 events; 2.4/100 py</td><td>207 events; 3.4/100 py</td><td>RR 0.67 (0.50-0.89)</td></tr></tbody></table></div><p>The composite endpoint remained neutral. First HF hospitalization and total HF hospitalizations favored empagliflozin. This distinction matters because the parent trial was designed around the composite endpoint, not around a mortality benefit.</p>
+
+<h3>Effect by LVEF</h3>
+<div class='table-wrap'><table><thead><tr><th>Baseline LVEF</th><th>Composite HR</th><th>First HF hospitalization HR</th><th>Total HF hospitalization RR</th></tr></thead><tbody><tr><td>&lt;35%</td><td>0.94 (0.72-1.24)</td><td>0.69 (0.47-1.01)</td><td>0.56 (0.34-0.93)</td></tr><tr><td>35% to &lt;45%</td><td>0.93 (0.72-1.20)</td><td>0.93 (0.64-1.35)</td><td>0.84 (0.55-1.27)</td></tr><tr><td>≥45%</td><td>0.78 (0.54-1.13)</td><td>0.68 (0.39-1.19)</td><td>0.53 (0.29-1.00)</td></tr></tbody></table></div><p>Trend tests did not support treatment heterogeneity across categorical LVEF. The continuous-LVEF spline analysis also found no interaction for the composite endpoint, first HF hospitalization, or total HF hospitalization, with P values 0.9618, 0.9526, and 0.9018.</p>
+
+<h3>Effect by congestion</h3>
+<div class='table-wrap'><table><thead><tr><th>Congestion status</th><th>Composite HR</th><th>First HF hospitalization HR</th><th>Total HF hospitalization RR</th></tr></thead><tbody><tr><td>With congestion</td><td>0.93 (0.77-1.14)</td><td>0.77 (0.58-1.02)</td><td>0.67 (0.47-0.94)</td></tr><tr><td>Without congestion</td><td>0.84 (0.62-1.14)</td><td>0.80 (0.50-1.26)</td><td>0.70 (0.42-1.15)</td></tr></tbody></table></div><p>Interaction P values were 0.57 for the composite endpoint, 0.88 for first HF hospitalization, and 0.89 for total HF hospitalizations. The combined LVEF-congestion forest plot also showed no convincing treatment-effect heterogeneity, although individual cells were sparse and confidence intervals were wide.</p>
+<div class="callout warn"><strong>Do not overread single subgroup rows.</strong> One combined subgroup, LVEF below 35% without congestion, had a large apparent treatment effect for first and total HF hospitalization. Other combined subgroups had wider intervals and several crossed 1. The paper's defensible conclusion is consistency of effect across subgroups, not superiority in one small phenotype.</div>
+
+<h3>Exploratory HF adverse events</h3>
+<div class='table-wrap'><table><thead><tr><th>Exploratory outcome</th><th>Empagliflozin vs placebo</th><th>Effect</th></tr></thead><tbody><tr><td>First HF adverse event</td><td>178/3260 vs 254/3262</td><td>HR 0.69 (0.57-0.84)</td></tr><tr><td>Total HF adverse events</td><td>227 vs 354 events</td><td>RR 0.63 (0.50-0.79)</td></tr><tr><td>First HF adverse event or all-cause death</td><td>313/3260 vs 377/3262</td><td>HR 0.83 (0.71-0.96)</td></tr><tr><td>Total HF adverse events or all-cause deaths</td><td>396 vs 532 events</td><td>RR 0.79 (0.63-0.98)</td></tr></tbody></table></div><p>The supplemental adverse-event analysis broadens the HF signal beyond hospitalization to investigator-reported cardiac-failure events. It supports the direction of the main HF findings, but it remains exploratory and uses focused adverse-event reporting rather than a separately adjudicated clinical endpoint system.</p>
+</section>
+
+<section id="safety"><h2>Safety</h2>
+<div class='table-wrap'><table><thead><tr><th>Selected safety outcome</th><th>Empagliflozin</th><th>Placebo</th></tr></thead><tbody><tr><td>Serious adverse event</td><td>765/3234 (23.7%)</td><td>798/3229 (24.7%)</td></tr><tr><td>Permanent treatment discontinuation</td><td>122/3234 (3.8%)</td><td>122/3229 (3.8%)</td></tr><tr><td>Volume depletion</td><td>35/3234 (1.1%)</td><td>40/3229 (1.2%)</td></tr><tr><td>Hypotension</td><td>34/3234 (1.1%)</td><td>36/3229 (1.1%)</td></tr><tr><td>Acute kidney injury</td><td>27/3234 (0.8%)</td><td>43/3229 (1.3%)</td></tr></tbody></table></div><p>The source reports similar rates of serious adverse events, permanent discontinuation, hypotension, and volume depletion. Acute kidney injury was numerically less frequent with empagliflozin. These safety comparisons were not presented as powered superiority tests, and low event counts limit subgroup precision.</p>
+</section>
+
+<section id="visuals"><h2>Figure and table reconciliation</h2>
+<div class='table-wrap'><table><thead><tr><th>Source object</th><th>Role</th><th>Representation</th></tr></thead><tbody><tr><td>Main Table 1</td><td>Risk per 10-point lower LVEF in placebo arm</td><td>Reconstructed in risk section</td></tr><tr><td>Figure 1</td><td>Continuous LVEF versus outcome risk</td><td>Spline direction and interpretation retained</td></tr><tr><td>Figure 2</td><td>Combined LVEF-congestion prognostic groups</td><td>All adjusted group estimates retained in structured table</td></tr><tr><td>Figure 3</td><td>Empagliflozin effects by LVEF and congestion</td><td>Overall and subgroup effect estimates retained in structured tables</td></tr><tr><td>Figure 4</td><td>Continuous LVEF treatment interaction</td><td>All three interaction P values retained</td></tr><tr><td>Central Illustration</td><td>Risk gradient plus treatment effect</td><td>Integrated into summary and risk/treatment sections</td></tr><tr><td>Supplemental Figure 1</td><td>LVEF-congestion distribution</td><td>Category counts reconciled</td></tr><tr><td>Supplemental Table 1</td><td>Congestion symptoms, signs, and treatments</td><td>Major counts and denominators retained</td></tr><tr><td>Supplemental Table 2</td><td>Baseline characteristics by LVEF</td><td>Full table inspected; selected load-bearing values shown</td></tr><tr><td>Supplemental Table 3</td><td>Baseline characteristics by congestion</td><td>Full table inspected; selected values shown; diastolic BP anomaly flagged</td></tr><tr><td>Supplemental Table 4</td><td>Selected safety outcomes by LVEF</td><td>Overall safety values shown; subgroup pattern checked</td></tr><tr><td>Supplemental Figure 2 A-D</td><td>HF adverse-event outcomes</td><td>Overall effects and heterogeneity conclusion retained</td></tr></tbody></table></div></section>
+
+<section id="interpretation"><h2>What this should change in interpretation</h2>
+<ul>
+<li>Use LVEF and clinical congestion together for post-MI risk framing. Congestion adds prognostic information beyond moderate LV dysfunction.</li>
+<li>Within the EMPACT-MI eligibility range, the HF hospitalization benefit of empagliflozin was not confined to a low-LVEF subgroup or to patients with congestion.</li>
+<li>Keep the outcome hierarchy intact. The evidence supports fewer HF hospitalizations, not lower all-cause mortality.</li>
+<li>Do not extrapolate this analysis to otherwise low-risk post-MI patients with preserved LVEF and no congestion. Only 158 participants had LVEF at least 45% without congestion, and that group was a protocol deviation.</li>
+<li>Do not use an isolated subgroup confidence interval as proof of differential treatment response. The interaction tests were the appropriate tests of heterogeneity and were negative.</li>
+</ul>
+<div class="callout bad"><strong>Practice boundary.</strong> This is a trial secondary analysis, not a guideline or drug label. It is useful for understanding who was at risk and whether the randomized HF hospitalization effect was consistent across the enrolled phenotypes. Current guideline, regulatory, formulary, and patient-specific decisions require separate verification.</div>
+</section>
+
+<section id="limitations"><h2>Limitations and source-integrity findings</h2>
+<ul>
+<li>LVEF was measured locally without a core echocardiography laboratory.</li>
+<li>The exact timing of baseline LVEF measurement was not recorded.</li>
+<li>HF endpoints were assessed by blinded site investigators rather than centrally adjudicated by an expert committee.</li>
+<li>The subgroup analysis did not adjust statistical inference for multiple comparisons.</li>
+<li>The high-risk enrichment criteria and exclusion of preexisting HF limit generalization beyond the trial population.</li>
+<li>Several treatment subgroup cells had few events and wide confidence intervals.</li>
+</ul>
+<div class="callout warn"><strong>Supplemental Table 3 source issue.</strong> The congestion column prints diastolic blood pressure as 19.8 ± 14.6 mmHg, compared with 73.5 ± 9.9 mmHg without congestion, while P=0.5082. That value is internally implausible and inconsistent with the surrounding blood-pressure data. It was preserved as a source-integrity flag and not silently corrected or used as an atomized result.</div>
+</section>
+
+<section id="appraisal"><h2>Appraisal</h2>
+<div class="callout"><strong>Verdict: Read soon.</strong> Read the parent EMPACT-MI primary publication first for the trial's primary outcome. Use this paper next for risk stratification by LVEF and congestion, recurrent HF hospitalization effects, and treatment-effect consistency across the enrolled phenotypes.</div>
+<div class='table-wrap'><table><thead><tr><th>Dimension</th><th>Score</th><th>Reason</th></tr></thead><tbody><tr><td>Relevance</td><td>9/10</td><td>Directly addresses post-MI HF risk and the clinical question of whether empagliflozin benefit varies by LVEF or congestion.</td></tr><tr><td>Novelty</td><td>8/10</td><td>Adds a clinically useful joint LVEF-congestion risk model and prespecified treatment-effect analysis beyond the parent trial report.</td></tr><tr><td>Method strength</td><td>8/10</td><td>Large randomized parent trial, prespecified analysis, recurrent-event modeling, adjusted prognostic models, and continuous LVEF analyses. Endpoint adjudication and LVEF measurement were local.</td></tr><tr><td>Evidence strength</td><td>7/10</td><td>Overall first and total HF hospitalization effects are coherent, but the primary composite is neutral and subgroup inference has sparse cells and no multiplicity adjustment.</td></tr><tr><td>External validity</td><td>7/10</td><td>International high-risk post-MI cohort, but enrichment criteria, preexisting-HF exclusion, and near-absence of preserved-LVEF patients without congestion restrict extrapolation.</td></tr><tr><td>Implementation value</td><td>7/10</td><td>Useful for phenotype-specific interpretation and evidence synthesis. It does not by itself establish a guideline recommendation, mortality benefit, or treatment rule for all post-MI patients.</td></tr></tbody></table></div><p><strong>Best use:</strong> understanding the post-MI HF risk gradient created by LVEF plus congestion, and interpreting the consistency of empagliflozin's HF hospitalization effect across the population actually enrolled in EMPACT-MI.</p>
+<p><strong>Do not use for:</strong> claiming a mortality benefit, treating subgroup point estimates as proof of effect modification, or extending the finding to patients with preserved LVEF and no congestion who were not meaningfully represented.</p>
+</section>
+
+<section id="qa"><h2>Provenance and QA</h2>
+<div class="meta">
+<div class="card"><span class="label">Main source SHA-256</span><code>b8f4599e8803071ae459ec90f8506feb44e7336a9dbcebacb6d967276f050159</code></div>
+<div class="card"><span class="label">Supplement SHA-256</span><code>136bf28c622ec286cf844aaaaf712665cd4452df42c1b47dae62420cb91950a5</code></div>
+<div class="card"><span class="label">LiteratureAtoms</span>77 extracted; local structural/schema/sufficiency checks passed</div>
+<div class="card"><span class="label">References</span>28 bibliography entries exported separately</div>
+</div>
+<p>The main article and supplied supplemental DOCX were treated as one publication packet. All main figures, the main table, Supplemental Figure 1, Supplemental Tables 1-4, and all four panels of Supplemental Figure 2 were reconciled before final appraisal.</p>
+<p>The named authoritative ATOM files and the exact <code>summary-evaluation-appraisal-protocol-v4-compact.md</code> were searched in connected project sources but were not directly retrievable in this session. The retrieved large-source ATOM + SEA workflow governed batching, provenance, validation boundaries, and whole-source reconciliation. Structural checks used a strict local Pydantic contract and generated JSON Schema reconstructed from current validated project LiteratureAtom outputs. The numeric scores above follow the recoverable project appraisal pattern and are not claimed as execution of an unavailable exact v4 scoring rubric.</p>
+<p>No external web or current-practice verification was performed because <code>@VERIFY</code> was not activated.</p>
+</section>
+
+<footer>Generated 2026-08-21. Source-grounded review artifact for the ATOM SEA Literature Pipeline.</footer>
+</main></body></html>
