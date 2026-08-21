@@ -1,0 +1,42 @@
+name: Acquisition Runtime PMC materializer
+
+on:
+  push:
+    branches:
+      - acq-runtime-pmc-transport-20260821
+    paths:
+      - .github/workflows/acq-runtime-pmc-materialize.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: acq-runtime-pmc-transport-20260821
+      - name: Fetch official PMC JATS and metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p acquisition_transport
+          META_URL='https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC3995050.1.json'
+          XML_URL='https://pmc-oa-opendata.s3.amazonaws.com/PMC3995050.1/PMC3995050.1.xml'
+          curl -fL --retry 0 "$META_URL" -o /tmp/article.json
+          curl -fL --retry 0 "$XML_URL" -o /tmp/article.xml
+          grep -q '<article' /tmp/article.xml
+          cp /tmp/article.json acquisition_transport/PMC3995050.1.json
+          base64 -w 0 /tmp/article.xml > acquisition_transport/PMC3995050.1.xml.b64
+          sha256sum /tmp/article.xml > acquisition_transport/PMC3995050.1.xml.sha256
+          printf '%s\n' "$XML_URL" > acquisition_transport/PMC3995050.1.source_url.txt
+      - name: Commit transport payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'acquisition-runtime-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- acquisition_transport/PMC3995050.1.json acquisition_transport/PMC3995050.1.xml.b64 acquisition_transport/PMC3995050.1.xml.sha256 acquisition_transport/PMC3995050.1.source_url.txt
+          git commit -m 'Materialize PMC3995050 JATS for acquisition acceptance'
+          git push origin HEAD:acq-runtime-pmc-transport-20260821
