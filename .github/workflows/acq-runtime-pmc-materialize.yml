@@ -28,7 +28,7 @@ jobs:
           curl -fL --retry 0 "$XML_URL" -o /tmp/article.xml
           grep -q '<article' /tmp/article.xml
           cp /tmp/article.json acquisition_transport/PMC3995050.1.json
-          base64 -w 0 /tmp/article.xml > acquisition_transport/PMC3995050.1.xml.b64
+          base64 -w 76 /tmp/article.xml > acquisition_transport/PMC3995050.1.xml.b64
           sha256sum /tmp/article.xml > acquisition_transport/PMC3995050.1.xml.sha256
           printf '%s\n' "$XML_URL" > acquisition_transport/PMC3995050.1.source_url.txt
       - name: Commit transport payload
@@ -38,5 +38,9 @@ jobs:
           git config user.name 'acquisition-runtime-bot'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -- acquisition_transport/PMC3995050.1.json acquisition_transport/PMC3995050.1.xml.b64 acquisition_transport/PMC3995050.1.xml.sha256 acquisition_transport/PMC3995050.1.source_url.txt
+          if git diff --cached --quiet; then
+            echo 'No transport payload changes.'
+            exit 0
+          fi
           git commit -m 'Materialize PMC3995050 JATS for acquisition acceptance'
           git push origin HEAD:acq-runtime-pmc-transport-20260821
