@@ -1,0 +1,197 @@
+{
+  "schema_version": "1",
+  "repair_version": "0.4.3",
+  "prompt": 1,
+  "hard_gate_passed": true,
+  "hard_gates": [
+    {
+      "gate": 1,
+      "status": "PASS",
+      "evidence": "v0.3.1 freeze remains in Drive; v0.4.2 source archive was read-only input and not overwritten"
+    },
+    {
+      "gate": 2,
+      "status": "PASS",
+      "evidence": "public acquire_one(identifier, config, root, host, transports)"
+    },
+    {
+      "gate": 3,
+      "status": "PASS",
+      "evidence": "AcquisitionReplaySpec + replay_acquisition"
+    },
+    {
+      "gate": 4,
+      "status": "PASS",
+      "evidence": "production config has no terminal-state field; Python writes terminal outcome"
+    },
+    {
+      "gate": 5,
+      "status": "PASS",
+      "evidence": "contract tests return BLOCKED for transport_error, timeout, captcha, response_not_materializable, unknown, search_absence, skipped, and incomplete coverage"
+    },
+    {
+      "gate": 6,
+      "status": "PASS",
+      "evidence": "PMID 24782981 real preserved OA PDF returned SUCCESS"
+    },
+    {
+      "gate": 7,
+      "status": "PASS",
+      "evidence": "run receipt, event journal, identity report, manifest, artifact hash, and handoff preserved"
+    },
+    {
+      "gate": 8,
+      "status": "PASS",
+      "evidence": "13 tests passed"
+    }
+  ],
+  "build": {
+    "build_id": "scholar-acquire-chatgpt-0.4.3-repair-prompt1",
+    "package_tree_sha256": "658750d771749a39671e817314612b596840fce3084b16d75b4e94153acc850a",
+    "runtime_build_manifest": "src/scholar_acquire/RUNTIME_BUILD.json"
+  },
+  "api": {
+    "production": "acquire_one(identifier, config, root, host, transports=None)",
+    "replay": "replay_acquisition(spec, root)",
+    "replay_spec": "AcquisitionReplaySpec",
+    "capability_states": [
+      "supported",
+      "experimental",
+      "disabled"
+    ],
+    "initial_capabilities": {
+      "pmc": "experimental",
+      "publisher_oa": "experimental",
+      "unpaywall": "experimental",
+      "repository": "experimental"
+    }
+  },
+  "tests": {
+    "command": "PYTHONPATH=src pytest -q",
+    "passed": 13,
+    "failed": 0,
+    "results": "evidence/TEST_RESULTS.txt"
+  },
+  "real_check": {
+    "prompt": 1,
+    "runtime_version": "0.4.3",
+    "requested_pmid": "24782981",
+    "state": "success",
+    "caller_supplied_terminal_state": false,
+    "route_capability": "experimental",
+    "source_evidence_manifest": "/mnt/data/prompt5evidence/individual/24782981/manifest.json",
+    "source_pdf": "/mnt/data/prompt5evidence/individual/24782981/article.pdf",
+    "source_pdf_historical_sha256": "54465e3c056b86551d8c5d865b0685d01a5f4fa2c11bc705a479768b3efc63cb",
+    "resolved_ids": {
+      "pmid": "24782981",
+      "doi": "10.3389/fonc.2014.00064",
+      "pmcid": "PMC3995050",
+      "versioned_pmcid": null
+    },
+    "artifacts": [
+      {
+        "format": "pdf",
+        "provider": "publisher_oa",
+        "source_url": "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2014.00064/pdf",
+        "local_path": "/mnt/data/v043_prompt1_real_check/session-20f91232509b/output/24782981/article.pdf",
+        "sha256": "54465e3c056b86551d8c5d865b0685d01a5f4fa2c11bc705a479768b3efc63cb",
+        "size_bytes": 810232,
+        "media_type": "application/pdf",
+        "version": "publishedVersion",
+        "license": "CC BY",
+        "structured": false,
+        "retrieved_at": "2026-08-22T00:18:34.911139Z",
+        "metadata": {
+          "imported_from": "/mnt/data/prompt5evidence/individual/24782981/article.pdf",
+          "v0_4": {
+            "contract_version": "0.4.3",
+            "requested_pmid": "24782981",
+            "route": "publisher_oa",
+            "source_url": "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2014.00064/pdf",
+            "discovery_provenance": {
+              "method": "ChatGPT web navigation + host byte materialization",
+              "evidence": "Frontiers publisher PDF is publicly downloadable; article/PDF states Creative Commons Attribution (CC BY).",
+              "preserved_manifest": "/mnt/data/prompt5evidence/individual/24782981/manifest.json",
+              "historical_artifact_sha256": "54465e3c056b86551d8c5d865b0685d01a5f4fa2c11bc705a479768b3efc63cb",
+              "host_observation_request_id": "8ff5c09907f7523d2485e878",
+              "host_evidence_source": "/mnt/data/prompt5evidence/individual/24782981/manifest.json"
+            },
+            "lawful_access_basis": "Frontiers publisher PDF is publicly downloadable; article/PDF states Creative Commons Attribution (CC BY).",
+            "open_access": true,
+            "identity_decision": {
+              "decision": "match",
+              "matched_fields": [
+                "doi",
+                "title"
+              ],
+              "conflicts": [],
+              "evidence": {
+                "page_count": 11,
+                "metadata_title": "Targeting PI3K/Akt/mTOR signaling in cancer",
+                "dois": [
+                  "10.3389/fonc.2014.00064"
+                ],
+                "pmcids": [],
+                "pmids": [],
+                "text_prefix": "REVIEW ARTICLE\npublished: 14 April 2014\ndoi: 10.3389/fonc.2014.00064\nTargeting PI3K/Akt/mTOR signaling in cancer\nCamillo Porta1*, Chiara Paglino1 and Alessandra Mosca2\n1 Medical Oncology, Fondazione I.R.C.C.S. Policlinico San Matteo University Hospital Foundation, Pavia, Italy\n2 Medical Oncology, Maggiore della Carit\u00e0 Hospital, University of Eastern Piedmont \u201c A. Avogadro\u201d , Novara, Italy\nEdited by:\nAlexandre Arcaro, University of Bern,\nSwitzerland\nReviewed by:\nRobert Friis, University of Bern,\nSwitzerland\nRosa Bernardi, Fondazione Centro\nSan Raffaele del Monte Tabor, Italy\nPatrizia Agostinis, Catholic University\nof Leuven , Belgium\n*Correspondence:\nCamillo Porta, Medical Oncology,\nFondazione I.R.C.C.S. Policlinico San\nMatteo, Piazzale C. Golgi 19, Pavia\n27100, Italy\ne-mail: c.porta@smatteo.pv.it\nThe phosphatidylinositol-3-kinase (PI3K)/Akt and the mammalian target of rapamycin\n(mTOR) signaling pathways are two pathways crucial to many aspects of cell growth and\nsurvival, in physiological as well as in pathological conditions (e.g., cancer). Indeed, they\nare so interconnected that, in a certain sense, they could be regarded as a single, unique\npathway. In this paper, after a genera"
+              },
+              "title_similarity": 1.0
+            },
+            "identity_report": "/mnt/data/v043_prompt1_real_check/session-20f91232509b/identity_verification_pdf.json",
+            "historical_v0_4_2_artifact": true
+          }
+        }
+      }
+    ],
+    "run_receipt": "/mnt/data/v043_prompt1_real_check/session-20f91232509b/RUN_RECEIPT.json",
+    "event_journal": "/mnt/data/v043_prompt1_real_check/session-20f91232509b/runtime_events.jsonl",
+    "manifest": "/mnt/data/v043_prompt1_real_check/session-20f91232509b/output/24782981/manifest.json",
+    "terminal_outcome": {
+      "schema_version": "1",
+      "state": "success",
+      "reason_code": null,
+      "message": "Validated lawful full text acquired",
+      "provider_policy": [
+        "publisher_oa"
+      ],
+      "provider_attempts": [
+        {
+          "provider": "publisher_oa",
+          "action": "admit_previously_acquired_lawful_oa_pdf",
+          "url": "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2014.00064/pdf",
+          "outcome": "success",
+          "http_status": null,
+          "message": "Host supplied preserved bytes and provenance; Python decides admission and terminal state",
+          "elapsed_ms": null,
+          "metadata": {
+            "observation_kind": "materialized_artifact",
+            "admitted_artifacts": 1,
+            "definitive_negative": false
+          },
+          "at": "2026-08-22T00:18:34.912273Z"
+        }
+      ],
+      "provider_exhaustion_confirmed": false,
+      "artifact_sha256": [
+        "54465e3c056b86551d8c5d865b0685d01a5f4fa2c11bc705a479768b3efc63cb"
+      ],
+      "pending_request_id": null,
+      "at": "2026-08-22T00:18:34.913833Z"
+    },
+    "elapsed_ms": 72
+  },
+  "real_check_output_sha256": "54465e3c056b86551d8c5d865b0685d01a5f4fa2c11bc705a479768b3efc63cb",
+  "source_pdf_sha256": "54465e3c056b86551d8c5d865b0685d01a5f4fa2c11bc705a479768b3efc63cb",
+  "discrepancies": [
+    "Prompt 1 production acquisition is currently PMID-only even though the public identifier type can represent DOI and PMCID.",
+    "TransportRegistry is a Prompt 1 placeholder. Prompt 2 must define and live-prove the shared native/remote transport request-response contract.",
+    "The real check intentionally reuses a previously acquired lawful OA PDF. It proves the repaired controller and admission contract, not fresh publisher transport.",
+    "No provider is promoted to supported in Prompt 1; route support must be re-earned later in the repair sequence."
+  ],
+  "files": {
+    "source_diff": "evidence/SOURCE_CHANGES.diff",
+    "api_migration": "docs/V0.4.3_PROMPT1_API_MIGRATION.md",
+    "repair_report": "docs/V0.4.3_PROMPT1_REPAIR_REPORT.md",
+    "build_verify": "evidence/BUILD_VERIFY.json"
+  }
+}

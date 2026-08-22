@@ -1,0 +1,1256 @@
+diff -ruN '--exclude=__pycache__' /mnt/data/v042baseline/src/scholar_acquire/RUNTIME_BUILD.json /mnt/data/v043work/src/scholar_acquire/RUNTIME_BUILD.json
+--- /mnt/data/v042baseline/src/scholar_acquire/RUNTIME_BUILD.json	2026-08-21 23:38:36.000000000 +0000
++++ /mnt/data/v043work/src/scholar_acquire/RUNTIME_BUILD.json	2026-08-22 00:18:31.707379243 +0000
+@@ -1,14 +1,16 @@
+ {
+   "schema_version": "1",
+   "package": "scholar-acquire-chatgpt",
+-  "version": "0.4.2",
+-  "build_id": "scholar-acquire-chatgpt-0.4.2-prompt5",
+-  "package_tree_sha256": "d0e70a9fa5084731c34f4001f9a2fbf478c3c66f29dbda743f7301b525643d14",
++  "version": "0.4.3",
++  "build_id": "scholar-acquire-chatgpt-0.4.3-repair-prompt1",
++  "package_tree_sha256": "658750d771749a39671e817314612b596840fce3084b16d75b4e94153acc850a",
+   "files": {
+-    "__init__.py": "d4d5c8b620eca95f095bcf52cab32ee27d74d29704160034afb0077e466f7bc0",
+-    "batch.py": "15fc16d48edc28547c25806e0154ecc2b6181f964f61db98ebcefbb1ded99208",
++    "__init__.py": "f8491f93bff127d93e5c895e25ac8e999592daefdfda88fb0dc6dc704f9115a3",
++    "batch.py": "c0507e7b5e818b4f56d022b37d47472ca54170d596b0c8b9cb301a5eceac80d8",
+     "cache.py": "bab224551f84a73a447abf0b442e2552bb96867bd6c68739ee37efb8a7a74f5f",
+-    "config.py": "e2f50daabbc0464491c909b9d85ef517ae4a12d5943b7a3f4462e9fbb8c40e0d",
++    "capabilities.py": "70cbb5e4a8951abf9163170f00211aa2827c223f470abd2490287d47f70ebeca",
++    "config.py": "918d206817adf4fb05c64bf56d6ca07604bc8b70170a8b26d1bdc0c0c1d9523f",
++    "controller.py": "e3de7c85ef975bd931e665959c099131604685e0e2c9b12d7ba9fcc7af13f704",
+     "errors.py": "6abd40433c59e1c395ad1d32f4f2e404d1ae7005a3d6c20be81e1c9ad66e9aa7",
+     "http.py": "1019c1976ef2a1c8e0611ef4956e56174b23922f040a84ac44d811fc646a74f3",
+     "identity.py": "f7959e5dc33b206cf0b1a2cc16b452a1f7bd3c4d75d5cc71fe57ae62d0819335",
+@@ -26,9 +28,9 @@
+     "runtime.py": "0c9193e5d854031c0c7e27ec483ee2813c07351069738a2a20345abaeab7757c",
+     "tool_transport.py": "ab37d20eac7a9789cc9d62b8e41c09f1da4b67be8a369d4a298cf83915182b5c",
+     "utils.py": "6e4a021e599f64575d57e225a8cf5dfa1a94c7b5db27a234cc1fd5e6a2435d11",
+-    "vertical_slice.py": "d28ad37c943052186eaa5cf55b58c1753bc218b7b0fdcc208c454f28e2a99b8f"
++    "vertical_slice.py": "b055257988d683aa45397e2a215d63cd2a9d57f1fc4854008537ac824ec4b878"
+   },
+   "hash_algorithm": "sha256",
+   "tree_algorithm": "sha256(relative_path\\0file_sha256\\n)",
+-  "generated_at": "2026-08-21T23:38:36.482339+00:00"
++  "generated_at": "2026-08-22T00:18:31.707261+00:00"
+ }
+diff -ruN '--exclude=__pycache__' /mnt/data/v042baseline/src/scholar_acquire/__init__.py /mnt/data/v043work/src/scholar_acquire/__init__.py
+--- /mnt/data/v042baseline/src/scholar_acquire/__init__.py	2026-08-21 23:36:00.000000000 +0000
++++ /mnt/data/v043work/src/scholar_acquire/__init__.py	2026-08-22 00:18:27.751507876 +0000
+@@ -10,7 +10,28 @@
+ )
+ from .orchestrator import AcquisitionOrchestrator
+ from .runtime import ChatGptAcquisitionRuntime
+-from .vertical_slice import ChatGptVerticalSliceRuntime, AcquisitionRoute, RouteFlags, RouteAttemptInput, MaterializedArtifactInput, AcquisitionSpec, AcquisitionExecution, acquire_one
++from .capabilities import AcquisitionRoute, CapabilityStatus, RouteCapabilityRegistry
++from .controller import (
++    AcquisitionConfig,
++    ArtifactObservation,
++    HostAdapter,
++    HostRequest,
++    HostRequestKind,
++    IdentityObservation,
++    RouteObservation,
++    RouteObservationKind,
++    TransportRegistry,
++    acquire_one,
++)
++from .vertical_slice import (
++    ChatGptVerticalSliceRuntime,
++    RouteFlags,
++    RouteAttemptInput,
++    MaterializedArtifactInput,
++    AcquisitionReplaySpec,
++    AcquisitionExecution,
++    replay_acquisition,
++)
+ from .batch import ChatGptBatchRuntime
+ 
+ __all__ = [
+@@ -26,6 +47,21 @@
+     "ChatGptRuntimeSession",
+     "ExternalFetchRequest",
+     "RuntimeStep",
++    "AcquisitionConfig",
++    "AcquisitionRoute",
++    "CapabilityStatus",
++    "RouteCapabilityRegistry",
++    "ArtifactObservation",
++    "HostAdapter",
++    "HostRequest",
++    "HostRequestKind",
++    "IdentityObservation",
++    "RouteObservation",
++    "RouteObservationKind",
++    "TransportRegistry",
++    "acquire_one",
++    "AcquisitionReplaySpec",
++    "replay_acquisition",
+ ]
+ 
+-__version__ = "0.4.2"
++__version__ = "0.4.3"
+diff -ruN '--exclude=__pycache__' /mnt/data/v042baseline/src/scholar_acquire/batch.py /mnt/data/v043work/src/scholar_acquire/batch.py
+--- /mnt/data/v042baseline/src/scholar_acquire/batch.py	2026-08-21 23:29:32.000000000 +0000
++++ /mnt/data/v043work/src/scholar_acquire/batch.py	2026-08-22 00:17:05.657561600 +0000
+@@ -12,7 +12,7 @@
+ 
+ from .integrity import verify_build_manifest
+ from .models import AcquisitionResult, RuntimeState
+-from .vertical_slice import AcquisitionExecution, AcquisitionSpec, acquire_one
++from .vertical_slice import AcquisitionExecution, AcquisitionReplaySpec, replay_acquisition
+ 
+ 
+ def semantic_fingerprint(execution: AcquisitionExecution) -> str:
+@@ -58,10 +58,10 @@
+ 
+ 
+ class ChatGptBatchRuntime:
+-    """Thin v0.4 batch mapping over acquire_one().
++    """Legacy evidence batch mapping over replay_acquisition().
+ 
+     Batch mode adds no acquisition semantics. Every item is executed by the
+-    exact same acquire_one function used by individual runs.
++    prepared replay path. Production batching is intentionally deferred until Prompt 5.
+     """
+ 
+     def __init__(self, batch_dir: Path):
+@@ -69,7 +69,7 @@
+         self.manifest_path = self.batch_dir / "batch_manifest.json"
+ 
+     @classmethod
+-    def run(cls, specs: Iterable[AcquisitionSpec], root: Path) -> "ChatGptBatchRuntime":
++    def run(cls, specs: Iterable[AcquisitionReplaySpec], root: Path) -> "ChatGptBatchRuntime":
+         specs = list(specs)
+         identity = verify_build_manifest()
+         batch_id = uuid.uuid4().hex[:12]
+@@ -87,7 +87,7 @@
+             "python_version": sys.version.split()[0],
+             "platform": platform.platform(),
+             "network_in_python": False,
+-            "batch_semantics": "map acquire_one(spec) without modification",
++            "batch_semantics": "map replay_acquisition(spec) for historical evidence only",
+             "started_at": datetime.now(timezone.utc).isoformat(),
+         }
+         (batch_dir / "BATCH_RUN_RECEIPT.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+@@ -95,7 +95,7 @@
+         executions: list[AcquisitionExecution] = []
+         for idx, spec in enumerate(specs):
+             t0 = time.perf_counter()
+-            ex = acquire_one(spec, items_root)
++            ex = replay_acquisition(spec, items_root)
+             executions.append(ex)
+             evt = {
+                 "event": "item_complete", "batch_id": batch_id, "index": idx, "pmid": spec.pmid,
+@@ -108,7 +108,7 @@
+             "schema_version": "2",
+             "batch_id": batch_id,
+             "run_id": receipt["run_id"],
+-            "batch_semantics": "map acquire_one(spec) without modification",
++            "batch_semantics": "map replay_acquisition(spec) for historical evidence only",
+             "items": [
+                 {
+                     "pmid": ex.pmid,
+diff -ruN '--exclude=__pycache__' /mnt/data/v042baseline/src/scholar_acquire/capabilities.py /mnt/data/v043work/src/scholar_acquire/capabilities.py
+--- /mnt/data/v042baseline/src/scholar_acquire/capabilities.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/v043work/src/scholar_acquire/capabilities.py	2026-08-22 00:18:17.473477434 +0000
+@@ -0,0 +1,44 @@
++from __future__ import annotations
++
++from enum import Enum
++
++from pydantic import BaseModel
++
++
++class AcquisitionRoute(str, Enum):
++    PMC = "pmc"
++    PUBLISHER_OA = "publisher_oa"
++    UNPAYWALL = "unpaywall"
++    REPOSITORY = "repository"
++
++
++ROUTE_ORDER = [
++    AcquisitionRoute.PMC,
++    AcquisitionRoute.PUBLISHER_OA,
++    AcquisitionRoute.UNPAYWALL,
++    AcquisitionRoute.REPOSITORY,
++]
++
++
++class CapabilityStatus(str, Enum):
++    SUPPORTED = "supported"
++    EXPERIMENTAL = "experimental"
++    DISABLED = "disabled"
++
++
++class RouteCapabilityRegistry(BaseModel):
++    """Explicit acquisition capability state for each route."""
++
++    pmc: CapabilityStatus = CapabilityStatus.EXPERIMENTAL
++    publisher_oa: CapabilityStatus = CapabilityStatus.EXPERIMENTAL
++    unpaywall: CapabilityStatus = CapabilityStatus.EXPERIMENTAL
++    repository: CapabilityStatus = CapabilityStatus.EXPERIMENTAL
++
++    def status(self, route: AcquisitionRoute) -> CapabilityStatus:
++        return CapabilityStatus(getattr(self, route.value))
++
++    def enabled_routes(self) -> list[AcquisitionRoute]:
++        return [route for route in ROUTE_ORDER if self.status(route) != CapabilityStatus.DISABLED]
++
++    def enabled(self) -> list[str]:
++        return [route.value for route in self.enabled_routes()]
+diff -ruN '--exclude=__pycache__' /mnt/data/v042baseline/src/scholar_acquire/config.py /mnt/data/v043work/src/scholar_acquire/config.py
+--- /mnt/data/v042baseline/src/scholar_acquire/config.py	2026-08-21 23:26:03.000000000 +0000
++++ /mnt/data/v043work/src/scholar_acquire/config.py	2026-08-22 00:17:06.203897537 +0000
+@@ -9,7 +9,7 @@
+     contact_email: str | None = Field(default_factory=lambda: os.getenv("SCHOLAR_FETCH_EMAIL") or os.getenv("UNPAYWALL_EMAIL") or os.getenv("NCBI_EMAIL"))
+     openalex_api_key: str | None = Field(default_factory=lambda: os.getenv("OPENALEX_API_KEY"))
+     cache_dir: Path = Field(default_factory=lambda: Path(os.getenv("SCHOLAR_FETCH_CACHE", "~/.cache/scholar-acquire")).expanduser())
+-    user_agent_name: str = "scholar-acquire-chatgpt/0.4.0"
++    user_agent_name: str = "scholar-acquire-chatgpt/0.4.3"
+ 
+     def user_agent(self) -> str:
+         if self.contact_email:
+diff -ruN '--exclude=__pycache__' /mnt/data/v042baseline/src/scholar_acquire/controller.py /mnt/data/v043work/src/scholar_acquire/controller.py
+--- /mnt/data/v042baseline/src/scholar_acquire/controller.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/v043work/src/scholar_acquire/controller.py	2026-08-22 00:18:18.375253622 +0000
+@@ -0,0 +1,482 @@
++from __future__ import annotations
++
++import hashlib
++import json
++import re
++import time
++import unicodedata
++from enum import Enum
++from pathlib import Path
++from typing import Any, Mapping, Protocol
++
++from pydantic import BaseModel, Field
++
++from .errors import RuntimeProtocolError
++from .capabilities import AcquisitionRoute, CapabilityStatus, RouteCapabilityRegistry
++from .identity import ArticleIdentity
++from .models import (
++    ArticleIdentifier,
++    ArtifactFormat,
++    IdentifierKind,
++    ResolvedIds,
++    RuntimeFailureCode,
++    RuntimeState,
++    SourceVersion,
++)
++from .vertical_slice import (
++    AcquisitionExecution,
++    ChatGptVerticalSliceRuntime,
++)
++
++
++class AcquisitionConfig(BaseModel):
++    want_structured: bool = True
++    want_pdf: bool = True
++    allow_submitted: bool = False
++    route_capabilities: RouteCapabilityRegistry = Field(default_factory=RouteCapabilityRegistry)
++
++
++class TransportRegistry(BaseModel):
++    """Prompt 1 placeholder. Prompt 2 adds the transport request/response contract."""
++
++    registered: list[str] = Field(default_factory=list)
++
++
++class HostRequestKind(str, Enum):
++    RESOLVE_IDENTITY = "resolve_identity"
++    OBSERVE_ROUTE = "observe_route"
++
++
++class HostRequest(BaseModel):
++    request_id: str
++    kind: HostRequestKind
++    identifier: ArticleIdentifier
++    route: AcquisitionRoute | None = None
++    resolved_ids: ResolvedIds = Field(default_factory=ResolvedIds)
++    article_identity: ArticleIdentity | None = None
++
++    @classmethod
++    def build(
++        cls,
++        *,
++        kind: HostRequestKind,
++        identifier: ArticleIdentifier,
++        route: AcquisitionRoute | None = None,
++        resolved_ids: ResolvedIds | None = None,
++        article_identity: ArticleIdentity | None = None,
++    ) -> "HostRequest":
++        material = "|".join(
++            [kind.value, identifier.kind.value, identifier.value, route.value if route else ""]
++        ).encode("utf-8")
++        return cls(
++            request_id=hashlib.sha256(material).hexdigest()[:24],
++            kind=kind,
++            identifier=identifier,
++            route=route,
++            resolved_ids=resolved_ids or ResolvedIds(),
++            article_identity=article_identity,
++        )
++
++
++class IdentityObservation(BaseModel):
++    request_id: str
++    pmid: str
++    title: str
++    evidence_source: str
++    evidence_method: str
++    pmcid: str | None = None
++    doi: str | None = None
++    journal: str | None = None
++    year: int | None = None
++    evidence_sha256: str | None = None
++    metadata: dict[str, Any] = Field(default_factory=dict)
++
++
++class ArtifactObservation(BaseModel):
++    path: Path
++    format: ArtifactFormat
++    source_url: str
++    discovery_provenance: dict[str, Any]
++    lawful_access_basis: str
++    open_access: bool
++    version: SourceVersion = SourceVersion.UNKNOWN
++    license: str | None = None
++    metadata: dict[str, Any] = Field(default_factory=dict)
++
++
++class RouteObservationKind(str, Enum):
++    MATERIALIZED_ARTIFACT = "materialized_artifact"
++    DEFINITIVE_NO_RESULT = "definitive_no_result"
++    TRANSPORT_ERROR = "transport_error"
++    TIMEOUT = "timeout"
++    CAPTCHA = "captcha"
++    RESPONSE_NOT_MATERIALIZABLE = "response_not_materializable"
++    UNKNOWN = "unknown"
++    SEARCH_ABSENCE = "search_absence"
++    SKIPPED = "skipped"
++
++
++class RouteObservation(BaseModel):
++    request_id: str
++    route: AcquisitionRoute
++    kind: RouteObservationKind
++    action: str
++    artifacts: list[ArtifactObservation] = Field(default_factory=list)
++    evidence_source: str | None = None
++    http_status: int | None = None
++    message: str | None = None
++    metadata: dict[str, Any] = Field(default_factory=dict)
++
++
++class HostAdapter(Protocol):
++    def observe(self, request: HostRequest) -> IdentityObservation | RouteObservation:
++        ...
++
++
++_BLOCKING_KINDS = {
++    RouteObservationKind.TRANSPORT_ERROR,
++    RouteObservationKind.TIMEOUT,
++    RouteObservationKind.CAPTCHA,
++    RouteObservationKind.RESPONSE_NOT_MATERIALIZABLE,
++    RouteObservationKind.UNKNOWN,
++    RouteObservationKind.SEARCH_ABSENCE,
++    RouteObservationKind.SKIPPED,
++}
++
++
++def normalize_title(value: str) -> str:
++    value = unicodedata.normalize("NFKD", value)
++    value = "".join(ch for ch in value if not unicodedata.combining(ch))
++    value = re.sub(r"[^a-z0-9]+", " ", value.lower()).strip()
++    return re.sub(r"\s+", " ", value)
++
++
++def _record_host_event(runtime: ChatGptVerticalSliceRuntime, request: HostRequest, observation: BaseModel) -> None:
++    payload = observation.model_dump(mode="json")
++    runtime._event(
++        "host_observation_received",
++        provider=request.route.value if request.route else None,
++        data={"request": request.model_dump(mode="json"), "observation": payload},
++    )
++    runtime._save()
++
++
++def _resolve_identity(
++    runtime: ChatGptVerticalSliceRuntime,
++    identifier: ArticleIdentifier,
++    host: HostAdapter,
++) -> ArticleIdentity:
++    request = HostRequest.build(kind=HostRequestKind.RESOLVE_IDENTITY, identifier=identifier)
++    runtime._event("host_observation_requested", data=request.model_dump(mode="json"))
++    runtime._save()
++    observation = host.observe(request)
++    if not isinstance(observation, IdentityObservation):
++        raise RuntimeProtocolError("Host returned a non-identity observation for identity resolution")
++    _record_host_event(runtime, request, observation)
++    if observation.request_id != request.request_id:
++        raise RuntimeProtocolError("Identity observation request_id mismatch")
++    if not observation.evidence_source.strip() or not observation.evidence_method.strip():
++        raise RuntimeProtocolError("Resolved identity requires an evidence source and method")
++    if identifier.kind != IdentifierKind.PMID:
++        raise RuntimeProtocolError("v0.4.3 Prompt 1 production controller currently requires PMID input")
++    if observation.pmid != identifier.value:
++        raise RuntimeProtocolError(
++            f"Resolved PMID {observation.pmid} conflicts with requested PMID {identifier.value}"
++        )
++    if not observation.title.strip():
++        raise RuntimeProtocolError("Resolved identity requires a title")
++
++    identity = ArticleIdentity(
++        pmid=identifier.value,
++        pmcid=observation.pmcid,
++        doi=observation.doi,
++        title=observation.title.strip(),
++        journal=observation.journal,
++        year=observation.year,
++    )
++    v04 = runtime.session.seed.metadata["v0_4"]
++    v04["article_identity"] = identity.model_dump(mode="json")
++    v04["normalized_title"] = normalize_title(identity.title)
++    v04["identity_evidence"] = observation.model_dump(mode="json")
++    runtime.add_resolved_ids(
++        pmid=identity.pmid,
++        doi=identity.doi,
++        pmcid=identity.pmcid,
++    )
++    runtime._event(
++        "identity_resolved_by_python",
++        data={
++            "resolved_ids": runtime.session.seed.ids.model_dump(mode="json"),
++            "normalized_title": v04["normalized_title"],
++            "journal": identity.journal,
++            "year": identity.year,
++            "evidence_source": observation.evidence_source,
++        },
++    )
++    runtime._save()
++    return identity
++
++
++def _observe_route(
++    runtime: ChatGptVerticalSliceRuntime,
++    identifier: ArticleIdentifier,
++    identity: ArticleIdentity,
++    route: AcquisitionRoute,
++    host: HostAdapter,
++) -> RouteObservation:
++    request = HostRequest.build(
++        kind=HostRequestKind.OBSERVE_ROUTE,
++        identifier=identifier,
++        route=route,
++        resolved_ids=runtime.session.seed.ids,
++        article_identity=identity,
++    )
++    runtime._event(
++        "host_observation_requested",
++        provider=route.value,
++        data=request.model_dump(mode="json"),
++    )
++    runtime._save()
++    observation = host.observe(request)
++    if not isinstance(observation, RouteObservation):
++        raise RuntimeProtocolError(f"Host returned a non-route observation for {route.value}")
++    _record_host_event(runtime, request, observation)
++    if observation.request_id != request.request_id:
++        raise RuntimeProtocolError(f"Route observation request_id mismatch for {route.value}")
++    if observation.route != route:
++        raise RuntimeProtocolError(
++            f"Route observation mismatch. requested={route.value} observed={observation.route.value}"
++        )
++    return observation
++
++
++def _admit_route_observation(
++    runtime: ChatGptVerticalSliceRuntime,
++    observation: RouteObservation,
++) -> bool:
++    route = observation.route
++    if observation.kind == RouteObservationKind.MATERIALIZED_ARTIFACT:
++        if not observation.artifacts:
++            raise RuntimeProtocolError("materialized_artifact observation contains no artifacts")
++        admitted = 0
++        for artifact in observation.artifacts:
++            runtime.import_route_artifact(
++                artifact.path,
++                route=route,
++                artifact_format=artifact.format,
++                source_url=artifact.source_url,
++                discovery_provenance={
++                    **artifact.discovery_provenance,
++                    "host_observation_request_id": observation.request_id,
++                    "host_evidence_source": observation.evidence_source,
++                },
++                lawful_access_basis=artifact.lawful_access_basis,
++                open_access=artifact.open_access,
++                version=artifact.version,
++                license=artifact.license,
++                metadata=artifact.metadata,
++            )
++            admitted += 1
++        runtime.record_route_attempt(
++            route,
++            action=observation.action,
++            outcome="success",
++            url=observation.artifacts[0].source_url,
++            http_status=observation.http_status,
++            message=observation.message,
++            metadata={
++                "observation_kind": observation.kind.value,
++                "admitted_artifacts": admitted,
++                "definitive_negative": False,
++            },
++        )
++        return True
++
++    if observation.kind == RouteObservationKind.DEFINITIVE_NO_RESULT:
++        if not observation.evidence_source:
++            raise RuntimeProtocolError(
++                f"Definitive negative evidence for {route.value} requires evidence_source"
++            )
++        runtime.record_route_attempt(
++            route,
++            action=observation.action,
++            outcome="miss",
++            http_status=observation.http_status,
++            message=observation.message,
++            metadata={
++                **observation.metadata,
++                "observation_kind": observation.kind.value,
++                "definitive_negative": True,
++                "evidence_source": observation.evidence_source,
++            },
++        )
++        return False
++
++    outcome = "skipped" if observation.kind == RouteObservationKind.SKIPPED else "error"
++    runtime.record_route_attempt(
++        route,
++        action=observation.action,
++        outcome=outcome,
++        http_status=observation.http_status,
++        message=observation.message,
++        metadata={
++            **observation.metadata,
++            "observation_kind": observation.kind.value,
++            "definitive_negative": False,
++            "evidence_source": observation.evidence_source,
++        },
++    )
++    return False
++
++
++def can_assign_exhausted(runtime: ChatGptVerticalSliceRuntime) -> tuple[bool, list[str]]:
++    enabled = runtime.route_capabilities.enabled()
++    if not enabled:
++        return False, ["no enabled routes"]
++    attempts = runtime._attempts()
++    reasons: list[str] = []
++    for route in enabled:
++        route_attempts = [a for a in attempts if a.provider == route]
++        if not route_attempts:
++            reasons.append(f"{route}: unexecuted")
++            continue
++        if not any(
++            a.outcome == "miss" and a.metadata.get("definitive_negative") is True
++            for a in route_attempts
++        ):
++            kinds = [str(a.metadata.get("observation_kind") or a.outcome) for a in route_attempts]
++            reasons.append(f"{route}: no definitive negative evidence ({','.join(kinds)})")
++    return not reasons, reasons
++
++
++def _write_non_success_manifest(
++    runtime: ChatGptVerticalSliceRuntime,
++    *,
++    elapsed_ms: int,
++) -> Path:
++    manifest_path = runtime.session.session_dir / "acquisition_manifest.json"
++    terminal = (
++        runtime.session.terminal_outcome.model_dump(mode="json")
++        if runtime.session.terminal_outcome
++        else None
++    )
++    document = {
++        "schema_version": "3",
++        "contract_version": runtime.contract_version,
++        "product": "acquire_one",
++        "identifier": runtime.session.identifier.model_dump(mode="json"),
++        "resolved_ids": runtime.session.seed.ids.model_dump(mode="json"),
++        "article_identity": runtime.session.seed.metadata.get("v0_4", {}).get("article_identity"),
++        "normalized_title": runtime.session.seed.metadata.get("v0_4", {}).get("normalized_title"),
++        "identity_evidence": runtime.session.seed.metadata.get("v0_4", {}).get("identity_evidence"),
++        "state": runtime.session.state.value,
++        "route_capabilities": runtime.session.seed.metadata.get("v0_4", {}).get("route_capabilities"),
++        "provider_attempts": [x.model_dump(mode="json") for x in runtime._attempts()],
++        "artifacts": [x.model_dump(mode="json") for x in runtime.session.seed.artifacts],
++        "terminal_outcome": terminal,
++        "run_receipt": str(runtime.receipt_path),
++        "event_journal": str(runtime.events_path),
++        "terminal_outcome_path": str(runtime.session.session_dir / runtime.terminal_filename),
++        "runtime_elapsed_ms": elapsed_ms,
++    }
++    manifest_path.write_text(
++        json.dumps(document, indent=2, ensure_ascii=False) + "\n",
++        encoding="utf-8",
++    )
++    runtime._event(
++        "acquisition_manifest_written",
++        data={"manifest_path": str(manifest_path), "state": runtime.session.state.value},
++    )
++    runtime._save()
++    return manifest_path
++
++
++def acquire_one(
++    identifier: str | ArticleIdentifier,
++    config: AcquisitionConfig,
++    root: Path,
++    host: HostAdapter,
++    transports: TransportRegistry | None = None,
++) -> AcquisitionExecution:
++    """Production v0.4.3 acquisition entry point.
++
++    Caller input is limited to identifier, configuration, root, host adapter, and
++    transport registry. Terminal state, resolved identity, route outcomes, and
++    artifact paths cannot be supplied through this API.
++    """
++
++    started = time.perf_counter()
++    ident = identifier if isinstance(identifier, ArticleIdentifier) else ArticleIdentifier.parse(identifier)
++    if ident.kind != IdentifierKind.PMID:
++        raise RuntimeProtocolError("v0.4.3 Prompt 1 production controller currently requires PMID input")
++    runtime = ChatGptVerticalSliceRuntime.create(
++        ident,
++        root,
++        route_capabilities=config.route_capabilities,
++    )
++    runtime.session.seed.metadata["v0_4"]["product"] = "acquire_one"
++    runtime.session.seed.metadata["v0_4"]["route_capabilities"] = config.route_capabilities.model_dump(mode="json")
++    runtime.session.seed.metadata["v0_4"]["transport_registry"] = (transports or TransportRegistry()).model_dump(mode="json")
++    runtime._event(
++        "production_acquire_one_started",
++        data={
++            "identifier": ident.model_dump(mode="json"),
++            "route_capabilities": config.route_capabilities.model_dump(mode="json"),
++        },
++    )
++    runtime._save()
++
++    try:
++        identity = _resolve_identity(runtime, ident, host)
++        for route in config.route_capabilities.enabled_routes():
++            observation = _observe_route(runtime, ident, identity, route, host)
++            if _admit_route_observation(runtime, observation):
++                step = runtime.step()
++                if step.state == RuntimeState.SUCCESS:
++                    break
++        else:
++            step = None
++
++        if runtime.session.state == RuntimeState.READY:
++            exhaustive, reasons = can_assign_exhausted(runtime)
++            if exhaustive:
++                runtime.mark_exhausted("Every enabled route returned definitive negative evidence")
++            else:
++                runtime.mark_blocked(
++                    "Acquisition coverage is incomplete or uncertain: " + "; ".join(reasons),
++                    reason_code=RuntimeFailureCode.EXTERNAL_FETCH_BLOCKED,
++                )
++        step = runtime.step()
++    except RuntimeProtocolError as exc:
++        text = str(exc)
++        code = RuntimeFailureCode.RUNTIME_PROTOCOL_ERROR
++        if text.startswith("IDENTITY_MISMATCH"):
++            code = RuntimeFailureCode.IDENTITY_MISMATCH
++        elif text.startswith("IDENTITY_UNVERIFIED"):
++            code = RuntimeFailureCode.IDENTITY_UNVERIFIED
++        runtime.mark_failed(text, reason_code=code)
++        step = runtime.step()
++    except Exception as exc:
++        runtime.mark_blocked(
++            f"Host observation failed: {type(exc).__name__}: {exc}",
++            reason_code=RuntimeFailureCode.TOOL_FAILURE,
++        )
++        step = runtime.step()
++
++    elapsed_ms = max(0, round((time.perf_counter() - started) * 1000))
++    manifest_path = step.result.manifest_path if step.result else None
++    if manifest_path is None:
++        manifest_path = _write_non_success_manifest(runtime, elapsed_ms=elapsed_ms)
++
++    return AcquisitionExecution(
++        pmid=ident.value,
++        state=step.state,
++        elapsed_ms=elapsed_ms,
++        session_path=runtime.session_path,
++        run_receipt=runtime.receipt_path,
++        event_journal=runtime.events_path,
++        manifest_path=manifest_path,
++        result=step.result,
++        terminal_outcome=step.terminal_outcome,
++        metrics={"runtime_elapsed_ms": elapsed_ms},
++    )
+diff -ruN '--exclude=__pycache__' /mnt/data/v042baseline/src/scholar_acquire/vertical_slice.py /mnt/data/v043work/src/scholar_acquire/vertical_slice.py
+--- /mnt/data/v042baseline/src/scholar_acquire/vertical_slice.py	2026-08-21 23:38:35.000000000 +0000
++++ /mnt/data/v043work/src/scholar_acquire/vertical_slice.py	2026-08-22 00:18:17.870740496 +0000
+@@ -3,13 +3,13 @@
+ import hashlib
+ import json
+ import time
+-from enum import Enum
+ from pathlib import Path
+ from typing import Any, Literal, Mapping
+ 
+ from pydantic import BaseModel, Field
+ 
+ from .errors import ContentValidationError, RuntimeProtocolError
++from .capabilities import AcquisitionRoute, CapabilityStatus, ROUTE_ORDER, RouteCapabilityRegistry
+ from .integration import build_atom_sea_handoff
+ from .identity import ArticleIdentity, verify_identity
+ from .models import (
+@@ -31,22 +31,9 @@
+ from .utils import assert_allowed_url, extract_jats_article, link_or_copy, validate_pdf
+ 
+ 
+-class AcquisitionRoute(str, Enum):
+-    PMC = "pmc"
+-    PUBLISHER_OA = "publisher_oa"
+-    UNPAYWALL = "unpaywall"
+-    REPOSITORY = "repository"
+-
+-
+-ROUTE_ORDER = [
+-    AcquisitionRoute.PMC,
+-    AcquisitionRoute.PUBLISHER_OA,
+-    AcquisitionRoute.UNPAYWALL,
+-    AcquisitionRoute.REPOSITORY,
+-]
+-
+-
+ class RouteFlags(BaseModel):
++    """Replay-only compatibility input from v0.4.2."""
++
+     pmc: bool = True
+     publisher_oa: bool = True
+     unpaywall: bool = True
+@@ -55,6 +42,12 @@
+     def enabled(self) -> list[str]:
+         return [r.value for r in ROUTE_ORDER if bool(getattr(self, r.value))]
+ 
++    def to_capabilities(self) -> RouteCapabilityRegistry:
++        return RouteCapabilityRegistry(**{
++            route.value: CapabilityStatus.EXPERIMENTAL if bool(getattr(self, route.value)) else CapabilityStatus.DISABLED
++            for route in ROUTE_ORDER
++        })
++
+ 
+ class RouteAttemptInput(BaseModel):
+     route: AcquisitionRoute
+@@ -80,7 +73,7 @@
+     metadata: dict[str, Any] = Field(default_factory=dict)
+ 
+ 
+-class AcquisitionSpec(BaseModel):
++class AcquisitionReplaySpec(BaseModel):
+     pmid: str
+     identity: ArticleIdentity | None = None
+     resolved_ids: ResolvedIds = Field(default_factory=ResolvedIds)
+@@ -116,7 +109,7 @@
+     ATOM/SEA handoff.
+     """
+ 
+-    contract_version = "0.4.2"
++    contract_version = "0.4.3"
+     provider_name = "chatgpt_native_transport"
+ 
+     @classmethod
+@@ -125,6 +118,7 @@
+         identifier: str | ArticleIdentifier,
+         root: Path,
+         *,
++        route_capabilities: RouteCapabilityRegistry | None = None,
+         route_flags: RouteFlags | None = None,
+         output_dir: Path | None = None,
+         cache_dir: Path | None = None,
+@@ -143,24 +137,30 @@
+             providers=[],
+         )
+         runtime.session.seed.ids.pmid = ident.value
+-        flags = route_flags or RouteFlags()
++        capabilities = route_capabilities or (route_flags.to_capabilities() if route_flags else RouteCapabilityRegistry())
+         runtime.session.seed.metadata["v0_4"] = {
+             "contract_version": cls.contract_version,
+             "product": "acquire_one",
+             "requested_pmid": ident.value,
+             "network_in_python": False,
+             "transport": "chatgpt_native",
+-            "route_flags": flags.model_dump(),
+-            "enabled_routes": flags.enabled(),
++            "route_capabilities": capabilities.model_dump(mode="json"),
++            "enabled_routes": capabilities.enabled(),
+             "attempts": [],
+         }
+-        runtime._event("v0_4_acquire_one_initialized", data={"requested_pmid": ident.value, "enabled_routes": flags.enabled()})
++        runtime._event("v0_4_runtime_initialized", data={"requested_pmid": ident.value, "route_capabilities": capabilities.model_dump(mode="json"), "enabled_routes": capabilities.enabled()})
+         runtime._save()
+         return runtime
+ 
+     @property
++    def route_capabilities(self) -> RouteCapabilityRegistry:
++        return RouteCapabilityRegistry.model_validate(self.session.seed.metadata["v0_4"]["route_capabilities"])
++
++    @property
+     def route_flags(self) -> RouteFlags:
+-        return RouteFlags.model_validate(self.session.seed.metadata["v0_4"]["route_flags"])
++        """Compatibility view for replay code. Production policy uses route_capabilities."""
++        enabled = set(self.route_capabilities.enabled())
++        return RouteFlags(**{route.value: route.value in enabled for route in ROUTE_ORDER})
+ 
+     def add_resolved_ids(self, *, pmid=None, doi=None, pmcid=None, versioned_pmcid=None) -> ResolvedIds:
+         requested = self.session.identifier.value
+@@ -181,7 +181,7 @@
+         metadata: Mapping[str, Any] | None = None,
+     ) -> Attempt:
+         route = AcquisitionRoute(route)
+-        if route.value not in self.route_flags.enabled():
++        if route.value not in self.route_capabilities.enabled():
+             raise RuntimeProtocolError(f"Route {route.value} is disabled for this acquire_one run")
+         if url:
+             assert_allowed_url(url)
+@@ -216,7 +216,7 @@
+     ) -> Artifact:
+         route = AcquisitionRoute(route)
+         fmt = ArtifactFormat(artifact_format)
+-        if route.value not in self.route_flags.enabled():
++        if route.value not in self.route_capabilities.enabled():
+             raise RuntimeProtocolError(f"Route {route.value} is disabled for this acquire_one run")
+         if fmt not in {ArtifactFormat.JATS_XML, ArtifactFormat.PDF}:
+             raise RuntimeProtocolError("v0.4 full-text acceptance supports JATS XML and PDF payloads")
+@@ -282,10 +282,24 @@
+     def mark_exhausted(self, message: str = "All enabled lawful acquisition routes exhausted") -> RuntimeTerminalOutcome:
+         if self.session.seed.artifacts:
+             raise RuntimeProtocolError("Cannot mark EXHAUSTED after a full-text artifact was admitted")
+-        attempted = {a.provider for a in self._attempts() if a.outcome in {"miss", "error", "skipped", "success", "cached"}}
+-        missing = [r for r in self.route_flags.enabled() if r not in attempted]
+-        if missing:
+-            raise RuntimeProtocolError(f"Cannot confirm EXHAUSTED; enabled routes not attempted: {', '.join(missing)}")
++        enabled = self.route_capabilities.enabled()
++        if not enabled:
++            raise RuntimeProtocolError("Cannot confirm EXHAUSTED with no enabled routes")
++        problems: list[str] = []
++        for route in enabled:
++            route_attempts = [a for a in self._attempts() if a.provider == route]
++            if not route_attempts:
++                problems.append(f"{route}: unexecuted")
++                continue
++            definitive = any(
++                a.outcome == "miss" and a.metadata.get("definitive_negative") is True
++                for a in route_attempts
++            )
++            if not definitive:
++                observed = ",".join(str(a.metadata.get("observation_kind") or a.outcome) for a in route_attempts)
++                problems.append(f"{route}: no definitive negative evidence ({observed})")
++        if problems:
++            raise RuntimeProtocolError("Cannot confirm EXHAUSTED; " + "; ".join(problems))
+         return self._terminal(RuntimeState.EXHAUSTED, message, RuntimeFailureCode.UNKNOWN, exhausted=True)
+ 
+     def step(self) -> RuntimeStep:
+@@ -295,7 +309,7 @@
+         if self.session.state in {RuntimeState.BLOCKED, RuntimeState.EXHAUSTED, RuntimeState.FAILED}:
+             return RuntimeStep(state=self.session.state, session_path=self.session_path, terminal_outcome=self.session.terminal_outcome, message=self.session.terminal_outcome.message if self.session.terminal_outcome else None)
+         if not self.session.seed.artifacts:
+-            self._event("awaiting_host_evidence_or_payload", data={"enabled_routes": self.route_flags.enabled()})
++            self._event("awaiting_host_evidence_or_payload", data={"enabled_routes": self.route_capabilities.enabled()})
+             self._save()
+             return RuntimeStep(state=RuntimeState.READY, session_path=self.session_path, message="Awaiting route evidence and/or tool-materialized lawful full text")
+ 
+@@ -410,7 +424,7 @@
+             state=state,
+             reason_code=reason_code,
+             message=message,
+-            provider_policy=self.route_flags.enabled(),
++            provider_policy=self.route_capabilities.enabled(),
+             provider_attempts=self._attempts(),
+             provider_exhaustion_confirmed=exhausted,
+             artifact_sha256=artifact_sha256 or [a.sha256 for a in self.session.seed.artifacts],
+@@ -424,18 +438,19 @@
+         return outcome
+ 
+     def _provider_policy(self) -> list[str]:
+-        return self.route_flags.enabled()
++        return self.route_capabilities.enabled()
+ 
+ 
+-def acquire_one(spec: AcquisitionSpec | Mapping[str, Any], root: Path) -> AcquisitionExecution:
+-    spec = spec if isinstance(spec, AcquisitionSpec) else AcquisitionSpec.model_validate(spec)
++def replay_acquisition(spec: AcquisitionReplaySpec | Mapping[str, Any], root: Path) -> AcquisitionExecution:
++    """Replay prepared evidence. This is not the production acquisition API."""
++    spec = spec if isinstance(spec, AcquisitionReplaySpec) else AcquisitionReplaySpec.model_validate(spec)
+     started = time.perf_counter()
+     runtime = ChatGptVerticalSliceRuntime.create(spec.pmid, root, route_flags=spec.route_flags)
+     ids = spec.resolved_ids
+     if spec.identity is None:
+-        raise RuntimeProtocolError("AcquisitionSpec.identity is required for fail-closed artifact admission")
++        raise RuntimeProtocolError("AcquisitionReplaySpec.identity is required for fail-closed artifact admission")
+     if spec.identity.pmid != spec.pmid:
+-        raise RuntimeProtocolError("AcquisitionSpec identity PMID conflicts with requested PMID")
++        raise RuntimeProtocolError("AcquisitionReplaySpec identity PMID conflicts with requested PMID")
+     runtime.session.seed.metadata["v0_4"]["article_identity"] = spec.identity.model_dump(mode="json")
+     runtime.add_resolved_ids(pmid=spec.pmid, doi=ids.doi, pmcid=ids.pmcid, versioned_pmcid=ids.versioned_pmcid)
+     runtime.session.seed.metadata["v0_4"]["regression_metadata"] = {**spec.metadata, **spec.metrics}
+
+--- root run_prompt5.py ---
+--- /mnt/data/v042baseline/run_prompt5.py	2026-08-21 23:42:22.000000000 +0000
++++ /mnt/data/v043work/run_prompt5.py	2026-08-22 00:19:44.506359394 +0000
+@@ -1,7 +1,7 @@
+ from pathlib import Path
+ import json, hashlib, statistics
+ from scholar_acquire.vertical_slice import (
+-    AcquisitionSpec, AcquisitionRoute, RouteFlags, RouteAttemptInput, MaterializedArtifactInput, acquire_one
++    AcquisitionReplaySpec, AcquisitionRoute, RouteFlags, RouteAttemptInput, MaterializedArtifactInput, replay_acquisition
+ )
+ from scholar_acquire.identity import ArticleIdentity
+ from scholar_acquire.models import ResolvedIds, ArtifactFormat, SourceVersion, RuntimeFailureCode, RuntimeState
+@@ -14,7 +14,7 @@
+ 
+ 
+ def publisher(pmid, pmcid, doi, title, journal, year, filename, url, license, evidence, actions=3):
+-    return AcquisitionSpec(
++    return AcquisitionReplaySpec(
+         pmid=pmid,
+         identity=ArticleIdentity(pmid=pmid, pmcid=pmcid, doi=doi, title=title, journal=journal, year=year),
+         resolved_ids=ResolvedIds(pmid=pmid, pmcid=pmcid, doi=doi),
+@@ -27,7 +27,7 @@
+ specs=[]
+ specs.append(publisher('24782981','PMC3995050','10.3389/fonc.2014.00064','Targeting PI3K/Akt/mTOR signaling in cancer','Frontiers in Oncology',2014,'24782981_publisher.pdf','https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2014.00064/pdf','CC BY','Frontiers publisher PDF is publicly downloadable; article/PDF states Creative Commons Attribution (CC BY).',3))
+ specs.append(publisher('28533778','PMC5420570','10.3389/fimmu.2017.00522','Dnase1L3 Regulates Inflammasome-Dependent Cytokine Secretion','Frontiers in Immunology',2017,'28533778_publisher.pdf','https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2017.00522/pdf','CC BY','Frontiers publisher PDF is publicly downloadable and states distribution under CC BY.',3))
+-specs.append(AcquisitionSpec(
++specs.append(AcquisitionReplaySpec(
+     pmid='30222367', identity=ArticleIdentity(pmid='30222367',pmcid='PMC6208164',doi='10.1089/dia.2018.0052',title='Effects of Dapagliflozin on 24-Hour Glycemic Control in Patients with Type 2 Diabetes: A Randomized Controlled Trial',journal='Diabetes Technology & Therapeutics',year=2018),
+     resolved_ids=ResolvedIds(pmid='30222367',pmcid='PMC6208164',doi='10.1089/dia.2018.0052'),
+     route_flags=RouteFlags(pmc=False,publisher_oa=False,unpaywall=False,repository=True),
+@@ -40,7 +40,7 @@
+ specs.append(publisher('37234376','PMC10206318','10.3389/fcvm.2023.1185707','Cardiorenal syndrome and diabetes: an evil pairing','Frontiers in Cardiovascular Medicine',2023,'37234376_publisher.pdf','https://www.frontiersin.org/journals/cardiovascular-medicine/articles/10.3389/fcvm.2023.1185707/pdf','CC BY','Frontiers PDF copyright block states open access under CC BY.',4))
+ specs.append(publisher('39114558','PMC11303302','10.3389/fcvm.2024.1376645','Impact of sodium-glucose cotransporter-2 inhibitor use on peak VO2 in advanced heart failure patients','Frontiers in Cardiovascular Medicine',2024,'39114558_publisher.pdf','https://www.frontiersin.org/journals/cardiovascular-medicine/articles/10.3389/fcvm.2024.1376645/pdf','CC BY','Frontiers PDF copyright block states open access under CC BY.',4))
+ 
+-specs.append(AcquisitionSpec(
++specs.append(AcquisitionReplaySpec(
+     pmid='41623473', identity=ArticleIdentity(pmid='41623473',pmcid='PMC12855588',doi='10.1016/j.isci.2025.114581',title='Study on sodium ion supplementation performance of CNT-coated sodium oxalate in sodium ion batteries',journal='iScience',year=2025),
+     resolved_ids=ResolvedIds(pmid='41623473',pmcid='PMC12855588',versioned_pmcid='PMC12855588.1',doi='10.1016/j.isci.2025.114581'),
+     route_flags=RouteFlags(pmc=True,publisher_oa=False,unpaywall=False,repository=False),
+@@ -50,7 +50,7 @@
+     ], terminal_state='blocked',terminal_message='Structured JATS is definitively available from the world-readable PMC AWS dataset, but current ChatGPT-native transport cannot materialize the XML bytes.',terminal_reason_code=RuntimeFailureCode.RESPONSE_NOT_MATERIALIZABLE,
+     metrics={'tool_discovery_actions':2},metadata={'regression_role':'pmc_structured_jats_transport_block','jats_available':True,'pdf_available':True,'license':'CC BY'}
+ ))
+-specs.append(AcquisitionSpec(
++specs.append(AcquisitionReplaySpec(
+     pmid='20566676', identity=ArticleIdentity(pmid='20566676',pmcid='PMC2945163',doi='10.2337/dc10-0612',title='Dapagliflozin monotherapy in type 2 diabetic patients with inadequate glycemic control by diet and exercise: a randomized, double-blind, placebo-controlled, phase 3 trial',journal='Diabetes Care',year=2010),
+     resolved_ids=ResolvedIds(pmid='20566676',pmcid='PMC2945163',doi='10.2337/dc10-0612'),
+     route_flags=RouteFlags(pmc=True,publisher_oa=False,unpaywall=False,repository=False),
+@@ -60,7 +60,7 @@
+     ], terminal_state='blocked',terminal_message='PMC OA full text is identified, but the current ChatGPT-native transport could not materialize the linked PDF bytes.',terminal_reason_code=RuntimeFailureCode.RESPONSE_NOT_MATERIALIZABLE,
+     metrics={'tool_discovery_actions':4},metadata={'regression_role':'pmc_pdf_transport_block','license':'CC BY-NC-ND 3.0'}
+ ))
+-specs.append(AcquisitionSpec(
++specs.append(AcquisitionReplaySpec(
+     pmid='24766495', identity=ArticleIdentity(pmid='24766495',pmcid=None,doi='10.1111/dom.12307',title='Efficacy and safety of empagliflozin for type 2 diabetes: a systematic review and meta-analysis',journal='Diabetes, Obesity and Metabolism',year=2014),
+     resolved_ids=ResolvedIds(pmid='24766495',doi='10.1111/dom.12307'),
+     route_flags=RouteFlags(pmc=True,publisher_oa=True,unpaywall=True,repository=True),
+@@ -80,7 +80,7 @@
+ individual_root.mkdir(parents=True,exist_ok=True)
+ executions=[]
+ for spec in specs:
+-    ex=acquire_one(spec, individual_root)
++    ex=replay_acquisition(spec, individual_root)
+     executions.append(ex)
+     print('IND',spec.pmid,ex.state.value,ex.elapsed_ms,ex.manifest_path)
+ 
+
+--- tests ---
+diff -ruN '--exclude=__pycache__' /mnt/data/v042baseline/tests/historical_prompt5_evidence.py /mnt/data/v043work/tests/historical_prompt5_evidence.py
+--- /mnt/data/v042baseline/tests/historical_prompt5_evidence.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/v043work/tests/historical_prompt5_evidence.py	2026-08-21 23:54:46.000000000 +0000
+@@ -0,0 +1,58 @@
++import json
++from pathlib import Path
++
++from scholar_acquire.integrity import verify_build_manifest
++
++ROOT = Path(__file__).resolve().parents[1]
++REPORT = ROOT / "PROMPT5_REGRESSION_REPORT.json"
++
++
++def report():
++    return json.loads(REPORT.read_text(encoding="utf-8"))
++
++
++def test_runtime_build_integrity():
++    assert verify_build_manifest()["integrity_verified"] is True
++
++
++def test_embedded_report_has_all_ten_items_and_required_fields():
++    r = report()
++    assert r["runtime_version"] == "0.4.2"
++    assert r["regression_set_size"] == 10
++    assert len(r["items"]) == 10
++    for item in r["items"]:
++        assert item["pmid"]
++        assert item["resolved_ids"]["pmid"] == item["pmid"]
++        assert item["state"] in {"success", "blocked", "exhausted", "failed"}
++        assert item["attempts"]
++        assert item["run_receipt"]
++        assert item["event_journal"]
++        assert item["manifest"]
++        assert item["terminal_outcome"]
++
++
++def test_reported_success_payloads_and_handoff_contracts():
++    r = report()
++    successes = [x for x in r["items"] if x["state"] == "success"]
++    assert len(successes) == 7
++    for item in successes:
++        assert item["artifacts"]
++        assert item["handoff"] is not None
++        assert item["handoff_receipt"]
++        for artifact in item["artifacts"]:
++            assert len(artifact["sha256"]) == 64
++            assert artifact["size_bytes"] > 0
++            assert artifact["source_url"]
++
++
++def test_no_false_success_and_no_identity_mismatch():
++    metrics = report()["metrics"]
++    assert metrics["false_success_rate"] == 0.0
++    assert metrics["identity_mismatch_rate"] == 0.0
++
++
++def test_batch_is_semantically_equivalent():
++    r = report()
++    assert len(r["batch_equivalence"]) == 10
++    assert all(r["batch_equivalence"].values())
++    assert r["metrics"]["batch_semantic_equivalence_rate"] == 1.0
+diff -ruN '--exclude=__pycache__' /mnt/data/v042baseline/tests/test_prompt1_contract.py /mnt/data/v043work/tests/test_prompt1_contract.py
+--- /mnt/data/v042baseline/tests/test_prompt1_contract.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/v043work/tests/test_prompt1_contract.py	2026-08-22 00:18:19.413093088 +0000
+@@ -0,0 +1,150 @@
++import inspect
++from pathlib import Path
++
++import pytest
++
++from scholar_acquire import (
++    AcquisitionConfig,
++    AcquisitionReplaySpec,
++    CapabilityStatus,
++    HostRequestKind,
++    IdentityObservation,
++    RouteCapabilityRegistry,
++    RouteObservation,
++    RouteObservationKind,
++    acquire_one,
++    replay_acquisition,
++)
++from scholar_acquire.models import RuntimeState
++from scholar_acquire import AcquisitionRoute
++
++
++class ScenarioHost:
++    def __init__(self, kind: RouteObservationKind):
++        self.kind = kind
++
++    def observe(self, request):
++        if request.kind == HostRequestKind.RESOLVE_IDENTITY:
++            return IdentityObservation(
++                request_id=request.request_id,
++                pmid=request.identifier.value,
++                title="Prompt one contract test article",
++                journal="Test Journal",
++                year=2026,
++                evidence_source=f"https://pubmed.ncbi.nlm.nih.gov/{request.identifier.value}/",
++                evidence_method="test host metadata observation",
++            )
++        return RouteObservation(
++            request_id=request.request_id,
++            route=request.route,
++            kind=self.kind,
++            action="test_route_observation",
++            evidence_source=(
++                "https://example.org/definitive-provider-record"
++                if self.kind == RouteObservationKind.DEFINITIVE_NO_RESULT
++                else None
++            ),
++            message=self.kind.value,
++        )
++
++
++def one_route_config() -> AcquisitionConfig:
++    return AcquisitionConfig(
++        route_capabilities=RouteCapabilityRegistry(
++            pmc=CapabilityStatus.EXPERIMENTAL,
++            publisher_oa=CapabilityStatus.DISABLED,
++            unpaywall=CapabilityStatus.DISABLED,
++            repository=CapabilityStatus.DISABLED,
++        )
++    )
++
++
++def test_production_api_starts_from_identifier_and_configuration():
++    params = list(inspect.signature(acquire_one).parameters)
++    assert params == ["identifier", "config", "root", "host", "transports"]
++    assert "terminal_state" not in AcquisitionConfig.model_fields
++    assert "identity" not in AcquisitionConfig.model_fields
++    assert "artifacts" not in AcquisitionConfig.model_fields
++    assert "attempts" not in AcquisitionConfig.model_fields
++
++
++def test_replay_is_explicitly_separate():
++    assert AcquisitionReplaySpec is not None
++    assert replay_acquisition is not acquire_one
++    assert "terminal_state" in AcquisitionReplaySpec.model_fields
++    assert "artifacts" in AcquisitionReplaySpec.model_fields
++
++
++def test_initial_capability_registry_claims_no_supported_routes():
++    registry = RouteCapabilityRegistry()
++    assert registry.pmc == CapabilityStatus.EXPERIMENTAL
++    assert registry.publisher_oa == CapabilityStatus.EXPERIMENTAL
++    assert registry.unpaywall == CapabilityStatus.EXPERIMENTAL
++    assert registry.repository == CapabilityStatus.EXPERIMENTAL
++    assert CapabilityStatus.SUPPORTED not in {
++        registry.pmc,
++        registry.publisher_oa,
++        registry.unpaywall,
++        registry.repository,
++    }
++
++
++@pytest.mark.parametrize(
++    "kind",
++    [
++        RouteObservationKind.TRANSPORT_ERROR,
++        RouteObservationKind.TIMEOUT,
++        RouteObservationKind.CAPTCHA,
++        RouteObservationKind.RESPONSE_NOT_MATERIALIZABLE,
++        RouteObservationKind.UNKNOWN,
++        RouteObservationKind.SEARCH_ABSENCE,
++        RouteObservationKind.SKIPPED,
++    ],
++)
++def test_uncertain_or_transport_conditions_cannot_force_exhausted(tmp_path: Path, kind):
++    execution = acquire_one(
++        identifier="12345678",
++        config=one_route_config(),
++        root=tmp_path / kind.value,
++        host=ScenarioHost(kind),
++    )
++    assert execution.state == RuntimeState.BLOCKED
++    assert execution.terminal_outcome is not None
++    assert execution.terminal_outcome.provider_exhaustion_confirmed is False
++    assert execution.manifest_path and execution.manifest_path.is_file()
++    assert execution.run_receipt.is_file()
++    assert execution.event_journal.is_file()
++
++
++def test_exhausted_requires_definitive_negative_evidence_for_every_enabled_route(tmp_path: Path):
++    execution = acquire_one(
++        identifier="12345678",
++        config=one_route_config(),
++        root=tmp_path / "definitive",
++        host=ScenarioHost(RouteObservationKind.DEFINITIVE_NO_RESULT),
++    )
++    assert execution.state == RuntimeState.EXHAUSTED
++    assert execution.terminal_outcome is not None
++    assert execution.terminal_outcome.provider_exhaustion_confirmed is True
++    attempts = execution.terminal_outcome.provider_attempts
++    assert len(attempts) == 1
++    assert attempts[0].metadata["definitive_negative"] is True
++
++
++def test_unexecuted_enabled_route_prohibits_exhausted(tmp_path: Path):
++    config = AcquisitionConfig(
++        route_capabilities=RouteCapabilityRegistry(
++            pmc=CapabilityStatus.DISABLED,
++            publisher_oa=CapabilityStatus.DISABLED,
++            unpaywall=CapabilityStatus.DISABLED,
++            repository=CapabilityStatus.DISABLED,
++        )
++    )
++    execution = acquire_one(
++        identifier="12345678",
++        config=config,
++        root=tmp_path / "none-enabled",
++        host=ScenarioHost(RouteObservationKind.DEFINITIVE_NO_RESULT),
++    )
++    assert execution.state == RuntimeState.BLOCKED
++    assert execution.terminal_outcome.provider_exhaustion_confirmed is False
+diff -ruN '--exclude=__pycache__' /mnt/data/v042baseline/tests/test_prompt5_evidence.py /mnt/data/v043work/tests/test_prompt5_evidence.py
+--- /mnt/data/v042baseline/tests/test_prompt5_evidence.py	2026-08-21 23:54:46.000000000 +0000
++++ /mnt/data/v043work/tests/test_prompt5_evidence.py	1970-01-01 00:00:00.000000000 +0000
+@@ -1,58 +0,0 @@
+-import json
+-from pathlib import Path
+-
+-from scholar_acquire.integrity import verify_build_manifest
+-
+-ROOT = Path(__file__).resolve().parents[1]
+-REPORT = ROOT / "PROMPT5_REGRESSION_REPORT.json"
+-
+-
+-def report():
+-    return json.loads(REPORT.read_text(encoding="utf-8"))
+-
+-
+-def test_runtime_build_integrity():
+-    assert verify_build_manifest()["integrity_verified"] is True
+-
+-
+-def test_embedded_report_has_all_ten_items_and_required_fields():
+-    r = report()
+-    assert r["runtime_version"] == "0.4.2"
+-    assert r["regression_set_size"] == 10
+-    assert len(r["items"]) == 10
+-    for item in r["items"]:
+-        assert item["pmid"]
+-        assert item["resolved_ids"]["pmid"] == item["pmid"]
+-        assert item["state"] in {"success", "blocked", "exhausted", "failed"}
+-        assert item["attempts"]
+-        assert item["run_receipt"]
+-        assert item["event_journal"]
+-        assert item["manifest"]
+-        assert item["terminal_outcome"]
+-
+-
+-def test_reported_success_payloads_and_handoff_contracts():
+-    r = report()
+-    successes = [x for x in r["items"] if x["state"] == "success"]
+-    assert len(successes) == 7
+-    for item in successes:
+-        assert item["artifacts"]
+-        assert item["handoff"] is not None
+-        assert item["handoff_receipt"]
+-        for artifact in item["artifacts"]:
+-            assert len(artifact["sha256"]) == 64
+-            assert artifact["size_bytes"] > 0
+-            assert artifact["source_url"]
+-
+-
+-def test_no_false_success_and_no_identity_mismatch():
+-    metrics = report()["metrics"]
+-    assert metrics["false_success_rate"] == 0.0
+-    assert metrics["identity_mismatch_rate"] == 0.0
+-
+-
+-def test_batch_is_semantically_equivalent():
+-    r = report()
+-    assert len(r["batch_equivalence"]) == 10
+-    assert all(r["batch_equivalence"].values())
+-    assert r["metrics"]["batch_semantic_equivalence_rate"] == 1.0

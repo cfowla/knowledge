@@ -1,0 +1,80 @@
+{
+  "schema_version": "1",
+  "repair_version": "0.4.3",
+  "prompt": 2,
+  "title": "Integrate transport before re-earning providers",
+  "hard_gate_passed": true,
+  "hard_gates": [
+    {"gate": 1, "status": "PASS", "evidence": "Shared schema-v2 TransportRequest/TransportResponse contract is used by ChatGptNativeMaterializedTransport and the remote worker."},
+    {"gate": 2, "status": "PASS", "evidence": "remote_worker/transport_worker.py performs GET/HEAD, response capture, byte counting, checksumming, timing, and error capture only; it contains no identifier resolution, OA/provider selection, scholarly validation, terminal-state assignment, or manifest generation."},
+    {"gate": 3, "status": "PASS", "evidence": "Production acquire_one() for PMID 24782981 emitted NEEDS_FETCH for PMC fullTextXML after native transport returned not_materialized; resume_acquire_one() ingested the correlated remote TransportResponse in the same serialized session and completed SUCCESS."},
+    {"gate": 4, "status": "PASS", "evidence": "GitHub Actions run 32540936432 completed successfully and returned exact materialized bytes for both live transport checks."},
+    {"gate": 5, "status": "PASS", "evidence": "Europe PMC / PMC3995050/fullTextXML, previously blocked by native materialization limits, returned HTTP 200 and 131980 bytes remotely."},
+    {"gate": 6, "status": "PASS", "evidence": "Python independently recomputed the raw JATS transport SHA-256 f5be0435...9185, verified it against the transport checksum, extracted/normalized JATS, verified exact article identity, validated the scholarly payload, and wrote final artifact SHA-256 0c637ff8...a8000."},
+    {"gate": 7, "status": "PASS", "evidence": "Contract tests prove transport errors cannot yield EXHAUSTED; absent native materialization falls through to remote; uncertain transport remains BLOCKED/NEEDS_FETCH as applicable."},
+    {"gate": 8, "status": "PASS", "evidence": "Requests, responses, exact transport payloads, transport checksums, runtime journals/receipts, manifests, GitHub Actions logs/artifact metadata, and portable evidence copies are preserved."}
+  ],
+  "tests": {
+    "command": "PYTHONPATH=src pytest -q",
+    "passed": 20,
+    "failed": 0,
+    "result_file": "evidence/TEST_RESULTS.txt"
+  },
+  "live_article": {
+    "requested_pmid": "24782981",
+    "resolved": {
+      "pmid": "24782981",
+      "pmcid": "PMC3995050",
+      "doi": "10.3389/fonc.2014.00064",
+      "title": "Targeting PI3K/Akt/mTOR Signaling in Cancer"
+    }
+  },
+  "ordinary_pdf_parity": {
+    "url": "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2014.00064/pdf",
+    "native_status": 200,
+    "remote_status": 200,
+    "native_byte_count": 810232,
+    "remote_byte_count": 810232,
+    "native_sha256": "54465e3c056b86551d8c5d865b0685d01a5f4fa2c11bc705a479768b3efc63cb",
+    "remote_sha256": "54465e3c056b86551d8c5d865b0685d01a5f4fa2c11bc705a479768b3efc63cb",
+    "exact_byte_parity": true
+  },
+  "pmc_jats_remote_proof": {
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3995050/fullTextXML",
+    "request_id": "2b4bc78727691472cf8c4a54",
+    "correlation_id": "4219e019eb42581c04821046",
+    "remote_status": 200,
+    "transport_byte_count": 131980,
+    "transport_sha256": "f5be043577f1f27a2403586b269eeb66570fbc27f79c3f1fa1efa391c9199185",
+    "python_raw_sha256": "f5be043577f1f27a2403586b269eeb66570fbc27f79c3f1fa1efa391c9199185",
+    "identity_decision": "match",
+    "matched_identity_fields": ["doi", "pmid", "pmcid", "title"],
+    "title_similarity": 1.0,
+    "normalized_jats_byte_count": 120534,
+    "normalized_jats_sha256": "0c637ff86f8582ca96341efe2ac21ad3162d352108ae3039cfef00fe750a8000",
+    "runtime_state": "success"
+  },
+  "remote_execution": {
+    "repository": "cfowla/Projects",
+    "branch": "acquisition-runtime-v043-prompt2-proof",
+    "pull_request": "https://github.com/cfowla/Projects/pull/1",
+    "head_sha": "232e44b5989f129293bf3ee833e7a37538486248",
+    "workflow_run_id": 32540936432,
+    "job_id": 96950686843,
+    "conclusion": "success",
+    "artifact_id": 9466985839,
+    "artifact_sha256": "10d0542daa707ee9776bc021c50d494603db49fec1df71552da1d605d1988a32"
+  },
+  "capability_state": {
+    "pmc": "experimental",
+    "note": "Prompt 2 proves transport materialization only. Provider support promotion is intentionally deferred to Prompt 3."
+  },
+  "discrepancies": [
+    {"id": "P2-D1", "status": "FIXED", "description": "Prompt 1 stored v0_4.transport as scalar 'chatgpt_native', while Prompt 2 needs structured transport evidence. The controller now migrates the scalar compatibly and retains it as legacy_transport_label."},
+    {"id": "P2-D2", "status": "FIXED", "description": "AcquisitionConfig.want_structured and want_pdf existed in Prompt 1 but did not control runtime policy. Prompt 2 wires both flags into the production acquisition policy."},
+    {"id": "P2-D3", "status": "FIXED", "description": "Initial Prompt 2 registry semantics treated a native no-bytes result as deferred, which prevented remote fallback. Native non-materialization now continues to remote; only a deferred remote response suspends the controller."},
+    {"id": "P2-D4", "status": "RETAINED_COMPATIBILITY", "description": "The repository still includes the legacy schema-v1 ExternalFetchRequest used by the older tool-mediated provider engine. It is not used by production acquire_one() or the Prompt 2 remote worker. The single-contract guarantee therefore applies to the repaired production acquisition transport path, not every historical compatibility API in the repository."},
+    {"id": "P2-D5", "status": "TOOLING_ADAPTATION", "description": "The connected GitHub API could not enumerate the initial push-triggered run through the available connector action. A same-repository draft PR trigger was added so the live remote run, jobs, logs, and artifacts could be retrieved and preserved. Remote execution remained real GitHub Actions."},
+    {"id": "P2-D6", "status": "EXPECTED", "description": "The raw Europe PMC transport checksum differs from the final JATS artifact checksum because Python extracts/normalizes the canonical <article> payload. Both hashes and both byte counts are preserved, and Python verifies the raw transport hash before normalization."}
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "runtime_version": "0.4.3",
+  "prompt": "Prompt 3 of V0.4.3_REPAIR_5_PROMPT_STRATEGY.md",
+  "hard_gate": "BLOCKED",
+  "stop_reason": "Route C positive proof cannot be executed because current Unpaywall v2 requires a caller email parameter and no authorized contact email is configured. Per Prompt 3 sequencing, Route D was not attempted.",
+  "routes": {
+    "pmc": {
+      "capability": "supported",
+      "positive": "PASS",
+      "negative": "PASS",
+      "positive_pmid": "24782981",
+      "pmcid": "PMC3995050",
+      "doi": "10.3389/fonc.2014.00064",
+      "positive_state": "SUCCESS",
+      "run_id": "acq-e17e00f3bb98",
+      "manifest": "evidence/prompt3/final_pmc_positive/run/session-e17e00f3bb98/output/24782981/manifest.json",
+      "artifacts": [
+        {
+          "format": "jats_xml",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3995050.1/PMC3995050.1.xml",
+          "sha256": "ee7cdad7ae26e26dfe3d51965beba50b967e99ec446c4a1c925890a494401589",
+          "size_bytes": 126350,
+          "version": "publishedVersion",
+          "license": "CC BY"
+        },
+        {
+          "format": "pdf",
+          "source_url": "https://pmc-oa-opendata.s3.amazonaws.com/PMC3995050.1/PMC3995050.1.pdf",
+          "sha256": "54465e3c056b86551d8c5d865b0685d01a5f4fa2c11bc705a479768b3efc63cb",
+          "size_bytes": 810232,
+          "version": "publishedVersion",
+          "license": "CC BY"
+        }
+      ],
+      "preferred_payload": "article.xml",
+      "secondary_payload": "article.pdf",
+      "negative_pmid": "24766495",
+      "negative_state": "exhausted",
+      "negative_manifest": "evidence/prompt3/pmc_negative/run/session-5940c4025933/acquisition_manifest.json"
+    },
+    "publisher_oa": {
+      "capability": "supported",
+      "positive": "PASS",
+      "negative": "PASS",
+      "positive_pmid": "35124914",
+      "positive_state": "SUCCESS",
+      "run_id": "acq-5b73a523d8ef",
+      "manifest": "evidence/prompt3/publisher_positive/run/session-5b73a523d8ef/output/35124914/manifest.json",
+      "artifacts": [
+        {
+          "format": "pdf",
+          "source_url": "https://www.jamc.ayubmed.edu.pk/index.php/jamc/article/download/9089/3174",
+          "sha256": "ab78e51b14f60002b117c1d3e3059470948a671a80773bc694d732a0d0606304",
+          "size_bytes": 504544,
+          "version": "publishedVersion",
+          "license": null
+        }
+      ],
+      "publisher_family": "Journal of Ayub Medical College Abbottabad",
+      "negative_pmid": "35124914",
+      "negative_state": "blocked",
+      "negative_manifest": "evidence/prompt3/publisher_negative/run/session-ee44dbd0a9ef/acquisition_manifest.json"
+    },
+    "unpaywall": {
+      "capability": "experimental",
+      "positive": "BLOCKED_NOT_EXECUTED",
+      "negative": "PASS_BLOCKED_SEMANTICS",
+      "blocked_pmid": "24782981",
+      "blocked_state": "blocked",
+      "blocked_manifest": "evidence/prompt3/unpaywall_blocked/run/session-d50a3f4f4a8c/acquisition_manifest.json",
+      "reason": "Unpaywall v2 requires an email query parameter. Runtime checked SCHOLAR_FETCH_EMAIL, UNPAYWALL_EMAIL, and NCBI_EMAIL; none was configured. No placeholder or user identity was invented."
+    },
+    "repository": {
+      "capability": "experimental",
+      "positive": "NOT_ATTEMPTED",
+      "negative": "NOT_ATTEMPTED",
+      "reason": "Prompt 3 says do not enable/test repository route until the Unpaywall positive succeeds; Route C is blocked."
+    }
+  },
+  "hard_exit_gates": {
+    "1_real_pmc_jats": "PASS",
+    "2_same_pmc_identity_pdf": "PASS",
+    "3_all_four_routes_positive": "FAIL_BLOCKED_AT_UNPAYWALL",
+    "4_each_route_negative_or_blocked": "INCOMPLETE_REPOSITORY_NOT_REACHED",
+    "5_every_success_full_evidence": "PASS_FOR_EXECUTED_SUCCESSES",
+    "6_no_support_without_proof": "PASS",
+    "7_single_item_acquire_one_no_batch": "PASS",
+    "8_no_host_supplied_success_or_exhaustion": "PASS"
+  },
+  "tests": {
+    "result": "26 passed, 0 failed",
+    "path": "evidence/prompt3/summary/TEST_RESULTS.txt"
+  },
+  "discrepancies": [
+    {
+      "id": "P3-D1",
+      "status": "REPAIRED",
+      "issue": "Production controller terminated SUCCESS after the first admitted artifact, preventing requested PMC JATS+PDF retention.",
+      "repair": "Added requested-payload completion policy and multi-location continuation across transport suspension/resume."
+    },
+    {
+      "id": "P3-D2",
+      "status": "REPAIRED",
+      "issue": "Host contract could preselect an Unpaywall OA location, violating Python-owned selection.",
+      "repair": "Added raw Unpaywall DOI-object/location observations and Python-owned ranking/admission policy."
+    },
+    {
+      "id": "P3-D3",
+      "status": "REPAIRED",
+      "issue": "Current PMC S3 objects may report binary/octet-stream, causing strict expected-media-type rejection before scholarly validation.",
+      "repair": "Treat generic octet-stream as non-informative and rely on Python JATS/PDF content validation."
+    },
+    {
+      "id": "P3-D4",
+      "status": "ADAPTED",
+      "issue": "PMC is migrating away from legacy OA dataset endpoints during this repair window.",
+      "repair": "Live Route A used current versioned PMC Cloud Service objects rather than legacy OA Web Service."
+    },
+    {
+      "id": "P3-D5",
+      "status": "BLOCKING",
+      "issue": "Unpaywall v2 requires caller email, but no authorized contact email is configured.",
+      "effect": "Route C positive cannot be lawfully executed; it remains experimental. Prompt 3 stops before Route D."
+    }
+  ]
+}

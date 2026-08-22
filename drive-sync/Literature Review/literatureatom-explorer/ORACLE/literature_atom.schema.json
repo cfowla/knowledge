@@ -1,0 +1,1069 @@
+{
+  "$defs": {
+    "ArmObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "arm_label": {
+          "minLength": 1,
+          "title": "Arm Label",
+          "type": "string"
+        },
+        "event_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Event Count"
+        },
+        "sample_size": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sample Size"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        }
+      },
+      "required": [
+        "arm_label"
+      ],
+      "title": "ArmObservation",
+      "type": "object"
+    },
+    "AssertionOrigin": {
+      "enum": [
+        "directly_reported",
+        "normalized_from_source",
+        "calculated_from_reported_data",
+        "extractor_inference"
+      ],
+      "title": "AssertionOrigin",
+      "type": "string"
+    },
+    "AtomKind": {
+      "enum": [
+        "study_objective",
+        "eligibility_criterion",
+        "population_description",
+        "intervention_description",
+        "exposure_description",
+        "comparator_description",
+        "outcome_definition",
+        "method",
+        "quantitative_result",
+        "qualitative_result",
+        "adverse_event",
+        "subgroup_result",
+        "author_conclusion",
+        "limitation",
+        "funding_disclosure",
+        "conflict_of_interest",
+        "data_availability",
+        "other"
+      ],
+      "title": "AtomKind",
+      "type": "string"
+    },
+    "ConceptRef": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "code": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Code"
+        },
+        "system": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "System"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "ConceptRef",
+      "type": "object"
+    },
+    "ExposureDescriptor": {
+      "additionalProperties": false,
+      "properties": {
+        "concept": {
+          "$ref": "#/$defs/ConceptRef"
+        },
+        "role": {
+          "$ref": "#/$defs/ExposureRole"
+        },
+        "dose_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dose Value"
+        },
+        "dose_unit": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dose Unit"
+        },
+        "route": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Route"
+        },
+        "frequency": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Frequency"
+        },
+        "duration": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Duration"
+        },
+        "details": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Details"
+        }
+      },
+      "required": [
+        "concept",
+        "role"
+      ],
+      "title": "ExposureDescriptor",
+      "type": "object"
+    },
+    "ExposureRole": {
+      "enum": [
+        "intervention",
+        "exposure",
+        "comparator",
+        "control",
+        "diagnostic_test",
+        "reference_standard"
+      ],
+      "title": "ExposureRole",
+      "type": "string"
+    },
+    "ExtractionProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "extractor_type": {
+          "$ref": "#/$defs/ExtractorType"
+        },
+        "extractor_identifier": {
+          "minLength": 1,
+          "title": "Extractor Identifier",
+          "type": "string"
+        },
+        "extracted_at": {
+          "format": "date-time",
+          "title": "Extracted At",
+          "type": "string"
+        },
+        "software_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Software Name"
+        },
+        "software_version": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Software Version"
+        },
+        "model_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Name"
+        },
+        "model_version": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Version"
+        },
+        "prompt_version": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Prompt Version"
+        },
+        "input_document_hash": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Input Document Hash"
+        },
+        "extraction_run_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Extraction Run Id"
+        },
+        "reviewer_identifier": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewer Identifier"
+        },
+        "reviewed_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed At"
+        }
+      },
+      "required": [
+        "extractor_type",
+        "extractor_identifier",
+        "extracted_at"
+      ],
+      "title": "ExtractionProvenance",
+      "type": "object"
+    },
+    "ExtractorType": {
+      "enum": [
+        "human",
+        "language_model",
+        "rule_based",
+        "import",
+        "hybrid"
+      ],
+      "title": "ExtractorType",
+      "type": "string"
+    },
+    "IntervalEstimate": {
+      "additionalProperties": false,
+      "properties": {
+        "lower": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Lower"
+        },
+        "upper": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Upper"
+        },
+        "confidence_level_percent": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "maximum": 100.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "95",
+          "title": "Confidence Level Percent"
+        },
+        "interval_type": {
+          "$ref": "#/$defs/IntervalType",
+          "default": "confidence_interval"
+        }
+      },
+      "required": [
+        "lower",
+        "upper"
+      ],
+      "title": "IntervalEstimate",
+      "type": "object"
+    },
+    "IntervalType": {
+      "enum": [
+        "confidence_interval",
+        "credible_interval",
+        "prediction_interval",
+        "range",
+        "interquartile_range",
+        "other"
+      ],
+      "title": "IntervalType",
+      "type": "string"
+    },
+    "OutcomeDescriptor": {
+      "additionalProperties": false,
+      "properties": {
+        "concept": {
+          "$ref": "#/$defs/ConceptRef"
+        },
+        "definition": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Definition"
+        },
+        "outcome_type": {
+          "$ref": "#/$defs/OutcomeType",
+          "default": "not_specified"
+        },
+        "measurement_method": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Measurement Method"
+        },
+        "time_horizon_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Time Horizon Value"
+        },
+        "time_horizon_unit": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Time Horizon Unit"
+        }
+      },
+      "required": [
+        "concept"
+      ],
+      "title": "OutcomeDescriptor",
+      "type": "object"
+    },
+    "OutcomeType": {
+      "enum": [
+        "primary",
+        "secondary",
+        "exploratory",
+        "safety",
+        "surrogate",
+        "composite",
+        "not_specified"
+      ],
+      "title": "OutcomeType",
+      "type": "string"
+    },
+    "PopulationDescriptor": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Label"
+        },
+        "sample_size": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sample Size"
+        },
+        "subgroup": {
+          "default": false,
+          "title": "Subgroup",
+          "type": "boolean"
+        },
+        "inclusion_criteria": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Inclusion Criteria",
+          "type": "array"
+        },
+        "exclusion_criteria": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Exclusion Criteria",
+          "type": "array"
+        }
+      },
+      "title": "PopulationDescriptor",
+      "type": "object"
+    },
+    "QuantitativeResult": {
+      "additionalProperties": false,
+      "properties": {
+        "effect_measure": {
+          "minLength": 1,
+          "title": "Effect Measure",
+          "type": "string"
+        },
+        "estimate": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Estimate"
+        },
+        "interval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/IntervalEstimate"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "p_value": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P Value"
+        },
+        "p_value_text": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "P Value Text"
+        },
+        "adjusted": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Adjusted"
+        },
+        "adjustment_variables": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Adjustment Variables",
+          "type": "array"
+        },
+        "arms": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArmObservation"
+          },
+          "title": "Arms",
+          "type": "array"
+        },
+        "original_result_text": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Original Result Text"
+        }
+      },
+      "required": [
+        "effect_measure",
+        "estimate"
+      ],
+      "title": "QuantitativeResult",
+      "type": "object"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "draft",
+        "extracted",
+        "needs_review",
+        "verified",
+        "rejected",
+        "superseded"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    },
+    "SourceAnchor": {
+      "additionalProperties": false,
+      "properties": {
+        "section": {
+          "$ref": "#/$defs/SourceSection"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page"
+        },
+        "paragraph": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Paragraph"
+        },
+        "sentence": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sentence"
+        },
+        "table": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Table"
+        },
+        "table_row": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Table Row"
+        },
+        "table_column": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Table Column"
+        },
+        "figure": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Figure"
+        },
+        "supplement": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Supplement"
+        },
+        "character_start": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Character Start"
+        },
+        "character_end": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Character End"
+        },
+        "verbatim_excerpt": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verbatim Excerpt"
+        },
+        "excerpt_hash": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Excerpt Hash"
+        }
+      },
+      "required": [
+        "section"
+      ],
+      "title": "SourceAnchor",
+      "type": "object"
+    },
+    "SourceSection": {
+      "enum": [
+        "abstract",
+        "introduction",
+        "methods",
+        "results",
+        "discussion",
+        "conclusion",
+        "table",
+        "figure",
+        "supplement",
+        "other"
+      ],
+      "title": "SourceSection",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Minimum viable atom with optional normalized result context.\n\nSystem-owned identifiers and timestamps are generated when omitted but are\nalways present on a validated instance and in serialized output.",
+  "properties": {
+    "atom_id": {
+      "format": "uuid",
+      "title": "Atom Id",
+      "type": "string"
+    },
+    "publication_id": {
+      "format": "uuid",
+      "title": "Publication Id",
+      "type": "string"
+    },
+    "atom_kind": {
+      "$ref": "#/$defs/AtomKind"
+    },
+    "canonical_statement": {
+      "minLength": 1,
+      "title": "Canonical Statement",
+      "type": "string"
+    },
+    "assertion_origin": {
+      "$ref": "#/$defs/AssertionOrigin"
+    },
+    "source_anchor": {
+      "$ref": "#/$defs/SourceAnchor"
+    },
+    "provenance": {
+      "$ref": "#/$defs/ExtractionProvenance"
+    },
+    "review_status": {
+      "$ref": "#/$defs/ReviewStatus",
+      "default": "draft"
+    },
+    "schema_version": {
+      "default": "1.0",
+      "pattern": "^\\d+\\.\\d+(?:\\.\\d+)?$",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "atom_version": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Atom Version",
+      "type": "integer"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "population": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PopulationDescriptor"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "exposures": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/ExposureDescriptor"
+      },
+      "title": "Exposures",
+      "type": "array"
+    },
+    "outcome": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/OutcomeDescriptor"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "quantitative_result": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/QuantitativeResult"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "supersedes_atom_id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Supersedes Atom Id"
+    },
+    "tags": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Tags",
+      "type": "array"
+    }
+  },
+  "required": [
+    "publication_id",
+    "atom_kind",
+    "canonical_statement",
+    "assertion_origin",
+    "source_anchor",
+    "provenance"
+  ],
+  "title": "LiteratureAtom",
+  "type": "object"
+}

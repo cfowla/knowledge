@@ -1,0 +1,54 @@
+{
+  "schema_version": "1",
+  "decision": "PASS",
+  "authority": "RECONCILED_CANONICAL",
+  "build_id": "scholar-acquire-chatgpt-0.4.3-prompt3-reconciled",
+  "package_tree_sha256": "fc412487fdcaf1fef556c14c18386b86f3382b0a76d3fc345fd1153572524815",
+  "supersedes": [
+    {
+      "classification": "historical_blocked",
+      "source_archive_sha256": "8fd2630a9b578931983394325eefa26bd61219762c182985d0a12ef506fe0ef9",
+      "evidence_archive_sha256": "edb03d9d7b324ac9e838770d78166206c675b879952a689276a97f620d03c007",
+      "package_tree_sha256": "f2b7bd3c23502d629605e31f4f4d76581dda0fcf8d3fc97da389b556ed987b3a",
+      "hard_gate": "BLOCKED_AT_ROUTE_C"
+    },
+    {
+      "classification": "prose_only_claim",
+      "package_tree_sha256_claim": "599992b82ed4f60ce11401ea470ecb60c3debe250fffa71acc5848c3df8f64fe",
+      "disposition": "preserved as corroborating prose; not authority"
+    },
+    {
+      "classification": "stale_preflight",
+      "disposition": "renamed SUPERSEDED in Drive; correctly rejected workflow-level success but predates reconciled machine package"
+    }
+  ],
+  "closed_discrepancies": [
+    "Two same-named Prompt 3 packages/build IDs -> resolved by unique RECONCILED filenames plus exact package-tree/archive hashes.",
+    "Unpaywall experimental -> supported only after replacement production acquire_one() proof: Python selected the Unpaywall publisher OA URL, transport requested and returned that exact URL, identity validated, payload hashed, manifest/receipt/journal written, and runtime assigned SUCCESS; definitive no-OA negative assigned EXHAUSTED / PROVIDER_EXHAUSTED.",
+    "Repository experimental -> Southampton institutional-repository AAM production acquire_one proof; supported.",
+    "Workflow success masking repository 403 -> strict workflow now fails on non-2xx/non-PDF and latest strict gate passed.",
+    "Historical UC eScholarship WAF and publisher Cloudflare failures remain diagnostics only and never route successes. The earlier host-substituted Unpaywall mirror proof is explicitly superseded by the direct selected-location proof.",
+    "Low-level UNKNOWN on definitive exhaustion -> RuntimeFailureCode.PROVIDER_EXHAUSTED added; PMC and Unpaywall negatives re-run and prove corrected code.",
+    "Mixed-build proof concern -> all four positive and negative/blocked acceptance cases re-run under package tree fc412487fdcaf1fef556c14c18386b86f3382b0a76d3fc345fd1153572524815.",
+    "Canonical package missing from Google Drive -> this reconciled source/evidence package is built for transfer and Drive readback.",
+    "Prior Unpaywall positive run 1fbd4f59f99a did not satisfy the required transport chain because the host substituted a PMC mirror after Python selected a Liebert URL; it is preserved as superseded evidence and does not control capability status."
+  ],
+  "generated_at": "2026-08-22T03:22:45.439311+00:00",
+  "phase_b_unpaywall_direct_proof": {
+    "decision": "PASS",
+    "production_path": "acquire_one()",
+    "package_tree_sha256": "fc412487fdcaf1fef556c14c18386b86f3382b0a76d3fc345fd1153572524815",
+    "positive_session_id": "6b347fffeb2a",
+    "negative_session_id": "9e2e6ed67d58",
+    "positive_pmid": "30222367",
+    "positive_doi": "10.1089/dia.2018.0052",
+    "selected_oa_location": "https://www.liebertpub.com/doi/pdf/10.1089/dia.2018.0052",
+    "raw_unpaywall_observation_sha256": "0fcf6f1fa1f2960c81b312584c1fa1b1f77fed9dd7d92ee386d0abb9f38e340a",
+    "artifact_sha256": "7c8853fbd3d414732a78d6d5774413c24a7af02ec9d5c45b4ff707961a2421fc",
+    "transport_invariant": "selected URL == request URL == final URL == artifact source URL",
+    "negative_pmid": "24766495",
+    "negative_doi": "10.1111/dom.12307",
+    "negative_state": "EXHAUSTED",
+    "negative_reason_code": "PROVIDER_EXHAUSTED"
+  }
+}

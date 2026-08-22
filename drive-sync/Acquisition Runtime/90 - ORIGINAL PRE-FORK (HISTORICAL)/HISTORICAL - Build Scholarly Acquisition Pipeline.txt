@@ -1,0 +1,46 @@
+An **installable wheel** (`.whl`) is just Python’s packaged installation format—roughly the Python equivalent of an installer/archive. You would use it on a normal machine with:
+
+```bash id="lpnbwh"
+pip install scholar_acquire_chatgpt-0.2.0-py3-none-any.whl
+```
+
+For what you actually want, **you can ignore the wheel**.
+
+I’d put this into a dedicated ChatGPT Project and let me operate it there. Keep these project files:
+
+- [`scholar-acquire-chatgpt.zip`](sandbox:/mnt/data/scholar-acquire-chatgpt.zip) — the actual source code
+- [`CHATGPT_RUNTIME_PROTOCOL.md`](sandbox:/mnt/data/scholar-acquire-chatgpt/CHATGPT_RUNTIME_PROTOCOL.md) — tells me how the runtime is supposed to operate
+- [`README.md`](sandbox:/mnt/data/scholar-acquire-chatgpt/README.md) — architecture and usage documentation
+
+The `.whl` is only useful if you later decide to run the package yourself in a Codespace, laptop, server, etc.
+
+### How I would use the Project
+
+You could make a Project called something like **Scholarly Acquisition Runtime**, upload those files, and give the Project instructions along the lines of:
+
+> Use the included `scholar-acquire-chatgpt` package as the standard acquisition runtime for scholarly literature. For PMID/PMCID/DOI requests, acquire the best lawful full text available using the runtime protocol. Prefer structured JATS plus PDF where available. Preserve provenance and hashes. Prepare successful acquisitions for ATOM/SEA. Never use Sci-Hub or bypass access controls.
+
+Then your actual prompts can be extremely short:
+
+```text id="4cf97o"
+Acquire PMID 12345678.
+```
+
+or
+
+```text id="w9bgix"
+Acquire these and run ATOM + SEA:
+- 10.xxxx/...
+- PMID ...
+- PMID ...
+```
+
+or even:
+
+```text id="k1ppiu"
+Process the next five papers in my TBR queue.
+```
+
+I handle the source code, runtime state, retrieval, Python execution, manifests, and downstream handoff.
+
+That is probably the better model for you than thinking of this as a Python program you personally need to install and maintain. The **source ZIP + Project instructions become the durable specification**, and I act as the operator/runtime.

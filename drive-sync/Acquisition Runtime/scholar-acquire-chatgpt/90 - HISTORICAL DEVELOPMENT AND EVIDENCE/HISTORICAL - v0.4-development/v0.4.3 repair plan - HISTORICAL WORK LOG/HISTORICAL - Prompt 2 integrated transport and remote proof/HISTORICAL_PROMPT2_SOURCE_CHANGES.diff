@@ -1,0 +1,1749 @@
+diff -ruN '--exclude=.pytest_cache' '--exclude=__pycache__' '--exclude=*.pyc' '--exclude=evidence' /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/remote_worker/transport_worker.py /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/remote_worker/transport_worker.py
+--- /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/remote_worker/transport_worker.py	2026-08-21 23:42:22.000000000 +0000
++++ /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/remote_worker/transport_worker.py	2026-08-22 00:29:38.504169682 +0000
+@@ -1,9 +1,9 @@
+ #!/usr/bin/env python3
+-"""Minimal network transport executor for scholar-acquire-chatgpt.
++"""Transport-only executor for scholar-acquire-chatgpt v0.4.3 Prompt 2.
+ 
+-This worker has deliberately no scholarly/provider logic. It accepts one
+-pre-authorized HTTP(S) request and returns transport facts plus exact response
+-bytes (base64). The Python acquisition runtime remains the decision-maker.
++Input and output implement the same JSON contract used by the Python runtime.
++No identifier resolution, provider choice, OA policy, scholarly validation,
++terminal-state assignment, or acquisition-manifest writing occurs here.
+ """
+ from __future__ import annotations
+ 
+@@ -11,7 +11,6 @@
+ import base64
+ import hashlib
+ import json
+-import sys
+ from datetime import datetime, timezone
+ from pathlib import Path
+ from urllib.error import HTTPError, URLError
+@@ -22,9 +21,36 @@
+ ALLOWED_METHODS = {"GET", "HEAD"}
+ 
+ 
++def _error(request_doc: dict, *, started, exc: Exception) -> dict:
++    finished = datetime.now(timezone.utc)
++    return {
++        "schema_version": "2",
++        "request_id": request_doc.get("request_id"),
++        "correlation_id": request_doc.get("correlation_id"),
++        "transport_name": "github_actions_remote",
++        "transport_kind": "remote",
++        "transport_state": "error",
++        "requested_url": request_doc.get("url"),
++        "final_url": None,
++        "status_code": None,
++        "headers": {},
++        "body_base64": None,
++        "materialized_path": None,
++        "byte_count": None,
++        "transport_checksum": None,
++        "started_at": started.isoformat(),
++        "finished_at": finished.isoformat(),
++        "elapsed_ms": max(0, round((finished - started).total_seconds() * 1000)),
++        "error_type": type(exc).__name__,
++        "error_message": str(exc),
++    }
++
++
+ def execute(request_doc: dict) -> dict:
+     url = str(request_doc.get("url") or "")
+     method = str(request_doc.get("method") or "GET").upper()
++    if not request_doc.get("request_id") or not request_doc.get("correlation_id"):
++        raise ValueError("request_id and correlation_id are required")
+     if method not in ALLOWED_METHODS:
+         raise ValueError(f"method not allowed: {method}")
+     parts = urlsplit(url)
+@@ -32,6 +58,8 @@
+         raise ValueError("url must be absolute http(s)")
+     headers = {str(k): str(v) for k, v in (request_doc.get("headers") or {}).items()}
+     timeout = int(request_doc.get("timeout_seconds") or 60)
++    limit = request_doc.get("max_bytes")
++    limit = min(int(limit), MAX_BYTES) if limit is not None else MAX_BYTES
+     req = Request(url=url, headers=headers, method=method)
+     started = datetime.now(timezone.utc)
+     try:
+@@ -40,38 +68,35 @@
+         except HTTPError as exc:
+             response = exc
+         with response:
+-            body = response.read(MAX_BYTES + 1)
+-            if len(body) > MAX_BYTES:
+-                raise ValueError(f"response exceeds {MAX_BYTES} byte limit")
++            body = response.read(limit + 1) if method != "HEAD" else b""
++            if len(body) > limit:
++                raise ValueError(f"response exceeds authorized {limit} byte limit")
+             status = int(getattr(response, "status", None) or response.getcode())
+             response_headers = {k: v for k, v in response.headers.items()}
+             final_url = response.geturl()
+-    except URLError as exc:
+-        return {
+-            "schema_version": "1",
+-            "request_id": request_doc.get("request_id"),
+-            "transport_state": "error",
+-            "error_type": type(exc).__name__,
+-            "error": str(exc),
+-            "requested_url": url,
+-            "retrieved_at": datetime.now(timezone.utc).isoformat(),
+-        }
++    except (URLError, TimeoutError, OSError, ValueError) as exc:
++        return _error(request_doc, started=started, exc=exc)
+     finished = datetime.now(timezone.utc)
+     return {
+-        "schema_version": "1",
+-        "request_id": request_doc.get("request_id"),
++        "schema_version": "2",
++        "request_id": request_doc["request_id"],
++        "correlation_id": request_doc["correlation_id"],
++        "transport_name": "github_actions_remote",
++        "transport_kind": "remote",
+         "transport_state": "response",
+         "requested_url": url,
+         "final_url": final_url,
+-        "method": method,
+         "status_code": status,
+         "headers": response_headers,
+         "body_base64": base64.b64encode(body).decode("ascii"),
+-        "body_size_bytes": len(body),
+-        "body_sha256": hashlib.sha256(body).hexdigest(),
++        "materialized_path": None,
++        "byte_count": len(body),
++        "transport_checksum": hashlib.sha256(body).hexdigest(),
+         "started_at": started.isoformat(),
+-        "retrieved_at": finished.isoformat(),
+-        "elapsed_ms": round((finished - started).total_seconds() * 1000),
++        "finished_at": finished.isoformat(),
++        "elapsed_ms": max(0, round((finished - started).total_seconds() * 1000)),
++        "error_type": None,
++        "error_message": None,
+     }
+ 
+ 
+@@ -81,18 +106,11 @@
+     parser.add_argument("response_json", type=Path)
+     args = parser.parse_args()
+     request_doc = json.loads(args.request_json.read_text(encoding="utf-8"))
++    started = datetime.now(timezone.utc)
+     try:
+         result = execute(request_doc)
+     except Exception as exc:
+-        result = {
+-            "schema_version": "1",
+-            "request_id": request_doc.get("request_id"),
+-            "transport_state": "error",
+-            "error_type": type(exc).__name__,
+-            "error": str(exc),
+-            "requested_url": request_doc.get("url"),
+-            "retrieved_at": datetime.now(timezone.utc).isoformat(),
+-        }
++        result = _error(request_doc, started=started, exc=exc)
+     args.response_json.parent.mkdir(parents=True, exist_ok=True)
+     args.response_json.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+     return 0 if result.get("transport_state") == "response" else 2
+diff -ruN '--exclude=.pytest_cache' '--exclude=__pycache__' '--exclude=*.pyc' '--exclude=evidence' /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/scripts/prompt2_live_proof.py /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/scripts/prompt2_live_proof.py
+--- /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/scripts/prompt2_live_proof.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/scripts/prompt2_live_proof.py	2026-08-22 00:36:57.357384875 +0000
+@@ -0,0 +1,253 @@
++from __future__ import annotations
++
++import argparse
++import hashlib
++import json
++import shutil
++from pathlib import Path
++from typing import Any
++
++from scholar_acquire import (
++    AcquisitionConfig,
++    AcquisitionRoute,
++    CapabilityStatus,
++    ChatGptNativeMaterializedTransport,
++    DeferredRemoteTransport,
++    HostRequest,
++    HostRequestKind,
++    IdentityObservation,
++    RouteCapabilityRegistry,
++    RouteObservation,
++    RouteObservationKind,
++    TransportLocationObservation,
++    TransportRegistry,
++    TransportResponse,
++    acquire_one,
++    resume_acquire_one,
++)
++from scholar_acquire.models import ArtifactFormat, SourceVersion
++
++PMID = "24782981"
++PMCID = "PMC3995050"
++DOI = "10.3389/fonc.2014.00064"
++TITLE = "Targeting PI3K/Akt/mTOR Signaling in Cancer"
++PDF_URL = "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2014.00064/pdf"
++JATS_URL = f"https://www.ebi.ac.uk/europepmc/webservices/rest/{PMCID}/fullTextXML"
++
++
++class ProofHost:
++    def __init__(self, route: AcquisitionRoute):
++        self.route = route
++
++    def observe(self, request: HostRequest):
++        if request.kind == HostRequestKind.RESOLVE_IDENTITY:
++            return IdentityObservation(
++                request_id=request.request_id,
++                pmid=PMID,
++                pmcid=PMCID,
++                doi=DOI,
++                title=TITLE,
++                journal="Frontiers in Oncology",
++                year=2014,
++                evidence_source="https://pubmed.ncbi.nlm.nih.gov/24782981/",
++                evidence_method="ChatGPT web scholarly lookup; PMID/PMCID/DOI/title matched",
++                metadata={"prompt": 2, "proof_only": True},
++            )
++        if request.kind != HostRequestKind.OBSERVE_ROUTE or request.route != self.route:
++            raise RuntimeError(f"unexpected host request: {request.kind} {request.route}")
++        if self.route == AcquisitionRoute.PUBLISHER_OA:
++            location = TransportLocationObservation(
++                url=PDF_URL,
++                format=ArtifactFormat.PDF,
++                expected_media_type="application/pdf",
++                discovery_provenance={
++                    "method": "Frontiers article page Download PDF link",
++                    "article_url": "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2014.00064/full",
++                },
++                lawful_access_basis="Publisher-hosted open-access article; Creative Commons Attribution license",
++                open_access=True,
++                version=SourceVersion.PUBLISHED,
++                license="CC BY",
++            )
++        elif self.route == AcquisitionRoute.PMC:
++            location = TransportLocationObservation(
++                url=JATS_URL,
++                format=ArtifactFormat.JATS_XML,
++                expected_media_type="application/xml",
++                discovery_provenance={
++                    "method": "Europe PMC documented fullTextXML endpoint for PMC OA full text",
++                    "pmcid": PMCID,
++                },
++                lawful_access_basis="Europe PMC/PMC open-access full-text XML service",
++                open_access=True,
++                version=SourceVersion.PUBLISHED,
++                license="CC BY",
++            )
++        else:
++            raise RuntimeError(f"unexpected proof route: {self.route}")
++        return RouteObservation(
++            request_id=request.request_id,
++            route=self.route,
++            kind=RouteObservationKind.LOCATION_DISCOVERED,
++            action="prompt2_live_transport_proof",
++            locations=[location],
++            evidence_source=location.discovery_provenance.get("article_url") or "https://europepmc.org/RestfulWebService",
++            metadata={"prompt": 2, "proof_only": True},
++        )
++
++
++def caps(route: AcquisitionRoute) -> RouteCapabilityRegistry:
++    values: dict[str, CapabilityStatus] = {
++        "pmc": CapabilityStatus.DISABLED,
++        "publisher_oa": CapabilityStatus.DISABLED,
++        "unpaywall": CapabilityStatus.DISABLED,
++        "repository": CapabilityStatus.DISABLED,
++    }
++    values[route.value] = CapabilityStatus.EXPERIMENTAL
++    return RouteCapabilityRegistry(**values)
++
++
++def _single_request(session_path: Path) -> Path:
++    session = json.loads(session_path.read_text(encoding="utf-8"))
++    session_dir = session_path.parent
++    request_paths = sorted((session_dir / "transport" / "requests").glob("*.json"))
++    if len(request_paths) != 1:
++        raise RuntimeError(f"expected exactly one transport request, got {len(request_paths)}")
++    return request_paths[0]
++
++
++def prepare(root: Path, native_pdf: Path, out: Path) -> dict[str, Any]:
++    out.mkdir(parents=True, exist_ok=True)
++    native_root = root / "native_pdf"
++    remote_root = root / "remote_jats"
++    config_pdf = AcquisitionConfig(
++        want_structured=False,
++        want_pdf=True,
++        route_capabilities=caps(AcquisitionRoute.PUBLISHER_OA),
++    )
++    native_transport = ChatGptNativeMaterializedTransport(
++        {PDF_URL: native_pdf},
++        headers={"content-type": "application/pdf"},
++    )
++    native_execution = acquire_one(
++        PMID,
++        config_pdf,
++        native_root,
++        ProofHost(AcquisitionRoute.PUBLISHER_OA),
++        TransportRegistry([native_transport]),
++    )
++    if native_execution.state.value != "success":
++        raise RuntimeError(f"native integrated proof did not succeed: {native_execution.state}")
++    pdf_request = _single_request(native_execution.session_path)
++    pdf_response_paths = list((native_execution.session_path.parent / "transport" / "responses").glob("*.json"))
++    if len(pdf_response_paths) != 1:
++        raise RuntimeError("native proof did not preserve exactly one response")
++
++    config_jats = AcquisitionConfig(
++        want_structured=True,
++        want_pdf=False,
++        route_capabilities=caps(AcquisitionRoute.PMC),
++    )
++    remote_execution = acquire_one(
++        PMID,
++        config_jats,
++        remote_root,
++        ProofHost(AcquisitionRoute.PMC),
++        TransportRegistry([
++            ChatGptNativeMaterializedTransport({}),
++            DeferredRemoteTransport(),
++        ]),
++    )
++    if remote_execution.state.value != "needs_fetch":
++        raise RuntimeError(f"remote proof did not suspend: {remote_execution.state}")
++    jats_request = _single_request(remote_execution.session_path)
++
++    shutil.copy2(pdf_request, out / "ordinary_pdf_request.json")
++    shutil.copy2(jats_request, out / "pmc_jats_request.json")
++    shutil.copy2(pdf_response_paths[0], out / "ordinary_pdf_native_response.json")
++    summary = {
++        "pmid": PMID,
++        "native_pdf": {
++            "state": native_execution.state.value,
++            "session_path": str(native_execution.session_path),
++            "manifest_path": str(native_execution.manifest_path),
++            "request": str(out / "ordinary_pdf_request.json"),
++            "native_response": str(out / "ordinary_pdf_native_response.json"),
++            "artifact_sha256": native_execution.result.artifacts[0].sha256 if native_execution.result else None,
++        },
++        "remote_jats": {
++            "state": remote_execution.state.value,
++            "session_path": str(remote_execution.session_path),
++            "request": str(out / "pmc_jats_request.json"),
++        },
++    }
++    (out / "prepare_summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
++    return summary
++
++
++def finish(root: Path, proof_dir: Path) -> dict[str, Any]:
++    prep = json.loads((proof_dir / "prepare_summary.json").read_text(encoding="utf-8"))
++    native_response = TransportResponse.model_validate_json((proof_dir / "ordinary_pdf_native_response.json").read_text())
++    remote_pdf_response = TransportResponse.model_validate_json((proof_dir / "ordinary_pdf_remote_response.json").read_text())
++    if native_response.transport_checksum != remote_pdf_response.transport_checksum:
++        raise RuntimeError("native/remote PDF transport checksums differ")
++    if native_response.byte_count != remote_pdf_response.byte_count:
++        raise RuntimeError("native/remote PDF byte counts differ")
++
++    remote_jats_response_path = proof_dir / "pmc_jats_remote_response.json"
++    remote_jats_response = TransportResponse.model_validate_json(remote_jats_response_path.read_text())
++    execution = resume_acquire_one(
++        Path(prep["remote_jats"]["session_path"]),
++        ProofHost(AcquisitionRoute.PMC),
++        response=remote_jats_response,
++    )
++    if execution.state.value != "success":
++        raise RuntimeError(f"integrated JATS resume did not succeed: {execution.state}")
++    artifact = execution.result.artifacts[0]
++    payload = artifact.local_path.read_bytes()
++    result = {
++        "pmid": PMID,
++        "ordinary_parity": {
++            "native_checksum": native_response.transport_checksum,
++            "remote_checksum": remote_pdf_response.transport_checksum,
++            "native_byte_count": native_response.byte_count,
++            "remote_byte_count": remote_pdf_response.byte_count,
++            "equal": native_response.transport_checksum == remote_pdf_response.transport_checksum and native_response.byte_count == remote_pdf_response.byte_count,
++        },
++        "pmc_jats": {
++            "state": execution.state.value,
++            "session_path": str(execution.session_path),
++            "manifest_path": str(execution.manifest_path),
++            "transport_checksum": remote_jats_response.transport_checksum,
++            "transport_byte_count": remote_jats_response.byte_count,
++            "python_artifact_sha256": artifact.sha256,
++            "python_artifact_byte_count": artifact.size_bytes,
++            "artifact_path": str(artifact.local_path),
++            "artifact_recomputed_sha256": hashlib.sha256(payload).hexdigest(),
++            "transport_evidence": [str(p) for p in execution.transport_evidence],
++        },
++    }
++    (proof_dir / "final_summary.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
++    return result
++
++
++def main() -> int:
++    parser = argparse.ArgumentParser()
++    sub = parser.add_subparsers(dest="command", required=True)
++    p = sub.add_parser("prepare")
++    p.add_argument("--root", type=Path, required=True)
++    p.add_argument("--native-pdf", type=Path, required=True)
++    p.add_argument("--out", type=Path, required=True)
++    f = sub.add_parser("finish")
++    f.add_argument("--root", type=Path, required=True)
++    f.add_argument("--proof-dir", type=Path, required=True)
++    args = parser.parse_args()
++    if args.command == "prepare":
++        print(json.dumps(prepare(args.root, args.native_pdf, args.out), indent=2))
++    else:
++        print(json.dumps(finish(args.root, args.proof_dir), indent=2))
++    return 0
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+diff -ruN '--exclude=.pytest_cache' '--exclude=__pycache__' '--exclude=*.pyc' '--exclude=evidence' /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/src/scholar_acquire/RUNTIME_BUILD.json /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/src/scholar_acquire/RUNTIME_BUILD.json
+--- /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/src/scholar_acquire/RUNTIME_BUILD.json	2026-08-22 00:18:30.000000000 +0000
++++ /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/src/scholar_acquire/RUNTIME_BUILD.json	2026-08-22 00:36:58.195133863 +0000
+@@ -2,15 +2,15 @@
+   "schema_version": "1",
+   "package": "scholar-acquire-chatgpt",
+   "version": "0.4.3",
+-  "build_id": "scholar-acquire-chatgpt-0.4.3-repair-prompt1",
+-  "package_tree_sha256": "658750d771749a39671e817314612b596840fce3084b16d75b4e94153acc850a",
++  "build_id": "scholar-acquire-chatgpt-0.4.3-repair-prompt2",
++  "package_tree_sha256": "b7892da4a16c20377f7838749a99649074304dce56ce0a0e1d775a018c05c322",
+   "files": {
+-    "__init__.py": "f8491f93bff127d93e5c895e25ac8e999592daefdfda88fb0dc6dc704f9115a3",
++    "__init__.py": "cbed186478b01866252577b9ebe5074ddad23ea67da979b0e6f9f12c4169dd81",
+     "batch.py": "c0507e7b5e818b4f56d022b37d47472ca54170d596b0c8b9cb301a5eceac80d8",
+     "cache.py": "bab224551f84a73a447abf0b442e2552bb96867bd6c68739ee37efb8a7a74f5f",
+     "capabilities.py": "70cbb5e4a8951abf9163170f00211aa2827c223f470abd2490287d47f70ebeca",
+     "config.py": "918d206817adf4fb05c64bf56d6ca07604bc8b70170a8b26d1bdc0c0c1d9523f",
+-    "controller.py": "e3de7c85ef975bd931e665959c099131604685e0e2c9b12d7ba9fcc7af13f704",
++    "controller.py": "00ff752beed1ac50f055a27163bf8fe152d056e8a04e1e88fe3a0827368c8ca2",
+     "errors.py": "6abd40433c59e1c395ad1d32f4f2e404d1ae7005a3d6c20be81e1c9ad66e9aa7",
+     "http.py": "1019c1976ef2a1c8e0611ef4956e56174b23922f040a84ac44d811fc646a74f3",
+     "identity.py": "f7959e5dc33b206cf0b1a2cc16b452a1f7bd3c4d75d5cc71fe57ae62d0819335",
+@@ -27,10 +27,11 @@
+     "providers/unpaywall.py": "8d1acbbc73236707eec9d0adefa46a95939b4fd53be25af88d2f2fb62782dd5a",
+     "runtime.py": "0c9193e5d854031c0c7e27ec483ee2813c07351069738a2a20345abaeab7757c",
+     "tool_transport.py": "ab37d20eac7a9789cc9d62b8e41c09f1da4b67be8a369d4a298cf83915182b5c",
++    "transport_contract.py": "57ebacca0e2215f0bf146c02a054dd525c90425d12f90ca80172ce7f0f69007f",
+     "utils.py": "6e4a021e599f64575d57e225a8cf5dfa1a94c7b5db27a234cc1fd5e6a2435d11",
+-    "vertical_slice.py": "b055257988d683aa45397e2a215d63cd2a9d57f1fc4854008537ac824ec4b878"
++    "vertical_slice.py": "69710ce99bd38d0532de7ab8c3a0e127935d20cc76a800bba2498d2cc60dd8c5"
+   },
+   "hash_algorithm": "sha256",
+   "tree_algorithm": "sha256(relative_path\\0file_sha256\\n)",
+-  "generated_at": "2026-08-22T00:18:31.707261+00:00"
++  "generated_at": "2026-08-22T00:36:58.195000+00:00"
+ }
+diff -ruN '--exclude=.pytest_cache' '--exclude=__pycache__' '--exclude=*.pyc' '--exclude=evidence' /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/src/scholar_acquire/__init__.py /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/src/scholar_acquire/__init__.py
+--- /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/src/scholar_acquire/__init__.py	2026-08-22 00:18:26.000000000 +0000
++++ /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/src/scholar_acquire/__init__.py	2026-08-22 00:33:25.393520751 +0000
+@@ -20,8 +20,19 @@
+     IdentityObservation,
+     RouteObservation,
+     RouteObservationKind,
+-    TransportRegistry,
++    TransportLocationObservation,
+     acquire_one,
++    resume_acquire_one,
++)
++from .transport_contract import (
++    ChatGptNativeMaterializedTransport,
++    TransportRegistry,
++    TransportRequest,
++    TransportResponse,
++    TransportKind,
++    TransportResponseState,
++    DeferredRemoteTransport,
++    ResponseFileTransport,
+ )
+ from .vertical_slice import (
+     ChatGptVerticalSliceRuntime,
+@@ -58,8 +69,17 @@
+     "IdentityObservation",
+     "RouteObservation",
+     "RouteObservationKind",
++    "TransportLocationObservation",
++    "ChatGptNativeMaterializedTransport",
+     "TransportRegistry",
++    "TransportRequest",
++    "TransportResponse",
++    "TransportKind",
++    "TransportResponseState",
++    "DeferredRemoteTransport",
++    "ResponseFileTransport",
+     "acquire_one",
++    "resume_acquire_one",
+     "AcquisitionReplaySpec",
+     "replay_acquisition",
+ ]
+diff -ruN '--exclude=.pytest_cache' '--exclude=__pycache__' '--exclude=*.pyc' '--exclude=evidence' /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/src/scholar_acquire/controller.py /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/src/scholar_acquire/controller.py
+--- /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/src/scholar_acquire/controller.py	2026-08-22 00:18:18.000000000 +0000
++++ /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/src/scholar_acquire/controller.py	2026-08-22 00:32:14.619246587 +0000
+@@ -23,6 +23,13 @@
+     RuntimeState,
+     SourceVersion,
+ )
++from .transport_contract import (
++    TransportRegistry,
++    TransportRequest,
++    TransportResponse,
++    TransportResponseState,
++)
++from .utils import assert_allowed_url
+ from .vertical_slice import (
+     AcquisitionExecution,
+     ChatGptVerticalSliceRuntime,
+@@ -36,12 +43,6 @@
+     route_capabilities: RouteCapabilityRegistry = Field(default_factory=RouteCapabilityRegistry)
+ 
+ 
+-class TransportRegistry(BaseModel):
+-    """Prompt 1 placeholder. Prompt 2 adds the transport request/response contract."""
+-
+-    registered: list[str] = Field(default_factory=list)
+-
+-
+ class HostRequestKind(str, Enum):
+     RESOLVE_IDENTITY = "resolve_identity"
+     OBSERVE_ROUTE = "observe_route"
+@@ -104,8 +105,24 @@
+     metadata: dict[str, Any] = Field(default_factory=dict)
+ 
+ 
++class TransportLocationObservation(BaseModel):
++    url: str
++    format: ArtifactFormat
++    expected_media_type: str | None = None
++    discovery_provenance: dict[str, Any]
++    lawful_access_basis: str
++    open_access: bool
++    version: SourceVersion = SourceVersion.UNKNOWN
++    license: str | None = None
++    headers: dict[str, str] = Field(default_factory=dict)
++    timeout_seconds: int = 60
++    max_bytes: int | None = 128 * 1024 * 1024
++    metadata: dict[str, Any] = Field(default_factory=dict)
++
++
+ class RouteObservationKind(str, Enum):
+     MATERIALIZED_ARTIFACT = "materialized_artifact"
++    LOCATION_DISCOVERED = "location_discovered"
+     DEFINITIVE_NO_RESULT = "definitive_no_result"
+     TRANSPORT_ERROR = "transport_error"
+     TIMEOUT = "timeout"
+@@ -122,6 +139,7 @@
+     kind: RouteObservationKind
+     action: str
+     artifacts: list[ArtifactObservation] = Field(default_factory=list)
++    locations: list[TransportLocationObservation] = Field(default_factory=list)
+     evidence_source: str | None = None
+     http_status: int | None = None
+     message: str | None = None
+@@ -378,6 +396,7 @@
+         "event_journal": str(runtime.events_path),
+         "terminal_outcome_path": str(runtime.session.session_dir / runtime.terminal_filename),
+         "runtime_elapsed_ms": elapsed_ms,
++        "transport": runtime.session.seed.metadata.get("v0_4", {}).get("transport"),
+     }
+     manifest_path.write_text(
+         json.dumps(document, indent=2, ensure_ascii=False) + "\n",
+@@ -391,6 +410,419 @@
+     return manifest_path
+ 
+ 
++def _transport_root(runtime: ChatGptVerticalSliceRuntime) -> Path:
++    root = runtime.session.session_dir / "transport"
++    (root / "requests").mkdir(parents=True, exist_ok=True)
++    (root / "responses").mkdir(parents=True, exist_ok=True)
++    (root / "payloads").mkdir(parents=True, exist_ok=True)
++    return root
++
++
++def _transport_meta(runtime: ChatGptVerticalSliceRuntime) -> dict[str, Any]:
++    v04 = runtime.session.seed.metadata["v0_4"]
++    current = v04.get("transport")
++    if not isinstance(current, dict):
++        current = {
++            "contract_version": "2",
++            "preference": ["native", "remote"],
++            "requests": [],
++            "responses": [],
++            "dispatches": [],
++            "pending": None,
++        }
++        if current_label := v04.get("transport"):
++            current["legacy_transport_label"] = str(current_label)
++        v04["transport"] = current
++    else:
++        current.setdefault("contract_version", "2")
++        current.setdefault("preference", ["native", "remote"])
++        current.setdefault("requests", [])
++        current.setdefault("responses", [])
++        current.setdefault("dispatches", [])
++        current.setdefault("pending", None)
++    return current
++
++
++def _write_transport_request(runtime: ChatGptVerticalSliceRuntime, request: TransportRequest) -> Path:
++    path = _transport_root(runtime) / "requests" / f"{request.request_id}.json"
++    path.write_text(json.dumps(request.model_dump(mode="json"), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
++    meta = _transport_meta(runtime)
++    if str(path) not in meta["requests"]:
++        meta["requests"].append(str(path))
++    runtime._event(
++        "transport_request_emitted",
++        request_id=request.request_id,
++        provider=request.source_route.value,
++        data={
++            "correlation_id": request.correlation_id,
++            "url": request.url,
++            "method": request.method,
++            "expected_media_type": request.expected_media_type,
++            "source_route": request.source_route.value,
++            "request_path": str(path),
++        },
++    )
++    runtime._save()
++    return path
++
++
++def _write_transport_response(runtime: ChatGptVerticalSliceRuntime, response: TransportResponse) -> Path:
++    path = _transport_root(runtime) / "responses" / f"{response.request_id}.{response.transport_name}.json"
++    path.write_text(json.dumps(response.model_dump(mode="json"), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
++    meta = _transport_meta(runtime)
++    if str(path) not in meta["responses"]:
++        meta["responses"].append(str(path))
++    runtime._event(
++        "transport_response_received",
++        request_id=response.request_id,
++        data={
++            "transport_name": response.transport_name,
++            "transport_kind": response.transport_kind.value,
++            "transport_state": response.transport_state.value,
++            "status_code": response.status_code,
++            "byte_count": response.byte_count,
++            "transport_checksum": response.transport_checksum,
++            "response_path": str(path),
++        },
++    )
++    runtime._save()
++    return path
++
++
++def _transport_request_for_location(
++    route: AcquisitionRoute,
++    location: TransportLocationObservation,
++    observation: RouteObservation,
++) -> TransportRequest:
++    if location.open_access is not True:
++        raise RuntimeProtocolError("Python will not authorize transport for a location without open_access=true")
++    if not location.lawful_access_basis.strip():
++        raise RuntimeProtocolError("Python will not authorize transport without a lawful_access_basis")
++    assert_allowed_url(location.url)
++    return TransportRequest.build(
++        url=location.url,
++        source_route=route,
++        headers=location.headers,
++        timeout_seconds=location.timeout_seconds,
++        expected_media_type=location.expected_media_type,
++        max_bytes=location.max_bytes,
++        provenance_context={
++            "host_observation_request_id": observation.request_id,
++            "host_evidence_source": observation.evidence_source,
++            "discovery_provenance": location.discovery_provenance,
++            "lawful_access_basis": location.lawful_access_basis,
++            "open_access": True,
++            "version": location.version.value,
++            "license": location.license,
++            "artifact_format": location.format.value,
++            "location_metadata": location.metadata,
++        },
++    )
++
++
++def _materialize_transport_payload(
++    runtime: ChatGptVerticalSliceRuntime,
++    request: TransportRequest,
++    response: TransportResponse,
++    location: TransportLocationObservation,
++) -> tuple[Path, str]:
++    _write_transport_response(runtime, response)
++    body = response.validate_correlation(request)
++    if response.status_code is None or not (200 <= response.status_code < 300):
++        raise RuntimeProtocolError(f"transport returned non-success HTTP status {response.status_code}")
++    header_map = {str(k).lower(): str(v) for k, v in response.headers.items()}
++    content_type = header_map.get("content-type")
++    if request.expected_media_type and content_type:
++        actual = content_type.split(";", 1)[0].strip().lower()
++        expected = request.expected_media_type.split(";", 1)[0].strip().lower()
++        aliases = {"text/xml", "application/xml"}
++        if actual != expected and not ({actual, expected} <= aliases):
++            raise RuntimeProtocolError(
++                f"transport media type mismatch: expected {expected}, got {actual}"
++            )
++    python_sha256 = hashlib.sha256(body).hexdigest()
++    suffix = ".pdf" if location.format == ArtifactFormat.PDF else ".xml"
++    payload = _transport_root(runtime) / "payloads" / f"{request.request_id}{suffix}"
++    payload.write_bytes(body)
++    runtime._event(
++        "transport_payload_verified_by_python",
++        request_id=request.request_id,
++        provider=request.source_route.value,
++        data={
++            "transport_checksum": response.transport_checksum,
++            "python_sha256": python_sha256,
++            "byte_count": len(body),
++            "payload_path": str(payload),
++            "checksums_match": python_sha256 == response.transport_checksum,
++        },
++    )
++    runtime._save()
++    return payload, python_sha256
++
++
++def _admit_transport_response(
++    runtime: ChatGptVerticalSliceRuntime,
++    *,
++    request: TransportRequest,
++    response: TransportResponse,
++    location: TransportLocationObservation,
++    action: str,
++) -> bool:
++    try:
++        payload, python_sha256 = _materialize_transport_payload(runtime, request, response, location)
++        artifact = runtime.import_route_artifact(
++            payload,
++            route=request.source_route,
++            artifact_format=location.format,
++            source_url=response.final_url or request.url,
++            discovery_provenance={
++                **location.discovery_provenance,
++                "transport_request_id": request.request_id,
++                "transport_correlation_id": request.correlation_id,
++                "transport_name": response.transport_name,
++                "transport_kind": response.transport_kind.value,
++                "transport_checksum": response.transport_checksum,
++                "python_transport_payload_sha256": python_sha256,
++            },
++            lawful_access_basis=location.lawful_access_basis,
++            open_access=location.open_access,
++            version=location.version,
++            license=location.license,
++            metadata={
++                **location.metadata,
++                "transport": {
++                    "request_id": request.request_id,
++                    "correlation_id": request.correlation_id,
++                    "transport_name": response.transport_name,
++                    "transport_kind": response.transport_kind.value,
++                    "status_code": response.status_code,
++                    "byte_count": response.byte_count,
++                    "transport_checksum": response.transport_checksum,
++                    "python_payload_sha256": python_sha256,
++                },
++            },
++        )
++        runtime.record_route_attempt(
++            request.source_route,
++            action=action,
++            outcome="success",
++            url=response.final_url or request.url,
++            http_status=response.status_code,
++            elapsed_ms=response.elapsed_ms,
++            metadata={
++                "observation_kind": RouteObservationKind.LOCATION_DISCOVERED.value,
++                "definitive_negative": False,
++                "transport_request_id": request.request_id,
++                "transport_correlation_id": request.correlation_id,
++                "transport_name": response.transport_name,
++                "transport_kind": response.transport_kind.value,
++                "transport_checksum": response.transport_checksum,
++                "python_payload_sha256": python_sha256,
++                "artifact_sha256": artifact.sha256,
++            },
++        )
++        return True
++    except RuntimeProtocolError as exc:
++        runtime.record_route_attempt(
++            request.source_route,
++            action=action,
++            outcome="error",
++            url=request.url,
++            http_status=response.status_code,
++            elapsed_ms=response.elapsed_ms,
++            message=str(exc),
++            metadata={
++                "observation_kind": RouteObservationKind.TRANSPORT_ERROR.value,
++                "definitive_negative": False,
++                "transport_request_id": request.request_id,
++                "transport_name": response.transport_name,
++                "transport_state": response.transport_state.value,
++            },
++        )
++        return False
++
++
++def _set_pending_transport(
++    runtime: ChatGptVerticalSliceRuntime,
++    *,
++    route_index: int,
++    request: TransportRequest,
++    location: TransportLocationObservation,
++    observation: RouteObservation,
++    dispatch_attempts: list[dict[str, Any]],
++    deferred_transport: str,
++) -> None:
++    meta = _transport_meta(runtime)
++    meta["pending"] = {
++        "route_index": route_index,
++        "request": request.model_dump(mode="json"),
++        "location": location.model_dump(mode="json"),
++        "observation": observation.model_dump(mode="json"),
++        "dispatch_attempts": dispatch_attempts,
++        "deferred_transport": deferred_transport,
++    }
++    runtime.session.state = RuntimeState.NEEDS_FETCH
++    runtime._event(
++        "transport_suspended",
++        request_id=request.request_id,
++        provider=request.source_route.value,
++        data={
++            "correlation_id": request.correlation_id,
++            "deferred_transport": deferred_transport,
++            "dispatch_attempts": dispatch_attempts,
++        },
++    )
++    runtime._save()
++
++
++def _pending_transport(runtime: ChatGptVerticalSliceRuntime) -> dict[str, Any] | None:
++    return _transport_meta(runtime).get("pending")
++
++
++def _clear_pending_transport(runtime: ChatGptVerticalSliceRuntime) -> None:
++    _transport_meta(runtime)["pending"] = None
++    runtime.session.state = RuntimeState.READY
++    runtime._save()
++
++
++def _transport_evidence_paths(runtime: ChatGptVerticalSliceRuntime) -> list[Path]:
++    meta = _transport_meta(runtime)
++    return [Path(x) for x in [*meta.get("requests", []), *meta.get("responses", [])]]
++
++
++def _execution(
++    runtime: ChatGptVerticalSliceRuntime,
++    *,
++    started: float,
++    step=None,
++    elapsed_ms: int | None = None,
++) -> AcquisitionExecution:
++    elapsed = elapsed_ms if elapsed_ms is not None else max(0, round((time.perf_counter() - started) * 1000))
++    if step is None:
++        step = runtime.step() if runtime.session.state != RuntimeState.NEEDS_FETCH else None
++    state = runtime.session.state if step is None else step.state
++    result = None if step is None else step.result
++    terminal = runtime.session.terminal_outcome if step is None else step.terminal_outcome
++    manifest_path = result.manifest_path if result else None
++    if state not in {RuntimeState.NEEDS_FETCH, RuntimeState.READY} and manifest_path is None:
++        manifest_path = _write_non_success_manifest(runtime, elapsed_ms=elapsed)
++    pending = _pending_transport(runtime)
++    return AcquisitionExecution(
++        pmid=runtime.session.identifier.value,
++        state=state,
++        elapsed_ms=elapsed,
++        session_path=runtime.session_path,
++        run_receipt=runtime.receipt_path,
++        event_journal=runtime.events_path,
++        manifest_path=manifest_path,
++        result=result,
++        terminal_outcome=terminal,
++        pending_transport_request=(pending or {}).get("request"),
++        transport_evidence=_transport_evidence_paths(runtime),
++        metrics={"runtime_elapsed_ms": elapsed},
++    )
++
++
++def _continue_controller(
++    runtime: ChatGptVerticalSliceRuntime,
++    *,
++    config: AcquisitionConfig,
++    host: HostAdapter,
++    transports: TransportRegistry,
++    started: float,
++    start_route_index: int,
++) -> AcquisitionExecution:
++    ident = runtime.session.identifier
++    identity_doc = runtime.session.seed.metadata.get("v0_4", {}).get("article_identity")
++    if not identity_doc:
++        raise RuntimeProtocolError("controller resume requires resolved article identity")
++    identity = ArticleIdentity.model_validate(identity_doc)
++    routes = config.route_capabilities.enabled_routes()
++    for route_index in range(start_route_index, len(routes)):
++        route = routes[route_index]
++        observation = _observe_route(runtime, ident, identity, route, host)
++        runtime.session.seed.metadata["v0_4"]["controller_next_route_index"] = route_index + 1
++        if observation.kind == RouteObservationKind.LOCATION_DISCOVERED:
++            if not observation.locations:
++                raise RuntimeProtocolError("location_discovered observation contains no locations")
++            any_success = False
++            for location in observation.locations:
++                request = _transport_request_for_location(route, location, observation)
++                _write_transport_request(runtime, request)
++                dispatch = transports.dispatch(request)
++                _transport_meta(runtime)["dispatches"].append(dispatch.model_dump(mode="json"))
++                runtime._event(
++                    "transport_dispatch_completed",
++                    request_id=request.request_id,
++                    provider=route.value,
++                    data={
++                        "attempts": dispatch.attempts,
++                        "deferred_transport": dispatch.deferred_transport,
++                        "has_response": dispatch.response is not None,
++                    },
++                )
++                runtime._save()
++                if dispatch.response is not None:
++                    if _admit_transport_response(
++                        runtime,
++                        request=request,
++                        response=dispatch.response,
++                        location=location,
++                        action=observation.action,
++                    ):
++                        any_success = True
++                        step = runtime.step()
++                        if step.state == RuntimeState.SUCCESS:
++                            return _execution(runtime, started=started, step=step)
++                        continue
++                elif dispatch.deferred_transport:
++                    _set_pending_transport(
++                        runtime,
++                        route_index=route_index,
++                        request=request,
++                        location=location,
++                        observation=observation,
++                        dispatch_attempts=dispatch.attempts,
++                        deferred_transport=dispatch.deferred_transport,
++                    )
++                    return _execution(runtime, started=started)
++                else:
++                    runtime.record_route_attempt(
++                        route,
++                        action=observation.action,
++                        outcome="error",
++                        url=location.url,
++                        message="No configured transport produced materialized bytes",
++                        metadata={
++                            "observation_kind": RouteObservationKind.RESPONSE_NOT_MATERIALIZABLE.value,
++                            "definitive_negative": False,
++                            "transport_attempts": dispatch.attempts,
++                        },
++                    )
++            if any_success:
++                step = runtime.step()
++                if step.state == RuntimeState.SUCCESS:
++                    return _execution(runtime, started=started, step=step)
++            continue
++
++        if _admit_route_observation(runtime, observation):
++            step = runtime.step()
++            if step.state == RuntimeState.SUCCESS:
++                return _execution(runtime, started=started, step=step)
++
++    if runtime.session.state == RuntimeState.READY:
++        exhaustive, reasons = can_assign_exhausted(runtime)
++        if exhaustive:
++            runtime.mark_exhausted("Every enabled route returned definitive negative evidence")
++        else:
++            runtime.mark_blocked(
++                "Acquisition coverage is incomplete or uncertain: " + "; ".join(reasons),
++                reason_code=RuntimeFailureCode.EXTERNAL_FETCH_BLOCKED,
++            )
++    step = runtime.step()
++    return _execution(runtime, started=started, step=step)
++
++
+ def acquire_one(
+     identifier: str | ArticleIdentifier,
+     config: AcquisitionConfig,
+@@ -398,55 +830,53 @@
+     host: HostAdapter,
+     transports: TransportRegistry | None = None,
+ ) -> AcquisitionExecution:
+-    """Production v0.4.3 acquisition entry point.
++    """Production v0.4.3 acquisition entry point with replaceable transport.
+ 
+-    Caller input is limited to identifier, configuration, root, host adapter, and
+-    transport registry. Terminal state, resolved identity, route outcomes, and
+-    artifact paths cannot be supplied through this API.
++    Python owns identity, route policy, transport authorization, response
++    interpretation, scholarly validation, hashing, and terminal state. A remote
++    transport may intentionally defer execution; the returned NEEDS_FETCH run is
++    resumed with :func:`resume_acquire_one` and a correlated TransportResponse.
+     """
+ 
+     started = time.perf_counter()
+     ident = identifier if isinstance(identifier, ArticleIdentifier) else ArticleIdentifier.parse(identifier)
+     if ident.kind != IdentifierKind.PMID:
+-        raise RuntimeProtocolError("v0.4.3 Prompt 1 production controller currently requires PMID input")
++        raise RuntimeProtocolError("v0.4.3 production controller currently requires PMID input")
++    registry = transports or TransportRegistry()
+     runtime = ChatGptVerticalSliceRuntime.create(
+         ident,
+         root,
+         route_capabilities=config.route_capabilities,
+     )
++    runtime.session.policy.want_structured = config.want_structured
++    runtime.session.policy.want_pdf = config.want_pdf
+     runtime.session.seed.metadata["v0_4"]["product"] = "acquire_one"
+     runtime.session.seed.metadata["v0_4"]["route_capabilities"] = config.route_capabilities.model_dump(mode="json")
+-    runtime.session.seed.metadata["v0_4"]["transport_registry"] = (transports or TransportRegistry()).model_dump(mode="json")
++    runtime.session.seed.metadata["v0_4"]["acquisition_config"] = config.model_dump(mode="json")
++    runtime.session.seed.metadata["v0_4"]["transport_registry"] = registry.describe()
++    _transport_meta(runtime)
+     runtime._event(
+         "production_acquire_one_started",
+         data={
+             "identifier": ident.model_dump(mode="json"),
+             "route_capabilities": config.route_capabilities.model_dump(mode="json"),
++            "transport_registry": registry.describe(),
+         },
+     )
+     runtime._save()
+ 
+     try:
+-        identity = _resolve_identity(runtime, ident, host)
+-        for route in config.route_capabilities.enabled_routes():
+-            observation = _observe_route(runtime, ident, identity, route, host)
+-            if _admit_route_observation(runtime, observation):
+-                step = runtime.step()
+-                if step.state == RuntimeState.SUCCESS:
+-                    break
+-        else:
+-            step = None
+-
+-        if runtime.session.state == RuntimeState.READY:
+-            exhaustive, reasons = can_assign_exhausted(runtime)
+-            if exhaustive:
+-                runtime.mark_exhausted("Every enabled route returned definitive negative evidence")
+-            else:
+-                runtime.mark_blocked(
+-                    "Acquisition coverage is incomplete or uncertain: " + "; ".join(reasons),
+-                    reason_code=RuntimeFailureCode.EXTERNAL_FETCH_BLOCKED,
+-                )
+-        step = runtime.step()
++        _resolve_identity(runtime, ident, host)
++        runtime.session.seed.metadata["v0_4"]["controller_next_route_index"] = 0
++        runtime._save()
++        return _continue_controller(
++            runtime,
++            config=config,
++            host=host,
++            transports=registry,
++            started=started,
++            start_route_index=0,
++        )
+     except RuntimeProtocolError as exc:
+         text = str(exc)
+         code = RuntimeFailureCode.RUNTIME_PROTOCOL_ERROR
+@@ -455,28 +885,91 @@
+         elif text.startswith("IDENTITY_UNVERIFIED"):
+             code = RuntimeFailureCode.IDENTITY_UNVERIFIED
+         runtime.mark_failed(text, reason_code=code)
+-        step = runtime.step()
++        return _execution(runtime, started=started, step=runtime.step())
+     except Exception as exc:
+         runtime.mark_blocked(
+-            f"Host observation failed: {type(exc).__name__}: {exc}",
++            f"Host/transport execution failed: {type(exc).__name__}: {exc}",
+             reason_code=RuntimeFailureCode.TOOL_FAILURE,
+         )
+-        step = runtime.step()
++        return _execution(runtime, started=started, step=runtime.step())
+ 
+-    elapsed_ms = max(0, round((time.perf_counter() - started) * 1000))
+-    manifest_path = step.result.manifest_path if step.result else None
+-    if manifest_path is None:
+-        manifest_path = _write_non_success_manifest(runtime, elapsed_ms=elapsed_ms)
+ 
+-    return AcquisitionExecution(
+-        pmid=ident.value,
+-        state=step.state,
+-        elapsed_ms=elapsed_ms,
+-        session_path=runtime.session_path,
+-        run_receipt=runtime.receipt_path,
+-        event_journal=runtime.events_path,
+-        manifest_path=manifest_path,
+-        result=step.result,
+-        terminal_outcome=step.terminal_outcome,
+-        metrics={"runtime_elapsed_ms": elapsed_ms},
++def resume_acquire_one(
++    session_path: Path,
++    host: HostAdapter,
++    transports: TransportRegistry | None = None,
++    response: TransportResponse | Mapping[str, Any] | None = None,
++) -> AcquisitionExecution:
++    """Resume the production controller from a serialized transport suspension."""
++
++    started = time.perf_counter()
++    runtime = ChatGptVerticalSliceRuntime.load(session_path)
++    pending = _pending_transport(runtime)
++    if not pending:
++        raise RuntimeProtocolError("acquire_one session has no pending transport request")
++    request = TransportRequest.model_validate(pending["request"])
++    location = TransportLocationObservation.model_validate(pending["location"])
++    observation = RouteObservation.model_validate(pending["observation"])
++    config = AcquisitionConfig.model_validate(runtime.session.seed.metadata["v0_4"]["acquisition_config"])
++    registry = transports or TransportRegistry()
++
++    if response is None:
++        dispatch = registry.dispatch(request)
++        _transport_meta(runtime)["dispatches"].append(dispatch.model_dump(mode="json"))
++        if dispatch.response is None:
++            if dispatch.deferred_transport:
++                runtime._event(
++                    "transport_remains_suspended",
++                    request_id=request.request_id,
++                    provider=request.source_route.value,
++                    data={"deferred_transport": dispatch.deferred_transport, "attempts": dispatch.attempts},
++                )
++                runtime._save()
++                return _execution(runtime, started=started)
++            runtime.record_route_attempt(
++                request.source_route,
++                action=observation.action,
++                outcome="error",
++                url=request.url,
++                message="All configured transports failed to materialize the pending request",
++                metadata={
++                    "observation_kind": RouteObservationKind.TRANSPORT_ERROR.value,
++                    "definitive_negative": False,
++                    "transport_attempts": dispatch.attempts,
++                },
++            )
++            _clear_pending_transport(runtime)
++        else:
++            response = dispatch.response
++
++    if response is not None:
++        response_obj = response if isinstance(response, TransportResponse) else TransportResponse.model_validate(response)
++        admitted = _admit_transport_response(
++            runtime,
++            request=request,
++            response=response_obj,
++            location=location,
++            action=observation.action,
++        )
++        _clear_pending_transport(runtime)
++        runtime._event(
++            "transport_resumed",
++            request_id=request.request_id,
++            provider=request.source_route.value,
++            data={"admitted": admitted, "transport_name": response_obj.transport_name},
++        )
++        runtime._save()
++        if admitted:
++            step = runtime.step()
++            if step.state == RuntimeState.SUCCESS:
++                return _execution(runtime, started=started, step=step)
++
++    next_index = int(runtime.session.seed.metadata["v0_4"].get("controller_next_route_index", int(pending["route_index"]) + 1))
++    return _continue_controller(
++        runtime,
++        config=config,
++        host=host,
++        transports=registry,
++        started=started,
++        start_route_index=next_index,
+     )
+diff -ruN '--exclude=.pytest_cache' '--exclude=__pycache__' '--exclude=*.pyc' '--exclude=evidence' /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/src/scholar_acquire/transport_contract.py /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/src/scholar_acquire/transport_contract.py
+--- /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/src/scholar_acquire/transport_contract.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/src/scholar_acquire/transport_contract.py	2026-08-22 00:36:56.742137098 +0000
+@@ -0,0 +1,343 @@
++from __future__ import annotations
++
++import base64
++import hashlib
++import json
++import secrets
++from datetime import datetime, timezone
++from enum import Enum
++from pathlib import Path
++from typing import Any, Literal, Mapping, Protocol
++
++from pydantic import BaseModel, Field, model_validator
++
++from .capabilities import AcquisitionRoute
++from .errors import RuntimeProtocolError
++
++
++class TransportKind(str, Enum):
++    NATIVE = "native"
++    REMOTE = "remote"
++
++
++class TransportResponseState(str, Enum):
++    RESPONSE = "response"
++    ERROR = "error"
++
++
++class TransportRequest(BaseModel):
++    """Transport-only request emitted after Python has authorized a location."""
++
++    schema_version: str = "2"
++    request_id: str
++    correlation_id: str
++    url: str
++    method: Literal["GET", "HEAD"] = "GET"
++    headers: dict[str, str] = Field(default_factory=dict)
++    timeout_seconds: int = 60
++    expected_media_type: str | None = None
++    source_route: AcquisitionRoute
++    provenance_context: dict[str, Any] = Field(default_factory=dict)
++    max_bytes: int | None = 128 * 1024 * 1024
++    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
++
++    @classmethod
++    def build(
++        cls,
++        *,
++        url: str,
++        source_route: AcquisitionRoute,
++        method: Literal["GET", "HEAD"] = "GET",
++        headers: Mapping[str, str] | None = None,
++        timeout_seconds: int = 60,
++        expected_media_type: str | None = None,
++        provenance_context: Mapping[str, Any] | None = None,
++        max_bytes: int | None = 128 * 1024 * 1024,
++        correlation_id: str | None = None,
++    ) -> "TransportRequest":
++        canonical_headers = {str(k).lower(): str(v) for k, v in sorted((headers or {}).items())}
++        material = json.dumps(
++            {
++                "method": method,
++                "url": url,
++                "headers": canonical_headers,
++                "timeout_seconds": timeout_seconds,
++                "expected_media_type": expected_media_type,
++                "source_route": source_route.value,
++                "max_bytes": max_bytes,
++            },
++            sort_keys=True,
++            separators=(",", ":"),
++        ).encode("utf-8")
++        return cls(
++            request_id=hashlib.sha256(material).hexdigest()[:24],
++            correlation_id=correlation_id or secrets.token_hex(12),
++            url=url,
++            method=method,
++            headers=dict(headers or {}),
++            timeout_seconds=timeout_seconds,
++            expected_media_type=expected_media_type,
++            source_route=source_route,
++            provenance_context=dict(provenance_context or {}),
++            max_bytes=max_bytes,
++        )
++
++
++class TransportResponse(BaseModel):
++    """Low-level transport response. It carries no scholarly decisions."""
++
++    schema_version: str = "2"
++    request_id: str
++    correlation_id: str
++    transport_name: str
++    transport_kind: TransportKind
++    transport_state: TransportResponseState
++    requested_url: str
++    final_url: str | None = None
++    status_code: int | None = None
++    headers: dict[str, str] = Field(default_factory=dict)
++    body_base64: str | None = None
++    materialized_path: Path | None = None
++    byte_count: int | None = None
++    transport_checksum: str | None = None
++    started_at: datetime
++    finished_at: datetime
++    elapsed_ms: int
++    error_type: str | None = None
++    error_message: str | None = None
++
++    @model_validator(mode="after")
++    def _shape(self) -> "TransportResponse":
++        if self.transport_state == TransportResponseState.RESPONSE:
++            if self.status_code is None:
++                raise ValueError("response transport state requires status_code")
++            if self.body_base64 is None and self.materialized_path is None:
++                raise ValueError("response transport state requires body_base64 or materialized_path")
++            if self.byte_count is None or self.transport_checksum is None:
++                raise ValueError("response transport state requires byte_count and transport_checksum")
++        return self
++
++    def payload_bytes(self) -> bytes:
++        if self.transport_state != TransportResponseState.RESPONSE:
++            raise RuntimeProtocolError("Transport error responses do not contain admissible payload bytes")
++        if self.body_base64 is not None:
++            try:
++                return base64.b64decode(self.body_base64, validate=True)
++            except Exception as exc:
++                raise RuntimeProtocolError("Transport body_base64 is invalid") from exc
++        if self.materialized_path is None or not self.materialized_path.is_file():
++            raise RuntimeProtocolError("Transport materialized_path is missing")
++        return self.materialized_path.read_bytes()
++
++    def validate_correlation(self, request: TransportRequest) -> bytes:
++        if self.request_id != request.request_id:
++            raise RuntimeProtocolError(
++                f"transport request_id mismatch: expected {request.request_id}, got {self.request_id}"
++            )
++        if self.correlation_id != request.correlation_id:
++            raise RuntimeProtocolError("transport correlation_id mismatch")
++        if self.requested_url != request.url:
++            raise RuntimeProtocolError("transport requested_url does not match authorized request")
++        if self.transport_state != TransportResponseState.RESPONSE:
++            raise RuntimeProtocolError(
++                f"transport failed: {self.error_type or 'error'}: {self.error_message or 'unknown transport error'}"
++            )
++        body = self.payload_bytes()
++        if request.max_bytes is not None and len(body) > request.max_bytes:
++            raise RuntimeProtocolError(
++                f"transport payload exceeds authorized max_bytes ({len(body)} > {request.max_bytes})"
++            )
++        if self.byte_count != len(body):
++            raise RuntimeProtocolError(
++                f"transport byte_count mismatch: declared {self.byte_count}, actual {len(body)}"
++            )
++        digest = hashlib.sha256(body).hexdigest()
++        if digest != self.transport_checksum:
++            raise RuntimeProtocolError(
++                f"transport checksum mismatch: declared {self.transport_checksum}, actual {digest}"
++            )
++        return body
++
++
++class TransportExecutor(Protocol):
++    name: str
++    kind: TransportKind
++
++    def execute(self, request: TransportRequest) -> TransportResponse | None:
++        """Return a response, or None when execution is intentionally deferred."""
++        ...
++
++
++class TransportDispatch(BaseModel):
++    request: TransportRequest
++    response: TransportResponse | None = None
++    deferred_transport: str | None = None
++    attempts: list[dict[str, Any]] = Field(default_factory=list)
++
++
++class TransportRegistry:
++    """Python-owned execution preference: native first, remote second."""
++
++    def __init__(self, executors: list[TransportExecutor] | None = None):
++        self._executors: list[TransportExecutor] = list(executors or [])
++
++    def register(self, executor: TransportExecutor) -> "TransportRegistry":
++        self._executors.append(executor)
++        return self
++
++    @property
++    def executors(self) -> tuple[TransportExecutor, ...]:
++        return tuple(self._executors)
++
++    def describe(self) -> list[dict[str, str]]:
++        return [{"name": x.name, "kind": x.kind.value} for x in self._executors]
++
++    def dispatch(self, request: TransportRequest) -> TransportDispatch:
++        ordered = sorted(
++            enumerate(self._executors),
++            key=lambda item: (0 if item[1].kind == TransportKind.NATIVE else 1, item[0]),
++        )
++        attempts: list[dict[str, Any]] = []
++        for _, executor in ordered:
++            try:
++                response = executor.execute(request)
++            except Exception as exc:
++                attempts.append(
++                    {
++                        "transport": executor.name,
++                        "kind": executor.kind.value,
++                        "outcome": "error",
++                        "error_type": type(exc).__name__,
++                        "error_message": str(exc),
++                    }
++                )
++                continue
++            if response is None:
++                if executor.kind == TransportKind.REMOTE:
++                    attempts.append(
++                        {
++                            "transport": executor.name,
++                            "kind": executor.kind.value,
++                            "outcome": "deferred",
++                        }
++                    )
++                    return TransportDispatch(
++                        request=request,
++                        deferred_transport=executor.name,
++                        attempts=attempts,
++                    )
++                attempts.append(
++                    {
++                        "transport": executor.name,
++                        "kind": executor.kind.value,
++                        "outcome": "not_materialized",
++                    }
++                )
++                continue
++            if response.transport_name != executor.name or response.transport_kind != executor.kind:
++                attempts.append(
++                    {
++                        "transport": executor.name,
++                        "kind": executor.kind.value,
++                        "outcome": "protocol_error",
++                        "message": "executor identity does not match response identity",
++                    }
++                )
++                continue
++            if response.transport_state == TransportResponseState.ERROR:
++                attempts.append(
++                    {
++                        "transport": executor.name,
++                        "kind": executor.kind.value,
++                        "outcome": "error_response",
++                        "error_type": response.error_type,
++                        "error_message": response.error_message,
++                    }
++                )
++                continue
++            attempts.append(
++                {
++                    "transport": executor.name,
++                    "kind": executor.kind.value,
++                    "outcome": "response",
++                    "status_code": response.status_code,
++                    "byte_count": response.byte_count,
++                    "transport_checksum": response.transport_checksum,
++                }
++            )
++            return TransportDispatch(request=request, response=response, attempts=attempts)
++        return TransportDispatch(request=request, attempts=attempts)
++
++
++class ChatGptNativeMaterializedTransport:
++    """Adapts exact bytes materialized by a ChatGPT host tool to the shared contract.
++
++    This executor performs no network discovery or scholarly reasoning. The host has
++    already materialized an authorized request to a local file; this adapter only
++    records the low-level transport facts and exact byte checksum.
++    """
++
++    name = "chatgpt_native_materialized"
++    kind = TransportKind.NATIVE
++
++    def __init__(
++        self,
++        materialized: Mapping[str, Path],
++        *,
++        status_code: int = 200,
++        headers: Mapping[str, str] | None = None,
++        final_urls: Mapping[str, str] | None = None,
++    ):
++        self._materialized = {str(k): Path(v) for k, v in materialized.items()}
++        self._status_code = int(status_code)
++        self._headers = {str(k): str(v) for k, v in (headers or {}).items()}
++        self._final_urls = {str(k): str(v) for k, v in (final_urls or {}).items()}
++
++    def execute(self, request: TransportRequest) -> TransportResponse | None:
++        path = self._materialized.get(request.request_id) or self._materialized.get(request.url)
++        if path is None:
++            return None
++        started = datetime.now(timezone.utc)
++        body = path.read_bytes()
++        finished = datetime.now(timezone.utc)
++        return TransportResponse(
++            request_id=request.request_id,
++            correlation_id=request.correlation_id,
++            transport_name=self.name,
++            transport_kind=self.kind,
++            transport_state=TransportResponseState.RESPONSE,
++            requested_url=request.url,
++            final_url=self._final_urls.get(request.request_id, self._final_urls.get(request.url, request.url)),
++            status_code=self._status_code,
++            headers=dict(self._headers),
++            materialized_path=path,
++            byte_count=len(body),
++            transport_checksum=hashlib.sha256(body).hexdigest(),
++            started_at=started,
++            finished_at=finished,
++            elapsed_ms=max(0, round((finished - started).total_seconds() * 1000)),
++        )
++
++
++class DeferredRemoteTransport:
++    """Transport-only remote slot. The host executes the serialized request externally."""
++
++    def __init__(self, name: str = "github_actions_remote"):
++        self.name = name
++        self.kind = TransportKind.REMOTE
++
++    def execute(self, request: TransportRequest) -> None:
++        return None
++
++
++class ResponseFileTransport:
++    """Replay a real transport response produced by an external worker."""
++
++    def __init__(self, path: Path, *, name: str = "github_actions_remote"):
++        self.path = Path(path)
++        self.name = name
++        self.kind = TransportKind.REMOTE
++
++    def execute(self, request: TransportRequest) -> TransportResponse:
++        response = TransportResponse.model_validate_json(self.path.read_text(encoding="utf-8"))
++        return response
+diff -ruN '--exclude=.pytest_cache' '--exclude=__pycache__' '--exclude=*.pyc' '--exclude=evidence' /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/src/scholar_acquire/vertical_slice.py /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/src/scholar_acquire/vertical_slice.py
+--- /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/src/scholar_acquire/vertical_slice.py	2026-08-22 00:18:16.000000000 +0000
++++ /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/src/scholar_acquire/vertical_slice.py	2026-08-22 00:29:38.359924118 +0000
+@@ -97,6 +97,8 @@
+     manifest_path: Path | None = None
+     result: AcquisitionResult | None = None
+     terminal_outcome: RuntimeTerminalOutcome | None = None
++    pending_transport_request: dict[str, Any] | None = None
++    transport_evidence: list[Path] = Field(default_factory=list)
+     metrics: dict[str, Any] = Field(default_factory=dict)
+ 
+ 
+diff -ruN '--exclude=.pytest_cache' '--exclude=__pycache__' '--exclude=*.pyc' '--exclude=evidence' /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/tests/test_prompt2_transport.py /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/tests/test_prompt2_transport.py
+--- /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/tests/test_prompt2_transport.py	1970-01-01 00:00:00.000000000 +0000
++++ /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/tests/test_prompt2_transport.py	2026-08-22 00:36:56.742284046 +0000
+@@ -0,0 +1,177 @@
++import base64
++from datetime import datetime, timezone
++from pathlib import Path
++
++from scholar_acquire import (
++    AcquisitionConfig,
++    AcquisitionRoute,
++    CapabilityStatus,
++    DeferredRemoteTransport,
++    HostRequestKind,
++    IdentityObservation,
++    RouteCapabilityRegistry,
++    RouteObservation,
++    RouteObservationKind,
++    TransportKind,
++    TransportLocationObservation,
++    TransportRegistry,
++    TransportRequest,
++    TransportResponse,
++    TransportResponseState,
++    acquire_one,
++)
++from scholar_acquire.models import ArtifactFormat, RuntimeState, SourceVersion
++
++PDF = b"%PDF-1.4\n1 0 obj<</Type/Catalog>>endobj\n%%EOF\n"
++
++
++class LocationHost:
++    def observe(self, request):
++        if request.kind == HostRequestKind.RESOLVE_IDENTITY:
++            return IdentityObservation(
++                request_id=request.request_id,
++                pmid=request.identifier.value,
++                title="Transport contract article",
++                evidence_source=f"https://pubmed.ncbi.nlm.nih.gov/{request.identifier.value}/",
++                evidence_method="test metadata",
++            )
++        return RouteObservation(
++            request_id=request.request_id,
++            route=request.route,
++            kind=RouteObservationKind.LOCATION_DISCOVERED,
++            action="transport_test",
++            evidence_source="https://example.org/open-access-record",
++            locations=[TransportLocationObservation(
++                url="https://example.org/article.pdf",
++                format=ArtifactFormat.PDF,
++                expected_media_type="application/pdf",
++                discovery_provenance={"method":"test"},
++                lawful_access_basis="public OA test fixture",
++                open_access=True,
++                version=SourceVersion.PUBLISHED,
++            )],
++        )
++
++
++def config():
++    return AcquisitionConfig(
++        want_structured=False,
++        want_pdf=True,
++        route_capabilities=RouteCapabilityRegistry(
++            pmc=CapabilityStatus.EXPERIMENTAL,
++            publisher_oa=CapabilityStatus.DISABLED,
++            unpaywall=CapabilityStatus.DISABLED,
++            repository=CapabilityStatus.DISABLED,
++        ),
++    )
++
++
++def test_transport_contract_has_only_transport_facts():
++    request = TransportRequest.build(
++        url="https://example.org/article.pdf",
++        source_route=AcquisitionRoute.PMC,
++        expected_media_type="application/pdf",
++    )
++    assert not hasattr(request, "terminal_state")
++    assert not hasattr(request, "open_access")
++    assert not hasattr(request, "resolved_ids")
++    assert request.method in {"GET", "HEAD"}
++
++
++def test_registry_prefers_native_before_remote():
++    calls=[]
++    class Native:
++        name='native-test'; kind=TransportKind.NATIVE
++        def execute(self, request): calls.append(self.name); raise RuntimeError('native cannot materialize')
++    class Remote:
++        name='remote-test'; kind=TransportKind.REMOTE
++        def execute(self, request): calls.append(self.name); return None
++    r=TransportRegistry([Remote(), Native()])
++    req=TransportRequest.build(url='https://example.org/x',source_route=AcquisitionRoute.PMC)
++    dispatch=r.dispatch(req)
++    assert calls==['native-test','remote-test']
++    assert dispatch.deferred_transport=='remote-test'
++
++
++def test_acquire_one_suspends_for_deferred_remote_transport(tmp_path: Path):
++    run=acquire_one('12345678',config(),tmp_path,LocationHost(),TransportRegistry([DeferredRemoteTransport()]))
++    assert run.state==RuntimeState.NEEDS_FETCH
++    assert run.pending_transport_request is not None
++    assert Path(run.pending_transport_request['url']).name == 'article.pdf'
++    events=run.event_journal.read_text()
++    assert 'transport_suspended' in events
++    assert 'terminal_exhausted' not in events
++
++
++def test_transport_error_cannot_be_exhausted(tmp_path: Path):
++    class ErrorTransport:
++        name='native-error'; kind=TransportKind.NATIVE
++        def execute(self, request): raise TimeoutError('timeout')
++    run=acquire_one('12345678',config(),tmp_path,LocationHost(),TransportRegistry([ErrorTransport()]))
++    assert run.state==RuntimeState.BLOCKED
++    assert run.terminal_outcome.provider_exhaustion_confirmed is False
++
++
++def test_response_correlation_and_checksum_are_fail_closed():
++    req=TransportRequest.build(url='https://example.org/x',source_route=AcquisitionRoute.PMC)
++    now=datetime.now(timezone.utc)
++    response=TransportResponse(
++        request_id=req.request_id,
++        correlation_id=req.correlation_id,
++        transport_name='remote',
++        transport_kind=TransportKind.REMOTE,
++        transport_state=TransportResponseState.RESPONSE,
++        requested_url=req.url,
++        final_url=req.url,
++        status_code=200,
++        headers={'content-type':'application/pdf'},
++        body_base64=base64.b64encode(PDF).decode(),
++        byte_count=len(PDF),
++        transport_checksum='0'*64,
++        started_at=now,
++        finished_at=now,
++        elapsed_ms=0,
++    )
++    try:
++        response.validate_correlation(req)
++    except Exception as exc:
++        assert 'checksum mismatch' in str(exc)
++    else:
++        raise AssertionError('checksum mismatch was accepted')
++
++
++def test_chatgpt_native_materialized_transport_uses_shared_response_contract(tmp_path: Path) -> None:
++    from scholar_acquire.transport_contract import ChatGptNativeMaterializedTransport
++
++    body = b"%PDF-1.4\nexample\n%%EOF\n"
++    path = tmp_path / "article.pdf"
++    path.write_bytes(body)
++    request = TransportRequest.build(
++        url="https://example.org/article.pdf",
++        source_route=AcquisitionRoute.PUBLISHER_OA,
++        expected_media_type="application/pdf",
++    )
++    transport = ChatGptNativeMaterializedTransport(
++        {request.request_id: path}, headers={"content-type": "application/pdf"}
++    )
++    response = transport.execute(request)
++    assert response is not None
++    assert response.transport_kind == TransportKind.NATIVE
++    assert response.validate_correlation(request) == body
++
++
++def test_native_no_bytes_falls_through_to_remote_defer():
++    from scholar_acquire.transport_contract import ChatGptNativeMaterializedTransport
++
++    request = TransportRequest.build(
++        url="https://example.org/article.xml",
++        source_route=AcquisitionRoute.PMC,
++        expected_media_type="application/xml",
++    )
++    registry = TransportRegistry([
++        ChatGptNativeMaterializedTransport({}),
++        DeferredRemoteTransport(),
++    ])
++    dispatch = registry.dispatch(request)
++    assert [x["outcome"] for x in dispatch.attempts] == ["not_materialized", "deferred"]
++    assert dispatch.deferred_transport == "github_actions_remote"
+diff -ruN '--exclude=.pytest_cache' '--exclude=__pycache__' '--exclude=*.pyc' '--exclude=evidence' /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/tests/test_remote_worker.py /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/tests/test_remote_worker.py
+--- /mnt/data/v043p1/scholar-acquire-chatgpt-0.4.3-prompt1/tests/test_remote_worker.py	2026-08-21 23:42:22.000000000 +0000
++++ /mnt/data/v043p2/scholar-acquire-chatgpt-0.4.3-prompt2/tests/test_remote_worker.py	2026-08-22 00:31:02.641419320 +0000
+@@ -1,12 +1,13 @@
+ import hashlib
+-import json
+ import socketserver
+ import threading
+ from http.server import BaseHTTPRequestHandler
+ from pathlib import Path
+ import sys
++
+ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+ from remote_worker.transport_worker import execute
++from scholar_acquire import TransportRequest, TransportResponse, AcquisitionRoute
+ 
+ BODY=b'<?xml version="1.0"?><article><front/></article>'
+ class Handler(BaseHTTPRequestHandler):
+@@ -17,15 +18,17 @@
+         self.end_headers(); self.wfile.write(BODY)
+     def log_message(self,*args): pass
+ 
+-def test_worker_returns_exact_transport_facts():
++def test_worker_returns_exact_shared_transport_contract():
+     with socketserver.TCPServer(('127.0.0.1',0),Handler) as srv:
+         t=threading.Thread(target=srv.serve_forever,daemon=True); t.start()
+         port=srv.server_address[1]
+-        out=execute({'request_id':'req-1','url':f'http://127.0.0.1:{port}/x','method':'GET'})
++        request=TransportRequest.build(url=f'http://127.0.0.1:{port}/x', source_route=AcquisitionRoute.PMC, expected_media_type='application/xml')
++        out=execute(request.model_dump(mode='json'))
+         srv.shutdown()
+-    assert out['transport_state']=='response'
+-    assert out['status_code']==206
+-    assert out['headers']['Content-Type']=='application/xml'
+-    assert out['body_sha256']==hashlib.sha256(BODY).hexdigest()
+-    import base64
+-    assert base64.b64decode(out['body_base64'])==BODY
++    response=TransportResponse.model_validate(out)
++    body=response.validate_correlation(request)
++    assert response.transport_state.value=='response'
++    assert response.status_code==206
++    assert response.headers['Content-Type']=='application/xml'
++    assert response.transport_checksum==hashlib.sha256(BODY).hexdigest()
++    assert body==BODY

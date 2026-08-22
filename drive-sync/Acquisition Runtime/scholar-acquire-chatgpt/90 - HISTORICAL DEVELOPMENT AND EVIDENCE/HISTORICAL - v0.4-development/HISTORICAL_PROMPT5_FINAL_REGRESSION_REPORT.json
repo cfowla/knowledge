@@ -1,0 +1,1230 @@
+{
+  "schema_version": "1",
+  "item_count": 10,
+  "successful_full_text_acquisition_rate": 0.5,
+  "success_count": 5,
+  "blocked_count": 5,
+  "exhausted_count": 0,
+  "failed_count": 0,
+  "identity_mismatch_rate": 0.0,
+  "identity_mismatches": [],
+  "false_success_rate": 0.0,
+  "false_success_pmids": [],
+  "blocked_rate": 0.5,
+  "blocked_cause_categories": {
+    "repository_http_403": 1,
+    "publisher_http_403": 2,
+    "response_not_materializable": 1,
+    "unpaywall_transport_or_configuration": 1
+  },
+  "route_specific": {
+    "pmc": {
+      "attempted_items": 10,
+      "successful_items": 0,
+      "success_rate_among_attempted": 0.0
+    },
+    "publisher_oa": {
+      "attempted_items": 10,
+      "successful_items": 4,
+      "success_rate_among_attempted": 0.4
+    },
+    "unpaywall": {
+      "attempted_items": 3,
+      "successful_items": 0,
+      "success_rate_among_attempted": 0.0
+    },
+    "repository": {
+      "attempted_items": 2,
+      "successful_items": 1,
+      "success_rate_among_attempted": 0.5
+    }
+  },
+  "median_tool_discovery_actions_per_pmid": 2.0,
+  "median_elapsed_execution_ms_measured": null,
+  "elapsed_measurement_coverage": 0.0,
+  "success_payload_mix": {
+    "jats_and_pdf": 0,
+    "pdf_only": 5,
+    "jats_only": 0
+  },
+  "proportion_successes_with_jats_and_pdf": 0.0,
+  "proportion_successes_pdf_only": 1.0,
+  "manifest_provenance_completeness": 1.0,
+  "manifest_provenance_completeness_among_successes": 1.0,
+  "item_manifest_complete_count": 10,
+  "items": [
+    {
+      "pmid": "38330007",
+      "state": "success",
+      "resolved_ids": {
+        "pmid": "38330007",
+        "doi": "10.1371/journal.pone.0297969",
+        "pmcid": "PMC10852342",
+        "versioned_pmcid": null
+      },
+      "attempts": [
+        {
+          "provider": "pmc",
+          "action": "open_pmc_article",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10852342/",
+          "outcome": "error",
+          "http_status": null,
+          "message": "PMC browser route returned reCAPTCHA/anti-bot gate",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "browser_challenge"
+          },
+          "at": "2026-08-21T23:49:36.201757Z"
+        },
+        {
+          "provider": "publisher_oa",
+          "action": "materialize_jats",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0297969&type=manuscript",
+          "outcome": "error",
+          "http_status": 200,
+          "message": "PLOS returned application/xml but host materializer rejected XML MIME payload",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "response_not_materializable",
+            "content_type": "application/xml"
+          },
+          "at": "2026-08-21T23:49:36.202268Z"
+        },
+        {
+          "provider": "publisher_oa",
+          "action": "materialize_pdf",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0297969&type=printable",
+          "outcome": "success",
+          "http_status": 200,
+          "message": "Publisher OA PDF materialized",
+          "elapsed_ms": null,
+          "metadata": {},
+          "at": "2026-08-21T23:49:36.202722Z"
+        }
+      ],
+      "artifact_count": 1,
+      "artifact_sha256": [
+        "d4b0a0509d3c2abddcb0a3b3fdce6b3dfb1d214f194fea7ec52726b8a2ffafb2"
+      ],
+      "manifest": "/mnt/data/acq_p5_final/individual/session-57b0c060458e/output/38330007/manifest.json",
+      "run_receipt": "/mnt/data/acq_p5_final/individual/session-57b0c060458e/RUN_RECEIPT.json",
+      "event_journal": "/mnt/data/acq_p5_final/individual/session-57b0c060458e/runtime_events.jsonl",
+      "terminal": {
+        "schema_version": "1",
+        "state": "success",
+        "reason_code": null,
+        "message": "Acquisition succeeded with validated, hashed lawful full-text payload(s)",
+        "provider_policy": [
+          "pmc",
+          "publisher_oa",
+          "unpaywall",
+          "repository"
+        ],
+        "provider_attempts": [
+          {
+            "provider": "pmc",
+            "action": "open_pmc_article",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10852342/",
+            "outcome": "error",
+            "http_status": null,
+            "message": "PMC browser route returned reCAPTCHA/anti-bot gate",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "browser_challenge"
+            },
+            "at": "2026-08-21T23:49:36.201757Z"
+          },
+          {
+            "provider": "publisher_oa",
+            "action": "materialize_jats",
+            "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0297969&type=manuscript",
+            "outcome": "error",
+            "http_status": 200,
+            "message": "PLOS returned application/xml but host materializer rejected XML MIME payload",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "response_not_materializable",
+              "content_type": "application/xml"
+            },
+            "at": "2026-08-21T23:49:36.202268Z"
+          },
+          {
+            "provider": "publisher_oa",
+            "action": "materialize_pdf",
+            "url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0297969&type=printable",
+            "outcome": "success",
+            "http_status": 200,
+            "message": "Publisher OA PDF materialized",
+            "elapsed_ms": null,
+            "metadata": {},
+            "at": "2026-08-21T23:49:36.202722Z"
+          }
+        ],
+        "provider_exhaustion_confirmed": false,
+        "artifact_sha256": [
+          "d4b0a0509d3c2abddcb0a3b3fdce6b3dfb1d214f194fea7ec52726b8a2ffafb2"
+        ],
+        "pending_request_id": null,
+        "at": "2026-08-21T23:49:36.213773Z"
+      },
+      "handoff": {
+        "schema_version": "1",
+        "identifier": {
+          "kind": "pmid",
+          "value": "38330007"
+        },
+        "resolved_ids": {
+          "pmid": "38330007",
+          "doi": "10.1371/journal.pone.0297969",
+          "pmcid": "PMC10852342",
+          "versioned_pmcid": null
+        },
+        "preferred_structured_path": null,
+        "preferred_pdf_path": "/mnt/data/acq_p5_final/individual/session-57b0c060458e/output/38330007/article.pdf",
+        "structured_sha256": null,
+        "pdf_sha256": "d4b0a0509d3c2abddcb0a3b3fdce6b3dfb1d214f194fea7ec52726b8a2ffafb2",
+        "manifest_path": "/mnt/data/acq_p5_final/individual/session-57b0c060458e/output/38330007/manifest.json"
+      }
+    },
+    {
+      "pmid": "39110712",
+      "state": "success",
+      "resolved_ids": {
+        "pmid": "39110712",
+        "doi": "10.1371/journal.pone.0304519",
+        "pmcid": "PMC11305534",
+        "versioned_pmcid": null
+      },
+      "attempts": [
+        {
+          "provider": "pmc",
+          "action": "open_pmc_article",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11305534/",
+          "outcome": "error",
+          "http_status": null,
+          "message": "PMC browser route returned reCAPTCHA/anti-bot gate",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "browser_challenge"
+          },
+          "at": "2026-08-21T23:49:36.220538Z"
+        },
+        {
+          "provider": "publisher_oa",
+          "action": "materialize_pdf",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0304519&type=printable",
+          "outcome": "success",
+          "http_status": 200,
+          "message": "Publisher OA PDF materialized",
+          "elapsed_ms": null,
+          "metadata": {},
+          "at": "2026-08-21T23:49:36.220901Z"
+        }
+      ],
+      "artifact_count": 1,
+      "artifact_sha256": [
+        "04fdc248fb43fc4fff4146f16af408a55507666f6c51611720d6a51043c20d2c"
+      ],
+      "manifest": "/mnt/data/acq_p5_final/individual/session-b7210958d65b/output/39110712/manifest.json",
+      "run_receipt": "/mnt/data/acq_p5_final/individual/session-b7210958d65b/RUN_RECEIPT.json",
+      "event_journal": "/mnt/data/acq_p5_final/individual/session-b7210958d65b/runtime_events.jsonl",
+      "terminal": {
+        "schema_version": "1",
+        "state": "success",
+        "reason_code": null,
+        "message": "Acquisition succeeded with validated, hashed lawful full-text payload(s)",
+        "provider_policy": [
+          "pmc",
+          "publisher_oa",
+          "unpaywall",
+          "repository"
+        ],
+        "provider_attempts": [
+          {
+            "provider": "pmc",
+            "action": "open_pmc_article",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11305534/",
+            "outcome": "error",
+            "http_status": null,
+            "message": "PMC browser route returned reCAPTCHA/anti-bot gate",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "browser_challenge"
+            },
+            "at": "2026-08-21T23:49:36.220538Z"
+          },
+          {
+            "provider": "publisher_oa",
+            "action": "materialize_pdf",
+            "url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0304519&type=printable",
+            "outcome": "success",
+            "http_status": 200,
+            "message": "Publisher OA PDF materialized",
+            "elapsed_ms": null,
+            "metadata": {},
+            "at": "2026-08-21T23:49:36.220901Z"
+          }
+        ],
+        "provider_exhaustion_confirmed": false,
+        "artifact_sha256": [
+          "04fdc248fb43fc4fff4146f16af408a55507666f6c51611720d6a51043c20d2c"
+        ],
+        "pending_request_id": null,
+        "at": "2026-08-21T23:49:36.223248Z"
+      },
+      "handoff": {
+        "schema_version": "1",
+        "identifier": {
+          "kind": "pmid",
+          "value": "39110712"
+        },
+        "resolved_ids": {
+          "pmid": "39110712",
+          "doi": "10.1371/journal.pone.0304519",
+          "pmcid": "PMC11305534",
+          "versioned_pmcid": null
+        },
+        "preferred_structured_path": null,
+        "preferred_pdf_path": "/mnt/data/acq_p5_final/individual/session-b7210958d65b/output/39110712/article.pdf",
+        "structured_sha256": null,
+        "pdf_sha256": "04fdc248fb43fc4fff4146f16af408a55507666f6c51611720d6a51043c20d2c",
+        "manifest_path": "/mnt/data/acq_p5_final/individual/session-b7210958d65b/output/39110712/manifest.json"
+      }
+    },
+    {
+      "pmid": "36897886",
+      "state": "success",
+      "resolved_ids": {
+        "pmid": "36897886",
+        "doi": "10.1371/journal.pone.0280342",
+        "pmcid": "PMC10004557",
+        "versioned_pmcid": null
+      },
+      "attempts": [
+        {
+          "provider": "pmc",
+          "action": "open_pmc_article",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10004557/",
+          "outcome": "error",
+          "http_status": null,
+          "message": "PMC browser route returned reCAPTCHA/anti-bot gate",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "browser_challenge"
+          },
+          "at": "2026-08-21T23:49:36.236226Z"
+        },
+        {
+          "provider": "publisher_oa",
+          "action": "materialize_pdf",
+          "url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0280342&type=printable",
+          "outcome": "success",
+          "http_status": 200,
+          "message": "Publisher OA PDF materialized",
+          "elapsed_ms": null,
+          "metadata": {},
+          "at": "2026-08-21T23:49:36.236595Z"
+        }
+      ],
+      "artifact_count": 1,
+      "artifact_sha256": [
+        "a3de06de300f8660f0eacd3d1d88411d057eeeca0284488dcafbff5bc1da2baa"
+      ],
+      "manifest": "/mnt/data/acq_p5_final/individual/session-cd639175409f/output/36897886/manifest.json",
+      "run_receipt": "/mnt/data/acq_p5_final/individual/session-cd639175409f/RUN_RECEIPT.json",
+      "event_journal": "/mnt/data/acq_p5_final/individual/session-cd639175409f/runtime_events.jsonl",
+      "terminal": {
+        "schema_version": "1",
+        "state": "success",
+        "reason_code": null,
+        "message": "Acquisition succeeded with validated, hashed lawful full-text payload(s)",
+        "provider_policy": [
+          "pmc",
+          "publisher_oa",
+          "unpaywall",
+          "repository"
+        ],
+        "provider_attempts": [
+          {
+            "provider": "pmc",
+            "action": "open_pmc_article",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10004557/",
+            "outcome": "error",
+            "http_status": null,
+            "message": "PMC browser route returned reCAPTCHA/anti-bot gate",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "browser_challenge"
+            },
+            "at": "2026-08-21T23:49:36.236226Z"
+          },
+          {
+            "provider": "publisher_oa",
+            "action": "materialize_pdf",
+            "url": "https://journals.plos.org/plosone/article/file?id=10.1371%2Fjournal.pone.0280342&type=printable",
+            "outcome": "success",
+            "http_status": 200,
+            "message": "Publisher OA PDF materialized",
+            "elapsed_ms": null,
+            "metadata": {},
+            "at": "2026-08-21T23:49:36.236595Z"
+          }
+        ],
+        "provider_exhaustion_confirmed": false,
+        "artifact_sha256": [
+          "a3de06de300f8660f0eacd3d1d88411d057eeeca0284488dcafbff5bc1da2baa"
+        ],
+        "pending_request_id": null,
+        "at": "2026-08-21T23:49:36.239599Z"
+      },
+      "handoff": {
+        "schema_version": "1",
+        "identifier": {
+          "kind": "pmid",
+          "value": "36897886"
+        },
+        "resolved_ids": {
+          "pmid": "36897886",
+          "doi": "10.1371/journal.pone.0280342",
+          "pmcid": "PMC10004557",
+          "versioned_pmcid": null
+        },
+        "preferred_structured_path": null,
+        "preferred_pdf_path": "/mnt/data/acq_p5_final/individual/session-cd639175409f/output/36897886/article.pdf",
+        "structured_sha256": null,
+        "pdf_sha256": "a3de06de300f8660f0eacd3d1d88411d057eeeca0284488dcafbff5bc1da2baa",
+        "manifest_path": "/mnt/data/acq_p5_final/individual/session-cd639175409f/output/36897886/manifest.json"
+      }
+    },
+    {
+      "pmid": "24678906",
+      "state": "success",
+      "resolved_ids": {
+        "pmid": "24678906",
+        "doi": "10.1186/1475-2840-13-65",
+        "pmcid": "PMC4021346",
+        "versioned_pmcid": null
+      },
+      "attempts": [
+        {
+          "provider": "pmc",
+          "action": "open_pmc_article",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4021346/",
+          "outcome": "error",
+          "http_status": null,
+          "message": "PMC browser route returned reCAPTCHA/anti-bot gate",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "browser_challenge"
+          },
+          "at": "2026-08-21T23:49:36.245100Z"
+        },
+        {
+          "provider": "publisher_oa",
+          "action": "materialize_pdf",
+          "url": "https://link.springer.com/content/pdf/10.1186/1475-2840-13-65.pdf",
+          "outcome": "success",
+          "http_status": 200,
+          "message": "Springer/BMC OA PDF materialized",
+          "elapsed_ms": null,
+          "metadata": {},
+          "at": "2026-08-21T23:49:36.245464Z"
+        }
+      ],
+      "artifact_count": 1,
+      "artifact_sha256": [
+        "b639c18785158b73805b1b4902875bf70eaf12978cc24c3c257655e30b8aa19e"
+      ],
+      "manifest": "/mnt/data/acq_p5_final/individual/session-76089c6504c4/output/24678906/manifest.json",
+      "run_receipt": "/mnt/data/acq_p5_final/individual/session-76089c6504c4/RUN_RECEIPT.json",
+      "event_journal": "/mnt/data/acq_p5_final/individual/session-76089c6504c4/runtime_events.jsonl",
+      "terminal": {
+        "schema_version": "1",
+        "state": "success",
+        "reason_code": null,
+        "message": "Acquisition succeeded with validated, hashed lawful full-text payload(s)",
+        "provider_policy": [
+          "pmc",
+          "publisher_oa",
+          "unpaywall",
+          "repository"
+        ],
+        "provider_attempts": [
+          {
+            "provider": "pmc",
+            "action": "open_pmc_article",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4021346/",
+            "outcome": "error",
+            "http_status": null,
+            "message": "PMC browser route returned reCAPTCHA/anti-bot gate",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "browser_challenge"
+            },
+            "at": "2026-08-21T23:49:36.245100Z"
+          },
+          {
+            "provider": "publisher_oa",
+            "action": "materialize_pdf",
+            "url": "https://link.springer.com/content/pdf/10.1186/1475-2840-13-65.pdf",
+            "outcome": "success",
+            "http_status": 200,
+            "message": "Springer/BMC OA PDF materialized",
+            "elapsed_ms": null,
+            "metadata": {},
+            "at": "2026-08-21T23:49:36.245464Z"
+          }
+        ],
+        "provider_exhaustion_confirmed": false,
+        "artifact_sha256": [
+          "b639c18785158b73805b1b4902875bf70eaf12978cc24c3c257655e30b8aa19e"
+        ],
+        "pending_request_id": null,
+        "at": "2026-08-21T23:49:36.248008Z"
+      },
+      "handoff": {
+        "schema_version": "1",
+        "identifier": {
+          "kind": "pmid",
+          "value": "24678906"
+        },
+        "resolved_ids": {
+          "pmid": "24678906",
+          "doi": "10.1186/1475-2840-13-65",
+          "pmcid": "PMC4021346",
+          "versioned_pmcid": null
+        },
+        "preferred_structured_path": null,
+        "preferred_pdf_path": "/mnt/data/acq_p5_final/individual/session-76089c6504c4/output/24678906/article.pdf",
+        "structured_sha256": null,
+        "pdf_sha256": "b639c18785158b73805b1b4902875bf70eaf12978cc24c3c257655e30b8aa19e",
+        "manifest_path": "/mnt/data/acq_p5_final/individual/session-76089c6504c4/output/24678906/manifest.json"
+      }
+    },
+    {
+      "pmid": "29595130",
+      "state": "success",
+      "resolved_ids": {
+        "pmid": "29595130",
+        "doi": "10.1136/bmjebm-2018-110919",
+        "pmcid": null,
+        "versioned_pmcid": null
+      },
+      "attempts": [
+        {
+          "provider": "pmc",
+          "action": "resolve_pmc",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29595130/",
+          "outcome": "miss",
+          "http_status": null,
+          "message": "No PMCID resolved",
+          "elapsed_ms": null,
+          "metadata": {},
+          "at": "2026-08-21T23:49:36.254932Z"
+        },
+        {
+          "provider": "publisher_oa",
+          "action": "publisher_full_text",
+          "url": "https://doi.org/10.1136/bmjebm-2018-110919",
+          "outcome": "miss",
+          "http_status": null,
+          "message": "Published version not identified as lawful OA payload",
+          "elapsed_ms": null,
+          "metadata": {},
+          "at": "2026-08-21T23:49:36.255356Z"
+        },
+        {
+          "provider": "unpaywall",
+          "action": "oa_location_lookup",
+          "url": "https://unpaywall.org/10.1136/bmjebm-2018-110919",
+          "outcome": "error",
+          "http_status": null,
+          "message": "ChatGPT navigation safety layer could not open DOI-specific Unpaywall redirect; REST API also requires configured email parameter",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "transport_or_configuration_barrier"
+          },
+          "at": "2026-08-21T23:49:36.255720Z"
+        },
+        {
+          "provider": "repository",
+          "action": "materialize_accepted_manuscript",
+          "url": "https://discovery.ucl.ac.uk/id/eprint/10049554/3/Banerjee_Verification%20bias_final.pdf",
+          "outcome": "success",
+          "http_status": 200,
+          "message": "UCL accepted manuscript materialized",
+          "elapsed_ms": null,
+          "metadata": {},
+          "at": "2026-08-21T23:49:36.256095Z"
+        }
+      ],
+      "artifact_count": 1,
+      "artifact_sha256": [
+        "d68e25776a413af4a5afac13525a58957382a341a22c01ded585b7a85f503e1c"
+      ],
+      "manifest": "/mnt/data/acq_p5_final/individual/session-03773948b8c1/output/29595130/manifest.json",
+      "run_receipt": "/mnt/data/acq_p5_final/individual/session-03773948b8c1/RUN_RECEIPT.json",
+      "event_journal": "/mnt/data/acq_p5_final/individual/session-03773948b8c1/runtime_events.jsonl",
+      "terminal": {
+        "schema_version": "1",
+        "state": "success",
+        "reason_code": null,
+        "message": "Acquisition succeeded with validated, hashed lawful full-text payload(s)",
+        "provider_policy": [
+          "pmc",
+          "publisher_oa",
+          "unpaywall",
+          "repository"
+        ],
+        "provider_attempts": [
+          {
+            "provider": "pmc",
+            "action": "resolve_pmc",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/29595130/",
+            "outcome": "miss",
+            "http_status": null,
+            "message": "No PMCID resolved",
+            "elapsed_ms": null,
+            "metadata": {},
+            "at": "2026-08-21T23:49:36.254932Z"
+          },
+          {
+            "provider": "publisher_oa",
+            "action": "publisher_full_text",
+            "url": "https://doi.org/10.1136/bmjebm-2018-110919",
+            "outcome": "miss",
+            "http_status": null,
+            "message": "Published version not identified as lawful OA payload",
+            "elapsed_ms": null,
+            "metadata": {},
+            "at": "2026-08-21T23:49:36.255356Z"
+          },
+          {
+            "provider": "unpaywall",
+            "action": "oa_location_lookup",
+            "url": "https://unpaywall.org/10.1136/bmjebm-2018-110919",
+            "outcome": "error",
+            "http_status": null,
+            "message": "ChatGPT navigation safety layer could not open DOI-specific Unpaywall redirect; REST API also requires configured email parameter",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "transport_or_configuration_barrier"
+            },
+            "at": "2026-08-21T23:49:36.255720Z"
+          },
+          {
+            "provider": "repository",
+            "action": "materialize_accepted_manuscript",
+            "url": "https://discovery.ucl.ac.uk/id/eprint/10049554/3/Banerjee_Verification%20bias_final.pdf",
+            "outcome": "success",
+            "http_status": 200,
+            "message": "UCL accepted manuscript materialized",
+            "elapsed_ms": null,
+            "metadata": {},
+            "at": "2026-08-21T23:49:36.256095Z"
+          }
+        ],
+        "provider_exhaustion_confirmed": false,
+        "artifact_sha256": [
+          "d68e25776a413af4a5afac13525a58957382a341a22c01ded585b7a85f503e1c"
+        ],
+        "pending_request_id": null,
+        "at": "2026-08-21T23:49:36.259166Z"
+      },
+      "handoff": {
+        "schema_version": "1",
+        "identifier": {
+          "kind": "pmid",
+          "value": "29595130"
+        },
+        "resolved_ids": {
+          "pmid": "29595130",
+          "doi": "10.1136/bmjebm-2018-110919",
+          "pmcid": null,
+          "versioned_pmcid": null
+        },
+        "preferred_structured_path": null,
+        "preferred_pdf_path": "/mnt/data/acq_p5_final/individual/session-03773948b8c1/output/29595130/article.pdf",
+        "structured_sha256": null,
+        "pdf_sha256": "d68e25776a413af4a5afac13525a58957382a341a22c01ded585b7a85f503e1c",
+        "manifest_path": "/mnt/data/acq_p5_final/individual/session-03773948b8c1/output/29595130/manifest.json"
+      }
+    },
+    {
+      "pmid": "30377149",
+      "state": "blocked",
+      "resolved_ids": {
+        "pmid": "30377149",
+        "doi": "10.1136/bmjebm-2018-111018",
+        "pmcid": null,
+        "versioned_pmcid": null
+      },
+      "attempts": [
+        {
+          "provider": "pmc",
+          "action": "resolve_pmc",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30377149/",
+          "outcome": "miss",
+          "http_status": null,
+          "message": "No PMCID resolved",
+          "elapsed_ms": null,
+          "metadata": {},
+          "at": "2026-08-21T23:49:36.264921Z"
+        },
+        {
+          "provider": "publisher_oa",
+          "action": "publisher_full_text",
+          "url": "https://doi.org/10.1136/bmjebm-2018-111018",
+          "outcome": "miss",
+          "http_status": null,
+          "message": "No materializable publisher OA JATS/PDF established",
+          "elapsed_ms": null,
+          "metadata": {},
+          "at": "2026-08-21T23:49:36.265327Z"
+        },
+        {
+          "provider": "unpaywall",
+          "action": "oa_location_lookup",
+          "url": "https://unpaywall.org/10.1136/bmjebm-2018-111018",
+          "outcome": "error",
+          "http_status": null,
+          "message": "DOI-specific Unpaywall transport unavailable in host navigation",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "transport_or_configuration_barrier"
+          },
+          "at": "2026-08-21T23:49:36.265689Z"
+        },
+        {
+          "provider": "repository",
+          "action": "transport_or_access",
+          "url": "https://ora.ox.ac.uk/objects/uuid:3c9d6fe3-4c52-4a9b-b11a-190818a36865",
+          "outcome": "error",
+          "http_status": null,
+          "message": "Oxford Research Archive accepted-manuscript record was identified, but the file response was HTTP 403 and could not be materialized",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "repository_http_403",
+            "doi": "10.1136/bmjebm-2018-111018",
+            "pmid": "30377149",
+            "version": "acceptedVersion"
+          },
+          "at": "2026-08-21T23:49:36.266078Z"
+        }
+      ],
+      "artifact_count": 0,
+      "artifact_sha256": [],
+      "manifest": "/mnt/data/acq_p5_final/individual/session-55c118177946/output/30377149/terminal_manifest.json",
+      "run_receipt": "/mnt/data/acq_p5_final/individual/session-55c118177946/RUN_RECEIPT.json",
+      "event_journal": "/mnt/data/acq_p5_final/individual/session-55c118177946/runtime_events.jsonl",
+      "terminal": {
+        "schema_version": "1",
+        "state": "blocked",
+        "reason_code": "EXTERNAL_FETCH_BLOCKED",
+        "message": "Oxford Research Archive accepted-manuscript record was identified, but the file response was HTTP 403 and could not be materialized",
+        "provider_policy": [
+          "pmc",
+          "publisher_oa",
+          "unpaywall",
+          "repository"
+        ],
+        "provider_attempts": [
+          {
+            "provider": "pmc",
+            "action": "resolve_pmc",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/30377149/",
+            "outcome": "miss",
+            "http_status": null,
+            "message": "No PMCID resolved",
+            "elapsed_ms": null,
+            "metadata": {},
+            "at": "2026-08-21T23:49:36.264921Z"
+          },
+          {
+            "provider": "publisher_oa",
+            "action": "publisher_full_text",
+            "url": "https://doi.org/10.1136/bmjebm-2018-111018",
+            "outcome": "miss",
+            "http_status": null,
+            "message": "No materializable publisher OA JATS/PDF established",
+            "elapsed_ms": null,
+            "metadata": {},
+            "at": "2026-08-21T23:49:36.265327Z"
+          },
+          {
+            "provider": "unpaywall",
+            "action": "oa_location_lookup",
+            "url": "https://unpaywall.org/10.1136/bmjebm-2018-111018",
+            "outcome": "error",
+            "http_status": null,
+            "message": "DOI-specific Unpaywall transport unavailable in host navigation",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "transport_or_configuration_barrier"
+            },
+            "at": "2026-08-21T23:49:36.265689Z"
+          },
+          {
+            "provider": "repository",
+            "action": "transport_or_access",
+            "url": "https://ora.ox.ac.uk/objects/uuid:3c9d6fe3-4c52-4a9b-b11a-190818a36865",
+            "outcome": "error",
+            "http_status": null,
+            "message": "Oxford Research Archive accepted-manuscript record was identified, but the file response was HTTP 403 and could not be materialized",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "repository_http_403",
+              "doi": "10.1136/bmjebm-2018-111018",
+              "pmid": "30377149",
+              "version": "acceptedVersion"
+            },
+            "at": "2026-08-21T23:49:36.266078Z"
+          }
+        ],
+        "provider_exhaustion_confirmed": false,
+        "artifact_sha256": [],
+        "pending_request_id": null,
+        "at": "2026-08-21T23:49:36.266797Z"
+      },
+      "handoff": null
+    },
+    {
+      "pmid": "20566676",
+      "state": "blocked",
+      "resolved_ids": {
+        "pmid": "20566676",
+        "doi": "10.2337/dc10-0612",
+        "pmcid": "PMC2945163",
+        "versioned_pmcid": null
+      },
+      "attempts": [
+        {
+          "provider": "pmc",
+          "action": "materialize_pmc_pdf_or_jats",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2945163/",
+          "outcome": "error",
+          "http_status": null,
+          "message": "PMC browser/machine transport could not yield materialized JATS/PDF; direct PDF attempt returned HTML challenge content",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "pmc_transport_challenge"
+          },
+          "at": "2026-08-21T23:49:36.273333Z"
+        },
+        {
+          "provider": "publisher_oa",
+          "action": "transport_or_access",
+          "url": "https://diabetesjournals.org/care/article/33/10/2217/28138/Dapagliflozin-Monotherapy-in-Type-2-Diabetic",
+          "outcome": "error",
+          "http_status": null,
+          "message": "ADA publisher page is documented Open Access, but direct article retrieval returned HTTP 403 in the host transport",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "publisher_http_403",
+            "doi": "10.2337/dc10-0612",
+            "pmcid": "PMC2945163",
+            "publisher_oa": true
+          },
+          "at": "2026-08-21T23:49:36.273894Z"
+        }
+      ],
+      "artifact_count": 0,
+      "artifact_sha256": [],
+      "manifest": "/mnt/data/acq_p5_final/individual/session-74096416dec8/output/20566676/terminal_manifest.json",
+      "run_receipt": "/mnt/data/acq_p5_final/individual/session-74096416dec8/RUN_RECEIPT.json",
+      "event_journal": "/mnt/data/acq_p5_final/individual/session-74096416dec8/runtime_events.jsonl",
+      "terminal": {
+        "schema_version": "1",
+        "state": "blocked",
+        "reason_code": "EXTERNAL_FETCH_BLOCKED",
+        "message": "ADA publisher page is documented Open Access, but direct article retrieval returned HTTP 403 in the host transport",
+        "provider_policy": [
+          "pmc",
+          "publisher_oa",
+          "unpaywall",
+          "repository"
+        ],
+        "provider_attempts": [
+          {
+            "provider": "pmc",
+            "action": "materialize_pmc_pdf_or_jats",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2945163/",
+            "outcome": "error",
+            "http_status": null,
+            "message": "PMC browser/machine transport could not yield materialized JATS/PDF; direct PDF attempt returned HTML challenge content",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "pmc_transport_challenge"
+            },
+            "at": "2026-08-21T23:49:36.273333Z"
+          },
+          {
+            "provider": "publisher_oa",
+            "action": "transport_or_access",
+            "url": "https://diabetesjournals.org/care/article/33/10/2217/28138/Dapagliflozin-Monotherapy-in-Type-2-Diabetic",
+            "outcome": "error",
+            "http_status": null,
+            "message": "ADA publisher page is documented Open Access, but direct article retrieval returned HTTP 403 in the host transport",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "publisher_http_403",
+              "doi": "10.2337/dc10-0612",
+              "pmcid": "PMC2945163",
+              "publisher_oa": true
+            },
+            "at": "2026-08-21T23:49:36.273894Z"
+          }
+        ],
+        "provider_exhaustion_confirmed": false,
+        "artifact_sha256": [],
+        "pending_request_id": null,
+        "at": "2026-08-21T23:49:36.274269Z"
+      },
+      "handoff": null
+    },
+    {
+      "pmid": "39254529",
+      "state": "blocked",
+      "resolved_ids": {
+        "pmid": "39254529",
+        "doi": "10.1093/jamia/ocae236",
+        "pmcid": "PMC11631140",
+        "versioned_pmcid": null
+      },
+      "attempts": [
+        {
+          "provider": "pmc",
+          "action": "open_pmc_article",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11631140/",
+          "outcome": "error",
+          "http_status": null,
+          "message": "PMC browser route returned reCAPTCHA/anti-bot gate",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "browser_challenge"
+          },
+          "at": "2026-08-21T23:49:36.281926Z"
+        },
+        {
+          "provider": "publisher_oa",
+          "action": "transport_or_access",
+          "url": "https://academic.oup.com/jamia/article/31/12/2849/7754463",
+          "outcome": "error",
+          "http_status": null,
+          "message": "OUP OA full text was readable as HTML, but no JATS/PDF payload could be materialized through the current host transport",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "response_not_materializable",
+            "doi": "10.1093/jamia/ocae236",
+            "license": "CC BY 4.0",
+            "publisher_oa": true
+          },
+          "at": "2026-08-21T23:49:36.282371Z"
+        }
+      ],
+      "artifact_count": 0,
+      "artifact_sha256": [],
+      "manifest": "/mnt/data/acq_p5_final/individual/session-aba64bb753db/output/39254529/terminal_manifest.json",
+      "run_receipt": "/mnt/data/acq_p5_final/individual/session-aba64bb753db/RUN_RECEIPT.json",
+      "event_journal": "/mnt/data/acq_p5_final/individual/session-aba64bb753db/runtime_events.jsonl",
+      "terminal": {
+        "schema_version": "1",
+        "state": "blocked",
+        "reason_code": "EXTERNAL_FETCH_BLOCKED",
+        "message": "OUP OA full text was readable as HTML, but no JATS/PDF payload could be materialized through the current host transport",
+        "provider_policy": [
+          "pmc",
+          "publisher_oa",
+          "unpaywall",
+          "repository"
+        ],
+        "provider_attempts": [
+          {
+            "provider": "pmc",
+            "action": "open_pmc_article",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11631140/",
+            "outcome": "error",
+            "http_status": null,
+            "message": "PMC browser route returned reCAPTCHA/anti-bot gate",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "browser_challenge"
+            },
+            "at": "2026-08-21T23:49:36.281926Z"
+          },
+          {
+            "provider": "publisher_oa",
+            "action": "transport_or_access",
+            "url": "https://academic.oup.com/jamia/article/31/12/2849/7754463",
+            "outcome": "error",
+            "http_status": null,
+            "message": "OUP OA full text was readable as HTML, but no JATS/PDF payload could be materialized through the current host transport",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "response_not_materializable",
+              "doi": "10.1093/jamia/ocae236",
+              "license": "CC BY 4.0",
+              "publisher_oa": true
+            },
+            "at": "2026-08-21T23:49:36.282371Z"
+          }
+        ],
+        "provider_exhaustion_confirmed": false,
+        "artifact_sha256": [],
+        "pending_request_id": null,
+        "at": "2026-08-21T23:49:36.282847Z"
+      },
+      "handoff": null
+    },
+    {
+      "pmid": "24929430",
+      "state": "blocked",
+      "resolved_ids": {
+        "pmid": "24929430",
+        "doi": "10.2337/dc13-3055",
+        "pmcid": null,
+        "versioned_pmcid": null
+      },
+      "attempts": [
+        {
+          "provider": "pmc",
+          "action": "resolve_pmc",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24929430/",
+          "outcome": "miss",
+          "http_status": null,
+          "message": "No PMCID resolved",
+          "elapsed_ms": null,
+          "metadata": {},
+          "at": "2026-08-21T23:49:36.289318Z"
+        },
+        {
+          "provider": "publisher_oa",
+          "action": "transport_or_access",
+          "url": "https://diabetesjournals.org/care/article/37/7/1815/37782/Improved-Glucose-Control-With-Weight-Loss-Lower",
+          "outcome": "error",
+          "http_status": null,
+          "message": "Publisher identifies the article as Open Access, but the host retrieval path returned HTTP 403 and no PDF/JATS payload was materialized",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "publisher_http_403",
+            "doi": "10.2337/dc13-3055",
+            "publisher_oa": true
+          },
+          "at": "2026-08-21T23:49:36.289978Z"
+        }
+      ],
+      "artifact_count": 0,
+      "artifact_sha256": [],
+      "manifest": "/mnt/data/acq_p5_final/individual/session-aed68f2e8269/output/24929430/terminal_manifest.json",
+      "run_receipt": "/mnt/data/acq_p5_final/individual/session-aed68f2e8269/RUN_RECEIPT.json",
+      "event_journal": "/mnt/data/acq_p5_final/individual/session-aed68f2e8269/runtime_events.jsonl",
+      "terminal": {
+        "schema_version": "1",
+        "state": "blocked",
+        "reason_code": "EXTERNAL_FETCH_BLOCKED",
+        "message": "Publisher identifies the article as Open Access, but the host retrieval path returned HTTP 403 and no PDF/JATS payload was materialized",
+        "provider_policy": [
+          "pmc",
+          "publisher_oa",
+          "unpaywall",
+          "repository"
+        ],
+        "provider_attempts": [
+          {
+            "provider": "pmc",
+            "action": "resolve_pmc",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/24929430/",
+            "outcome": "miss",
+            "http_status": null,
+            "message": "No PMCID resolved",
+            "elapsed_ms": null,
+            "metadata": {},
+            "at": "2026-08-21T23:49:36.289318Z"
+          },
+          {
+            "provider": "publisher_oa",
+            "action": "transport_or_access",
+            "url": "https://diabetesjournals.org/care/article/37/7/1815/37782/Improved-Glucose-Control-With-Weight-Loss-Lower",
+            "outcome": "error",
+            "http_status": null,
+            "message": "Publisher identifies the article as Open Access, but the host retrieval path returned HTTP 403 and no PDF/JATS payload was materialized",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "publisher_http_403",
+              "doi": "10.2337/dc13-3055",
+              "publisher_oa": true
+            },
+            "at": "2026-08-21T23:49:36.289978Z"
+          }
+        ],
+        "provider_exhaustion_confirmed": false,
+        "artifact_sha256": [],
+        "pending_request_id": null,
+        "at": "2026-08-21T23:49:36.290555Z"
+      },
+      "handoff": null
+    },
+    {
+      "pmid": "24622369",
+      "state": "blocked",
+      "resolved_ids": {
+        "pmid": "24622369",
+        "doi": "10.1016/S2213-8587(13)70084-6",
+        "pmcid": null,
+        "versioned_pmcid": null
+      },
+      "attempts": [
+        {
+          "provider": "pmc",
+          "action": "resolve_pmc",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24622369/",
+          "outcome": "miss",
+          "http_status": null,
+          "message": "No PMCID resolved",
+          "elapsed_ms": null,
+          "metadata": {},
+          "at": "2026-08-21T23:49:36.298820Z"
+        },
+        {
+          "provider": "publisher_oa",
+          "action": "publisher_full_text",
+          "url": "https://doi.org/10.1016/S2213-8587(13)70084-6",
+          "outcome": "miss",
+          "http_status": null,
+          "message": "Publisher full text is not established as lawful OA; no publisher OA payload materialized",
+          "elapsed_ms": null,
+          "metadata": {
+            "access": "subscription/restricted"
+          },
+          "at": "2026-08-21T23:49:36.299327Z"
+        },
+        {
+          "provider": "unpaywall",
+          "action": "transport_or_access",
+          "url": "https://unpaywall.org/10.1016/S2213-8587(13)70084-6",
+          "outcome": "error",
+          "http_status": null,
+          "message": "Unpaywall-assisted OA-location resolution could not be executed through the current host transport, so repository exhaustion cannot be asserted",
+          "elapsed_ms": null,
+          "metadata": {
+            "cause_category": "unpaywall_transport_or_configuration",
+            "doi": "10.1016/S2213-8587(13)70084-6",
+            "why_not_exhausted": "Unpaywall route unresolved; BLOCKED != EXHAUSTED"
+          },
+          "at": "2026-08-21T23:49:36.299734Z"
+        }
+      ],
+      "artifact_count": 0,
+      "artifact_sha256": [],
+      "manifest": "/mnt/data/acq_p5_final/individual/session-1478ba7435af/output/24622369/terminal_manifest.json",
+      "run_receipt": "/mnt/data/acq_p5_final/individual/session-1478ba7435af/RUN_RECEIPT.json",
+      "event_journal": "/mnt/data/acq_p5_final/individual/session-1478ba7435af/runtime_events.jsonl",
+      "terminal": {
+        "schema_version": "1",
+        "state": "blocked",
+        "reason_code": "EXTERNAL_FETCH_BLOCKED",
+        "message": "Unpaywall-assisted OA-location resolution could not be executed through the current host transport, so repository exhaustion cannot be asserted",
+        "provider_policy": [
+          "pmc",
+          "publisher_oa",
+          "unpaywall",
+          "repository"
+        ],
+        "provider_attempts": [
+          {
+            "provider": "pmc",
+            "action": "resolve_pmc",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/24622369/",
+            "outcome": "miss",
+            "http_status": null,
+            "message": "No PMCID resolved",
+            "elapsed_ms": null,
+            "metadata": {},
+            "at": "2026-08-21T23:49:36.298820Z"
+          },
+          {
+            "provider": "publisher_oa",
+            "action": "publisher_full_text",
+            "url": "https://doi.org/10.1016/S2213-8587(13)70084-6",
+            "outcome": "miss",
+            "http_status": null,
+            "message": "Publisher full text is not established as lawful OA; no publisher OA payload materialized",
+            "elapsed_ms": null,
+            "metadata": {
+              "access": "subscription/restricted"
+            },
+            "at": "2026-08-21T23:49:36.299327Z"
+          },
+          {
+            "provider": "unpaywall",
+            "action": "transport_or_access",
+            "url": "https://unpaywall.org/10.1016/S2213-8587(13)70084-6",
+            "outcome": "error",
+            "http_status": null,
+            "message": "Unpaywall-assisted OA-location resolution could not be executed through the current host transport, so repository exhaustion cannot be asserted",
+            "elapsed_ms": null,
+            "metadata": {
+              "cause_category": "unpaywall_transport_or_configuration",
+              "doi": "10.1016/S2213-8587(13)70084-6",
+              "why_not_exhausted": "Unpaywall route unresolved; BLOCKED != EXHAUSTED"
+            },
+            "at": "2026-08-21T23:49:36.299734Z"
+          }
+        ],
+        "provider_exhaustion_confirmed": false,
+        "artifact_sha256": [],
+        "pending_request_id": null,
+        "at": "2026-08-21T23:49:36.300228Z"
+      },
+      "handoff": null
+    }
+  ],
+  "batch_equivalence": {
+    "all_equivalent": true,
+    "equivalent_count": 10,
+    "item_count": 10,
+    "comparisons": [
+      {
+        "pmid": "38330007",
+        "equivalent": true
+      },
+      {
+        "pmid": "39110712",
+        "equivalent": true
+      },
+      {
+        "pmid": "36897886",
+        "equivalent": true
+      },
+      {
+        "pmid": "24678906",
+        "equivalent": true
+      },
+      {
+        "pmid": "29595130",
+        "equivalent": true
+      },
+      {
+        "pmid": "30377149",
+        "equivalent": true
+      },
+      {
+        "pmid": "20566676",
+        "equivalent": true
+      },
+      {
+        "pmid": "39254529",
+        "equivalent": true
+      },
+      {
+        "pmid": "24929430",
+        "equivalent": true
+      },
+      {
+        "pmid": "24622369",
+        "equivalent": true
+      }
+    ],
+    "batch_manifest": "/mnt/data/acq_p5_final/batch/batch-acquire-one-c8624091a1b4/batch_manifest.json"
+  }
+}

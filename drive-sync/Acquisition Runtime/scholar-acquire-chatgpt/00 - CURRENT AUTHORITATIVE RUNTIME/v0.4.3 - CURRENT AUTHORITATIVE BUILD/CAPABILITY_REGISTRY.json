@@ -1,0 +1,139 @@
+{
+  "schema_version": "2",
+  "runtime_version": "0.4.3",
+  "build_id": "scholar-acquire-chatgpt-0.4.3-prompt3-reconciled",
+  "package_tree_sha256": "fc412487fdcaf1fef556c14c18386b86f3382b0a76d3fc345fd1153572524815",
+  "authority": "RECONCILED_CANONICAL",
+  "routes": {
+    "pmc": "supported",
+    "publisher_oa": "supported",
+    "unpaywall": "supported",
+    "repository": "supported"
+  },
+  "proofs": {
+    "pmc": {
+      "route": "pmc",
+      "status": "supported",
+      "proof_pmid": "24782981",
+      "resolved_ids": {
+        "pmid": "24782981",
+        "pmcid": "PMC3995050",
+        "doi": "10.3389/fonc.2014.00064"
+      },
+      "run_id": "8b54ce4832f8",
+      "manifest_path": "evidence/runs/pmc-positive/output/24782981/manifest.json",
+      "artifact_sha256": [
+        "ee7cdad7ae26e26dfe3d51965beba50b967e99ec446c4a1c925890a494401589",
+        "54465e3c056b86551d8c5d865b0685d01a5f4fa2c11bc705a479768b3efc63cb"
+      ],
+      "runtime_version": "0.4.3",
+      "proof_date": "2026-08-22",
+      "negative_case_pmid": "24766495",
+      "negative_case_state": "exhausted",
+      "negative_case_manifest_path": "evidence/runs/pmc-negative/acquisition_manifest.json",
+      "evidence": {
+        "positive": "production acquire_one; isolated PMC; JATS+PDF; exact identity",
+        "negative": "definitive no-PMCID evidence -> EXHAUSTED",
+        "negative_reason_code": "PROVIDER_EXHAUSTED",
+        "preferred_payload": "article.xml",
+        "secondary_payload": "article.pdf"
+      }
+    },
+    "publisher_oa": {
+      "route": "publisher_oa",
+      "status": "supported",
+      "proof_pmid": "35124914",
+      "resolved_ids": {
+        "pmid": "35124914",
+        "pmcid": null,
+        "doi": null
+      },
+      "run_id": "4a2040f59de6",
+      "manifest_path": "evidence/runs/publisher-positive/output/35124914/manifest.json",
+      "artifact_sha256": [
+        "ab78e51b14f60002b117c1d3e3059470948a671a80773bc694d732a0d0606304"
+      ],
+      "runtime_version": "0.4.3",
+      "proof_date": "2026-08-22",
+      "negative_case_pmid": "35124914",
+      "negative_case_state": "blocked",
+      "negative_case_manifest_path": "evidence/runs/publisher-negative/acquisition_manifest.json",
+      "evidence": {
+        "positive": "production acquire_one; isolated publisher-hosted OA PDF",
+        "negative": "no executable transport -> BLOCKED; not EXHAUSTED"
+      }
+    },
+    "unpaywall": {
+      "route": "unpaywall",
+      "status": "supported",
+      "proof_pmid": "30222367",
+      "resolved_ids": {
+        "pmid": "30222367",
+        "pmcid": "PMC6208164",
+        "doi": "10.1089/dia.2018.0052"
+      },
+      "run_id": "6b347fffeb2a",
+      "manifest_path": "evidence/runs/unpaywall-positive-direct/output/30222367/manifest.json",
+      "artifact_sha256": [
+        "7c8853fbd3d414732a78d6d5774413c24a7af02ec9d5c45b4ff707961a2421fc"
+      ],
+      "runtime_version": "0.4.3",
+      "proof_date": "2026-08-21",
+      "negative_case_pmid": "24766495",
+      "negative_case_state": "exhausted",
+      "negative_case_manifest_path": "evidence/runs/unpaywall-negative/acquisition_manifest.json",
+      "evidence": {
+        "raw_unpaywall_observation": "evidence/host_observations/unpaywall/raw_unpaywall_response.json",
+        "raw_unpaywall_observation_sha256": "0fcf6f1fa1f2960c81b312584c1fa1b1f77fed9dd7d92ee386d0abb9f38e340a",
+        "doi_binding": "10.1089/dia.2018.0052",
+        "selected_oa_location": "https://www.liebertpub.com/doi/pdf/10.1089/dia.2018.0052",
+        "selected_host_type": "publisher",
+        "selected_version": "publishedVersion",
+        "selected_license": "cc-by",
+        "transport_request": "evidence/runs/unpaywall-positive-direct/transport/requests/79e44da73041cdffc2bfd441.json",
+        "transport_response": "evidence/runs/unpaywall-positive-direct/transport/responses/79e44da73041cdffc2bfd441.chatgpt_native_materialized.json",
+        "materialized_final_url": "https://www.liebertpub.com/doi/pdf/10.1089/dia.2018.0052",
+        "transport_invariant": "selected OA URL == requested transport URL == final URL == artifact source URL",
+        "identity_verification": "evidence/runs/unpaywall-positive-direct/identity_verification_pdf.json",
+        "positive_receipt": "evidence/runs/unpaywall-positive-direct/RUN_RECEIPT.json",
+        "positive_event_journal": "evidence/runs/unpaywall-positive-direct/runtime_events.jsonl",
+        "positive_terminal_state": "SUCCESS assigned by production acquire_one()",
+        "negative": "Unpaywall is_oa=false + no OA locations -> EXHAUSTED",
+        "negative_run_id": "9e2e6ed67d58",
+        "negative_reason_code": "PROVIDER_EXHAUSTED",
+        "negative_provider_exhaustion_confirmed": true,
+        "superseded_proof": "Prior run 1fbd4f59f99a used a host-substituted PMC mirror after Python selected a Liebert publisher URL. Preserved as history but not sufficient for the required selected-location transport chain."
+      }
+    },
+    "repository": {
+      "route": "repository",
+      "status": "supported",
+      "proof_pmid": "22673094",
+      "resolved_ids": {
+        "pmid": "22673094",
+        "pmcid": "PMC3645341",
+        "doi": "10.1177/1049732312448544"
+      },
+      "run_id": "f0f32e786d4c",
+      "manifest_path": "evidence/runs/repository-positive/output/22673094/manifest.json",
+      "artifact_sha256": [
+        "d0a5a8a415603c92e5f8d81b7600dea4ae71118534e14217f2e451ef5b11c890"
+      ],
+      "runtime_version": "0.4.3",
+      "proof_date": "2026-08-22",
+      "negative_case_pmid": "24766495",
+      "negative_case_state": "blocked",
+      "negative_case_manifest_path": "evidence/runs/repository-negative/acquisition_manifest.json",
+      "evidence": {
+        "repository": "University of Southampton ePrints",
+        "record": "https://eprints.soton.ac.uk/195677/",
+        "version": "acceptedVersion",
+        "strict_transport_run_id": 32545485645,
+        "strict_transport_artifact_id": 9468357312,
+        "identity_binding": "PDF first page states full citation, PMID 22673094, DOI 10.1177/1049732312448544; runtime matched DOI+PMID+title",
+        "negative": "repository search absence is non-definitive -> BLOCKED; not EXHAUSTED",
+        "superseded_uc_escholarship_candidate": "Exact item discovery succeeded but PDF transport was WAF-challenged; preserved diagnostic only"
+      }
+    }
+  }
+}
