@@ -1,0 +1,120 @@
+{
+  "source": {
+    "title": "The comparative efficacy of SGLT-2 inhibitors and GLP-1 receptor agonists on metabolic benefits in T2DM patients: a systematic review and network meta-analysis",
+    "doi": "10.1186/s40001-026-03986-w",
+    "pmid": "41620788",
+    "prospero": "CRD42021247584",
+    "publication_id": "704f49af-11b8-5123-882b-c73e3e38aaed"
+  },
+  "schema_version": "1.0",
+  "atom_count": 97,
+  "counts_by_kind": {
+    "author_conclusion": 3,
+    "comparator_description": 1,
+    "conflict_of_interest": 1,
+    "data_availability": 1,
+    "eligibility_criterion": 5,
+    "funding_disclosure": 1,
+    "intervention_description": 1,
+    "limitation": 6,
+    "method": 16,
+    "outcome_definition": 5,
+    "population_description": 1,
+    "qualitative_result": 18,
+    "quantitative_result": 28,
+    "study_objective": 1,
+    "subgroup_result": 9
+  },
+  "counts_by_batch": {
+    "tong-li-2026-general-v1": 13,
+    "tong-li-2026-methods-v1": 16,
+    "tong-li-2026-quality-v1": 11,
+    "tong-li-2026-results-weight-v1": 19,
+    "tong-li-2026-results-metabolic-v1": 21,
+    "tong-li-2026-model-validity-v1": 5,
+    "tong-li-2026-discussion-v1": 9,
+    "tong-li-2026-disclosures-v1": 3
+  },
+  "validation": {
+    "pydantic_structural": {
+      "passed": true,
+      "errors": []
+    },
+    "json_schema": {
+      "passed": true,
+      "errors": []
+    },
+    "sufficiency": {
+      "passed": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "whole_source_checks": {
+    "shared_publication_id": true,
+    "unique_atom_ids": true,
+    "duplicate_review": [],
+    "schema_versions": [
+      "1.0"
+    ]
+  },
+  "source_integrity_findings": [
+    {
+      "severity": "warning",
+      "location": "Abstract / Table 1, BMI ≥35 kg/m²",
+      "issue": "The reported GLP-1RA vs SGLT-2i point estimate (−1.11 kg) lies outside the stated 95% CrI (−6.73 to −4.60), so the interval cannot be mathematically valid as printed.",
+      "handling": "Preserved exactly as reported; not corrected."
+    },
+    {
+      "severity": "warning",
+      "location": "Results p3 vs Discussion p8",
+      "issue": "Results reports 8 GLP-1 receptor agonists and 9 SGLT-2 inhibitors, while the strengths paragraph reports 7 GLP-1 receptor agonists and 8 SGLT-2 inhibitors.",
+      "handling": "Results count retained as the main study-characteristics statement; discrepancy flagged."
+    },
+    {
+      "severity": "warning",
+      "location": "Discussion p8 vs Results/Figure 4",
+      "issue": "Discussion attributes weight MD −1.96 kg and LDL-c −0.24 mmol/L to GLP-1 receptor agonists; the main results report GLP-1RA weight MD −3.03 kg and LDL-c −0.14 mmol/L versus placebo, while −1.96 kg is the SGLT-2i weight estimate.",
+      "handling": "No silent correction; appraisal flags the contradiction."
+    },
+    {
+      "severity": "warning",
+      "location": "Table 1 note",
+      "issue": "The printed direction-of-effect note (MD<0 favors column; MD>0 favors row) appears inconsistent with the narrative interpretation of the GLP-1RA vs SGLT-2i BMI subgroup estimates.",
+      "handling": "Table values preserved; directional interpretation treated cautiously."
+    },
+    {
+      "severity": "warning",
+      "location": "Abstract vs Figure 4",
+      "issue": "GLP-1RA triglyceride 95% CrI lower bound is −0.22 mmol/L in the abstract but approximately −0.21 mmol/L in Figure 4.",
+      "handling": "Figure 4 value used for the figure-derived atom; abstract discrepancy flagged."
+    },
+    {
+      "severity": "warning",
+      "location": "Supplement Appendices 11–12",
+      "issue": "Appendix/table numbering is internally inconsistent (e.g., Appendix 11 labeled “Appendix 1 1,” sensitivity table labeled S9.1, frequentist table labeled S10.1 despite another S10.1 in Appendix 10).",
+      "handling": "Coverage uses semantic appendix labels rather than trusting duplicate table numbers."
+    },
+    {
+      "severity": "warning",
+      "location": "Supplement sensitivity table",
+      "issue": "HbA1c sensitivity values are on a body-weight-like scale and do not match the primary HbA1c estimates, consistent with a likely transcription/copy-paste error.",
+      "handling": "These malformed values were not normalized into atoms."
+    },
+    {
+      "severity": "warning",
+      "location": "Supplement frequentist NMA table",
+      "issue": "Several entries contain malformed or internally impossible estimate/interval formatting.",
+      "handling": "Frequentist validation is retained only as the source’s qualitative sensitivity claim; malformed cells are not converted into quantitative atoms."
+    }
+  ],
+  "schema_gaps": [
+    "The LiteratureAtom model is primary-literature oriented and has no dedicated systematic_review/network_meta_analysis atom kind or certainty-of-evidence object. Pooled network estimates are represented using existing result kinds plus descriptive tags.",
+    "Individual RCT results summarized inside the review were not extracted as if this review generated those primary-study observations."
+  ],
+  "extraction_limitations": [
+    "No external verification was performed because @VERIFY was not activated.",
+    "The 168 individual trial-characteristic rows were treated as a review-level evidence-base object rather than atomized as primary-study evidence.",
+    "Malformed or internally inconsistent supplemental numeric cells were preserved as source-integrity findings and not silently repaired."
+  ]
+}

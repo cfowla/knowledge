@@ -1,0 +1,62 @@
+{
+  "source": {
+    "title": "The Effects of Dapagliflozin in Patients With Heart Failure Complicated With Type 2 Diabetes: A Meta-Analysis of Placebo-Controlled Randomized Trials",
+    "doi": "10.3389/fcdhc.2021.703937",
+    "pmid": "36994345",
+    "pmcid": null,
+    "publication_id": "8b732c2d-dc73-5111-a737-6e13c4832498",
+    "input_sha256": "a6db314a49edc0aa933935f72e222b4c712e2b2b1f6d3ac1b2517c08dfea30d3"
+  },
+  "atom_count": 60,
+  "counts_by_kind": {
+    "author_conclusion": 2,
+    "comparator_description": 1,
+    "conflict_of_interest": 1,
+    "data_availability": 1,
+    "eligibility_criterion": 7,
+    "intervention_description": 1,
+    "limitation": 5,
+    "method": 14,
+    "other": 6,
+    "outcome_definition": 3,
+    "population_description": 4,
+    "qualitative_result": 3,
+    "quantitative_result": 4,
+    "study_objective": 1,
+    "subgroup_result": 7
+  },
+  "pydantic_structural_validation": {
+    "status": "PASS",
+    "errors": []
+  },
+  "json_schema_validation": {
+    "status": "PASS",
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "status": "PASS",
+    "errors": [],
+    "warnings": []
+  },
+  "duplicate_review": {
+    "status": "PASS",
+    "finding": "All atom_id values are unique. Similar endpoint atoms were retained only where the source itself reports materially conflicting values (for example, abstract versus main-text HFrEF results and prose versus Figure 3C all-cause mortality)."
+  },
+  "consistency_review": {
+    "status": "PASS_WITH_SOURCE_FLAGS",
+    "findings": [
+      "The pooled total of 5,252 is arithmetically consistent with using 2,139 diabetic participants from McMurray 2019, but the next Results sentence states 2,319; Table 1 lists the full McMurray trial arms (2,373 + 2,371 = 4,744).",
+      "Figure 3C reports pooled all-cause mortality OR 0.79 (95% CI 0.66-0.94), while the Results prose and abstract report OR 0.76 with the same interval.",
+      "The abstract reports HFrEF cardiovascular-death I²=8% and all-cause-mortality OR 0.70 (95% CI 0.50-0.99; I²=43%); the main Results text/Figure 4 report CVD I²=0% and ACM OR 0.69 (95% CI 0.53-0.89; I²=16%).",
+      "Figure 1's PRISMA flow shows 21 records screened and 5 studies included, but the intermediate 'reports sought for retrieval' and 'reports assessed for eligibility' boxes are both labeled n=0.",
+      "The Discussion says two trials had >1,000 participants and 'the other four trials' had <1,000 participants despite only five trials being included."
+    ]
+  },
+  "schema_gaps": [
+    "The LiteratureAtom schema has no dedicated systematic-review/meta-analysis atom kind. Review methods, pooled estimates, evidence-quality statements, source inconsistencies, and author conclusions were represented with existing atom kinds while preserving the source as a secondary synthesis.",
+    "Trial-sequential-analysis required-information-size statements do not map cleanly to QuantitativeResult's comparative population/exposure/outcome structure; they were retained as 'other' atoms rather than forced into an inappropriate quantitative-result context."
+  ],
+  "source_gaps": [
+    "The selected materials folder contains only the primary PDF. The article's data-availability statement refers to article/supplementary material, but no separate supplementary file was present for review."
+  ]
+}

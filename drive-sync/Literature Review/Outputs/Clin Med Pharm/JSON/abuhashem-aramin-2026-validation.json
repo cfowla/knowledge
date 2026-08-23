@@ -1,0 +1,113 @@
+{
+  "source": {
+    "title": "A network meta-analysis of safety and efficacy of sodium-glucose cotransporter 2 inhibitors in heart failure patients",
+    "doi": "10.1097/MS9.0000000000004669",
+    "pmid": "41789221",
+    "publication_id": "b968f625-1143-5fe9-ad8a-5b9dbe3794b8",
+    "source_files": [
+      "Abuhashem 2026.pdf",
+      "ms9_2025_12_17_ibraheim_2_sdc2.docx",
+      "js9_2025_12_17_xiao_1_sdc1.docx"
+    ]
+  },
+  "governing_sources": {
+    "structural_model": "literature(1).py",
+    "sufficiency_validator": "literature_atoms(1).py",
+    "serialization_contract": "literature_atom.schema.json",
+    "missing_requested_control_sources": [
+      "README(2).md",
+      "example_atom.json"
+    ]
+  },
+  "atom_count": 151,
+  "counts_by_kind": {
+    "study_objective": 1,
+    "method": 13,
+    "eligibility_criterion": 2,
+    "outcome_definition": 2,
+    "population_description": 2,
+    "qualitative_result": 11,
+    "quantitative_result": 104,
+    "subgroup_result": 2,
+    "adverse_event": 1,
+    "author_conclusion": 4,
+    "limitation": 5,
+    "funding_disclosure": 1,
+    "conflict_of_interest": 1,
+    "data_availability": 1,
+    "other": 1
+  },
+  "pydantic_structural_validation": {
+    "status": "PASS",
+    "errors": []
+  },
+  "json_schema_validation": {
+    "status": "PASS",
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "status": "PASS",
+    "errors": [],
+    "warnings": []
+  },
+  "source_consistency_findings": [
+    {
+      "code": "search_cutoff_conflict",
+      "details": "Abstract says search through March 2023; Methods says databases searched through 8 April 2024. Both statements were preserved."
+    },
+    {
+      "code": "sample_trial_count_conflict",
+      "details": "Results/abstract describe 16 RCTs and 80,666 participants; Discussion describes 12 randomized trials and 69,024 participants without identifying a narrower subset."
+    },
+    {
+      "code": "risk_of_bias_tool_label_conflict",
+      "details": "Methods labels the tool ROB-1 but cites Sterne 2019 RoB 2 and lists the five RoB 2 domains."
+    },
+    {
+      "code": "cinema_rating_conflict",
+      "details": "Main text says many comparisons were moderate/low confidence, while supplied Supplementary Tables S2-S8 display High confidence ratings throughout despite major concerns/downgrade reasons."
+    },
+    {
+      "code": "reference_22_malformed",
+      "details": "Printed reference [22] appears to concatenate Wiviott et al. with a Nassif et al. citation and ends incompletely; it is preserved as printed in the reference export."
+    }
+  ],
+  "schema_gaps": [
+    "LiteratureAtom has no dedicated fields for network geometry, direct-versus-indirect contribution, heterogeneity statistics, or CINeMA certainty; these are retained in canonical statements/tags and SEA coverage rather than invented structured fields.",
+    "The model is oriented to primary-literature atoms; this review was encoded explicitly as secondary synthesis evidence with tags and source-anchored provenance."
+  ],
+  "extraction_limitations": [
+    "Supplementary Figures S1-S18 cited by the article were not present as image-bearing artifacts in the provided source packet; they were not reconstructed.",
+    "No external verification was performed because @VERIFY was not activated.",
+    "README(2).md and example_atom.json named by the @ATOM macro were not available in the supplied project sources/Drive search; higher-precedence executable model, sufficiency validator, and schema were used."
+  ],
+  "hashes_sha256": {
+    "Abuhashem 2026.pdf": "270d2751a5381b37efd8938af13e60eab839fb15cdf8a6ee3005fe36cc0414d8",
+    "ms9_2025_12_17_ibraheim_2_sdc2.docx": "06e1724f7e61162201d628ddaec6ff88a92cff92237ae3cce1f2b04607dc4f7a",
+    "js9_2025_12_17_xiao_1_sdc1.docx": "fb9fbe11fa99e85f286e7a8554360f722fbf197744be3eb782b24bfd0128057b"
+  },
+  "extraction_run_id": "abuhashem-aramin-2026-full-v1",
+  "generated_at": "2026-08-22T09:58:20+00:00",
+  "batch_manifest": [
+    {
+      "batch_id": "main-article-v1",
+      "scope": "Main article: abstract through disclosures, including Figures 1-3 and Table 1",
+      "atom_count": 47
+    },
+    {
+      "batch_id": "supplement-tables-v1",
+      "scope": "Supplied supplementary search, CINeMA, and league/rank Tables S1-S15",
+      "atom_count": 104
+    },
+    {
+      "batch_id": "prisma-checklist-v1",
+      "scope": "PRISMA 2020 reporting checklist used for coverage verification; no checklist item was atomized as study evidence",
+      "atom_count": 0
+    }
+  ],
+  "duplicate_consistency_review": {
+    "exact_duplicate_atoms": 0,
+    "status": "PASS",
+    "note": "Main-text estimates duplicated by the supplementary league tables were not re-emitted as duplicate atoms; distinct table-only pairwise estimates were retained."
+  }
+}

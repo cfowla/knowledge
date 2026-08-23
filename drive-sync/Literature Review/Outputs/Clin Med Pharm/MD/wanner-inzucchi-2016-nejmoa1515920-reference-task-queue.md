@@ -1,0 +1,126 @@
+# Reference task queue: Empagliflozin and Progression of Kidney Disease in Type 2 Diabetes
+
+- Source: Wanner et al., *N Engl J Med* 2016;375:323–334.
+- DOI: `10.1056/NEJMoa1515920`
+- References in source bibliography: 39
+- Status convention: unchecked = not independently processed in this queue; bibliography entries are not LiteratureAtoms.
+
+## Queue
+
+- [ ] **Ref 1. The Emerging Risk Factors Collaboration.** Diabetes mellitus, fasting blood glucose concentration, and risk of vascular disease: a collaborative meta-analysis of 102 prospective studies. Lancet 2010;375:2215-22.
+  - Role: context
+  - Priority: medium
+- [ ] **Ref 2. de Boer IH, Rue TC, Hall YN, Heagerty PJ, Weiss NS, Himmelfarb J.** Temporal trends in the prevalence of diabetic kidney disease in the United States. JAMA 2011;305:2532-9.
+  - Role: epidemiology
+  - Priority: medium
+- [ ] **Ref 3. Afkarian M, Sachs MC, Kestenbaum B, et al..** Kidney disease and increased mortality risk in type 2 diabetes. J Am Soc Nephrol 2013;24:302-8.
+  - Role: prognosis
+  - Priority: medium
+- [ ] **Ref 4. UK Prospective Diabetes Study (UKPDS) Group.** Intensive blood-glucose control with sulphonylureas or insulin compared with conventional treatment and risk of complications in patients with type 2 diabetes (UKPDS 33). Lancet 1998;352:837-53.
+  - Role: foundational trial
+  - Priority: high
+- [ ] **Ref 5. Coca SG, Ismail-Beigi F, Haq N, Krumholz HM, Parikh CR.** Role of intensive glucose control in development of renal end points in type 2 diabetes mellitus: systematic review and meta-analysis intensive glucose control in type 2 diabetes. Arch Intern Med 2012;172:761-9.
+  - Role: renal evidence synthesis
+  - Priority: high
+- [ ] **Ref 6. The ADVANCE Collaborative Group.** Intensive blood glucose control and vascular outcomes in patients with type 2 diabetes. N Engl J Med 2008;358:2560-72.
+  - Role: foundational trial
+  - Priority: high
+- [ ] **Ref 7. Perkovic V, Heerspink HL, Chalmers J, et al..** Intensive glucose control improves kidney outcomes in patients with type 2 diabetes. Kidney Int 2013;83:517-23.
+  - Role: renal trial analysis
+  - Priority: high
+- [ ] **Ref 8. Zoungas S, Chalmers J, Neal B, et al..** Follow-up of blood-pressure lowering and glucose control in type 2 diabetes. N Engl J Med 2014;371:1392-406.
+  - Role: long-term trial follow-up
+  - Priority: high
+- [ ] **Ref 9. Roscioni SS, Heerspink HJ, de Zeeuw D.** The effect of RAAS blockade on the progression of diabetic nephropathy. Nat Rev Nephrol 2014;10:77-87.
+  - Role: renal context
+  - Priority: medium
+- [ ] **Ref 10. Molitch ME, Adler AI, Flyvbjerg A, et al..** Diabetic kidney disease: a clinical update from Kidney Disease: Improving Global Outcomes. Kidney Int 2015;87:20-30.
+  - Role: guideline/context
+  - Priority: high
+- [ ] **Ref 11. Heise T, Seewaldt-Becker E, Macha S, et al..** Safety, tolerability, pharmacokinetics and pharmacodynamics following 4 weeks’ treatment with empagliflozin once daily in patients with type 2 diabetes. Diabetes Obes Metab 2013;15:613-21.
+  - Role: empagliflozin pharmacology
+  - Priority: medium
+- [ ] **Ref 12. Häring HU, Merker L, Seewaldt-Becker E, et al..** Empagliflozin as add-on to metformin plus sulfonylurea in patients with type 2 diabetes: a 24-week, randomized, double-blind, placebo-controlled trial. Diabetes Care 2013;36:3396-404.
+  - Role: empagliflozin efficacy/safety
+  - Priority: medium
+- [ ] **Ref 13. Häring HU, Merker L, Seewaldt-Becker E, et al..** Empagliflozin as add-on to metformin in patients with type 2 diabetes: a 24-week, randomized, double-blind, placebo-controlled trial. Diabetes Care 2014;37:1650-9.
+  - Role: empagliflozin efficacy/safety
+  - Priority: medium
+- [ ] **Ref 14. Kovacs CS, Seshiah V, Swallow R, et al..** Empagliflozin improves glycaemic and weight control as add-on therapy to pioglitazone or pioglitazone plus metformin in patients with type 2 diabetes: a 24-week, randomized, placebo-controlled trial. Diabetes Obes Metab 2014;16:147-58.
+  - Role: empagliflozin efficacy/safety
+  - Priority: medium
+- [ ] **Ref 15. Roden M, Weng J, Eilbracht J, et al..** Empagliflozin monotherapy with sitagliptin as an active comparator in patients with type 2 diabetes: a randomised, double-blind, placebo-controlled, phase 3 trial. Lancet Diabetes Endocrinol 2013;1:208-19.
+  - Role: empagliflozin efficacy/safety
+  - Priority: medium
+- [ ] **Ref 16. Rosenstock J, Jelaska A, Frappin G, et al..** Improved glucose control with weight loss, lower insulin doses, and no increased hypoglycemia with empagliflozin added to titrated multiple daily injections of insulin in obese inadequately controlled type 2 diabetes. Diabetes Care 2014;37:1815-23.
+  - Role: empagliflozin efficacy/safety
+  - Priority: medium
+- [ ] **Ref 17. Rosenstock J, Jelaska A, Zeller C, Kim G, Broedl UC, Woerle HJ.** Impact of empagliflozin added on to basal insulin in type 2 diabetes inadequately controlled on basal insulin: a 78-week randomized, double-blind, placebo-controlled trial. Diabetes Obes Metab 2015;17:936-48.
+  - Role: empagliflozin efficacy/safety
+  - Priority: medium
+- [ ] **Ref 18. Tikkanen I, Narko K, Zeller C, et al..** Empagliflozin reduces blood pressure in patients with type 2 diabetes and hypertension. Diabetes Care 2015;38:420-8.
+  - Role: empagliflozin blood pressure
+  - Priority: medium
+- [ ] **Ref 19. Barnett AH, Mithal A, Manassie J, et al..** Efficacy and safety of empagliflozin added to existing antidiabetes treatment in patients with type 2 diabetes and chronic kidney disease: a randomised, double-blind, placebo-controlled trial. Lancet Diabetes Endocrinol 2014;2:369-84.
+  - Role: direct CKD empagliflozin trial
+  - Priority: high
+- [ ] **Ref 20. Skrtić M, Yang GK, Perkins BA, et al..** Characterisation of glomerular haemodynamic responses to SGLT2 inhibition in patients with type 1 diabetes and renal hyperfiltration. Diabetologia 2014;57:2599-602.
+  - Role: renal mechanism
+  - Priority: high
+- [ ] **Ref 21. Cherney DZ, Perkins BA, Soleymanlou N, et al..** Renal hemodynamic effect of sodium-glucose cotransporter 2 inhibition in patients with type 1 diabetes mellitus. Circulation 2014;129:587-97.
+  - Role: renal mechanism
+  - Priority: high
+- [ ] **Ref 22. Škrtić M, Cherney DZ.** Sodium-glucose cotransporter-2 inhibition and the potential for renal protection in diabetic nephropathy. Curr Opin Nephrol Hypertens 2015;24:96-103.
+  - Role: renal mechanism review
+  - Priority: medium
+- [x] **Ref 23. Zinman B, Wanner C, Lachin JM, et al..** Empagliflozin, cardiovascular outcomes, and mortality in type 2 diabetes. N Engl J Med 2015;373:2117-28.
+  - Role: parent trial
+  - Priority: high — already processed in the current TBR stream
+- [ ] **Ref 24. Zinman B, Inzucchi SE, Lachin JM, et al..** Rationale, design, and baseline characteristics of a randomized, placebo-controlled cardiovascular outcome trial of empagliflozin (EMPA-REG OUTCOME). Cardiovasc Diabetol 2014;13:102.
+  - Role: trial design
+  - Priority: high
+- [ ] **Ref 25. Levey AS, Bosch JP, Lewis JB, Greene T, Rogers N, Roth D.** A more accurate method to estimate glomerular filtration rate from serum creatinine: a new prediction equation. Ann Intern Med 1999;130:461-70.
+  - Role: MDRD method
+  - Priority: medium
+- [ ] **Ref 26. Levey AS, Stevens LA, Schmid CH, et al..** A new equation to estimate glomerular filtration rate. Ann Intern Med 2009;150:604-12.
+  - Role: CKD-EPI method
+  - Priority: high
+- [ ] **Ref 27. Gaede P, Vedel P, Larsen N, Jensen GV, Parving HH, Pedersen O.** Multifactorial intervention and cardiovascular disease in patients with type 2 diabetes. N Engl J Med 2003;348:383-93.
+  - Role: multifactorial treatment context
+  - Priority: medium
+- [ ] **Ref 28. Chilton R, Tikkanen I, Cannon CP, et al..** Effects of empagliflozin on blood pressure and markers of arterial stiffness and vascular resistance in patients with type 2 diabetes. Diabetes Obes Metab 2015;17:1180-93.
+  - Role: mechanistic/context
+  - Priority: medium
+- [ ] **Ref 29. Cherney DZ, Perkins BA, Soleymanlou N, et al..** The effect of empagliflozin on arterial stiffness and heart rate variability in subjects with uncomplicated type 1 diabetes mellitus. Cardiovasc Diabetol 2014;13:28.
+  - Role: mechanistic/context
+  - Priority: low
+- [ ] **Ref 30. Vallon V, Gerasimova M, Rose MA, et al..** SGLT2 inhibitor empagliflozin reduces renal growth and albuminuria in proportion to hyperglycemia and prevents glomerular hyperfiltration in diabetic Akita mice. Am J Physiol Renal Physiol 2014;306:F194-204.
+  - Role: preclinical mechanism
+  - Priority: medium
+- [ ] **Ref 31. Cherney DZ, Perkins BA, Soleymanlou N, et al..** Sodium glucose cotransport-2 inhibition and intrarenal RAS activity in people with type 1 diabetes. Kidney Int 2014;86:1057-8.
+  - Role: renal mechanism
+  - Priority: medium
+- [ ] **Ref 32. Jordan J, Tank J, Heusser K, et al..** Empagliflozin has no discernable effect on muscle sympathetic nerve activity in patients with type 2 diabetes despite reductions in blood pressure and weight. Diabetes 2014;63:Suppl 1:A265 (poster).
+  - Role: mechanistic poster
+  - Priority: low
+- [ ] **Ref 33. Lewis EJ, Hunsicker LG, Clarke WR, et al..** Renoprotective effect of the angiotensin-receptor antagonist irbesartan in patients with nephropathy due to type 2 diabetes. N Engl J Med 2001;345:851-60.
+  - Role: foundational diabetic nephropathy trial
+  - Priority: high
+- [ ] **Ref 34. Brenner BM, Cooper ME, de Zeeuw D, et al..** Effects of losartan on renal and cardiovascular outcomes in patients with type 2 diabetes and nephropathy. N Engl J Med 2001;345:861-9.
+  - Role: foundational diabetic nephropathy trial
+  - Priority: high
+- [ ] **Ref 35. Parving H-H, Brenner BM, McMurray JJV, et al..** Cardiorenal end points in a trial of aliskiren for type 2 diabetes. N Engl J Med 2012;367:2204-13.
+  - Role: renal safety/context trial
+  - Priority: high
+- [ ] **Ref 36. Brown NJ, Vaughan DE.** Angiotensin-converting enzyme inhibitors. Circulation 1998;97:1411-20.
+  - Role: RAAS context
+  - Priority: low
+- [ ] **Ref 37. Kobori H, Nangaku M, Navar LG, Nishiyama A.** The intrarenal renin-angiotensin system: from physiology to the pathobiology of hypertension and kidney disease. Pharmacol Rev 2007;59:251-87.
+  - Role: renal mechanism review
+  - Priority: medium
+- [ ] **Ref 38. Schoolwerth AC, Sica DA, Ballermann BJ, Wilcox CS.** Renal considerations in angiotensin converting enzyme inhibitor therapy: a statement for healthcare professionals from the Council on the Kidney in Cardiovascular Disease and the Council for High Blood Pressure Research of the American Heart Association. Circulation 2001;104:1985-91.
+  - Role: renal pharmacotherapy context
+  - Priority: medium
+- [ ] **Ref 39. Holtkamp FA, de Zeeuw D, Thomas MC, et al..** An acute fall in estimated glomerular filtration rate during treatment with losartan predicts a slower decrease in long-term renal function. Kidney Int 2011;80:282-7.
+  - Role: hemodynamic eGFR precedent
+  - Priority: high

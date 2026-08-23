@@ -1,0 +1,192 @@
+{
+  "activated_macros": [
+    "@ATOM",
+    "@SEA"
+  ],
+  "source": {
+    "slug": "hussain-atif-2021-jamc-33-4-593",
+    "title": "Comparison of Efficacy and Safety Profile of Empagliflozin Versus Dapagliflozin as Add on Therapy in Type 2 Diabetic Patients",
+    "authors": [
+      "Mazhar Hussain",
+      "Moazzam Atif",
+      "Muhammad Babar",
+      "Lubna Akhtar"
+    ],
+    "journal": "J Ayub Med Coll Abbottabad",
+    "citation": "Hussain M, Atif M, Babar M, Akhtar L. J Ayub Med Coll Abbottabad. 2021;33(4):593-597.",
+    "publication_year": 2021,
+    "pmid": "35124914",
+    "doi": null,
+    "publication_id": "b00f7ddb-0922-5df5-ace1-240931153ee8",
+    "input_file": "jmanager,+10-Mazhar+Hussain.pdf",
+    "input_sha256": "ab78e51b14f60002b117c1d3e3059470948a671a80773bc694d732a0d0606304"
+  },
+  "atom_count": 67,
+  "atom_counts_by_kind": {
+    "adverse_event": 8,
+    "author_conclusion": 4,
+    "comparator_description": 2,
+    "conflict_of_interest": 1,
+    "eligibility_criterion": 2,
+    "funding_disclosure": 1,
+    "intervention_description": 2,
+    "limitation": 3,
+    "method": 14,
+    "outcome_definition": 2,
+    "population_description": 8,
+    "qualitative_result": 2,
+    "quantitative_result": 17,
+    "study_objective": 1
+  },
+  "assertion_origin_counts": {
+    "directly_reported": 6,
+    "normalized_from_source": 61
+  },
+  "review_status_counts": {
+    "needs_review": 67
+  },
+  "authoritative_validation": {
+    "pydantic_model": "passed using literature(1).py",
+    "json_schema": "passed using literature_atom.schema.json",
+    "sufficiency": "passed using literature_atoms(1).py",
+    "structural_errors": [],
+    "json_schema_errors": [],
+    "sufficiency_errors": [],
+    "sufficiency_warnings": []
+  },
+  "identity_checks": {
+    "unique_atom_ids": true,
+    "shared_publication_id": true,
+    "exact_duplicate_statement_anchor_pairs": 0
+  },
+  "source_integrity_findings": [
+    {
+      "code": "participant_flow_enrollment_conflict",
+      "severity": "critical",
+      "source_finding": "Methods says 410 recruited and 280 enrolled; Results and Figure 1 say 410 screened/recruited, 356 enrolled, and 280 randomized.",
+      "model_check": null
+    },
+    {
+      "code": "participant_flow_exclusion_sum",
+      "severity": "critical",
+      "source_finding": "Results says 76 participants were excluded, while Figure 1 lists exclusion categories n=16, 22, 28, 5, and 10.",
+      "model_check": "The listed Figure 1 exclusion categories sum to 81, not 76."
+    },
+    {
+      "code": "dose_description_conflict",
+      "severity": "major",
+      "source_finding": "Abstract specifies empagliflozin 25 mg and dapagliflozin 10 mg; Methods specifies empagliflozin 10-25 mg and dapagliflozin 5-10 mg daily.",
+      "model_check": null
+    },
+    {
+      "code": "weight_significance_label_conflict",
+      "severity": "critical",
+      "source_finding": "The article defines p<0.05 as statistically significant but calls the between-group body-weight comparison non-significant at p=0.032.",
+      "model_check": null
+    },
+    {
+      "code": "weight_change_conflict",
+      "severity": "major",
+      "source_finding": "Narrative reports changes -2.9 kg and -1.7 kg; Table 2 reports baseline/week-12 means 82.4 to 79.2 and 81.6 to 80.5.",
+      "model_check": "Differences calculated from Table 2 means are -3.2 kg and -1.1 kg, respectively."
+    },
+    {
+      "code": "fbg_change_conflict",
+      "severity": "major",
+      "source_finding": "Narrative reports FBG changes -75.6 and -63.5 mg/dL; Table 2 reports 177 to 125.4 and 201.4 to 140 mg/dL.",
+      "model_check": "Differences calculated from Table 2 means are -51.6 and -61.4 mg/dL, respectively."
+    },
+    {
+      "code": "hba1c_change_conflict",
+      "severity": "major",
+      "source_finding": "Narrative reports HbA1c changes -1.7 and -1.2 percentage points; Table 2 reports 9.8 to 7.62 and 8.9 to 7.5.",
+      "model_check": "Differences calculated from Table 2 means are -2.18 and -1.40 percentage points, respectively."
+    },
+    {
+      "code": "fbg_sd_printing_issue",
+      "severity": "major",
+      "source_finding": "Table 2 prints empagliflozin week-12 FBG as 125.4±655 mg/dL. The value was preserved as printed and not corrected.",
+      "model_check": null
+    },
+    {
+      "code": "genital_infection_percentage_conflict",
+      "severity": "critical",
+      "source_finding": "Table 3 reports 15 genital infections among 127 dapagliflozin participants as 7.08%.",
+      "model_check": "15/127 = 11.81%, not 7.08%."
+    },
+    {
+      "code": "infection_label_order_conflict",
+      "severity": "major",
+      "source_finding": "Narrative labels 2.34% and 3.1% as urinary and genital infection values, respectively, while Table 3 shows 2.34% genital and 3.1% urinary; the dapagliflozin values are likewise 7.08% genital and 8.66% urinary.",
+      "model_check": null
+    },
+    {
+      "code": "baseline_age_p_discordance",
+      "severity": "critical",
+      "source_finding": "Table 1 reports p=0.82 for baseline age.",
+      "model_check": "Using the displayed means, SDs, and arm sizes in a two-sided Welch t test gives p≈0.000203465. This calculation is an appraisal check, not a replacement source value."
+    },
+    {
+      "code": "baseline_fasting_serum_glucose_p_discordance",
+      "severity": "critical",
+      "source_finding": "Table 1 reports p=0.44 for baseline fasting serum glucose.",
+      "model_check": "Using the displayed means, SDs, and arm sizes in a two-sided Welch t test gives p≈0.000211211. This calculation is an appraisal check, not a replacement source value."
+    },
+    {
+      "code": "baseline_HbA1c_p_discordance",
+      "severity": "critical",
+      "source_finding": "Table 1 reports p=0.62 for baseline HbA1c.",
+      "model_check": "Using the displayed means, SDs, and arm sizes in a two-sided Welch t test gives p≈2.55506e-05. This calculation is an appraisal check, not a replacement source value."
+    },
+    {
+      "code": "baseline_diabetes_duration_p_discordance",
+      "severity": "major",
+      "source_finding": "Table 1 reports p=0.65 for baseline diabetes duration.",
+      "model_check": "Using the displayed means, SDs, and arm sizes in a two-sided Welch t test gives p≈0.0205908. This calculation is an appraisal check, not a replacement source value."
+    },
+    {
+      "code": "severe_hypoglycaemia_chi_square_p_discordance",
+      "severity": "major",
+      "source_finding": "Table 3 reports p=0.32 for severe hypoglycaemia and states that chi-square tests were used.",
+      "model_check": "Pearson chi-square from the displayed event counts gives p≈0.403153. This calculation is an appraisal check, not a correction of the source."
+    },
+    {
+      "code": "urinary_infection_chi_square_p_discordance",
+      "severity": "critical",
+      "source_finding": "Table 3 reports p=0.005 for urinary infection and states that chi-square tests were used.",
+      "model_check": "Pearson chi-square from the displayed event counts gives p≈0.0602872. This calculation is an appraisal check, not a correction of the source."
+    },
+    {
+      "code": "urgency_chi_square_p_discordance",
+      "severity": "major",
+      "source_finding": "Table 3 reports p=0.82 for urgency and states that chi-square tests were used.",
+      "model_check": "Pearson chi-square from the displayed event counts gives p≈0.645141. This calculation is an appraisal check, not a correction of the source."
+    },
+    {
+      "code": "frequency_chi_square_p_discordance",
+      "severity": "major",
+      "source_finding": "Table 3 reports p=0.56 for frequency and states that chi-square tests were used.",
+      "model_check": "Pearson chi-square from the displayed event counts gives p≈0.743365. This calculation is an appraisal check, not a correction of the source."
+    },
+    {
+      "code": "nocturia_chi_square_p_discordance",
+      "severity": "major",
+      "source_finding": "Table 3 reports p=0.72 for nocturia and states that chi-square tests were used.",
+      "model_check": "Pearson chi-square from the displayed event counts gives p≈0.992244. This calculation is an appraisal check, not a correction of the source."
+    },
+    {
+      "code": "table_2_final_p_footnote_ambiguity",
+      "severity": "major",
+      "source_finding": "Table 2 uses a final p-value column for values interpreted in the Results narrative as between-group comparisons, but the double-dagger footnote says these are differences within group measured at baseline and week 12.",
+      "model_check": "The table footnote and narrative interpretation do not identify the same comparison. No alternative p-value meaning was inferred."
+    }
+  ],
+  "schema_gaps": [],
+  "extraction_limitations": [
+    "All atoms are model-extracted and remain needs_review; no human verification status was invented.",
+    "The paper reports a randomized trial but does not describe allocation concealment, blinding, prospective registration, or a sample-size calculation.",
+    "No supplementary file was present in the source packet.",
+    "Source-integrity calculations are retained in this validation report and SEA appraisal rather than serialized as reported evidence atoms.",
+    "Bibliography entries were not atomized."
+  ]
+}

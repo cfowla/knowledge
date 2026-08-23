@@ -1,0 +1,106 @@
+{
+  "activated_macros": [
+    "@ATOM",
+    "@SEA"
+  ],
+  "source": {
+    "title": "Effects of SGLT2 Inhibitors on Clinical Outcomes, Symptoms, Functional Capacity, and Cardiac Remodeling in Heart Failure: A Comprehensive Systematic Review and Multidomain Meta-Analysis of Randomized Trials",
+    "authors": [
+      "Olivia-Maria Bodea",
+      "Stefania Serban",
+      "Maria-Laura Craciun",
+      "Diana-Maria Mateescu",
+      "Eduard Florescu",
+      "Camelia-Oana Muresan",
+      "Ioana-Georgiana Cotet",
+      "Marius Badalica-Petrescu",
+      "Andreea Munteanu",
+      "Dana Velimirovici",
+      "Nilima Rajpal Kundnani",
+      "Simona Ruxanda Dragan"
+    ],
+    "journal": "Journal of Clinical Medicine",
+    "year": 2026,
+    "volume": 15,
+    "article_number": "378",
+    "doi": "10.3390/jcm15010378",
+    "prospero": "CRD420251235850",
+    "source_type": "systematic_review_multidomain_meta_analysis_of_randomized_trials",
+    "file": "jcm-15-00378.pdf",
+    "pages": 24,
+    "sha256": "9272d2e37bfeecf94ebaa1b08cf37d6c993ba2b33e201261989bbcfe7471edd9",
+    "publication_id": "feae7804-2fd3-54d4-bd24-1387e0649c33"
+  },
+  "atom_count": 63,
+  "atom_counts_by_kind": {
+    "adverse_event": 1,
+    "author_conclusion": 2,
+    "conflict_of_interest": 1,
+    "data_availability": 1,
+    "eligibility_criterion": 1,
+    "funding_disclosure": 1,
+    "limitation": 13,
+    "method": 6,
+    "outcome_definition": 2,
+    "population_description": 2,
+    "qualitative_result": 9,
+    "quantitative_result": 23,
+    "study_objective": 1
+  },
+  "atom_counts_by_batch": {
+    "bodea-serban-2026-clinical-v1": 8,
+    "bodea-serban-2026-general-v1": 15,
+    "bodea-serban-2026-interpretation-v1": 15,
+    "bodea-serban-2026-remodeling-safety-v1": 15,
+    "bodea-serban-2026-symptoms-function-v1": 10
+  },
+  "validation": {
+    "pydantic_model": "LiteratureAtom from literature(1).py",
+    "pydantic_structural_validation": "passed",
+    "structural_errors": [],
+    "json_schema": "literature_atom.schema.json",
+    "json_schema_validation": "passed",
+    "json_schema_errors": [],
+    "sufficiency_validator": "validate_literature_atom_sufficiency from literature_atoms(1).py",
+    "sufficiency_validation": "passed",
+    "sufficiency_errors": [],
+    "sufficiency_warnings": []
+  },
+  "identity_and_merge_checks": {
+    "shared_publication_id": true,
+    "unique_atom_ids": true,
+    "duplicate_statement_anchor_pairs": 0,
+    "duplicate_atom_ids": []
+  },
+  "source_internal_consistency_findings": [
+    {
+      "location": "Table 1 vs reported total",
+      "issue": "The paper reports 11 RCTs and total n=23,812, but the N values printed in Table 1 sum to 23,999.",
+      "handling": "Retained the source-reported total when describing the source, tagged dependent atoms, and recorded the arithmetic discrepancy here without inventing a corrected study total."
+    },
+    {
+      "location": "Section 3.3 Clinical Outcomes vs Table 1",
+      "issue": "Section 3.3 reports six large cardiovascular outcome trials with n=22,927. The six cited trials [19,24-28] have Table 1 sample sizes summing to 22,477.",
+      "handling": "Preserved the source-reported denominator in the affected atoms and flagged the mismatch."
+    },
+    {
+      "location": "Methods 2.7.2",
+      "issue": "The statistical methods call the random-effects model DerSimonian-Laird while also stating that between-study variance tau-squared was estimated by Paule-Mandel.",
+      "handling": "Reported as a methods-description inconsistency; no estimator was silently substituted."
+    },
+    {
+      "location": "Eligibility 2.2 vs included trials",
+      "issue": "Eligibility names approved SGLT2 inhibitors as dapagliflozin, empagliflozin, and canagliflozin, but SOLOIST-WHF with sotagliflozin is included. Later methods explicitly discuss sotagliflozin in sensitivity analysis.",
+      "handling": "Reported as an eligibility-wording inconsistency; the source inclusion was not changed."
+    }
+  ],
+  "source_gaps": [
+    "README(2).md was not available in the supplied project sources or connected Drive searches. This lower-precedence workflow-intent gap did not prevent execution of the governing domain model, sufficiency validator, and serialization schema.",
+    "The article-linked supplementary package was not present in the selected Drive materials folder."
+  ],
+  "extraction_limitations": [
+    "This is a secondary-source meta-analysis. Individual-trial effects remain reports made by this review and are tagged secondary_reported_result when atomized. Primary-study atoms require direct extraction of the cited trial publications.",
+    "Atoms are machine-extracted and marked needs_review.",
+    "No source-internal arithmetic or methods inconsistency was silently repaired."
+  ]
+}

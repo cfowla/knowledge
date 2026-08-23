@@ -1,0 +1,118 @@
+{
+  "activated_macros": [
+    "@ATOM",
+    "@SEA"
+  ],
+  "source": {
+    "title": "Redefining treatment paradigms: Early use of dapagliflozin and empagliflozin in acute heart failure – a systematic review and meta-analysis of randomized controlled trials",
+    "authors": [
+      "Surya S. Immanuel",
+      "Eric R. Yonatan",
+      "Gabriel Tandecxi",
+      "Clifford P. Anthony",
+      "Janice Z. Chan",
+      "Andrew EP. Sunardi",
+      "Ira Posangi",
+      "Victor Bandana"
+    ],
+    "journal": "Narra J",
+    "year": 2025,
+    "volume": "5",
+    "issue": "1",
+    "article_number": "e1833",
+    "doi": "10.52225/narra.v5i1.1833",
+    "source_type": "systematic_review_and_meta_analysis_of_randomized_controlled_trials",
+    "file": "NarraJ-5-e1833.pdf",
+    "pages": 16,
+    "sha256": "39a3ac3d8a415ba0c1b17a5a18538bb7da18a160109c6d603ee8c965284d99c8",
+    "publication_id": "135538f4-f151-5867-be0c-82c191fefdc7"
+  },
+  "atom_count": 47,
+  "atom_counts_by_kind": {
+    "adverse_event": 6,
+    "author_conclusion": 2,
+    "comparator_description": 1,
+    "conflict_of_interest": 1,
+    "data_availability": 1,
+    "eligibility_criterion": 2,
+    "funding_disclosure": 1,
+    "intervention_description": 2,
+    "limitation": 4,
+    "method": 10,
+    "other": 1,
+    "population_description": 4,
+    "qualitative_result": 4,
+    "quantitative_result": 7,
+    "study_objective": 1
+  },
+  "atom_counts_by_batch": {
+    "immanuel-yonatan-2025-fulltext-v1-disclosures": 4,
+    "immanuel-yonatan-2025-fulltext-v1-general": 1,
+    "immanuel-yonatan-2025-fulltext-v1-interpretation": 7,
+    "immanuel-yonatan-2025-fulltext-v1-methods": 12,
+    "immanuel-yonatan-2025-fulltext-v1-outcomes": 14,
+    "immanuel-yonatan-2025-fulltext-v1-population": 9
+  },
+  "validation": {
+    "pydantic_model": "LiteratureAtom from literature(1).py",
+    "pydantic_structural_validation": "passed",
+    "structural_errors": [],
+    "json_schema": "literature_atom.schema.json",
+    "json_schema_validation": "passed",
+    "json_schema_errors": [],
+    "sufficiency_validator": "validate_literature_atom_sufficiency from literature_atoms(1).py",
+    "sufficiency_validation": "passed",
+    "sufficiency_errors": [],
+    "sufficiency_warnings": []
+  },
+  "identity_and_merge_checks": {
+    "shared_publication_id": true,
+    "unique_atom_ids": true,
+    "duplicate_statement_anchor_pairs": 0
+  },
+  "source_internal_consistency_findings": [
+    {
+      "location": "Figure 1 / Study selection",
+      "issue": "Narrative says 473 database records plus 1 hand-search record = 474; the database-specific counts shown in Figure 1 sum to 474 before adding the hand-search record, so the component counts do not reconcile with the stated total.",
+      "handling": "Preserved the reported totals and recorded the mismatch; no count was silently corrected."
+    },
+    {
+      "location": "Results vs Table 1",
+      "issue": "Results narrative reports approximately 49.36% of patients had diabetes, whereas the Table 1 summary reports 51.1%.",
+      "handling": "Both source-reported values were retained and tagged as inconsistent."
+    },
+    {
+      "location": "Mortality outcome heading/abstract vs Table 2",
+      "issue": "The paper repeatedly describes the mortality endpoint as in-hospital all-cause mortality, while Table 2 labels follow-up as ranging from 5 to 90 days.",
+      "handling": "The atom uses the Table 2 follow-up range and flags the source labeling conflict."
+    },
+    {
+      "location": "Table 2 acute kidney injury row",
+      "issue": "Table 2 reports 20/420 control vs 15/423 early SGLT2i but prints RR 1.20 (95% CI 0.27–5.25), a direction inconsistent with the displayed event rates; it also labels 3 RCTs while listing only references [15,16].",
+      "handling": "Reported RR, CI, event counts, participant count, and study count were preserved exactly; discrepancy flagged without recalculation."
+    },
+    {
+      "location": "Methods risk-of-bias inclusion vs sensitivity analysis",
+      "issue": "Methods state that only low-risk or some-concerns studies were included, yet sensitivity analysis is described as removing high-risk studies.",
+      "handling": "Both statements retained as a methods-logic inconsistency."
+    },
+    {
+      "location": "Adverse-event narrative vs Figure/Table labels",
+      "issue": "The Results sentence refers to symptomatic hypertension, while Figure 12 and Table 2 specify symptomatic hypotension.",
+      "handling": "Outcome atom follows the figure/table label (symptomatic hypotension) and the prose typo is flagged."
+    },
+    {
+      "location": "Serious adverse events narrative vs pooled figure/table",
+      "issue": "Results prose attributes the significant serious-adverse-event reduction to empagliflozin, while Figure 15 and Table 2 label the pooled intervention as early dapagliflozin and empagliflozin.",
+      "handling": "The atom follows the pooled Table 2/figure label and records the intervention-label discrepancy."
+    }
+  ],
+  "source_gaps": [
+    "No supplementary file was present in the selected Drive source packet.",
+    "Primary-study results summarized by this review were not reclassified as primary evidence; direct primary-study atoms require extraction from the cited trial publications."
+  ],
+  "extraction_limitations": [
+    "The current LiteratureAtom schema is primary-literature-oriented; this secondary source was represented using existing atom kinds plus secondary_source/secondary_reported_result tags.",
+    "Reference-list entries were exported separately and were not atomized."
+  ]
+}

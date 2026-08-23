@@ -1,0 +1,90 @@
+{
+  "source": {
+    "title": "Head-to-head comparative effectiveness of empagliflozin versus dapagliflozin and DPP-4 inhibitors on clinical and metabolic outcomes: a nationwide propensity-matched study",
+    "doi": "10.1038/s41598-026-58787-2",
+    "pmid": "42342812",
+    "publication_id": "a6b3b299-3597-4bf6-b046-8a6bed19a4bb",
+    "main_file": "s41598-026-58787-2_reference.pdf",
+    "main_sha256": "74bc6fcf8fd9ab626a61377111a130a8f3bf5d178d59696da050d890fb5abae5",
+    "supplement_file": "41598_2026_58787_MOESM1_ESM.docx",
+    "supplement_sha256": "21b56ddc1a50cf0b3b0d4af46ca6030231146426faafbbef105d26465736c0da"
+  },
+  "atom_count": 87,
+  "counts_by_kind": {
+    "adverse_event": 6,
+    "author_conclusion": 5,
+    "comparator_description": 2,
+    "conflict_of_interest": 1,
+    "data_availability": 1,
+    "eligibility_criterion": 8,
+    "funding_disclosure": 1,
+    "intervention_description": 1,
+    "limitation": 7,
+    "method": 13,
+    "other": 2,
+    "outcome_definition": 13,
+    "population_description": 7,
+    "qualitative_result": 1,
+    "quantitative_result": 18,
+    "study_objective": 1
+  },
+  "counts_by_extraction_run": {
+    "lee-kim-2026-clinical-results-v1": 18,
+    "lee-kim-2026-disclosures-v1": 3,
+    "lee-kim-2026-general-v1": 20,
+    "lee-kim-2026-interpretation-v1": 13,
+    "lee-kim-2026-metabolic-results-v1": 6,
+    "lee-kim-2026-outcomes-methods-v1": 22,
+    "lee-kim-2026-population-results-v1": 5
+  },
+  "structural_validation": {
+    "status": "PASS",
+    "errors": []
+  },
+  "json_schema_validation": {
+    "status": "PASS",
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "status": "PASS",
+    "errors": [],
+    "warnings": []
+  },
+  "duplicate_review": {
+    "exact_duplicate_canonical_statement_count": 0,
+    "status": "PASS"
+  },
+  "cross_batch_consistency_findings": [
+    {
+      "code": "hospitalization_definition_conflict",
+      "main_source": "Main Methods, PDF p.15: all-cause hospitalization, time to first hospitalization, irrespective of prior hospitalization history.",
+      "supplement": "Supplementary Table S1, p.1: \"Diabetes-related hospitalisation (HOS)\" = admission with primary diagnosis E11.x–E14.x.",
+      "resolution": "Not repaired. Both source statements are preserved; the exact implemented claims outcome cannot be established unambiguously from the supplied materials."
+    },
+    {
+      "code": "figure_2_comparison_direction_label",
+      "main_source": "Table 2 presents adjusted HRs under EMPA vs DAPA / EMPA vs DPP4i and the prose interprets HR <1 as lower risk with EMPA.",
+      "figure": "Figure 2 legend labels the same plotted values \"DAPA vs EMPA\" and \"DPP4i vs EMPA\".",
+      "resolution": "Not repaired. SEA treats Table 2/prose as the effect-direction interpretation and flags the figure legend as internally inconsistent."
+    },
+    {
+      "code": "cohort_start_date_conflict",
+      "methods": "Methods, PDF pp.13–14: exposure/new-user classification on or after January 1, 2016.",
+      "figure": "Figure 1, PDF p.30: antidiabetic drug exposure \"since 2016.05\".",
+      "resolution": "Not repaired. Both dates are reported as printed."
+    },
+    {
+      "code": "kidney_event_definition_mismatch",
+      "main_source": "Main Methods, PDF p.15 includes new-onset acute/chronic kidney disease, progression to advanced CKD, or initiation of dialysis.",
+      "supplement": "Supplementary Table S1, p.1 defines kidney event as incident acute kidney injury or advanced CKD and supplies N17.x/N18.x/N19 codes; no dialysis procedure code is shown.",
+      "resolution": "Not repaired. The supplement appears narrower/less explicit than the main-text definition."
+    }
+  ],
+  "schema_gaps": [],
+  "extraction_limitations": [
+    "The source is an accepted, unedited article-in-press manuscript; copyediting may change the final version.",
+    "Reference-list entries were not atomized.",
+    "No causal effect is inferred from the observational associations.",
+    "The supplied supplement was included as source material; no unprovided supplemental artifacts were assumed."
+  ]
+}
