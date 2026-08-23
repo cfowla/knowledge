@@ -12,7 +12,11 @@ Package-tree SHA-256: `fc412487fdcaf1fef556c14c18386b86f3382b0a76d3fc345fd115357
 
 Source archive file ID: `1b0Tdt-fh3xY5jJyzofxGngyWxytgoL34`
 
-Source archive SHA-256: `c6bb555bb6d612c0dae8b2a4f06c4274dee14143dcfdc952ffb4f116c5059daa`
+Source archive SHA-256: `18067a7ec6bf2a6cbb905ed3fd675797952c499bf9977b7c647da150e5d45ac2`
+
+Evidence archive file ID: `19w8sKkQSwBpHyO4t7QN_NwNseoy-4rWd`
+
+Evidence archive SHA-256: `6b490ac8ab601edbf527c43d2e3c147d57571e3642bb8959fc15fcdb1cbc0188`
 
 ## Mandatory resolution behavior
 
@@ -23,7 +27,8 @@ Source archive SHA-256: `c6bb555bb6d612c0dae8b2a4f06c4274dee14143dcfdc952ffb4f11
 5. Never recursively search Drive for `src`, `pyproject.toml`, `scholar-acquire-chatgpt*.zip`, `CAPABILITY_REGISTRY.json`, or `PROMPT*_REPORT*` and assume the first/latest result is current.
 6. Before running code, fetch the source archive by the exact file ID above and verify its SHA-256. A mismatch is a reconciliation failure, not permission to select another archive.
 7. Route support must be read from the canonical capability registry and route-proof matrix inside the authoritative build folder. GitHub workflow completion is transport evidence only.
-8. Historical Prompt 1/2/3/4/5 folders are work logs, not phase-selection instructions.
+8. Repository support is controlled by the independently regenerated Prompt 1 Phase C production `acquire_one()`/`resume_acquire_one()` proof: positive session `0a024cab4667`, negative session `9aba8a394781`. Oxford ORA 403 and UC eScholarship WAF cases are not positive proofs.
+9. Historical Prompt 1/2/3/4/5 folders are work logs, not phase-selection instructions.
 
 ## Historical path
 
