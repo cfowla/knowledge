@@ -5,22 +5,9 @@
   "build_id": "scholar-acquire-chatgpt-0.4.3-prompt3-reconciled",
   "package_tree_sha256": "fc412487fdcaf1fef556c14c18386b86f3382b0a76d3fc345fd1153572524815",
   "supersedes": [
-    {
-      "classification": "historical_blocked",
-      "source_archive_sha256": "8fd2630a9b578931983394325eefa26bd61219762c182985d0a12ef506fe0ef9",
-      "evidence_archive_sha256": "edb03d9d7b324ac9e838770d78166206c675b879952a689276a97f620d03c007",
-      "package_tree_sha256": "f2b7bd3c23502d629605e31f4f4d76581dda0fcf8d3fc97da389b556ed987b3a",
-      "hard_gate": "BLOCKED_AT_ROUTE_C"
-    },
-    {
-      "classification": "prose_only_claim",
-      "package_tree_sha256_claim": "599992b82ed4f60ce11401ea470ecb60c3debe250fffa71acc5848c3df8f64fe",
-      "disposition": "preserved as corroborating prose; not authority"
-    },
-    {
-      "classification": "stale_preflight",
-      "disposition": "renamed SUPERSEDED in Drive; correctly rejected workflow-level success but predates reconciled machine package"
-    }
+    {"classification": "historical_blocked", "source_archive_sha256": "8fd2630a9b578931983394325eefa26bd61219762c182985d0a12ef506fe0ef9", "evidence_archive_sha256": "edb03d9d7b324ac9e838770d78166206c675b879952a689276a97f620d03c007", "package_tree_sha256": "f2b7bd3c23502d629605e31f4f4d76581dda0fcf8d3fc97da389b556ed987b3a", "hard_gate": "BLOCKED_AT_ROUTE_C"},
+    {"classification": "prose_only_claim", "package_tree_sha256_claim": "599992b82ed4f60ce11401ea470ecb60c3debe250fffa71acc5848c3df8f64fe", "disposition": "preserved as corroborating prose; not authority"},
+    {"classification": "stale_preflight", "disposition": "renamed SUPERSEDED in Drive; correctly rejected workflow-level success but predates reconciled machine package"}
   ],
   "closed_discrepancies": [
     "Two same-named Prompt 3 packages/build IDs -> resolved by unique RECONCILED filenames plus exact package-tree/archive hashes.",
@@ -31,9 +18,10 @@
     "Low-level UNKNOWN on definitive exhaustion -> RuntimeFailureCode.PROVIDER_EXHAUSTED added; PMC and Unpaywall negatives re-run and prove corrected code.",
     "Mixed-build proof concern -> all four positive and negative/blocked acceptance cases re-run under package tree fc412487fdcaf1fef556c14c18386b86f3382b0a76d3fc345fd1153572524815.",
     "Canonical package missing from Google Drive -> this reconciled source/evidence package is built for transfer and Drive readback.",
-    "Prior Unpaywall positive run 1fbd4f59f99a did not satisfy the required transport chain because the host substituted a PMC mirror after Python selected a Liebert URL; it is preserved as superseded evidence and does not control capability status."
+    "Prior Unpaywall positive run 1fbd4f59f99a did not satisfy the required transport chain because the host substituted a PMC mirror after Python selected a Liebert URL; it is preserved as superseded evidence and does not control capability status.",
+    "Repository support independently re-proved in Prompt 1 Phase C using a freshly emitted production acquire_one transport request, exact correlated GitHub response, Python checksum/identity validation, manifest, receipt, journal, and SUCCESS; fresh search-absence negative remained BLOCKED."
   ],
-  "generated_at": "2026-08-22T03:22:45.439311+00:00",
+  "generated_at": "2026-08-23T06:38:54.153546+00:00",
   "phase_b_unpaywall_direct_proof": {
     "decision": "PASS",
     "production_path": "acquire_one()",
@@ -50,5 +38,22 @@
     "negative_doi": "10.1111/dom.12307",
     "negative_state": "EXHAUSTED",
     "negative_reason_code": "PROVIDER_EXHAUSTED"
+  },
+  "phase_c_repository_direct_proof": {
+    "decision": "PASS",
+    "production_path": "acquire_one()/resume_acquire_one",
+    "package_tree_sha256": "fc412487fdcaf1fef556c14c18386b86f3382b0a76d3fc345fd1153572524815",
+    "positive_session_id": "0a024cab4667",
+    "negative_session_id": "9aba8a394781",
+    "positive_pmid": "22673094",
+    "positive_doi": "10.1177/1049732312448544",
+    "repository": "University of Southampton ePrints",
+    "accepted_manuscript": true,
+    "transport_run_id": 32623392542,
+    "transport_artifact_id": 9489022254,
+    "artifact_sha256": "d0a5a8a415603c92e5f8d81b7600dea4ae71118534e14217f2e451ef5b11c890",
+    "negative_state": "BLOCKED",
+    "negative_reason_code": "EXTERNAL_FETCH_BLOCKED",
+    "provider_exhaustion_confirmed": false
   }
 }
