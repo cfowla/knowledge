@@ -1,0 +1,211 @@
+# Clusmann et al. 2026 reference task queue
+
+Source: *Safety and security of large language models in healthcare*
+
+- DOI: `10.1038/s41586-026-10687-1`
+- PMID: `42618758`
+- Source type: Nature Review
+- References exposed by publisher bibliography: **190**
+- Status: the publisher exposes the bibliography even though the article body remains subscription-only. The queue preserves the publisher reference-number order without external bibliographic correction because `@VERIFY` was not activated.
+- Limitation: individual citation strings are not reproduced here because the full article was not available in the selected source packet; each task maps 1:1 to the numbered reference on the publisher article page.
+
+## Queue
+
+- [ ] Reference 001 <!-- source_reference:1; priority:unclassified -->
+- [ ] Reference 002 <!-- source_reference:2; priority:unclassified -->
+- [ ] Reference 003 <!-- source_reference:3; priority:unclassified -->
+- [ ] Reference 004 <!-- source_reference:4; priority:unclassified -->
+- [ ] Reference 005 <!-- source_reference:5; priority:unclassified -->
+- [ ] Reference 006 <!-- source_reference:6; priority:unclassified -->
+- [ ] Reference 007 <!-- source_reference:7; priority:unclassified -->
+- [ ] Reference 008 <!-- source_reference:8; priority:unclassified -->
+- [ ] Reference 009 <!-- source_reference:9; priority:unclassified -->
+- [ ] Reference 010 <!-- source_reference:10; priority:unclassified -->
+- [ ] Reference 011 <!-- source_reference:11; priority:unclassified -->
+- [ ] Reference 012 <!-- source_reference:12; priority:unclassified -->
+- [ ] Reference 013 <!-- source_reference:13; priority:unclassified -->
+- [ ] Reference 014 <!-- source_reference:14; priority:unclassified -->
+- [ ] Reference 015 <!-- source_reference:15; priority:unclassified -->
+- [ ] Reference 016 <!-- source_reference:16; priority:unclassified -->
+- [ ] Reference 017 <!-- source_reference:17; priority:unclassified -->
+- [ ] Reference 018 <!-- source_reference:18; priority:unclassified -->
+- [ ] Reference 019 <!-- source_reference:19; priority:unclassified -->
+- [ ] Reference 020 <!-- source_reference:20; priority:unclassified -->
+- [ ] Reference 021 <!-- source_reference:21; priority:unclassified -->
+- [ ] Reference 022 <!-- source_reference:22; priority:unclassified -->
+- [ ] Reference 023 <!-- source_reference:23; priority:unclassified -->
+- [ ] Reference 024 <!-- source_reference:24; priority:unclassified -->
+- [ ] Reference 025 <!-- source_reference:25; priority:unclassified -->
+- [ ] Reference 026 <!-- source_reference:26; priority:unclassified -->
+- [ ] Reference 027 <!-- source_reference:27; priority:unclassified -->
+- [ ] Reference 028 <!-- source_reference:28; priority:unclassified -->
+- [ ] Reference 029 <!-- source_reference:29; priority:unclassified -->
+- [ ] Reference 030 <!-- source_reference:30; priority:unclassified -->
+- [ ] Reference 031 <!-- source_reference:31; priority:unclassified -->
+- [ ] Reference 032 <!-- source_reference:32; priority:unclassified -->
+- [ ] Reference 033 <!-- source_reference:33; priority:unclassified -->
+- [ ] Reference 034 <!-- source_reference:34; priority:unclassified -->
+- [ ] Reference 035 <!-- source_reference:35; priority:unclassified -->
+- [ ] Reference 036 <!-- source_reference:36; priority:unclassified -->
+- [ ] Reference 037 <!-- source_reference:37; priority:unclassified -->
+- [ ] Reference 038 <!-- source_reference:38; priority:unclassified -->
+- [ ] Reference 039 <!-- source_reference:39; priority:unclassified -->
+- [ ] Reference 040 <!-- source_reference:40; priority:unclassified -->
+- [ ] Reference 041 <!-- source_reference:41; priority:unclassified -->
+- [ ] Reference 042 <!-- source_reference:42; priority:unclassified -->
+- [ ] Reference 043 <!-- source_reference:43; priority:unclassified -->
+- [ ] Reference 044 <!-- source_reference:44; priority:unclassified -->
+- [ ] Reference 045 <!-- source_reference:45; priority:unclassified -->
+- [ ] Reference 046 <!-- source_reference:46; priority:unclassified -->
+- [ ] Reference 047 <!-- source_reference:47; priority:unclassified -->
+- [ ] Reference 048 <!-- source_reference:48; priority:unclassified -->
+- [ ] Reference 049 <!-- source_reference:49; priority:unclassified -->
+- [ ] Reference 050 <!-- source_reference:50; priority:unclassified -->
+- [ ] Reference 051 <!-- source_reference:51; priority:unclassified -->
+- [ ] Reference 052 <!-- source_reference:52; priority:unclassified -->
+- [ ] Reference 053 <!-- source_reference:53; priority:unclassified -->
+- [ ] Reference 054 <!-- source_reference:54; priority:unclassified -->
+- [ ] Reference 055 <!-- source_reference:55; priority:unclassified -->
+- [ ] Reference 056 <!-- source_reference:56; priority:unclassified -->
+- [ ] Reference 057 <!-- source_reference:57; priority:unclassified -->
+- [ ] Reference 058 <!-- source_reference:58; priority:unclassified -->
+- [ ] Reference 059 <!-- source_reference:59; priority:unclassified -->
+- [ ] Reference 060 <!-- source_reference:60; priority:unclassified -->
+- [ ] Reference 061 <!-- source_reference:61; priority:unclassified -->
+- [ ] Reference 062 <!-- source_reference:62; priority:unclassified -->
+- [ ] Reference 063 <!-- source_reference:63; priority:unclassified -->
+- [ ] Reference 064 <!-- source_reference:64; priority:unclassified -->
+- [ ] Reference 065 <!-- source_reference:65; priority:unclassified -->
+- [ ] Reference 066 <!-- source_reference:66; priority:unclassified -->
+- [ ] Reference 067 <!-- source_reference:67; priority:unclassified -->
+- [ ] Reference 068 <!-- source_reference:68; priority:unclassified -->
+- [ ] Reference 069 <!-- source_reference:69; priority:unclassified -->
+- [ ] Reference 070 <!-- source_reference:70; priority:unclassified -->
+- [ ] Reference 071 <!-- source_reference:71; priority:unclassified -->
+- [ ] Reference 072 <!-- source_reference:72; priority:unclassified -->
+- [ ] Reference 073 <!-- source_reference:73; priority:unclassified -->
+- [ ] Reference 074 <!-- source_reference:74; priority:unclassified -->
+- [ ] Reference 075 <!-- source_reference:75; priority:unclassified -->
+- [ ] Reference 076 <!-- source_reference:76; priority:unclassified -->
+- [ ] Reference 077 <!-- source_reference:77; priority:unclassified -->
+- [ ] Reference 078 <!-- source_reference:78; priority:unclassified -->
+- [ ] Reference 079 <!-- source_reference:79; priority:unclassified -->
+- [ ] Reference 080 <!-- source_reference:80; priority:unclassified -->
+- [ ] Reference 081 <!-- source_reference:81; priority:unclassified -->
+- [ ] Reference 082 <!-- source_reference:82; priority:unclassified -->
+- [ ] Reference 083 <!-- source_reference:83; priority:unclassified -->
+- [ ] Reference 084 <!-- source_reference:84; priority:unclassified -->
+- [ ] Reference 085 <!-- source_reference:85; priority:unclassified -->
+- [ ] Reference 086 <!-- source_reference:86; priority:unclassified -->
+- [ ] Reference 087 <!-- source_reference:87; priority:unclassified -->
+- [ ] Reference 088 <!-- source_reference:88; priority:unclassified -->
+- [ ] Reference 089 <!-- source_reference:89; priority:unclassified -->
+- [ ] Reference 090 <!-- source_reference:90; priority:unclassified -->
+- [ ] Reference 091 <!-- source_reference:91; priority:unclassified -->
+- [ ] Reference 092 <!-- source_reference:92; priority:unclassified -->
+- [ ] Reference 093 <!-- source_reference:93; priority:unclassified -->
+- [ ] Reference 094 <!-- source_reference:94; priority:unclassified -->
+- [ ] Reference 095 <!-- source_reference:95; priority:unclassified -->
+- [ ] Reference 096 <!-- source_reference:96; priority:unclassified -->
+- [ ] Reference 097 <!-- source_reference:97; priority:unclassified -->
+- [ ] Reference 098 <!-- source_reference:98; priority:unclassified -->
+- [ ] Reference 099 <!-- source_reference:99; priority:unclassified -->
+- [ ] Reference 100 <!-- source_reference:100; priority:unclassified -->
+- [ ] Reference 101 <!-- source_reference:101; priority:unclassified -->
+- [ ] Reference 102 <!-- source_reference:102; priority:unclassified -->
+- [ ] Reference 103 <!-- source_reference:103; priority:unclassified -->
+- [ ] Reference 104 <!-- source_reference:104; priority:unclassified -->
+- [ ] Reference 105 <!-- source_reference:105; priority:unclassified -->
+- [ ] Reference 106 <!-- source_reference:106; priority:unclassified -->
+- [ ] Reference 107 <!-- source_reference:107; priority:unclassified -->
+- [ ] Reference 108 <!-- source_reference:108; priority:unclassified -->
+- [ ] Reference 109 <!-- source_reference:109; priority:unclassified -->
+- [ ] Reference 110 <!-- source_reference:110; priority:unclassified -->
+- [ ] Reference 111 <!-- source_reference:111; priority:unclassified -->
+- [ ] Reference 112 <!-- source_reference:112; priority:unclassified -->
+- [ ] Reference 113 <!-- source_reference:113; priority:unclassified -->
+- [ ] Reference 114 <!-- source_reference:114; priority:unclassified -->
+- [ ] Reference 115 <!-- source_reference:115; priority:unclassified -->
+- [ ] Reference 116 <!-- source_reference:116; priority:unclassified -->
+- [ ] Reference 117 <!-- source_reference:117; priority:unclassified -->
+- [ ] Reference 118 <!-- source_reference:118; priority:unclassified -->
+- [ ] Reference 119 <!-- source_reference:119; priority:unclassified -->
+- [ ] Reference 120 <!-- source_reference:120; priority:unclassified -->
+- [ ] Reference 121 <!-- source_reference:121; priority:unclassified -->
+- [ ] Reference 122 <!-- source_reference:122; priority:unclassified -->
+- [ ] Reference 123 <!-- source_reference:123; priority:unclassified -->
+- [ ] Reference 124 <!-- source_reference:124; priority:unclassified -->
+- [ ] Reference 125 <!-- source_reference:125; priority:unclassified -->
+- [ ] Reference 126 <!-- source_reference:126; priority:unclassified -->
+- [ ] Reference 127 <!-- source_reference:127; priority:unclassified -->
+- [ ] Reference 128 <!-- source_reference:128; priority:unclassified -->
+- [ ] Reference 129 <!-- source_reference:129; priority:unclassified -->
+- [ ] Reference 130 <!-- source_reference:130; priority:unclassified -->
+- [ ] Reference 131 <!-- source_reference:131; priority:unclassified -->
+- [ ] Reference 132 <!-- source_reference:132; priority:unclassified -->
+- [ ] Reference 133 <!-- source_reference:133; priority:unclassified -->
+- [ ] Reference 134 <!-- source_reference:134; priority:unclassified -->
+- [ ] Reference 135 <!-- source_reference:135; priority:unclassified -->
+- [ ] Reference 136 <!-- source_reference:136; priority:unclassified -->
+- [ ] Reference 137 <!-- source_reference:137; priority:unclassified -->
+- [ ] Reference 138 <!-- source_reference:138; priority:unclassified -->
+- [ ] Reference 139 <!-- source_reference:139; priority:unclassified -->
+- [ ] Reference 140 <!-- source_reference:140; priority:unclassified -->
+- [ ] Reference 141 <!-- source_reference:141; priority:unclassified -->
+- [ ] Reference 142 <!-- source_reference:142; priority:unclassified -->
+- [ ] Reference 143 <!-- source_reference:143; priority:unclassified -->
+- [ ] Reference 144 <!-- source_reference:144; priority:unclassified -->
+- [ ] Reference 145 <!-- source_reference:145; priority:unclassified -->
+- [ ] Reference 146 <!-- source_reference:146; priority:unclassified -->
+- [ ] Reference 147 <!-- source_reference:147; priority:unclassified -->
+- [ ] Reference 148 <!-- source_reference:148; priority:unclassified -->
+- [ ] Reference 149 <!-- source_reference:149; priority:unclassified -->
+- [ ] Reference 150 <!-- source_reference:150; priority:unclassified -->
+- [ ] Reference 151 <!-- source_reference:151; priority:unclassified -->
+- [ ] Reference 152 <!-- source_reference:152; priority:unclassified -->
+- [ ] Reference 153 <!-- source_reference:153; priority:unclassified -->
+- [ ] Reference 154 <!-- source_reference:154; priority:unclassified -->
+- [ ] Reference 155 <!-- source_reference:155; priority:unclassified -->
+- [ ] Reference 156 <!-- source_reference:156; priority:unclassified -->
+- [ ] Reference 157 <!-- source_reference:157; priority:unclassified -->
+- [ ] Reference 158 <!-- source_reference:158; priority:unclassified -->
+- [ ] Reference 159 <!-- source_reference:159; priority:unclassified -->
+- [ ] Reference 160 <!-- source_reference:160; priority:unclassified -->
+- [ ] Reference 161 <!-- source_reference:161; priority:unclassified -->
+- [ ] Reference 162 <!-- source_reference:162; priority:unclassified -->
+- [ ] Reference 163 <!-- source_reference:163; priority:unclassified -->
+- [ ] Reference 164 <!-- source_reference:164; priority:unclassified -->
+- [ ] Reference 165 <!-- source_reference:165; priority:unclassified -->
+- [ ] Reference 166 <!-- source_reference:166; priority:unclassified -->
+- [ ] Reference 167 <!-- source_reference:167; priority:unclassified -->
+- [ ] Reference 168 <!-- source_reference:168; priority:unclassified -->
+- [ ] Reference 169 <!-- source_reference:169; priority:unclassified -->
+- [ ] Reference 170 <!-- source_reference:170; priority:unclassified -->
+- [ ] Reference 171 <!-- source_reference:171; priority:unclassified -->
+- [ ] Reference 172 <!-- source_reference:172; priority:unclassified -->
+- [ ] Reference 173 <!-- source_reference:173; priority:unclassified -->
+- [ ] Reference 174 <!-- source_reference:174; priority:unclassified -->
+- [ ] Reference 175 <!-- source_reference:175; priority:unclassified -->
+- [ ] Reference 176 <!-- source_reference:176; priority:unclassified -->
+- [ ] Reference 177 <!-- source_reference:177; priority:unclassified -->
+- [ ] Reference 178 <!-- source_reference:178; priority:unclassified -->
+- [ ] Reference 179 <!-- source_reference:179; priority:unclassified -->
+- [ ] Reference 180 <!-- source_reference:180; priority:unclassified -->
+- [ ] Reference 181 <!-- source_reference:181; priority:unclassified -->
+- [ ] Reference 182 <!-- source_reference:182; priority:unclassified -->
+- [ ] Reference 183 <!-- source_reference:183; priority:unclassified -->
+- [ ] Reference 184 <!-- source_reference:184; priority:unclassified -->
+- [ ] Reference 185 <!-- source_reference:185; priority:unclassified -->
+- [ ] Reference 186 <!-- source_reference:186; priority:unclassified -->
+- [ ] Reference 187 <!-- source_reference:187; priority:unclassified -->
+- [ ] Reference 188 <!-- source_reference:188; priority:unclassified -->
+- [ ] Reference 189 <!-- source_reference:189; priority:unclassified -->
+- [ ] Reference 190 <!-- source_reference:190; priority:unclassified -->
+
+## Queue metadata
+
+- Parent publication: Clusmann et al. 2026
+- Reference count: **190**
+- Ordering: publisher source order
+- Priority assignment: **not performed**; the inaccessible review body prevents a defensible relevance-to-claim crosswalk.
+- Generated: `2026-08-23T08:36:25Z`

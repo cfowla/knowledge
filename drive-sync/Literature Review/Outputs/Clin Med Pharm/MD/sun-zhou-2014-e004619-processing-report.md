@@ -59,3 +59,11 @@ No external verification was performed because `@VERIFY` was not activated.
 - `sun-zhou-2014-e004619-processing-report.md`
 
 Google Drive routing follows the established convention: JSON files under `GitHub Sync/Literature Review/Outputs/Clin Med Pharm/JSON`, SEA HTML under `.../HTML`, and Markdown reference queue plus processing report under `.../MD`.
+
+## Queue reconciliation
+
+The active queue contained a second copy of the same Sun et al. publication after the canonical processed packet and SEA/reference outputs had already been created. The active file `e004619.full.pdf` has SHA-256 `13a0c03ba4c84ca24eedea9dc4330e66b8d7682b08f15465eacd03523ba24b92`. It contains BMJ download/copyright overlays and is not byte-identical to the clean canonical main article, whose SHA-256 remains `901a1854f13676407f59ece892c09e2053436e7ffb95c8d6cf641dbb18e13b20`.
+
+The missing JSON-side outputs were regenerated against the canonical main article and supplement and revalidated with the current project model, JSON Schema, and sufficiency validator. The result remains 79 atoms with zero structural errors, zero schema errors, zero sufficiency errors, and zero warnings. The existing SEA HTML passed semantic/mechanical QA again.
+
+The stale active folder was moved beneath `90 - Processed / Clinical Medicine & Pharmacy / 2 - Sun Zhou 2014` as `Reconciled active intake - 2026-08-23`. The overlaid PDF was retained there as provenance rather than replacing the canonical source. No second publication record was created.

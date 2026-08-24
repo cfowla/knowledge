@@ -22,17 +22,23 @@
 - SEA QA: **PASS**.
 - Source discrepancy preserved: Supplementary Table 1 states meal-test subset n=125, while listed arm counts total 124 and the main article describes 124.
 
-## References
-- **32** numbered references extracted into `haring-merker-2013-references.md`.
-- Bibliographic wrapping and typography normalized; no missing citation metadata was invented.
+## Reference task queue
+- **32** numbered references were preserved in source order and normalized to `haring-merker-2013-reference-task-queue.md`.
+- Every reference is an unchecked downstream task; **12** are tagged high priority for direct study context, SGLT2 mechanism, empagliflozin development, or interpretation.
+- External bibliographic correction was not performed because `@VERIFY` was not activated.
+
+## Queue reconciliation — 2026-08-23
+- Task path `3/2/1/21` resolved to a stale active wrapper for this already processed publication.
+- The wrapper contained only `PMID_23963895_acquisition_log.json`; the primary article and supplement were already in the canonical processed packet.
+- The stale wrapper was moved under `90 - Processed / Clinical Medicine & Pharmacy / 40 - Häring Merker 2013` and renamed `Reconciled active intake - 2026-08-23`.
+- The parent SGLT2 task-list item was already checked complete, so SGLT2 item totals are unchanged.
 
 ## Project-source governance
-- Applied: `literature.py`, `literature_atoms.py`, `literature_atom.schema.json`, project large-source ATOM/SEA guidance, and the supplied SEA protocol.
-- `example_atom.json` was consulted as illustrative only.
-- Source gap: `README(2).md`, named by @ATOM as a lower-precedence workflow source, was not available after exact Google Drive search. No study facts were invented to compensate.
-- SEA version note: the governing file is named `summary-evaluation-appraisal-protocol-v4-compact.md`; any internal version-heading inconsistency was resolved in favor of the filename/project precedence. Historical v3 HTML remained reference-only.
+- Scientific outputs were previously generated using `literature.py`, `literature_atoms.py`, `literature_atom.schema.json`, project large-source ATOM/SEA guidance, and the supplied SEA protocol, with `example_atom.json` illustrative only.
+- Current queue reconciliation inspected the available ATOM/SEA governing sources and did not alter scientific assertions or validation results.
+- SEA v4 remains governing; historical v3 remains reference-only.
 
 ## Output routing
 - JSON outputs → `GitHub Sync / Literature Review / Outputs / Clin Med Pharm / JSON`
 - SEA HTML → `GitHub Sync / Literature Review / Outputs / Clin Med Pharm / HTML`
-- References and processing report → `GitHub Sync / Literature Review / Outputs / Clin Med Pharm / MD`
+- Reference task queue, processing report, and reconciliation report → `GitHub Sync / Literature Review / Outputs / Clin Med Pharm / MD`

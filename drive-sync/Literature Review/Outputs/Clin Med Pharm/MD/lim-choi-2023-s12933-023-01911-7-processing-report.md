@@ -44,6 +44,7 @@
 ## References
 - Extracted bibliography entries: **45**
 - Bibliography entries were preserved as references and not converted into LiteratureAtoms.
+- Checkbox reference task queue: **45 items**; **6 confirmed complete / 39 pending** under conservative current-state reconciliation.
 
 ## Source consistency / limitations
 - Primary-outcome 95% CI lower bound differs by source location: prose/abstract **0.855** vs Figure 2 **0.858**; upper bound **1.006** is unchanged.
@@ -62,4 +63,12 @@
 
 ### Markdown
 - `lim-choi-2023-s12933-023-01911-7-references.md`
+- `lim-choi-2023-s12933-023-01911-7-reference-task-queue.md`
 - `lim-choi-2023-s12933-023-01911-7-processing-report.md`
+
+## Active-queue duplicate reconciliation
+- The stale active packet formerly at `3/2/1/24` was reconciled to the canonical `17 - Lim Choi 2023` processed publication.
+- Its PMID payload PDF and canonical `document.pdf` have identical SHA-256: `21ea14b0fc0c1d95007312c4491a8f79e3a3acea8bae3fa255affed16f589910`.
+- The acquisition log and duplicate PDF are preserved beneath the canonical publication as `Reconciled active intake - 2026-08-23`.
+- The existing 60-atom set was revalidated against the current Pydantic model, JSON Schema, and sufficiency rules: **0 structural errors, 0 schema errors, 0 sufficiency errors, 0 warnings, 0 duplicate statement-anchor pairs**.
+- No second publication identity or duplicate SEA artifact was created.
