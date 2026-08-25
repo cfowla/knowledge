@@ -1,0 +1,99 @@
+# References Task Queue — 75 - zlj2768
+
+Primary article: **Coprescription of Tamoxifen and Medications That Inhibit CYP2D6**
+DOI: `10.1200/JCO.2009.23.8931`
+
+Source reference list spans 1-92. Reference 34 is explicitly deleted in the article; all other listed references are preserved as retrieval/review tasks.
+
+- [ ] **Ref 1** — Fisher B, Costantino JP, Wickerham DL, et al: Tamoxifen for the prevention of breast cancer: Current status of the National Surgical Adjuvant Breast and Bowel Project P-1 study. J Natl Cancer Inst 97:1652-1662, 2005
+- [ ] **Ref 2** — Early Breast Cancer Trialists’ Collaborative Group (EBCTCG): Effects of chemotherapy and hormonal therapy for early breast cancer on recurrence and 15-year survival: An overview of the randomised trials. Lancet 365:1687-1717, 2005
+- [ ] **Ref 3** — Peethambaram PP, Ingle JN, Suman VJ, et al: Randomized trial of diethylstilbestrol vs. tamoxifen in postmenopausal women with metastatic breast cancer: An updated analysis. Breast Cancer Res Treat 54:117-122, 1999
+- [ ] **Ref 4** — Stearns V, Johnson MD, Rae JM, et al: Active tamoxifen metabolite plasma concentrations after coadministration of tamoxifen and the selective serotonin reuptake inhibitor paroxetine. J Natl Cancer Inst 95:1758-1764, 2003
+- [ ] **Ref 5** — Wu X, Hawse JR, Subramaniam M, et al: The tamoxifen metabolite, endoxifen, is a potent antiestrogen that targets estrogen receptor alpha for degradation in breast cancer cells. Cancer Res 69:1722-1727, 2009
+- [ ] **Ref 6** — Jin Y, Desta Z, Stearns V, et al: CYP2D6 genotype, antidepressant use, and tamoxifen metabolism during adjuvant breast cancer treatment. J Natl Cancer Inst 97:30-39, 2005
+- [ ] **Ref 7** — Borges S, Desta Z, Li L, et al: Quantitative effect of CYP2D6 genotype and inhibitors on tamoxifen metabolism: Implication for optimization of breast cancer treatment. Clin Pharmacol Ther 80:61-74, 2006
+- [ ] **Ref 8** — Goetz MP, Knox SK, Suman VJ, et al: The impact of cytochrome P450 2D6 metabolism in women receiving adjuvant tamoxifen. Breast Cancer Res Treat 101:113-121, 2007
+- [ ] **Ref 9** — Schroth W, Goetz MP, Hamann U, et al: Association between CYP2D6 polymorphisms and outcomes among women with early stage breast cancer treated with tamoxifen. JAMA 302:1429-1436, 2009
+- [ ] **Ref 10** — Kiyotani K, Mushiroda T, Sasa M, et al: Impact of CYP2D6*10 on recurrence-free survival in breast cancer patients receiving adjuvant tamoxifen therapy. Cancer Sci 99:995-999, 2008
+- [ ] **Ref 11** — Xu Y, Sun Y, Yao L, et al: Association between CYP2D6 *10 genotype and survival of breast cancer patients receiving tamoxifen treatment. Ann Oncol 19:1423-1429, 2008
+- [ ] **Ref 12** — Newman WG, Hadfield KD, Latif A, et al: Impaired tamoxifen metabolism reduces survival in familial breast cancer patients. Clin Cancer Res 14:5913-5918, 2008
+- [ ] **Ref 13** — Gonzalez-Santiago S, Zárate R, Haba-Rodríguez J, et al: CYP2D6*4 polymorphism as blood predictive biomarker of breast cancer relapse in patients receiving adjuvant tamoxifen. J Clin Oncol 25:25s, 2007 (suppl; abstr 590)
+- [ ] **Ref 14** — Schroth W, Antoniadou L, Fritz P, et al: Breast cancer treatment outcome with adjuvant tamoxifen relative to patient CYP2D6 and CYP2C19 genotypes. J Clin Oncol 25:5187-5193, 2007
+- [ ] **Ref 15** — Bijl MJ, van Schaik RH, Lammers LA, et al: The CYP2D6*4 polymorphism affects breast cancer survival in tamoxifen users. Breast Cancer Res Treat 118:125-130, 2009
+- [ ] **Ref 16** — Aubert RE, Stanek EJ, Yao J, et al: Risk of breast cancer recurrence in women initiating tamoxifen with CYP2D6 inhibitors. J Clin Oncol 27:9s, 2009 (suppl; abstr CRA508)
+- [ ] **Ref 17** — Ramón Y, Cajal T, Altés A, et al: Impact of CYP2D6 polymorphisms in tamoxifen adjuvant breast cancer treatment. Breast Cancer Res Treat [epub ahead of print on February 3, 2009]
+- [ ] **Ref 18** — Nowell SA, Ahn J, Rae JM, et al: Association of genetic variation in tamoxifen-metabolizing enzymes with overall survival and recurrence of disease in breast cancer patients. Breast Cancer Res Treat 91:249-258, 2005
+- [ ] **Ref 19** — Wegman P, Vainikka L, Stål O, et al: Genotype of metabolic enzymes and the benefit of tamoxifen in postmenopausal breast cancer patients. Breast Cancer Res 7:R284-R290, 2005
+- [ ] **Ref 20** — Wegman P, Elingarami S, Carstensen J, et al: Genetic variants of CYP3A5, CYP2D6, SULT1A1, UGT2B15 and tamoxifen response in postmenopausal patients with breast cancer. Breast Cancer Res 9:R7, 2007
+- [ ] **Ref 21** — Okishiro M, Taguchi T, Jin Kim S, et al: Genetic polymorphisms of CYP2D6 10 and CYP2C19 2, 3 are not associated with prognosis, endometrial thickness, or bone mineral density in Japanese breast cancer patients treated with adjuvant tamoxifen. Cancer 115:952-961, 2009
+- [ ] **Ref 22** — Dezentje V, van Blijderveen NJ, Gelderblom H, et al: Concomitant CYP2D6 inhibitor use and tamoxifen adherence in early-stage breast cancer: A pharmacoepidemiologic study. J Clin Oncol 27:9s, 2009 (suppl; abstr CRA509)
+- [ ] **Ref 23** — Buck MB, Coller JK, Murdter TE, et al: TGFbeta2 and TbetaRII are valid molecular biomarkers for the antiproliferative effects of tamoxifen and tamoxifen metabolites in breast cancer cells. Breast Cancer Res Treat 107:15-24, 2008
+- [ ] **Ref 24** — Desta Z, Ward BA, Soukhova NV, et al: Comprehensive evaluation of tamoxifen sequential biotransformation by the human cytochrome P450 system in vitro: Prominent roles for CYP3A and CYP2D6. J Pharmacol Exp Ther 310:1062-1075, 2004
+- [ ] **Ref 25** — Johnson MD, Zuo H, Lee KH, et al: Pharmacological characterization of 4-hydroxy-N-desmethyl tamoxifen, a novel active metabolite of tamoxifen. Breast Cancer Res Treat 85:151-159, 2004
+- [ ] **Ref 26** — Lim YC, Desta Z, Flockhart DA, et al: Endoxifen (4-hydroxy-N-desmethyl-tamoxifen) has antiestrogenic effects in breast cancer cells with potency similar to 4-hydroxy-tamoxifen. Cancer Chemother Pharmacol 55:471-478, 2005
+- [ ] **Ref 27** — Lim YC, Li L, Desta Z, et al: Endoxifen, a secondary metabolite of tamoxifen, and 4-OHtamoxifen induce similar changes in global gene expression patterns in MCF-7 breast cancer cells. J Pharmacol Exp Ther 318:503-512, 2006
+- [ ] **Ref 28** — Gough AC, Smith CA, Howell SM, et al: Localization of the CYP2D gene locus to human chromosome 22q13.1 by polymerase chain reaction, in situ hybridization, and linkage analysis. Genomics 15:430-432, 1993
+- [ ] **Ref 29** — Sistonen J, Sajantila A, Lao O, et al: CYP2D6 worldwide genetic variation shows high frequency of altered activity variants and no continental structure. Pharmacogenet Genomics 17:93-101, 2007
+- [ ] **Ref 30** — Human Cytochrome P450 (CYP) Allele Nomenclature Committee: CYP2D6 allele nomenclature. Updated November 18, 2009. http://www .cypalleles.ki.se/cyp2d6.htm
+- [ ] **Ref 31** — The periodic health examination. Canadian Task Force on the Periodic Health Examination. Can Med Assoc J 121:1193-1254, 1979
+- [ ] **Ref 32** — Hayes DF, Bast RC, Desch CE, et al: Tumor marker utility grading system: A framework to evaluate clinical utility of tumor markers. J Natl Cancer Inst 88:1456-1466, 1996
+- [ ] **Ref 33** — Ingle JN, Suman VJ, Mailliard JA, et al: Randomized trial of tamoxifen alone or combined with fluoxymesterone as adjuvant therapy in postmenopausal women with resected estrogen receptor positive breast cancer. North Central Cancer Treatment Group Trial 89-30-52. Breast Cancer Res Treat 98:217-222, 2006
+- [x] **Ref 34** — Reference deleted in source; no retrieval task.
+- [ ] **Ref 35** — Hofman A, Breteler MM, van Duijn CM, et al: The Rotterdam Study: Objectives and design update. Eur J Epidemiol 22:819-829, 2007
+- [ ] **Ref 36** — Rutqvist LE, Cedermark B, Glas U, et al: Radiotherapy, chemotherapy, and tamoxifen as adjuncts to surgery in early breast cancer: A summary of three randomized trials. Int J Radiat Oncol Biol Phys 16:629-639, 1989
+- [ ] **Ref 37** — Summary Minutes of the Advisory Committee for Pharmaceutical Science, Clinical Pharmacology Subcommittee. October 18-19, 2006, Rockville MD. http://www.fda.gov/OHRMS/DOCKETS/AC/06/ minutes/2006-4248m1.pdf
+- [ ] **Ref 38** — US Food and Drug Administration, Center for Drug Evaluation and Research: Drug Development and Drug Interactions: Table of Substrates, Inhibitors and Inducers: Classification of Inhibitors. Updated April 30, 2009. http://www.fda.gov/Drugs/ DevelopmentApprovalProcess/DevelopmentResources/ DrugInteractionsLabeling/ucm081177.htm#classInhibit
+- [ ] **Ref 39** — Preskorn SH: Clinically relevant pharmacology of selective serotonin reuptake inhibitors. An overview with emphasis on pharmacokinetics and effects on oxidative drug metabolism. Clin Pharmacokinet 32:1-21, 1997 (suppl 1)
+- [ ] **Ref 40** — Ball SE, Ahern D, Scatina J, et al: Venlafaxine: In vitro inhibition of CYP2D6 dependent imipramine and desipramine metabolism–Comparative studies with selected SSRIs, and effects on human hepatic CYP3A4, CYP2C9 and CYP1A2. Br J Clin Pharmacol 43:619-626, 1997
+- [ ] **Ref 41** — Hemeryck A, Belpaire FM: Selective serotonin reuptake inhibitors and cytochrome P-450 mediated drug-drug interactions: An update. Curr Drug Metab 3:13-37, 2002
+- [ ] **Ref 42** — Jeppesen U, Gram LF, Vistisen K, et al: Dosedependent inhibition of CYP1A2, CYP2C19 and CYP2D6 by citalopram, fluoxetine, fluvoxamine and paroxetine. Eur J Clin Pharmacol 51:73-78, 1996
+- [ ] **Ref 43** — Loprinzi CL, Kugler JW, Sloan JA, et al: Venlafaxine in management of hot flashes in survivors of breast cancer: A randomised controlled trial. Lancet 356:2059-2063, 2000
+- [ ] **Ref 44** — Amchin J, Ereshefsky L, Zarycranski W, et al: Effect of venlafaxine versus fluoxetine on metabolism of dextromethorphan, a CYP2D6 probe. J Clin Pharmacol 41:443-451, 2001
+- [ ] **Ref 45** — Kotlyar M, Brauer LH, Tracy TS, et al: Inhibition of CYP2D6 activity by bupropion. J Clin Psychopharmacol 25:226-229, 2005
+- [ ] **Ref 46** — von Moltke LL, Greenblatt DJ, Giancarlo GM, et al: Escitalopram (S-citalopram) and its metabolites in vitro: Cytochromes mediating biotransformation, inhibitory effects, and comparison to R-citalopram. Drug Metab Dispos 29:1102-1109, 2001
+- [ ] **Ref 47** — Skinner MH, Kuan HY, Pan A, et al: Duloxetine is both an inhibitor and a substrate of cytochrome P4502D6 in healthy volunteers. Clin Pharmacol Ther 73:170-177, 2003
+- [ ] **Ref 48** — Vandel S, Bertschy G, Baumann P, et al: Fluvoxamine and fluoxetine: Interaction studies with amitriptyline, clomipramine and neuroleptics in phenotyped patients. Pharmacol Res 31:347-353, 1995
+- [ ] **Ref 49** — Figgitt DP, McClellan KJ: Fluvoxamine: An updated review of its use in the management of adults with anxiety disorders. Drugs 60:925-954, 2000
+- [ ] **Ref 50** — Preskorn SH, Nichols AI, Paul J, et al: Effect of desvenlafaxine on the cytochrome P450 2D6 enzyme system. J Psychiatr Pract 14:368-378, 2008
+- [ ] **Ref 51** — Störmer E, von Moltke LL, Shader RI, et al: Metabolism of the antidepressant mirtazapine in vitro: Contribution of cytochromes P-450 1A2, 2D6, and 3A4. Drug Metab Dispos 28:1168-1175, 2000
+- [ ] **Ref 52** — Spina E, Santoro V, D’Arrigo C: Clinically relevant pharmacokinetic drug interactions with secondgeneration antidepressants: An update. Clin Ther 30:1206-1227, 2008
+- [ ] **Ref 53** — Kuhn UD, Kirsch M, Merkel U, et al: Reboxetine and cytochrome P450: Comparison with paroxetine treatment in humans. Int J Clin Pharmacol Ther 45:36-46, 2007
+- [ ] **Ref 54** — Szewczuk-Bogusławska M, Kiejna A, Grzesiak M, et al: The influence of clomipramine on CYP2D6 activity. Psychiatr Pol 41:243-249, 2007
+- [ ] **Ref 55** — Vandel P, Haffen E, Nezelof S, et al: Clomipramine, fluoxetine and CYP2D6 metabolic capacity in depressed patients. Hum Psychopharmacol 19:293-298, 2004
+- [ ] **Ref 56** — Lamard L, Pérault MC, Bouquet S, et al: [Cytochrome p450 IID6: Its role in psychopharmacology]. Ann Med Psychol (Paris) 153:140-143, 1995
+- [ ] **Ref 57** — Szewczuk-Bogusławska M, Kiejna A, Beszłej JA, et al: Doxepin inhibits CYP2D6 activity in vivo. Pol J Pharmacol 56:491-494, 2004
+- [ ] **Ref 58** — Crewe HK, Lennard MS, Tucker GT, et al: The effect of selective serotonin re-uptake inhibitors on cytochrome P4502D6 (CYP2D6) activity in human liver microsomes. Br J Clin Pharmacol 34:262-265, 1992
+- [ ] **Ref 59** — Shin JG, Park JY, Kim MJ, et al: Inhibitory effects of tricyclic antidepressants (TCAs) on human cytochrome P450 enzymes in vitro: Mechanism of drug interaction between TCAs and phenytoin. Drug Metab Dispos 30:1102-1107, 2002
+- [ ] **Ref 60** — Pandya KJ, Morrow GR, Roscoe JA, et al: Gabapentin for hot flashes in 420 women with breast cancer: A randomised double-blind placebocontrolled trial. Lancet 366:818-824, 2005
+- [ ] **Ref 61** — Otani K, Aoshima T: Pharmacogenetics of classical and new antipsychotic drugs. Ther Drug Monit 22:118-121, 2000
+- [ ] **Ref 62** — Shin JG, Soukhova N, Flockhart DA: Effect of antipsychotic drugs on human liver cytochrome P-450 (CYP) isoforms in vitro: Preferential inhibition of CYP2D6. Drug Metab Dispos 27:1078-1084, 1999
+- [ ] **Ref 63** — Desta Z, Kerbusch T, Soukhova N, et al: Identification and characterization of human cytochrome P450 isoforms interacting with pimozide. J Pharmacol Exp Ther 285:428-437, 1998
+- [ ] **Ref 64** — Ring BJ, Binkley SN, Vandenbranden M, et al: In vitro interaction of the antipsychotic agent olanzapine with human cytochromes P450 CYP2C9, CYP2C19, CYP2D6 and CYP3A. Br J Clin Pharmacol 41:181-186, 1996
+- [ ] **Ref 65** — Callaghan JT, Cerimele BJ, Kassahun KJ, et al: Olanzapine: Interaction study with imipramine. J Clin Pharmacol 37:971-978, 1997
+- [ ] **Ref 66** — Prior TI, Baker GB: Interactions between the cytochrome P450 system and the secondgeneration antipsychotics. J Psychiatry Neurosci 28:99-112, 2003
+- [ ] **Ref 67** — Speirs CJ, Murray S, Boobis AR, et al: Quinidine and the identification of drugs whose elimination is impaired in subjects classified as poor metabolizers of debrisoquine. Br J Clin Pharmacol 22:739-743, 1986
+- [ ] **Ref 68** — Ko JW, Desta Z, Soukhova NV, et al: In vitro inhibition of the cytochrome P450 (CYP450) system by the antiplatelet drug ticlopidine: Potent effect on CYP2C19 and CYP2D6. Br J Clin Pharmacol 49:343-351, 2000
+- [ ] **Ref 69** — Mankowski DC: The role of CYP2C19 in the metabolism of (⫹/-) bufuralol, the prototypic substrate of CYP2D6. Drug Metab Dispos 27:1024-1028, 1999
+- [ ] **Ref 70** — Masimirembwa CM, Otter C, Berg M, et al: Heterologous expression and kinetic characterization of human cytochromes P-450: Validation of a pharmaceutical tool for drug metabolism research. Drug Metab Dispos 27:1117-1122, 1999
+- [ ] **Ref 71** — Ohyama K, Nakajima M, Suzuki M, et al: Inhibitory effects of amiodarone and its N-deethylated metabolite on human cytochrome P450 activities: Prediction of in vivo drug interactions. Br J Clin Pharmacol 49:244-253, 2000
+- [ ] **Ref 72** — Nakamura K, Ariyoshi N, Iwatsubo T, et al: Inhibitory effects of nicardipine to cytochrome P450 (CYP) in human liver microsomes. Biol Pharm Bull 28:882-885, 2005
+- [ ] **Ref 73** — Ma B, Prueksaritanont T, Lin JH: Drug interactions with calcium channel blockers: Possible involvement of metabolite-intermediate complexation with CYP3A. Drug Metab Dispos 28:125-130, 2000
+- [ ] **Ref 74** — Kumar GN, Rodrigues AD, Buko AM, et al: Cytochrome P450-mediated metabolism of the HIV-1 protease inhibitor ritonavir (ABT-538) in human liver microsomes. J Pharmacol Exp Ther 277: 423-431, 1996
+- [ ] **Ref 75** — von Moltke LL, Greenblatt DJ, Duan SX, et al: Inhibition of desipramine hydroxylation (Cytochrome P450-2D6) in vitro by quinidine and by viral protease inhibitors: Relation to drug interactions in vivo. J Pharm Sci 87:1184-1189, 1998
+- [ ] **Ref 76** — von Moltke LL, Greenblatt DJ, Granda BW, et al: Inhibition of human cytochrome P450 isoforms by nonnucleoside reverse transcriptase inhibitors. J Clin Pharmacol 41:85-91, 2001
+- [ ] **Ref 77** — Simooya OO, Sijumbil G, Lennard MS, et al: Halofantrine and chloroquine inhibit CYP2D6 activity in healthy Zambians. Br J Clin Pharmacol 45:315-317, 1998
+- [ ] **Ref 78** — Halliday RC, Jones BC, Smith DA, et al: An investigation of the interaction between halofantrine, CYP2D6 and CYP3A4: Studies with human liver microsomes and heterologous enzyme expression systems. Br J Clin Pharmacol 40:369-378, 1995
+- [ ] **Ref 79** — Abdel-Rahman SM, Gotschall RR, Kauffman RE, et al: Investigation of terbinafine as a CYP2D6 inhibitor in vivo. Clin Pharmacol Ther 65:465-472, 1999
+- [ ] **Ref 80** — Werner U, Werner D, Rau T, et al: Celecoxib inhibits metabolism of cytochrome P450 2D6 substrate metoprolol in humans. Clin Pharmacol Ther 74:130-137, 2003
+- [ ] **Ref 81** — Werner U, Lamprecht C, Werner D, et al: Valdecoxib does not interfere with the CYP2D6 substrate metoprolol. Int J Clin Pharmacol Ther 44:397-400, 2006
+- [ ] **Ref 82** — Harris RZ, Salfi M, Sullivan JT, et al: Pharmacokinetics of cinacalcet hydrochloride when administered with ketoconazole. Clin Pharmacokinet 46: 495-501, 2007
+- [ ] **Ref 83** — Madeira M, Levine M, Chang TK, et al: The effect of cimetidine on dextromethorphan O-demethylase activity of human liver microsomes and recombinant CYP2D6. Drug Metab Dispos 32: 460-467, 2004
+- [ ] **Ref 84** — Martínez C, Albet C, Agúndez JA, et al: Comparative in vitro and in vivo inhibition of cytochrome P450 CYP1A2, CYP2D6, and CYP3A by H2-receptor antagonists. Clin Pharmacol Ther 65:369-376, 1999
+- [ ] **Ref 85** — Hamelin BA, Bouayad A, Drolet B, et al: In vitro characterization of cytochrome P450 2D6 inhibition by classic histamine H1 receptor antagonists. Drug Metab Dispos 26:536-539, 1998
+- [ ] **Ref 86** — Hamelin BA, Bouayad A, Methot J, et al: Significant interaction between the nonprescription antihistamine diphenhydramine and the CYP2D6 substrate metoprolol in healthy men with high or low CYP2D6 activity. Clin Pharmacol Ther 67:466-477, 2000
+- [ ] **Ref 87** — Nakamura K, Yokoi T, Inoue K, et al: CYP2D6 is the principal cytochrome P450 responsible for metabolism of the histamine H1 antagonist promethazine in human liver microsomes. Pharmacogenetics 6:449-457, 1996
+- [ ] **Ref 88** — Lessard E, Yessine MA, Hamelin BA, et al: Diphenhydramine alters the disposition of venlafaxine through inhibition of CYP2D6 activity in humans. J Clin Psychopharmacol 21:175-184, 2001
+- [ ] **Ref 89** — He N, Zhang WQ, Shockley D, et al: Inhibitory effects of H1-antihistamines on CYP2D6- and CYP2C9-mediated drug metabolic reactions in human liver microsomes. Eur J Clin Pharmacol 57:847-851, 2002
+- [ ] **Ref 90** — Nicolas JM, Whomsley R, Collart P, et al: In vitro inhibition of human liver drug metabolizing enzymes by second generation antihistamines. Chem Biol Interact 123:63-79, 1999
+- [ ] **Ref 91** — Guyatt GH, Oxman AD, Kunz R, et al: Going from evidence to recommendations. BMJ 336: 1049-1051, 2008
+- [ ] **Ref 92** — Gnant M, Mlineritsch B, Schippinger W, et al: Endocrine therapy plus zoledronic acid in premenopausal breast cancer. N Engl J Med 360:679-691, 2009

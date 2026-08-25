@@ -1,0 +1,282 @@
+# 109 - 41392_2021_Article_828 reference task queue
+
+Primary article: He Y, Sun MM, Zhang GG, et al. Targeting PI3K/Akt signal transduction for cancer therapy. Signal Transduction and Targeted Therapy. 2021;6:425. doi:10.1038/s41392-021-00828-5.
+
+References queued: 274
+
+Each checkbox is one reference cited by the review. Read the cited source directly before creating primary-study evidence atoms.
+
+- [ ] 1. Lawrence, M. S. et al. Discovery and saturation analysis of cancer genes across 21 tumour types. Nature 505, 495–501 (2014).
+- [ ] 2. Hennessy, B. T. et al. Exploiting the PI3K/AKT pathway for cancer drug discovery. Nat. Rev. Drug Disco. 4, 988–1004 (2005).
+- [ ] 3. Vanhaesebroeck, B., Guillermet-Guibert, J., Graupera, M. & Bilanges, B. The emerging mechanisms of isoform-speciﬁc PI3K signalling. Nat. Rev. Mol. Cell Biol. 11, 329–341 (2010).
+- [ ] 4. Thorpe, L. M., Yuzugullu, H. & Zhao, J. J. PI3K in cancer: divergent roles of isoforms, modes of activation and therapeutic targeting. Nat. Rev. Cancer 15, 7–24 (2015).
+- [ ] 5. Hanker, A. B., Kaklamani, V. & Arteaga, C. L. Challenges for the clinical devel- opment of PI3K inhibitors: Strategies to improve their impact in solid tumors. Cancer Disco. 9, 482–491 (2019).
+- [ ] 6. Engelman, J. A. Targeting PI3K signalling in cancer: opportunities, challenges and limitations. Nat. Rev. Cancer 9, 550–562 (2009).
+- [ ] 7. Backer, J. M. The intricate regulation and complex functions of the Class III phosphoinositide 3-kinase Vps34. Biochem J. 473, 2251–2271 (2016).
+- [ ] 8. Kriplani, N., Hermida, M. A., Brown, E. R. & Leslie, N. R. Class I PI 3-kinases: function and evolution. Adv. Biol. Regul. 59, 53–64 (2015).
+- [ ] 9. Burke, J. E. Structural basis for regulation of phosphoinositide kinases and their involvement in human disease. Mol. Cell 71, 653–673 (2018).
+- [ ] 10. Carnero, A. et al. The PTEN/PI3K/AKT signalling pathway in cancer, therapeutic implications. Curr. Cancer Drug Targets 8, 187–198 (2008).
+- [ ] 11. Gerstung, M. et al. The evolutionary history of 2,658 cancers. Nature 578, 122–128 (2020).
+- [ ] 12. Herman, S. E. et al. Phosphatidylinositol 3-kinase-δ inhibitor CAL-101 shows promising preclinical activity in chronic lymphocytic leukemia by antagonizing intrinsic and extrinsic cellular survival signals. Blood 116, 2078–2088 (2010).
+- [ ] 13. Sasaki, T. et al. Colorectal carcinomas in mice lacking the catalytic subunit of PI (3)Kgamma. Nature 406, 897–902 (2000).
+- [ ] 14. Tsolakos, N. et al. Quantitation of class IA PI3Ks in mice reveals p110-free-p85s and isoform-selective subunit associations and recruitment to receptors. Proc. Natl Acad. Sci. USA 115, 12176–12181 (2018).
+- [ ] 15. Gunderson, A. J. et al. Bruton tyrosine kinase-dependent immune cell cross-talk drives pancreas cancer. Cancer Disco. 6, 270–285 (2016).
+- [ ] 16. Damoulakis, G. et al. P-Rex1 directly activates RhoG to regulate GPCR-driven Rac signalling and actin polarity in neutrophils. J. Cell Sci. 127, 2589–2600 (2014).
+- [ ] 17. Virbasius, J. V., Guilherme, A. & Czech, M. P. Mouse p170 is a novel phosphati- dylinositol 3-kinase containing a C2 domain. J. Biol. Chem. 271, 13304–13307 (1996).
+- [ ] 18. Braccini, L. et al. PI3K-C2γ is a Rab5 effector selectively controlling endosomal Akt2 activation downstream of insulin signalling. Nat. Commun. 6, 7400 (2015).
+- [ ] 19. Gulluni, F. et al. Mitotic spindle assembly and genomic stability in breast cancer require PI3K-C2α scaffolding function. Cancer Cell 32, 444–459.e447 (2017).
+- [ ] 20. Franco, I. et al. PI3K class II α controls spatially restricted endosomal PtdIns3P and Rab11 activation to promote primary cilium function. Dev. Cell 28, 647–658 (2014).
+- [ ] 21. Pirola, L. et al. Activation loop sequences confer substrate speciﬁcity to phos- phoinositide 3-kinase alpha (PI3Kalpha). Functions of lipid kinase-deﬁcient PI3Kalpha in signaling. J. Biol. Chem. 276, 21544–21554 (2001).
+- [ ] 22. Gulluni, F. et al. Class II PI3K functions in cell biology and disease. Trends Cell Biol. 29, 339–359 (2019).
+- [ ] 23. Marat, A. L. & Haucke, V. Phosphatidylinositol 3-phosphates-at the interface between cell signalling and membrane trafﬁc. Embo J. 35, 561–579 (2016).
+- [ ] 24. Stjepanovic, G., Baskaran, S., Lin, M. G. & Hurley, J. H. Vps34 kinase domain dynamics regulate the autophagic PI3-kinase complex. Mol. Cell 67, 528–534. e523 (2017).
+- [ ] 25. Vasudevan, K. M. et al. AKT-independent signaling downstream of oncogenic PIK3CA mutations in human cancer. Cancer Cell 16, 21–32 (2009).
+- [ ] 26. O’Farrell, F. et al. Class III phosphatidylinositol-3-OH kinase controls epithelial integrity through endosomal LKB1 regulation. Nat. Cell Biol. 19, 1412–1423 (2017).
+- [ ] 27. Juhász, G. et al. The class III PI(3)K Vps34 promotes autophagy and endocytosis but not TOR signaling in Drosophila. J. Cell Biol. 181, 655–666 (2008).
+- [ ] 28. Gulati, P. et al. Amino acids activate mTOR complex 1 via Ca2+/CaM signaling to hVps34. Cell Metab. 7, 456–465 (2008).
+- [ ] 29. Staal, S. P. Molecular cloning of the akt oncogene and its human homologues AKT1 and AKT2: ampliﬁcation of AKT1 in a primary human gastric adenocarci- noma. Proc. Natl Acad. Sci. USA 84, 5034–5037 (1987).
+- [ ] 30. Mayer, I. A. & Arteaga, C. L. The PI3K/AKT pathway as a target for cancer treatment. Annu Rev. Med 67, 11–28 (2016).
+- [ ] 31. Murthy, S. S., Tosolini, A., Taguchi, T. & Testa, J. R. Mapping of AKT3, encoding a member of the Akt/protein kinase B family, to human and rodent chromosomes by ﬂuorescence in situ hybridization. Cytogenet Cell Genet 88, 38–40 (2000).
+- [ ] 32. Arboleda, M. J. et al. Overexpression of AKT2/protein kinase Bbeta leads to up- regulation of beta1 integrins, increased invasion, and metastasis of human breast and ovarian cancer cells. Cancer Res 63, 196–206 (2003).
+- [ ] 33. Testa, J. R. & Bellacosa, A. AKT plays a central role in tumorigenesis. Proc. Natl Acad. Sci. USA 98, 10983–10985 (2001).
+- [ ] 34. Stokoe, D. et al. Dual role of phosphatidylinositol-3,4,5-trisphosphate in the activation of protein kinase B. Science 277, 567–570 (1997).
+- [ ] 35. Yoshida, T. & Delafontaine, P. Mechanisms of IGF-1-mediated regulation of skeletal muscle hypertrophy and atrophy. Cells 9, 2020 (1970).
+- [ ] 36. Wang, Z. et al. Tetrathiomolybdate treatment leads to the suppression of inﬂammatory responses through the TRAF6/NFkappaB pathway in LPS- stimulated BV-2 microglia. Front Aging Neurosci. 10, 9 (2018).
+- [ ] 37. Spangle, J. M. & Roberts, T. M. Epigenetic regulation of RTK signaling. J. Mol. Med. 95, 791–798 (2017).
+- [ ] 38. Sangwan, V. & Park, M. Receptor tyrosine kinases: role in cancer progression. Curr. Oncol. 13, 191–193 (2006).
+- [ ] 39. Fukuoka, M. et al. Multi-institutional randomized phase II trial of geﬁtinib for previously treated patients with advanced non-small-cell lung cancer (The IDEAL 1 Trial). J. Clin. Oncol. 21, 2237–2246 (2003).
+- [ ] 40. Arcaro, A. et al. Class II phosphoinositide 3-kinases are downstream targets of activated polypeptide growth factor receptors. Mol. Cell Biol. 20, 3817–3830 (2000).
+- [ ] 41. Jhawer, M. et al. PIK3CA mutation/PTEN expression status predicts response of colon cancer cells to the epidermal growth factor receptor inhibitor cetuximab. Cancer Res. 68, 1953–1961 (2008).
+- [ ] 42. Soltoff, S. P. et al. ErbB3 is involved in activation of phosphatidylinositol 3-kinase by epidermal growth factor. Mol. Cell Biol. 14, 3550–3558 (1994).
+- [ ] 43. Spano, J. P. et al. Impact of EGFR expression on colorectal cancer patient prognosis and survival. Ann. Oncol. 16, 102–108 (2005).
+- [ ] 44. Liu, B. et al. Fibroblast growth factor and insulin-like growth factor differentially modulate the apoptosis and G1 arrest induced by anti-epidermal growth factor receptor monoclonal antibody. Oncogene 20, 1913–1922 (2001).
+- [ ] 45. Ferrara, N., Gerber, H. P. & LeCouter, J. The biology of VEGF and its receptors. Nat. Med. 9, 669–676 (2003).
+- [ ] 46. Byrne, A. M., Bouchier-Hayes, D. J. & Harmey, J. H. Angiogenic and cell survival functions of vascular endothelial growth factor (VEGF). J. Cell Mol. Med. 9, 777–794 (2005).
+- [ ] 47. Mantha, A. J. et al. Targeting the mevalonate pathway inhibits the function of the epidermal growth factor receptor. Clin. Cancer Res. 11, 2398–2407 (2005).
+- [ ] 48. Kou, R., Greif, D. & Michel, T. Dephosphorylation of endothelial nitric-oxide synthase by vascular endothelial growth factor. Implications for the vascular responses to cyclosporin A. J. Biol. Chem. 277, 29669–29673 (2002).
+- [ ] 49. Reis-Filho, J. S. et al. FGFR1 emerges as a potential therapeutic target for lobular breast carcinomas. Clin. Cancer Res. 12, 6652–6662 (2006).
+- [ ] 50. Reuter, J. A. et al. Modeling inducible human tissue neoplasia identiﬁes an extracellular matrix interaction network involved in cancer progression. Cancer Cell 15, 477–488 (2009).
+- [ ] 51. Dey, J. H. et al. Targeting ﬁbroblast growth factor receptors blocks PI3K/AKT signaling, induces apoptosis, and impairs mammary tumor outgrowth and metastasis. Cancer Res. 70, 4151–4162 (2010).
+- [ ] 52. Engelman, J. A. et al. ErbB-3 mediates phosphoinositide 3-kinase activity in geﬁtinib-sensitive non-small cell lung cancer cell lines. Proc. Natl Acad. Sci. USA 102, 3788–3793 (2005).
+- [ ] 53. Bianco, R. et al. Loss of PTEN/MMAC1/TEP in EGF receptor-expressing tumor cells counteracts the antitumor action of EGFR tyrosine kinase inhibitors. Oncogene 22, 2812–2822 (2003).
+- [ ] 54. Berns, K. et al. A functional genetic approach identiﬁes the PI3K pathway as a major determinant of trastuzumab resistance in breast cancer. Cancer Cell 12, 395–402 (2007).
+- [ ] 55. Kaczorowski, D. J. et al. Mechanisms of Toll-like receptor 4 (TLR4)-mediated inﬂammation after cold ischemia/reperfusion in the heart. Transplantation 87, 1455–1463 (2009).
+- [ ] 56. Kanzler, H., Barrat, F. J., Hessel, E. M. & Coffman, R. L. Therapeutic targeting of innate immunity with Toll-like receptor agonists and antagonists. Nat. Med. 13, 552–559 (2007).
+- [ ] 57. Fujio, Y. et al. Akt promotes survival of cardiomyocytes in vitro and protects against ischemia-reperfusion injury in mouse heart. Circulation 101, 660–667 (2000).
+- [ ] 58. O’Neill, L. A. & Bowie, A. G. The family of ﬁve: TIR-domain-containing adaptors in Toll-like receptor signalling. Nat. Rev. Immunol. 7, 353–364 (2007).
+- [ ] 59. Cantley, L. C. The phosphoinositide 3-kinase pathway. Science 296, 1655–1657 (2002).
+- [ ] 60. Szczepanski, M. J. et al. Triggering of Toll-like receptor 4 expressed on human head and neck squamous cell carcinoma promotes tumor development and protects the tumor from immune attack. Cancer Res. 69, 3105–3113 (2009).
+- [ ] 61. Salaun, B. et al. TLR3 can directly trigger apoptosis in human cancer cells. J. Immunol. 176, 4894–4901 (2006).
+- [ ] 62. Okkenhaug, K. et al. Impaired B and T cell antigen receptor signaling in p110delta PI 3-kinase mutant mice. Science 297, 1031–1034 (2002).
+- [ ] 63. Aiba, Y. et al. Regulation of B-cell development by BCAP and CD19 through their binding to phosphoinositide 3-kinase. Blood 111, 1497–1503 (2008).
+- [ ] 64. Castello, A. et al. Nck-mediated recruitment of BCAP to the BCR regulates the PI (3)K-Akt pathway in B cells. Nat. Immunol. 14, 966–975 (2013).
+- [ ] 65. Jones, N. et al. Nck adaptor proteins link nephrin to the actin cytoskeleton of kidney podocytes. Nature 440, 818–823 (2006).
+- [ ] 66. Bojarczuk, K. et al. BCR signaling inhibitors differ in their ability to overcome Mcl-1-mediated resistance of CLL B cells to ABT-199. Blood 127, 3192–3201 (2016).
+- [ ] 67. Marinissen, M. J. & Gutkind, J. S. G-protein-coupled receptors and signaling networks: emerging paradigms. Trends Pharm. Sci. 22, 368–376 (2001).
+- [ ] 68. Rozengurt, E., Sinnett-Smith, J. & Kisfalvi, K. Crosstalk between insulin/insulin-like growth factor-1 receptors and G protein-coupled receptor signaling systems: a novel target for the antidiabetic drug metformin in pancreatic cancer. Clin. Cancer Res 16, 2505–2511 (2010).
+- [ ] 69. Lu, C. Y. et al. Andrographolide inhibits TNFα-induced ICAM-1 expression via suppression of NADPH oxidase activation and induction of HO-1 and GCLM expression through the PI3K/Akt/Nrf2 and PI3K/Akt/AP-1 pathways in human endothelial cells. Biochem Pharm. 91, 40–50 (2014).
+- [ ] 70. Ballou, L. M. et al. Galphaq binds to p110alpha/p85alpha phosphoinositide 3-kinase and displaces Ras. Biochem J. 394, 557–562 (2006).
+- [ ] 71. Soria, J. C. et al. Lack of PTEN expression in non-small cell lung cancer could be related to promoter methylation. Clin. Cancer Res 8, 1178–1184 (2002).
+- [ ] 72. Stambolic, V. et al. Negative regulation of PKB/Akt-dependent cell survival by the tumor suppressor PTEN. Cell 95, 29–39 (1998).
+- [ ] 73. Shi, W. et al. Dysregulated PTEN-PKB and negative receptor status in human breast cancer. Int J. Cancer 104, 195–203 (2003).
+- [ ] 74. Nunnery, S. E. & Mayer, I. A. Management of toxicity to isoform α-speciﬁc PI3K inhibitors. Ann. Oncol. 30, x21–x26 (2019).
+- [ ] 75. Papadimitrakopoulou, V. Development of PI3K/AKT/mTOR pathway inhibitors and their application in personalized therapy for non-small-cell lung cancer. J. Thorac. Oncol. 7, 1315–1326 (2012).
+- [ ] 76. Agoulnik, I. U., Hodgson, M. C., Bowden, W. A. & Ittmann, M. M. INPP4B: the new kid on the PI3K block. Oncotarget 2, 321–328 (2011).
+- [ ] 77. Cully, M., You, H., Levine, A. J. & Mak, T. W. Beyond PTEN mutations: the PI3K pathway as an integrator of multiple inputs during tumorigenesis. Nat. Rev. Cancer 6, 184–192 (2006).
+- [ ] 78. Manning, B. D. & Cantley, L. C. AKT/PKB signaling: navigating downstream. Cell 129, 1261–1274 (2007).
+- [ ] 79. Saxton, R. A. & Sabatini, D. M. mTOR signaling in growth, metabolism, and disease. Cell 168, 960–976 (2017).
+- [ ] 80. Porta, C., Paglino, C. & Mosca, A. Targeting PI3K/Akt/mTOR signaling in cancer. Front Oncol. 4, 64 (2014).
+- [ ] 81. Hay, N. The Akt-mTOR tango and its relevance to cancer. Cancer Cell 8, 179–183 (2005).
+- [ ] 82. Inoki, K. et al. TSC2 is phosphorylated and inhibited by Akt and suppresses mTOR signalling. Nat. Cell Biol. 4, 648–657 (2002).
+- [ ] 83. Fingar, D. C. et al. Mammalian cell size is controlled by mTOR and its down- stream targets S6K1 and 4EBP1/eIF4E. Genes Dev. 16, 1472–1487 (2002).
+- [ ] 84. Murugan, A. K. mTOR: Role in cancer, metastasis and drug resistance. Semin Cancer Biol. 59, 92–111 (2019).
+- [ ] 85. Sarbassov, D. D., Guertin, D. A., Ali, S. M. & Sabatini, D. M. Phosphorylation and regulation of Akt/PKB by the rictor-mTOR complex. Science 307, 1098–1101 (2005).
+- [ ] 86. Cross, D. A. et al. Inhibition of glycogen synthase kinase-3 by insulin mediated by protein kinase B. Nature 378, 785–789 (1995).
+- [ ] 87. Embi, N., Rylatt, D. B. & Cohen, P. Glycogen synthase kinase-3 from rabbit ske- letal muscle. Separation from cyclic-AMP-dependent protein kinase and phos- phorylase kinase. Eur. J. Biochem 107, 519–527 (1980).
+- [ ] 88. Kaidanovich-Beilin, O. & Woodgett, J. R. GSK-3: Functional insights from cell biology and animal models. Front Mol. Neurosci. 4, 40 (2011).
+- [ ] 89. McCubrey, J. A. et al. GSK-3 as potential target for therapeutic intervention in cancer. Oncotarget 5, 2881–2911 (2014).
+- [ ] 90. Sutherland, C., Leighton, I. A. & Cohen, P. Inactivation of glycogen synthase kinase-3 beta by phosphorylation: new kinase connections in insulin and growth-factor signalling. Biochem J. 296(Pt 1), 15–19 (1993).
+- [ ] 91. Manning, B. D. & Toker, A. AKT/PKB signaling: navigating the network. Cell 169, 381–405 (2017).
+- [ ] 92. Parker, P. J., Caudwell, F. B. & Cohen, P. Glycogen synthase from rabbit skeletal muscle; effect of insulin on the state of phosphorylation of the seven phos- phoserine residues in vivo. Eur. J. Biochem. 130, 227–234 (1983).
+- [ ] 93. Acikgoz, E. et al. Glycogen synthase kinase-3 inhibition in glioblastoma multi- forme cells induces apoptosis, cell cycle arrest and changing biomolecular structure. Spectrochim. Acta A Mol. Biomol. Spectrosc. 209, 150–164 (2019).
+- [ ] 94. van der Vos, K. E. & Coffer, P. J. The extending network of FOXO transcriptional target genes. Antioxid. Redox Signal 14, 579–592 (2011).
+- [ ] 95. Fu, Z. & Tindall, D. J. FOXOs, cancer and regulation of apoptosis. Oncogene 27, 2312–2319 (2008).
+- [ ] 96. Ma, J., Matkar, S., He, X. & Hua, X. FOXO family in regulating cancer and metabolism. Semin Cancer Biol. 50, 32–41 (2018).
+- [ ] 97. Matsuzaki, H. et al. Insulin-induced phosphorylation of FKHR (Foxo1) targets to proteasomal degradation. Proc. Natl Acad. Sci. USA 100, 11285–11290 (2003).
+- [ ] 98. Paradis, S. & Ruvkun, G. Caenorhabditis elegans Akt/PKB transduces insulin receptor-like signals from AGE-1 PI3 kinase to the DAF-16 transcription factor. Genes Dev. 12, 2488–2498 (1998).
+- [ ] 99. Alessi, D. R. et al. Mechanism of activation of protein kinase B by insulin and IGF- 1. Embo J. 15, 6541–6551 (1996).
+- [ ] 100. Guertin, D. A. et al. Ablation in mice of the mTORC components raptor, rictor, or mLST8 reveals that mTORC2 is required for signaling to Akt-FOXO and PKCal- pha, but not S6K1. Dev. Cell 11, 859–871 (2006).
+- [ ] 101. Crino, P. B., Nathanson, K. L. & Henske, E. P. The tuberous sclerosis complex. N. Engl. J. Med. 355, 1345–1356 (2006).
+- [ ] 102. Manning, B. D. & Cantley, L. C. Rheb ﬁlls a GAP between TSC and TOR. Trends Biochem Sci. 28, 573–576 (2003).
+- [ ] 103. Schwartz, D. & Rotter, V. p53-dependent cell cycle control: response to geno- toxic stress. Semin Cancer Biol. 8, 325–336 (1998).
+- [ ] 104. Abraham, A. G. & O’Neill, E. PI3K/Akt-mediated regulation of p53 in cancer. Biochem Soc. Trans. 42, 798–803 (2014).
+- [ ] 105. Proctor, C. J. & Gray, D. A. Explaining oscillations and variability in the p53-Mdm2 system. BMC Syst. Biol. 2, 75 (2008).
+- [ ] 106. Momand, J. et al. The mdm-2 oncogene product forms a complex with the p53 protein and inhibits p53-mediated transactivation. Cell 69, 1237–1245 (1992).
+- [ ] 107. Chang, H. et al. Luteolin prevents H2O2-induced apoptosis in H9C2 cells through modulating Akt-P53/Mdm2 signaling pathway. Biomed. Res. Int. 2016, 5125836 (2016).
+- [ ] 108. Mayo, L. D. & Donner, D. B. A phosphatidylinositol 3-kinase/Akt pathway pro- motes translocation of Mdm2 from the cytoplasm to the nucleus. Proc. Natl Acad. Sci. USA 98, 11598–11603 (2001).
+- [ ] 109. Zhou, B. P. et al. HER-2/neu induces p53 ubiquitination via Akt-mediated MDM2 phosphorylation. Nat. Cell Biol. 3, 973–982 (2001).
+- [ ] 110. Vecino, R. et al. The MDM2-p53 pathway is involved in preconditioning-induced neuronal tolerance to ischemia. Sci. Rep. 8, 1610 (2018).
+- [ ] 111. Lauth, M. RAS and Hedgehog–partners in crime. Front Biosci. 16, 2259–2270 (2011).
+- [ ] 112. Frémin, C. & Meloche, S. From basic research to clinical development of MEK1/2 inhibitors for cancer therapy. J. Hematol. Oncol. 3, 8 (2010).
+- [ ] 113. Niederst, M. J. & Engelman, J. A. Bypass mechanisms of resistance to receptor tyrosine kinase inhibition in lung cancer. Sci. Signal 6, re6 (2013).
+- [ ] 114. Toulany, M. et al. ERK2-dependent reactivation of Akt mediates the limited response of tumor cells with constitutive K-RAS activity to PI3K inhibition. Cancer Biol. Ther. 15, 317–328 (2014).
+- [ ] 115. Reardon, D. B. et al. Dominant negative EGFR-CD533 and inhibition of MAPK modify JNK1 activation and enhance radiation toxicity of human mammary carcinoma cells. Oncogene 18, 4756–4766 (1999).
+- [ ] 116. Kane, L. P., Shapiro, V. S., Stokoe, D. & Weiss, A. Induction of NF-kappaB by the Akt/PKB kinase. Curr. Biol. 9, 601–604 (1999).
+- [ ] 117. Li, B., Li, Y. Y., Tsao, S. W. & Cheung, A. L. Targeting NF-kappaB signaling pathway suppresses tumor growth, angiogenesis, and metastasis of human esophageal cancer. Mol. Cancer Ther. 8, 2635–2644 (2009).
+- [ ] 118. Ozes, O. N. et al. NF-kappaB activation by tumour necrosis factor requires the Akt serine-threonine kinase. Nature 401, 82–85 (1999).
+- [ ] 119. Li, Z. et al. A positive feedback loop involving EGFR/Akt/mTORC1 and IKK/NF-kB regulates head and neck squamous cell carcinoma proliferation. Oncotarget 7, 31892–31906 (2016).
+- [ ] 120. Cheng, X. et al. Therapeutic potential of targeting the Wnt/β-catenin signaling pathway in colorectal cancer. Biomed. Pharmacother. 110, 473–481 (2019).
+- [ ] 121. Clevers, H. & Nusse, R. Wnt/β-catenin signaling and disease. Cell 149, 1192–1205 (2012).
+- [ ] 122. Gottardi, C. J. & Gumbiner, B. M. Role for ICAT in beta-catenin-dependent nuclear signaling and cadherin functions. Am. J. Physiol. Cell Physiol. 286, C747–C756 (2004).
+- [ ] 123. Siddharth, S. et al. Nectin-4 is a breast cancer stem cell marker that induces WNT/β-catenin signaling via Pi3k/Akt axis. Int J. Biochem Cell Biol. NLM 89, 85–94 (2017).
+- [ ] 124. Kang, D. W. et al. Phospholipase D1 inhibition linked to upregulation of ICAT blocks colorectal cancer growth hyperactivated by Wnt/β-Catenin and PI3K/Akt signaling. Clin. Cancer Res 23, 7340–7350 (2017).
+- [ ] 125. Han, F. et al. The critical role of AMPK in driving Akt activation under stress, tumorigenesis and drug resistance. Nat. Commun. 9, 4728 (2018).
+- [ ] 126. Yan, Y. & Huang, H. Interplay among PI3K/AKT, PTEN/FOXO and AR signaling in prostate cancer. Adv. Exp. Med Biol. 1210, 319–331 (2019).
+- [ ] 127. Greer, E. L. & Brunet, A. FOXO transcription factors in ageing and cancer. Acta Physiol. 192, 19–28 (2008).
+- [ ] 128. Ma, Y. S. et al. KDM5A silencing transcriptionally suppresses the FXYD3-PI3K/AKT axis to inhibit angiogenesis in hepatocellular cancer via miR-433 up-regulation. J Cell Mol. Med. 25, 4040–4052 (2021).
+- [ ] 129. Shin, I. et al. PKB/Akt mediates cell-cycle progression by phosphorylation of p27 (Kip1) at threonine 157 and modulation of its cellular localization. Nat. Med. 8, 1145–1152 (2002).
+- [ ] 130. Xu, W. W. et al. IGF2 induces CD133 expression in esophageal cancer cells to promote cancer stemness. Cancer Lett. 425, 88–100 (2018).
+- [ ] 131. Huang, Y. et al. LncRNA TDRG1 promotes proliferation, invasion and epithelial- mesenchymal transformation of osteosarcoma through PI3K/AKT signal path- way. Cancer Manag. Res. 12, 4531–4540 (2020).
+- [ ] 132. D’Arcy, M. S. Cell death: a review of the major forms of apoptosis, necrosis and autophagy. Cell Biol. Int. 43, 582–592 (2019).
+- [ ] 133. Datta, S. R. et al. Akt phosphorylation of BAD couples survival signals to the cell- intrinsic death machinery. Cell 91, 231–241 (1997).
+- [ ] 134. Chen, X. et al. Constitutively active Akt is an important regulator of TRAIL sensitivity in prostate cancer. Oncogene 20, 6073–6083 (2001).
+- [ ] 135. Rozengurt, E., Soares, H. P. & Sinnet-Smith, J. Suppression of feedback loops mediated by PI3K/mTOR induces multiple overactivation of compensatory pathways: an unintended consequence leading to drug resistance. Mol. Cancer Ther. 13, 2477–2488 (2014).
+- [ ] 136. Leroy, C. et al. Activation of IGF1R/p110β/AKT/mTOR confers resistance to α- speciﬁc PI3K inhibition. Breast Cancer Res. 18, 41 (2016).
+- [ ] 137. Brognard, J., Clark, A. S., Ni, Y. & Dennis, P. A. Akt/protein kinase B is con- stitutively active in non-small cell lung cancer cells and promotes cellular sur- vival and resistance to chemotherapy and radiation. Cancer Res. 61, 3986–3997 (2001).
+- [ ] 138. St Croix, B., Man, S. & Kerbel, R. S. Reversal of intrinsic and acquired forms of drug resistance by hyaluronidase treatment of solid tumors. Cancer Lett. 131, 35–44 (1998).
+- [ ] 139. Vives, M. et al. Metronomic chemotherapy following the maximum tolerated dose is an effective anti-tumour therapy affecting angiogenesis, tumour dis- semination and cancer stem cells. Int J. Cancer 133, 2464–2472 (2013).
+- [ ] 140. Liu, L. Z. et al. AKT1 ampliﬁcation regulates cisplatin resistance in human lung cancer cells through the mammalian target of rapamycin/p70S6K1 pathway. Cancer Res. 67, 6325–6332 (2007).
+- [ ] 141. Li, B. et al. Competitive binding between Id1 and E2F1 to Cdc20 regulates E2F1 degradation and thymidylate synthase expression to promote esophageal cancer chemoresistance. Clin. Cancer Res. 22, 1243–1255 (2016).
+- [ ] 142. Poh, T. W. & Pervaiz, S. LY294002 and LY303511 sensitize tumor cells to drug- induced apoptosis via intracellular hydrogen peroxide production independent of the phosphoinositide 3-kinase-Akt pathway. Cancer Res. 65, 6264–6274 (2005).
+- [ ] 143. Stoica, G. E. et al. Effect of estradiol on estrogen receptor-alpha gene expression and activity can be modulated by the ErbB2/PI 3-K/Akt pathway. Oncogene 22, 7998–8011 (2003).
+- [ ] 144. Syn, N. L., Teng, M. W. L., Mok, T. S. K. & Soo, R. A. De-novo and acquired resistance to immune checkpoint targeting. Lancet Oncol. 18, e731–e741 (2017).
+- [ ] 145. Parsa, A. T. et al. Loss of tumor suppressor PTEN function increases B7-H1 expression and immunoresistance in glioma. Nat. Med. 13, 84–88 (2007).
+- [ ] 146. Lastwika, K. J. et al. Control of PD-L1 expression by oncogenic activation of the AKT-mTOR pathway in non-small cell lung cancer. Cancer Res. 76, 227–238 (2016).
+- [ ] 147. Hoxhaj, G. & Manning, B. D. The PI3K-AKT network at the interface of oncogenic signalling and cancer metabolism. Nat. Rev. Cancer 20, 74–88 (2020).
+- [ ] 148. Hornsveld, M., Dansen, T. B., Derksen, P. W. & Burgering, B. M. T. Re-evaluating the role of FOXOs in cancer. Semin Cancer Biol. 50, 90–100 (2018).
+- [ ] 149. Brunet, A. et al. Akt promotes cell survival by phosphorylating and inhibiting a Forkhead transcription factor. Cell 96, 857–868 (1999).
+- [ ] 150. Gozzelino, L. et al. PI(3,4)P2 signaling in cancer and metabolism. Front. Oncol. 10, 360 (2020).
+- [ ] 151. Chen, J. et al. Akt1 regulates pathological angiogenesis, vascular maturation and permeability in vivo. Nat. Med. 11, 1188–1196 (2005).
+- [ ] 152. Lee, M. Y. et al. Endothelial Akt1 mediates angiogenesis by phosphorylating multiple angiogenic substrates. Proc. Natl Acad. Sci. USA 111, 12865–12870 (2014).
+- [ ] 153. Ackah, E. et al. Akt1/protein kinase Balpha is critical for ischemic and VEGF- mediated angiogenesis. J. Clin. Invest. 115, 2119–2127 (2005).
+- [ ] 154. Phung, T. L. et al. Pathological angiogenesis is induced by sustained Akt sig- naling and inhibited by rapamycin. Cancer Cell 10, 159–170 (2006).
+- [ ] 155. Soler, A. et al. Inhibition of the p110α isoform of PI3-kinase stimulates non- functional tumor angiogenesis. J. Exp. Med. 210, 1937–1945 (2013).
+- [ ] 156. Xu, W. W. et al. Direct targeting of CREB1 with imperatorin inhibits TGFbeta2- ERK signaling to suppress esophageal cancer metastasis. Adv. Sci. 7, 2000925 (2020).
+- [ ] 157. Grille, S. J. et al. The protein kinase Akt induces epithelial mesenchymal tran- sition and promotes enhanced motility and invasiveness of squamous cell carcinoma lines. Cancer Res. 63, 2172–2178 (2003).
+- [ ] 158. Steelman, L. S. et al. Akt as a therapeutic target in cancer. Expert Opin. Ther. Targets 12, 1139–1165 (2008).
+- [ ] 159. Kerbel, R. S. Tumor angiogenesis. N. Engl. J. Med. 358, 2039–2049 (2008).
+- [ ] 160. Katso, R. et al. Cellular function of phosphoinositide 3-kinases: implications for development, homeostasis, and cancer. Annu Rev. Cell Dev. Biol. 17, 615–675 (2001).
+- [ ] 161. Zhang, R. et al. Etk/Bmx transactivates vascular endothelial growth factor 2 and recruits phosphatidylinositol 3-kinase to mediate the tumor necrosis factor- induced angiogenic pathway. J. Biol. Chem. 278, 51267–51276 (2003).
+- [ ] 162. Kanaki, T. et al. Functional analysis of aortic endothelial cells expressing mutant PDGF receptors with respect to expression of matrix metalloproteinase-3. Bio- chem. Biophys. Res. Commun. 294, 231–237 (2002).
+- [ ] 163. Thiel, A. et al. Expression of cyclooxygenase-2 is regulated by glycogen synthase kinase-3beta in gastric cancer cells. J. Biol. Chem. 281, 4564–4569 (2006).
+- [ ] 164. Dillon, R. L. et al. Akt1 and akt2 play distinct roles in the initiation and metastatic phases of mammary tumor progression. Cancer Res. 69, 5057–5064 (2009).
+- [ ] 165. Hutchinson, J. N. et al. Activation of Akt-1 (PKB-alpha) can accelerate ErbB-2- mediated mammary tumorigenesis but suppresses tumor invasion. Cancer Res. 64, 3171–3178 (2004).
+- [ ] 166. Riggio, M. et al. AKT1 and AKT2 isoforms play distinct roles during breast cancer progression through the regulation of speciﬁc downstream proteins. Sci. Rep. 7, 44244 (2017).
+- [ ] 167. Balkwill, F. & Mantovani, A. Inﬂammation and cancer: back to Virchow? Lancet 357, 539–545 (2001).
+- [ ] 168. Allin, K. H., Bojesen, S. E. & Nordestgaard, B. G. Inﬂammatory biomarkers and risk of cancer in 84,000 individuals from the general population. Int J. Cancer 139, 1493–1500 (2016).
+- [ ] 169. Xue, G. et al. Integrated Akt/PKB signaling in immunomodulation and its potential role in cancer immunotherapy. J. Natl. Cancer Inst. 107, djv171 (2015).
+- [ ] 170. Eräsalo, H. et al. Natural stilbenoids have anti-inﬂammatory properties in vivo and down-regulate the production of inﬂammatory mediators NO, IL6, and MCP1 possibly in a PI3K/Akt-dependent manner. J. Nat. Prod. 81, 1131–1142 (2018).
+- [ ] 171. Ribatti, D. & Crivellato, E. Immune cells and angiogenesis. J. Cell Mol. Med. 13, 2822–2833 (2009).
+- [ ] 172. Shi, Y. et al. Signal pathways involved in activation of p70S6K and phosphor- ylation of 4E-BP1 following exposure of multiple myeloma tumor cells to interleukin-6. J. Biol. Chem. 277, 15712–15720 (2002).
+- [ ] 173. Reuter, S., Gupta, S. C., Chaturvedi, M. M. & Aggarwal, B. B. Oxidative stress, inﬂammation, and cancer: how are they linked? Free Radic. Biol. Med. 49, 1603–1616 (2010).
+- [ ] 174. Huo, R. et al. Cabazitaxel-induced autophagy via the PI3K/Akt/mTOR pathway contributes to A549 cell death. Mol. Med. Rep. 14, 3013–3020 (2016).
+- [ ] 175. Morbidelli, L., Donnini, S. & Ziche, M. Role of nitric oxide in the modulation of angiogenesis. Curr. Pharm. Des. 9, 521–530 (2003).
+- [ ] 176. Solana, R. et al. Innate immunosenescence: effect of aging on cells and recep- tors of the innate immune system in humans. Semin Immunol. 24, 331–341 (2012).
+- [ ] 177. Soond, D. R. et al. PI3K p110delta regulates T-cell cytokine production during primary and secondary immune responses in mice and humans. Blood 115, 2203–2213 (2010).
+- [ ] 178. Marshall, N. A. et al. Immunotherapy with PI3K inhibitor and Toll-like receptor agonist induces IFN-γ+IL-17+ polyfunctional T cells that mediate rejection of murine tumors. Cancer Res 72, 581–591 (2012).
+- [ ] 179. Covarrubias, A. J., Aksoylar, H. I. & Horng, T. Control of macrophage metabolism and activation by mTOR and Akt signaling. Semin Immunol. 27, 286–296 (2015).
+- [ ] 180. Weichhart, T., Hengstschläger, M. & Linke, M. Regulation of innate immune cell function by mTOR. Nat. Rev. Immunol. 15, 599–614 (2015).
+- [ ] 181. Guo, H., Samarakoon, A., Vanhaesebroeck, B. & Malarkannan, S. The p110 delta of PI3K plays a critical role in NK cell terminal maturation and cytokine/che- mokine generation. J. Exp. Med. 205, 2419–2435 (2008).
+- [ ] 182. So, L. & Fruman, D. A. PI3K signalling in B- and T-lymphocytes: new develop- ments and therapeutic advances. Biochem J. 442, 465–481 (2012).
+- [ ] 183. Fruman, D. A. et al. The PI3K pathway in human disease. Cell 170, 605–635 (2017).
+- [ ] 184. Saito, K. et al. BTK regulates PtdIns-4,5-P2 synthesis: importance for calcium signaling and PI3K activity. Immunity 19, 669–678 (2003).
+- [ ] 185. Limon, J. J. & Fruman, D. A. Akt and mTOR in B cell activation and differentiation. Front Immunol. 3, 228 (2012).
+- [ ] 186. Chang, C. H. et al. Posttranscriptional control of T cell effector function by aerobic glycolysis. Cell 153, 1239–1251 (2013).
+- [ ] 187. van der Waart, A. B. et al. Inhibition of Akt signaling promotes the generation of superior tumor-reactive T cells for adoptive immunotherapy. Blood 124, 3490–3500 (2014).
+- [ ] 188. Xu, W. W. et al. Cancer cell-secreted IGF2 instigates ﬁbroblasts and bone marrow-derived vascular progenitor cells to promote cancer progression. Nat. Commun. 8, 14399 (2017).
+- [ ] 189. Yu, M. & Tannock, I. F. Targeting tumor architecture to favor drug penetration: a new weapon to combat chemoresistance in pancreatic cancer? Cancer Cell 21, 327–329 (2012).
+- [ ] 190. Meng, Q. et al. Role of PI3K and AKT speciﬁc isoforms in ovarian cancer cell migration, invasion and proliferation through the p70S6K1 pathway. Cell Signal 18, 2262–2271 (2006).
+- [ ] 191. Zhou, B. et al. Cisplatin-induced CCL5 secretion from CAFs promotes cisplatin- resistance in ovarian cancer via regulation of the STAT3 and PI3K/Akt signaling pathways. Int J. Oncol. 48, 2087–2097 (2016).
+- [ ] 192. Han, Y., Wang, X., Wang, B. & Jiang, G. The progress of angiogenic factors in the development of leukemias. Intractable Rare Dis. Res 5, 6–16 (2016).
+- [ ] 193. Okkenhaug, K., Graupera, M. & Vanhaesebroeck, B. Targeting PI3K in cancer: impact on tumor cells, their protective stroma, angiogenesis, and immu- notherapy. Cancer Disco. 6, 1090–1105 (2016).
+- [ ] 194. De Santis, M. C. et al. Targeting PI3K signaling in cancer: challenges and advances. Biochim Biophys. Acta Rev. Cancer 1871, 361–366 (2019).
+- [ ] 195. Akinleye, A. et al. Phosphatidylinositol 3-kinase (PI3K) inhibitors as cancer therapeutics. J. Hematol. Oncol. 6, 88 (2013).
+- [ ] 196. Folkes, A. J. et al. The identiﬁcation of 2-(1H-indazol-4-yl)-6-(4-methanesulfonyl- piperazin-1-ylmethyl)-4-morpholin-4-yl-thieno[3,2-d]pyrimidine (GDC-0941) as a potent, selective, orally bioavailable inhibitor of class I PI3 kinase for the treatment of cancer. J. Med Chem. 51, 5522–5532 (2008).
+- [ ] 197. Junttila, T. T. et al. Ligand-independent HER2/HER3/PI3K complex is disrupted by trastuzumab and is effectively inhibited by the PI3K inhibitor GDC-0941. Cancer Cell 15, 429–440 (2009).
+- [ ] 198. Burger, M. T. et al. Identiﬁcation of NVP-BKM120 as a potent, selective, orally bioavailable class I PI3 kinase inhibitor for treating cancer. ACS Med. Chem. Lett. 2, 774–779 (2011).
+- [ ] 199. Netland, I. A. et al. Treatment with the PI3K inhibitor buparlisib (NVP-BKM120) suppresses the growth of established patient-derived GBM xenografts and prolongs survival in nude rats. J. Neurooncol. 129, 57–66 (2016).
+- [ ] 200. Bendell, J. C. et al. Phase I, dose-escalation study of BKM120, an oral pan-class I PI3K inhibitor, in patients with advanced solid tumors. J. Clin. Oncol. 30, 282–290 (2012).
+- [ ] 201. Foster, P. et al. The selective PI3K inhibitor XL147 (SAR245408) inhibits tumor growth and survival and potentiates the activity of chemotherapeutic agents in preclinical tumor models. Mol. Cancer Ther. 14, 931–940 (2015).
+- [ ] 202. Li, M. et al. Phosphoinositide 3-kinase gamma inhibition protects from anthracy- cline cardiotoxicity and reduces tumor growth. Circulation 138, 696–711 (2018).
+- [ ] 203. Juric, D. et al. Phosphatidylinositol 3-kinase α-selective inhibition with Alpelisib (BYL719) in PIK3CA-altered solid tumors: results from the ﬁrst-in-human study. J. Clin. Oncol. 36, 1291–1299 (2018).
+- [ ] 204. Juric, D. et al. Alpelisib plus Fulvestrant in PIK3CA-altered and PIK3CA-wild-type estrogen receptor-positive advanced breast cancer: a phase 1b clinical trial. JAMA Oncol. 5, e184475 (2019).
+- [ ] 205. André, F. et al. Alpelisib for PIK3CA-mutated, hormone receptor-positive advanced breast cancer. N. Engl. J. Med. 380, 1929–1940 (2019).
+- [ ] 206. Ndubaku, C. O. et al. Discovery of 2-{3-[2-(1-isopropyl-3-methyl-1H-1,2-4-triazol- 5-yl)-5,6-dihydrobenzo[f]imidazo[1,2-d][1,4]oxazepin-9-yl]-1H-pyrazol-1-yl}-2- methylpropanamide (GDC-0032): a β-sparing phosphoinositide 3-kinase inhi- bitor with high unbound exposure and robust in vivo antitumor activity. J. Med. Chem. 56, 4597–4610 (2013).
+- [ ] 207. Juric, D. et al. Phase I dose-escalation study of Taselisib, an oral PI3K inhibitor, in patients with advanced solid tumors. Cancer Disco. 7, 704–715 (2017).
+- [ ] 208. Verret, B. et al. Efﬁcacy of PI3K inhibitors in advanced breast cancer. Ann. Oncol. 30, x12–x20 (2019).
+- [ ] 209. O’Reilly, K. E. et al. mTOR inhibition induces upstream receptor tyrosine kinase signaling and activates Akt. Cancer Res. 66, 1500–1508 (2006).
+- [ ] 210. Hirai, H. et al. MK-2206, an allosteric Akt inhibitor, enhances antitumor efﬁcacy by standard chemotherapeutic agents or molecular targeted drugs in vitro and in vivo. Mol. Cancer Ther. 9, 1956–1967 (2010).
+- [ ] 211. Lara, P. N. Jr. et al. Phase II study of the AKT inhibitor MK-2206 plus Erlotinib in patients with advanced non-small cell lung cancer who previously progressed on Erlotinib. Clin. Cancer Res. 21, 4321–4326 (2015).
+- [ ] 212. Konopleva, M. Y. et al. Preclinical and early clinical evaluation of the oral AKT inhibitor, MK-2206, for the treatment of acute myelogenous leukemia. Clin. Cancer Res. 20, 2226–2235 (2014).
+- [ ] 213. Ma, B. B. et al. Preclinical evaluation of the AKT inhibitor MK-2206 in naso- pharyngeal carcinoma cell lines. Invest N. Drugs 31, 567–575 (2013).
+- [ ] 214. Yap, T. A. et al. First-in-class phase I trial of a selective Akt inhibitor, MK2206 (MK), evaluating alternate day (QOD) and once weekly (QW) doses in advanced cancer patients (pts) with evidence of target modulation and antitumor activity. J. Clin. Oncol. 28, 3009–3009 (2010).
+- [ ] 215. Davies, B. R. et al. Preclinical pharmacology of AZD5363, an inhibitor of AKT: pharmacodynamics, antitumor activity, and correlation of monotherapy activity with genetic background. Mol. Cancer Ther. 11, 873–887 (2012).
+- [ ] 216. Li, J. et al. The AKT inhibitor AZD5363 is selectively active in PI3KCA mutant gastric cancer, and sensitizes a patient-derived gastric cancer xenograft model with PTEN loss to Taxotere. J. Transl. Med. 11, 241 (2013).
+- [ ] 217. Menon, S. & Manning, B. D. Common corruption of the mTOR signaling network in human tumors. Oncogene 27(Suppl 2), S43–S51 (2008).
+- [ ] 218. Popova, N. V. & Jucker, M. et al. The role of mTOR signaling as a therapeutic target in cancer. Int. J. Mol. Sci. 22, 1743 (2021).
+- [ ] 219. Mukhopadhyay, S. et al. The enigma of Rapamycin dosage. Mol. Cancer Ther. 15, 347–353 (2016).
+- [ ] 220. Chresta, C. M. et al. AZD8055 is a potent, selective, and orally bioavailable ATP- competitive mammalian target of rapamycin kinase inhibitor with in vitro and in vivo antitumor activity. Cancer Res. 70, 288–298 (2010).
+- [ ] 221. Zhang, H. et al. ErbB receptors: from oncogenes to targeted cancer therapies. J. Clin. Invest. 117, 2051–2058 (2007).
+- [ ] 222. Zambrano, C. C. et al. Phase lb study of buparlisib (BKM120) plus either pacli- taxel (PTX) in advanced solid tumors (aST) or PTX plus trastuzumab (TZ) in HER2 + breast cancer (BC). J. Clin. Oncol. 32, 627–627 (2014).
+- [ ] 223. Razak, A. R. A. et al. Phase lb/ll study of the PI3Kα inhibitor BYL719 in combi- nation with cetuximab in recurrent/metastatic squamous cell cancer of the head and neck (SCCHN). J. Clin. Oncol. 32, 6044–6044 (2014).
+- [ ] 224. Britten, C. D. PI3K and MEK inhibitor combinations: examining the evidence in selected tumor types. Cancer Chemother. Pharm. 71, 1395–1409 (2013).
+- [ ] 225. Shimizu, T. et al. The clinical effect of the dual-targeting strategy involving PI3K/ AKT/mTOR and RAS/MEK/ERK pathways in patients with advanced cancer. Clin. Cancer Res. 18, 2316–2325 (2012).
+- [ ] 226. LoRusso, P. et al. A ﬁrst-in-human phase Ib study to evaluate the MEK inhibitor GDC-0973, combined with the pan-PI3K inhibitor GDC-0941, in patients with advanced solid tumors. J. Clin. Oncol. 30, 2566–2566 (2012).
+- [ ] 227. Heist, R. S. et al. Combination of a MEK inhibitor, pimasertib (MSC1936369B), and a PI3K/mTOR inhibitor, SAR245409, in patients with advanced solid tumors: Results of a phase Ib dose-escalation trial. J. Clin. Oncol. 31, 2530–2530 (2013).
+- [ ] 228. Bedard, P. L. et al. A phase Ib dose-escalation study of the oral pan-PI3K inhibitor buparlisib (BKM120) in combination with the oral MEK1/2 inhibitor trametinib (GSK1120212) in patients with selected advanced solid tumors. Clin. Cancer Res. 21, 730–738 (2015).
+- [ ] 229. Bender, A. et al. PI3K inhibitors prime neuroblastoma cells for chemotherapy by shifting the balance towards pro-apoptotic Bcl-2 proteins and enhanced mito- chondrial apoptosis. Oncogene 30, 494–503 (2010).
+- [ ] 230. Bang, Y.-J. et al. JAGUAR: A randomized phase II study of the AKT inhibitor ipatasertib (GDC-0068) versus placebo in combination with mFOLFOX6 che- motherapy in patients (pts) with locally advanced or metastatic HER2-negative gastric (G) or gastroesophageal junction (GEJ) adenocarcinoma. J. Clin. Oncol. 32, TPS4147–TPS4147 (2014).
+- [ ] 231. Ibrahim, Y. H. et al. PI3K inhibition impairs BRCA1/2 expression and sensitizes BRCA-proﬁcient triple-negative breast cancer to PARP inhibition. Cancer Disco. 2, 1036–1047 (2012).
+- [ ] 232. Matulonis, U. et al. Phase I study of oral BKM120 and oral olaparib for high-grade serous ovarian cancer (HGSC) or triple-negative breast cancer (TNBC). J. Clin. Oncol. 32, 2510–2510 (2014).
+- [ ] 233. Verellen, D. et al. Innovations in image-guided radiotherapy. Nat. Rev. Cancer 7, 949–960 (2007).
+- [ ] 234. Keam, B. et al. In vitro anticancer activity of PI3K alpha selective inhibitor BYL719 in head and neck cancer. Anticancer Res. 35, 175–182 (2015).
+- [ ] 235. Burris, H. A. 3rd Overcoming acquired resistance to anticancer therapy: focus on the PI3K/AKT/mTOR pathway. Cancer Chemother. Pharm. 71, 829–842 (2013).
+- [ ] 236. Chang, L. et al. PI3K/Akt/mTOR pathway inhibitors enhance radiosensitivity in radioresistant prostate cancer cells through inducing apoptosis, reducing autop- hagy, suppressing NHEJ and HR repair pathways. Cell Death Dis. 5, e1437 (2014).
+- [ ] 237. McGowan, D. R. et al. Buparlisib with thoracic radiotherapy and its effect on tumour hypoxia: a phase I study in patients with advanced non-small cell lung carcinoma. Eur. J. Cancer 113, 87–95 (2019).
+- [ ] 238. Chen, D. S. & Mellman, I. Oncology meets immunology: the cancer-immunity cycle. Immunity 39, 1–10 (2013).
+- [ ] 239. Thomson, A. W., Turnquist, H. R. & Raimondi, G. Immunoregulatory functions of mTOR inhibition. Nat. Rev. Immunol. 9, 324–337 (2009).
+- [ ] 240. Jiang, Q. et al. mTOR kinase inhibitor AZD8055 enhances the immunother- apeutic activity of an agonist CD40 antibody in cancer treatment. Cancer Res. 71, 4074–4084 (2011).
+- [ ] 241. Rosenberg, S. A. & Restifo, N. P. Adoptive cell transfer as personalized immu- notherapy for human cancer. Science 348, 62–68 (2015).
+- [ ] 242. Perkins, M. R. et al. Manufacturing an enhanced CAR T cell product by inhibition of the PI3K/Akt pathway during T Cell expansion results in improved in vivo efﬁcacy of anti-BCMA CAR T cells. Blood 126, 1893–1893 (2015).
+- [ ] 243. Morii, Y. et al. Perifosine enhances the potential antitumor effect of 5-ﬂuorourasil and oxaliplatin in colon cancer cells harboring the PIK3CA mutation. Eur. J. Pharm. 898, 173957 (2021).
+- [ ] 244. Di Cristofano, A. SGK1: the dark side of PI3K signaling. Curr. Top. Dev. Biol. 123, 49–71 (2017).
+- [ ] 245. Chen, S. et al. BMX-mediated regulation of multiple tyrosine kinases contributes to castration resistance in prostate cancer. Cancer Res. 78, 5203–5215 (2018).
+- [ ] 246. Reynolds, L. F. et al. Vav1 transduces T cell receptor signals to the activation of phospholipase C-gamma1 via phosphoinositide 3-kinase-dependent and -independent pathways. J. Exp. Med. 195, 1103–1114 (2002).
+- [ ] 247. Hu, H. et al. Phosphoinositide 3-kinase regulates glycolysis through mobilization of aldolase from the actin cytoskeleton. Cell 164, 433–446 (2016).
+- [ ] 248. Cain, R. J., Vanhaesebroeck, B. & Ridley, A. J. The PI3K p110alpha isoform reg- ulates endothelial adherens junctions via Pyk2 and Rac1. J. Cell Biol. 188, 863–876 (2010).
+- [ ] 249. Arana, E. et al. Activation of the small GTPase Rac2 via the B cell receptor regulates B cell adhesion and immunological-synapse formation. Immunity 28, 88–99 (2008).
+- [ ] 250. Cheng, S. et al. PtdIns(4,5)P2 and PtdIns3P coordinate to regulate phagosomal sealing for apoptotic cell clearance. J. Cell Biol. 210, 485–502 (2015).
+- [ ] 251. Cheng, S. et al. Autophagy genes coordinate with the class II PI/PtdIns 3-kinase PIKI-1 to regulate apoptotic cell clearance in C. elegans. Autophagy 9, 2022–2032 (2013).
+- [ ] 252. Zou, W. et al. Caenorhabditis elegans myotubularin MTM-1 negatively regulates the engulfment of apoptotic cells. PLoS Genet 5, e1000679 (2009).
+- [ ] 253. Gasser, J. A. et al. SGK3 mediates INPP4B-dependent PI3K signaling in breast cancer. Mol. Cell 56, 595–607 (2014).
+- [ ] 254. Sarker, D. et al. First-in-human phase I study of pictilisib (GDC-0941), a potent pan-class I phosphatidylinositol-3-kinase (PI3K) inhibitor, in patients with advanced solid tumors. Clin. Cancer Res. 21, 77–86 (2015).
+- [ ] 255. Armstrong, A. J. et al. Phase II trial of the PI3 kinase inhibitor buparlisib (BKM- 120) with or without enzalutamide in men with metastatic castration resistant prostate cancer. Eur. J. Cancer 81, 228–236 (2017).
+- [ ] 256. Patnaik, A. et al. First-in-human phase I study of copanlisib (BAY 80-6946), an intravenous pan-class I phosphatidylinositol 3-kinase inhibitor, in patients with advanced solid tumors and non-Hodgkin’s lymphomas. Ann. Oncol. 27, 1928–1940 (2016).
+- [ ] 257. Edelman, G. et al. A phase I dose-escalation study of XL147 (SAR245408), a PI3K inhibitor administered orally to patients (pts) with advanced malignancies. J. Clin. Oncol. 28, 3004–3004 (2010).
+- [ ] 258. Hotte, S. J. et al. A phase II study of PX-866 in patients with recurrent or metastatic castration-resistant prostate cancer: Canadian cancer trials group study IND205. Clin. Genitourin. Cancer 17, 201–208.e201 (2019).
+- [ ] 259. Fritsch, C. et al. Characterization of the novel and speciﬁc PI3Kα inhibitor NVP- BYL719 and development of the patient stratiﬁcation strategy for clinical trials. Mol. Cancer Ther. 13, 1117–1129 (2014).
+- [ ] 260. Dunbar, J. et al. Pharmacokinetics and pharmacodynamics of IPI-145, a potent inhibitor of phosphoinositide-3-kinase-δ,γ, following single- and multiple-dose administration in healthy subjects and patients with advanced hematologic malignancies. Blood 120, 4853–4853 (2012).
+- [ ] 261. Bédard, P. L. et al. First-in-human trial of the PI3Kβ-selective inhibitor SAR260301 in patients with advanced solid tumors. Cancer 124, 315–324 (2018).
+- [ ] 262. Juric, D. et al. A ﬁrst-in-human, phase I, dose-escalation study of TAK-117, a selective PI3Kα isoform inhibitor, in patients with advanced solid malignancies. Clin. Cancer Res. 23, 5015–5023 (2017).
+- [ ] 263. Peyton, J. D. et al. A dose-escalation study with the novel formulation of the oral pan-class I PI3K inhibitor BEZ235, solid dispersion system (SDS) sachet, in patients with advanced solid tumors. J. Clin. Oncol. 29, 3066–3066 (2011).
+- [ ] 264. Mahadevan, D. et al. Phase I pharmacokinetic and pharmacodynamic study of the pan-PI3K/mTORC vascular targeted pro-drug SF1126 in patients with advanced solid tumours and B-cell malignancies. Eur. J. Cancer 48, 3319–3327 (2012).
+- [ ] 265. Wagner, A. J. et al. A ﬁrst-in-human phase I study to evaluate GDC-0980, an oral PI3K/mTOR inhibitor, administered QD in patients with advanced solid tumors. J. Clin. Oncol. 29, 3020–3020 (2011).
+- [ ] 266. Del Campo, J. M. et al. A randomized phase II non-comparative study of PF- 04691502 and gedatolisib (PF-05212384) in patients with recurrent endometrial cancer. Gynecol. Oncol. 142, 62–69 (2016).
+- [ ] 267. Brana, I. et al. A phase I dose-escalation study of the safety, pharmacokinetics (PK), and pharmacodynamics of XL765 (SAR245409), a PI3K/TORC1/TORC2 inhibitor administered orally to patients (pts) with advanced malignancies. J. Clin. Oncol. 28, 3030–3030 (2010).
+- [ ] 268. Munster, P. et al. First-in-human phase I study of GSK2126458, an oral pan-class I phosphatidylinositol-3-kinase inhibitor, in patients with advanced solid tumor malignancies. Clin. Cancer Res 22, 1932–1939 (2016).
+- [ ] 269. Garlich, J. R. et al. A vascular targeted pan phosphoinositide 3-kinase inhibitor prodrug, SF1126, with antitumor and antiangiogenic activity. Cancer Res. 68, 206–215 (2008).
+- [ ] 270. Minami, H. et al. Phase I study of BGT226, a pan-PI3K and mTOR inhibitor, in Japanese patients with advanced solid cancers. Cancer Chemother. Pharm. 84, 337–343 (2019).
+- [ ] 271. Argiris, A. et al. A phase II trial of perifosine, an oral alkylphospholipid, in recurrent or metastatic head and neck cancer. Cancer Biol. Ther. 5, 766–770 (2006).
+- [ ] 272. Rhodes, N. et al. Characterization of an Akt kinase inhibitor with potent phar- macodynamic and antitumor activity. Cancer Res. 68, 2366–2374 (2008).
+- [ ] 273. Sampath, D. et al. Phase I clinical, pharmacokinetic, and pharmacodynamic study of the Akt-inhibitor triciribine phosphate monohydrate in patients with advanced hematologic malignancies. Leuk. Res. 37, 1461–1467 (2013).
+- [ ] 274. Machl, A. et al. M2698 is a potent dual-inhibitor of p70S6K and Akt that affects tumor growth in mouse models of cancer and crosses the blood-brain barrier. Am. J. Cancer Res. 6, 806–818 (2016).

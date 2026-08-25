@@ -1,0 +1,93 @@
+{
+  "source": {
+    "source_id": "107 - S0967586821004811",
+    "title": "Ischemic stroke mimics: A comprehensive review",
+    "doi": "10.1016/j.jocn.2021.09.025",
+    "source_type": "review article / secondary evidence synthesis",
+    "publication_id": "92a3bdd0-1834-5a40-b70f-5f0b8f733b0d",
+    "input_file": "1-s2.0-S0967586821004811.pdf",
+    "input_sha256": "b11ce6f42141f7c3a5baebc1e4eb0f7584ae53bf8f3e09cc12ae9925c9c64ff1",
+    "pages": "174-182 (9 PDF pages)",
+    "search_cutoff_reported": "January 2020"
+  },
+  "extraction": {
+    "atom_count": 70,
+    "counts_by_kind": {
+      "adverse_event": 1,
+      "author_conclusion": 2,
+      "conflict_of_interest": 1,
+      "data_availability": 1,
+      "funding_disclosure": 1,
+      "limitation": 1,
+      "method": 4,
+      "other": 8,
+      "population_description": 1,
+      "quantitative_result": 49,
+      "study_objective": 1
+    },
+    "assertion_origin_counts": {
+      "normalized_from_source": 69,
+      "directly_reported": 1
+    },
+    "secondary_source_guardrail": "This source is a review article, not primary literature. Quantitative atoms represent the review’s own cross-study synthesis or are explicitly tagged secondary_reported_result; they must not be treated as primary-study observations.",
+    "publication_identity_shared_across_atoms": true,
+    "extraction_run_id": "S0967586821004811-review-v1",
+    "batching_decision": "Single-pass semantic extraction was used: the retrieved source is 9 pages and could be fully mapped, visually reconciled, atomized, and validated without context pressure."
+  },
+  "validation": {
+    "pydantic_structural_valid": true,
+    "structural_errors": [],
+    "sufficiency_valid": true,
+    "sufficiency_errors": [],
+    "sufficiency_warnings": [],
+    "json_schema_valid": true
+  },
+  "coverage": {
+    "sections_covered": [
+      "Introduction",
+      "Methods",
+      "Statistical analysis",
+      "Results",
+      "Mimic types",
+      "Clinical findings",
+      "Risk factors",
+      "Thrombolysis",
+      "Discussion",
+      "Conclusion",
+      "Data availability",
+      "Funding",
+      "Competing interests"
+    ],
+    "figures_covered": [
+      "Fig. 1",
+      "Fig. 2",
+      "Fig. 3",
+      "Fig. 4"
+    ],
+    "tables_covered": [
+      "Table 1",
+      "Table 2"
+    ],
+    "supplement_status": "Supplementary Table 1 is referenced in the article but no supplementary file was present in the retrieved Drive folder."
+  },
+  "extraction_limitations": [
+    "The ATOM schema is designed for primary literature; this document is a review article. Review-synthesized results are preserved with secondary-source tags and should not be mistaken for direct participant-level primary evidence.",
+    "The source reports pooled counts and percentages but does not describe a conventional meta-analytic model, weighting strategy, heterogeneity assessment, or risk-of-bias framework.",
+    "Many pooled outcomes use different contributing-study denominators, so atom populations are outcome-specific rather than one fixed cohort.",
+    "Supplementary Table 1 was not included among the raw Drive documents and therefore could not be atomized or reconciled.",
+    "Cited-study claims in the Discussion were not independently verified against the cited primary publications."
+  ],
+  "consistency_findings": [
+    "The abstract reports stroke-mimic prevalence as 24.8% (15,044/60,703), while the main Results section reports 24.9% (15,595/62,664). Both assertions are preserved rather than reconciled.",
+    "The conclusion states that one out of three mimics is thrombolyzed, whereas the pooled Results estimate is 26.3% (635/2,407); the conclusion is therefore only an approximate characterization.",
+    "The main Results section states that 61 studies were selected, but its listed design counts (5 + 1 + 17 + 9 + 30) sum to 62; the source does not explain whether categories overlap or contain a counting error."
+  ],
+  "schema_gaps": [
+    "No dedicated atom kind exists for secondary-review synthesis or review recommendations/workflows; tags are used to preserve that distinction.",
+    "QuantitativeResult stores one estimate plus optional arm observations, which is imperfect for multi-group review summaries that report only arm-level percentages and p-values without a formal effect estimate."
+  ],
+  "duplicate_review": {
+    "cross_batch_review": "not applicable (single extraction pass)",
+    "within_set_duplicate_review": "No intentional duplicate atoms; the abstract and main-text stroke-mimic prevalence atoms are retained separately because the source reports conflicting values."
+  }
+}

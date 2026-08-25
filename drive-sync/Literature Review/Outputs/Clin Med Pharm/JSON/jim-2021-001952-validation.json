@@ -1,0 +1,73 @@
+{
+  "activated_macros": [
+    "@ATOM",
+    "@SEA"
+  ],
+  "source": {
+    "slug": "jim-2021-001952",
+    "title": "Wegovy (semaglutide): a new weight loss drug for chronic weight management",
+    "doi": "10.1136/jim-2021-001952",
+    "publication_id": "36df2b0e-f3f6-54cb-873a-63bb9c8096db",
+    "source_type": "narrative literature review"
+  },
+  "atom_count": 91,
+  "atom_counts_by_kind": {
+    "adverse_event": 22,
+    "author_conclusion": 2,
+    "conflict_of_interest": 1,
+    "funding_disclosure": 1,
+    "limitation": 2,
+    "method": 3,
+    "population_description": 2,
+    "qualitative_result": 5,
+    "quantitative_result": 52,
+    "study_objective": 1
+  },
+  "batch_counts": {
+    "jim-2021-001952-global-v1": 6,
+    "jim-2021-001952-pioneer-v1": 28,
+    "jim-2021-001952-step-v1": 18,
+    "jim-2021-001952-sustain-v1": 27,
+    "jim-2021-001952-synthesis-safety-v1": 12
+  },
+  "structural_validation": "passed",
+  "json_schema_validation": "passed",
+  "sufficiency_validation": "passed",
+  "structural_errors": [],
+  "json_schema_errors": [],
+  "sufficiency_errors": [],
+  "sufficiency_warnings": [],
+  "unique_atom_ids": true,
+  "shared_publication_id": true,
+  "exact_duplicate_canonical_statements": {},
+  "consistency_findings": [
+    {
+      "severity": "warning",
+      "location": "Table 4, PIONEER 10",
+      "finding": "The column labeled \"Discontinuation due to GI AE (%)\" contains 31%, 39%, 54%, and 40% for PIONEER 10. These values conflict with the review narrative, which states GI-event discontinuation ranged from 4.9%-12% in PIONEER. The values were not silently corrected and are not atomized as discontinuation rates."
+    },
+    {
+      "severity": "warning",
+      "location": "STEP 1 narrative versus Table 5",
+      "finding": "The narrative states 86.5% achieved at least 5% weight loss, while Table 5 reports 86.4%. The table value is preserved in table-derived atoms and the difference is treated as a minor source discrepancy."
+    },
+    {
+      "severity": "information",
+      "location": "Source type",
+      "finding": "The retrieved article is a narrative literature review, not a primary study. Trial-level atoms are therefore tagged secondary_reported_result and anchored to the review. They must not be treated as primary-study extractions."
+    }
+  ],
+  "schema_gaps": [
+    "The LiteratureAtom schema is designed for primary literature and has no dedicated narrative-review or secondary-reported-result atom kind. Secondary study results are represented with standard atom kinds plus secondary_reported_result tags, with provenance anchored to the review.",
+    "QuantitativeResult requires one primary estimate even when a review table reports several treatment-arm values. The selected semaglutide arm is stored as estimate and all reported arms are preserved in arms.",
+    "The model has no field for systematic-review risk-of-bias methods. This source also did not report a formal risk-of-bias assessment."
+  ],
+  "extraction_limitations": [
+    "No primary-study publication was substituted for the review during ATOM extraction.",
+    "Source table inconsistencies were preserved or flagged rather than corrected from external knowledge.",
+    "The review search methods are not systematic enough to establish complete evidence capture."
+  ],
+  "protocol_conflicts_or_version_issues": [
+    "The governing file is named summary-evaluation-appraisal-protocol-v4-compact.md but its internal H1 identifies the integrated compact protocol as v3. Per project precedence, the named v4 file governed this run and the separate v3 HTML was historical reference only."
+  ]
+}

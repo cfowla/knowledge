@@ -1,0 +1,113 @@
+{
+  "source_metadata": {
+    "source_id": "123 - DUHS Extravasation of Non-Chemo Agents",
+    "exact_title": "DUHS Extravasation of Non-Chemo Agents",
+    "source_type": "institutional clinical policy/procedure",
+    "document_id": "7259",
+    "revision_number": 2,
+    "status": "Published",
+    "origination_date": "2022-03-01",
+    "effective_date": "2024-08-23",
+    "approved_by": "DUHS Pharmacy Medication Management Committee (PMMC)",
+    "date_approved": [
+      "2022-05-02",
+      "2024-08-05"
+    ],
+    "applicability": [
+      "Duke Regional Hospital (DRH)",
+      "Duke University Hospital (DUH), both campuses"
+    ],
+    "drive_url": "https://drive.google.com/file/d/1GH6HTHp3yOLNadgCgJs1hXBbDmFLxMd7/view?usp=drivesdk",
+    "sha256": "6f6f53421fee2ba1d427728bc3576f97419fb23cdb87bf2e3f6dea1f008951df",
+    "publication_id": "a0c7a72b-cd56-53ca-82e2-a8f1343da7d5"
+  },
+  "authority_precedence": [
+    "literature(1).py - structural domain model",
+    "literature_atoms(1).py - sufficiency validation",
+    "literature_atom.schema.json - serialization contract",
+    "README(2).md - workflow intent",
+    "example_atom(1).json - illustrative only"
+  ],
+  "batch_manifest": [
+    {
+      "batch_id": "duhs-extravasation-general-v1",
+      "pages": "1-2",
+      "semantic_scope": "Policy identity, scope, prevention, definitions, personnel, and resources",
+      "required_context": "Document metadata and DUHS applicability",
+      "known_cross_references": [
+        "Procedures on pp. 2-5",
+        "Treatment table on pp. 5-6"
+      ]
+    },
+    {
+      "batch_id": "duhs-extravasation-immediate-response-v1",
+      "pages": "2-3",
+      "semantic_scope": "Immediate response, assessment, escalation, catheter handling, and hyaluronidase",
+      "required_context": "Definitions and local ICN/SCN exception",
+      "known_cross_references": [
+        "Medication-specific treatment table"
+      ]
+    },
+    {
+      "batch_id": "duhs-extravasation-antidotes-supportive-v1",
+      "pages": "3-5",
+      "semantic_scope": "Phentolamine, topical nitroglycerin, comfort measures, contrast, WOCN, reportable conditions, compresses",
+      "required_context": "Age-group and ICN/SCN distinctions",
+      "known_cross_references": [
+        "Treatment table on pp. 5-6"
+      ]
+    },
+    {
+      "batch_id": "duhs-extravasation-treatment-table-v1",
+      "pages": "5-6",
+      "semantic_scope": "Medication-specific compress, antidote/treatment, and adjunctive/alternative recommendations",
+      "required_context": "Compress column not used in ICN/SCN",
+      "known_cross_references": [
+        "Antidote preparation/administration on pp. 3-4"
+      ]
+    }
+  ],
+  "atom_counts": {
+    "total": 72,
+    "by_kind": {
+      "other": 72
+    },
+    "by_batch": {
+      "duhs-extravasation-general-v1": 9,
+      "duhs-extravasation-immediate-response-v1": 12,
+      "duhs-extravasation-antidotes-supportive-v1": 10,
+      "duhs-extravasation-treatment-table-v1": 41
+    }
+  },
+  "structural_validation": {
+    "valid_count": 72,
+    "error_count": 0,
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "valid_count": 72,
+    "error_count": 0,
+    "warning_count": 0,
+    "errors": [],
+    "warnings": []
+  },
+  "duplicate_review": {
+    "exact_duplicate_canonical_statements": [],
+    "status": "No exact duplicate canonical statements detected after semantic-batch merge."
+  },
+  "consistency_findings": [
+    "The source definition sentence for phentolamine says treatment occurs “within 12 of the extravasation”; procedural dosing sections clarify the intended interval as within 12 hours. The extraction preserves the source wording in the anchor and normalizes the canonical statement to 12 hours based on the same document.",
+    "The treatment table header states that compress recommendations are not used in ICN/SCN; page 4 separately states “ICN/SCN: Do not apply a compress.” Drug-specific table atoms therefore qualify compress recommendations as outside ICN/SCN.",
+    "The medication name “Gentamycin” is preserved as printed in the source rather than silently corrected."
+  ],
+  "schema_gaps": [
+    "The LiteratureAtom schema is oriented to primary literature and has no guideline_recommendation or practice_policy atom kind. Policy recommendations are represented as atom_kind=\"other\" with descriptive tags, consistent with the project guardrail for guideline/secondary sources.",
+    "The schema has no dedicated workflow-step or institutional-policy scope object; these are represented in canonical statements and tags."
+  ],
+  "extraction_limitations": [
+    "This is an institutional practice policy, not a primary study. Atoms represent what the policy reports or recommends and do not imply that DUHS generated the underlying efficacy/safety evidence.",
+    "Bibliography entries on page 7 were treated as provenance infrastructure and were not atomized.",
+    "The document names two attachments (“Infiltration and Phlebitis Scales” and “Antidote Therapies”), but no separate attachment files were present in the located Drive folder and the PDF contains no embedded file attachments. Their substantive content could not be extracted.",
+    "No unsupported study populations, effect estimates, recommendation grades, or evidence-certainty ratings were invented."
+  ]
+}

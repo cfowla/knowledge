@@ -1,0 +1,359 @@
+# 97 - CD013579 — Reference Task Queue
+
+Source: McBain C, Lawrie TA, Rogozińska E, Kernohan A, Robinson T, Jefferies S. *Treatment options for progression or recurrence of glioblastoma: a network meta-analysis*. Cochrane Database of Systematic Reviews. 2021; Issue 1. Art. No. CD013579. DOI: 10.1002/14651858.CD013579.pub2.
+
+Purpose: one independently actionable retrieval/triage task per reference group listed in the review. Study-group entries retain the grouped citations reported by the review. Inclusion in this queue does **not** imply that an excluded, ongoing, or background reference supports the review’s treatment-effect estimates.
+
+## Queue summary
+
+- Included studies: **42**
+- Excluded studies: **57**
+- Ongoing studies: **20**
+- Additional references: **44**
+- Total tasks: **163**
+
+## Included studies (42)
+
+Highest priority — retrieve the primary report(s), confirm design/population/intervention/outcomes, and consider separate primary-study ATOM extraction.
+
+- [ ] **Azoulay 2017** — Retrieve and triage.
+  - Review-listed citation(s): * Azoulay M, Santos F, Shenouda G, Petrecca K, Oweida A, Guiot MC, et al. Benefit of re-operation and salvage therapies for recurrent glioblastoma multiforme: results from a single institution. Journal of Neuro-oncology 2017;132(3):419-26.
+- [ ] **Batchelor 2013** — Retrieve and triage.
+  - Review-listed citation(s): * Batchelor TT, Mulholland P, Neyns B, Nabors LB, Campone M, Wick A, et al. Phase III randomized trial comparing the eﬀicacy of cediranib as monotherapy, and in combination with lomustine, versus lomustine alone in patients with recurrent glioblastoma. Journal of Clinical Oncology 2013;31(26):3212-8.
+- [ ] **Bloch 2017** — Retrieve and triage.
+  - Review-listed citation(s): * Bloch O, Shi Q, Anderson SK, Knopp M, Raizer J, Clarke J, et al. Alliance a071101: a phase II randomized trial comparing the eﬀicacy of heat shock protein peptide complex-96 (HSPPC-96) vaccine given with bevacizumab versus bevacizumab alone in the treatment of surgically resectable recurrent glioblastoma. Neuro-oncology 2017;19(suppl 6):vi29. [DOI: 10.1093/neuonc/ nox168.110]
+- [ ] **Brandes 2016a** — Retrieve and triage.
+  - Review-listed citation(s): Brandes AA, Carpentier AF, Kesari S, Sepulveda J, Wheeler H, Chinot OL, et al. A phase II study of galunisertib monotherapy or galunisertib plus lomustine compared to lomustine monotherapy in recurrent glioblastoma. Journal of Clinical Oncology 2015;33(15):SUPPL. 1. * Brandes AA, Carpentier AF, Kesari S, Sepulveda-Sanchez JM, Wheeler HR, Chinot O, et al. A Phase II randomized study of galunisertib monotherapy or galunisertib plus lomustine compared with lomustine monotherapy in patients with recurrent glioblastoma. Neuro-oncology 2016;18(8):1146-56.
+- [ ] **Brandes 2016b** — Retrieve and triage.
+  - Review-listed citation(s): * Brandes AA, Finocchiaro G, Zagonel V, Reni M, Caserta C, Fabi A, et al. AVAREG: a phase II, randomized, noncomparative study of fotemustine or bevacizumab for patients with recurrent glioblastoma. Neuro-oncology 2016;18(9):1304-12.
+- [ ] **Brandes 2018** — Retrieve and triage.
+  - Review-listed citation(s): * Brandes AA, Gil-Gil M, Saran F, Carpentier AF, Nowak AK, Mason W, et al. A randomized Phase II Trial (TAMIGA) evaluating the eﬀicacy and safety of continuous bevacizumab through multiple lines of treatment for recurrent glioblastoma. Oncologist 2018;24(4):521-8.
+- [ ] **Brown 2016** — Retrieve and triage.
+  - Review-listed citation(s): * Brown N, McBain C, Nash S, Hopkins K, Sanghera P, Saran F, et al. Multi-center randomized phase ii study comparing cediranib plus gefitinib with cediranib plus placebo in subjects with recurrent/progressive glioblastoma. PLoS One 2016;11(5):e0156369.
+- [ ] **Cloughesy 2017** — Retrieve and triage.
+  - Review-listed citation(s): * Cloughesy T, Finocchiaro G, Belda-Iniesta C, Recht L, Brandes AA, Pineda E, et al. Randomized, double-blind, placebo-controlled, multicenter phase II study of onartuzumab plus bevacizumab versus placebo plus bevacizumab in patients with recurrent glioblastoma: eﬀicacy, safety, and hepatocyte growth factor and O6-methylguanine-DNA methyltransferase biomarker analyses. Journal of Clinical Oncology 2017;35(3):343-51.
+- [ ] **Cloughesy 2018** — Retrieve and triage.
+  - Review-listed citation(s): Cloughesy T, Brenner AJ, Butowski N, Cohen YC, Lowenton- Spier N, Wen P. Results of the globe study: a phase 3, randomized, controlled, double-arm, open label, multi-center study of VB-111 combined with bevacizumab vs. bevacizumab monotherapy in patients with recurrent glioblastoma. Neuro- oncology 2018;20(suppl_6):vi4-5. * Cloughesy TF, Brenner A, de Groot JF, Butowski NA, Zach L, Campian Jl, et al. A randomized controlled phase III study of VB-111 combined with bevacizumab vs. bevacizumab monotherapy in patients with recurrent glioblastoma (GLOBE). Neuro-oncology 2020;22(5):705-17. [DOI: 10.1093/neuonc/ noz232] NCT02511405. A phase 3, pivotal trial of VB-111 plus bevacizumab vs. bevacizumab in patients with recurrent glioblastoma (GLOBE) [A phase 3, randomized, controlled, double-arm, open-label, multi-center study of VB-111 combined with bevacizumab vs. bevacizumab monotherapy in patients with recurrent glioblastoma]. www.clinicaltrials.gov/ct2/show/ NCT02511405 (first received 30 July 2015).
+- [ ] **Cuncannon 2019** — Retrieve and triage.
+  - Review-listed citation(s): * Cuncannon M, Wong M, Jayamanne D, Guo L, Cove N, Wheeler H, et al. Role of delayed salvage bevacizumab at symptomatic progression of chemorefractory glioblastoma. BMC Cancer 2019;19(1):445. [DOI: 10.1186/s12885-019-5678-1]
+- [ ] **Dresemann 2010** — Retrieve and triage.
+  - Review-listed citation(s): Dresemann G, Weller M, Rosenthal MA, Wedding U, Wagner W, Engel E, et al. Imatinib in combination with hydroxyurea versus hydroxyurea alone as oral therapy in patients with progressive pretreated glioblastoma resistant to standard dose temozolomide. Journal of Neuro-oncology 2010;96(3):393-402.
+- [ ] **Duerinck 2018** — Retrieve and triage.
+  - Review-listed citation(s): * Duerinck J, Du Four S, Bouttens F, Andre C, Verschaeve V, Van Fraeyenhove F, et al. Randomized phase II trial comparing axitinib with the combination of axitinib and lomustine in patients with recurrent glioblastoma. Journal of Neuro-oncology 2018;136(1):115-25. Duerinck J, Du Four S, Bouttens F, Verschaeve V, Andre C, Van Fraeyenhove F, et al. Axitinib for the treatment of patients with recurrent glioblastoma, final results from a randomized phase II clinical trial. Neuro-oncology 2017;18(suppl_4):iv41-42. [DOI: 10.1093/neuronc/now188.142] [PMID: PMC5782638] Duerinck J, Du Four S, Bouttens F, Verschaeve V, Andre C, Van Fraeyenhove F, et al. Randomized phase II study of axitinib alone or combined with lomustine in patients with recurrent glioblastoma. Journal of Clinical Oncology 2016;34(15 suppl):2038. Duerinck J, Du Four S, Vandervorst F, D'Haene N, Mercier M, Michotte A, et al. Randomized phase II study of axitinib versus physicians best alternative choice of therapy in patients with recurrent glioblastoma. Journal of Neuro-oncology 2016;128:147-55.
+- [ ] **Field 2015** — Retrieve and triage.
+  - Review-listed citation(s): Field KM, King MT, Simes J, Espinoza D, Barnes EH, Sawkins K, et al. Health-related quality of life outcomes from CABARET: a randomized phase 2 trial of carboplatin and bevacizumab in recurrent glioblastoma. Journal of Neuro-oncology 2017;133(3):623-31. * Field KM, Simes J, Nowak AK, Cher L, Wheeler H, Hovey EJ, et al. Randomized phase 2 study of carboplatin and bevacizumab in recurrent glioblastoma. Journal of Neuro-oncology 2015;17(11):1504-13. Hovey EJ, Field KM, Rosenthal M, Nowak AK, Cher L, Wheeler H, et al. Continuing or ceasing bevacizumab at disease progression: results from the CABARET study, a prospective randomized phase II trial in patients with recurrent glioblastoma. Journal of Clinical Oncology 2015;33(15_suppl):2003. [DOI: 10.1200/ jco.2015.33.15_suppl.2003] Hovey EJ, Field KM, Rosenthal MA, Barnes EH, Nowak AK, Phal P, et al. Continuing or ceasing bevacizumab beyond progression in recurrent glioblastoma: an exploratory randomized phase II trial. Neuro-oncology Practice 2017;4(3):171-81.
+- [ ] **Friedman 2009** — Retrieve and triage.
+  - Review-listed citation(s): Anonymous. Erratum: a phase II, randomized, non-comparative clinical trial of the eﬀect of bevacizumab (BV) alone or in combination with irinotecan (CPT) on 6-month progression free survival (PFS6) in recurrent, treatment-refractory glioblastoma (GBM) (Journal of Clinical Oncology (2008) 26 (15S)). Journal of Clinical Oncology 2011;29(10):1394. * Friedman HS, Prados MD, Wen PY, Mikkelsen T, Schiﬀ D, Abrey LE, et al. Bevacizumab alone and in combination with irinotecan in recurrent glioblastoma. Journal of Clinical Oncology 2009;27(28):4733-40.
+- [ ] **Galanis 2017** — Retrieve and triage.
+  - Review-listed citation(s): * Galanis E, Anderson SK, Butowski NA, Hormigo A, Schiﬀ D, Tran DD, et al. NCCTG N1174: phase I/comparative randomized phase (Ph) II trial of TRC105 plus bevacizumab versus bevacizumab in recurrent glioblastoma (GBM) (Alliance). In: Journal of Clinical Oncology. Vol. 35. 2017:2023. NCT01648348. Bevacizumab with or without anti-endoglin monoclonal antibody TRC105 in treating patients with recurrent glioblastoma multiforme. clinicaltrials.gov/ct2/show/results/ NCT01648348 (first received 20 July 2012).
+- [ ] **Galanis 2019** — Retrieve and triage.
+  - Review-listed citation(s): Galanis E, Anderson SK, Anastasiadis P, Tran DD, Jeyapalan SA, Anderson DM, et al. NCCTG N0872 (Alliance): a randomized placebo-controlled phase II trial of bevacizumab plus dasatinib in patients with recurrent glioblastoma (GBM). Journal of Clinical Oncology 2015;33(15_suppl 1):2004. [DOI: 10.1200/ jco.2015.33.15_suppl.2004] * Galanis E, Anderson SK, Twohy EL, Carrero XW, Dixon JG, Tran DD, et al. A phase 1 and randomized, placebo-controlled phase 2 trial of bevacizumab plus dasatinib in patients with recurrent glioblastoma: Alliance/North Central Cancer Treatment Group N0872. Cancer 2019;125(21):3790-800.
+- [ ] **Gilbert 2017** — Retrieve and triage.
+  - Review-listed citation(s): * Gilbert MR, Pugh SL, Aldape K, Sorensen AG, Mikkelsen T, Penas-Prado M, et al. NRG oncology RTOG 0625: a randomized phase II trial of bevacizumab with either irinotecan or dose- dense temozolomide in recurrent glioblastoma. Journal of Neuro-oncology 2017;131(1):193-9.
+- [ ] **Heiland 2016** — Retrieve and triage.
+  - Review-listed citation(s): Heiland DH, Masalha W, Franco P, Machein MR, Weyerbrock A. Progression-free and overall survival in patients with recurrent glioblastoma multiforme treated with last-line bevacizumab versus bevacizumab/lomustine. Journal of Neuro-oncology 2016;126(3):567-75.
+- [ ] **Kim 2015** — Retrieve and triage.
+  - Review-listed citation(s): * Kim HR, Kim KH, Kong DS, Seol HJ, Nam DH, Lim DH, et al. Outcome of salvage treatment for recurrent glioblastoma. Journal of Clinical Neuroscience 2015;22(3):468-73.
+- [ ] **Kunwar 2010** — Retrieve and triage.
+  - Review-listed citation(s): Kunwar S, Chang S, Westphal M, Vogelbaum M, Sampson J, Barnett G, et al. Phase III randomized trial of CED of IL13- PE38QQR vs Gliadel wafers for recurrent glioblastoma. Neuro- oncology 2010;12(8):871-81.
+- [ ] **Lombardi 2019** — Retrieve and triage.
+  - Review-listed citation(s): EUCTR2014-003722-41-IT. Clinical trial to evaluate the regorafenib therapy in patients with brain tumor progression afer standard therapy (Radiotherapy and Temozolomide) with or without bevacizumab. www.clinicaltrialsregister.eu/ctr- search/trial/2014-003722-41/IT (first received 29 January 2015). Lombardi G, De Salvo G, Ruda R, Franceschi E, Eoli M, Faedi M, et al. Updated results of REGOMA: a randomized, multicenter, controlled open-label Phase II clinical trial evaluating regorafenib in relapsed glioblastoma patients. Journal of Clinical Oncology 2018;36(15_suppl):2047. Lombardi G, De Salvo GL, Brandes AA, Eoli M, Ruda R, Faedi M, et al. REGOMA: a randomized, multicenter, controlled open-label phase II clinical trial evaluating regorafenib activity in relapsed glioblastoma patients. Journal of Clinical Oncology 2017;15_suppl:v610. [DOI: 10.1200/ JCO.2017.35.15_suppl.TPS2085] * Lombardi G, De Salvo GL, Brandes AA, Eoli M, Ruda R, Faedi M, et al. Regorafenib compared with lomustine in patients with relapsed glioblastoma (REGOMA): a multicentre, open- label, randomised, controlled, phase 2 trial. Lancet Oncology 2019;20(1):110-9. Lombardi G, De Salvo GL, Ruda R, Franceschi E, Eoli M, Faedi M, et al. Updated results of REGOMA: A randomized, multicenter, controlled open-label phase II clinical trial evaluating regorafenib in relapsed glioblastoma (GBM) patients (PTS). Journal of Clinical Oncology 2018;36(15_suppl):2047. [DOI: 10.1200/JCO.2018.36.15_suppl.2047] Lombardi G, Del Bianco P, Brandes AA, Eoli M, Ruda R, Ibrahim T, et al. Health-related quality of life (HRQoL) evaluation in the REGOMA trial: a randomized, phase II clinical trial analyzing regorafenib activity in relapsed glioblastoma patients. Journal of Clinical Oncology 2019;37(15 suppl):2045. NCT02926222. Regorafenib in relapsed glioblastoma (REGOMA) [Regorafenib in relapsed glioblastoma REGOMA study randomized, controlled open-label phase ii clinical trial]. clinicaltrials.gov/ct2/show/NCT02926222 (first received 6 October 2016).
+- [ ] **Modh 2018** — Retrieve and triage.
+  - Review-listed citation(s): Modh A, Bergman D, Hanna R, Schultz L, Snyder J, Mikkelsen T, et al. Randomized prospective trial of stereotactic radiosurgery versus chemotherapy for recurrent malignant glioma afer second-line chemotherapy. Neuro-oncology 2019;Conference: ARS 101st Annual Meeting. United States.103(5 Supplement):E17-8. Modh A, Bergman D, Schultz L, Snyder J, Mikkelsen T, Ryu S, et al. Randomized prospective trial of stereotactic radiosurgery versus chemotherapy for recurrent malignant glioma afer second-line chemotherapy. Neuro-oncology. Conference abstract. 23rd Annual Scientific Meeting and Education Day of the Society for Neuro-Oncology 2018;20(Supplement 6):vi226. Walbert T, Modh A, Bergman D, Schultz L, Snyder J, Mikkelsen T, et al. Randomized prospective trial of stereotactic radiosurgery versus chemotherapy for recurrent malignant glioma afer second-line chemotherapy. Neuro-oncology 2019;Conference: 71st Annual Meeting of the American Academy of Neurology, AAN 2019. United States. 92(15 Supplement 1).
+- [ ] **Narita 2019** — Retrieve and triage.
+  - Review-listed citation(s): Arakawa Y, Nagane M, Hirose Y, Sasada T, Yamada A, Itoh K, et al. Randomized, double-blind, phase III trial of a personalized peptide vaccination for recurrent glioblastoma patients. Cancer Science 2018;109:1126. Fujimaki T, Itoh K, Terasaki M, Narita Y, Arakawa Y, Sugiyama K, et al. Trials of a personalized peptide vaccine (ITK-1) for patients with recurrent or progressive glioblastoma (GBM). In: Neuro- oncology. Vol. 19. 2017:iii52. Narita Y, Arakawa Y, Yamasaki F, Nishikawa R, Aoki T, Kanamori M, et al. A randomized, double-blind, phase III trial of personalized peptide vaccination for recurrent glioblastoma. Neuro-oncology 2019;21(3):348-59.
+- [ ] **Omuro 2018** — Retrieve and triage.
+  - Review-listed citation(s): * Omuro A, Vlahovic G, Lim M, Sahebjam S, Baehring J, Cloughesy T, et al. Nivolumab with or without ipilimumab in patients with recurrent glioblastoma: results from exploratory phase I cohorts of CheckMate 143. Neuro-oncology 2018;20(5):674-86. Reardon DA, Omuro A, Brandes AA, Rieger J, Wick A, Sepulveda J, et al. Randomized phase 3 study evaluating the eﬀicacy and safety of nivolumab vs bevacizumab in patients with recurrent glioblastoma: CheckMate 143. In: Neuro- oncology. Conference: 5th Quadrennial Meeting of the World Federation of Neuro-oncology Societies, WFNOS. Switzerland. Vol. 19. 2017:iii21. Sampson JH, Vlahovic G, Sahebjam S, Omuro AMP, Baehring JM, Hafler DA, et al. Preliminary safety and activity of nivolumab and its combination with ipilimumab in recurrent glioblastoma (GBM): CheckMate 143. In: Journal of Clinical Oncology. Conference abstract. Vol. 33. 2015:3010.
+- [ ] **Puduvalli 2018** — Retrieve and triage.
+  - Review-listed citation(s): * Phase I/II adaptive randomized trial of bevacizumab versus bevacizumab plus vorinostat in adults with recurrent glioblastoma. ClinicalTrials.gov 2018:https://clinicaltrials.gov/ ct2/show/results/NCT01266031. Puduvalli V, Yuan Y, Armstrong T, Wu J, Giglio P, Xu J, et al. A bayesian adaptive randomized phase ii trial of bevacizumab versus bevacizumab plus vorinostat in adults with recurrent glioblastoma final results, Conference Abstract: 23rd Annual Scientific Meeting and Education Day of the Society for Neuro- oncology. United States. In: Neuro-oncology. Vol. 20. 2018:vi13. Puduvalli VK, Wu J, Yuan Y, Armstrong TS, Groves MD, Raizer JJ, et al. Brain tumor trials collaborative bayesian adaptive randomized phase II trial of bevacizumab plus vorinostat versus bevacizumab alone in adults with recurrent glioblastoma (BTTC-1102). In: Journal of Clinical Oncology. Vol. 33. 2015.
+- [ ] **Reardon 2011** — Retrieve and triage.
+  - Review-listed citation(s): Reardon DA, Desjardins A, Peters K, Gururangan S, Sampson J, Rich JN, et al. Phase II study of metronomic chemotherapy with bevacizumab for recurrent glioblastoma afer progression on bevacizumab therapy. Journal of Neuro-oncology 2011;103(2):371-9.
+- [ ] **Reardon 2015b** — Retrieve and triage.
+  - Review-listed citation(s): Reardon DA, Nabors LB, Mason WP, Perry JR, Shapiro W, Kavan P, et al. Phase I/randomized phase II study of afatinib, an irreversible ErbB family blocker, with or without protracted temozolomide in adults with recurrent glioblastoma. Neuro- oncology 2015;17(3):430-9.
+- [ ] **Reardon 2018a** — Retrieve and triage.
+  - Review-listed citation(s): * Reardon DA, Lassman AB, Schiﬀ D, Yunus SA, Gerstner ER, Cloughesy TF, et al. Phase 2 and biomarker study of trebananib, an angiopoietin-blocking peptibody, with and without bevacizumab for patients with recurrent glioblastoma. Cancer 2018;124(11):1438-48.
+- [ ] **Reardon 2018b** — Retrieve and triage.
+  - Review-listed citation(s): NCT02337491. Pembrolizumab +/- Bevacizumab for Recurrent GBM. ClinicalTrials.gov 2015. * Reardon DA, Nayak L, Peters KB, Clarke JL, Jordan JT, De Groot JF, et al. Phase II study of pembrolizumab or pembrolizumab plus bevacizumab for recurrent glioblastoma (rGBM) patients. In: Journal of Clinical Oncology. Conference abstract. Vol. 36. 2018:2006.
+- [ ] **Reardon 2020** — Retrieve and triage.
+  - Review-listed citation(s): Reardon DA, Desjardins A, Vredenburgh JJ, O'Rouke DM, Tran DD, Fink KL. Rindopepimut with bevacizumab for patients with relapsed EGFRvIII-expressing glioblastoma (ReACT): results of a double-blind randomized phase II trial. Clinical Cancer Research 2020;26:1586-94. Reardon DA, Schuster J, Tran DD, Fink KL, Nabors LB, Li G, et al. ReACT: overall survival from a randomized phase II study of rindopepimut (CDX-110) plus bevacizumab in relapsed glioblastoma. Journal of Clinical Oncology 2015;33(15):SUPPL. 1. Reardon DA, Schuster JM, Tran DD, Fink KL, Nabors LB, Li G, et al. React: overall survival from a randomized phase II study of rindopepimut (CDX-110) plus bevacizumab in relapsed glioblastoma. In: Clinical Neurosurgery. Vol. 62. 2015:198-9. Sampson JH, Desjardins A, Schuster J, Tran D, Fink K, Nabors L, et al. ReACT: a randomized phase II study of rindopepimut (CDX-110) plus bevacizumab in relapsed glioblastoma national brain tumor society mahaley award. In: Journal of Neurosurgery. Vol. 124. 2016:A1152.
+- [ ] **Santos 2018** — Retrieve and triage.
+  - Review-listed citation(s): RBR-3byz2c. Evaluation of inflammatory substances in the blood of patients with recurrent glioblastoma in treatment with inhalation of perillyl alcohol associated with reduced carbohydrate diet and supplementation with omega 3. ICTRP Search Portal. World Health Organization 2018:RBR-3byz2c. RBR-8x8fd9. Low sugar diet combined with nasal administration of perillyl alcohol: strategy therapy for resistant glioblastoma multiforme to chemotherapy and radiotherapy. ICTRP Search Portal. World Health Organization 2016. * Santos JG, Souza da Cruz WM, Schonthal AH, D'Alincourt Salazar, Fontes CAP, Quirico-Santos T, et al. Eﬀicacy of a ketogenic diet with concomitant intranasal perillyl alcohol as a novel strategy for the therapy of recurrent glioblastoma. Oncology Letters 2018;15:1263-1270.
+- [ ] **Scorsetti 2015** — Retrieve and triage.
+  - Review-listed citation(s): Scorsetti M, Navarria P, Pessina F, Ascolese AM, D'Agostino G, Tomatis S, et al. Multimodality therapy approaches, local and systemic treatment, compared with chemotherapy alone in recurrent glioblastoma. BMC Cancer 2015;15:486.
+- [ ] **Stupp 2012** — Retrieve and triage.
+  - Review-listed citation(s): Stupp R, Wong ET, Kanner AA, Steinberg D, Engelhard H, Heidecke V, et al. NovoTTF-100A versus physician's choice chemotherapy in recurrent glioblastoma: a randomised phase III trial of a novel treatment modality. European Journal of Cancer 2012;48(14):2192-202.
+- [ ] **Suchorska 2016** — Retrieve and triage.
+  - Review-listed citation(s): Wirsching HG, Tonn JC, Tabatabai G, Senf C, Hau P, Sabel MC, et al. Complete resection of contrast enhancing tumor volume is associated with improved survival in recurrent glioblastoma- results from the DIRECTOR trial. European Journal of Neurology 2016;23:921-2.
+- [ ] **Taal 2014** — Retrieve and triage.
+  - Review-listed citation(s): Beije N, Kraan J, Taal W, van der Holt B, Oosterkamp HM, Walenkamp AM, et al. Prognostic value and kinetics of circulating endothelial cells in patients with recurrent glioblastoma randomised to bevacizumab plus lomustine, bevacizumab single agent or lomustine single agent. A report from the Dutch Neuro-oncology Group BELOB trial. British Journal of Cancer 2015;113(2):226-31. Dirven L, van den Bent MJ, Bottomley A, van der Meer N, van der Holt B, Vos MJ, et al. The impact of bevacizumab on health-related quality of life in patients treated for recurrent glioblastoma: results of the randomised controlled phase 2 BELOB trial. European Journal of Cancer 2015;51(10):1321-30. * Taal W, Oosterkamp HM, Walenkamp AM, Dubbink HJ, Beerepoot LV, Hanse MC, et al. Single-agent bevacizumab or lomustine versus a combination of bevacizumab plus lomustine in patients with recurrent glioblastoma (BELOB trial): a randomised controlled phase 2 trial. The Lancet 2014;15(9):943-53.
+- [ ] **Tsien 2019** — Retrieve and triage.
+  - Review-listed citation(s): Tsien C, Pugh S, Dicker AP, Raizer JJ, Matuszak MM, Lallana E, et al. Randomized phase II trial of re-irradiation and concurrent bevacizumab versus bevacizumab alone as treatment for recurrent glioblastoma (NRG Oncology/RTOG 1205): initial outcomes and RT plan quality report. In: International Journal of Radiation Oncology, Biology, Physics. Conference abstract. Vol. 105. Suppl 1. 2019:S78.
+- [ ] **Twelves 2017** — Retrieve and triage.
+  - Review-listed citation(s): Twelves C, Short S, Wright S. A two-part safety and exploratory eﬀicacy randomized double-blind, placebo-controlled study of a 1: 1 ratio of the cannabinoids cannabidiol and delta-9-tetrahydrocannabinol (CBD: tHC) plus dose-intense temozolomide in patients with recurrent glioblastoma multiforme (GBM). Journal of Clinical Oncology 2017;35(15):2046.
+- [ ] **van den Bent 2018** — Retrieve and triage.
+  - Review-listed citation(s): Clement P, Van Den Bent M, Eoli M, Sepulveda JM, Walenkamp AME, Frenel JS, et al. Health related quality of life and neurological deterioration free survival in intellance 2/ EORTC trial 1410, a randomized phase ii study on ABT414 in recurrent EGFR amplified glioblastoma. In: Neuro-oncology. Vol. Conference: 22nd Annual Scientific Meeting and Education Day of the Society for Neuro-oncology. United States.19. 2017:vi211. EUCTR2014-004438-24-GB. ABT-414 alone or ABT-414 plus temozolomide versus temozolomide or lomustine alone in subjects with recurrent glioblastoma. 2015. EU Clinical Trial Register. Van Den Bent M, Eoli M, Sepulveda JM, Smits M, Walenkamp AME, Frenel JS, et al. First results of the randomized phase ii study on depatux-m alone, depatux-m in combination with temozolomide and either temozolomide or lomustine in recurrent EGFR amplified glioblastoma: first report from intellance 2/eortc trial 1410. Neuro-oncology 2017;Conference: 22nd Annual Scientific Meeting and Education Day of the Society for Neuro-Oncology. United States.19(Supplement 6):vi316. Van Den Bent M, French P, Eoli M, Sepulvado J, Walenkamp AME, Weller M, et al. Updated results of the intellance 2/EORTC trial 1410 randomized phase II study on depatux-m alone, depatux- m in combination with temozolomide (TMZ) and either TMZ or lomustine (LOM) in recurrent egfr amplified glioblastoma (NCT02343406). Neuro-oncology 2018;20:iii240-1. Van Den Bent M, French P, Eoli M, Sepulveda J, Walenkamp AME, Frenel JS, et al. Two-year results of the intellance 2/eortc trial 1410 randomized phase ii study on depatux-m alone, depatux-m combined with temozolomide (TMZ) and either tmz or lomustine in recurrent EGFR amplified glioblastoma (NCT02343406). Neuro-oncology 2018;Conference: 23rd Annual Scientific Meeting and Education Day of the Society for Neuro-Oncology. United States. 20(Supplement 6):vi20. * Van Den Bent MJ, French P, Eoli M, Sepulveda JM, Walenkamp AME, Frenel JS, et al. Updated results of the INTELLANCE 2/EORTC trial 1410 randomized phase II study on depatux-m alone, depatux-m in combination with temozolomide (TMZ) and either TMZ or lomustine (LOM) in recurrent EGFR amplified glioblastoma (NCT02343406). Neuro- oncology 2018;36(15). van den Bent M, Eoli M, Sepulveda JM, Smits M, Walenkamp AME, Frenel JS, et al. INTELLANCE 2/EORTC 1410 randomised phase II study of depatux-m alone and with temozolomide vs tmeozolomide or lomustine in recurrent EGFR amplified glioblastoma. Neuro-oncology 2020;22(5):684-93.
+- [ ] **Weathers 2016** — Retrieve and triage.
+  - Review-listed citation(s): Weathers SP, Han X, Liu DD, Conrad CA, Gilbert MR, Loghin ME, et al. A randomized phase II trial of standard dose bevacizumab versus low dose bevacizumab plus lomustine (CCNU) in adults with recurrent glioblastoma. In: Journal of Clinical Oncology. Conference abstract. Vol. 33. 15 SUPPL. 1. 2015:2005. * Weathers SP, Han X, Lui DD, Conrad CA, Gilbert MR, Loghin ME, et al. A randomized phase II trial of standard dose bevacizumab versus low dose bevacizumab plus lomustine (NCCNU) in adults with recurrent glioblastoma. Journal of Neuro-oncology 2016;129(3):487-94.
+- [ ] **Wick 2010** — Retrieve and triage.
+  - Review-listed citation(s): Wick W, Puduvalli VK, Chamberlain MC, van den Bent MJ, Carpentier AF, Cher LM, et al. Phase III study of enzastaurin compared with lomustine in the treatment of recurrent intracranial glioblastoma. Journal of Clinical Oncology 2010;28(7):1168-74.
+- [ ] **Wick 2014** — Retrieve and triage.
+  - Review-listed citation(s): Ficke H, Hanke N, Kunz C, Wick W, Lehr T. Aunercept plus radiotherapy in relapsed glioblastoma. Update on five years overall survival of study NCT01071837 and development of a population PK - tumour growth inhibition - survival model. In: Neuro-oncology. 2018:vi3. * Wick W, Fricke H, Junge K, Kobyakov G, Martens T, Heese O, et al. A phase II randomized study of weekly APG101+reirradiation versus reirradiation in progressive glioblastoma. Clinical Cancer Research 2014;20(24):6304-13. Wick W, Krendyukov A, Junge K, Hbger T, Kunz C, Fricke H. Longitudinal analysis of quality of life following treatment with asunercept plus reirradiation versus reirradiation in progressive glioblastoma patients. In: Journal of Clinical Oncology. Vol. 37. 2019:Suppl 15. Wick W, Krendyukov A, Junge K, Hbger T, Kunz C, Fricke H. Longitudinal analysis of quality of life following treatment with asunercept plus reirradiation versus reirradiation in progressive glioblastoma patients. Journal of Neuro-oncology 2019;145:531-40.
+- [ ] **Wick 2017** — Retrieve and triage.
+  - Review-listed citation(s): Taphoorn M, Bottomley A, Coens C, Reijneveld J, Gorlia T, Brandes AA, et al. Health-related quality of life (HRQoL) in patients with progressive glioblastoma treated with combined bevacizumab and lomustine versus lomustine only (randomized phase iii EORTC study 26101). In: Neuro-oncology. Conference abstract. Vol. 18. 2016:vi157. Taphoorn MJB, Bottomley A, Coens C, Reijneveld JC, Gorlia T, Brandes AA, et al. Health-related quality of life (HRQOL) in patients with progressive glioblastoma treated with combined bevacizumab and lomustine versus lomustine only (randomized phase III eortc study 26101). In: Neuro-oncology. Vol. 18. 2017:iv11-2. * Wick W, Gorlia T, Bendszus M, Taphoorn M, Sahm F, Harting I, et al. Lomustine and bevacizumab in progressive glioblastoma. New England Journal of Medicine 2017;377(20):1954-1963. Wick W, Stupp R, Gorlla T, Bendszus M, Sahm F, Bromberg JE, et al. Phase II part of EORTC study 26101: the sequence of bevacizumab and lomustine in patients with first recurrence of a glioblastoma. In: Journal of Clinical Oncology. Vol. 34. 2016:Suppl 15.
+
+## Excluded studies (57)
+
+Lower priority — retrieve only if the exclusion decision, adjacent evidence, or historical context needs independent review.
+
+- [ ] **Abacioglu 2011** — Retrieve and triage.
+  - Review-listed citation(s): Abacioglu U, Caglar HB, Yumuk PF, Akgun Z, Atasoy BM, Sengoz M. Eﬀicacy of protracted dose-dense temozolomide in patients with recurrent high-grade glioma. Journal of Neuro- oncology 2011;103(3):585-93.
+- [ ] **Abdel-Rahman 2015** — Retrieve and triage.
+  - Review-listed citation(s): Abdel-Rahman O, Fouad M. Irinotecan-based regimens for recurrent glioblastoma multiforme: [corrected] a systematic review. Expert Review of Neurotherapeutics 2015;15(11):1255-70.
+- [ ] **ACTRN12615001072505 2015** — Retrieve and triage.
+  - Review-listed citation(s): ACTRN12615001072505. A phase II randomised placebo- controlled, double blind, multisite study of acetazolamide versus placebo for management of cerebral oedema in recurrent and/or progressive high grade glioma requiring treatment with dexamethasone – The ACED trial. www.anzctr.org.au/Trial/Registration/TrialReview.aspx? id=368253 (first received 19 August 2015).
+- [ ] **Ahluwalia 2018** — Retrieve and triage.
+  - Review-listed citation(s): Ahluwalia M, Peereboom D, Schilero C, Forst D, Wong E, Wen P, et al. Randomized phase 2 open label study of nivolumab plus standard dose bevacizumab versus nivolumab plus low dose bevacizumab in recurrent glioblastoma. Neuro-oncology 2018;20((suppl_6)):vi234. NCT03452579. Nivolumab plus standard dose bevacizumab versus nivolumab plus low dose bevacizumab in GBM. clinicaltrials.gov/ct2/show/NCT03452579 (first received 2 March 2018).
+- [ ] **Aoki 2016** — Retrieve and triage.
+  - Review-listed citation(s): Aoki T, Arakawa Y, Ueba T, Oda M, Nishida N, Akiyama Y, et al. Phase I/II study of temozolomide plus nimustine chemotherapy for recurrent malignant gliomas. Neuro-oncology 2017;57(1):17-27. Aoki T, Arakawa Y, Ueba T, Oda M, Nishida N, Akiyama Y, et al. Phase I/II study of temozolomide plus nimustine chemotherapy for recurrent malignant gliomas: Kyoto neuro-oncology group. Neuro-oncology 2016;18((suppl_6)):vi2.
+- [ ] **Bartsch 2005** — Retrieve and triage.
+  - Review-listed citation(s): Bartsch R, Weitmann HD, Pennwieser W, Wenzel C, Muschitz S, Baldass M, et al. Retrospective analysis of re-irradiation in malignant glioma: a single-center experience. Wiener klinische Wochenschrif 2005;117(23-4):821-6.
+- [ ] **Bogdahn 2011** — Retrieve and triage.
+  - Review-listed citation(s): Bogdahn U, Hau P, Stockhammer G, Venkataramana NK, Mahapatra AK, Suri A, et al. Targeted therapy for high-grade glioma with the TGF-β2 inhibitor trabedersen: results of a randomized and controlled phase IIb study. Neuro-oncology 2011;13(1):132-42.
+- [ ] **Boiardi 2008** — Retrieve and triage.
+  - Review-listed citation(s): Boiardi A, Silvani A, Eoli M, Lamperti E, Salmaggi A, Gaviani P, et al. Treatment of recurrent glioblastoma: can local delivery of mitoxantrone improve survival? Journal of Neuro-oncology 2008;88(1):105-13.
+- [ ] **Brada 2010** — Retrieve and triage.
+  - Review-listed citation(s): Brada M, Stenning S, Gabe R, Thompson LC, Levy D, Rampling R, et al. Temozolomide versus procarbazine, lomustine, and vincristine in recurrent high grade glioma. Journal of Clinical Oncology 2010;28(30):4601-8.
+- [ ] **Brandes 2009** — Retrieve and triage.
+  - Review-listed citation(s): Brandes AA, Tosoni A, Franceschi E, Blatt V, Santoro A, Faedi M, et al. Fotemustine as second-line treatment for recurrent or progressive glioblastoma afer concomitant and/or adjuvant temozolomide: a phase II trial of Gruppo Italiano Cooperativo di Neuro-Oncologia (GICNO). Cancer chemotherapy and pharmacology 2009;64(4):769-75.
+- [ ] **Chen 2015** — Retrieve and triage.
+  - Review-listed citation(s): * Chen C, Ravelo A, Yu E, Dhanda R, Schnadig I. Clinical outcomes with bevacizumab-containing and non-bevacizumab- containing regimens in patients with recurrent glioblastoma from US community practices. Journal of Neuro-oncology 2015;122(3):595-605.
+- [ ] **Cher 2017** — Retrieve and triage.
+  - Review-listed citation(s): Cher L, Nowak AK, Iatropoulos G, Lee WS, Lee SY, Shim SR, et al. A multicenter, 3-arm, open-label, phase Ila clinical trial to evaluate the safety and eﬀicacy of tanibirumab (VEGFR2 mAb), in patients with recurrent glioblastoma (GBM). Journal of Clinical Oncology 2017;35:15 Supplement 1 (no pagination).
+- [ ] **CTRI/2018/01/011542** — Retrieve and triage.
+  - Review-listed citation(s): CTRI/2018/01/011542. Mebendazole in brain tumor. ClinicalTrials.gov 2018.
+- [ ] **Dixit 2015** — Retrieve and triage.
+  - Review-listed citation(s): Dixit S, Hingorani M. Comparative eﬀicacy of bevacizumab and PCV chemotherapy in recurrent glioblastoma. Clinical Oncology 2015;27(4):246-7.
+- [ ] **Duque 2017** — Retrieve and triage.
+  - Review-listed citation(s): Duque AED, De Feyter H, Kemble G, McCulloch W, Brenner AJ. A phase 2 study to determine the eﬀicacy and safety of TVB-2640 in combination with bevacizumab in patients with first relapse of high grade astrocytoma. Journal of Clinical Oncology 2017;35:15.
+- [ ] **Ellingson 2019** — Retrieve and triage.
+  - Review-listed citation(s): Ellingson BM, Raymond C, Yao J, Chakhoyan A, Turley D, Tsung J, et al. Quantitative radiographic analysis of phase II and III trials in recurrent glioblastoma treated with VB111 with or without bevacizumab or bevacizumab monotherapy. Journal of Clinical Oncology 2019;37:No pagination.
+- [ ] **Fogh 2010** — Retrieve and triage.
+  - Review-listed citation(s): Fogh SE, Andrews DW, Glass J, Curran W, Glass C, Champ C, et al. Hypofractionated stereotactic radiation therapy: an eﬀective therapy for recurrent high grade gliomas. Journal of Clinical Oncology 2010;28(18):3048-53.
+- [ ] **Gan 2015** — Retrieve and triage.
+  - Review-listed citation(s): * Gan HK, Papadopoulos KP, Fichtel L, Lassman AB, Merrell R, Van Den Bent MJ, et al. Phase I study of ABT-414 mono-or combination therapy with temozolomide (TMZ) in recurrent glioblastoma (GBM). Journal of Clinical Oncology 2015;33(15 Supp. 1):2016.
+- [ ] **Gatson 2015** — Retrieve and triage.
+  - Review-listed citation(s): Erratum: reACT Phase II trial: a critical evaluation of the use of rindopepimut plus bevacizumab to treat EGFRvIII-positive recurrent glioblastoma (CNS Oncology (2016) 5: 1 (11-26)). CNS Oncology 2016.
+- [ ] **Haslund 2016** — Retrieve and triage.
+  - Review-listed citation(s): Haslund C, Muhic A, Lukacova S, Lund B, Lassen-Ramshad Y, Meyer M, et al. An open-labelled, randomized phase II study in patients with recurrent glioblastoma multiforme comparing progression free survival of alecsat (autologous lymphoid eﬀector cells specific against tumour-cells) versus bevacizumab/irinotecan. In: Neuro-oncology. Vol. 18. 2016:iv6.
+- [ ] **Hong 2013** — Retrieve and triage.
+  - Review-listed citation(s): Hong B, Wiese B, Bremer M, Heissler HE, Heidenreich F, Krauss JK, et al. Multiple microsurgical resections for repeated recurrence of glioblastoma multiforme. American Journal of Clinical Oncology 2013;36(3):261-8.
+- [ ] **Idbaih 2016** — Retrieve and triage.
+  - Review-listed citation(s): Idbaih A, Clement PM, Vos FYF, Platten M, Mulholland P, Taphoorn MJB, et al. First results of the randomized phase II tavarec trial on temozolomide with or without bevacizumab in 1P/19Q intact 1st recurrence grade II and III glioma. In: Neuro- oncology. Vol. 18. 2016:iv13. [DOI: 10.1093/neuonc/now188.041]
+- [ ] **Immonen 2004** — Retrieve and triage.
+  - Review-listed citation(s): Immonen A, Vapalahti M, Tyynela K, Hurskainen H, Sandmair A, Vanninen R, et al. AdvHSV-tk gene therapy with intravenous ganciclovir improves survival in human malignant glioma: a randomised, controlled study. Molecular Therapy 2004;10(5):967-72.
+- [ ] **Ji 2016** — Retrieve and triage.
+  - Review-listed citation(s): * Ji N, Weng D, Liu C, Gu Z, Chen S, Guo Y, et al. Adenovirus- mediated delivery of herpes simplex virus thymidine kinase administration improves outcome of recurrent high- grade glioma. Oncotarget 2016;7(4):4369-78. [10.18632/ oncotarget.6737]
+- [ ] **Kaloshi 2015** — Retrieve and triage.
+  - Review-listed citation(s): Kaloshi G, Diamandi P, Cakani B, Brace G, Rroji A, Petrela M. The added value of bevacizumab concomitantly administered with carboplatin versus carboplatin alone in patients with recurrent glioblastomas. Tumori 2015;101(1):41-5.
+- [ ] **Kesari 2017** — Retrieve and triage.
+  - Review-listed citation(s): * Kesari S, Ram Z. Tumor-treating fields plus chemotherapy versus chemotherapy alone for glioblastoma at first recurrence: a post hoc analysis of the EF-14 trial. Journal of Clinical Neuro- oncology 2017;6(3):185-93. Kesari S, Tran D, Read W, Ahluwalia M, Villano J, Toms S, et al. Tumor treating fields with second line treatment compared to second line treatment alone in patients at first recurrence of glioblastoma-a post hoc analysis of the EF-14 phase 3 clinical trial. Conference abstract. Conference: 22nd Annual Scientific Meeting and Education Day of the Society for Neuro-Oncology. United States 2017;19(Supplement 6):vi13.
+- [ ] **Kinzel 2018** — Retrieve and triage.
+  - Review-listed citation(s): Kinzel A, Lavy-Shahaf G, Kirson E. Tumor treating fields (TTfields) in combination with lomustine (CCNU) in the EF-14 phase 3 clinical study-a safety analysis. In: Neuro-oncology. Vol. 20. 2018:vi23.
+- [ ] **Komotar 2010** — Retrieve and triage.
+  - Review-listed citation(s): Komotar RJ, Starke RM, Connolly ES, Sisti MB. Evaluating the benefit of repeat surgery for recurrent glioblastoma multiforme. Neurosurgery 2010;67(6):N16-7.
+- [ ] **Konkel 2018** — Retrieve and triage.
+  - Review-listed citation(s): Konkel B, Caflisch L, Duque AED, Brenner AJ. Updated results from a prospective, randomized phase 2 study in patients with first relapse of high-grade astrocytoma using TVB-2640 in combination with avastin versus avastin alone. Neuro- oncology. Conference abstract of the Society for Neuro-Oncology 2018;20:vi16. Konkel B, Caflisch LD, Duque AED, Michalek J, Liu Q, Brenner AJ. Prospective phase II trial in patients with first relapse of high-grade astrocytoma using TVB-2640 in combination with bevacizumab versus bevacizumab alone. Journal of Clinical Oncology 2019;37(15 suppl 1):2064. NCT03032484. TVB- 2640 in combination with bevacizumab in patients with first relapse of high grade astrocytoma. ClinicalTrials.gov 2017.
+- [ ] **Lang 2018** — Retrieve and triage.
+  - Review-listed citation(s): * Lang FF, Conrad C, Gomez-Manzano C, Yung WKA, Sawaya R, Weinberg JS, et al. Phase I study of DNX-2401 (Delta-24-RGD) oncolytic adenovirus: replication and immunotherapeutic eﬀects in recurren malignant glioma. Journal of Clinical Oncology 2018;36(14):1419-27. Lang FF, Tran ND, Puduvalli VK, Elder JB, Fink KL, Conrad CA, et al. Phase 1b open-label randomized study of the oncolytic adenovirus DNX-2401 administered with or without interferon gamma for recurrent glioblastoma. Journal of Clinical Oncology 2017;35(15 suppl):2002. Tufaro F, Peterkin J, Gammon K, Salvosa M, Mitchell E, Ewald B, et al. Phase 1B open-label randomized study of the oncolytic virus DNX-2401 administered with or without interferon gamma for recurrent glioblastoma. In: Neuro-oncology. Conference abstract. Vol. 18. 2016:vi24.
+- [ ] **Levin 2017** — Retrieve and triage.
+  - Review-listed citation(s): Levin VA, Cruickshank S. STELLAR: a phase 3, randomized, open-label study of eflornithine with lomustine vs lomustine for patients with first recurrence of anaplastic astrocytoma afer RT and adjuvant temozolomide. Journal of Clinical Oncology. ASCO conference abstract. 2017;35(15 suppl):10.1200/ JCO.2017.35.15_suppl.TPS2081. NCT02796261. Study to evaluate eflornithine and lomustine vs lomustine in recurrent anaplastic astrocytoma (AA) patients. ClinicalTrials.gov 2016.
+- [ ] **Mau-Sorensen 2016** — Retrieve and triage.
+  - Review-listed citation(s): Karyopharm Therapeutics Inc. A phase 2 study evaluating the eﬀicacy and safety of selinexor (KPT-330) in patients with recurrent gliomas. ClinicalTrials.gov/ct2/show/NCT01986348 2013. Lassen UN, Mau-Soerensen M, Kung AL, Wen PY, Lee EQ, Plotkin SR, et al. A phase 2 study on eﬀicacy, safety and intratumoral pharmacokinetics of oral selinexor (KPT-330) in patients with recurrent glioblastoma (GBM). Journal of Clinical Oncology 2015;33(15):SUPPL. 1. Mau-Sorensen M, Plotkin SR, Wen PY, Kung AL, Lassen UN, Saint-Martin JR, et al. A phase 2 study on eﬀicacy, safety and intratumoral pharmacokinetics of oral selinexor (KPT-330) in patients with recurrent glioblastoma (GBM). In: Journal of Clinical Oncology. Conference abstract. Vol. 34. 2016:2077.
+- [ ] **Minniti 2015** — Retrieve and triage.
+  - Review-listed citation(s): * Minniti G, Agolli L, Falco T, Scaringi C, Lanzetta G, Caporello P, et al. Hypofractionated stereotactic radiotherapy in combination with bevacizumab or fotemustine for patients with progressive malignant gliomas. Journal of Neuro-oncology 2015;122(3):559-66.
+- [ ] **Muhic 2013** — Retrieve and triage.
+  - Review-listed citation(s): Muhic A, Poulsen HS, Sorensen M, Grunnet K, Lassen U. Phase II open-label study of nintedanib in patients with recurrent glioblastoma multiforme. Journal of Neuro-oncology 2013;111(2):205-12.
+- [ ] **NCT02529072 2015** — Retrieve and triage.
+  - Review-listed citation(s): NCT02529072. Nivolumab with DC vaccines for recurrent brain tumors. ClinicalTrials.gov 2015.
+- [ ] **NCT02852655 2016** — Retrieve and triage.
+  - Review-listed citation(s): NCT02852655. A pilot surgical trial to evaluate early immunologic pharmacodynamic parameters for the PD-1 checkpoint inhibitor, pembrolizumab (MK-3475), in patients with surgically accessible recurrent/progressive glioblastoma. ClinicalTrials.gov 2016. Prins R, Mochizuki A, Orpilla J, Lee A, Davidson T, Gaﬀey S, et al. Neoadjuvant anti-PD-1 immunotherapy promotes intratumoral and systemic immune responses in recurrent glioblastoma: an ivy consortium trial. In: Neuro-oncology. Vol. Conference: 23rd Annual Scientific Meeting and Education Day of the Society for Neuro-oncology. United States. 20. 2018:vi3.
+- [ ] **NCT02866747 2016** — Retrieve and triage.
+  - Review-listed citation(s): NCT02866747. A study evaluating the association of hypofractionated stereotactic radiation therapy and durvalumab for patients with recurrent glioblastoma. ClinicalTrials.gov 2016.
+- [ ] **NCT03014804 2016** — Retrieve and triage.
+  - Review-listed citation(s): NCT03014804. Autologous dendritic cells pulsed with tumor lysate antigen vaccine and nivolumab in treating patients with recurrent glioblastoma. ClinicalTrials.gov 2016.
+- [ ] **NCT03149575 2017** — Retrieve and triage.
+  - Review-listed citation(s): * NCT03149575. VAL-083 Phase 3 Study in Temozolomide- Avastin (Bevacizumab) Recurrent GBM. ClinicalTrials.gov 2017.
+- [ ] **Penas-Prado 2015** — Retrieve and triage.
+  - Review-listed citation(s): Penas-Prado M, Hess KR, Levin VA, De Groot JF, Colman H, Groves MD, et al. Phase I study of vorinostat combined with isotretinoin and temozolomide in adults with recurrent malignant gliomas. Journal of Clinical Oncology 2015;33(15):SUPPL. 1.
+- [ ] **Rahman 2014** — Retrieve and triage.
+  - Review-listed citation(s): Rahman R, Hempfling K, Norden AD, Reardon DA, Nayak L, Rinne ML, et al. Retrospective study of carmustine or lomustine with bevacizumab in recurrent glioblastoma patients who have failed prior bevacizumab. Neuro-oncology 2014;16(11):1523-9.
+- [ ] **Reardon 2008** — Retrieve and triage.
+  - Review-listed citation(s): Reardon DA, Fink KL, Mikkelsen T, Cloughesy TF, O'Neill A, Plotkin S, et al. Randomized phase II study of cilengitide, an integrin-targeting arginine-glycine-aspartic acid peptide, in recurrent glioblastoma multiforme. Journal of Clinical Oncology 2008;26(34):5610-7.
+- [ ] **Ruiz-Sanchez 2012** — Retrieve and triage.
+  - Review-listed citation(s): Ruiz-Sanchez D, Calero MA, Sastre-Heres AJ, Garcia MTI, Hernandez MAC, Martinez FM, et al. Eﬀectiveness of the bevacizumab-irinotecan regimen in the treatment of recurrent glioblastoma multiforme: comparison with other second- line treatments without this regimen. Oncology Letters 2012;4(5):1114-8.
+- [ ] **Schmidt 2006** — Retrieve and triage.
+  - Review-listed citation(s): Schmidt F, Fischer J, Herrlinger U, Dietz K, Dichgans J, Weller M PCV chemotherapy for recurrent glioblastoma. PCV chemotherapy for recurrent glioblastoma. Neuro-oncology 2006;66(4):587-9.
+- [ ] **Seystahl 2013** — Retrieve and triage.
+  - Review-listed citation(s): Seystahl K, Wiestler B, Hundsberger T, Happold C, Wick W, Weller M, et al. Bevacizumab alone or in combination with irinotecan in recurrent WHO Grade II and Grade III gliomas. European Neurology 2013;69(2):95-101.
+- [ ] **Short 2017** — Retrieve and triage.
+  - Review-listed citation(s): Short SC, Little C. A 2-part safety and exploratory eﬀicacy randomised double-blind, placebo-controlled study of a 1:1 ratio of cannabidiol and delta-9-tetrahydrocannabinol (CBD: tHC) plus dose intense temozolomide in patients with recurrent glioblastoma multiforme (GBM). Neuro-oncology 2017;Conference: 22nd Annual Scientific Meeting and Education Day of the Society for Neuro-oncology. United States. 19:vi13.
+- [ ] **Socha 2016** — Retrieve and triage.
+  - Review-listed citation(s): Socha J, Kepka L, Ghosh S, Roa W, Kumar N, Sinaika V, et al. Outcome of treatment of recurrent glioblastoma multiforme in elderly and/or frail patients. Journal of Neuro-oncology 2016;126(3):493-8.
+- [ ] **Sun 2013** — Retrieve and triage.
+  - Review-listed citation(s): Sun J, Yang XJ, Yang SY. Multicenter randomized controlled study of temozolomide versus semustine in the treatment of recurrent malignant glioma]. [Chinese CNO - CN-00908562. Zhonghua yi xue za zhi 2013;93(3):165-8.
+- [ ] **Taylor 2018** — Retrieve and triage.
+  - Review-listed citation(s): Taylor JW, Parikh M, Phillips JJ, James CD, Molinaro AM, Butowski NA, et al. Phase-2 trial of palbociclib in adult patients with recurrent RB1-positive glioblastoma. Neuro-oncology 2018;140(2):477-83. Taylor JW. Phase 2 trial of palbociclib in adult patients with recurrent rb positive glioblastoma. Neuro-oncology 2017;Conference: 5th Quadrennial Meeting of the World Federation of Neuro-oncology Societies, WFNOS. Switzerland.19(Supplement 3):iii83.
+- [ ] **Van den Bent 2009** — Retrieve and triage.
+  - Review-listed citation(s): van den Bent MJ, Brandes AA, Rampling R, Kouwenhoven MC, Kros JM, Carpentier AF, et al. Randomized phase II trial of erlotinib versus temozolomide or carmustine in recurrent glioblastoma: EORTC brain tumor group study 26034. Journal of Clinical Oncology 2013;27 XST - M XAOC - TRT(8):1268-74.
+- [ ] **van den Bent 2016** — Retrieve and triage.
+  - Review-listed citation(s): * NCT03149003. A study of DSP-7888 dosing emulsion in combination with bevacizumab in patients with recurrent or progressive glioblastoma following initial therapy. ClinicalTrials.gov 2017. van den Bent M, Clement P, Vos F, Platten M, Mulholland P, Taphoorn M, et al. Clinical results of the eortc randomized phase ii tavarec trial on temozolomide with or without bevacizumab in 1st recurrence of grade ii or III glioma without 1P/19Q co-deletion. Neuro-oncology 2016;Conference: 21st Annual Scientific Meeting and Education Day of the Society for Neuro-oncology. United States 18:vi3.
+- [ ] **Vauleon 2012** — Retrieve and triage.
+  - Review-listed citation(s): Vauleon E, Mesbah H, Gedouin D, Lecouillard I, Louvel G, Hamlat A, et al. Retrospective analysis of 24 recurrent glioblastoma afer chemoradiation and treated with nitrosoureas or irinotecan and bevacizumab. Bulletin du Cancer 2012;99(2):121-6.
+- [ ] **Weller 2015** — Retrieve and triage.
+  - Review-listed citation(s): Weller M, Tabatabai G, Kastner B, Felsberg J, Steinbach JP, Wick A, et al. MGMT promoter methylation is a strong prognostic biomarker for benefit from dose-intensified temozolomide rechallenge in progressive glioblastoma: the DIRECTOR Trial. Clinical Cancer Research 2015;21(9):2057-64.
+- [ ] **Yasuda 2018** — Retrieve and triage.
+  - Review-listed citation(s): Yasuda T, Muragaki Y, Nitta M, Miyamoto K, Oura Y, Henmi T, et al. Eﬀectiveness of stereotactic radiotherapy and bevacizumab for recurrent high-grade gliomas: A potential therapy for isocitrate dehydrogenase wild-type recurrent high-grade gliomas. World Neurosurgery 2018;epub. doi 10.1016/ j.wneu.2018.03.161:e1138.
+- [ ] **Yung 2000** — Retrieve and triage.
+  - Review-listed citation(s): Yung W K A, Albright R E, Olson J, Fredericks R, Fink K, Prados M D, et al. A phase II study of temozolemide vs. procarbazine in patients with glioblastoma multiforme at first relapse. British Journal of Cancer 2000;83:588-93.
+- [ ] **Zadeh 2018** — Retrieve and triage.
+  - Review-listed citation(s): NCT02414165. The toca 5 trial: toca 511 & toca FC versus standard of care in patients with recurrent high grade glioma. NCT02414165 2015. * Zadeh G, Walbert T, Perry J, Zhu J, Salacz M, Bota D, et al. Toca 5: toca 511 combined with Toca FC versus standard of care in patients undergoing planned resection for recurrent glioblastoma or anaplastic astrocytoma. In: Canadian Journal of Neurosciences. Vol. 45. 2018:S2.
+- [ ] **Zakharia 2017** — Retrieve and triage.
+  - Review-listed citation(s): Zakharia Y, Munn D, Link C, Vahanian N, Kennedy E. Interim analysis of phase 1B/2 combination study of the IDO pathway inhibitor indoximod with temozolomide for adult patients with temozolomide-refractory primary malignant brain tumors. Neuro-oncology 2017;18:vi13-4.
+
+## Ongoing studies (20)
+
+Status-check priority — determine whether a completed publication or results record now exists, then triage for relevance.
+
+- [ ] **ACTRN12617000534381 2017** — Retrieve and triage.
+  - Review-listed citation(s): ACTRN12617000534381. A randomised phase II trial to examine feasibility of standardised, early palliative (STEP) care for patients with advanced cancer and their families. Australian Clinical Trials Register 2017.
+- [ ] **ChiCTR1900020646 2019** — Retrieve and triage.
+  - Review-listed citation(s): ChiCTR1900020646. A multicenter open-label randomized controlled trial for apatinib combined with temozolomide in adult primary glioblastoma at first recurrence. ChiCTR1900020646 2019.
+- [ ] **Combs 2010** — Retrieve and triage.
+  - Review-listed citation(s): Combs SE, Burkholder I, Edler L, Rieken S, Habermehl D, Jakel O, et al. Randomised phase I/II study to evaluate carbon ion radiotherapy versus fractionated stereotactic radiotherapy in patients with recurrent or progressive gliomas: the CINDERELLA trial. BMC Cancer 2010;10:533. [https:// doi.org/10.1186/1471-2407-10-533]
+- [ ] **JCOG1308C 2019** — Retrieve and triage.
+  - Review-listed citation(s): jRCTs031180083. JCOG1308C: a multicenter randomized phase III study for recurrent glioblastoma. jRCTs031180083 2019.
+- [ ] **KCT0002632 2018** — Retrieve and triage.
+  - Review-listed citation(s): KCT0002632. Phase 2 clinical trial for the eﬀicacy and safety of low dose Temozolomide plus metformin as combination chemotherapy compared with low dose Temozolomide plus placebo in patient with recurrent or refractory Glioblastoma. CRIS_Clinical Search Information Service 2018.
+- [ ] **NCT01252459 2016** — Retrieve and triage.
+  - Review-listed citation(s): Oehlke O, Mix M, Graf E, Schimek-Jasch T, Nestle U, Gotz I, et al. Amino-acid PET versus MRI guided re-irradiation in patients with recurrent glioblastoma multiforme (GLIAA) - protocol of a randomized phase II trial (NOA 10/ARO 2013-1). ClinicalTrials.gov 2016;16(1):769.
+- [ ] **NCT01903330 2018** — Retrieve and triage.
+  - Review-listed citation(s): Bota D, Carrillo J, Kong XT, Fu D, Chung J, Pretto C, et al. A randomized, double-blinded, placebocontrolled phase 2 study of the ERC-1671 (Gliovac) vaccine in combination with bevacizumab (BEV) in recurrent GBM patients: safety lead- in analysis. Neuro-oncology 2016;Conference: 21st Annual Scientific Meeting and Education Day of the Society for Neuro-Oncology. United States.18:vi22. Bota D, Chung J, Carrillo J, Kong XT, Fu B, Pretto C, et al. A preliminary data report on a phase 2 study of ERC1671 in recurrent glioblastoma. Neuro-oncology. Conference abstract of Society for Neuro-oncology 2017;19(Suppl 6):vi109. [DOI: 10.1093/neuonc/nox168.448] * Bota DA, Chung J, Dandekar M, Carrillo JA, Kong XT, Fu BD, et al. Phase II study of ERC1671 plus bevacizumab versus bevacizumab plus placebo in recurrent glioblastoma: interim results and correlations with CD4+ T-lymphocyte counts. CNS Oncology 2018;7(3):CNS22. [DOI: 10.2217/cns-2018-0009] Bota DA, Chung J, Dandekar M, Carrillo JA, Kong XT, Fu DB, et al. Phase 2 study of erc1671 plus bevacizumab vs bevacizumab plus placebo in recurrent GBM interim results and correlations with CD4+ T lymphocyte counts. Neuro-oncology. Conference abstract of Society for Neuro-oncology 2018;20:vi7.
+- [ ] **NCT02394626 2015** — Retrieve and triage.
+  - Review-listed citation(s): NCT02394626. Surgery for Recurrent Glioblastoma. ClinicalTrials.gov 2015.
+- [ ] **NCT02678975 2016** — Retrieve and triage.
+  - Review-listed citation(s): Jakola AS, Werlenius K, Mudaisi M, Hylin S, Kinhult S, Bartek J Jr, et al. Disulfiram repurposing combined with nutritional copper supplement as add-on to chemotherapy in recurrent glioblastoma (Direct): study protocol for a randomized controlled trial. PMID: 30647912 2018;7:1797. NCT02678975. Disulfiram in Recurrent Glioblastoma. ClinicalTrials.gov 2016.
+- [ ] **NCT02715297 2018** — Retrieve and triage.
+  - Review-listed citation(s): NCT02715297. Adjuvant stereotactic fractionated radiotherapy to the resection cavity in recurrent glioblastoma. ClinicalTrials.gov 2016. Straube C, Scherb H, Gempt J, Kirschke J, Zimmer C, Schmidt- Graf F, et al. Adjuvant stereotactic fractionated radiotherapy to the resection cavity in recurrent glioblastoma - the GlioCave study (NOA 17 - ARO 2016/3 - DKTK ROG trial). BMC Cancer 2018;18(1):15.
+- [ ] **NCT02761070 2016** — Retrieve and triage.
+  - Review-listed citation(s): NCT02761070. Bevacizumab alone versus dose-dense temozolomide followed by bevacizumab for recurrent glioblastoma, phase III. ClinicalTrials.gov 2016.
+- [ ] **NCT02794883 2016** — Retrieve and triage.
+  - Review-listed citation(s): NCT02794883. Tremelimumab and durvalumab in combination or alone in treating patients with recurrent malignant glioma. ClinicalTrials.gov 2016.
+- [ ] **NCT02942264 2016** — Retrieve and triage.
+  - Review-listed citation(s): NCT02942264. TG02 plus dose-dense or metronomic temozolomide followed by randomized phase II trial of TG02 plus temozolomide versus temozolomide alone in adults with recurrent anaplastic astrocytoma and glioblastoma. ClinicalTrials.gov 2016.
+- [ ] **NCT02974621 2016** — Retrieve and triage.
+  - Review-listed citation(s): NCT02974621. Cediranib maleate and olaparib compared to bevacizumab in treating patients with recurrent glioblastoma. ClinicalTrials.gov 2016.
+- [ ] **NCT03025893 2019** — Retrieve and triage.
+  - Review-listed citation(s): Brahm CG, Van Linde ME, Labots M, Kouwenhoven MC, Aliaga ES, Enting RH, et al. A phase II/III trial of high-dose, intermittent sunitinib in patients with recurrent glioblastoma: the STELLAR study. In: Cancer Research. Vol. 79. 2019. EUCTR2016-001797-15-NL. A trial testing an alternative high- dose, intermittend scheduling for sunitinib in patients with recurrent brain cancer. European Clinical Trials Register 2016. NCT03025893. A phase II/III study of high-dose, intermittent sunitinib in patients with recurrent glioblastoma multiforme. ClinicalTrials.gov 2017. NCTR6308. A phase II/III study of high-dose, intermittent sunitinib in patients with recurrent glioblastoma multiforme: the STELLAR study. ClinicalTrials.gov 2016.
+- [ ] **NCT03149003 2018** — Retrieve and triage.
+  - Review-listed citation(s): De Groot JF, Cloughesy TF, Pitz MW, Narita Y, Nonomura T. A randomized, multicenter phase 2 study of DSP-7888 dosing emulsion in combination with bevacizumab (Bev) versus Bev alone in patients with recurrent or progressive glioblastoma. ClinicalTrials.gov 2018;36(15).
+- [ ] **NCT03632135 2018** — Retrieve and triage.
+  - Review-listed citation(s): NCT03632135. Standard chemotherapy vs. chemotherapy guided by cancer stem cell test in recurrent glioblastoma. ClinicalTrials.gov 2018.
+- [ ] **NCT03746288 2018** — Retrieve and triage.
+  - Review-listed citation(s): NCT03746288. To evaluate the eﬀicacy and safety of CAN008 combined with re-irradiation (rRT) for treating patients with recurrent glioblastoma (GBM). ClinicalTrials.gov 2018.
+- [ ] **NCT03970447 2019b** — Retrieve and triage.
+  - Review-listed citation(s): NCT03970447. A trial to evaluate multiple regimens in newly diagnosed and recurrent glioblastoma. ClinicalTrials.gov 2019.
+- [ ] **NCT04003649 2019** — Retrieve and triage.
+  - Review-listed citation(s): NCT04003649. IL13Ralpha2-targeted chimeric antigen receptor (CAR) T cells with or without nivolumab and ipilimumab in treating patients with recurrent or refractory glioblastoma. ClinicalTrials.gov 2019.
+
+## Additional references (44)
+
+Context/method priority — retrieve when needed for background, methods, guidelines, supportive care, economics, or review methodology.
+
+- [ ] **Ameratunga 2018** — Retrieve and triage.
+  - Review-listed citation(s): Ameratunga M, Pavlakis N, Wheeler H, Grant R, Simes J, Khasraw M. Anti-angiogenic therapy for high-grade glioma. No: CD008218. [DOI: 10.1002/14651858.CD008218.pub4]
+- [ ] **Barrios 2012** — Retrieve and triage.
+  - Review-listed citation(s): Barrios JMR, Alcántara FP, Palomo CC, García PG, De Las Heras AE, Riestra BM. The use of cost per life year gained as a measurement of cost-eﬀectiveness in Spain: a systematic review of recent publications. European Journal of Health Economics 2012;13(6):723-40.
+- [ ] **Batchelor 2006** — Retrieve and triage.
+  - Review-listed citation(s): Batchelor TT, Byrne TN. Supportive care of brain tumor patients. Hematology/oncology Clinics of North America 2006;20(6):1337-61.
+- [ ] **Brown 2018** — Retrieve and triage.
+  - Review-listed citation(s): Brown NF, Carter TJ, Ottaviani D, Mulholland P. Harnessing the immune system in glioblastoma. British Journal of Cancer 2018;119(10):1171-81.
+- [ ] **Chaimani 2015** — Retrieve and triage.
+  - Review-listed citation(s): Chaimani A, Salanti G. Visualizing assumptions and results in network meta-analysis: the network graphs package. Stata Journal 2015;15(4):905-50.
+- [ ] **Chapman 2019** — Retrieve and triage.
+  - Review-listed citation(s): Chapman CH, Hara JH, Molinaro AM, Clarke JL, Oberheim Bush NA, Taylor JW, et al. Reirradiation of recurrent high-grade glioma and development of prognostic scores for progression and survival. Neuro-oncology Practice 2019;6(5):364-74.
+- [ ] **Conen 2017** — Retrieve and triage.
+  - Review-listed citation(s): Conen KL, Matter-Walstra K, Schadelin S, Mariani L, Hess V. Benefits and costs of bevacizumab in recurrent glioblastoma: a quality adjusted survival and cost analysis (EVALUATE). In: Journal of Clinical Oncology, Conference: 2017 Annual Meeting of the American Society of Clinical Oncology, ASCO. United States. 35. Vol. 35. 2017.
+- [ ] **CRUK 2020** — Retrieve and triage.
+  - Review-listed citation(s): https://www.cancerresearchuk.org/health-professional/ cancer-statistics/statistics-by-cancer-type/brain-other-cns-and- intracranial-tumours. Web page 2020.
+- [ ] **Deeks 2001** — Retrieve and triage.
+  - Review-listed citation(s): Deeks JJ, Altman DG, Bradburn MJ. Chapter 15: Statistical methods for examining heterogeneity and combining results from several studies in meta-analysis. In: Systematic Reviews in Health Care: Meta-Analysis in Context. 2nd edition. London: BMJ Publication Group, 2001.
+- [ ] **Drugs.com** — Retrieve and triage.
+  - Review-listed citation(s): Drugscom. Alkylating agents. www.drugs.com/drug-class/ alkylating-agents.html (accessed 9 December 2019).
+- [ ] **Dumitru 2018** — Retrieve and triage.
+  - Review-listed citation(s): Dumitru CA, Sandalcioglu IE, Karsak M. Cannabinoids in glioblastoma therapy: new applications for old drugs. Frontiers of Molecular Neuroscience 2018;11:159.
+- [ ] **EANO 2017** — Retrieve and triage.
+  - Review-listed citation(s): Pace A, Dirven L, Koekkoek JAF, Golla H, Fleming J, Ruda R. European association for Neuro-oncology (EANO) guidelines for palliative care in adults with glioma. Lancet Oncology 2017;18(6):e330-40.
+- [ ] **Easaw 2011** — Retrieve and triage.
+  - Review-listed citation(s): Easaw JC, Mason WMP, Perry J, Laperrière N, Eisenstat DD, Del Maestro R, et al. Canadian recommendations for the treatment of recurrentor progressive glioblastoma multiforme. Current Oncology (Toronto, Ont.) 2011;18(3):126-36.
+- [ ] **Efhimiou 2016** — Retrieve and triage.
+  - Review-listed citation(s): Efhimiou O, Debray TP, van Valkenhoef G, Trelle S, Panayidou K, Moons KG, et al. GetReal in network meta-analysis: a review of the methodology. Research Synthesis Methods 2016;7(3):236-63.
+- [ ] **EPOC 2015** — Retrieve and triage.
+  - Review-listed citation(s): Cochrane Eﬀective Practice and Organisation of Care (EPOC). EPOC resources for review authors. 2015. epoc.cochrane.org/ epoc-specific-resources-review-authors (accessed 6 July 2016).
+- [ ] **Higgins 2003** — Retrieve and triage.
+  - Review-listed citation(s): Higgins JP, Thompson SG, Deeks JJ, Altman DG. Measuring inconsistency in meta-analyses. BMJ 2003;327(7414):557-60.
+- [ ] **Higgins 2019** — Retrieve and triage.
+  - Review-listed citation(s): Higgins JPT, Thomas J, Chandler J, Cumpston M, Li T, Page MJ, Welch VA (editors). Cochrane Handbook for Systematic Reviews of Interventions Version 6.0 [updated July 2019]. Cochrane, 2019. Available from www.training.cochrane.org/handbook.
+- [ ] **JLA 2015** — Retrieve and triage.
+  - Review-listed citation(s): MacDonald L, on behalf of the Neuro-oncology Group. Top 10 priorities for clinical research in primary brain and spinal cord tumours. www.jla.nihr.ac.uk/priority-setting-partnerships/ neuro-oncology/downloads/Neuro-Oncology-Group-Final- Report-June-2015.pdf (accessed 1 March 2018).
+- [ ] **Kazmi 2019** — Retrieve and triage.
+  - Review-listed citation(s): Kazmi F, Soon YY, Leong YH, Koh WY, Vellayappan B. Re- irradiation for recurrent glioblastoma (GBM): a systematic review and meta-analysis. Journal of Neuro-oncology 2019;142:79-90.
+- [ ] **Kim 2019** — Retrieve and triage.
+  - Review-listed citation(s): Kim IH. Appraisal of re-irradiation for the recurrent glioblastoma in the era of MGMT promotor methylation. Radiation Oncology Journal 2019;37(1):1-12.
+- [ ] **Lombardi 2017** — Retrieve and triage.
+  - Review-listed citation(s): Lombardi G, Pambuku A, Bellu L, Farina M, Della Puppa A, Denaro L, et al. Eﬀectiveness of antiangiogenic drugs in glioblastoma patients: A systematic review and meta-analysis of randomised clinical trials. Critical Reviews in Oncology/ hematology 2017;111:94-102.
+- [ ] **Malmstrom 2012** — Retrieve and triage.
+  - Review-listed citation(s): Malmstrom A, Grønberg BH, Marosi C, Stupp R, Frappaz D, Schultz H, et al. Temozolomide versus standard 6-week radiotherapy versus hypofractionated radiotherapy in patients older than 60 years with glioblastoma: the Nordic randomised, phase 3 trial. Lancet Oncology 2012;13(9):916-26.
+- [ ] **Mandl 2008** — Retrieve and triage.
+  - Review-listed citation(s): Mandl ES, Dirven CM, Buis DR, Postma TJ, Vandertop WP. Repeated surgery for glioblastoma multiforme: only in combination with other salvage therapy. Surgical Neurology 2008;69(5):506-9.
+- [ ] **Martin-McGill 2018** — Retrieve and triage.
+  - Review-listed citation(s): Martin-McGill KJ, Srikandarajah N, Marson AG, Tudur Smith C, Jenkinson MD. The role of ketogenic diets in the therapeutic management of adult and paediatric gliomas: a systematic review. CNS Oncology 2018;10.2217/cns-2017-0030:Epub.
+- [ ] **MASCC 2019** — Retrieve and triage.
+  - Review-listed citation(s): Multinational Association of Supportive Care in Cancer. What is supportive care. www.mascc.org/about-mascc (accessed 8 October 2019).
+- [ ] **Messali 2014** — Retrieve and triage.
+  - Review-listed citation(s): Messali A, Villacorta R, Hay JW. A review of the economic burden of glioblastoma and the cost eﬀectiveness of pharmacologic treatments. PharmacoEconomics 2014;32:1201-12.
+- [ ] **NCCN 2018** — Retrieve and triage.
+  - Review-listed citation(s): National Comprehensive Cancer Network. NCCN Guidelines version 1. 2018. Central Nervous System Cancers. www.optune.com/Content/pdfs/CNS_FlashCard_4Page.pdf (accessed 5 April 2020).
+- [ ] **NICE 2018** — Retrieve and triage.
+  - Review-listed citation(s): National Institute for Health and Care Excellence. Brain tumours (primary) and brain metastases in adults. Available at www.nice.org.uk/guidance/ng99.
+- [ ] **Niyazi 2011** — Retrieve and triage.
+  - Review-listed citation(s): Niyazi M, Siefert A, Schwarz SB, Ganswindt U, Kreth FW, Tonn JC, et al. Therapeutic options for recurrent malignant glioma. Radiotherapy and Oncology 2011;98(1):1-14.
+- [ ] **Parasramka 2017** — Retrieve and triage.
+  - Review-listed citation(s): Parasramka S, Talari G, Rosenfeld M, Guo J, Villano JL. Procarbazine, lomustine and vincristine for recurrent high-grade glioma. Cochrane Database of Systematic Reviews 2017, Issue 7. Art. No: CD011773. [DOI: 10.1002/14651858.CD011773.pub2]
+- [ ] **Perry 2017** — Retrieve and triage.
+  - Review-listed citation(s): Perry JR, Laperriere N, O'Callaghan CJ, Brandes AA, Menten J, Phillips C, et al. Short-course radiation plus temozolomide in elderly patients with glioblastoma CNO - CN-01366980. New England Journal of Medicine 2017;376(11):1027-37.
+- [ ] **Review Manager 2014 [Computer program]** — Retrieve and triage.
+  - Review-listed citation(s): Review Manager 5 (RevMan 5). Version 5.3. Copenhagen: Nordic Cochrane Centre, The Cochrane Collaboration, 2014.
+- [ ] **Roussakow 2017** — Retrieve and triage.
+  - Review-listed citation(s): Roussakow SV. Clinical and economic evaluation of modulated electrohyperthermia concurrent to dose-dense temozolomide 21/28 days regimen in the treatment of recurrent glioblastoma: a retrospective analysis of a two-centre German cohort trial with systematic comparison and eﬀect-to-treatment analysis. BMJ Open 2017;7:e017387.
+- [ ] **Ruiz-Sanchez 2016** — Retrieve and triage.
+  - Review-listed citation(s): Ruiz-Sanchez D, Peinado II, Alaguero-Calero M, Sastre- Heres AJ, Diez BG, Pena-Diaz J. Cost-eﬀectiveness analysis of the bevacizumab-irinotecan regimen in the treatment of primary glioblastoma multiforme recurrences. Oncology Letters 2016;12(3):1935-40.
+- [ ] **Schünemann 2019** — Retrieve and triage.
+  - Review-listed citation(s): Schünemann HJ, Vist GE, Higgins JP, Santesso N, Deeks JJ, Glasziou P, et al. Chapter 15: Interpreting results and drawing conclusions. In: Higgins JPT, Thomas J, Chandler J, Cumpston M, Li T, Page MJ, Welch VA (editors), editors(s). Cochrane Handbook for Systematic Reviews of Interventions version 6.0 (updated July 2019). Wiley, 2019:Available from training.cochrane.org/handbook/current/chapter-15 (Accessed 5 April 2020).
+- [ ] **Shemilt 2019** — Retrieve and triage.
+  - Review-listed citation(s): Shemilt I, Aluko P, Graybill E, Craig D, Henderson C, Drummond M, et al, on behalf of the Campbell and Cochrane Economics Methods Group. Chapter 20: Economic evidence. In: Higgins JPT, Thomas J, Chandler J, Cumpston M, Li T, Page MJ, Welch VA (editors). Cochrane Handbook for Systematic Reviews of Interventions version 6.0 (updated July 2019). Cochrane, 2019. Available from www.training.cochrane.org/handbook.
+- [ ] **Sterne 2016** — Retrieve and triage.
+  - Review-listed citation(s): Sterne JA, Hernán MA, Reeves BS, Savovíc J, Berkman ND, Viswanathan V, et al. ROBINS-I: a tool for assessing risk of bias in non-randomised studies of interventions. BMJ 2016;355:i4919.
+- [ ] **Stupp 2005** — Retrieve and triage.
+  - Review-listed citation(s): Stupp R, Mason WP, van den Bent MJ, Weller M, Fisher B, Taphoorn MJ, et al. Radiotherapy plus concomitant and adjuvant temozolomide for glioblastoma. New England Journal of Medicine 2005;352(10):987-96.
+- [ ] **Thompson 2019** — Retrieve and triage.
+  - Review-listed citation(s): Thompson G, Lawrie TA, Kernohan A, Jenkinson MD. Interval brain imaging for adults with cerebral glioma. Cochrane Database of Systematic Reviews 2019, Issue 12. Art. No: CD013137. [DOI: 10.1002/14651858.CD013137.pub2]
+- [ ] **Thon 2013** — Retrieve and triage.
+  - Review-listed citation(s): Thon N, Kreth S, Kreth FW. Personalized treatment strategies in glioblastoma: MGMT promoter methylation status. OncoTargets and Therapy 2013;6:1363–72.
+- [ ] **Voigt 2016** — Retrieve and triage.
+  - Review-listed citation(s): Voigt JD, Barnett G. The value of using a brain laser interstitial thermal therapy (LITT) system in patients presenting with high grade gliomas where maximal safe resection may not be feasible. Cost Eﬀectiveness and Resource Allocation 2016;14:6.
+- [ ] **White 2015** — Retrieve and triage.
+  - Review-listed citation(s): White IR. Network meta-analysis. Stata Journal 2015;15(4):951-85.
+- [ ] **Wick 2012** — Retrieve and triage.
+  - Review-listed citation(s): Wick W, Platten M, Meisner C, Felsberg J, Tabatabai G, Simon M, et al. Temozolomide chemotherapy alone versus radiotherapy alone for malignant astrocytoma in the elderly: the NOA-08 randomised, phase 3 trial. Lancet Oncology 2012;13(7):707-15.
+- [ ] **Wong 1999** — Retrieve and triage.
+  - Review-listed citation(s): Wong ET, Hess KR, Gleason MJ, Jaeckle KA, Kyritsis AP, Prados MD, et al. Outcomes and prognostic factors in recurrent glioma patients enrolled onto phase II clinical trials. Journal of Clinical Oncology 1999;17(8):2572-8.

@@ -1,0 +1,41 @@
+{
+  "source_id": "13-0051",
+  "publication_id": "6e4cd147-b1d9-503f-8109-d04b2b610b04",
+  "schema_version": "1.0",
+  "validated_atom_count": 40,
+  "structural_validation": {
+    "validator": "Pydantic LiteratureAtom",
+    "errors": [],
+    "status": "pass"
+  },
+  "serialization_validation": {
+    "validator": "literature_atom.schema.json Draft 2020-12",
+    "errors": [],
+    "status": "pass"
+  },
+  "sufficiency_validation": {
+    "errors": [],
+    "warnings": [],
+    "status": "pass"
+  },
+  "duplicate_review": {
+    "status": "pass",
+    "findings": []
+  },
+  "consistency_review": {
+    "status": "pass_with_note",
+    "findings": [
+      "Narrative text reports susceptibility to tetracycline, whereas the displayed table reports minocycline rather than tetracycline; this was preserved as a source-level terminology inconsistency rather than reconciled."
+    ]
+  },
+  "schema_gaps": [
+    "The current atom schema has no dedicated case-report atom kind.",
+    "QuantitativeResult supports one scalar estimate and cannot faithfully encode a full five-column MIC vector with inequality-qualified values such as >128 or <0.06. Each antimicrobial table row was therefore preserved as an atom_kind=other canonical statement with row-level table provenance."
+  ],
+  "extraction_limitations": [
+    "The PDF contains portions of adjacent letters on pages 1 and 3; only the target article spanning journal pages 2049-2051 was extracted.",
+    "No funding, conflict-of-interest, or data-availability statement was present for the target letter in the retrieved pages.",
+    "Clinical treatment response is observational in a single patient and does not establish azithromycin-specific efficacy because latamoxef was administered concurrently."
+  ],
+  "generated_at": "2026-08-24T09:11:04Z"
+}

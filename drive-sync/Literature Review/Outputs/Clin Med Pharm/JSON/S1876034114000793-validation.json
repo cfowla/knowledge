@@ -1,0 +1,95 @@
+{
+  "activated_macros": [
+    "@ATOM",
+    "@SEA"
+  ],
+  "source": {
+    "publication_id": "9a8d3371-ae3f-57da-b478-1187712b5df0",
+    "title": "Non-toxigenic penicillin-resistant cutaneous C. diphtheriae infection: A case report and review of the literature",
+    "authors": [
+      "Rosemarie Philippa FitzGerald",
+      "Andrew J. Rosser",
+      "Dona Nelun Perera"
+    ],
+    "source_type": "short report; single-patient case report with narrative literature review",
+    "journal": "Journal of Infection and Public Health",
+    "year": 2015,
+    "volume": 8,
+    "pages": "98-100",
+    "doi": "10.1016/j.jiph.2014.05.006",
+    "received": "2014-02-25",
+    "revised": "2014-04-19",
+    "accepted": "2014-05-24",
+    "source_file": {
+      "file": "1-s2.0-S1876034114000793.pdf",
+      "pages": 3,
+      "sha256": "afe37fa2c7d1d37ae0479055d1ae73815493862a2d0fd55b64caf428cebd20ec"
+    }
+  },
+  "atom_count": 28,
+  "atom_counts_by_kind": {
+    "author_conclusion": 3,
+    "conflict_of_interest": 1,
+    "exposure_description": 2,
+    "funding_disclosure": 1,
+    "intervention_description": 3,
+    "method": 3,
+    "other": 7,
+    "population_description": 2,
+    "qualitative_result": 5,
+    "study_objective": 1
+  },
+  "batch_counts": {
+    "fitzgerald-2015-cdiphtheriae-case-v1": 28
+  },
+  "pydantic_structural_validation": "passed",
+  "serialization_schema_validation": "passed",
+  "sufficiency_validation": "passed",
+  "structural_errors": [],
+  "json_schema_errors": [],
+  "sufficiency_errors": [],
+  "sufficiency_warnings": [],
+  "unique_atom_ids": true,
+  "shared_publication_id": true,
+  "exact_duplicate_canonical_statements": 0,
+  "governing_sources": {
+    "ATOM_authority_1": "literature.py — authoritative structural domain model, executed directly",
+    "ATOM_authority_2": "literature_atoms.py — authoritative atom-kind sufficiency validator, executed directly",
+    "ATOM_authority_3": "literature_atom.schema.json — authoritative serialization contract, validated with Draft 2020-12",
+    "ATOM_authority_4": "README(2).md — workflow intent consulted",
+    "ATOM_authority_5": "example_atom.json — illustrative only, consulted without treating example values as evidence",
+    "SEA_governing": "summary-evaluation-appraisal-protocol-v4-compact.md — governing filename/source applied",
+    "large_source_support": "large-source-ATOM-SEA.md — batching decision consulted; batching not required for this three-page source"
+  },
+  "protocol_version_note": "The governing SEA file is named v4-compact but its internal H1 identifies Integrated Compact v3. Per project precedence, the named v4 project source was treated as governing; its operational requirements were followed as written.",
+  "duplicate_review": {
+    "status": "passed",
+    "duplicate_atom_ids": [],
+    "duplicate_canonical_statements": 0
+  },
+  "consistency_review": {
+    "status": "passed_with_source_text_note",
+    "finding": "The susceptibility paragraph contains a visibly incomplete phrase (\"the bacteria were penicillin and sensitive to erythromycin\"). Penicillin resistance was not inferred from that fragment alone; it is independently stated in the title, summary, and authors’ highlighted discussion point."
+  },
+  "schema_gaps": [
+    "The LiteratureAtom model has no dedicated case-report event/timeline atom kind, so non-quantitative clinical course events are represented as qualitative_result, method, intervention_description, exposure_description, or other as appropriate.",
+    "The model requires a quantitative_result object for atom_kind=adverse_event; the erythromycin nausea/vomiting event had no numeric effect estimate in the source, so it is represented as qualitative_result rather than fabricating a quantitative adverse-event estimate.",
+    "Secondary findings from cited studies are represented as other with the tag secondary_reported_result; they are not presented as primary-study quantitative_result atoms."
+  ],
+  "extraction_limitations": [
+    "This is a single-patient case report with a brief narrative literature review; it does not support comparative efficacy estimates or incidence estimates.",
+    "No formal methods section, susceptibility testing method details, MIC values, antimicrobial doses, or complete microbiology workflow details are reported.",
+    "The literature-review summaries were extracted only as the authors’ secondary reports; the six cited primary sources were not independently read in this task.",
+    "All atoms remain needs_review because no human verification step is represented.",
+    "No external current-practice or regulatory verification was performed because @VERIFY was not activated."
+  ],
+  "sea_qa": {
+    "self_contained_html": true,
+    "main_figures_reconciled": "0/0",
+    "main_tables_reconciled": "0/0",
+    "workflows_reconciled": "0/0",
+    "internal_chat_or_file_citation_syntax": "absent",
+    "external_verification": "not performed",
+    "appraisal_scored_after_extraction": true
+  }
+}

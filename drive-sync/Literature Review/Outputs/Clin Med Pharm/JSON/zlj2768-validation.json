@@ -1,0 +1,61 @@
+{
+  "source_id": "75 - zlj2768",
+  "publication_id": "eb716ed7-4b43-5f2e-9b5e-8328c3e6c56f",
+  "schema_version": "1.0",
+  "input_document_hash_sha256": "b394536686d00fd0ee245ba019aab09b418b144ba5132c214d1b7cc9422f59ac",
+  "atom_count": 54,
+  "atom_counts_by_kind": {
+    "author_conclusion": 8,
+    "conflict_of_interest": 1,
+    "funding_disclosure": 1,
+    "limitation": 3,
+    "method": 3,
+    "other": 20,
+    "quantitative_result": 17,
+    "study_objective": 1
+  },
+  "structural_validation": {
+    "model": "LiteratureAtom from literature.py",
+    "errors": [],
+    "valid": true
+  },
+  "serialization_validation": {
+    "schema": "literature_atom.schema.json",
+    "errors": [],
+    "valid": true
+  },
+  "sufficiency_validation": {
+    "validator": "validate_literature_atom_sufficiency from literature_atoms.py",
+    "errors": [],
+    "warnings": [],
+    "valid": true
+  },
+  "duplicate_review": {
+    "exact_duplicate_canonical_statements": 0,
+    "finding": "No exact duplicate canonical statements."
+  },
+  "consistency_findings": [
+    "Table 2 contains both positive and null/inverse study estimates; these were preserved rather than reconciled because they reflect distinct cited studies.",
+    "The review mixes genotype-defined CYP2D6 status and drug-induced inhibition as related but nonidentical mechanisms; atoms preserve the source wording and comparison groups."
+  ],
+  "schema_gaps": [
+    "The current LiteratureAtom schema has no dedicated guideline/recommendation or secondary-review atom kind. Review recommendations were encoded as author_conclusion with guidance_recommendation tags.",
+    "The schema has no explicit field for citation-under-review provenance when a secondary source reproduces primary-study results; these are tagged secondary_reported_result and anchored to Table 2 of this review."
+  ],
+  "extraction_limitations": [
+    "This is a narrative/review article rather than primary literature, so the ATOM schema is not a perfect semantic fit.",
+    "Table 1 allele-frequency cells were not atomized individually; the table was reconciled in SEA and represented at the review-synthesis level.",
+    "Table 3 individual drug cells were not each emitted as separate atoms; clinically load-bearing categories and key drug assertions were atomized, while the full classification is preserved in SEA.",
+    "The bibliography was not atomized."
+  ],
+  "sea_qa": {
+    "file_exists": true,
+    "bytes": 22051,
+    "title": "SEA — Coprescription of Tamoxifen and Medications That Inhibit CYP2D6",
+    "toc_missing_anchors": [],
+    "figure_headings": 3,
+    "table_headings": 3,
+    "internal_citation_syntax_present": false,
+    "placeholder_terms_present": false
+  }
+}

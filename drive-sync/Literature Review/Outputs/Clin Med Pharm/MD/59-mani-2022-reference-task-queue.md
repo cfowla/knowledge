@@ -1,0 +1,38 @@
+# MANI reference task queue
+
+Source: Braido F, Blasi F, Canonica GW, et al. "Mild/Moderate Asthma Network in Italy (MANI): a long-term observational study." Journal of Asthma. 2022;59(9):1908-1913. doi:10.1080/02770903.2021.1968895.
+
+This queue preserves the 26 references listed in the supplied primary article. Each unchecked item means: locate the cited source, confirm bibliographic identity, decide whether full ATOM and SEA processing is warranted, and record the disposition. No external bibliographic correction was applied in this run.
+
+## Tasks
+
+- [ ] Ref 1. Bloom CI, Nissen F, Douglas IJ, Smeeth L, Cullinan P, Quint JK. Exacerbation risk and characterisation of the UK's asthma population from infants to old age. Thorax. 2018;73(4):313-320. doi:10.1136/thoraxjnl-2017-210650.
+- [ ] Ref 2. Pavord ID, Beasley R, Agusti A, Anderson GP, Bel E, Brusselle G, Cullinan P, Custovic A, Ducharme FM, Fahy JV, et al. After asthma: redefining airways diseases. Lancet. 2018;391(10118):350-400. doi:10.1016/S0140-6736(17)30879-6.
+- [ ] Ref 3. Fuchs O, Bahmer T, Rabe KF, von Mutius E. Asthma transition from childhood into adulthood. Lancet Respir Med. 2017;5(3):224-234. doi:10.1016/S2213-2600(16)30187-4.
+- [ ] Ref 4. Lange P. Persistent airway obstruction in asthma. Am J Respir Crit Care Med. 2013;187(1):1-2. doi:10.1164/rccm.201211-1966ED.
+- [ ] Ref 5. Spitzer WO, Suissa S, Ernst P, Horwitz RI, Habbick B, Cockcroft D, Boivin JF, McNutt M, Buist AS, Rebuck AS. The use of beta-agonists and the risk of death and near death from asthma. N Engl J Med. 1992;326(8):501-506. doi:10.1056/NEJM199202203260801.
+- [ ] Ref 6. Reddel HK, Busse WW, Pedersen S, Tan WC, Chen YZ, Jorup C, Lythgoe D, O'Byrne PM. Should recommendations about starting inhaled corticosteroid treatment for mild asthma be based on symptom frequency: a post-hoc efficacy analysis of the START study. Lancet. 2017;389(10065):157-166. doi:10.1016/S0140-6736(16)31399-X.
+- [ ] Ref 7. GINA. Global Initiative for Asthma. Global strategy for asthma management and prevention. 2020. Available from: https://ginasthma.org/ [last accessed 20 December 2020].
+- [ ] Ref 8. Suissa S, Ernst P, Benayoun S, Baltzan M, Cai B. Low-dose inhaled corticosteroids and the prevention of death from asthma. N Engl J Med. 2000;343(5):332-336. doi:10.1056/NEJM200008033430504.
+- [ ] Ref 9. Ernst P, Spitzer WO, Suissa S, Cockcroft D, Habbick B, Horwitz RI, Boivin JF, McNutt M, Buist AS. Risk of fatal and near-fatal asthma in relation to inhaled corticosteroid use. JAMA. 1992;268(24):3462-3464.
+- [ ] Ref 10. Volmer T, Effenberger T, Trautner C, Buhl R. Consequences of long-term oral corticosteroid therapy and its side-effects in severe asthma in adults: a focused review of the impact data in the literature. Eur Respir J. 2018;52(4):1800703. doi:10.1183/13993003.00703-2018.
+- [ ] Ref 11. Reddel HK, Bateman ED, Becker A, Boulet LP, Cruz AA, Drazen JM, Haahtela T, Hurd SS, Inoue H, de Jongste JC, et al. A summary of the new GINA strategy: a roadmap to asthma control. Eur Respir J. 2015;46(3):622-639. doi:10.1183/13993003.00853-2015.
+- [ ] Ref 12. Dusser D, Montani D, Chanez P, de Blic J, Delacourt C, Deschildre A, Devillier P, Didier A, Leroyer C, Marguet C, et al. Mild asthma: an expert review on epidemiology, clinical characteristics and treatment recommendations. Allergy. 2007;62(6):591-604. doi:10.1111/j.1398-9995.2007.01394.x.
+- [ ] Ref 13. Haldar P, Pavord ID, Shaw DE, Berry MA, Thomas M, Brightling CE, Wardlaw AJ, Green RH. Cluster analysis and clinical asthma phenotypes. Am J Respir Crit Care Med. 2008;178(3):218-224. doi:10.1164/rccm.200711-1754OC.
+- [ ] Ref 14. Moore WC, Meyers DA, Wenzel SE, Teague WG, Li H, Li X, D'Agostino R Jr, Castro M, Curran-Everett D, Fitzpatrick AM, et al. Identification of asthma phenotypes using cluster analysis in the Severe Asthma Research Program. Am J Respir Crit Care Med. 2010;181(4):315-323. doi:10.1164/rccm.200906-0896OC.
+- [ ] Ref 15. Wenzel SE. Asthma phenotypes: the evolution from clinical to molecular approaches. Nat Med. 2012;18(5):716-725. doi:10.1038/nm.2678.
+- [ ] Ref 16. Bagnasco D, Povero M, Pradelli L, Brussino L, Rolla G, Caminati M, Menzella F, Heffler E, Canonica GW, Paggiaro P, et al. Economic impact of mepolizumab in uncontrolled severe eosinophilic asthma, in real life. World Allergy Organ J. 2021;14(2):100509. doi:10.1016/j.waojou.2021.100509.
+- [ ] Ref 17. Puggioni F, Brussino L, Canonica GW, Blasi F, Paggiaro P, Caminati M, Latorre M, Heffler E, Senna G. Frequency of tiotropium bromide use and clinical features of patients with severe asthma in a real-life setting: data from the Severe Asthma Network in Italy (SANI) registry. J Asthma Allergy. 2020;13:599-604. doi:10.2147/JAA.S274245.
+- [ ] Ref 18. Senna G, Latorre M, Bugiani M, Caminati M, Heffler E, Morrone D, Paoletti G, Parronchi P, Puggioni F, Blasi F, et al. Sex differences in severe asthma: results from Severe Asthma Network in Italy-SANI. Allergy Asthma Immunol Res. 2021;13(2):219-228. doi:10.4168/aair.2021.13.2.219.
+- [ ] Ref 19. Malipiero G, Paoletti G, Blasi F, Paggiaro P, Senna G, Latorre M, Caminati M, Carpagnano GE, Crimi N, Spanevello A, et al. Clinical features associated with a doctor-diagnosis of bronchiectasis in the Severe Asthma Network in Italy (SANI) registry. Expert Rev Respir Med. 2020;3:1-6. doi:10.1080/17476348.2021.1840983.
+- [ ] Ref 20. Canonica GW, Blasi F, Paggiaro P, Senna G, Passalacqua G, Spanevello A, Aliberti S, Bagnasco D, Bonavia M, Bonini M, et al. Oral corticosteroid sparing with biologics in severe asthma: a remark of the Severe Asthma Network in Italy (SANI). World Allergy Organ J. 2020;13(10):100464. doi:10.1016/j.waojou.2020.100464.
+- [ ] Ref 21. Heffler E, Detoraki A, Contoli M, Papi A, Paoletti G, Malipiero G, Brussino L, Crimi C, Morrone D, Padovani M, et al. COVID-19 in Severe Asthma Network in Italy (SANI) patients: clinical features, impact of comorbidities and treatments. Allergy. 2021;76(3):887-892. doi:10.1111/all.14532.
+- [ ] Ref 22. Canonica GW, Malvezzi L, Blasi F, Paggiaro P, Mantero M, Senna G, Heffler E, Severe Asthma Network Italy (SANI). Chronic rhinosinusitis with nasal polyps impact in severe asthma patients: evidences from the Severe Asthma Network Italy (SANI) registry. Respir Med. 2020;166:105947. doi:10.1016/j.rmed.2020.105947.
+- [ ] Ref 23. Canonica GW, Colombo GL, Bruno GM, Di Matteo S, Martinotti C, Blasi F, Bucca C, Crimi N, Paggiaro P, Pelaia G, et al. Shadow cost of oral corticosteroids-related adverse events: a pharmacoeconomic evaluation applied to real-life data from the Severe Asthma Network in Italy (SANI) registry. World Allergy Organ J. 2019;12(1):100007. doi:10.1016/j.waojou.2018.12.001.
+- [ ] Ref 24. Senna G, Guerriero M, Paggiaro PL, Blasi F, Caminati M, Heffler E, Latorre M, Canonica GW, SANI. SANI-Severe Asthma Network in Italy: a way forward to monitor severe asthma. Clin Mol Allergy. 2017;15:9. doi:10.1186/s12948-017-0065-4.
+- [ ] Ref 25. Chen W, FitzGerald JM, Lynd LD, Sin DD, Sadatsafavi M. Long-term trajectories of mild asthma in adulthood and risk factors of progression. J Allergy Clin Immunol Pract. 2018;6(6):2024-2032.e5. doi:10.1016/j.jaip.2018.04.027.
+- [ ] Ref 26. Boulet LP, Reddel HK, Brightling C, Brusselle G. GINA fosters World Asthma Day 2020 to prevent asthma deaths. Am J Physiol Lung Cell Mol Physiol. 2020;318(5):L998-L1000. doi:10.1152/ajplung.00075.2020.
+
+## Source note
+
+References were transcribed from journal pages 1912-1913 of the supplied PDF. Line-wrap artifacts were normalized for readability. Bibliography entries were not treated as MANI evidence atoms.

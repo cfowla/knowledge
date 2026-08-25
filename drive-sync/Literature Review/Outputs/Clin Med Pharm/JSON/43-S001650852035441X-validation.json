@@ -1,0 +1,54 @@
+{
+  "source_metadata": {
+    "source_id": "S001650852035441X",
+    "title": "Pregnancy and Neonatal Outcomes After Fetal Exposure to Biologics and Thiopurines Among Women With Inflammatory Bowel Disease",
+    "doi": "10.1053/j.gastro.2020.11.038",
+    "publication_id": "f5411c62-e565-55da-98da-76dfb34e5853",
+    "generated_at": "2026-08-24T10:40:14Z"
+  },
+  "atom_count_total": 59,
+  "atom_counts_by_kind": {
+    "author_conclusion": 2,
+    "conflict_of_interest": 1,
+    "eligibility_criterion": 1,
+    "exposure_description": 2,
+    "funding_disclosure": 1,
+    "limitation": 3,
+    "method": 7,
+    "outcome_definition": 2,
+    "population_description": 2,
+    "qualitative_result": 4,
+    "quantitative_result": 33,
+    "study_objective": 1
+  },
+  "structural_validation": {
+    "validator": "LiteratureAtom Pydantic model from literature.py",
+    "passed": true,
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "validator": "validate_literature_atom_sufficiency from literature_atoms.py",
+    "passed": true,
+    "errors": [],
+    "warnings": []
+  },
+  "duplicate_review": {
+    "exact_statement_anchor_duplicates": [],
+    "passed": true
+  },
+  "consistency_findings": [
+    "Main text reports 133 infants with congenital malformations, while supplemental Table S3 reports 126/1394 with any congenital malformation; the outputs retain table-specific values and do not force reconciliation.",
+    "Main Table 4 labels the serum subset n=235, whereas Supplemental Table S2A/Table S11 describe n=234 with concentration data. The difference is retained as source-reported rather than harmonized.",
+    "Several isolated ASQ3 domain comparisons have nominal P<0.05, but the source conclusion is based on the lack of a consistent adverse developmental pattern; no multiplicity correction is reported in the supplied article."
+  ],
+  "extraction_limitations": [
+    "The atom model has no dedicated field for study-level metadata, cohort flow diagrams, or multiplicity-adjusted interpretation; these are carried in coverage/validation metadata and tags.",
+    "The current quantitative_result schema requires one numeric estimate per atom, so multi-arm tables are represented as selected independently reviewable contrasts rather than as a complete cell-for-cell table dump.",
+    "The supplement contains extensive descriptive tables; key results and interpretation-relevant analyses were atomized, but routine descriptive cells were not converted into individual atoms."
+  ],
+  "schema_gaps": [
+    "No dedicated atom kind for sample-size/power statements or cohort-flow accounting; represented as method/population/limitation atoms.",
+    "No structured field for global/multiplicity-adjusted p-values across multiple arms; these are kept in original_result_text or qualitative atoms when a single effect estimate is not defensible."
+  ],
+  "status": "PASS"
+}

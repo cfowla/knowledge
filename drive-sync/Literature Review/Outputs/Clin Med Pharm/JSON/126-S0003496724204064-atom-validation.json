@@ -1,0 +1,84 @@
+{
+  "source_metadata": {
+    "publication_id": "8ca0473b-9d01-5e40-b545-e2c9b80084da",
+    "exact_title": "B-cell depletion with obinutuzumab for the treatment of proliferative lupus nephritis: a randomised, double-blind, placebo-controlled trial",
+    "authors": [
+      "Richard A Furie",
+      "Gustavo Aroca",
+      "Matthew D Cascino",
+      "Jay P Garg",
+      "Brad H Rovin",
+      "Analia Alvarez",
+      "Hilda Fragoso-Loyo",
+      "Elizabeth Zuta-Santillan",
+      "Thomas Schindler",
+      "Paul Brunetta",
+      "Cary M Looney",
+      "Imran Hassan",
+      "Ana Malvar"
+    ],
+    "journal": "Annals of the Rheumatic Diseases",
+    "year": 2022,
+    "volume": 81,
+    "pages": "100-107",
+    "doi": "10.1136/annrheumdis-2021-220920",
+    "trial_registration": "NCT02550652",
+    "main_file": "1-s2.0-S0003496724204064-main.pdf",
+    "main_sha256": "d6e0bec44938fc77096dc79e77f72addd144f135e30ad2465be87a4b026ca8d2",
+    "supplement_file": "1-s2.0-S0003496724204064-mmc1.pdf",
+    "supplement_sha256": "d3f3ba50c918c89144aedb785b9971e67ff8b4268900af10bd92327f4f9f9854"
+  },
+  "extraction": {
+    "strategy": "single-pass whole-source extraction; source was 8 main-text pages plus 3 supplement pages and did not require semantic batching",
+    "atom_count": 41,
+    "counts_by_kind": {
+      "adverse_event": 5,
+      "author_conclusion": 1,
+      "comparator_description": 1,
+      "conflict_of_interest": 1,
+      "data_availability": 1,
+      "eligibility_criterion": 1,
+      "funding_disclosure": 1,
+      "intervention_description": 1,
+      "limitation": 3,
+      "method": 4,
+      "outcome_definition": 4,
+      "population_description": 2,
+      "quantitative_result": 13,
+      "study_objective": 1,
+      "subgroup_result": 2
+    },
+    "schema_version": "1.0",
+    "assertion_origins": {
+      "normalized_from_source": 18,
+      "directly_reported": 23
+    }
+  },
+  "structural_validation": {
+    "status": "PASS",
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "status": "PASS",
+    "errors": [],
+    "warnings": []
+  },
+  "duplicate_consistency_review": {
+    "status": "PASS",
+    "findings": [
+      "No duplicate atoms retained across main text and supplement.",
+      "Supplemental IgM/IgG results were retained as distinct safety-related quantitative results; B-cell depletion table data were not duplicated because main-text Figure 4 already covered those NOBILITY results."
+    ]
+  },
+  "extraction_limitations": [
+    "Atoms represent independently reviewable assertions from the supplied article and supplement; cited studies were not re-extracted as primary-study evidence.",
+    "Week-104 efficacy analyses were exploratory and not multiplicity adjusted; this qualifier is preserved in tags/limitations rather than changing the reported result values.",
+    "Some figure-derived B-cell depletion percentages were read from the rendered figure because the PDF text layer did not fully expose the plotted labels.",
+    "The current LiteratureAtom schema has no dedicated fields for journal metadata, trial registration, study-level sponsorship, or a comparative risk estimate that is absent from the source; these are handled in report metadata/tags rather than fabricated."
+  ],
+  "schema_gaps": [
+    "No study-level metadata container in LiteratureAtom itself.",
+    "No explicit field for endpoint multiplicity status or prespecified versus post hoc status; tags are used.",
+    "QuantitativeResult requires a single estimate even when a source reports only arm-level safety proportions; the obinutuzumab arm proportion is stored as estimate while both arm values remain in arms."
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "source": {
+    "title": "Efficacy and Safety of Dapagliflozin According to Background Use of Cardiovascular Medications in Patients With Type 2 Diabetes: A Prespecified Secondary Analysis of a Randomized Clinical Trial",
+    "doi": "10.1001/jamacardio.2022.2006",
+    "publication_id": "f992fed1-f4c6-5f2d-bcda-5e39e73494fc",
+    "main_pdf_sha256": "849b657e63fe0cbbed81ecbb1bdd3c4c4d7bb1f0a734d5c2eae20fcaa4c6ab79",
+    "supplement_pdf_sha256": "67be4df33e7008f6cf5b56113e8eb545fbbd8475ddf340e3a70b305332290328"
+  },
+  "atom_count": 109,
+  "counts_by_kind": {
+    "author_conclusion": 1,
+    "comparator_description": 1,
+    "conflict_of_interest": 1,
+    "data_availability": 1,
+    "eligibility_criterion": 3,
+    "funding_disclosure": 1,
+    "intervention_description": 1,
+    "limitation": 6,
+    "method": 12,
+    "outcome_definition": 4,
+    "population_description": 1,
+    "quantitative_result": 4,
+    "study_objective": 1,
+    "subgroup_result": 72
+  },
+  "counts_by_batch": {
+    "152-oyama-raz-main-abstract-v1": 2,
+    "152-oyama-raz-main-baseline-v1": 4,
+    "152-oyama-raz-main-discussion-v1": 10,
+    "152-oyama-raz-main-figure1-v1": 16,
+    "152-oyama-raz-main-figure2-v1": 30,
+    "152-oyama-raz-main-figure3-v1": 24,
+    "152-oyama-raz-main-methods-v1": 11,
+    "152-oyama-raz-supp-protocol-v1": 7,
+    "152-oyama-raz-supp-sap-v1": 5
+  },
+  "structural_validation": {
+    "pydantic_valid": true,
+    "errors": []
+  },
+  "schema_validation": {
+    "json_schema_valid": true,
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "duplicate_consistency_review": {
+    "duplicates_found": 0,
+    "source_inconsistencies": [
+      {
+        "issue": "All-three background-medication subgroup differs between abstract/narrative and Figure 2.",
+        "abstract_report": "n=4,243; CV death/HHF HR 0.76 (95% CI 0.62-0.93); kidney-specific composite HR 0.62 (0.44-0.87).",
+        "figure_2_report": "n=3,654; CV death/HHF HR 0.75 (0.59-0.94); kidney-specific composite HR 0.70 (0.48-1.02).",
+        "handling": "Both source assertions were retained as independently anchored atoms and marked needs_review; no silent reconciliation was made."
+      }
+    ]
+  },
+  "extraction_limitations": [
+    "The retrieved Drive folder contained the primary article and Supplement 1 (protocol/SAP) only.",
+    "Supplement 2, which the article cites for additional eTables/eFigures including body weight, HbA1c, and diastolic blood pressure analyses, was not available and therefore could not be reconciled.",
+    "Supplement 3, referenced for the Data Sharing Statement, was not available.",
+    "The 189-page protocol/SAP was semantically sampled for load-bearing trial-design and analysis-plan assertions rather than atomized line-by-line; non-load-bearing administrative and shipping appendices were excluded."
+  ],
+  "schema_gaps": [
+    "The current LiteratureAtom schema has no dedicated field for treatment-by-subgroup interaction P values; these are preserved in canonical statements/tags.",
+    "The schema does not explicitly model publication lineage between a secondary analysis and its underlying trial protocol/SAP; provenance, supplement locators, and tags are used.",
+    "The schema cannot directly encode endpoint-definition evolution across protocol and later secondary analysis beyond separate anchored atoms."
+  ]
+}

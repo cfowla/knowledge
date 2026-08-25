@@ -1,0 +1,87 @@
+# 152-Oyama-Raz-2022 — Reference Task Queue
+
+Primary source: **Efficacy and Safety of Dapagliflozin According to Background Use of Cardiovascular Medications in Patients With Type 2 Diabetes: A Prespecified Secondary Analysis of a Randomized Clinical Trial**  
+DOI: `10.1001/jamacardio.2022.2006`
+
+Queue contains **20** references exactly as listed in the primary article. DOI links are included only when the article printed a DOI.
+
+- [ ] **Ref 1. Canagliflozin and cardiovascular and renal events in type 2 diabetes.**
+  - Citation: Neal B, Perkovic V, Mahaffey KW, et al; CANVAS Program Collaborative Group. N Engl J Med. 2017;377(7):644-657.
+  - DOI: https://doi.org/10.1056/NEJMoa1611925
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 2. Dapagliflozin and cardiovascular outcomes in type 2 diabetes.**
+  - Citation: Wiviott SD, Raz I, Bonaca MP, et al; DECLARE–TIMI 58 Investigators. N Engl J Med. 2019;380(4):347-357.
+  - DOI: https://doi.org/10.1056/NEJMoa1812389
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 3. Empagliflozin, cardiovascular outcomes, and mortality in type 2 diabetes.**
+  - Citation: Zinman B, Wanner C, Lachin JM, et al; EMPA-REG OUTCOME Investigators. N Engl J Med. 2015;373(22):2117-2128.
+  - DOI: https://doi.org/10.1056/NEJMoa1504720
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 4. Cardiovascular outcomes with ertugliflozin in type 2 diabetes.**
+  - Citation: Cannon CP, Pratley R, Dagogo-Jack S, et al; VERTIS CV Investigators. N Engl J Med. 2020;383(15):1425-1435.
+  - DOI: https://doi.org/10.1056/NEJMoa2004967
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 5. Association of SGLT2 inhibitors with cardiovascular and kidney outcomes in patients with type 2 diabetes: a meta-analysis.**
+  - Citation: McGuire DK, Shih WJ, Cosentino F, et al. JAMA Cardiol. 2021;6(2):148-158.
+  - DOI: https://doi.org/10.1001/jamacardio.2020.4511
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 6. 2019 ACC/AHA Guideline on the Primary Prevention of Cardiovascular Disease: a report of the American College of Cardiology/American Heart Association Task Force on clinical practice guidelines.**
+  - Citation: Arnett DK, Blumenthal RS, Albert MA, et al. Circulation. 2019;140(11):e596-e646.
+  - DOI: https://doi.org/10.1161/CIR.0000000000000678
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 7. 2021 update to the 2017 ACC expert consensus decision pathway for optimization of heart failure treatment: answers to 10 pivotal issues about heart failure with reduced ejection fraction.**
+  - Citation: Maddox TM, Januzzi JL Jr, Allen LA, et al; Writing Committee. J Am Coll Cardiol. 2021;77(6):772-810.
+  - DOI: https://doi.org/10.1016/j.jacc.2020.11.022
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 8. Diabetes control and complications trial/epidemiology of diabetes interventions and complications study at 30 years: advances and contributions.**
+  - Citation: Nathan DM, Bayless M, Cleary P, et al; DCCT/EDIC Research Group. Diabetes. 2013;62(12):3976-3986.
+  - DOI: https://doi.org/10.2337/db13-1093
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 9. 2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA guideline for the prevention, detection, evaluation, and management of high blood pressure in adults.**
+  - Citation: Whelton PK, Carey RM, Aronow WS, et al. Hypertension. 2018;71(6):e13-e115.
+  - DOI: Not printed in the primary article reference list.
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 10. DECLARE-TIMI 58: participants’ baseline characteristics.**
+  - Citation: Raz I, Mosenzon O, Bonaca MP, et al. Diabetes Obes Metab. 2018;20(5):1102-1110.
+  - DOI: https://doi.org/10.1111/dom.13217
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 11. The design and rationale for the dapagliflozin effect on cardiovascular events (DECLARE)-TIMI 58 trial.**
+  - Citation: Wiviott SD, Raz I, Bonaca MP, et al. Am Heart J. 2018;200:83-89.
+  - DOI: https://doi.org/10.1016/j.ahj.2018.01.012
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 12. Effect of dapagliflozin on atrial fibrillation in patients with type 2 diabetes mellitus: insights from the DECLARE-TIMI 58 trial.**
+  - Citation: Zelniker TA, Bonaca MP, Furtado RHM, et al. Circulation. 2020;141(15):1227-1234.
+  - DOI: https://doi.org/10.1161/CIRCULATIONAHA.119.044183
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 13. Effect of dapagliflozin on heart failure and mortality in type 2 diabetes mellitus.**
+  - Citation: Kato ET, Silverman MG, Mosenzon O, et al. Circulation. 2019;139(22):2528-2536.
+  - DOI: https://doi.org/10.1161/CIRCULATIONAHA.119.040130
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 14. Effects of dapagliflozin in DAPA-HF according to background heart failure therapy.**
+  - Citation: Docherty KF, Jhund PS, Inzucchi SE, et al. Eur Heart J. 2020;41(25):2379-2392.
+  - DOI: https://doi.org/10.1093/eurheartj/ehaa183
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 15. Interplay of mineralocorticoid receptor antagonists and empagliflozin in heart failure: EMPEROR-Reduced.**
+  - Citation: Ferreira JP, Zannad F, Pocock SJ, et al. J Am Coll Cardiol. 2021;77(11):1397-1407.
+  - DOI: https://doi.org/10.1016/j.jacc.2021.01.044
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 16. Dapagliflozin and diuretic use in patients with heart failure and reduced ejection fraction in DAPA-HF.**
+  - Citation: Jackson AM, Dewan P, Anand IS, et al. Circulation. 2020;142(11):1040-1054.
+  - DOI: https://doi.org/10.1161/CIRCULATIONAHA.120.047077
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 17. Influence of neprilysin inhibition on the efficacy and safety of empagliflozin in patients with chronic heart failure and a reduced ejection fraction: the EMPEROR-Reduced trial.**
+  - Citation: Packer M, Anker SD, Butler J, et al; EMPEROR-Reduced Trial Committees and Investigators. Eur Heart J. 2021;42(6):671-680.
+  - DOI: https://doi.org/10.1093/eurheartj/ehaa968
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 18. Blood pressure lowering for prevention of cardiovascular disease and death: a systematic review and meta-analysis.**
+  - Citation: Ettehad D, Emdin CA, Kiran A, et al. Lancet. 2016;387(10022):957-967.
+  - DOI: https://doi.org/10.1016/S0140-6736(15)01225-8
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 19. Study of acute kidney injury on 309 hypertensive inpatients with ACEI/ARB-diuretic treatment.**
+  - Citation: Chen Q, Zhu S, Liao J, He W. J Natl Med Assoc. 2018;110(3):287-296.
+  - DOI: https://doi.org/10.1016/j.jnma.2017.06.008
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.
+- [ ] **Ref 20. SGLT2 inhibition and cardiovascular events: why did EMPA-REG outcomes surprise and what were the likely mechanisms?**
+  - Citation: Sattar N, McLaren J, Kristensen SL, Preiss D, McMurray JJ. Diabetologia. 2016;59(7):1333-1339.
+  - DOI: https://doi.org/10.1007/s00125-016-3956-x
+  - Task: retrieve the cited source and triage for relevance to the parent article/evidence pipeline.

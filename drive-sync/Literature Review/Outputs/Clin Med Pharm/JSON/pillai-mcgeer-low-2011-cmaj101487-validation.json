@@ -1,0 +1,69 @@
+{
+  "activated_macros": [
+    "@ATOM",
+    "@SEA"
+  ],
+  "source": {
+    "slug": "pillai-mcgeer-low-2011-cmaj101487",
+    "title": "New Delhi metallo-β-lactamase-1 in Enterobacteriaceae: emerging resistance",
+    "authors": [
+      "Dylan R. Pillai",
+      "Allison McGeer",
+      "Donald E. Low"
+    ],
+    "journal": "CMAJ",
+    "publication_date": "2011-01-11",
+    "volume_issue_pages": "183(1):59-64",
+    "doi": "10.1503/cmaj.101487",
+    "drive_file": "1830059.pdf",
+    "drive_url": "https://drive.google.com/file/d/1Pv1H5N7muTONdkVwhthClcnWkGRGZNpw/view",
+    "source_type": "narrative_review_with_targeted_literature_search",
+    "publication_id": "39356c6b-4fbb-552d-a564-4bb3d4bc3fb2",
+    "sha256": "88ca212b1108b9f622fdea52f35751adbfa112b4b5e172f2bc89d186d43dc168",
+    "page_count": 6
+  },
+  "atom_count": 40,
+  "atom_counts_by_kind": {
+    "author_conclusion": 2,
+    "conflict_of_interest": 1,
+    "intervention_description": 1,
+    "limitation": 2,
+    "method": 3,
+    "other": 5,
+    "qualitative_result": 8,
+    "quantitative_result": 18
+  },
+  "assertion_origin_counts": {
+    "normalized_from_source": 40
+  },
+  "review_status_counts": {
+    "needs_review": 40
+  },
+  "validation": {
+    "authoritative_pydantic_model": "passed",
+    "json_schema_validation": "passed",
+    "sufficiency_validation": "passed",
+    "structural_errors": [],
+    "json_schema_errors": [],
+    "sufficiency_errors": [],
+    "sufficiency_warnings": [],
+    "unique_atom_ids": true,
+    "shared_publication_id": true,
+    "exact_duplicate_canonical_statements": {}
+  },
+  "source_type_guardrail": {
+    "finding": "The source is a narrative review rather than primary literature.",
+    "handling": "Review methods and author statements are atomized as review-level claims. Results attributed to cited studies are tagged secondary_reported_result and remain anchored to the review pages. No cited study is represented as though this review enrolled participants or generated the underlying data."
+  },
+  "schema_gaps": [
+    "The current LiteratureAtom model has no dedicated secondary_review_claim or guideline_recommendation kind. Review-level secondary findings use existing kinds plus descriptive tags.",
+    "QuantitativeResult has no first-class field for MIC50 or MIC90 alongside susceptibility percentage; MIC values are preserved in canonical statements, exposure details, and original_result_text.",
+    "Reported susceptibility ranges across two breakpoint systems are stored as interval_type=range while the numeric estimate field carries the lower bound; tags mark range_as_reported."
+  ],
+  "extraction_limitations": [
+    "The review used only 4 of 23 identified research articles and applied subjective credibility selection; the atom set therefore reflects the review, not a complete 2010 NDM-1 evidence base.",
+    "Most empirical findings are secondary reports. Primary-study atoms require separate extraction of the cited papers.",
+    "All atoms remain needs_review because no human source-verification step is represented.",
+    "The governing SEA file is named v4 but its internal heading says Integrated Compact v3. The v4-named file governed by project precedence; the label conflict was not silently repaired."
+  ]
+}

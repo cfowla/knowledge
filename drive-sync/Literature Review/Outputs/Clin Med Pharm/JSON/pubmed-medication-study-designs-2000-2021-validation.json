@@ -1,0 +1,54 @@
+﻿{
+  "activated_macros": ["@ATOM", "@SEA"],
+  "source": {
+    "folder_title": "131 - PubMed Search Results - Medication Study Designs 2000-2021",
+    "folder_id": "1wdLWZ2xYeiVhJona6WAM1c8IY50tbLwR",
+    "source_type": "pubmed_search_result_packet",
+    "raw_file_count": 7,
+    "displayed_pmid_entries": 140,
+    "primary_article_present": false
+  },
+  "atom_status": "BLOCKED_NON_PRIMARY_SOURCE",
+  "atom_count": 0,
+  "atom_counts_by_kind": {},
+  "assertion_origin_counts": {},
+  "review_status_counts": {},
+  "validation": {
+    "pydantic_structural_validation": "not_run_no_atom_candidates",
+    "json_schema_validation": "not_run_no_atom_candidates",
+    "sufficiency_validation": "not_run_no_atom_candidates",
+    "structural_errors": [],
+    "schema_errors": [],
+    "sufficiency_errors": [],
+    "sufficiency_warnings": []
+  },
+  "blocking_reason": "The retrieved files are PubMed search-result pages, not primary literature. They contain search metadata and PMID lists but no article-level study assertions, methods, populations, exposures, outcomes, quantitative results, or bibliography that can support LiteratureAtom extraction.",
+  "source_integrity_findings": [
+    "Each saved search page contains only the first 20 relevance-sorted PMIDs despite result counts ranging from 2040 to 130639.",
+    "The case-series query contains no medication or drug-therapy term.",
+    "The case-report query uses 2000:2022 rather than the folder's stated 2000:2021 scope.",
+    "The case-report query is restricted to selected bacterial resistance and infection concepts rather than general medication case reports.",
+    "English-language filtering is recorded for the systematic-review, review, randomized-trial, prospective, and retrospective pages, but not for the case-series or case-report pages.",
+    "The saved pages record the NCBI filter code simsearch2.ffrft. This report preserves the code without assigning an unsupported label to it."
+  ],
+  "reference_queue_status": "FALLBACK_TO_DISPLAYED_PMIDS",
+  "reference_queue_reason": "No primary article or article bibliography was present. The Markdown task queue therefore records the 140 PMIDs displayed by the seven search snapshots and labels them as search-result acquisition tasks, not article references.",
+  "governing_sources": {
+    "literature.py": "applied",
+    "literature_atoms.py": "applied",
+    "literature_atom.schema.json": "applied",
+    "README(2).md": "applied",
+    "example_atom.json": "illustrative_only",
+    "summary-evaluation-appraisal-protocol-v4-compact.md": "applied",
+    "large-source-ATOM-SEA.md": "applied_as_supporting_workflow",
+    "summary-evaluation-appraisal-protocol-v3-compact.html": "historical_reference_only",
+    "unslop.skill.md": "applied_to_prose_artifacts"
+  },
+  "external_verification": "not_performed",
+  "extraction_limitations": [
+    "No full article, abstract record, PDF, methods section, results section, figure, table, supplement, or bibliography was present in the target folder.",
+    "The 140 displayed PMIDs are a set of seven first-page snapshots, not complete exports of the underlying PubMed result sets.",
+    "No PMID titles or bibliographic metadata were added from external sources because @VERIFY was not activated."
+  ],
+  "generated_at": "2026-08-24T04:32:00-04:00"
+}

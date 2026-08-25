@@ -1,0 +1,80 @@
+# Reference Task Queue — nihms-2063155
+
+Primary article: Iwamoto M, et al. *Trends in Invasive Methicillin-Resistant Staphylococcus aureus Infections.* Pediatrics. 2013;132(4):e817-e824. DOI: 10.1542/peds.2013-1112.
+
+References queued: 37
+
+- [ ] **1.** Fridkin SK, Hageman JC, Morrison M, et al.; Active Bacterial Core Surveillance Program of the Emerging Infections Program Network. Methicillin-resistant Staphylococcus aureus disease in three communities. N Engl J Med. 2005;352(14):1436-1444.  
+  - PMID 15814879
+- [ ] **2.** Moran GJ, Krishnadasan A, Gorwitz RJ, et al.; EMERGEncy ID Net Study Group. Methicillin-resistant S. aureus infections among patients in the emergency department. N Engl J Med. 2006;355(7):666-674.  
+  - PMID 16914702
+- [ ] **3.** Burton DC, Edwards JR, Horan TC, Jernigan JA, Fridkin SK. Methicillin-resistant Staphylococcus aureus central line-associated bloodstream infections in US intensive care units, 1997-2007. JAMA. 2009;301(7):727-736.  
+  - PMID 19224749
+- [ ] **4.** Kallen AJ, Mu Y, Bulens S, et al.; Active Bacterial Core Surveillance (ABCs) MRSA Investigators of the Emerging Infections Program. Health care-associated invasive MRSA infections, 2005-2008. JAMA. 2010;304(6):641-648.  
+  - PMID 20699455
+- [ ] **5.** Landrum ML, Neumann C, Cook C, et al. Epidemiology of Staphylococcus aureus blood and skin and soft tissue infections in the US military health system, 2005-2010. JAMA. 2012;308(1):50-59.  
+  - PMID 22760291
+- [ ] **6.** Klevens RM, Morrison MA, Nadle J, et al.; Active Bacterial Core Surveillance (ABCs) MRSA Investigators. Invasive methicillin-resistant Staphylococcus aureus infections in the United States. JAMA. 2007;298(15):1763-1771.  
+  - PMID 17940231
+- [ ] **7.** Gerber JS, Coffin SE, Smathers SA, Zaoutis TE. Trends in the incidence of methicillin-resistant Staphylococcus aureus infection in children’s hospitals in the United States. Clin Infect Dis. 2009;49(1):65-71.  
+  - PMID 19463065
+- [ ] **8.** Kaplan SL, Hulten KG, Gonzalez BE, et al. Three-year surveillance of community acquired Staphylococcus aureus infections in children. Clin Infect Dis. 2005;40(12):1785-1791.  
+  - PMID 15909267
+- [ ] **9.** Ochoa TJ, Mohr J, Wanger A, Murphy JR, Heresi GP. Community-associated methicillin-resistant Staphylococcus aureus in pediatric patients. Emerg Infect Dis. 2005;11(6):966-968.  
+  - PMID 15963299
+- [ ] **10.** Lessa FC, Edwards JR, Fridkin SK, Tenover FC, Horan TC, Gorwitz RJ. Trends in incidence of late-onset methicillin-resistant Staphylococcus aureus infection in neonatal intensive care units: data from the National Nosocomial Infections Surveillance System, 1995-2004. Pediatr Infect Dis J. 2009;28(7):577-581.  
+  - PMID 19478687
+- [ ] **11.** Schuchat A, Hilger T, Zell E, et al.; Active Bacterial Core Surveillance Team of the Emerging Infections Program Network. Active bacterial core surveillance of the emerging infections program network. Emerg Infect Dis. 2001;7(1):92-99.  
+  - PMID 11266299
+- [ ] **12.** Limbago B, Fosheim GE, Schoonover V, et al.; Active Bacterial Core Surveillance MRSA Investigators. Characterization of methicillin-resistant Staphylococcus aureus isolates collected in 2005 and 2006 from patients with invasive disease: a population-based analysis. J Clin Microbiol. 2009;47(5):1344-1351.  
+  - PMID 19321725
+- [ ] **13.** Centers for Disease Control and Prevention. Use of an inferred PFGE algorithm, Emerging Infections Program/Active Bacterial Core (ABCs) Surveillance invasive MRSA project. Published 2009; updated Dec 2, 2010.  
+  - Source URL cited in article: cdc.gov/HAI/settings/lab/inferred-PFGE-algorithm.html
+- [ ] **14.** Ingram DD, Parker JD, Schenker N, et al. United States Census 2000 population with bridged race categories. Vital Health Stat 2. 2003;(135):1-55.  
+  - No PMID listed in article
+- [ ] **15.** Parker JD, Schenker N, Ingram DD, Weed JA, Heck KE, Madans JH. Bridging between two standards for collecting information on race and ethnicity: an application to Census 2000 and vital rates. Public Health Rep. 2004;119(2):192-205.  
+  - PMID 15192907
+- [ ] **16.** Centers for Disease Control and Prevention. US census populations with bridged race categories. National Vital Statistics System. Published 2012.  
+  - Source URL cited in article: cdc.gov/nchs/nvss/bridged_race.htm
+- [ ] **17.** Fay MP, Feuer EJ. Confidence intervals for directly standardized rates: a method based on the gamma distribution. Stat Med. 1997;16(7):791-801.  
+  - PMID 9131766
+- [ ] **18.** Purcell K, Fergie J. Epidemic of community-acquired methicillin-resistant Staphylococcus aureus infections: a 14-year study at Driscoll Children’s Hospital. Arch Pediatr Adolesc Med. 2005;159(10):980-985.  
+  - PMID 16203945
+- [ ] **19.** Fortunov RM, Hulten KG, Hammerman WA, Mason EO Jr, Kaplan SL. Community-acquired Staphylococcus aureus infections in term and near-term previously healthy neonates. Pediatrics. 2006;118(3):874-881.  
+  - PMID 16950976
+- [ ] **20.** Centers for Disease Control and Prevention. ABCs report: methicillin-resistant Staphylococcus aureus, 2010.  
+  - Source URL cited in article: cdc.gov/abcs/reports-findings/survreports/mrsa10.html
+- [ ] **21.** Hudson LO, Murphy CR, Spratt BG, et al. Differences in methicillin-resistant Staphylococcus aureus strains isolated from pediatric and adult patients from hospitals in a large county in California. J Clin Microbiol. 2012;50(3):573-579.  
+  - PMID 22205805
+- [ ] **22.** Seybold U, Halvosa JS, White N, Voris V, Ray SM, Blumberg HM. Emergence of and risk factors for methicillin-resistant Staphylococcus aureus of community origin in intensive care nurseries. Pediatrics. 2008;122(5):1039-1046.  
+  - PMID 18977985
+- [ ] **23.** Healy CM, Hulten KG, Palazzi DL, Campbell JR, Baker CJ. Emergence of new strains of methicillin-resistant Staphylococcus aureus in a neonatal intensive care unit. Clin Infect Dis. 2004;39(10):1460-1466.  
+  - PMID 15546082
+- [ ] **24.** Carey AJ, Della-Latta P, Huard R, et al. Changes in the molecular epidemiological characteristics of methicillin-resistant Staphylococcus aureus in a neonatal intensive care unit. Infect Control Hosp Epidemiol. 2010;31(6):613-619.  
+  - PMID 20420500
+- [ ] **25.** Khoury J, Jones M, Grim A, Dunne WM Jr, Fraser V. Eradication of methicillin-resistant Staphylococcus aureus from a neonatal intensive care unit by active surveillance and aggressive infection control measures. Infect Control Hosp Epidemiol. 2005;26(7):616-621.  
+  - PMID 16092741
+- [ ] **26.** Song X, Cheung S, Klontz K, Short B, Campos J, Singh N. A stepwise approach to control an outbreak and ongoing transmission of methicillin-resistant Staphylococcus aureus in a neonatal intensive care unit. Am J Infect Control. 2010;38(8):607-611.  
+  - PMID 20570396
+- [ ] **27.** Song X, Perencevich E, Campos J, Short BL, Singh N. Clinical and economic impact of methicillin-resistant Staphylococcus aureus colonization or infection on neonates in intensive care units. Infect Control Hosp Epidemiol. 2010;31(2):177-182.  
+  - PMID 20001732
+- [ ] **28.** Sakaki H, Nishioka M, Kanda K, Takahashi Y. An investigation of the risk factors for infection with methicillin-resistant Staphylococcus aureus among patients in a neonatal intensive care unit. Am J Infect Control. 2009;37(7):580-586.  
+  - PMID 19535174
+- [ ] **29.** Maraqa NF, Aigbivbalu L, Masnita-Iusan C, et al. Prevalence of and risk factors for methicillin-resistant Staphylococcus aureus colonization and infection among infants at a level III neonatal intensive care unit. Am J Infect Control. 2011;39(1):35-41.  
+  - PMID 21281885
+- [ ] **30.** Huang SS, Platt R. Risk of methicillin-resistant Staphylococcus aureus infection after previous infection or colonization. Clin Infect Dis. 2003;36(3):281-285.  
+  - PMID 12539068
+- [ ] **31.** Huang YC, Chou YH, Su LH, Lien RI, Lin TY. Methicillin-resistant Staphylococcus aureus colonization and its association with infection among infants hospitalized in neonatal intensive care units. Pediatrics. 2006;118(2):469-474.  
+  - PMID 16882797
+- [ ] **32.** Bizzarro MJ, Sabo B, Noonan M, Bonfiglio MP, Northrup V, Diefenbach K; Central Venous Catheter Initiative Committee. A quality improvement initiative to reduce central line-associated bloodstream infections in a neonatal intensive care unit. Infect Control Hosp Epidemiol. 2010;31(3):241-248.  
+  - PMID 20102278
+- [ ] **33.** Schulman J, Stricof R, Stevens TP, et al.; New York State Regional Perinatal Care Centers. Statewide NICU central-line-associated bloodstream infection rates decline after bundles and checklists. Pediatrics. 2011;127(3):436-444.  
+  - PMID 21339265
+- [ ] **34.** Wirtschafter DD, Pettit J, Kurtin P, et al. A statewide quality improvement collaborative to reduce neonatal central line-associated blood stream infections. J Perinatol. 2010;30(3):170-181.  
+  - PMID 19940855
+- [ ] **35.** Kaplan HC, Lannon C, Walsh MC, Donovan EF; Ohio Perinatal Quality Collaborative. Ohio statewide quality-improvement collaborative to reduce late-onset sepsis in preterm infants. Pediatrics. 2011;127(3):427-435.  
+  - PMID 21339274
+- [ ] **36.** Bryant KA, Zerr DM, Huskins WC, Milstone AM. The past, present, and future of healthcare-associated infection prevention in pediatrics: catheter-associated bloodstream infections. Infect Control Hosp Epidemiol. 2010;31(suppl 1):S27-S31.  
+  - PMID 20929363
+- [ ] **37.** Milstone AM, Bryant KA, Huskins WC, Zerr DM. The past, present, and future of healthcare-associated infection prevention in pediatrics: multidrug-resistant organisms. Infect Control Hosp Epidemiol. 2010;31(suppl 1):S18-S21.  
+  - PMID 20929361

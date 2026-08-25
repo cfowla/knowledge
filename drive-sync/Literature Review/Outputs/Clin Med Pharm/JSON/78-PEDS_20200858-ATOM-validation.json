@@ -1,0 +1,61 @@
+{
+  "source_metadata": {
+    "source_id": "PEDS_20200858",
+    "exact_title": "Prevalence of Clinically Significant Drug-Drug Interactions Across US Children’s Hospitals",
+    "citation": "Antoon JW, Hall M, Herndon A, et al. Pediatrics. 2020;146(5):e20200858.",
+    "doi": "10.1542/peds.2020-0858",
+    "source_file": "PEDS_20200858.pdf",
+    "source_sha256": "5d0bb07ea65f5d68cd0976ea3592ca74f8d2547133feb431a23b6f404bd162ce",
+    "publication_id": "21c81454-7249-56a2-8446-80fd5efcf963",
+    "study_design": "Multicenter retrospective cohort study using PHIS",
+    "study_period_as_reported": "Jan 1, 2016-Dec 31, 2018"
+  },
+  "atom_count_total": 167,
+  "atom_counts_by_kind": {
+    "author_conclusion": 9,
+    "conflict_of_interest": 1,
+    "eligibility_criterion": 4,
+    "funding_disclosure": 2,
+    "limitation": 7,
+    "method": 15,
+    "other": 2,
+    "outcome_definition": 1,
+    "population_description": 2,
+    "quantitative_result": 122,
+    "study_objective": 2
+  },
+  "structural_validation": {
+    "valid": true,
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "duplicate_review": {
+    "exact_duplicate_atom_ids": 0,
+    "note": "Deterministic unique atom IDs were generated per extracted assertion; no duplicate source-row assertions were intentionally merged."
+  },
+  "consistency_findings": [
+    {
+      "severity": "warning",
+      "issue": "Study period wording is internally inconsistent: Methods specify Jan 1, 2016 through Dec 31, 2018 (36 months), while Results/Discussion refer to a “2-year study period.” No correction was imposed."
+    },
+    {
+      "severity": "warning",
+      "issue": "Methods describe adjusted hospital proportions using a generalized linear mixed-effects model with hospital as a random effect, whereas the Figure 1 caption describes adjusted proportions as derived by multivariable logistic regression. The source wording was preserved rather than reconciled."
+    }
+  ],
+  "extraction_limitations": [
+    "Atoms represent assertions in the primary article; cited external-study results in the introduction/discussion were not re-extracted as primary-study evidence.",
+    "The article defines DDI exposure as same-day administration; the ATOM set does not infer clinical harm, preventability, or pharmacokinetic overlap from that definition.",
+    "Table 3 rates reported as <0.01 per 1000 days cannot be represented exactly by the quantitative_result numeric estimate field; for those rows the atom quantifies directly reported patient-days and preserves the <0.01 rate in the canonical statement/original_result_text.",
+    "Drug-class/mechanism “+” markers in Table 3 were normalized to base drug names in ConceptRef text; the source method defining class/mechanism expansion is captured separately."
+  ],
+  "schema_gaps": [
+    "The current LiteratureAtom schema has no dedicated field for inequality-valued quantitative estimates such as <0.01.",
+    "The schema has no dedicated study-level metadata object; source metadata is therefore provided in this validation report rather than repeated in every atom.",
+    "The schema does not distinguish exposure prevalence from actual DDI-related adverse events; the extraction preserves the article’s exposure endpoint and does not treat it as harm."
+  ]
+}

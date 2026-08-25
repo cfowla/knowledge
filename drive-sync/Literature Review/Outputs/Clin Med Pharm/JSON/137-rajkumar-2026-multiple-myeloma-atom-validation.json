@@ -1,0 +1,124 @@
+{
+  "source_metadata": {
+    "publication_id": "b42e6224-9ed5-5f14-9d9d-0e89d40f4885",
+    "exact_title": "Multiple Myeloma: 2026 Update on Diagnosis, Risk-Stratification and Management",
+    "author": "S. Vincent Rajkumar",
+    "journal": "American Journal of Hematology",
+    "year": 2026,
+    "received": "2026-07-30",
+    "revised": "2026-07-30",
+    "accepted": "2026-08-05",
+    "doi": "10.1002/ajh.70475",
+    "source_type": "annual clinical update / narrative clinical review",
+    "page_count": 24,
+    "substantive_pages": "1-19",
+    "reference_pages": "19-24",
+    "input_sha256": "4ceeceddb56647ed328ea1cd592372977651c94b36bdf0ba21150e8dbf90becd"
+  },
+  "batch_manifest": [
+    {
+      "batch_id": "batch-00-diagnosis-risk",
+      "pages": "1-6",
+      "scope": "Disease overview, diagnosis, molecular classification, prognosis/risk stratification, treatment-option overview",
+      "run_id": "rajkumar-2026-diagnosis-risk-v1"
+    },
+    {
+      "batch_id": "batch-01-newly-diagnosed",
+      "pages": "6-12",
+      "scope": "Newly diagnosed therapy, transplant eligibility, ASCT, consolidation, maintenance; Tables 6-7 and Figure 1",
+      "run_id": "rajkumar-2026-newly-diagnosed-v1"
+    },
+    {
+      "batch_id": "batch-02-relapsed",
+      "pages": "12-17",
+      "scope": "Relapsed myeloma, bispecific antibodies, CAR-T, belantamab and standard regimens; Tables 8-9 and Figure 2",
+      "run_id": "rajkumar-2026-relapsed-v1"
+    },
+    {
+      "batch_id": "batch-03-supportive-smm",
+      "pages": "17-19",
+      "scope": "Supportive care, smoldering myeloma, recommendations, funding/conflicts/data availability; Table 10",
+      "run_id": "rajkumar-2026-supportive-smm-v1"
+    }
+  ],
+  "atom_count_total": 64,
+  "atom_counts_by_kind": {
+    "study_objective": 1,
+    "other": 20,
+    "author_conclusion": 26,
+    "quantitative_result": 14,
+    "funding_disclosure": 1,
+    "conflict_of_interest": 1,
+    "data_availability": 1
+  },
+  "atom_counts_by_batch": {
+    "rajkumar-2026-diagnosis-risk-v1": {
+      "study_objective": 1,
+      "other": 14
+    },
+    "rajkumar-2026-newly-diagnosed-v1": {
+      "author_conclusion": 13,
+      "other": 2,
+      "quantitative_result": 6
+    },
+    "rajkumar-2026-relapsed-v1": {
+      "other": 2,
+      "author_conclusion": 10,
+      "quantitative_result": 6
+    },
+    "rajkumar-2026-supportive-smm-v1": {
+      "author_conclusion": 3,
+      "other": 2,
+      "quantitative_result": 2,
+      "funding_disclosure": 1,
+      "conflict_of_interest": 1,
+      "data_availability": 1
+    }
+  },
+  "structural_validation": {
+    "valid": true,
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "cross_batch_duplicates": [],
+  "consistency_findings": [
+    {
+      "severity": "warning",
+      "topic": "FLC biomarker MDE criterion",
+      "finding": "The abstract and Section 2 narrative require urine monoclonal protein >=200 mg/24 h in addition to FLC ratio >=100 and involved FLC >=100 mg/L; Table 1 omits the urine requirement.",
+      "action": "Preserved both source statements; do not silently reconcile. Verify against the governing diagnostic criteria before clinical implementation."
+    },
+    {
+      "severity": "warning",
+      "topic": "Late SMM progression rate",
+      "finding": "Section 1 reports 1.5%/year after the first 10 years, whereas Section 9 reports 1%/year thereafter.",
+      "action": "Preserved both values and flagged the discrepancy."
+    },
+    {
+      "severity": "warning",
+      "topic": "Frail transplant-ineligible regimen",
+      "finding": "Figure 1 lists DRd or IRd for frail patients, while Section 6.2.3 recommends DRd or Isa-Rd.",
+      "action": "Preserved the figure and prose separately; primary/source verification is needed if this distinction affects use."
+    },
+    {
+      "severity": "warning",
+      "topic": "DREAMM-8 table value",
+      "finding": "Table 9 displays CR plus VGPR of 99% for Bela-Pd, an unusually high value relative to surrounding entries.",
+      "action": "The value is not corrected or used as a core claim; verify in the cited primary trial before reuse."
+    }
+  ],
+  "schema_gaps": [
+    "The LiteratureAtom schema is oriented toward primary literature and has no dedicated kind for clinical-review recommendations.",
+    "Author recommendations are stored as author_conclusion or other with review_recommendation tags.",
+    "Trial results summarized by this review are tagged secondary_reported_result and anchored to the review; they are not represented as if this article enrolled the trial participants."
+  ],
+  "extraction_limitations": [
+    "This is a single-author annual clinical update/narrative review, not a primary trial or systematic review.",
+    "Bibliography entries were not atomized; cited primary trials should be read separately when primary-study atoms are required.",
+    "Regimen dosing and visual workflows are represented in the SEA artifact; ATOM extraction prioritizes independently reviewable clinical assertions and key secondary quantitative trial summaries rather than every dosing cell in Table 6."
+  ]
+}

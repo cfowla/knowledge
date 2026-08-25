@@ -1,0 +1,108 @@
+{
+  "source_metadata": {
+    "source_file": "IJAS_0_1881967.pdf",
+    "exact_title": "Montelukast in hospitalized patients diagnosed with COVID-19",
+    "authors": [
+      "Ahsan R. Khan",
+      "Christian Misdary",
+      "Nikhil Yegya-Raman",
+      "Sinae Kim",
+      "Navaneeth Narayanan",
+      "Sheraz Siddiqui",
+      "Padmini Salgame",
+      "Jared Radbel",
+      "Frank De Groote",
+      "Carl Michel",
+      "Janice Mehnert",
+      "Caleb Hernandez",
+      "Thomas Braciale",
+      "Jyoti Malhotra",
+      "Michael A. Gentile",
+      "Salma K. Jabbour"
+    ],
+    "journal": "Journal of Asthma",
+    "doi": "10.1080/02770903.2021.1881967",
+    "publication_id": "20d9dc41-4f37-52da-b697-957090cafef7",
+    "received": "2020-09-15",
+    "revised": "2020-12-07",
+    "accepted": "2021-01-24",
+    "published_online": "2021-03-04",
+    "design": "single-center retrospective observational cohort",
+    "input_document_sha256": "a5cf31ac337130e89119168477982e3d2d44b7be7b21d0066c19a0ec429600d2",
+    "pdf_pages": 7
+  },
+  "workflow": {
+    "macro": "@ATOM",
+    "batching": "single semantic pass; 7-page source did not require large-source batching",
+    "governing_sources": [
+      "literature(1).py",
+      "literature_atoms(1).py",
+      "literature_atom.schema.json",
+      "README(2).md",
+      "example_atom(1).json"
+    ],
+    "authority_precedence": [
+      "literature(1).py",
+      "literature_atoms(1).py",
+      "literature_atom.schema.json",
+      "README(2).md",
+      "example_atom(1).json"
+    ],
+    "publication_identity_shared": "20d9dc41-4f37-52da-b697-957090cafef7"
+  },
+  "atom_count": 40,
+  "atom_counts_by_kind": {
+    "author_conclusion": 1,
+    "comparator_description": 1,
+    "conflict_of_interest": 4,
+    "data_availability": 1,
+    "eligibility_criterion": 2,
+    "funding_disclosure": 1,
+    "intervention_description": 1,
+    "limitation": 5,
+    "method": 7,
+    "outcome_definition": 1,
+    "population_description": 1,
+    "qualitative_result": 3,
+    "quantitative_result": 9,
+    "study_objective": 1,
+    "subgroup_result": 2
+  },
+  "assertion_origin_counts": {
+    "calculated_from_reported_data": 1,
+    "normalized_from_source": 39
+  },
+  "structural_validation": {
+    "status": "pass",
+    "errors": []
+  },
+  "json_schema_validation": {
+    "status": "pass",
+    "validator": "Draft 2020-12",
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "status": "pass",
+    "errors": [],
+    "warnings": []
+  },
+  "duplicate_consistency_review": {
+    "status": "pass with source-level cautions",
+    "duplicate_atoms_found": 0,
+    "source_consistency_findings": [
+      "Table 5 contains internally inconsistent percentages for several ordinal-scale delta categories relative to the displayed counts (for example, 1/30 shown as 0%, 26/30 as 84%, 3/30 as 12%). Primary clinical-deterioration counts/rates are internally consistent.",
+      "Azithromycin imbalance is reported as p=0.01 in Table 2 and p=0.009 in the Results narrative; the table-anchored atom preserves p=0.01 and is tagged source-inconsistency.",
+      "Discussion cites “(1,23)” although the reference list contains only references 1-22; no reference 23 is available in the source PDF."
+    ]
+  },
+  "extraction_limitations": [
+    "This observational study does not report treatment-emergent adverse-event data; no adverse_event atom was created from general montelukast safety discussion.",
+    "Sensitivity analyses for patients without asthma and without azithromycin report percentages but not subgroup denominators in the text; subgroup atoms therefore do not invent sample sizes.",
+    "The steroid sensitivity analysis is qualitative in the source and lacks a quantitative result; it is represented as qualitative_result rather than subgroup_result.",
+    "Background claims attributed to cited literature were not reclassified as primary-study results from this cohort."
+  ],
+  "schema_gaps": [
+    "The current QuantitativeResult model has one top-level estimate, so two-arm medians/proportions are preserved in arms and canonical_statement while the top-level estimate corresponds to the montelukast arm or reported effect measure as labeled.",
+    "The model has no dedicated field for per-arm IQRs; IQRs are preserved in canonical_statement/original_result_text for length of stay."
+  ]
+}

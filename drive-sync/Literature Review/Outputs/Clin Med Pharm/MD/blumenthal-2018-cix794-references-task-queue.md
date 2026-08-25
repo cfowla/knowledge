@@ -1,0 +1,73 @@
+# Reference task queue for The Impact of a Reported Penicillin Allergy on Surgical Site Infection Risk
+
+Source: Blumenthal KG et al. Clinical Infectious Diseases. 2018;66(3):329-336. DOI: 10.1093/cid/cix794.
+
+Total references: 67. Use each item as an acquisition and evidence-processing task.
+
+- [ ] 1. Zimlichman E, Henderson D, Tamir O, et al. Health care-associated infections: a meta-analysis of costs and financial impact on the US health care system. JAMA Intern Med 2013; 173:2039-46.
+- [ ] 2. Awad SS. Adherence to surgical care improvement project measures and post-operative surgical site infections. Surg Infect (Larchmt) 2012; 13:234-7.
+- [ ] 3. de Lissovoy G, Fraeman K, Hutchins V, Murphy D, Song D, Vaughn BB. Surgical site infection: incidence and impact on hospital utilization and treatment costs. Am J Infect Control 2009; 37:387-97.
+- [ ] 4. Schweizer ML, Cullen JJ, Perencevich EN, Vaughan Sarrazin MS. Costs associated with surgical site infections in veterans affairs hospitals. JAMA Surg 2014; 149:575-81.
+- [ ] 5. Medicare.gov. Hospital Compare. https://www.medicare.gov/hospitalcompare/ search.html. Accessed 23 May 2017.
+- [ ] 6. Kahn KL, Mendel P, Weinberg DA, Leuschner KJ, Gall EM, Siegel S. Approach for conducting the longitudinal program evaluation of the US Department of Health and Human Services National Action Plan to prevent healthcare-associated infections: roadmap to elimination. Med Care 2014; 52:S9-16.
+- [ ] 7. The Joint Commission. Surgical Site Infections. https://www.jointcommission. org/topics/hai_ssi.aspx. Accessed 23 May 2017.
+- [ ] 8. Centers for Medicare & Medicaid Services. Resources: Surgical Site Infections. https://partnershipforpatients.cms.gov/p4p_resources/tsp-surgicalsiteinfections/ toolsurgicalsiteinfections.html. Accessed 23 May 2017.
+- [ ] 9. Anderson DJ, Podgorny K, Berríos-Torres SI, et al. Strategies to prevent surgical site infections in acute care hospitals: 2014 update. Infect Control Hosp Epidemiol 2014; 35(suppl 2):S66-88.
+- [ ] 10. Bratzler DW, Dellinger EP, Olsen KM, et al. American Society of Health-System Pharmacists; Infectious Disease Society of America; Surgical Infection Society; Society for Healthcare Epidemiology of America. Clinical practice guidelines for antimicrobial prophylaxis in surgery. Am J Health Syst Pharm 2013; 70:195-283.
+- [ ] 11. Alexander JW, Solomkin JS, Edwards MJ. Updated recommendations for control of surgical site infections. Ann Surg 2011; 253:1082-93.
+- [ ] 12. Bull AL, Worth LJ, Richards MJ. Impact of vancomycin surgical antibiotic prophylaxis on the development of methicillin-sensitive staphylococcus aureus surgical site infections: report from Australian Surveillance Data (VICNISS). Ann Surg 2012; 256:1089-92.
+- [ ] 13. Bratzler DW, Dellinger EP, Olsen KM, et al; American Society of Health-System Pharmacists (ASHP); Infectious Diseases Society of America (IDSA); Surgical Infection Society (SIS); Society for Healthcare Epidemiology of America (SHEA). Clinical practice guidelines for antimicrobial prophylaxis in surgery. Surg Infect 2013; 14:73-156.
+- [ ] 14. Berríos-Torres SI, Yi SH, Bratzler DW, et al. Activity of commonly used antimicrobial prophylaxis regimens against pathogens causing coronary artery bypass graft and arthroplasty surgical site infections in the United States, 2006-2009. Infect Control Hosp Epidemiol 2014; 35:231-9.
+- [ ] 15. Bratzler DW, Houck PM; Surgical Infection Prevention Guidelines Writers Workgroup; American Academy of Orthopaedic Surgeons; American Association of Critical Care Nurses; American Association of Nurse Anesthetists; American College of Surgeons; American College of Osteopathic Surgeons; American Geriatrics Society; American Society of Anesthesiologists; American Society of Colon and Rectal Surgeons; American Society of Health-System Pharmacists; American Society of PeriAnesthesia Nurses; Ascension Health; Association of periOperative Registered Nurses; Association for Professionals in Infection Control and Epidemiology; Infectious Diseases Society of America; Medical Letter; Premier; Society for Healthcare Epidemiology of America; Society of Thoracic Surgeons; Surgical Infection Society. Antimicrobial prophylaxis for surgery: an advisory statement from the National Surgical Infection Prevention Project. Clin Infect Dis 2004; 38:1706-15. 336 • CID 2018:66 (1 February) • Blumenthal et al
+- [ ] 16. Zhou L, Dhopeshwarkar N, Blumenthal KG, et al. Drug allergies documented in electronic health records of a large healthcare system. Allergy 2016; 71:1305-13.
+- [ ] 17. Lee CE, Zembower TR, Fotis MA, et al. The incidence of antimicrobial allergies in hospitalized patients: implications regarding prescribing patterns and emerging bacterial resistance. Arch Intern Med 2000; 160:2819-22.
+- [ ] 18. Beltran RJ, Kako H, Chovanec T, Ramesh A, Bissonnette B, Tobias JD. Penicillin allergy and surgical prophylaxis: cephalosporin cross-reactivity risk in a pediatric tertiary care center. J Pediatr Surg 2015; 50:856-9.
+- [ ] 19. Ponce B, Raines BT, Reed RD, Vick C, Richman J, Hawn M. Surgical site infection after arthroplasty: comparative effectiveness of prophylactic antibiotics: do surgical care improvement project guidelines need to be updated? J Bone Joint Surg Am 2014; 96:970-7.
+- [ ] 20. Tan TL, Springer BD, Ruder JA, Ruffolo MR, Chen AF. Is vancomycin-only prophylaxis for patients with penicillin allergy associated with increased risk of infection after arthroplasty? Clin Orthop Relat Res 2016; 474:1601-6.
+- [ ] 21. Epstein RH, Jacques PS, Wanderer JP, Bombulie MR, Agarwalla N. Prophylactic antibiotic management of surgical patients noted as "allergic" to penicillin at two academic hospitals. A A Case Rep 2016; 6:263-7.
+- [ ] 22. Sagar PS, Katelaris CH. Utility of penicillin allergy testing in patients presenting with a history of penicillin allergy. Asia Pac Allergy 2013; 3:115-9.
+- [ ] 23. Macy E, Ngor EW. Safely diagnosing clinically significant penicillin allergy using only penicilloyl-poly-lysine, penicillin, and oral amoxicillin. J Allergy Clin Immunol Pract 2013; 1:258-63.
+- [ ] 24. Arroliga ME, Radojicic C, Gordon SM, et al. A prospective observational study of the effect of penicillin skin testing on antibiotic use in the intensive care unit. Infect Control Hosp Epidemiol 2003; 24:347-50.
+- [ ] 25. Pichichero ME. A review of evidence supporting the American Academy of Pediatrics recommendation for prescribing cephalosporin antibiotics for penicillin-allergic patients. Pediatrics 2005; 115:1048-57.
+- [ ] 26. Macy E, Contreras R. Health care use and serious infection prevalence associated with penicillin "allergy" in hospitalized patients: a cohort study. J Allergy Clin Immunol 2014; 133:790-6.
+- [ ] 27. Pool C, Kass J, Spivack J, et al. Increased surgical site infection rates following clindamycin use in head and neck free tissue transfer. Otolaryngol Head Neck Surg 2016; 154:272-8.
+- [ ] 28. Ristić V, Maljanović M, Harhaji V, Milankov M. Infections after reconstructions of anterior cruciate ligament. Med Pregl 2014; 67:11-5.
+- [ ] 29. French D, Noroozi M, Shariati B, Larjava H. Clinical retrospective study of self-reported penicillin allergy on dental implant failures and infections. Quintessence Int 2016; 47:861-70.
+- [ ] 30. Kuperman GJ, Marston E, Paterno M, et al. Creating an enterprise-wide allergy repository at Partners HealthCare System. AMIA Annu Symp Proc 2003:376-80.
+- [ ] 31. Solensky R, Khan D. Drug allergy: an updated practice parameter. Ann Allergy Asthma Immunol 2010; 105:259-73.
+- [ ] 32. Centers for Disease Control and Prevention. Surgical Site Infection (SSI) Event; 2017. https://www.cdc.gov/nhsn/pdfs/pscmanual/9pscssicurrent.pdf. Accessed 22 September 2017.
+- [ ] 33. American Society of Anesthesiologists. ASA Physical Status Classification System. http://www.asahq.org/resources/clinical-information/asa-physical-status-classification-system. Accessed 23 May 2017.
+- [ ] 34. Wilke RA, Berg RL, Peissig P, et al. Use of an electronic medical record for the identification of research subjects with diabetes mellitus. Clin Med Res 2007; 5:1-7.
+- [ ] 35. Kern EF, Maney M, Miller DR, et al. Failure of ICD-9-CM codes to identify patients with comorbid chronic kidney disease in diabetes. Health Serv Res 2006; 41:564-80.
+- [ ] 36. Stein PD, Beemath A, Meyers FA, Skaf E, Sanchez J, Olson RE. Incidence of venous thromboembolism in patients hospitalized with cancer. Am J Med 2006; 119:60-8.
+- [ ] 37. Mannino DM, Homa DM, Akinbami LJ, Moorman JE, Gwynn C, Redd SC. Surveillance for asthma-United States, 1980-1999. MMWR Surveill Summ 2002; 51:1-13.
+- [ ] 38. Centers for Disease Control and Prevention. Procedure Code Mapping to NHSN Operative Procedure Codes. https://www.cdc.gov/nhsn/acute-care-hospital/ssi/ index.html. Accessed 23 May 2017.
+- [ ] 39. Mu Y, Edwards JR, Horan TC, Berrios-Torres SI, Fridkin SK. Improving risk-adjusted measures of surgical site infection for the national healthcare safety network. Infect Control Hosp Epidemiol 2011; 32:970-86.
+- [ ] 40. Kaafarani HM, Smith TS, Neumayer L, Berger DH, Depalma RG, Itani KM. Trends, outcomes, and predictors of open and conversion to open cholecystectomy in Veterans Health Administration hospitals. Am J Surg 2010; 200:32-40.
+- [ ] 41. Glatz T, Kulemann B, Marjanovic G, Bregenzer S, Makowiec F, Hoeppner J. Postoperative fluid overload is a risk factor for adverse surgical outcome in patients undergoing esophagectomy for esophageal cancer: a retrospective study in 335 patients. BMC Surg 2017; 17:6.
+- [ ] 42. Lange T, Vansteelandt S, Bekaert M. A simple unified approach for estimating natural direct and indirect effects. Am J Epidemiol 2012; 176:190-5.
+- [ ] 43. Sacco KA, Bates A, Brigham TJ, Imam JS, Burton MC. Clinical outcomes following inpatient penicillin allergy testing: a systematic review and meta-analysis. Allergy 2017; 72:1288-96.
+- [ ] 44. Park M, Markus P, Matesic D, Li JT. Safety and effectiveness of a preoperative allergy clinic in decreasing vancomycin use in patients with a history of penicillin allergy. Ann Allergy Asthma Immunol 2006; 97:681-7.
+- [ ] 45. Frigas E, Park MA, Narr BJ, et al. Preoperative evaluation of patients with history of allergy to penicillin: comparison of 2 models of practice. Mayo Clin Proc 2008; 83:651-62.
+- [ ] 46. Murphy J, Isaiah A, Dyalram D, Lubek JE. Surgical site infections in patients receiving osteomyocutaneous free flaps to the head and neck. Does choice of antibiotic prophylaxis matter? J Oral Maxillofac Surg 2017. In press.
+- [ ] 47. Yee J, Dixon CM, McLean AP, Meakins JL. Clostridium difficile disease in a department of surgery. The significance of prophylactic antibiotics. Arch Surg 1991; 126:241-6.
+- [ ] 48. Baxter R, Ray GT, Fireman BH. Case-control study of antibiotic use and subsequent Clostridium difficile-associated diarrhea in hospitalized patients. Infect Control Hosp Epidemiol 2008; 29:44-50.
+- [ ] 49. Palmore TN, Sohn S, Malak SF, Eagan J, Sepkowitz KA. Risk factors for acquisition of Clostridium difficile-associated diarrhea among outpatients at a cancer hospital. Infect Control Hosp Epidemiol 2005; 26:680-4.
+- [ ] 50. Southern WN, Rahmani R, Aroniadis O, et al. Postoperative Clostridium difficile- associated diarrhea. Surgery 2010; 148:24-30.
+- [ ] 51. Warkentin D, Ippoliti C, Bruton J, Van Besien K, Champlin R. Toxicity of single daily dose gentamicin in stem cell transplantation. Bone Marrow Transplant 1999; 24:57-61.
+- [ ] 52. Stukus DR, Green T, Montandon SV, Wada KJ. Deficits in allergy knowledge among physicians at academic medical centers. Ann Allergy Asthma Immunol 2015; 115:51-55.e1.
+- [ ] 53. Prematta T, Shah S, Ishmael FT. Physician approaches to beta-lactam use in patients with penicillin hypersensitivity. Allergy Asthma Proc 2012; 33:145-51.
+- [ ] 54. Blumenthal KG, Shenoy ES, Hurwitz S, Varughese CA, Hooper DC, Banerji A. Effect of a drug allergy educational program and antibiotic prescribing guideline on inpatient clinical providers’ antibiotic prescribing knowledge. J Allergy Clin Immunol Pract 2014; 2:407-13.
+- [ ] 55. McDanel DL, Azar AE, Dowden AM, et al. Screening for beta-lactam allergy in joint arthroplasty patients to improve surgical prophylaxis practice. J Arthroplasty 2017; 32:101-8.
+- [ ] 56. Cook DJ, Barbara DW, Singh KE, Dearani JA. Penicillin skin testing in cardiac surgery. J Thorac Cardiovasc Surg 2014; 147:1931-5.
+- [ ] 57. Blumenthal KG, Shenoy ES, Varughese CA, Hurwitz S, Hooper DC, Banerji A. Impact of a clinical guideline for prescribing antibiotics to inpatients reporting penicillin or cephalosporin allergy. Ann Allergy Asthma Immunol 2015; 115:294-300.e2.
+- [ ] 58. Blumenthal KG, Wickner PG, Hurwitz S, et al. Tackling inpatient penicillin allergies: assessing tools for antimicrobial stewardship. J Allergy Clin Immunol 2017; 140:154-161.e6.
+- [ ] 59. Tucker MH, Lomas CM, Ramchandar N, Waldram JD. Amoxicillin challenge without penicillin skin testing in evaluation of penicillin allergy in a cohort of Marine recruits. J Allergy Clin Immunol Pract 2017; 5:813-5.
+- [ ] 60. Mill C, Primeau MN, Medoff E, et al. Assessing the diagnostic properties of a graded oral provocation challenge for the diagnosis of immediate and nonimmediate reactions to amoxicillin in children. JAMA Pediatr 2016; 170:e160033.
+- [ ] 61. Cruse PJ, Foord R. The epidemiology of wound infection. A 10-year prospective study of 62,939 wounds. Surg Clin North Am 1980; 60:27-40.
+- [ ] 62. Petherick ES, Dalton JE, Moore PJ, Cullum N. Methods for identifying surgical wound infection after discharge from hospital: a systematic review. BMC Infect Dis 2006; 6:170.
+- [ ] 63. Niedner MF; 2008 National Association of Children’s Hospitals and Related Institutions Pediatric Intensive Care Unit Patient Care FOCUS Group. The harder you look, the more you find: catheter-associated bloodstream infection surveillance variability. Am J Infect Control 2010; 38:585-95.
+- [ ] 64. Haut ER, Pronovost PJ. Surveillance bias in outcomes reporting. JAMA 2011; 305:2462-3.
+- [ ] 65. Baker C, Luce J, Chenoweth C, Friedman C. Comparison of case-finding methodologies for endometritis after cesarean section. Am J Infect Control 1995; 23:27-33.
+- [ ] 66. Cardo DM, Falk PS, Mayhall CG. Validation of surgical wound surveillance. Infect Control Hosp Epidemiol 1993; 14:211-5.
+- [ ] 67. Ming DY, Chen LF, Miller BA, Anderson DJ. The impact of depth of infection and postdischarge surveillance on rate of surgical-site infections in a network of community hospitals. Infect Control Hosp Epidemiol 2012; 33:276-82.

@@ -1,0 +1,118 @@
+# Reference Task Queue — 107 - S0967586821004811
+
+Source article: *Ischemic stroke mimics: A comprehensive review* (Pohl et al., Journal of Clinical Neuroscience, 2021; DOI 10.1016/j.jocn.2021.09.025).
+
+Queue scope: all 112 references listed in the retrieved source PDF. Check an item when the cited source has been obtained and processed.
+
+- [ ] **[1]** Mikulík R, Caso V, Bornstein NM, Svobodová V, Pezzella FR, Grecu A, et al. Enhancing and accelerating stroke treatment in Eastern European region: Methods and achievement of the ESO EAST program. Eur Stroke J 2020;5 (2):204–12.
+- [ ] **[2]** Tsivgoulis G, Zand R, Katsanos AH, Goyal N, Uchino K, Chang J, et al. Safety of intravenous thrombolysis in stroke mimics: prospective 5-year study and comprehensive meta-analysis. Stroke 2015;46(5):1281–7.
+- [ ] **[3]** Ramadan A-R, Denny MC, Vahidy F, Yamal J-M, Wu T-C, Sarraj A, et al. Agreement Among Stroke Faculty and Fellows in Treating Ischemic Stroke Patients With Tissue-Type Plasminogen Activator and Thrombectomy. Stroke 2017;48(1):222–4.
+- [ ] **[4]** 2018 Guidelines for the Early Management of Patients With Acute Ischemic Stroke: A Guideline for Healthcare Professionals From the American Heart Association/American Stroke Association. Stroke. 2018;49:e46–e99.
+- [ ] **[5]** Fernandes PM, Whiteley WN, Hart SR, Al-Shahi Salman R. Strokes: mimics and chameleons. Pract Neurol 2013;13(1):21–8.
+- [ ] **[6]** Feher G, Gurdan Z, Gombos K, Koltai K, Pusch G, Tibold A, et al. Early seizures after ischemic stroke: focus on thrombolysis. CNS Spectr 2020;25(1):101–13.
+- [ ] **[7]** Misra S, Montaner J, Ramiro L, Arora R, Talwar P, Nath M, Kumar A, Kumar P, Pandit AK, Mohania D, Prasad K, Vibha D. Blood biomarkers for the diagnosis and differentiation of stroke: A systematic review and meta-analysis. Int J Stroke. 2020:1747493020946157.
+- [ ] **[8]** Jones AT, O’Connell NK, David AS. Epidemiology of functional stroke mimic patients: a systematic review and meta-analysis. Eur J Neurol 2020;27 (1):18–26.
+- [ ] **[9]** McClelland G, Rodgers H, Flynn D, Price CI. The frequency, characteristics and aetiology of stroke mimic presentations: a narrative review. Eur J Emerg Med. 2019;26(1):2–8.
+- [ ] **[10]** Vilela P. Acute stroke differential diagnosis: stroke mimics. Eur J Radiol 2017;96:133–44.
+- [ ] **[11]** Hand PJ, Kwan J, Lindley RI, Dennis MS, Wardlaw JM. Distinguishing between stroke and mimic at the bedside: the brain attack study. Stroke 2006;37 (3):769–75.
+- [ ] **[12]** Zanaty M, Chalouhi N, Starke RM, Tjoumakaris SI, Gonzalez LF, Deprince M, et al. Epidemiology of a large telestroke cohort in the Delaware valley. Clin Neurol Neurosurg 2014;125:143–7.
+- [ ] **[13]** Sibon I, Rouanet F, Meissner W, Orgogozo JM. Use of the Triage Stroke Panel in a neurologic emergency service. Am J Emerg Med 2009;27(5):558–62.
+- [ ] **[14]** Asaithambi G, Castle AL, Sperl MA, Ravichandran J, Gupta A, Ho BM, et al. Thrombolytic treatment to stroke mimic patients via telestroke. Clin Neurol Neurosurg 2017;153:5–7.
+- [ ] **[15]** Pearson C, Przyklenk K, Mika VH, Ayaz SI, Ellis M, Varade P, Tolomello R, Welch RD. Utility of point of care assessment of platelet reactivity (using the PFA-100Ò ) to aid in diagnosis of stroke. Am J Emerg Med. 2017;35(5):802.e1- 802.e5.
+- [ ] **[16]** Kim SJ, Kim DW, Kim HY, Roh HG, Park J-J. Seizure in code stroke: Stroke mimic and initial manifestation of stroke. Am J Emerg Med 2019;37 (10):1871–5.
+- [ ] **[17]** DeLaroche AM, Sivaswamy L, Farooqi A, Kannikeswaran N. Pediatric Stroke and Its Mimics: Limitations of a Pediatric Stroke Clinical Pathway. Pediatr Neurol 2018;80:35–41.
+- [ ] **[18]** Hemmen TM, Meyer BC, McClean TL, Lyden PD. Identification of nonischemic stroke mimics among 411 code strokes at the University of California, San Diego. Stroke Center. J Stroke Cerebrovasc Dis 2008;17(1):23–5.
+- [ ] **[19]** Sharma R, Macy S, Richardson K, Lokhnygina Y, Laskowitz DT. A blood-based biomarker panel to detect acute stroke. J Stroke Cerebrovasc Dis 2014;23 (5):910–8.
+- [ ] **[20]** Lewandowski C, Mays-Wilson K, Miller J, Penstone P, Miller DJ, Bakoulas K, et al. Safety and outcomes in stroke mimics after intravenous tissue plasminogen activator administration: a single-center experience. J Stroke Cerebrovasc Dis 2015;24(1):48–52.
+- [ ] **[21]** Goyal N, Male S, Al Wafai A, Bellamkonda S, Zand R. Cost burden of stroke mimics and transient ischemic attack after intravenous tissue plasminogen activator treatment. J Stroke Cerebrovasc Dis 2015;24(4):828–33.
+- [ ] **[22]** Sivakumaran P, Gill D, Mahir G, Baheerathan A, Kar A. A Retrospective Cohort Study on the Use of Intravenous Thrombolysis in Stroke Mimics. J Stroke Cerebrovasc Dis 2016;25(5):1057–61.
+- [ ] **[23]** Neves Briard J, Zewude RT, Kate MP, Rowe BH, Buck B, Butcher K, et al. Stroke Mimics Transported by Emergency Medical Services to a Comprehensive Stroke Center: The Magnitude of the Problem. J Stroke Cerebrovasc Dis 2018;27(10):2738–45.
+- [ ] **[24]** Garg R, Rech MA, Schneck M. Stroke Mimics: An Important Source of Bias in Acute Ischemic Stroke Research. J Stroke Cerebrovasc Dis 2019;28 (9):2475–80.
+- [ ] **[25]** Sugii N, Zaboronok A, Fujimori H, Sato N, Fujita K, Ishikawa E, et al. Stroke Mimics and Accuracy of Referrals Made by Emergency Department Doctors in Japan for Patients with Suspected Stroke. J Stroke Cerebrovasc Dis 2019;28 (4):1078–84.
+- [ ] **[26]** Chtaou N, Bouchal S, Midaoui AEl, Souirti Z, Tachfouti N, Belahsen MF. Stroke Mimics: Experience of a Moroccan Stroke Unit. J Stroke Cerebrovasc Dis 2020;29(5):104651. https://doi.org/10.1016/j.jstrokecerebrovasdis.2020. 104651.
+- [ ] **[27]** Park J-J, Kim SJ, Kim HY, Roh HG, Kim DW. Migraine with Aura as a Stroke Mimic. Can J Neurol Sci 2020;47(2):242–4.
+- [ ] **[28]** Ifergan H, Amelot A, Ismail M, Gaudron M, Cottier JP, Narata AP. Strokemimics in stroke-units. Evaluation after changes imposed by randomized trials. Arq Neuropsiquiatr 2020;78(2):88–95.
+- [ ] **[29]** Yu AYX, Quan H, McRae A, Wagner GO, Hill MD, Coutts SB. Moderate sensitivity and high specificity of emergency department administrative data for transient ischemic attacks. BMC Health Serv Res 2017;17(1):666.
+- [ ] **[30]** Penn AM, Croteau NS, Votova K, Sedgwick C, Balshaw RF, Coutts SB, et al. Systolic blood pressure as a predictor of transient ischemic attack/ minor stroke in emergency department patients under age 80: a prospective cohort study. BMC Neurol 2019;19(1). https://doi.org/10.1186/ s12883-019-1466-4.
+- [ ] **[31]** Uchino K, Massaro L, Hammer MD. Transient ischemic attack after tissue plasminogen activator: aborted stroke or unnecessary stroke therapy? Cerebrovasc Dis 2010;29(1):57–61.
+- [ ] **[32]** Ghia D, Thomas PR, Cordato DJ, Worthington JM, Cappelen-Smith C, Griffith N, et al. Validation of emergency and final diagnosis coding in transient ischemic attack: South Western Sydney transient ischemic attack study. Neuroepidemiology 2010;35(1):53–8.
+- [ ] **[33]** Amort M, Fluri F, Schäfer J, Weisskopf F, Katan M, Burow A, et al. Transient ischemic attack versus transient ischemic attack mimics: frequency, clinical characteristics and outcome. Cerebrovasc Dis 2011;32(1):57–64.
+- [ ] **[34]** Quenardelle V, Lauer-Ober V, Zinchenko I, Bataillard M, Rouyer O, Beaujeux R, et al. Stroke Mimics in a Stroke Care Pathway Based on MRI Screening. Cerebrovasc Dis 2016;42(3-4):205–12.
+- [ ] **[35]** Suzuki J, Nakai N, Kondo N, Tsuji H, Inagaki R, Furukawa S, et al. Ten-Year Evaluation of the TOYOTA Prehospital Stroke Scale for Tissue Plasminogen Activator Intravenous Therapy in the Real World. Cerebrovasc Dis 2018;46(3- 4):184–92.
+- [ ] **[36]** Michelson EA, Hanley D, Chabot R, Prichep LS, Goldstein J. Identification of acute stroke using quantified brain electrical activity. Acad Emerg Med 2015;22(1):67–72.
+- [ ] **[37]** Okano Y, Ishimatsu K, Kato Y, Yamaga J, Kuwahara K, Okumoto K, et al. Clinical features of stroke mimics in the emergency department. Acute Med Surg 2018;5(3):241–8.
+- [ ] **[38]** Hansson P-O, Andersson Hagiwara M, Herlitz J, Brink P, Wireklint Sundström B. Prehospital assessment of suspected stroke and TIA: An observational study. Acta Neurol Scand 2019;140(2):93–9.
+- [ ] **[39]** Bath PM, Scutt P, Appleton JP, Dixon M, Woodhouse LJ, Wardlaw JM, et al. Baseline characteristics of the 1149 patients recruited into the Rapid Intervention with Glyceryl trinitrate in Hypertensive stroke Trial-2 (RIGHT- 2) randomized controlled trial. Int J Stroke 2019;14(3):298–305.
+- [ ] **[40]** Bliden KP, Raviv G, Tantry US, Chaudhary R, Cochran JW, Navarese EP, et al. ‘‘Blueprinting” thrombogenicity and antithrombotic drug response at the bedside in patients presenting emergently with symptoms of acute stroke. J Thromb Thrombolysis 2019;47(2):192–9.
+- [ ] **[41]** Kostulas N, Larsson M, Kall T-B, von Euler M, Nathanson D. Safety of thrombolysis in stroke mimics: an observational cohort study from an urban teaching hospital in Sweden. BMJ Open 2017;7(10):e016311. https://doi.org/ 10.1136/bmjopen-2017-016311.
+- [ ] **[42]** Foerch C, Niessner M, Back T, Bauerle M, De Marchis GM, Ferbert A, et al. BE FAST Study Group. Diagnostic accuracy of plasma glial fibrillary acidic protein for differentiating intracerebral hemorrhage and cerebral ischemia in patients with symptoms of acute stroke. Clin Chem 2012;58(1):237–45.
+- [ ] **[43]** Hosseininezhad M, Sohrabnejad R. Stroke mimics in patients with clinical signs of stroke. Caspian J Intern Med 2017;8(3):213–6.
+- [ ] **[44]** Dawson A, Cloud GC, Pereira AC, Moynihan BJ. Stroke mimic diagnoses presenting to a hyperacute stroke unit. Clin Med (Lond) 2016;16(5):423–6.
+- [ ] **[45]** Topiwala K, Tarasaria K, Staff I, Beland D, Schuyler E, Nouh A. Identifying Gaps and Missed Opportunities for Intravenous Thrombolytic Treatment of Inpatient Stroke. Front Neurol 2020;11:134.
+- [ ] **[46]** Gargalas S, Weeks R, Khan-Bourne N, Shotbolt P, Simblett S, Ashraf L, et al. Incidence and outcome of functional stroke mimics admitted to a hyperacute stroke unit. J Neurol Neurosurg Psychiatry 2017;88(1):2–6.
+- [ ] **[47]** Geisler F, Ali SF, Ebinger M, Kunz A, Rozanski M, Waldschmidt C, et al. Evaluation of a score for the prehospital distinction between cerebrovascular disease and stroke mimic patients. Int J Stroke 2019;14(4):400–8.
+- [ ] **[48]** Noureddine A, Ghandehari K, Taghi SM. Differentiation of true transient ischemic attack versus transient ischemic attack mimics. Iran J Neurol 2014;13(3):127–30.
+- [ ] **[49]** Esmaeili S, Afrakhteh M, Bahadori M, Shojaei SF, Ashayeri R, Mehrpour M. Thrombolytic treatment in stroke mimic, inevitable but fortunately safe: An observational study from Iran. Iran J Neurol 2019;18(4):172–5.
+- [ ] **[50]** Williams JB, Jauch EC, Lindsell CJ, Campos B. Endothelial microparticle levels are similar in acute ischemic stroke and stroke mimics due to activation and not apoptosis/necrosis. Acad Emerg Med 2007;14(8):685–90.
+- [ ] **[51]** Tobin WO, Hentz JG, Bobrow BJ, Demaerschalk BM. Identification of stroke mimics in the emergency department setting. J Brain Dis 2009;1:19–22.
+- [ ] **[52]** Ali SF, Viswanathan A, Singhal AB, Rost NS, Forducey PG, Davis LW, et al. Partners Telestroke Network. The TeleStroke mimic (TM)-score: a prediction rule for identifying stroke mimics evaluated in a Telestroke Network. J Am Heart Assoc 2014;3(3). https://doi.org/10.1161/JAHA.114.000838.
+- [ ] **[53]** Kvistad CE, Novotny V, Næss H, Hagberg G, Ihle-Hansen H, Waje-Andreassen U, et al. Safety and predictors of stroke mimics in The Norwegian Tenecteplase Stroke Trial (NOR-TEST). Int J Stroke 2019;14(5):508–16.
+- [ ] **[54]** Libman RB, Wirkowski E, Alvir J, Rao TH. Conditions that mimic stroke in the emergency department. Implications for acute stroke trials. Arch Neurol 1995;52(11):1119–22.
+- [ ] **[55]** Liberman AL, Liotta EM, Caprio FZ, Ruff I, Maas MB, Bernstein RA, et al. Do efforts to decrease door-to-needle time risk increasing stroke mimic treatment rates? Neurol Clin Pract 2015;5(3):247–52.
+- [ ] **[56]** Gioia LC, Zewude RT, Kate MP, Liss K, Rowe BH, Buck B, et al. Prehospital systolic blood pressure is higher in acute stroke compared with stroke mimics. Neurology 2016;86(23):2146–53.
+- [ ] **[57]** Merino JG, Luby M, Benson RT, Davis LA, Hsia AW, Latour LL, et al. Predictors of acute stroke mimics in 8187 patients referred to a stroke service. J Stroke Cerebrovasc Dis 2013;22(8):e397–403.
+- [ ] **[58]** Ali SF, Hubert GJ, Switzer JA, Majersik JJ, Backhaus R, Shepard LW, et al. Validating the TeleStroke Mimic Score: A Prediction Rule for Identifying Stroke Mimics Evaluated Over Telestroke Networks. Stroke 2018;49 (3):688–92.
+- [ ] **[59]** Avellaneda-Gómez C, Rodríguez Campello A, Giralt Steinhauer E, Gómez González A, Serra Martínez M, de Ceballos CP, et al. Description of stroke mimics after complete neurovascular assessment. Neurologia 2019;34 (1):7–13.
+- [ ] **[60]** Hopyan J, Ciarallo A, Dowlatshahi D, Howard P, John V, Yeung R, et al. Certainty of stroke diagnosis: incremental benefit with CT perfusion over noncontrast CT and CT angiography. Radiology 2010;255(1):142–53.
+- [ ] **[61]** Natteru P, Mohebbi MR, George P, Wisco D, Gebel J, Newey CR. Variables That Best Differentiate In-Patient Acute Stroke from Stroke-Mimics with Acute Neurological Deficits. Stroke Res Treat 2016;2016:1–6.
+- [ ] **[62]** Mackay MT, Yock-Corrales A, Churilov L, Monagle P, Donnan GA, Babl FE. Differentiating Childhood Stroke From Mimics in the Emergency Department. Stroke 2016;47(10):2476–81.
+- [ ] **[63]** Siegler JE, Rosenberg J, Cristancho D, Olsen A, Pulst-Korenberg J, Raab L, et al. Computed tomography perfusion in stroke mimics. Int J Stroke 2020;15 (3):299–307.
+- [ ] **[64]** Winkler DT, Fluri F, Fuhr P, Wetzel SG, Lyrer PA, Ruegg S, et al. Thrombolysis in stroke mimics: frequency, clinical characteristics, and outcome. Stroke 2009;40(4):1522–5.
+- [ ] **[65]** Zinkstok SM, Engelter ST, Gensicke H, Lyrer PA, Ringleb PA, Artto V, et al. Safety of thrombolysis in stroke mimics: results from a multicenter cohort study. Stroke 2013;44(4):1080–4.
+- [ ] **[66]** Wendt M, Ebinger M, Kunz A, Rozanski M, Waldschmidt C, Weber JE, et al. Copeptin Levels in Patients With Acute Ischemic Stroke and Stroke Mimics. Stroke 2015;46(9):2426–31.
+- [ ] **[67]** Chang P, Ruff I, Mendelson SJ, Caprio F, Bergman DL, Prabhakaran S. The 2CAN Score. Stroke 2018;49(12):2866–71.
+- [ ] **[68]** Zerna C, Yu AYX, Hong ZM, Penn AM, Lesperance ML, Croteau NS, et al. SpecTRA Study Group. White Matter Hyperintensity Volume Influences Symptoms in Patients Presenting With Minor Neurological Deficits. Stroke 2020;51(2):409–15.
+- [ ] **[69]** Whiteley WN, Wardlaw JM, Dennis MS, Sandercock PAG. Clinical scores for the identification of stroke and transient ischaemic attack in the emergency department: a cross-sectional study. J Neurol Neurosurg Psychiatry 2011;82 (9):1006–10.
+- [ ] **[70]** Yaghi S, Rayaz S, Bianchi N, Hall-Barrow JC, Hinduja A. Thrombolysis to stroke mimics in telestroke. J Telemed Telecare 2012. https://doi.org/10.1258/ jtt.2012.120510.
+- [ ] **[71]** Wilkins SS, Bourke P, Salam A, Akhtar N, D’Souza A, Kamran S, et al. Functional Stroke Mimics: Incidence and Characteristics at a Primary Stroke Center in the Middle East. Psychosom Med 2018;80(5):416–21.
+- [ ] **[72]** Anathhanam S, Hassan A. Mimics and chameleons in stroke. Clin Med (Lond) 2017;17(2):156–60.
+- [ ] **[73]** Tu TM, Tan GZ, Saffari SE, Wee CK, Chee DJMS, Tan C, et al. External validation of stroke mimic prediction scales in the emergency department. BMC Neurol 2020;20(1). https://doi.org/10.1186/s12883-020-01846-6.
+- [ ] **[74]** Atzema CL, Grewal K, Lu H, Kapral MK, Kulkarni G, Austin PC. Outcomes among patients discharged from the emergency department with a diagnosis of peripheral vertigo. Ann Neurol 2016;79(1):32–41.
+- [ ] **[75]** Saber Tehrani AS, Kattah JC, Kerber KA, Gold DR, Zee DS, Urrutia VC, et al. Diagnosing Stroke in Acute Dizziness and Vertigo: Pitfalls and Pearls. Stroke 2018;49(3):788–95.
+- [ ] **[76]** Kim J-S, Bae HJ, Kim M, Ahn S, Sohn CH, Seo DW, et al. Stroke prediction in patients presenting with isolated dizziness in the emergency department. Sci Rep 2021;11(1). https://doi.org/10.1038/s41598-021-85725-1.
+- [ ] **[77]** Post RE, Dickerson LM. Dizziness: a diagnostic approach. Am Fam Physician 2010;82(4):361–9.
+- [ ] **[78]** Lee H. Isolated vascular vertigo. J Stroke 2014;16(3):124–30.
+- [ ] **[79]** Kattah JC, Talkad AV, Wang DZ, Hsieh Y-H, Newman-Toker DE. HINTS to diagnose stroke in the acute vestibular syndrome: three-step bedside oculomotor examination more sensitive than early MRI diffusion-weighted imaging. Stroke 2009;40(11):3504–10.
+- [ ] **[80]** Brunser AM, Illanes S, Lavados PM, Muñoz P, Cárcamo D, Hoppe A, et al. Exclusion criteria for intravenous thrombolysis in stroke mimics: an observational study. J Stroke Cerebrovasc Dis 2013;22(7):1140–5.
+- [ ] **[81]** Wareing W, Dhotore B, Mahawish K. Hyponatraemic encephalopathy: an unusual stroke mimic. BMJ Case Rep 2015;2015(jan23 2). bcr2014207397.
+- [ ] **[82]** Arokszallasi T, Balogh E, Csiba L, Fekete I, Fekete K, Olah L. Acute alcohol intoxication may cause delay in stroke treatment - case reports. BMC Neurol 2019;19(1):14.
+- [ ] **[83]** Polymeris AA, Curtze S, Erdur H, Hametner C, Heldner MR, Groot AE, et al. Intravenous thrombolysis for suspected ischemic stroke with seizure at onset. Ann Neurol 2019;86(5):770–9.
+- [ ] **[84]** H. Buck B, Akhtar N, Alrohimi A, Khan K, Shuaib A. Stroke mimics: incidence, aetiology, clinical features and treatment. Ann Med 2021;53(1):420–36.
+- [ ] **[85]** Hedna VS, Shukla PP, Waters MF. Seizure Mimicking Stroke: Role of CT Perfusion. J Clin Imaging Sci 2012;2:32.
+- [ ] **[86]** McWhirter L, Stone J, Sandercock P, Whiteley W. Hoover’s sign for the diagnosis of functional weakness: a prospective unblinded cohort study in patients with suspected stroke. J Psychosom Res 2011;71(6):384–6.
+- [ ] **[87]** Gelauff J, Stone J, Edwards M, Carson A. The prognosis of functional (psychogenic) motor symptoms: a systematic review. J Neurol Neurosurg Psychiatry 2014;85(2):220–6.
+- [ ] **[88]** Otlivanchik O, Liberman AL. Migraine as a Stroke Mimic and as a Stroke Chameleon. Curr Pain Headache Rep 2019;23(9):63.
+- [ ] **[89]** Russell MB, Ducros A. Sporadic and familial hemiplegic migraine: pathophysiological mechanisms, clinical characteristics, diagnosis, and management. Lancet Neurol 2011;10(5):457–70.
+- [ ] **[90]** Mahmoud AN, Mentias A, Elgendy AY, Qazi A, Barakat AF, Saad M, et al. Migraine and the risk of cardiovascular and cerebrovascular events: a metaanalysis of 16 cohort studies including 1 152 407 subjects. BMJ Open 2018;8 (3):e020498. https://doi.org/10.1136/bmjopen-2017-02049810.1136/ bmjopen-2017-020498.supp1.
+- [ ] **[91]** Kurth T, Diener H-C. Migraine and stroke: perspectives for stroke physicians. Stroke 2012;43(12):3421–6.
+- [ ] **[92]** Thaler AI, Kim BD, Fara MG. Teaching NeuroImages: Magnetic resonance perfusion and diffusion findings in hemiplegic migraine. Neurology 2020;95 (12):554–5.
+- [ ] **[93]** Lima J, Mehta T, Datta N, Bakradze E, Staff I, Beland D, et al. Migraine History: A Predictor of Negative Diffusion-Weighted Imaging in IV-tPA-Treated Stroke Mimics. J Stroke Cerebrovasc Dis 2019;28(11):104282. https://doi.org/ 10.1016/j.jstrokecerebrovasdis.2019.06.040.
+- [ ] **[94]** Morgenstern LB, Frankowski RF. Brain tumor masquerading as stroke. J Neurooncol 1999;44(1):47–52.
+- [ ] **[95]** Dearborn JL, Urrutia VC, Zeiler SR. Stroke and Cancer- A Complicated Relationship. J Neurol Transl Neurosci 2014;2(1):1039.
+- [ ] **[96]** Karunaratne K, Bertoni M, Balogun I, Hargroves D, Webb T. The right diagnosis but the wrong pathway? Listeria meningitis mimicking stroke. Pract Neurol 2016;16(3):220–2.
+- [ ] **[97]** de Lima FD, Luvizutto GJ, Schelp AO, Braga GP, Bazan R. Stroke Chameleons Manifesting as Distinct Radial Neuropathies: Expertise Can Hasten the Diagnosis. Case Rep Neurol 2017;9(3):277–83.
+- [ ] **[98]** Kamarul Bahrin MH, Abidi SMA, Ling K, Mukherjee B. Not All Facial Droops Are Stroke: Miller Fisher Syndrome Presenting as a Stroke Mimic. Cureus 2020;12(7):e9383.
+- [ ] **[99]** Edlow JA, Selim MH. Atypical presentations of acute cerebrovascular syndromes. Lancet Neurol 2011;10(6):550–60.
+- [ ] **[100]** Topcuoglu MA, Saka E, Silverman SB, Schwamm LH, Singhal AB. Recrudescence of Deficits After Stroke: Clinical and Imaging Phenotype, Triggers, and Risk Factors. JAMA Neurol 2017;74(9):1048–55.
+- [ ] **[101]** Sommer P, Posekany A, Serles W, Marko M, Scharer S, Fertl E, et al. Austrian Stroke Unit Registry Collaborators. Is Functional Outcome Different in Posterior and Anterior Circulation Stroke? Stroke 2018;49(11):2728–32.
+- [ ] **[102]** Schneck MJ. Current Stroke Scales May Be Partly Responsible for Worse Outcomes in Posterior Circulation Stroke. Stroke 2018;49(11):2565–6.
+- [ ] **[103]** Mac Grory B, Flood SP, Apostolidou E, Yaghi S. Cryptogenic Stroke: Diagnostic Workup and Management. Curr Treat Options Cardiovasc Med 2019;21 (11):77.
+- [ ] **[104]** Trajkova S, d’Errico A, Soffietti R, Sacerdote C, Ricceri F. Use of Antidepressants and Risk of Incident Stroke: A Systematic Review and Meta-Analysis. Neuroepidemiology 2019;53(3-4):142–51.
+- [ ] **[105]** Zivkovic S, Koh CH, Kaza N, Jackson CA. Antipsychotic drug use and risk of stroke and myocardial infarction: a systematic review and meta-analysis. BMC Psychiatry 2019;19(1):189.
+- [ ] **[106]** Yang L, Bai HX. Letter by Yang and Bai regarding article, ‘‘Safety of intravenous thrombolysis in stroke mimics: prospective 5-year study and comprehensive meta-analysis”. Stroke 2015;46(6):e155–6.
+- [ ] **[107]** López Ruiz R, Quintas S, Largo P, de Toledo M, Carreras MT, Gago-Veiga A, Manzanares R, Vivancos J. Usefulness of multiparametric computerized tomography findings in the differential diagnosis of stroke mimics of epileptic origin: A preliminary study. Neurologia. 2017 pii: S0213-4853(16) 30239-0.
+- [ ] **[108]** Calistri V, Caramia F, Bianco F, Fattapposta F, Pauri F, Bozzao L. Visualization of evolving status epilepticus with diffusion and perfusion MR imaging. AJNR Am J Neuroradiol 2003 Apr;24(4):671–3.
+- [ ] **[109]** Degirmenci B, Yaman M, Haktanir A, Albayrak R, Acar M, Yucel A. Cerebral and cerebellar ADC values during a migraine attack. Neuroradiology 2007;49 (5):419–26.
+- [ ] **[110]** BergeE,WhiteleyW,AudebertH,DeMarchisGM,FonsecaAC,PadiglioniC,etal. EurStroke J 2021;6(1):I–LXII. https://doi.org/10.1177/2396987321989865.
+- [ ] **[111]** Granato A, D’Acunto L, Ajčević M, Furlanis G, Ukmar M, Mucelli RAP, et al. A novel computed tomography perfusion-based quantitative tool for evaluation of perfusional abnormalities in migrainous aura stroke mimic. Neurol Sci 2020;41(11):3321–8.
+- [ ] **[112]** Akhtar N, Bhutta Z, Kamran S, Babu B, Jose N, Joseph S, et al. Stroke Mimics: A five-year follow-up study from the Qatar Stroke Database. J Stroke Cerebrovasc Dis 2020;29(10):105110. https://doi.org/10.1016/j. jstrokecerebrovasdis.2020.105110.

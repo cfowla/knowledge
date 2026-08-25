@@ -1,0 +1,129 @@
+# 119. 41 - Zhu 2021 - JAMA Oncology 210059 — Reference Task Queue
+
+Primary source: Final Overall Survival Efficacy Results of Ivosidenib for Patients With Advanced Cholangiocarcinoma With IDH1 Mutation: The Phase 3 Randomized Clinical ClarIDHy Trial
+DOI: 10.1001/jamaoncol.2021.3836
+
+Total references: 39
+
+## Queue
+
+- [ ] **Ref 01.** Saha SK, Zhu AX, Fuchs CS, Brooks GA. Forty-year trends in cholangiocarcinoma incidence in the U.S.: intrahepatic disease on the rise. Oncologist. 2016;21(5):594-599.
+  - Retrieval target: https://doi.org/10.1634/theoncologist.2015-0446
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 02.** Banales JM, Marin JJG, Lamarca A, et al. Cholangiocarcinoma 2020: the next horizon in mechanisms and management. Nat Rev Gastroenterol Hepatol. 2020;17(9):557-588.
+  - Retrieval target: https://doi.org/10.1038/s41575-020-0310-z
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 03.** Valle J, Wasan H, Palmer DH, et al; ABC-02 Trial Investigators. Cisplatin plus gemcitabine versus gemcitabine for biliary tract cancer. N Engl J Med. 2010;362(14):1273-1281.
+  - Retrieval target: https://doi.org/10.1056/NEJMoa0908721
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 04.** Ramírez-Merino N, Aix SP, Cortés-Funes H. Chemotherapy for cholangiocarcinoma: an update. World J Gastrointest Oncol. 2013;5(7):171-176.
+  - Retrieval target: https://doi.org/10.4251/wjgo.v5.i7.171
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 05.** Lamarca A, Palmer DH, Wasan HS, et al. ABC-06: active symptom control alone or with oxaliplatin/5-FU for previously treated advanced biliary tract cancer. J Clin Oncol. 2019;37(15 suppl):abstract 4003.
+  - Retrieval target: https://doi.org/10.1200/JCO.2019.37.15_suppl.4003
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 06.** Plentz RR, Malek NP. Systemic therapy of cholangiocarcinoma. Visc Med. 2016;32(6):427-430.
+  - Retrieval target: https://doi.org/10.1159/000453084
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 07.** Adeva J, Sangro B, Salati M, et al. Medical treatment for cholangiocarcinoma. Liver Int. 2019;39(suppl 1):123-142.
+  - Retrieval target: https://doi.org/10.1111/liv.14100
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 08.** Merck & Co Inc. Highlights of prescribing information: KEYTRUDA (pembrolizumab). Accessed February 10, 2021.
+  - Retrieval target: https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/125514s084lbl.pdf
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 09.** Drilon A, Laetsch TW, Kummar S, et al. Efficacy of larotrectinib in TRK fusion-positive cancers in adults and children. N Engl J Med. 2018;378(8):731-739.
+  - Retrieval target: https://doi.org/10.1056/NEJMoa1714448
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 10.** Doebele RC, Drilon A, Paz-Ares L, et al. Entrectinib in advanced or metastatic NTRK fusion-positive solid tumours: integrated analysis of three phase 1-2 trials. Lancet Oncol. 2020;21(2):271-282.
+  - Retrieval target: https://doi.org/10.1016/S1470-2045(19)30691-6
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 11.** Le DT, Uram JN, Wang H, et al. PD-1 blockade in tumors with mismatch-repair deficiency. N Engl J Med. 2015;372(26):2509-2520.
+  - Retrieval target: https://doi.org/10.1056/NEJMoa1500596
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 12.** Incyte Corporation. Highlights of prescribing information: PEMAZYRE (pemigatinib). Accessed February 10, 2021.
+  - Retrieval target: https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/213736s000lbl.pdf
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 13.** Abou-Alfa GK, Sahai V, Hollebecque A, et al. Pemigatinib for previously treated, locally advanced or metastatic cholangiocarcinoma: a multicentre, open-label, phase 2 study. Lancet Oncol. 2020;21(5):671-684.
+  - Retrieval target: https://doi.org/10.1016/S1470-2045(20)30109-1
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 14.** Boscoe AN, Rolland C, Kelley RK. Frequency and prognostic significance of IDH1 mutations in cholangiocarcinoma: a systematic literature review. J Gastrointest Oncol. 2019;10(4):751-765.
+  - Retrieval target: https://doi.org/10.21037/jgo.2019.03.10
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 15.** Saha SK, Parachoniak CA, Ghanta KS, et al. Mutant IDH inhibits HNF4α to block hepatocyte differentiation and promote biliary cancer. Nature. 2014;513(7516):110-114.
+  - Retrieval target: https://doi.org/10.1038/nature13441
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 16.** Popovici-Muller J, Lemieux RM, Artin E, et al. Discovery of AG-120 (ivosidenib): a first-in-class mutant IDH1 inhibitor for the treatment of IDH1 mutant cancers. ACS Med Chem Lett. 2018;9(4):300-305.
+  - Retrieval target: https://doi.org/10.1021/acsmedchemlett.7b00421
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 17.** Agios Pharmaceuticals Inc. Highlights of prescribing information: TIBSOVO (ivosidenib). Accessed August 5, 2019.
+  - Retrieval target: https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/211192s001lbl.pdf
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 18.** Lowery MA, Burris HA III, Janku F, et al. Safety and activity of ivosidenib in IDH1-mutant advanced cholangiocarcinoma: a phase 1 study. Lancet Gastroenterol Hepatol. 2019;4(9):711-720.
+  - Retrieval target: https://doi.org/10.1016/S2468-1253(19)30189-X
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 19.** Abou-Alfa GK, Macarulla T, Javle MM, et al. Ivosidenib in IDH1-mutant, chemotherapy-refractory cholangiocarcinoma (ClarIDHy): a multicentre, randomised, double-blind, placebo-controlled, phase 3 study. Lancet Oncol. 2020;21(6):796-807.
+  - Retrieval target: https://doi.org/10.1016/S1470-2045(20)30157-1
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 20.** World Medical Association. World Medical Association Declaration of Helsinki: ethical principles for medical research involving human subjects. JAMA. 2013;310(20):2191-2194.
+  - Retrieval target: https://doi.org/10.1001/jama.2013.281053
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 21.** Eisenhauer EA, Therasse P, Bogaerts J, et al. New response evaluation criteria in solid tumours: revised RECIST guideline (version 1.1). Eur J Cancer. 2009;45(2):228-247.
+  - Retrieval target: https://doi.org/10.1016/j.ejca.2008.10.026
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 22.** Aaronson NK, Ahmedzai S, Bergman B, et al. The EORTC QLQ-C30: a quality-of-life instrument for use in international clinical trials in oncology. J Natl Cancer Inst. 1993;85(5):365-376.
+  - Retrieval target: https://doi.org/10.1093/jnci/85.5.365
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 23.** Friend E, Yadegarfar G, Byrne C, et al. Development of the EORTC QLQ-BIL21 for cholangiocarcinoma and gallbladder cancer. Br J Cancer. 2011;104(4):587-592.
+  - Retrieval target: https://doi.org/10.1038/sj.bjc.6606086
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 24.** Guy W. ECDEU Assessment Manual for Psychopharmacology. US Department of Health, Education, and Welfare; 1976.
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 25.** Szende A, Janssen B, Cabases J, eds. Self-Reported Population Health: An International Perspective Based on EQ-5D. Springer; 2014.
+  - Retrieval target: https://doi.org/10.1007/978-94-007-7596-1
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 26.** National Cancer Institute. Common Terminology Criteria for Adverse Events (CTCAE), version 4.03.
+  - Retrieval target: https://evs.nci.nih.gov/ftp1/CTCAE/CTCAE_4.03/CTCAE_4.03_2010-06-14_QuickReference_8.5x11.pdf
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 27.** Watkins C, Huang X, Latimer N, Tang Y, Wright EJ. Adjusting overall survival for treatment switches: commonly used methods and practical application. Pharm Stat. 2013;12(6):348-357.
+  - Retrieval target: https://doi.org/10.1002/pst.1602
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 28.** Morden JP, Lambert PC, Latimer N, Abrams KR, Wailoo AJ. Assessing methods for dealing with treatment switching in randomised controlled trials: a simulation study. BMC Med Res Methodol. 2011;11:4.
+  - Retrieval target: https://doi.org/10.1186/1471-2288-11-4
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 29.** Robins JM, Tsiatis AA. Correcting for non-compliance in randomized trials using rank preserving structural failure time models. Commun Stat Theory Methods. 1991;20(8):2609-2631.
+  - Retrieval target: https://doi.org/10.1080/03610929108830654
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 30.** Zhu AX. Final results from ClarIDHy, a global, phase III, randomised, double-blind study of ivosidenib versus placebo in previously treated IDH1-mutant cholangiocarcinoma. EMJ Oncol. 2021;9(suppl 2):2-5.
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 31.** Chamberlain CX, Andrae DA, Jiang L, et al. Health-related quality of life in patients treated with ivosidenib for mutant-IDH1 cholangiocarcinoma: results from ClarIDHy. Cholangiocarcinoma Foundation Annual Conference; 2020.
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 32.** Aguado-Fraile E, Tassinari A, Ishii Y, et al. Molecular and morphological changes induced by ivosidenib correlate with efficacy in mutant-IDH1 cholangiocarcinoma. Future Oncol. 2021;17(16):2057-2074.
+  - Retrieval target: https://doi.org/10.2217/fon-2020-1274
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 33.** National Comprehensive Cancer Network. Clinical Practice Guidelines in Oncology for Hepatobiliary Cancers V.1.2021.
+  - Retrieval target: https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1438
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 34.** Malka D, Bernardini D, Boudjema K, et al. Cancer des voies biliaires. Thésaurus National de Cancérologie Digestive. Société Nationale Française de Gastro-Entérologie.
+  - Retrieval target: http://www.tncd.org
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 35.** Associazione Italiana de Oncologia Medica. Practice guidelines for biliary tract neoplasms.
+  - Retrieval target: https://www.aiom.it/wp-content/uploads/2019/10/2019_LG_AIOM_Vie_biliari.pdf
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 36.** Lamarca A, Hubner RA, Ryder WD, Valle JW. Second-line chemotherapy in advanced biliary cancer: a systematic review. Ann Oncol. 2014;25(12):2328-2338.
+  - Retrieval target: https://doi.org/10.1093/annonc/mdu162
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 37.** Brieau B, Dahan L, De Rycke Y, et al. Second-line chemotherapy for advanced biliary tract cancer after failure of gemcitabine-platinum: a large multicenter study. Cancer. 2015;121(18):3290-3297.
+  - Retrieval target: https://doi.org/10.1002/cncr.29471
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 38.** Moik F, Riedl JM, Winder T, et al. Benefit of second-line systemic chemotherapy for advanced biliary tract cancer: a propensity score analysis. Sci Rep. 2019;9(1):5548.
+  - Retrieval target: https://doi.org/10.1038/s41598-019-42069-1
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+- [ ] **Ref 39.** Ying J, Chen J. Combination versus mono-therapy as salvage treatment for advanced biliary tract cancer: a comprehensive meta-analysis. Crit Rev Oncol Hematol. 2019;139:134-142.
+  - Retrieval target: https://doi.org/10.1016/j.critrevonc.2019.01.001
+  - Task: acquire the cited source, classify source type, then triage for direct relevance to the ClarIDHy/IDH1-cholangiocarcinoma evidence chain.
+
+## Notes
+
+- The queue reproduces the 39 references listed in the primary article.
+- Reference entries are tasks for acquisition/triage; they are not treated as evidence atoms from Zhu et al. unless the cited source itself is retrieved and read.
+- Guideline, label, book/manual, conference, and methodological references should be routed to the appropriate appraisal workflow rather than forced into a primary-literature atom schema.

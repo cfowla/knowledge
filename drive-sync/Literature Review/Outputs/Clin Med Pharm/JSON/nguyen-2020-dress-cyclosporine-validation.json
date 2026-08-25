@@ -1,0 +1,69 @@
+{
+  "source_metadata": {
+    "title": "Evaluation of Cyclosporine for the Treatment of DRESS Syndrome",
+    "authors": [
+      "Emily Nguyen",
+      "Daniel Yanes",
+      "Sotonye Imadojemu",
+      "Daniela Kroshinsky"
+    ],
+    "journal": "JAMA Dermatology",
+    "publication_year": 2020,
+    "volume": 156,
+    "issue": 6,
+    "pages": "704-706",
+    "doi": "10.1001/jamadermatol.2020.0048",
+    "source_file": "jamadermatology_nguyen_2020_ld_200003.pdf",
+    "source_sha256": "5749f8028240c8cf6572ecdbbc18bc0799e5aea585ebd126d7f3e7e1aa92a455",
+    "publication_id": "71118cb8-b7aa-51db-adfb-89db979ee705"
+  },
+  "extraction": {
+    "atom_count": 30,
+    "counts_by_kind": {
+      "adverse_event": 1,
+      "author_conclusion": 2,
+      "comparator_description": 1,
+      "conflict_of_interest": 1,
+      "eligibility_criterion": 1,
+      "intervention_description": 1,
+      "limitation": 1,
+      "method": 3,
+      "outcome_definition": 2,
+      "population_description": 4,
+      "quantitative_result": 12,
+      "study_objective": 1
+    },
+    "assertion_origins": {
+      "directly_reported": 21,
+      "normalized_from_source": 9
+    },
+    "schema_version": "1.0",
+    "extraction_run_id": "nguyen-2020-jamadermatology-atom-v1"
+  },
+  "validation": {
+    "pydantic_structural_valid": true,
+    "schema_serialization_valid": true,
+    "sufficiency_valid": true,
+    "structural_errors": [],
+    "json_schema_errors": [],
+    "sufficiency_errors": [],
+    "sufficiency_warnings": []
+  },
+  "duplicate_consistency_review": {
+    "duplicate_atoms_found": 0,
+    "notes": [
+      "No cross-batch merging was required because the target article is short enough for a single semantic extraction pass.",
+      "The source describes 4 age- and sex-matched controls per cyclosporine case but reports 21 corticosteroid controls for 5 cyclosporine cases; this internal count/matching mismatch is retained as an appraisal issue rather than repaired."
+    ]
+  },
+  "extraction_limitations": [
+    "The downloaded PDF contains portions of adjacent JAMA Dermatology letters on pages 704 and 706; only the Nguyen et al DRESS research letter was atomized.",
+    "The article reports descriptive group means and SDs but does not report inferential between-group effect estimates, confidence intervals, or p values for the outcomes in Table 2.",
+    "Adverse effects causing cyclosporine discontinuation are not specified by type in the source.",
+    "No funding statement for the target article was visible in the supplied three-page source; no funding atom was invented."
+  ],
+  "schema_gaps": [
+    "ArmObservation can store group means but not SDs directly; SDs are preserved in canonical statements and original_result_text.",
+    "The model has no dedicated field for matching ratio or study-design metadata; these are preserved in method atoms and tags."
+  ]
+}

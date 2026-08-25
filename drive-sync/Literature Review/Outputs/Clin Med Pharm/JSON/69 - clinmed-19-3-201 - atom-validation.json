@@ -1,0 +1,240 @@
+{
+  "source_id": "69 - clinmed-19-3-201",
+  "publication_id": "69c1b543-0377-5b6e-83b8-46fd5441d269",
+  "governing_sources": [
+    "literature(1).py — structural domain model",
+    "literature_atoms(1).py — atom-kind sufficiency validation",
+    "literature_atom.schema.json — serialization contract",
+    "README(2).md — workflow intent",
+    "example_atom(1).json — illustrative only"
+  ],
+  "structural_validation": {
+    "status": "PASS",
+    "errors": []
+  },
+  "json_schema_validation": {
+    "status": "PASS",
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "status": "PASS",
+    "errors": [],
+    "warnings": []
+  },
+  "consistency_findings": [
+    {
+      "severity": "warning",
+      "finding": "Results state that 24 services reported displacement of other nursing activity, while the Discussion says all services where switches were undertaken reported displacement. The article does not reconcile these wordings.",
+      "impact": "Do not normalize this into a single denominator or rate without clarification."
+    },
+    {
+      "severity": "warning",
+      "finding": "The paper reports 802 switch events but does not provide the number of unique patients switched or product-specific denominators.",
+      "impact": "Do not interpret 12/802 as a patient-level adverse-reaction incidence or comparative product safety estimate."
+    }
+  ],
+  "extraction_limitations": [
+    "Retrospective centre-level census with no patient-level line list in the article.",
+    "No comparator cohort of patients who did not switch.",
+    "No product-specific switch denominators, unique-patient denominator, formal confidence intervals, or adjusted analyses.",
+    "Supplementary material S1 was not available in the retrieved Drive folder.",
+    "Atoms capture article-reported assertions; they do not convert model appraisal into reported study data."
+  ],
+  "atom_count": 41,
+  "atom_counts_by_kind": {
+    "adverse_event": 16,
+    "author_conclusion": 2,
+    "exposure_description": 1,
+    "limitation": 2,
+    "method": 3,
+    "population_description": 1,
+    "quantitative_result": 12,
+    "study_objective": 1,
+    "subgroup_result": 3
+  },
+  "batching_decision": "No semantic batching required: the source is a four-page article with two compact tables; all substantive pages were inspected in one full-text extraction pass.",
+  "duplicate_review": {
+    "status": "PASS",
+    "finding": "No accidental duplicate atoms identified. Aggregate reaction-count atoms and individual Table 1/Table 2 case atoms intentionally coexist at different assertion granularity."
+  },
+  "schema_gaps": [
+    "The current adverse_event structure has no dedicated fields for post-event treatment, disposition, or subsequent product tolerance; these source-supported details remain in canonical_statement/source anchors rather than invented fields.",
+    "The model has no dedicated service-resource outcome object; centre-level operational results are represented as quantitative_result atoms with explicit population/exposure/outcome context."
+  ],
+  "section_atom_crosswalk": {
+    "introduction": [
+      {
+        "atom_id": "762189a0-ad34-412e-9a4c-ed22f32e3f6e",
+        "kind": "study_objective"
+      }
+    ],
+    "methods": [
+      {
+        "atom_id": "ea8c3a8a-525d-4100-a6b9-b013f4f44a8f",
+        "kind": "population_description"
+      },
+      {
+        "atom_id": "4d8faafb-a917-47db-a787-a2444108d5b0",
+        "kind": "exposure_description"
+      },
+      {
+        "atom_id": "18a774d6-233a-428a-81da-6d55e2c29502",
+        "kind": "method"
+      },
+      {
+        "atom_id": "6d9ef679-1436-40a1-ace4-47e3f495fe11",
+        "kind": "method"
+      },
+      {
+        "atom_id": "7d22859b-75d4-40a0-b015-9fe5f70a7791",
+        "kind": "method"
+      }
+    ],
+    "results": [
+      {
+        "atom_id": "5e9cab8e-f6b0-4a08-931c-6f1b7fc5fcfe",
+        "kind": "quantitative_result"
+      },
+      {
+        "atom_id": "9ea3a5c3-d699-4db4-beb0-a40a2b6578df",
+        "kind": "quantitative_result"
+      },
+      {
+        "atom_id": "34597ddf-bcde-47c7-a6f1-6e697cad1302",
+        "kind": "quantitative_result"
+      },
+      {
+        "atom_id": "a465ff88-fff4-4af3-9c07-0704df3ea68c",
+        "kind": "quantitative_result"
+      },
+      {
+        "atom_id": "b76cfa07-8e29-4793-8e9d-46b5937c44ff",
+        "kind": "quantitative_result"
+      },
+      {
+        "atom_id": "70d53130-e018-42ac-800b-bbd97eab0a34",
+        "kind": "quantitative_result"
+      },
+      {
+        "atom_id": "9c413f67-0b8f-4f8a-90bf-4e8dd9be5fde",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "040a61f4-65c8-4759-81b7-10b8d6156a72",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "4863b4c5-aeea-4ce9-9cea-6abfd8d96c7d",
+        "kind": "subgroup_result"
+      },
+      {
+        "atom_id": "2ababf0a-1fbc-4fd2-8d6e-9f8bc7132912",
+        "kind": "subgroup_result"
+      },
+      {
+        "atom_id": "441bd49c-3bb8-4f44-8bcd-73e56a3b0f65",
+        "kind": "subgroup_result"
+      },
+      {
+        "atom_id": "57b52eaf-1c17-4cfc-8a82-7eeb9736551f",
+        "kind": "quantitative_result"
+      },
+      {
+        "atom_id": "6cadb193-f963-4339-a4c7-b1b63e0489ab",
+        "kind": "quantitative_result"
+      },
+      {
+        "atom_id": "f240bae9-1834-4604-855d-dee0b18bf70f",
+        "kind": "quantitative_result"
+      },
+      {
+        "atom_id": "e581ba4d-c659-4870-a0da-c72eb1859649",
+        "kind": "quantitative_result"
+      },
+      {
+        "atom_id": "ee149cf9-d28c-4cc9-a331-c9882eca282e",
+        "kind": "quantitative_result"
+      },
+      {
+        "atom_id": "142467d0-f167-4220-b4b1-d1fb6040da4b",
+        "kind": "quantitative_result"
+      }
+    ],
+    "table": [
+      {
+        "atom_id": "c83cd8af-326c-4e79-bc75-9559b84e51b6",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "dada1b4e-5939-45e9-852b-dced6c0c1f73",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "12ae8498-f516-451a-98f7-9f746a39d9eb",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "ce84e958-e6f8-49b5-917c-5d1f7d23ff0b",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "26ff15ca-dffd-4725-b439-22b581fc2713",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "00ad70ae-9c3f-44c4-8b90-7c77902610c7",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "0061f61d-df9b-4eb0-9670-ceeb55b0eb49",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "5e241ce5-618c-47eb-b0a1-57151c1ff493",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "83490582-ad1e-4312-9f2d-0a2a46e2d406",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "2e416c12-4b66-4f49-9008-afb61b74fe94",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "c0bac205-11c8-457d-9d8d-a3635a4e017c",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "c1686af4-ca1b-47fb-87ba-e84f31aa3f1d",
+        "kind": "adverse_event"
+      }
+    ],
+    "discussion": [
+      {
+        "atom_id": "8928ef1a-9d76-43f9-8048-843906a5a50a",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "39da81c9-1418-43e9-99ef-f9b8ff8e8c40",
+        "kind": "adverse_event"
+      },
+      {
+        "atom_id": "6d040310-176f-40a1-afb2-5d8d22b8eaa6",
+        "kind": "limitation"
+      },
+      {
+        "atom_id": "b9672659-403e-4474-beab-4bf5d6219160",
+        "kind": "limitation"
+      },
+      {
+        "atom_id": "832b889a-54c2-4030-9196-4b1468612b59",
+        "kind": "author_conclusion"
+      },
+      {
+        "atom_id": "beeed895-7db9-43da-9ae2-a7076b36309b",
+        "kind": "author_conclusion"
+      }
+    ]
+  }
+}

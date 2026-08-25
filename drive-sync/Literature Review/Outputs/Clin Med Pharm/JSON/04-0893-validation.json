@@ -1,0 +1,84 @@
+{
+  "activated_macros": [
+    "@ATOM",
+    "@SEA"
+  ],
+  "source": {
+    "slug": "04-0893",
+    "title": "Methicillin-resistant Staphylococcus aureus Toxic Shock Syndrome",
+    "authors": [
+      "Sophie Jamart",
+      "Olivier Denis",
+      "Ariane Deplano",
+      "Georgios Tragas",
+      "Alexandra Vandergheynst",
+      "David De Bels",
+      "Jacques Devriendt"
+    ],
+    "citation": "Emerging Infectious Diseases. 2005;11(4):636-637.",
+    "doi": "10.3201/eid1104.040893",
+    "source_type": "journal_letter_case_report",
+    "evaluated_file": "04-0893.pdf",
+    "source_pdf_pages": 2,
+    "article_printed_pages": "636-637",
+    "source_sha256": "e29be306f0a9115a5f2a58b741f0321fb911b2d0ffa0bb6b2c07d35114a156ea",
+    "publication_id": "3746d6f1-a5d1-50a2-8c2a-e313d01207d3"
+  },
+  "atom_count": 24,
+  "atom_counts_by_kind": {
+    "author_conclusion": 3,
+    "intervention_description": 2,
+    "method": 2,
+    "other": 2,
+    "population_description": 2,
+    "qualitative_result": 2,
+    "quantitative_result": 10,
+    "study_objective": 1
+  },
+  "validation": {
+    "pydantic_structural_validation": "passed",
+    "json_schema_validation": "passed",
+    "sufficiency_validation": "passed",
+    "structural_errors": [],
+    "json_schema_errors": [],
+    "sufficiency_errors": [],
+    "sufficiency_warnings": [],
+    "unique_atom_ids": true,
+    "shared_publication_id": true
+  },
+  "source_integrity_findings": [
+    {
+      "type": "published_correction",
+      "affected_atom_id": "ab66c705-c139-5241-a33a-fe23cec1742a",
+      "raw_pdf_text": "cyclic AMP receptor protein 43.7 ng/mL",
+      "correction": "A May 2005 Emerging Infectious Diseases correction states that this should read C-reactive protein 43.7 mg/dL.",
+      "handling": "The ATOM set preserves the retrieved raw PDF as written. The correction is recorded here and in SEA as external verification, not silently substituted into the source atom.",
+      "external_source": "https://stacks.cdc.gov/view/cdc/15857/cdc_15857_DS1.pdf"
+    },
+    {
+      "type": "internal_spelling_inconsistency",
+      "finding": "The treatment paragraph prints 'teicoplamin'; the final paragraph prints 'teicoplanin'. Both source forms are preserved in separate treatment atoms."
+    },
+    {
+      "type": "method_claim_boundary",
+      "finding": "The letter says the MRSA strain produced TSST-1, but the case methods described in the letter report PCR detection of the TSST-1 gene rather than a direct toxin-production assay."
+    }
+  ],
+  "extraction_limitations": [
+    "This is a two-page letter describing one patient, not a controlled study.",
+    "The letter has no formal Methods, Results, or Limitations headings. SourceSection values map the narrative to the closest schema category.",
+    "No tables, figures, algorithms, appendices, or supplements are present in the target letter.",
+    "Funding, conflict-of-interest, and data-availability statements are not reported in the retrieved letter and were not invented.",
+    "Cited studies were not atomized. Secondary claims drawn from cited literature are tagged as secondary reports."
+  ],
+  "schema_gaps": [
+    "The LiteratureAtom schema has no dedicated case-report timeline or diagnostic-finding atom kind, so clinical course statements use population_description, qualitative_result, method, or other as appropriate.",
+    "The schema has no field for post-publication errata linked to a specific atom. The published correction is therefore recorded in this validation report rather than inserted as source-reported data."
+  ],
+  "external_verification": {
+    "status": "limited",
+    "purpose": "Article identity, DOI, and the published laboratory-value correction were checked against CDC/EID pages. External material did not replace the retrieved PDF for ATOM extraction.",
+    "article_page": "https://wwwnc.cdc.gov/eid/article/11/4/04-0893_article",
+    "correction_source": "https://stacks.cdc.gov/view/cdc/15857/cdc_15857_DS1.pdf"
+  }
+}

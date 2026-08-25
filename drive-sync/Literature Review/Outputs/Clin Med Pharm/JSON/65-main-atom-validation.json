@@ -1,0 +1,81 @@
+{
+  "source_metadata": {
+    "source_file": "main.pdf",
+    "source_folder": "65 - main",
+    "title": "Abacavir-induced liver toxicity",
+    "authors": [
+      "Maria Diletta Pezzani",
+      "Chiara Resnati",
+      "Valentina Di Cristo",
+      "Agostino Riva",
+      "Cristina Gervasoni"
+    ],
+    "journal": "The Brazilian Journal of Infectious Diseases",
+    "year": 2016,
+    "volume": 20,
+    "issue": 5,
+    "pages": "502-504",
+    "doi": "10.1016/j.bjid.2016.03.002",
+    "source_type": "case report with retrospective descriptive cohort component",
+    "publication_id": "dc83229f-432c-5fc8-973b-488e76476727",
+    "sha256": "536915264340a0788f2bb826875f667b0eab09e829f90150312c563cc2099710",
+    "pdf_pages": 3
+  },
+  "atom_count": 23,
+  "atom_counts_by_kind": {
+    "adverse_event": 3,
+    "author_conclusion": 5,
+    "conflict_of_interest": 1,
+    "intervention_description": 1,
+    "limitation": 1,
+    "method": 2,
+    "population_description": 2,
+    "qualitative_result": 1,
+    "quantitative_result": 5,
+    "study_objective": 1,
+    "subgroup_result": 1
+  },
+  "atom_counts_by_assertion_origin": {
+    "calculated_from_reported_data": 1,
+    "directly_reported": 13,
+    "normalized_from_source": 9
+  },
+  "structural_validation": {
+    "pydantic_valid": true,
+    "errors": []
+  },
+  "serialization_validation": {
+    "json_schema_valid": true,
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "consistency_findings": [
+    {
+      "severity": "warning",
+      "code": "reported_percentage_mismatch",
+      "source_anchor": "journal p503 / PDF p2",
+      "reported": "26 of 83 (24%) discontinued ABC",
+      "calculated_from_reported_counts": "26/83 = 31.3%",
+      "handling": "Preserved the directly reported count as one atom and the recalculated percentage as a separate calculated_from_reported_data atom."
+    }
+  ],
+  "duplicate_review": {
+    "potential_duplicates_found": 0,
+    "note": "No cross-batch merge was needed because the three-page source was processed as one semantic unit."
+  },
+  "schema_gaps": [
+    "The current LiteratureAtom model has no dedicated case-report causality-assessment field; the dechallenge was preserved as a qualitative_result atom rather than converted into a formal causality score.",
+    "The model has no explicit relation field linking the index case to the retrospective cohort component; assertions were kept separate and share one publication_id."
+  ],
+  "extraction_limitations": [
+    "The article is a three-page case report with an uncontrolled retrospective descriptive cohort component; no formal comparator group or inferential statistical analysis is reported.",
+    "The article does not provide abacavir/lamivudine/nevirapine doses in the extracted case text; none were inferred.",
+    "The article has no main-text figures or tables; quantitative results are reported in prose.",
+    "The article does not report an explicit funding statement; no funding atom was created.",
+    "The printed discontinuation percentage conflicts with its numerator/denominator, as documented under consistency_findings."
+  ]
+}

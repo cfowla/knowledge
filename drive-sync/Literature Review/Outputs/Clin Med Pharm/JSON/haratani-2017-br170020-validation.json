@@ -1,0 +1,80 @@
+{
+  "activated_macros": [
+    "@ATOM",
+    "@SEA"
+  ],
+  "source": {
+    "slug": "haratani-2017-br170020",
+    "title": "Association of Immune-Related Adverse Events With Nivolumab Efficacy in Non-Small Cell Lung Cancer",
+    "doi": "10.1001/jamaoncol.2017.2925",
+    "publication_id": "19d30111-44de-5901-9488-b8f4cb51866a",
+    "primary_sha256": "3c62e5f9677a13062137608cd07a7b090e40f4fa4e80e558f98fd823b316f05b",
+    "supplement_sha256": "2f67716e8b6d5466e241819f7962e8aa0697f823e8ef6d0e440c024810ece7ea"
+  },
+  "atom_count": 57,
+  "atom_counts_by_kind": {
+    "adverse_event": 8,
+    "author_conclusion": 2,
+    "conflict_of_interest": 1,
+    "eligibility_criterion": 1,
+    "exposure_description": 1,
+    "intervention_description": 1,
+    "limitation": 4,
+    "method": 8,
+    "outcome_definition": 3,
+    "population_description": 5,
+    "qualitative_result": 1,
+    "quantitative_result": 21,
+    "study_objective": 1
+  },
+  "atom_counts_by_batch": {
+    "haratani-2017-design-v1": 5,
+    "haratani-2017-disclosures-v1": 1,
+    "haratani-2017-efficacy-v1": 11,
+    "haratani-2017-interpretation-v1": 7,
+    "haratani-2017-methods-v1": 11,
+    "haratani-2017-population-v1": 4,
+    "haratani-2017-safety-v1": 10,
+    "haratani-2017-supplement-results-v1": 8
+  },
+  "pydantic_structural_validation": "passed",
+  "json_schema_validation": "passed",
+  "sufficiency_validation": "passed",
+  "structural_errors": [],
+  "json_schema_errors": [],
+  "sufficiency_errors": [],
+  "sufficiency_warnings": [],
+  "unique_atom_ids": true,
+  "shared_publication_id": true,
+  "exact_duplicate_canonical_statements": [],
+  "source_integrity_findings": [
+    {
+      "code": "abstract_table2_adjusted_hr_discrepancy",
+      "severity": "warning",
+      "finding": "The abstract and Table 2 report different adjusted hazard ratios for any irAE at the 6-week landmark. PFS is 0.525 (95% CI 0.287-0.937; P=.03) in the abstract versus 0.542 (0.295-0.971; P=.04) in Table 2. OS is 0.282 (0.101-0.667; P=.003) in the abstract versus 0.285 (0.102-0.675; P=.003) in Table 2.",
+      "handling": "Both source assertions were preserved as separate atoms and tagged for source reconciliation. No value was silently corrected."
+    }
+  ],
+  "governing_source_execution": {
+    "literature.py": "executed from supplied /mnt/data/literature(1).py",
+    "literature_atoms.py": "executed from supplied /mnt/data/literature_atoms(1).py",
+    "literature_atom.schema.json": "executed from supplied /mnt/data/literature_atom.schema.json",
+    "README(2).md": "read and applied",
+    "example_atom.json": "read as illustrative only",
+    "summary-evaluation-appraisal-protocol-v4-compact.md": "read and applied as governing SEA file",
+    "large-source-ATOM-SEA.md": "read and applied as supporting workflow guidance",
+    "unslop.skill.md": "retrieved from File Library and applied to prose artifacts"
+  },
+  "protocol_version_note": "The governing filename is summary-evaluation-appraisal-protocol-v4-compact.md, while its internal heading says Integrated Compact v3. Project precedence names the v4 filename, so that file governed this run.",
+  "schema_gaps": [
+    "QuantitativeResult requires a numeric estimate and numeric interval bounds. Kaplan-Meier medians or confidence limits reported as not reached cannot be represented directly. Those values are preserved in canonical_statement and original_result_text, with a numeric reported group value used as the structured estimate when available."
+  ],
+  "extraction_limitations": [
+    "The study is retrospective and observational. The atoms preserve associations and do not convert them into causal effects.",
+    "Landmark analyses reduce lead-time bias but select patients who survive or maintain disease control to each landmark, and the composition changes across 4-, 6-, and 8-week analyses.",
+    "The current extraction captures major patient characteristics and all material result families rather than one atom for every baseline-table cell or every adverse-event subtype.",
+    "All atoms remain needs_review because no independent human reviewer step is represented.",
+    "No external bibliographic correction, erratum search, or current-practice verification was performed because @VERIFY was not activated."
+  ],
+  "generated_at": "2026-08-24T09:15:55Z"
+}

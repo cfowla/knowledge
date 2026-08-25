@@ -1,0 +1,78 @@
+{
+  "source_metadata": {
+    "title": "Comparative Effectiveness of Empagliflozin vs Liraglutide or Sitagliptin in Older Adults With Diverse Patient Characteristics",
+    "citation": "Htoo PT, Tesfaye H, Schneeweiss S, et al. JAMA Network Open. 2022;5(10):e2237606.",
+    "doi": "10.1001/jamanetworkopen.2022.37606",
+    "publication_id": "fac1d775-399c-5632-89c2-6261ec5f7708",
+    "primary_pdf": "htoo_2022_oi_221066_1665581893.99639.pdf",
+    "primary_sha256": "af4a6d855476eeafd9e89db0ed386473aa646445616c4295fb2f843c0c8e7cc4",
+    "supplement_pdf": "zoi221066supp1_prod_1665581894.00138.pdf",
+    "supplement_sha256": "e3800ef5b1f1f9786a897599a32a35288ac4c98999f1fb768e5dadee1540853f",
+    "source_type": "retrospective new-user active-comparator comparative-effectiveness cohort study",
+    "source_pages": 17,
+    "supplement_pages": 27
+  },
+  "atom_count": 160,
+  "atom_counts_by_kind": {
+    "author_conclusion": 1,
+    "comparator_description": 2,
+    "conflict_of_interest": 1,
+    "eligibility_criterion": 2,
+    "funding_disclosure": 2,
+    "intervention_description": 1,
+    "limitation": 4,
+    "method": 5,
+    "outcome_definition": 3,
+    "population_description": 3,
+    "qualitative_result": 3,
+    "quantitative_result": 52,
+    "study_objective": 1,
+    "subgroup_result": 80
+  },
+  "atom_counts_by_extraction_run": {
+    "disclosures-v1": 3,
+    "discussion-v1": 5,
+    "general-v1": 1,
+    "methods-v1": 13,
+    "results-figure-2-v1": 40,
+    "results-figure-3-v1": 40,
+    "results-overall-v1": 4,
+    "results-table2-v1": 24,
+    "supp-bias-v1": 1,
+    "supp-class-v1": 1,
+    "supp-et3-v1": 16,
+    "supp-et4-v1": 12
+  },
+  "structural_validation": {
+    "valid": true,
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "duplicate_review": {
+    "status": "completed",
+    "findings": []
+  },
+  "consistency_findings": [
+    {
+      "issue": "Study-end date discrepancy",
+      "detail": "Main article states the study period ended September 30, 2018, while supplement eTable 2 labels censoring as “End of study - 12/31/2018.” This was not reconciled or normalized."
+    },
+    {
+      "issue": "Flow-count reconciliation",
+      "detail": "Supplement flow diagrams show 61 and 91 otherwise-eligible patients who did not begin follow-up because they were not alive one day after cohort entry; subtracting these explains the slightly lower pre-match cohort counts in the main text."
+    }
+  ],
+  "schema_gaps": [
+    "The schema has one quantitative_result object per atom, so hazard ratios and rate differences are represented as separate atoms even when reported in the same table row.",
+    "No dedicated field exists for interaction/homogeneity p-values; these are preserved in canonical/source context when central but not normalized into quantitative_result."
+  ],
+  "extraction_limitations": [
+    "Supplement eFigures 3 and 4 were reconciled in the SEA artifact but not exhaustively atomized cell-by-cell; the source’s class-comparator overall estimates and main subgroup claims were extracted.",
+    "Baseline tables were represented through population/balance atoms rather than one atom per descriptive cell.",
+    "No missing clinical details were imputed; dosing and laboratory values were left unspecified when not reported in claims data."
+  ]
+}

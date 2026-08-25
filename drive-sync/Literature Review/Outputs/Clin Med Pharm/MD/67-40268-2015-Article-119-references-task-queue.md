@@ -1,0 +1,216 @@
+# Reference task queue: Safety of Epidural Corticosteroid Injections
+
+Source: Pountos I, Panteli M, Walters G, Bush D, Giannoudis PV. Drugs R&D. 2016;16:19-34. DOI 10.1007/s40268-015-0119-3.
+
+Each checkbox is one bibliography entry from the article. Citation text is normalized only for PDF line wrapping and was not externally verified.
+
+- [ ] 1. Muramoto T, Atsuta Y, Iwahara T, Sato M, Takemitsu Y. The action of prostaglandin E2 and triamcinolone acetonide on the firing activity of lumbar nerve roots. Int Orthop. 1997;21:172–5.
+- [ ] 2. Di Donato A, Fontana C, Alemanno D, Di Giacomo A. Epiduroscopy in treatment of degenerative chronic low back pain: a prospective analysis and follow-up at 60 months. Clin Res Regul Aff. 2010;27:69–74.
+- [ ] 3. Whitlock EL, Bridwell KH, Gilula LA. Influence of needle tip position on injectate spread in 406 interlaminar lumbar epidural steroid injections. Radiology. 2007;243:804–11.
+- [ ] 4. Lee JH, An JH, Lee SH. Comparison of the effectiveness of interlaminar and bilateral transforaminal epidural steroid injections in treatment of patients with lumbosacral disc herniation and spinal stenosis. Clin J Pain. 2009;25:206–10.
+- [ ] 5. Chang-Chien GC, Knezevic NN, McCormick Z, Chu SK, Trescot AM, Candido KD. Transforaminal versus interlaminar approaches to epidural steroid injections: a systematic review of comparative studies for lumbosacral radicular pain. Pain Physician. 2014;17:E509–24.
+- [ ] 6. Rados I, Sakic K, Fingler M, Kapural L. Efficacy of interlaminar vs transforaminal epidural steroid injection for the treatment of chronic unilateral radicular pain: prospective, randomized study. Pain Med. 2011;12:1316–21.
+- [ ] 7. Bui J, Bogduk N. A systematic review of the effectiveness of CT-guided, lumbar transforaminal injection of steroids. Pain Med. 2013;14:1860–5.
+- [ ] 8. Gofeld M, Bristow SJ, Chiu SC, McQueen CK, Bollag L. Ultrasound-guided lumbar transforaminal injections: feasibility and validation study. Spine (Phila Pa 1976). 2012;37:808–12.
+- [ ] 9. Chou R, Atlas SJ, Stanos SP, Rosenquist RW. Nonsurgical interventional therapies for low back pain: a review of the evidence for an American Pain Society clinical practice guideline. Spine (Phila Pa 1976). 2009;34:1078–93.
+- [ ] 10. Friedly JL, Comstock BA, Turner JA, Heagerty PJ, Deyo RA, Sullivan SD, et al. A randomized trial of epidural glucocorticoid injections for spinal stenosis. N Engl J Med. 2014;371:11–21.
+- [ ] 11. Pinto RZ, Maher CG, Ferreira ML, Hancock M, Oliveira VC, McLachlan AJ, et al. Epidural corticosteroid injections in the management of sciatica: a systematic review and meta-analysis. Ann Intern Med. 2012;157:865–77.
+- [ ] 12. Staal JB, de Bie RA, de Vet HC, Hildebrandt J, Nelemans P. Injection therapy for subacute and chronic low back pain: an updated Cochrane review. Spine (Phila Pa 1976). 2009;34: 49–59.
+- [ ] 13. Benny B, Azari P. The efficacy of lumbosacral transforaminal epidural steroid injections: a comprehensive literature review. J Back Musculoskelet Rehabil. 2011;24:67–76.
+- [ ] 14. Benyamin RM, Singh V, Parr AT, Conn A, Diwan S, Abdi S. Systematic review of the effectiveness of cervical epidurals in the management of chronic neck pain. Pain Physician. 2009;12:137–57.
+- [ ] 15. Diwan S, Manchikanti L, Benyamin RM, Bryce DA, Geffert S, Hameed H, et al. Effectiveness of cervical epidural injections in the management of chronic neck and upper extremity pain. Pain Physician. 2012;15:E405–34.
+- [ ] 16. MacVicar J, King W, Landers MH, Bogduk N. The effectiveness of lumbar transforaminal injection of steroids: a comprehensive review with systematic analysis of the published data. Pain Med. 2013;14:14–28.
+- [ ] 17. Manchikanti L, Falco FJ, Diwan S, Hirsch JA, Smith HS. Cervical radicular pain: the role of interlaminar and transforaminal epidural injections. Curr Pain Headache Rep. 2014;18:389.
+- [ ] 18. Quraishi NA. Transforaminal injection of corticosteroids for lumbar radiculopathy: systematic review and meta-analysis. Eur Spine J. 2012;21:214–9.
+- [ ] 19. US Food and Drug Administration. FDA Drug Safety Communication: FDA requires label changes to warn of rare but serious neurologic problems after epidural corticosteroid injections for pain. 2014. http://www.fda.gov/downloads/Drugs/ DrugSafety/UCM394286.pdf. Accessed 13 Dec 2015.
+- [ ] 20. Moher D, Liberati A, Tetzlaff J, Altman DG, Group P. Preferred reporting items for systematic reviews and meta-analyses: the PRISMA statement. BMJ. 2009;339:b2535.
+- [ ] 21. Beyaz SG, Eman A. Fluoroscopy guided cervical interlaminar steroid injections in patients with cervical pain syndromes: a retrospective study. J Back Musculoskelet Rehabil. 2013;26: 85–91.
+- [ ] 22. Botwin KP, Castellanos R, Rao S, Hanna AF, Torres-Ramos FM, Gruber RD, et al. Complications of fluoroscopically guided interlaminar cervical epidural injections. Arch Phys Med Rehabil. 2003;84:627–33.
+- [ ] 23. Castagnera L, Maurette P, Pointillart V, Vital JM, Erny P, Senegas J. Long-term results of cervical epidural steroid injection with and without morphine in chronic cervical radicular pain. Pain. 1994;58:239–43.
+- [ ] 24. Derby R, Lee SH, Kim BJ, Chen Y, Seo KS. Complications following cervical epidural steroid injections by expert interventionalists in 2003. Pain Physician. 2004;7:445–9.
+- [ ] 25. Furman MB, Giovanniello MT, O’Brien EM. Incidence of intravascular penetration in transforaminal cervical epidural steroid injections. Spine (Phila Pa 1976). 2003;28:21–5.
+- [ ] 26. Goel A, Pollan JJ. Contrast flow characteristics in the cervical epidural space: an analysis of cervical epidurograms. Spine (Phila Pa 1976). 2006;31:1576–9.
+- [ ] 27. Kolstad F, Leivseth G, Nygaard OP. Transforaminal steroid injections in the treatment of cervical radiculopathy. A prospective outcome study. Acta Neurochir (Wien). 2005;147:1065–70 (discussion 1070).
+- [ ] 28. Kranz PG, Raduazo P, Gray L, Kilani RK, Hoang JK. CT fluoroscopy-guided cervical interlaminar steroid injections: safety, technique, and radiation dose parameters. AJNR Am J Neuroradiol. 2012;33:1221–4.
+- [ ] 29. Kwon JW, Lee JW, Kim SH, Choi JY, Yeom JS, Kim HJ, et al. Cervical interlaminar epidural steroid injection for neck pain and cervical radiculopathy: effect and prognostic factors. Skeletal Radiol. 2007;36:431–6.
+- [ ] 30. Lee JW, Hwang SY, Lee GY, Lee E, Kang HS. Fluoroscopic cervical paramidline interlaminar epidural steroid injections for cervical radiculopathy: effectiveness and outcome predictors. Skeletal Radiol. 2014;43:933–8.
+- [ ] 31. Lee SH, Kim KT, Kim DH, Lee BJ, Son ES, Kwack YH. Clinical outcomes of cervical radiculopathy following epidural steroid injection: a prospective study with follow-up for more than 2 years. Spine (Phila Pa 1976). 2012;37:1041–7.
+- [ ] 32. Manchikanti L, Cash KA, Pampati V, Malla Y. Two-year follow-up results of fluoroscopic cervical epidural injections in chronic axial or discogenic neck pain: a randomized, doubleblind, controlled trial. Int J Med Sci. 2014;11:309–20.
+- [ ] 33. Manchikanti L, Cash KA, Pampati V, Wargo BW, Malla Y. A randomized, double-blind, active control trial of fluoroscopic cervical interlaminar epidural injections in chronic pain of cervical disc herniation: results of a 2-year follow-up. Pain Physician. 2013;16:465–78.
+- [ ] 34. Manchikanti L, Malla Y, Wargo BW, Cash KA, Pampati V, Fellows B. A prospective evaluation of complications of 10,000 fluoroscopically directed epidural injections. Pain Physician. 2012;15:131–40.
+- [ ] 35. Candido KD, Rana MV, Sauer R, Chupatanakul L, Tharian A, Vasic V, et al. Concordant pressure paresthesia during interlaminar lumbar epidural steroid injections correlates with pain relief in patients with unilateral radicular pain. Pain Physician. 2013;16:497–511.
+- [ ] 36. Carette S, Leclaire R, Marcoux S, Morin F, Blaise GA, St-Pierre A, et al. Epidural corticosteroid injections for sciatica due to herniated nucleus pulposus. N Engl J Med. 1997;336:1634–40.
+- [ ] 37. Kloth DS, Calodney AK, Derby R, Lagattuta FP, O’Neill C, Yurth E, et al. Improving the safety of transforaminal epidural steroid injections in the treatment of cervical radiculopathy. Pain Physician. 2011;14:285–93.
+- [ ] 38. Lee JW, Park KW, Chung SK, Yeom JS, Kim KJ, Kim HJ, et al. Cervical transforaminal epidural steroid injection for the management of cervical radiculopathy: a comparative study of particulate versus non-particulate steroids. Skeletal Radiol. 2009;38:1077–82.
+- [ ] 39. Lin EL, Lieu V, Halevi L, Shamie AN, Wang JC. Cervical epidural steroid injections for symptomatic disc herniations. J Spinal Disord Tech. 2006;19:183–6.
+- [ ] 40. Manchikanti L, Cash KA, McManus CD, Damron KS, Pampati V, Falco FJ. Lumbar interlaminar epidural injections in central spinal stenosis: preliminary results of a randomized, doubleblind, active control trial. Pain Physician. 2012;15:51–63.
+- [ ] 41. Scanlon GC, Moeller-Bertram T, Romanowsky SM, Wallace MS. Cervical transforaminal epidural steroid injections: more dangerous than we think? Spine (Phila Pa 1976). 2007;32: 1249–56.
+- [ ] 42. Valat JP, Giraudeau B, Rozenberg S, Goupille P, Bourgeois P, Micheau-Beaugendre V, et al. Epidural corticosteroid injections for sciatica: a randomised, double blind, controlled clinical trial. Ann Rheum Dis. 2003;62:639–43.
+- [ ] 43. Vallee JN, Feydy A, Carlier RY, Mutschler C, Mompoint D, Vallee CA. Chronic cervical radiculopathy: lateral-approach periradicular corticosteroid injection. Radiology. 2001;218:886–92.
+- [ ] 44. Arden NK, Price C, Reading I, Stubbing J, Hazelgrove J, Dunne C, WEST Study Group, et al. A multicentre randomized controlled trial of epidural corticosteroid injections for sciatica: the WEST study. Rheumatology (Oxford). 2005;44:1399–406.
+- [ ] 45. Bartynski WS, Jennings RB, Rothfus WE, Agarwal V. Immediate pain response to interlaminar lumbar epidural steroid administration: response characteristics and effects of anesthetic concentration. AJNR Am J Neuroradiol. 2013;34:239–46.
+- [ ] 46. Candido KD, Katz JA, Chinthagada M, McCarthy RA, Knezevic NN. Incidence of intradiscal injection during lumbar fluoroscopically guided transforaminal and interlaminar epidural steroid injections. Anesth Analg. 2010;110:1464–7.
+- [ ] 47. Evansa I, Logina I, Vanags I, Borgeat A. Ultrasound versus fluoroscopic-guided epidural steroid injections in patients with degenerative spinal diseases: a randomised study. Eur J Anaesthesiol. 2015;32:262–8.
+- [ ] 48. Huang AJ, Rosenthal DI, Palmer WE. Inadvertent intra-articular lumbar facet joint injection during fluoroscopically guided interlaminar epidural steroid injection. Skeletal Radiol. 2011;40:33–45.
+- [ ] 49. Kim CH, Issa MA, Vaglienti RM. Flushing following interlaminar lumbar epidural steroid injection with dexamethasone. Pain Physician. 2010;13:481–4.
+- [ ] 50. Kim D, Brown J. Efficacy and safety of lumbar epidural dexamethasone versus methylprednisolone in the treatment of lumbar radiculopathy: a comparison of soluble versus particulate steroids. Clin J Pain. 2011;27:518–22.
+- [ ] 51. Kraemer J, Ludwig J, Bickert U, Owczarek V, Traupe M. Lumbar epidural perineural injection: a new technique. Eur Spine J. 1997;6:357–61.
+- [ ] 52. Manchikanti L, Falco FJ, Pampati V, Hirsch JA. Lumbar interlaminar epidural injections are superior to caudal epidural injections in managing lumbar central spinal stenosis. Pain Physician. 2014;17:E691–702.
+- [ ] 53. Botwin KP, Gruber RD, Bouchlas CG, Torres-Ramos FM, Freeman TL, Slaten WK. Complications of fluoroscopically guided transforaminal lumbar epidural injections. Arch Phys Med Rehabil. 2000;81:1045–50.
+- [ ] 54. Gelalis ID, Arnaoutoglou E, Pakos EE, Politis AN, Rapti M, Xenakis TA, et al. Effect of interlaminar epidural steroid injection in acute and subacute pain due to lumbar disk herniation: a randomized comparison of 2 different protocols. Open Orthop J. 2009;3:121–4.
+- [ ] 55. Ghai B, Vadaje KS, Wig J, Dhillon MS. Lateral parasagittal versus midline interlaminar lumbar epidural steroid injection for management of low back pain with lumbosacral radicular pain: a double-blind, randomized study. Anesth Analg. 2013;117: 219–27.
+- [ ] 56. Hong JH, Lee SM, Bae JH. Analysis of inadvertent intradiscal injections during lumbar transforaminal epidural injection. Korean J Pain. 2014;27:168–73.
+- [ ] 57. Karaman H, Kavak GO, Tufek A, Yldrm ZB. The complications of transforaminal lumbar epidural steroid injections. Spine (Phila Pa 1976). 2011;36:E819–24.
+- [ ] 58. Manson NA, McKeon MD, Abraham EP. Transforaminal epidural steroid injections prevent the need for surgery in patients with sciatica secondary to lumbar disc herniation: a retrospective case series. Can J Surg. 2013;56:89–96.
+- [ ] 59. McGrath JM, Schaefer MP, Malkamaki DM. Incidence and characteristics of complications from epidural steroid injections. Pain Med. 2011;12:726–31.
+- [ ] 60. Milburn J, Freeman J, Steven A, Altmeyer W, Kay D. Interlaminar epidural steroid injection for degenerative lumbar spinal canal stenosis: does the intervertebral level of performance matter? Ochsner J. 2014;14:62–6.
+- [ ] 61. Ploumis A, Christodoulou P, Wood KB, Varvarousis D, Sarni JL, Beris A. Caudal vs transforaminal epidural steroid injections as short-term (6 months) pain relief in lumbar spinal stenosis patients with sciatica. Pain Med. 2014;15:379–85.
+- [ ] 62. Ahadian FM, McGreevy K, Schulteis G. Lumbar transforaminal epidural dexamethasone: a prospective, randomized, doubleblind, dose-response trial. Reg Anesth Pain Med. 2011;36: 572–8.
+- [ ] 63. Cansever T, Kabatas S, Civelek E, Kircelli A, Yilmaz C, Musluman M, et al. Transforaminal epidural steroid injection via a preganglionic approach for the treatment of lumbar radicular pain. Turk Neurosurg. 2012;22:183–8.
+- [ ] 64. Kim HJ, Rim BC, Lim JW, Park NK, Kang TW, Sohn MK, et al. Efficacy of epidural neuroplasty versus transforaminal epidural steroid injection for the radiating pain caused by a herniated lumbar disc. Ann Rehabil Med. 2013;37:824–31.
+- [ ] 65. Koh WU, Choi SS, Park SY, Joo EY, Kim SH, Lee JD, et al. Transforaminal hypertonic saline for the treatment of lumbar lateral canal stenosis: a double-blinded, randomized, activecontrol trial. Pain Physician. 2013;16:197–211.
+- [ ] 66. Kraiwattanapong C, Wechmongkolgorn S, Chatriyanuyok B, Woratanarat P, Udomsubpayakul U, Chanplakorn P, et al. Outcomes of fluoroscopically guided lumbar transforaminal epidural steroid injections in degenerative lumbar spondylolisthesis patients. Asian Spine J. 2014;8:119–28.
+- [ ] 67. Manchikanti L, Cash KA, Pampati V, Falco FJ. Transforaminal epidural injections in chronic lumbar disc herniation: a randomized, double-blind, active-control trial. Pain Physician. 2014;17:E489–501.
+- [ ] 68. Tauheed N, Usmani H, Siddiqui AH. A comparison of the analgesic efficacy of transforaminal methylprednisolone alone and with low doses of clonidine in lumbo-sacral radiculopathy. Saudi J Anaesth. 2014;8:51–8.
+- [ ] 69. Wewalka M, Abdelrahimsai A, Wiesinger GF, Uher EM. CTguided transforaminal epidural injections with local anesthetic, steroid, and tramadol for the treatment of persistent lumbar radicular pain. Pain Physician. 2012;15:153–9.
+- [ ] 70. Ackerman WE 3rd, Ahmad M. The efficacy of lumbar epidural steroid injections in patients with lumbar disc herniations. Anesth Analg. 2007;104:1217–22.
+- [ ] 71. Botwin KP, Gruber RD, Bouchlas CG, Torres-Ramos FM, Sanelli JT, Freeman ED, et al. Fluoroscopically guided lumbar transformational epidural steroid injections in degenerative lumbar stenosis: an outcome study. Am J Phys Med Rehabil. 2002;81:898–905.
+- [ ] 72. Jeong HS, Lee JW, Kim SH, Myung JS, Kim JH, Kang HS. Effectiveness of transforaminal epidural steroid injection by using a preganglionic approach: a prospective randomized controlled study. Radiology. 2007;245:584–90.
+- [ ] 73. Kabatas S, Cansever T, Yilmaz C, Kocyigit OI, Coskun E, Demircay E, et al. Transforaminal epidural steroid injection via a preganglionic approach for lumbar spinal stenosis and lumbar discogenic pain with radiculopathy. Neurol India. 2010;58:248–52.
+- [ ] 74. Lutz GE, Vad VB, Wisneski RJ. Fluoroscopic transforaminal lumbar epidural steroids: an outcome study. Arch Phys Med Rehabil. 1998;79:1362–6.
+- [ ] 75. Rahimzadeh P, Sharma V, Imani F, Faiz HR, Ghodraty MR, Nikzad-Jamnani AR, et al. Adjuvant hyaluronidase to epidural steroid improves the quality of analgesia in failed back surgery syndrome: a prospective randomized clinical trial. Pain Physician. 2014;17:E75–82.
+- [ ] 76. Roy C, Chatterjee N, Patro SN, Chakraborty A, Vijay Kumar GR, Sengupta R. The efficacy of transforaminal epidural steroid injections in lumbosacral radiculopathy. Neurol India. 2011;59:685–9.
+- [ ] 77. Vad VB, Bhat AL, Lutz GE, Cammisa F. Transforaminal epidural steroid injections in lumbosacral radiculopathy: a prospective randomized study. Spine (Phila Pa 1976). 2002;27:11–6.
+- [ ] 78. Yang SC, Fu TS, Lai PL, Niu CC, Chen LH, Chen WJ. Transforaminal epidural steroid injection for discectomy candidates: an outcome study with a minimum of two-year followup. Chang Gung Med J. 2006;29:93–9.
+- [ ] 79. AbdeleRahman KT, Rakocevic G. Paraplegia following lumbosacral steroid epidural injections. J Clin Anesth. 2014;26:497–9.
+- [ ] 80. Chang Chien GC, Candido KD, Knezevic NN. Digital subtraction angiography does not reliably prevent paraplegia associated with lumbar transforaminal epidural steroid injection. Pain Physician. 2012;15:515–23.
+- [ ] 81. Desai MJ, Dua S. Perineural hematoma following lumbar transforaminal steroid injection causing acute-on-chronic lumbar radiculopathy: a case report. Pain Pract. 2014;14:271–7.
+- [ ] 82. Kim W, Kim JS, Lim SC, Kim YI, Moon DE. Reversible posterior leukoencephalopathy syndrome after cervical transforaminal epidural steroid injection presenting as transient blindness. Anesth Analg. 2011;112:967–70.
+- [ ] 83. Kushner FH, Olson JC. Retinal hemorrhage as a consequence of epidural steroid injection. Arch Ophthalmol. 1995;113:309–13.
+- [ ] 84. McMillan MR, Crumpton C. Cortical blindness and neurologic injury complicating cervical transforaminal injection for cervical radiculopathy. Anesthesiology. 2003;99:509–11.
+- [ ] 85. Popescu A, Lai D, Lu A, Gardner K. Stroke following epidural injections–case report and review of literature. J Neuroimaging. 2013;23:118–21.
+- [ ] 86. Purdy EP, Ajimal GS. Vision loss after lumbar epidural steroid injection. Anesth Analg. 1998;86:119–22.
+- [ ] 87. Young WF. Transient blindness after lumbar epidural steroid injection: a case report and literature review. Spine (Phila Pa 1976). 2002;27:E476–7.
+- [ ] 88. Beckman WA, Mendez RJ, Paine GF, Mazzilli MA. Cerebellar herniation after cervical transforaminal epidural injection. Reg Anesth Pain Med. 2006;31:282–5.
+- [ ] 89. Brouwers PJ, Kottink EJ, Simon MA, Prevo RL. A cervical anterior spinal artery syndrome after diagnostic blockade of the right C6-nerve root. Pain. 2001;91:397–9.
+- [ ] 90. Kim WJ, Park HG, Park YH, Shin MR, Koo GH, Shin HY. Pneumocephalus during cervical transforaminal epidural steroid injections: a case report. Am J Phys Med Rehabil. 2015;94:63–9.
+- [ ] 91. Ludwig MA, Burns SP. Spinal cord infarction following cervical transforaminal epidural injection: a case report. Spine (Phila Pa 1976). 2005;30:E266–8.
+- [ ] 92. Muro K, O’Shaughnessy B, Ganju A. Infarction of the cervical spinal cord following multilevel transforaminal epidural steroid injection: case report and review of the literature. J Spinal Cord Med. 2007;30:385–8.
+- [ ] 93. Rozin L, Rozin R, Koehler SA, Shakir A, Ladham S, Barmada M, et al. Death during transforaminal epidural steroid nerve root block (C7) due to perforation of the left vertebral artery. Am J Forensic Med Pathol. 2003;24:351–5.
+- [ ] 94. Sweni S, Senthilkumaran S, Balamurugan N, Thirumalaikolundusubramanian P. Tension pneumocephalus: a case report with review of literature. Emerg Radiol. 2013;20:573–8.
+- [ ] 95. Sykes KT, Yi X. Intracranial hypotension headache caused by a massive cerebrospinal fluid leak successfully treated with a targeted c2 epidural blood patch: a case report. Pain Physician. 2013;16:399–404.
+- [ ] 96. Thefenne L, Dubecq C, Zing E, Rogez D, Soula M, Escobar E, et al. A rare case of paraplegia complicating a lumbar epidural infiltration. Ann Phys Rehabil Med. 2010;53:575–83.
+- [ ] 97. Ziai WC, Ardelt AA, Llinas RH. Brainstem stroke following uncomplicated cervical epidural steroid injection. Arch Neurol. 2006;63:1643–6.
+- [ ] 98. De Oliveira GS, Jr Charchaflieh J, Walega D Jr. Pneumorrhachis mimicking meningitis after a paramedian lumbar interlaminar injection. Clin J Pain. 2011;27:355–6.
+- [ ] 99. Gitkind AI, Shah B, Thomas M. Epidural corticosteroid injections as a possible cause of menorrhagia: a case report. Pain Med. 2010;11:713–5.
+- [ ] 100. Glaser SE, Falco F. Paraplegia following a thoracolumbar transforaminal epidural steroid injection. Pain Physician. 2005;8:309–14.
+- [ ] 101. Hirsch JG, Hsu ES. Abnormal uterine bleeding following lumbar epidural corticosteroid injections and facet medial branch blocks in both preand postmenopausal women: a case series. Pain Med. 2012;13:1137–40.
+- [ ] 102. Houten JK, Errico TJ. Paraplegia after lumbosacral nerve root block: report of three cases. Spine J. 2002;2:70–5.
+- [ ] 103. Huntoon MA, Martin DP. Paralysis after transforaminal epidural injection and previous spinal surgery. Reg Anesth Pain Med. 2004;29:494–5.
+- [ ] 104. Kao LY. Bilateral serous retinal detachment resembling central serous chorioretinopathy following epidural steroid injection. Retina. 1998;18:479–81.
+- [ ] 105. Kennedy DJ, Dreyfuss P, Aprill CN, Bogduk N. Paraplegia following image-guided transforaminal lumbar spine epidural steroid injection: two case reports. Pain Med. 2009;10:1389–94.
+- [ ] 106. Suresh S, Berman J, Connell DA. Cerebellar and brainstem infarction as a complication of CT-guided transforaminal cervical nerve root block. Skeletal Radiol. 2007;36:449–52.
+- [ ] 107. Wybier M, Gaudart S, Petrover D, Houdart E, Laredo JD. Paraplegia complicating selective steroid injections of the lumbar spine. Report of five cases and review of the literature. Eur Radiol. 2010;20:181–9.
+- [ ] 108. Centers for Disease Control and Prevention (CDC). Spinal and paraspinal infections associated with contaminated methylprednisolone acetate injections—Michigan, 2012–2013. MMWR Morb Mortal Wkly Rep. 2013;62:377–81.
+- [ ] 109. Chiller TM, Roy M, Nguyen D, Guh A, Malani AN, Latham R, Multistate Fungal Infection Clinical Investigation Team, et al. Clinical findings for fungal infections caused by methylprednisolone injections. N Engl J Med. 2013;369:1610–9.
+- [ ] 110. Dunn LT, Javed A, Findlay G, Green AD. Iatrogenic spinal infection following epidural anaesthesia: case report. Eur Spine J. 1996;5:418–20.
+- [ ] 111. Gaul C, Neundorfer B, Winterholler M. Iatrogenic (para-) spinal abscesses and meningitis following injection therapy for low back pain. Pain. 2005;116:407–10.
+- [ ] 112. Kabbara A, Rosenberg SK, Untal C. Methicillin-resistant Staphylococcus aureus epidural abscess after transforaminal epidural steroid injection. Pain Physician. 2004;7:269–72.
+- [ ] 113. Kolbe AB, McKinney AM, Kendi AT, Misselt D. Aspergillus meningitis and discitis from low-back procedures in an immunocompetent patient. Acta Radiol. 2007;48:687–9.
+- [ ] 114. Saigal G, Donovan Post MJ, Kozic D. Thoracic intradural Aspergillus abscess formation following epidural steroid injection. AJNR Am J Neuroradiol. 2004;25:642–4.
+- [ ] 115. Shanthanna H, Busse JW. Abnormal vaginal bleeding after epidural steroid injection: is there a cause for concern? Evid Based Med. 2014;19:e16.
+- [ ] 116. Suh-Burgmann E, Hung YY, Mura J. Abnormal vaginal bleeding after epidural steroid injection: a paired observation cohort study. Am J Obstet Gynecol. 2013;209(206):e1–6.
+- [ ] 117. Davis K, Prater A, Fluker SA, Klein R. A difficult case to swallow: herpes esophagitis after epidural steroid injection. Am J Ther. 2014;21:e9–14.
+- [ ] 118. Hooten WM, Kinney MO, Huntoon MA. Epidural abscess and meningitis after epidural corticosteroid injection. Mayo Clin Proc. 2004;79:682–6.
+- [ ] 119. Huang RC, Shapiro GS, Lim M, Sandhu HS, Lutz GE, Herzog RJ. Cervical epidural abscess after epidural steroid injection. Spine (Phila Pa 1976). 2004;29:E7–9.
+- [ ] 120. Kaul S, Meena AK, Sundaram C, Reddy JM, Naik RT, Murthy JM. Spinal extradural abscess following local steroid injection. Neurol India. 2000;48:181–3.
+- [ ] 121. Koka VK, Potti A. Spinal epidural abscess after corticosteroid injections. South Med J. 2002;95:772–4.
+- [ ] 122. Kraeutler MJ, Bozzay JD, Walker MP, John K. Spinal subdural abscess following epidural steroid injection. J Neurosurg Spine. 2015;22:90–3.
+- [ ] 123. Lindner A, Warmuth-Metz M, Becker G, Toyka VV. Iatrogenic spinal epidural abscesses: early diagnosis essential for good outcome. Eur J Med Res. 1997;2:201–5.
+- [ ] 124. Reitman CA, Watters W 3rd. Subdural hematoma after cervical epidural steroid injection. Spine (Phila Pa 1976). 2002;27:E174–6.
+- [ ] 125. Sato S, Sakuragi T, Dan K. Human skin flora as a potential source of epidural abscess. Anesthesiology. 1996;85:1276–82.
+- [ ] 126. Simopoulos TT, Kraemer JJ, Glazer P, Bajwa ZH. Vertebral osteomyelitis: a potentially catastrophic outcome after lumbar epidural steroid injection. Pain Physician. 2008;11:693–7.
+- [ ] 127. Trautmann M, Lepper PM, Schmitz FJ. Three cases of bacterial meningitis after spinal and epidural anesthesia. Eur J Clin Microbiol Infect Dis. 2002;21:43–5.
+- [ ] 128. Abbasi A, Roque-Dang CM, Malhotra G. Persistent hiccups after interventional pain procedures: a case series and review. PM R. 2012;4:144–51.
+- [ ] 129. Chung SG. Convulsion caused by a lidocaine test in cervical transforaminal epidural steroid injection. PM R. 2011;3:674–7.
+- [ ] 130. Cooper AB, Sharpe MD. Bacterial meningitis and cauda equina syndrome after epidural steroid injections. Can J Anaesth. 1996;43:471–4.
+- [ ] 131. Grierson MJ, Harrast MA. Iatrogenic Cushing syndrome after epidural steroid injections for lumbar radiculopathy in an HIVinfected patient treated with ritonavir: a case report highlighting drug interactions for spine interventionalists. PM R. 2012;4:234–7.
+- [ ] 132. Knight JW, Cordingley JJ, Palazzo MG. Epidural abscess following epidural steroid and local anaesthetic injection. Anaesthesia. 1997;52:576–8.
+- [ ] 133. Maeder PP, Ingvar-Maeder MC, Meuli RA, Regli F, de Tribolet N. Cervical epidural abscess due to actinomycosis: demonstration by MRI. Eur Neurol. 1996;36:56–7.
+- [ ] 134. Moran DE, Moynagh MR, Alzanki M, Chan VO, Eustace SJ. Anaphylaxis at image-guided epidural pain block secondary to corticosteroid compound. Skeletal Radiol. 2012;41:1317–8.
+- [ ] 135. Shanthanna H, Park J. Acute epidural haematoma following epidural steroid injection in a patient with spinal stenosis. Anaesthesia. 2011;66:837–9.
+- [ ] 136. Stauber B, Ma L, Nazari R. Cardiopulmonary arrest following cervical epidural injection. Pain Physician. 2012;15:147–52.
+- [ ] 137. Benyamin RM, Vallejo R, Kramer J, Rafeyan R. Corticosteroid induced psychosis in the pain management setting. Pain Physician. 2008;11:917–20.
+- [ ] 138. Danielson KD, Harrast MA. Focal spinal epidural lipomatosis after a single epidural steroid injection. PM R. 2011;3:590–3.
+- [ ] 139. Goodman BS, Bayazitoglu M, Mallempati S, Noble BR, Geffen JF. Dural puncture and subdural injection: a complication of lumbar transforaminal epidural injections. Pain Physician. 2007;10:697–705.
+- [ ] 140. Lee JH, Lee JK, Seo BR, Moon SJ, Kim JH, Kim SH. Spinal cord injury produced by direct damage during cervical transforaminal epidural injection. Reg Anesth Pain Med. 2008;33:377–9.
+- [ ] 141. Linn AJ, Desilva C, Peeters-Asdourian C. Thromboembolic stroke: a rare complication associated with peri-procedural management of an epidural steroid injection. Pain Physician. 2009;12:159–62.
+- [ ] 142. Ozdemir O, Calisaneller T, Yildirim E, Altinors N. Acute intracranial subdural hematoma after epidural steroid injection: a case report. J Manip Physiol Ther. 2007;30:536–8.
+- [ ] 143. Tok CH, Kaur S, Gangi A. Symptomatic spinal epidural lipomatosis after a single local epidural steroid injection. Cardiovasc Intervent Radiol. 2011;34(Suppl 2):S250–5.
+- [ ] 144. Xu R, Bydon M, Gokaslan ZL, Wolinsky JP, Witham TF, Bydon A. Epidural steroid injection resulting in epidural hematoma in a patient despite strict adherence to anticoagulation guidelines. J Neurosurg Spine. 2009;11:358–64.
+- [ ] 145. Yoo HS, Park SW, Han JH, Chung JY, Yi JW, Kang JM, et al. Paraplegia caused by an epidural hematoma in a patient with unrecognized chronic idiopathic thrombocytopenic purpura following an epidural steroid injection. Spine (Phila Pa 1976). 2009;34:E376–9.
+- [ ] 146. Ain RJ, Vance MB. Epidural hematoma after epidural steroid injection in a patient withholding enoxaparin per guidelines. Anesthesiology. 2005;102:701–3.
+- [ ] 147. Ammirati M, Perino F. Symptomatic air trapped in the spine after lumbar epidural corticosteroid injection. Case report. J Neurosurg Spine. 2006;5:359–61.
+- [ ] 148. Bilir A, Gulec S. Cauda equina syndrome after epidural steroid injection: a case report. J Manip Physiol Ther. 2006;29(492): e1–3.
+- [ ] 149. Bose B. Quadriparesis following cervical epidural steroid injections: case report and review of the literature. Spine J. 2005;5:558–63.
+- [ ] 150. Dietrich CL, Smith CE. Epidural granuloma and intracranial hypotension resulting from cervical epidural steroid injection. Anesthesiology. 2004;100:445–7.
+- [ ] 151. Hawley JS, Ney JP, Swanberg MM. Subarachnoid pneumocephalus from epidural steroid injection. Headache. 2005;45: 247–8.
+- [ ] 152. McAllister RK, McDavid AJ, Meyer TA, Bittenbinder TM. Recurrent persistent hiccups after epidural steroid injection and analgesia with bupivacaine. Anesth Analg. 2005;100:1834–6.
+- [ ] 153. McLain RF, Fry M, Hecht ST. Transient paralysis associated with epidural steroid injection. J Spinal Disord. 1997;10:441–4.
+- [ ] 154. Pizzimenti JJ, Daniel KP. Central serous chorioretinopathy after epidural steroid injection. Pharmacotherapy. 2005;25:1141–6.
+- [ ] 155. Snarr J. Risk, benefits and complications of epidural steroid injections: a case report. AANA J. 2007;75:183–8.
+- [ ] 156. Tripathi M, Nath SS, Gupta RK. Paraplegia after intracord injection during attempted epidural steroid injection in an awakepatient. Anesth Analg. 2005;101:1209–11 (table of contents).
+- [ ] 157. Bansal S, Turtle MJ. Inadvertent subdural spread complicating cervical epidural steroid injection with local anaesthetic agent. Anaesth Intensive Care. 2003;31:570–2.
+- [ ] 158. Field J, Rathmell JP, Stephenson JH, Katz NP. Neuropathic pain following cervical epidural steroid injection. Anesthesiology. 2000;93:885–8.
+- [ ] 159. Ghaly RF. Recovery after high-dose methylprednisolone and delayed evacuation: a case of spinal epidural hematoma. J Neurosurg Anesthesiol. 2001;13:323–8.
+- [ ] 160. Hodges SD, Castleberg RL, Miller T, Ward R, Thornburg C. Cervical epidural steroid injection with intrinsic spinal cord damage. Two case reports. Spine (Phila Pa 1976). 1998;23:2137–42 (discussion 2141–2).
+- [ ] 161. McCullen GM, Spurling GR, Webster JS. Epidural lipomatosis complicating lumbar steroid injections. J Spinal Disord. 1999;12:526–9.
+- [ ] 162. Siddiqui MN, Ranasinghe JS, Siddiqui S. Epidural hematoma after epidural steroid injection: a possible association with use of pentosan polysulfate sodium. Anesthesiology. 2001;95:1307.
+- [ ] 163. Siegfried RN. Development of complex regional pain syndrome after a cervical epidural steroid injection. Anesthesiology. 1997;86:1394–6.
+- [ ] 164. Stoll A, Sanchez M. Epidural hematoma after epidural block: implications for its use in pain management. Surg Neurol. 2002;57:235–40.
+- [ ] 165. Szokol JW, Gilbert HC. A herpes zoster outbreak temporarily associated with an epidural steroid injection. Reg Anesth Pain Med. 1998;23:328.
+- [ ] 166. Boonen S, Van Distel G, Westhovens R, Dequeker J. Steroid myopathy induced by epidural triamcinolone injection. Br J Rheumatol. 1995;34:385–6.
+- [ ] 167. Browning DJ. Acute retinal necrosis following epidural steroid injections. Am J Ophthalmol. 2003;136:192–4.
+- [ ] 168. Chien GC, McCormick Z, Araujo M, Candido KD. The potential contributing effect of ketorolac and fluoxetine to a spinal epidural hematoma following a cervical interlaminar epidural steroid injection: a case report and narrative review. Pain Physician. 2014;17:E385–95.
+- [ ] 169. El Abd O, Pimentel DC, Amadera JE. Generalized pruritus as an unusual side effect after epidural injection with dexamethasone. PM R. 2015;7:206–9.
+- [ ] 170. Ergenoglu P, Bali C, Akin S, Ozyilkan NB, Aribogan A. Pneumorrhachis and pneumocephalus with severe chest pain symptom: a rare complication of epidural steroid injection. Pain Med. 2014;15:1239–40.
+- [ ] 171. Kalia H. An unusual case of ASIA C T-10 paraplegia after lumbar transforaminal epidural steroid injection. J Pain. 2014;15:S99.
+- [ ] 172. Maddela R, Wahezi SE, Sparr S, Brook A. Hemiparesis and facial sensory loss following cervical epidural steroid injection. Pain Physician. 2014;17:E761–7.
+- [ ] 173. Morelli JN, Porbandarwala N, Patel DV. Spinal cord needle tract following epidural steroid injection. J Vasc Interv Radiol. 2012;23:1543–4.
+- [ ] 174. Obeid TH, Gornas MA, El-Mesallamy AA. Spinal cord ischemia following cervical transforaminal epidural steroid injection. Neurosciences (Riyadh). 2014;19:326–7.
+- [ ] 175. Park CH, Shin YH, Lee SH. Dermatomal skin rash after lumbar epidural steroid injection. Clin J Pain. 2011;27:163–5.
+- [ ] 176. Tiso RL, Cutler T, Catania JA, Whalen K. Adverse central nervous system sequelae after selective transforaminal block: the role of corticosteroids. Spine J. 2004;4:468–74.
+- [ ] 177. Wallace MA, Fukui MB, Williams RL, Ku A, Baghai P. Complications of cervical selective nerve root blocks performed with fluoroscopic guidance. AJR Am J Roentgenol. 2007;188:1218–21.
+- [ ] 178. Windsor RE, Storm S, Sugar R, Nagula D. Cervical transforaminal injection: review of the literature, complications, and a suggested technique. Pain Physician. 2003;6:457–65.
+- [ ] 179. Yue WM, Tan SB. Distant skip level discitis and vertebral osteomyelitis after caudal epidural injection: a case report of a rare complication of epidural injections. Spine (Phila Pa 1976). 2003;28:E209–11.
+- [ ] 180. Lievre J, Bloch M, Pean G, Uno J. L’hydrocortisone en injection local. Rev Rhum Mal Osteoartic. 1953;20:300–301.
+- [ ] 181. Manchikanti L, Pampati V, Boswell MV, Smith HS, Hirsch JA. Analysis of the growth of epidural injections and costs in the Medicare population: a comparative evaluation of 1997, 2002, and 2006 data. Pain Physician. 2010;13:199–212.
+- [ ] 182. Rosas HG, Lee KS. Performing fluoroscopically guided interlaminar lumbar epidural injections. AJR Am J Roentgenol. 2012;199:419.
+- [ ] 183. Inman SL, Faut-Callahan M, Swanson BA, Fillingim RB. Sex differences in responses to epidural steroid injection for low back pain. J Pain. 2004;5:450–7.
+- [ ] 184. Kirpalani D, Mitra R. Is chronic opioid use a negative predictive factor for response to cervical epidural steroid injections? J Back Musculoskelet Rehabil. 2011;24:123–7.
+- [ ] 185. Park CH, Lee SH. Correlation between severity of lumbar spinal stenosis and lumbar epidural steroid injection. Pain Med. 2014;15:556–61.
+- [ ] 186. Epstein NE. The risks of epidural and transforaminal steroid injections in the Spine: commentary and a comprehensive review of the literature. Surg Neurol Int. 2013;4:S74–93.
+- [ ] 187. Horlocker TT, Wedel DJ, Benzon H, Brown DL, Enneking FK, Heit JA, et al. Regional anesthesia in the anticoagulated patient: defining the risks (the second ASRA Consensus Conference on Neuraxial Anesthesia and Anticoagulation). Reg Anesth Pain Med. 2003;28:172–97.
+- [ ] 188. Windsor RE, Storm S, Sugar R. Prevention and management of complications resulting from common spinal injections. Pain Physician. 2003;6:473–83.
+- [ ] 189. Furman MB, O’Brien EM, Zgleszewski TM. Incidence of intravascular penetration in transforaminal lumbosacral epidural steroid injections. Spine (Phila Pa 1976). 2000;25:2628–32.
+- [ ] 190. Smuck M, Fuller BJ, Yoder B, Huerta J. Incidence of simultaneous epidural and vascular injection during lumbosacral transforaminal epidural injections. Spine J. 2007;7:79–82.
+- [ ] 191. Smuck M, Tang CT, Fuller BJ. Incidence of simultaneous epidural and vascular injection during cervical transforaminal epidural injections. Spine (Phila Pa 1976). 2009;34:E751–5.
+- [ ] 192. Sullivan WJ, Willick SE, Chira-Adisai W, Zuhosky J, Tyburski M, Dreyfuss P, et al. Incidence of intravascular uptake in lumbar spinal injection procedures. Spine (Phila Pa 1976). 2000;25:481–6.
+- [ ] 193. Dawley JD, Moeller-Bertram T, Wallace MS, Patel PM. Intraarterial injection in the rat brain: evaluation of steroids used for transforaminal epidurals. Spine (Phila Pa 1976). 2009;34:1638–43.
+- [ ] 194. Okubadejo GO, Talcott MR, Schmidt RE, Sharma A, Patel AA, Mackey RB, et al. Perils of intravascular methylprednisolone injection into the vertebral artery. An animal study. J Bone Joint Surg Am. 2008;90:1932–8.
+- [ ] 195. Benzon HT, Chew TL, McCarthy RJ, Benzon HA, Walega DR. Comparison of the particle sizes of different steroids and the effect of dilution: a review of the relative neurotoxicities of the steroids. Anesthesiology. 2007;106:331–8.
+- [ ] 196. Dreyfuss P, Baker R, Bogduk N. Comparative effectiveness of cervical transforaminal injections with particulate and nonparticulate corticosteroid preparations for cervical radicular pain. Pain Med. 2006;7:237–42.
+- [ ] 197. El-Yahchouchi C, Geske JR, Carter RE, Diehn FE, Wald JT, Murthy NS, et al. The noninferiority of the nonparticulate steroid dexamethasone vs the particulate steroids betamethasone and triamcinolone in lumbar transforaminal epidural steroid injections. Pain Med. 2013;14:1650–7.
+- [ ] 198. Kennedy DJ, Plastaras C, Casey E, Visco CJ, Rittenberg JD, Conrad B, et al. Comparative effectiveness of lumbar transforaminal epidural steroid injections with particulate versus nonparticulate corticosteroids for lumbar radicular pain due to intervertebral disc herniation: a prospective, randomized, double-blind trial. Pain Med. 2014;15:548–55.
+- [ ] 199. Manchikanti L, Pampati V, Beyer C, Damron K, Cash K, Moss T. The effect of neuraxial steroids on weight and bone mass density: a prospective evaluation. Pain Physician. 2000;3:357–66.
+- [ ] 200. Maillefert JF, Aho S, Huguenin MC, Chatard C, Peere T, Marquignon MF, et al. Systemic effects of epidural dexamethasone injections. Rev Rhum Engl Ed. 1995;62:429–32.
+- [ ] 201. Younes M, Neffati F, Touzi M, Hassen-Zrour S, Fendri Y, Bejia I, et al. Systemic effects of epidural and intra-articular glucocorticoid injections in diabetic and non-diabetic patients. Joint Bone Spine. 2007;74:472–6.
+- [ ] 202. Kay J, Findling JW, Raff H. Epidural triamcinolone suppresses the pituitary-adrenal axis in human subjects. Anesth Analg. 1994;79:501–5.
+- [ ] 203. Pountos I, Panteli M, Georgouli T, Giannoudis PV. Do mesenchymal stem cells have a role to play in cutaneous wound healing? Cell Tissue Transplant Ther. 2014;6:11–7.
+- [ ] 204. Baker R, Dreyfuss P, Mercer S, Bogduk N. Cervical transforaminal injection of corticosteroids into a radicular artery: a possible mechanism for spinal cord injury. Pain. 2003;103:211–5.
+- [ ] 205. Heavner JE, Racz GB, Jenigiri B, Lehman T, Day MR. Sharp versus blunt needle: a comparative study of penetration of internal structures and bleeding in dogs. Pain Pract. 2003;3:226–31.
+- [ ] 206. Karasek M, Bogduk N. Temporary neurologic deficit after cervical transforaminal injection of local anesthetic. Pain Med. 2004;5:202–5.
+- [ ] 207. Smuck M, Maxwell MD, Kennedy D, Rittenberg JD, Lansberg MG, Plastaras CT. Utility of the anesthetic test dose to avoid catastrophic injury during cervical transforaminal epidural injections. Spine J. 2010;10:857–64.
+- [ ] 208. Smuck M, Fuller BJ, Chiodo A, Benny B, Singaracharlu B, Tong H, et al. Accuracy of intermittent fluoroscopy to detect intravascular injection during transforaminal epidural injections. Spine (Phila Pa 1976). 2008;33:E205–10.
+- [ ] 209. Smuck MW, Levin JH. Re: Scanlon GC, Moeller-Bertram T, Romanowsky SM, et al. Cervical transforaminal epidural steroid injections: more dangerous than we think? Spine (Phila Pa 1976). 2007;32:1249–56 (letter).
+- [ ] 210. Manchikanti L, Candido KD, Singh V, Gharibo CG, Boswell MV, Benyamin RM, et al. Epidural steroid warning controversy still dogging FDA. Pain Physician. 2014;17:E451–74.

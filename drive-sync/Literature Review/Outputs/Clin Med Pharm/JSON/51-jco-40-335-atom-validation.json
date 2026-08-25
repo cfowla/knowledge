@@ -1,0 +1,77 @@
+{
+  "source": {
+    "folder_label": "51 - jco-40-335",
+    "file_name": "jco-40-335.pdf",
+    "title": "Improved Outcome in Children With Newly Diagnosed High-Risk Neuroblastoma Treated With Chemoimmunotherapy: Updated Results of a Phase II Study Using hu14.18K322A",
+    "doi": "10.1200/JCO.21.01375",
+    "pmid": "34871104",
+    "pmcid": "PMC8797508",
+    "trial_registration": "NCT01857934",
+    "publication_id": "6bb92ebb-fa2e-53b5-a3aa-4ef183f28ce3",
+    "input_document_sha256": "978c957f5e524b92c8267c6afa677e90de4c9edc1c3e6a4b714e50df714e0061",
+    "pages": 15
+  },
+  "extraction": {
+    "run_id": "51-jco-40-335-fulltext-v1",
+    "extracted_at": "2026-08-24T10:01:32+00:00",
+    "extractor": "GPT-5.6 Sol",
+    "atom_count": 46,
+    "counts_by_kind": {
+      "adverse_event": 5,
+      "author_conclusion": 1,
+      "conflict_of_interest": 1,
+      "eligibility_criterion": 1,
+      "funding_disclosure": 1,
+      "intervention_description": 6,
+      "limitation": 3,
+      "method": 3,
+      "outcome_definition": 2,
+      "population_description": 4,
+      "qualitative_result": 6,
+      "quantitative_result": 12,
+      "study_objective": 1
+    }
+  },
+  "structural_validation": {
+    "validator": "LiteratureAtom Pydantic model from literature.py",
+    "passed": true,
+    "valid_atoms": 46,
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "validator": "validate_literature_atom_sufficiency from literature_atoms.py",
+    "passed": true,
+    "errors": [],
+    "warnings": []
+  },
+  "duplicate_review": {
+    "potential_duplicates": [],
+    "status": "passed"
+  },
+  "consistency_findings": [
+    {
+      "code": "peak_level_response_p_value_method_conflict",
+      "severity": "warning",
+      "source_locations": [
+        "Abstract/Figure 3: P=0.0154, one-tailed t-test",
+        "Results text: P=0.054, one-sided Wilcoxon rank-sum test"
+      ],
+      "action": "Preserved as separate directly reported atoms; not reconciled."
+    },
+    {
+      "code": "end_induction_ci_typographic_anomaly",
+      "severity": "warning",
+      "source_locations": [
+        "Results text prints 95% CI as 88.8.0 to 99.6"
+      ],
+      "action": "Normalized to 88.8-99.6 in the quantitative field while preserving the source anomaly in provenance context."
+    }
+  ],
+  "extraction_limitations": [
+    "The article is a single-arm study and many comparative claims use historical cohorts; those comparisons were tagged and not treated as randomized evidence.",
+    "Underlying referenced trials were not re-atomized from this article; the reference queue is provided for primary-source follow-up.",
+    "Appendix tables were used for contextual/visual reconciliation, but not every cell was converted into an atom because they contain secondary comparisons or repeated safety detail rather than distinct primary claims.",
+    "No human reviewer verification has been recorded; review_status is extracted rather than verified."
+  ],
+  "schema_gaps": []
+}

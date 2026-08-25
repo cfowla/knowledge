@@ -1,0 +1,170 @@
+{
+  "source_metadata": {
+    "exact_title": "Ibrutinib, obinutuzumab, and venetoclax in relapsed and untreated patients with mantle cell lymphoma: a phase 1/2 trial",
+    "authors": "Steven Le Gouill et al.",
+    "journal": "Blood",
+    "year": 2021,
+    "volume": 137,
+    "issue": 7,
+    "pages": "877-887",
+    "doi": "10.1182/blood.2020008727",
+    "pmid": "33181832",
+    "trial_registration": "NCT02558816",
+    "publication_id": "f33a2de1-c4f9-5872-b038-ad3bc41a41a5",
+    "primary_file": "1-s2.0-S0006497121003098-main.pdf",
+    "supplement_file": "1-s2.0-S0006497121003098-mmc1.pdf",
+    "primary_sha256": "984faf4be7852ab08fdb697c409803df50633882bcfa451c236a9460077097ec",
+    "supplement_sha256": "dd42a78e5440b42288b256a7cfeb4bb13a635c8044d3d97d6451c18abc020f77"
+  },
+  "batch_manifest": [
+    {
+      "batch_id": "oasis-general-v1",
+      "scope": "source identity, objectives, design, cohorts"
+    },
+    {
+      "batch_id": "oasis-supp-eligibility-v1",
+      "scope": "supplement S2 eligibility/exclusion criteria"
+    },
+    {
+      "batch_id": "oasis-supp-regimen-v1",
+      "scope": "supplement S3-S4 regimen and TLS prevention"
+    },
+    {
+      "batch_id": "oasis-methods-v1",
+      "scope": "main methods, outcomes, statistics, funding"
+    },
+    {
+      "batch_id": "oasis-results-v1",
+      "scope": "baseline molecular results"
+    },
+    {
+      "batch_id": "oasis-safety-v1",
+      "scope": "dose finding and main safety results/Table 2"
+    },
+    {
+      "batch_id": "oasis-supp-compliance-v1",
+      "scope": "supplement S10 drug administration"
+    },
+    {
+      "batch_id": "oasis-efficacy-v1",
+      "scope": "response and survival results/Table 3/Figure 1"
+    },
+    {
+      "batch_id": "oasis-mrd-v1",
+      "scope": "MRD and molecular subgroup results/Figure 2"
+    },
+    {
+      "batch_id": "oasis-supp-amendments-v1",
+      "scope": "material protocol amendments"
+    },
+    {
+      "batch_id": "oasis-discussion-v1",
+      "scope": "limitations and author conclusions"
+    },
+    {
+      "batch_id": "oasis-disclosures-v1",
+      "scope": "data availability and conflicts"
+    }
+  ],
+  "atom_counts": {
+    "total": 97,
+    "by_kind": {
+      "adverse_event": 14,
+      "author_conclusion": 4,
+      "conflict_of_interest": 1,
+      "data_availability": 1,
+      "eligibility_criterion": 13,
+      "funding_disclosure": 1,
+      "intervention_description": 4,
+      "limitation": 4,
+      "method": 15,
+      "outcome_definition": 2,
+      "population_description": 4,
+      "qualitative_result": 1,
+      "quantitative_result": 27,
+      "study_objective": 2,
+      "subgroup_result": 4
+    },
+    "by_batch": {
+      "oasis-disclosures-v1": 2,
+      "oasis-discussion-v1": 7,
+      "oasis-efficacy-v1": 15,
+      "oasis-general-v1": 7,
+      "oasis-methods-v1": 10,
+      "oasis-mrd-v1": 11,
+      "oasis-results-v1": 2,
+      "oasis-safety-v1": 17,
+      "oasis-supp-amendments-v1": 3,
+      "oasis-supp-compliance-v1": 3,
+      "oasis-supp-eligibility-v1": 13,
+      "oasis-supp-regimen-v1": 7
+    }
+  },
+  "structural_validation": {
+    "status": "PASS",
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "status": "PASS",
+    "errors": [],
+    "warnings": []
+  },
+  "duplicate_review": {
+    "exact_normalized_duplicates": [],
+    "status": "PASS"
+  },
+  "consistency_findings": [
+    {
+      "finding": "The main Results section reports cohort B 1-year PFS 74.5% and OS 87.5%; the abstract separately reports 2-year PFS 69.5% and OS 68.6%. These are different time horizons, not treated as a contradiction."
+    },
+    {
+      "finding": "MRD percentages differ depending on denominator: Table 3 reports intent-to-treat-like cohort percentages (e.g., cohort B 10/24 = 42%), while narrative molecular-response rates use only MRD-evaluable patients (10/14 = 71.4%). Atoms preserve the evaluable denominator when reporting molecular response."
+    },
+    {
+      "finding": "Cohort A lacks venetoclax and is not a randomized comparator; cross-cohort efficacy or toxicity differences cannot establish the incremental effect of venetoclax."
+    }
+  ],
+  "extraction_limitations": [
+    "The 62-page supplement contains exhaustive adverse-event tables (S8/S9). This extraction atomizes the main article safety table, dose-finding safety, TLS events, and selected supplement compliance/amendment data, but does not create a separate atom for every low-grade or rare supplemental AE row.",
+    "Cheson and Lugano criteria reproduced as images/tables in supplement S5-S6 were treated as referenced assessment frameworks rather than re-atomized criterion-by-criterion.",
+    "The supplement amendment table is dense and historically layered; only amendments that materially affect venetoclax dosing, TLS mitigation, and cohort C were atomized.",
+    "No unreported study detail was inferred. Calculated percentages are explicitly labeled calculated_from_reported_data or tagged calculated_percentage."
+  ],
+  "schema_gaps": [
+    "The current LiteratureAtom schema has no dedicated protocol-amendment kind; material amendments are represented as method atoms with descriptive tags.",
+    "The schema has no dedicated treatment-adherence/compliance kind; drug-administration percentages are represented as quantitative_result atoms.",
+    "QuantitativeResult supports one principal estimate per atom; multi-timepoint or multi-cohort results are therefore split into separate atoms."
+  ],
+  "coverage": {
+    "main_article": {
+      "pages": 11,
+      "journal_pages": "877-887",
+      "tables": [
+        "Table 1",
+        "Table 2 (spans pp. 880-881)",
+        "Table 3"
+      ],
+      "figures": [
+        "Figure 1",
+        "Figure 2"
+      ],
+      "references": "25 citations"
+    },
+    "supplement": {
+      "pages": 62,
+      "sections": [
+        "S1 investigators",
+        "S2 eligibility/exclusion",
+        "S3 treatment regimen",
+        "S4 TLS risk/prevention",
+        "S5 Cheson criteria",
+        "S6 Lugano criteria",
+        "S7 MIPI/MIPIb",
+        "S8 AE tables by cohort",
+        "S9 AE/SAE tables by venetoclax dose",
+        "S10 drug administration",
+        "amendment list"
+      ]
+    }
+  }
+}

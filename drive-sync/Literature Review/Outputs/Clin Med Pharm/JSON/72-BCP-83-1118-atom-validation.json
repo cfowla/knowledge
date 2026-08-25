@@ -1,0 +1,65 @@
+{
+  "source_metadata": {
+    "publication_id": "58a3b384-054f-5c4b-a7a7-fba580943045",
+    "title": "Drug-specific hypophosphatemia and hypersensitivity reactions following different intravenous iron infusions",
+    "authors": [
+      "Palle Bager",
+      "Christian L. Hvas",
+      "Jens F. Dahlerup"
+    ],
+    "journal": "British Journal of Clinical Pharmacology",
+    "year": 2017,
+    "volume": 83,
+    "pages": "1118-1125",
+    "doi": "10.1111/bcp.13189",
+    "source_files": [
+      "BCP-83-1118.pdf",
+      "BCP-83-1118-s001.doc"
+    ],
+    "source_hashes": {
+      "BCP-83-1118.pdf": "sha256:8ba335e79005ea02d7237aa624bbc542ab4e683ecd3add03dff08831abf4a593",
+      "BCP-83-1118-s001.doc": "sha256:f7019d7c7de54dac23f99aa40b6d0b25b12663a4d26197227b301aa3f392322b"
+    },
+    "extracted_at": "2026-08-24T10:14:49+00:00"
+  },
+  "governing_validation": {
+    "structural_model": "literature.py",
+    "sufficiency_validator": "literature_atoms.py",
+    "schema_contract": "literature_atom.schema.json"
+  },
+  "status": "valid_with_source_consistency_flags",
+  "atom_count": 58,
+  "structural_errors": [],
+  "sufficiency_errors": [],
+  "sufficiency_warnings": [],
+  "cross_atom_consistency_findings": [
+    {
+      "severity": "error",
+      "code": "hsr_event_count_conflict",
+      "finding": "The main text reports 16 HSR events, while Supplementary Table S1 is explicitly titled as 14 patients with 17 HSRs and its rows total 17 reactions. The discrepancy is unresolved by the source."
+    },
+    {
+      "severity": "warning",
+      "code": "crossover_definition_unclear",
+      "finding": "The article states there was no potential HSR crossover, yet the main text and Table S1 describe one patient reacting to both FCM and ISM; Table S1 shows that patient reacting to FCM, ISM, then FCM. The source does not define crossover clearly enough to reconcile this wording."
+    },
+    {
+      "severity": "warning",
+      "code": "hsr_6_4_denominator_unclear",
+      "finding": "The nearby text reports 16 HSR events (6.4%) but does not state an explicit denominator for that event percentage; the atom preserves the reported percentage without inventing a denominator."
+    },
+    {
+      "severity": "warning",
+      "code": "mixed_analysis_units",
+      "finding": "Hypophosphataemia is analyzed infusion-wise and HSRs patient-wise, as explicitly acknowledged by the authors; comparisons across safety outcomes should not assume a common denominator."
+    }
+  ],
+  "extraction_limitations": [
+    "No study details were added beyond the primary PDF and supplied supplementary DOC.",
+    "Figure medians/IQRs were not digitized from plots; only visually explicit P values/correlation labels and author-reported qualitative comparisons were normalized.",
+    "Reference-list claims were not atomized as primary-study evidence.",
+    "The source does not provide an explicit denominator for the reported 16 HSR events (6.4%)."
+  ],
+  "serialization_schema_errors": [],
+  "serialization_schema_status": "pass"
+}

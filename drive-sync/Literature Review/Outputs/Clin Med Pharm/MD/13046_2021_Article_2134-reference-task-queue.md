@@ -1,0 +1,273 @@
+# Reference task queue: High-dose intravenous vitamin C, a promising multi-targeting agent in the treatment of cancer
+
+Source: Böttger F, Vallés-Martí A, Cahn L, Jimenez CR. High-dose intravenous vitamin C, a promising multi-targeting agent in the treatment of cancer. Journal of Experimental & Clinical Cancer Research. 2021;40:343. DOI 10.1186/s13046-021-02134-y.
+
+The primary article lists 265 references. This queue preserves the source numbering and citation text with PDF line wrapping normalized. No external bibliography correction or trial-status update was performed. Read primary studies directly before promoting their findings to primary LiteratureAtoms.
+
+- [ ] 1. Padayatty S, Levine M. Vitamin C: the known and the unknown and goldilocks. Oral Dis. 2016;22(6):463–93.
+- [ ] 2. Ngo B, Van Riper JM, Cantley LC, Yun J. Targeting cancer vulnerabilities with high-dose vitamin C. Nat Rev Cancer. 2019;19(5):271–82.
+- [ ] 3. Lee Chong T, Ahearn EL, Cimmino L. Reprogramming the Epigenome with vitamin C. Front Cell Dev Biol. 2019;7:128.
+- [ ] 4. Fletcher SC, Coleman ML. Human 2-oxoglutarate-dependent oxygenases: nutrient sensors, stress responders, and disease mediators. Biochem Soc Trans. 2020;48(5):1843–58.
+- [ ] 5. Ang A, Pullar JM, Currie MJ, Vissers MCM. Vitamin C and immune cell function in inflammation and cancer. Biochem Soc Trans. 2018;46(5):1147–59.
+- [ ] 6. Cameron E, Campbell A. The orthomolecular treatment of cancer II. Clinical trial of high-dose ascorbic acid supplements in advanced human cancer. Chem Biol Interact. 1974;9(4):285–315.
+- [ ] 7. Cameron E, Pauling L. Supplemental ascorbate in the supportive treatment of cancer: prolongation of survival times in terminal human cancer. Proc Natl Acad Sci. 1976;73(10):3685–9.
+- [ ] 8. Cameron E, Pauling L. Supplemental ascorbate in the supportive treatment of cancer: reevaluation of prolongation of survival times in terminal human cancer. Proc Natl Acad Sci. 1978;75(9):4538–42.
+- [ ] 9. Creagan ET, Moertel CG, O’Fallon JR, Schutt AJ, O’Connell MJ, Rubin J, et al. Failure of high-dose vitamin C (ascorbic acid) therapy to benefit patients with advanced Cancer. N Engl J Med. 1979;301(13):687–90.
+- [ ] 10. Moertel CG, Fleming TR, Creagan ET, Rubin J, O’Connell MJ, Ames MM. High-dose vitamin C versus placebo in the treatment of patients with advanced Cancer who have had no prior chemotherapy. N Engl J Med. 1985;312(3):137–41.
+- [ ] 11. Padayatty SJ, Sun H, Wang Y, Riordan HD, Hewitt SM, Katz A, et al. Vitamin C pharmacokinetics: implications for Oral and intravenous use. Ann Intern Med. 2004;140(7):533.
+- [ ] 12. Hoffer LJ, Levine M, Assouline S, Melnychuk D, Padayatty SJ, Rosadiuk K, et al. Phase I clinical trial of i.v. ascorbic acid in advanced malignancy. Ann Oncol. 2008;19(11):1969–74.
+- [ ] 13. Stephenson CM, Levin RD, Spector T, Lis CG. Phase I clinical trial to evaluate the safety, tolerability, and pharmacokinetics of high-dose intravenous ascorbic acid in patients with advanced cancer. Cancer Chemother Pharmacol. 2013;72(1):139–46.
+- [ ] 14. Polireddy K, Dong R, Reed G, Yu J, Chen P, Williamson S, et al. High dose parenteral Ascorbate inhibited pancreatic Cancer growth and metastasis: mechanisms and a phase I/IIa study. Sci Rep. 2017;7(1):17188.
+- [ ] 15. Chen Q, Espey MG, Sun AY, Pooput C, Kirk KL, Krishna MC, et al. Pharmacologic doses of ascorbate act as a prooxidant and decrease growth of aggressive tumor xenografts in mice. Proc Natl Acad Sci. 2008;105(32):11105–9.
+- [ ] 16. Schoenfeld JD, Sibenaller ZA, Mapuskar KA, Wagner BA, Cramer- Morales KL, Furqan M, et al. O 2 ·− and H 2 O 2 -Mediated Disruption of Fe Metabolism Causes the Differential Susceptibility of NSCLC and GBM Cancer Cells to Pharmacological Ascorbate. Cancer Cell. 2017;31(4):487–500.e8.
+- [ ] 17. Takahashi H, Mizuno H, Yanagisawa A. High-dose intravenous vitamin C improves quality of life in cancer patients. Pers Med Universe. 2012;1(1):49–53.
+- [ ] 18. Vollbracht C, Schneider B, Leendert V, Weiss G, Auerbach L, Beuth J. Intravenous vitamin C administration improves quality of life in breast cancer patients during chemo−/radiotherapy and aftercare: results of a retrospective, multicentre, epidemiological cohort study in Germany. In Vivo. 2011;25(6):983–90.
+- [ ] 19. Yeom CH, Jung GC, Song KJ. Changes of terminal Cancer patients’ health-related quality of life after high dose vitamin C administration. J Korean Med Sci. 2007;22(1):7.
+- [ ] 20. Agathocleous M, Meacham CE, Burgess RJ, Piskounova E, Zhao Z, Crane GM, et al. Ascorbate regulates haematopoietic stem cell function and leukaemogenesis. Nature. 2017;549(7673):476–81.
+- [ ] 21. Bonilla-Porras AR, Jimenez-Del-Rio M, Velez-Pardo C. Vitamin K3 and vitamin C alone or in combination induced apoptosis in leukemia cells by a similar oxidative stress signalling mechanism. Cancer Cell Int. 2011;11(1):19.
+- [ ] 22. Cimmino L, Dolgalev I, Wang Y, Yoshimi A, Martin GH, Wang J, et al. Restoration of TET2 Function Blocks Aberrant Self-Renewal and Leukemia Progression. Cell. 2017;170(6):1079–1095.e20.
+- [ ] 23. Iamsawat S, Tian L, Daenthanasanmak A, Wu Y, Nguyen HD, Bastian D, et al. Vitamin C stabilizes CD81 iTregs and enhances their therapeutic potential in controlling murine GVHD and leukemia relapse. Blood Adv. 2019;3(24):4187–201.
+- [ ] 24. Mingay M, Chaturvedi A, Bilenky M, Cao Q, Jackson L, Hui T, et al. Vitamin C-induced epigenomic remodelling in IDH1 mutant acute myeloid leukaemia. Leukemia. 2018;32(1):11–20.
+- [ ] 25. Aguilera O, Muñoz-Sagastibelza M, Torrejón B, Borrero-Palacios A, del Puerto-Nevado L, Martínez-Useros J, et al. Vitamin C uncouples the Warburg metabolic switch in KRAS mutant colon cancer. Oncotarget. 2016;7(30):47954–65.
+- [ ] 26. Brandt KE, Falls KC, Schoenfeld JD, Rodman SN, Gu Z, Zhan F, et al. Augmentation of intracellular iron using iron sucrose enhances the toxicity of pharmacological ascorbate in colon cancer cells. Redox Biol. 2018;14(July 2017):82–7.
+- [ ] 27. Cenigaonandia-Campillo A, Serna-Blasco R, Gómez-Ocabo L, Solanes- Casado S, Baños-Herraiz N, Del Puerto-Nevado L, et al. Vitamin C activates pyruvate dehydrogenase (PDH) targeting the mitochondrial tricarboxylic acid (TCA) cycle in hypoxic KRAS mutant colon cancer. Theranostics. 2021;11(8):3595–606.
+- [ ] 28. Mamede AC, Pires AS, Abrantes AM, Tavares SD, Gonçalves AC, Casalta- Lopes JE, et al. Cytotoxicity of ascorbic acid in a human colorectal adenocarcinoma cell line (WiDr): in vitro and in vivo studies. Nutr Cancer. 2012;64(7):1049–57.
+- [ ] 29. Nakanishi K, Hiramoto K, Ooi K. High-dose vitamin C exerts its anti- cancer effects in a Xenograft model of Colon Cancer by suppressing angiogenesis. Biol Pharm Bull. 2021;44(6):884–7.
+- [ ] 30. Pires AS, Marques CR, Encarnação JC, Abrantes AM, Mamede AC, Laranjo M, et al. Ascorbic acid and colon cancer: an oxidative stimulus to cell death depending on cell profile. Eur J Cell Biol. 2016;95(6–7):208–18.
+- [ ] 31. Wang G, Yin T, Wang Y. In vitro and in vivo assessment of high-dose vitamin C against murine tumors. Exp Ther Med. 2016;12(5):3058–62.
+- [ ] 32. Yun J, Mullarky E, Lu C, Bosch KN, Kavalier A, Rivera K, et al. Vitamin C selectively kills KRAS and BRAF mutant colorectal cancer cells by targeting GAPDH. Science (80- ). 2015;350(6266):1391–6.
+- [ ] 33. Nakanishi K, Hiramoto K, Sato EF, Ooi K. High-dose vitamin C administration inhibits the invasion and proliferation of melanoma cells in mice ovary. Biol Pharm Bull. 2021;44(1):75–81.
+- [ ] 34. Chen XY, Chen Y, Qu CJ, Pan ZH, Qin Y, Zhang X, et al. Vitamin C induces human melanoma A375 cell apoptosis via Bax- and Bcl-2-mediated mitochondrial pathways. Oncol Lett. 2019;18(4):3880–6.
+- [ ] 35. Kang JS, Cho D, Kim Y-I, Hahm E, Yang Y, Kim D, et al. L-ascorbic acid (vitamin C) induces the apoptosis of B16 murine melanoma cells via a caspase-8?Independent pathway. Cancer Immunol Immunother. 2003;52(11):693–8.
+- [ ] 36. Mustafi S, Sant DW, Liu Z-J, Wang G. Ascorbate induces apoptosis in melanoma cells by suppressing Clusterin expression. Sci Rep. 2017;7(1):3671.
+- [ ] 37. Serrano OK, Parrow NL, Violet P-C, Yang J, Zornjak J, Basseville A, et al. Antitumor effect of pharmacologic ascorbate in the B16 murine melanoma model. Free Radic Biol Med. 2015;87:193–203.
+- [ ] 38. Du J, Martin SM, Levine M, Wagner BA, Buettner GR, Wang S, et al. Mechanisms of Ascorbate-induced cytotoxicity in pancreatic Cancer. Clin Cancer Res. 2010;16(2):509–20.
+- [ ] 39. Pollard HB, Levine MA, Eidelman O, Pollard M. Pharmacological ascorbic acid suppresses syngeneic tumor growth and metastases in hormone- refractory prostate cancer. In Vivo. 2010;24(3):249–55.
+- [ ] 40. Li Z, He P, Luo G, Shi X, Yuan G, Zhang B, et al. Increased Tumoral microenvironmental pH improves cytotoxic effect of pharmacologic ascorbic acid in castration-resistant prostate Cancer cells. Front Pharmacol. 2020;11:570939.
+- [ ] 41. Chen P, Yu J, Chalmers B, Drisko J, Yang J, Li B, et al. Pharmacological ascorbate induces cytotoxicity in prostate cancer cells through ATP depletion and induction of autophagy. Anti-Cancer Drugs. 2012;23(4):437–44.
+- [ ] 42. Ramezankhani B,Taha MF, Javeri A. Vitamin C counteracts miR-302/367-induced reprogramming of human breast cancer cells and restores their invasive and proliferative capacity. J Cell Physiol. 2019;234(3):2672–82.
+- [ ] 43. Xu Y, Guo X, Wang G, Zhou C. Vitamin C inhibits metastasis of peritoneal tumors by preventing spheroid formation in ID8 murine epithelial peritoneal Cancer model. Front Pharmacol. 2020;11:645.
+- [ ] 44. Gregoraszczuk EL, Zajda K, Tekla J, Respekta N, Zdybał P, Such A. Vitamin C supplementation had no side effect in non-cancer, but had anticancer properties in ovarian cancer cells. Int J Vitam Nutr Res. 2020;3:1–11.
+- [ ] 45. Lv H, Wang C, Fang T, Li T, Lv G, Han Q, et al. Vitamin C preferentially kills cancer stem cells in hepatocellular carcinoma via SVCT-2. npj Precis Oncol. 2018;2(1):1.
+- [ ] 46. Alyoussef A, Al-Gayyar MMH. Cytotoxic and partial hepatoprotective activity of sodium ascorbate against hepatocellular carcinoma through inhibition of sulfatase-2 in vivo and in vitro. Biomed Pharmacother. 2018;103:362–72.
+- [ ] 47. Volta V, Ranzato E, Martinotti S, Gallo S, Russo MV, Mutti L, et al. Preclinical Demonstration of Synergistic Active Nutrients/Drug (AND) Combination as a Potential Treatment for Malignant Pleural Mesothelioma. McCormick DL, editor. PLoS One. 2013;8(3):e58051.
+- [ ] 48. Ranzato E, Biffo S, Burlando B. Selective Ascorbate toxicity in malignant mesothelioma. Am J Respir Cell Mol Biol. 2011;44(1):108–17.
+- [ ] 49. Su X, Shen Z, Yang Q, Sui F, Pu J, Ma J, et al. Vitamin C kills thyroid cancer cells through ROS-dependent inhibition of MAPK/ERK and PI3K/AKT pathways via distinct mechanisms. Theranostics. 2019;9(15):4461–73.
+- [ ] 50. Tronci L, Serreli G, Piras C, Frau DV, Dettori T, Deiana M, et al. Vitamin C cytotoxicity and its effects in redox homeostasis and energetic metabolism in papillary thyroid carcinoma cell lines. Antioxidants. 2021;10(5):809.
+- [ ] 51. Zhou J, Chen C, Chen X, Fei Y, Jiang L, Wang G. Vitamin C promotes apoptosis and cell cycle arrest in Oral squamous cell carcinoma. Front Oncol. 2020;10:976.
+- [ ] 52. Deubzer B, Mayer F, Kuçi Z, Niewisch M, Merkel G, Handgretinger R, et al. ­ H2O2-mediated cytotoxicity of pharmacologic Ascorbate concentrations to neuroblastoma cells: potential role of lactate and ferritin. Cell Physiol Biochem. 2010;25(6):767–74.
+- [ ] 53. Castro M, Carson G, McConnell M, Herst P. High dose Ascorbate causes both Genotoxic and metabolic stress in Glioma cells. Antioxidants. 2017;6(3):58.
+- [ ] 54. Gokturk D, Kelebek H, Ceylan S, Yilmaz DM. The effect of ascorbic acid over the Etoposide- and Temozolomide-mediated cytotoxicity in Glioblastoma cell culture: a molecular study. Turk Neurosurg. 2018;28(1):13–8.
+- [ ] 55. Campbell EJ, Dachs GU. Current limitations of murine models in oncology for Ascorbate research. Front Oncol. 2014;4:282.
+- [ ] 56. Campbell EJ, Vissers MCM, Wohlrab C, Hicks KO, Strother RM, Bozonet SM, et al. Pharmacokinetic and anti-cancer properties of high dose ascorbate in solid tumours of ascorbate-dependent mice. Free Radic Biol Med. 2016;99:451–62.
+- [ ] 57. Chen P, Stone J, Sullivan G, Drisko JA, Chen Q. Anti-cancer effect of pharmacologic ascorbate and its interaction with supplementary parenteral glutathione in preclinical cancer models. Free Radic Biol Med. 2011;51(3):681–7.
+- [ ] 58. Taper HS, Jamison JM, Gilloteaux J, Summers JL, Calderon PB. Inhibition of the development of metastases by dietary vitamin C:K 3 combination. Life Sci. 2004;75(8):955–67.
+- [ ] 59. Chen MF, Yang CM, Su CM, Liao JW, Hu ML. Inhibitory effect of vitamin C in combination with vitamin K3 on tumor growth and metastasis of Lewis lung carcinoma xenografted in C57BL/6 mice. Nutr Cancer. 2011;63(7):1036–43.
+- [ ] 60. Zeng L-H, Wang Q-M, Feng L-Y, Ke Y-D, Xu Q-Z, Wei A-Y, et al. High-dose vitamin C suppresses the invasion and metastasis of breast cancer cells via inhibiting epithelial-mesenchymal transition. Onco Targets Ther. 2019;12:7405–13.
+- [ ] 61. O’Leary BR, Alexander MS, Du J, Moose DL, Henry MD, Cullen JJ. Pharmacological ascorbate inhibits pancreatic cancer metastases via a peroxide-mediated mechanism. Sci Rep. 2020;10(1):17649.
+- [ ] 62. Yeom CH, Lee G, Park JH, Yu J, Park S, Yi SY, et al. High dose concentration administration of ascorbic acid inhibits tumor growth in BALB/C mice implanted with sarcoma 180 cancer cells via the restriction of angiogenesis. J Transl Med. 2009;7(1):1–9.
+- [ ] 63. Ma Y, Chapman J, Levine M, Polireddy K, Drisko J, Chen Q. High- Dose Parenteral Ascorbate Enhanced Chemosensitivity of Ovarian Cancer and Reduced Toxicity of Chemotherapy. Sci Transl Med. 2014;6(222):222ra18.
+- [ ] 64. Su X, Li P, Han B, Jia H, Liang Q, Wang H, et al. Vitamin C sensitizes BRAFV600E thyroid cancer to PLX4032 via inhibiting the feedback activation of MAPK/ERK signal by PLX4032. J Exp Clin Cancer Res. 2021;40(1):34.
+- [ ] 65. Riordan HD, Casciari JJ, González MJ, Riordan NH, Miranda-Massari JR, Taylor P, et al. A pilot clinical study of continuous intravenous ascorbate in terminal cancer patients. P R Health Sci J. 2005;24(4):269–76.
+- [ ] 66. Nielsen TK, Højgaard M, Andersen JT, Jørgensen NR, Zerahn B, Kristensen B, et al. Weekly ascorbic acid infusion in castration-resistant prostate cancer patients: a single-arm phase II trial. Transl Androl Urol. 2017;6(3):517–28.
+- [ ] 67. Drisko JA, Chapman J, Hunter VJ. The use of antioxidants with first line chemotherapy in two cases of ovarian cancer. J Am Coll Nutr. 2003;22(2):118–23.
+- [ ] 68. Drisko JA, Serrano OK, Spruce LR, Chen Q, Levine M. Treatment of pancreatic cancer with intravenous vitamin C. Anti-Cancer Drugs. 2018;29(4):373–9.
+- [ ] 69. González MJ, Berdiel MJ, Miranda-Massari JR, López D, Duconge J, Rodriguez JL, et al. High dose intravenous vitamin c and metastatic pancreatic cancer: two cases. Integr Cancer Sci Ther. 2016;3(6):1–2.
+- [ ] 70. Padayatty SJ. Intravenously administered vitamin C as cancer therapy: three cases. Can Med Assoc J. 2006;174(7):937–42.
+- [ ] 71. Riordan HD, Riordan NH, Jackson JA, Casciari JJ, Hunninghake R, González MJ, et al. Intravenous vitamin C as a chemotherapy agent: a report on clinical cases. P R Health Sci J. 2004;23(2):115–8.
+- [ ] 72. Seo M-S, Kim J-K, Shim J-Y. High-dose vitamin C promotes regression of multiple pulmonary metastases originating from hepatocellular carcinoma. Yonsei Med J. 2015;56(5):1449.
+- [ ] 73. Clini​calTr​ials.​gov Identifier: NCT03146962. High Dose Vitamin C Intravenous Infusion in Patients With Resectable or Metastatic Solid Tumor Malignancies.
+- [ ] 74. Clini​calTr​ials.​gov Identifier: NCT04046094. Intravenous (IV) Vitamin C With Chemotherapy for Cisplatin Ineligible Bladder Cancer Patients.
+- [ ] 75. Clini​calTr​ials.​gov Identifier: NCT03682029. Epigenetics, Vitamin C, and Abnormal Blood Cell Formation - Vitamin C in Patients With Low-Risk Myeloid Malignancies (EVITA).
+- [ ] 76. Clini​calTr​ials.​gov Identifier: NCT03613727. Therapeutic Use of Intravenous Vitamin C in Allogeneic Stem Cell Transplant Recipients.
+- [ ] 77. Clini​calTr​ials.​gov Identifier: NCT03964688. Effect of Vitamin C in Autologous Stem Cell Transplantations (VICAST).
+- [ ] 78. Mastrangelo D, Massai L, Lo Coco F, Noguera NI, Borgia L, Fioritoni G, et al. Cytotoxic effects of high concentrations of sodium ascorbate on human myeloid cell lines. Ann Hematol. 2015;94(11):1807–16.
+- [ ] 79. Carr AC, McCall C. The role of vitamin C in the treatment of pain: new insights. J Transl Med. 2017;15(1):77.
+- [ ] 80. Günes-Bayir A, Kiziltan HS. Palliative vitamin C application in patients with radiotherapy-resistant bone metastases: a retrospective study. Nutr Cancer. 2015;67(6):921–5.
+- [ ] 81. Klimant E, Wright H, Rubin D, Seely D, Markman M. Intravenous vitamin C in the supportive care of cancer patients: a review and rational approach. Curr Oncol. 2018;25(2):139–48.
+- [ ] 82. Welsh JL, Wagner BA, van’t Erve TJ, Zehr PS, Berg DJ, Halfdanarson TR, et al. Pharmacological ascorbate with gemcitabine for the control of metastatic and node-positive pancreatic cancer (PACMAN): results from a phase I clinical trial. Cancer Chemother Pharmacol. 2013;71(3):765–75.
+- [ ] 83. Hoffer LJ, Robitaille L, Zakarian R, Melnychuk D, Kavan P, Agulnik J, et al. High-Dose Intravenous Vitamin C Combined with Cytotoxic Chemotherapy in Patients with Advanced Cancer: A Phase I-II Clinical Trial. Hills RK, editor. PLoS One. 2015;10(4):e0120228.
+- [ ] 84. Carr AC, Spencer E, Das A, Meijer N, Lauren C, Macpherson S, et al. Patients undergoing myeloablative chemotherapy and hematopoietic stem cell transplantation exhibit depleted vitamin C status in association with febrile neutropenia. Nutrients. 2020;12(6):1–9.
+- [ ] 85. Mayland CR, Bennett MI, Allan K. Vitamin C deficiency in cancer patients. Palliat Med. 2005;19(1):17–20.
+- [ ] 86. Mansoor F, Kumar S, Rai P, Anees F, Kaur N, Devi A, et al. Impact of intravenous vitamin C Administration in Reducing Severity of symptoms in breast Cancer patients during treatment. Cureus. 2021;13(5):e14867.
+- [ ] 87. Dayer D, Tabandeh MR, Kazemi M. The radio-sensitizing effect of pharmacological concentration of ascorbic acid on human pancreatic Cancer cells. Anti Cancer Agents Med Chem. 2020;20(16):1927–32.
+- [ ] 88. Pires AS, Marques CR, Encarnação JC, Abrantes AM, Marques IA, Laranjo M, et al. Ascorbic acid Chemosensitizes colorectal Cancer cells and synergistically inhibits tumor growth. Front Physiol. 2018;9:911.
+- [ ] 89. O’Leary BR, Houwen FK, Johnson CL, Allen BG, Mezhir JJ, Berg DJ, et al. Pharmacological Ascorbate as an adjuvant for enhancing radiation-chemotherapy responses in gastric adenocarcinoma. Radiat Res. 2018;189(5):456.
+- [ ] 90. Luchtel RA, Bhagat T, Pradhan K, Jacobs WR, Levine M, Verma A, et al. High-dose ascorbic acid synergizes with anti-PD1 in a lymphoma mouse model. Proc Natl Acad Sci. 2020;117(3):1666–77.
+- [ ] 91. Magrì A, Germano G, Lorenzato A, Lamba S, Chilà R, Montone M, et al. High-dose vitamin C enhances cancer immunotherapy. Sci Transl Med. 2020;12(532):eaay8707.
+- [ ] 92. Tian W, Wang Z, Tang N, Li J, Liu Y, Chu W-F, et al. Ascorbic acid sensitizes colorectal carcinoma to the cytotoxicity of arsenic trioxide via promoting reactive oxygen species-dependent apoptosis and Pyroptosis. Front Pharmacol. 2020;21:11.
+- [ ] 93. Wu X, Park M, Sarbassova DA, Ying H, Lee MG, Bhattacharya R, et al. A chirality-dependent action of vitamin C in suppressing Kirsten rat sarcoma mutant tumor growth by the oxidative combination: rationale for cancer therapeutics. Int J Cancer. 2020;146(10):2822–8.
+- [ ] 94. Noguera NI, Pelosi E, Angelini DF, Piredda ML, Guerrera G, Piras E, et al. High-dose ascorbate and arsenic trioxide selectively kill acute myeloid leukemia and acute promyelocytic leukemia blasts in vitro. Oncotarget. 2017;8(20):32550–65.
+- [ ] 95. Biswas S, Zhao X, Mone AP, Mo X, Vargo M, Jarjoura D, et al. Arsenic trioxide and ascorbic acid demonstrate promising activity against primary human CLL cells in vitro. Leuk Res. 2010;34(7):925–31.
+- [ ] 96. Vineetha RC, Hariharan S, Jaleel A, Chandran M, Nair RH. L-ascorbic acid and α-Tocopherol synergistically triggers apoptosis inducing Antileukemic effects of arsenic trioxide via oxidative stress in human acute Promyelocytic leukemia cells. Front Oncol. 2020;10:65.
+- [ ] 97. Hatem E, Azzi S, El Banna N, He T, Heneman-Masurel A, Vernis L, et al. Auranofin/vitamin C: a novel drug combination targeting triple-negative breast Cancer. JNCI J Natl Cancer Inst. 2019;111(6):597–608.
+- [ ] 98. Gerecke C, Schumacher F, Edlich A, Wetzel A, Yealland G, Neubert LK, et al. Vitamin C promotes decitabine or azacytidine induced DNA hydroxymethylation and subsequent reactivation of the epigenetically silenced tumour suppressor CDKN1A in colon cancer cells. Oncotarget. 2018;9(67):32822–40.
+- [ ] 99. Jung S-A, Lee D-H, Moon J-H, Hong S-W, Shin J-S, Hwang IY, et al. L-ascorbic acid can abrogate SVCT-2-dependent cetuximab resistance mediated by mutant KRAS in human colon cancer cells. Free Radic Biol Med. 2016;95:200–8.
+- [ ] 100. Ghavami G, Sardari S. Synergistic effect of vitamin C with Cisplatin for inhibiting proliferation of gastric Cancer cells. Iran Biomed J. 2020;24(2):119–27.
+- [ ] 101. Leekha A, Gurjar BS, Tyagi A, Rizvi MA, Verma AK. Vitamin C in synergism with cisplatin induces cell death in cervical cancer cells through altered redox cycling and p53 upregulation. J Cancer Res Clin Oncol. 2016;142(12):2503–14.
+- [ ] 102. Kleih M, Böpple K, Dong M, Gaißler A, Heine S, Olayioye MA, et al. Direct impact of cisplatin on mitochondria induces ROS production that dictates cell fate of ovarian cancer cells. Cell Death Dis. 2019;10(11):851.
+- [ ] 103. Wu T-M, Liu S-T, Chen S-Y, Chen G-S, Wu C-C, Huang S-M. Mechanisms and Applications of the Anti-cancer Effect of Pharmacological Ascorbic Acid in Cervical Cancer Cells. Front Oncol. 2020;10:1483.
+- [ ] 104. Darwiche W, Gomila C, Ouled-Haddou H, Naudot M, Doualle C, Morel P, et al. Ascorbic acid (vitamin C) synergistically enhances the therapeutic effect of targeted therapy in chronic lymphocytic leukemia. J Exp Clin Cancer Res. 2020;39(1):228.
+- [ ] 105. Zhao H, Zhu H, Huang J, Zhu Y, Hong M, Zhu H, et al. The synergy of vitamin C with decitabine activates TET2 in leukemic cells and significantly improves overall survival in elderly patients with acute myeloid leukemia. Leuk Res. 2018;66:1–7.
+- [ ] 106. De Francesco EM, Bonuccelli G, Maggiolini M, Sotgia F, Lisanti MP. Vitamin C and doxycycline: a synthetic lethal combination therapy targeting metabolic flexibility in cancer stem cells (CSCs). Oncotarget. 2017;8(40):67269–86.
+- [ ] 107. Fiorillo M, Tóth F, Sotgia F, Lisanti MP. Doxycycline, azithromycin and vitamin C (DAV): a potent combination therapy for targeting mitochondria and eradicating cancer stem cells (CSCs). Aging (Albany NY). 2019;11(8):2202–16.
+- [ ] 108. Lee SJ, Jeong J-H, Lee IH, Lee J, Jung JH, Park HY, et al. Effect of high- dose vitamin C combined with anti-cancer treatment on breast Cancer cells. Anticancer Res. 2019;39(2):751–8.
+- [ ] 109. Lee KE, Hahm E, Bae S, Kang JS, Lee WJ. The enhanced tumor inhibitory effects of gefitinib and L-ascorbic acid combination therapy in non- small cell lung cancer cells. Oncol Lett. 2017;14(1):276–82.
+- [ ] 110. Alexander MS, Wilkes JG, Schroeder SR, Buettner GR, Wagner BA, Du J, et al. Pharmacologic Ascorbate reduces radiation-induced Normal tissue toxicity and enhances tumor Radiosensitization in pancreatic Cancer. Cancer Res. 2018;78(24):6838–51.
+- [ ] 111. Schoenfeld JD, Sibenaller ZA, Mapuskar KA, Bradley MD, Wagner BA, Buettner GR, et al. Redox active metals and H2O2 mediate the increased efficacy of pharmacological ascorbate in combination with gemcitabine or radiation in pre-clinical sarcoma models. Redox Biol. 2018;14:417–22.
+- [ ] 112. Lu Y-X, Wu Q-N, Chen D, Chen L-Z, Wang Z-X, Ren C, et al. Pharmacological Ascorbate suppresses growth of gastric Cancer cells with GLUT1 overexpression and enhances the efficacy of Oxaliplatin through redox modulation. Theranostics. 2018;8(5):1312–26.
+- [ ] 113. Xia J, Xu H, Zhang X, Allamargot C, Coleman KL, Nessler R, et al. Multiple myeloma tumor cells are selectively killed by pharmacologically-dosed ascorbic acid. EBioMedicine. 2017;18:41–9.
+- [ ] 114. Di Tano M, Raucci F, Vernieri C, Caffa I, Buono R, Fanti M, et al. Synergistic effect of fasting-mimicking diet and vitamin C against KRAS mutated cancers. Nat Commun. 2020;11(1):2332.
+- [ ] 115. Bharadwaj R, Sahu BP, Haloi J, Laloo D, Barooah P, Keppen C, et al. Combinatorial therapeutic approach for treatment of oral squamous cell carcinoma. Artif Cells Nanomed Biotechnol. 2019;47(1):571–84.
+- [ ] 116. Rouleau L, Antony AN, Bisetto S, Newberg A, Doria C, Levine M, et al. Synergistic effects of ascorbate and sorafenib in hepatocellular carcinoma: new insights into ascorbate cytotoxicity. Free Radic Biol Med. 2016;95:308–22.
+- [ ] 117. Zheng Z, Luo G, Shi X, Long Y, Shen W, Li Z, et al. The xc− inhibitor sulfasalazine improves the anti-cancer effect of pharmacological vitamin C in prostate cancer cells via a glutathione-dependent mechanism. Cell Oncol. 2020;43(1):95–106.
+- [ ] 118. Gong E-Y, Shin YJ, Hwang I-Y, Kim JH, Kim S-M, Moon J-H, et al. Combined treatment with vitamin C and sulindac synergistically induces p53- and ROS-dependent apoptosis in human colon cancer cells. Toxicol Lett. 2016;258:126–33.
+- [ ] 119. Mustafi S, Camarena V, Volmar CH, Huff TC, Sant DW, Brothers SP, et al. Vitamin C sensitizes melanoma to BET inhibitors. Cancer Res. 2018;78(2):572–83.
+- [ ] 120. Sinha BK, van‘t Erve TJ, Kumar A, Bortner CD, Motten AG, Mason RP. Synergistic enhancement of topotecan-induced cell death by ascorbic acid in human breast MCF-7 tumor cells. Free Radic Biol Med. 2017;113:406–12.
+- [ ] 121. De Francesco EM, Ózsvári B, Sotgia F, Lisanti MP. Dodecyl-TPP targets mitochondria and potently eradicates Cancer stem cells (CSCs): synergy with FDA-approved drugs and natural compounds (vitamin C and Berberine). Front Oncol. 2019;7:9.
+- [ ] 122. Wang L, Luo X, Li C, Huang Y, Xu P, Lloyd-Davies LH, et al. Triethylenetetramine synergizes with pharmacologic ascorbic acid in hydrogen peroxide mediated selective toxicity to breast Cancer cell. Oxidative Med Cell Longev. 2017;2017:1–13.
+- [ ] 123. Yang G, Yan Y, Ma Y, Yang Y. Vitamin C at high concentrations induces cytotoxicity in malignant melanoma but promotes tumor growth at low concentrations. Mol Carcinog. 2017;56(8):1965–76.
+- [ ] 124. Ivanova D, Zhelev Z, Lazarova D, Getsov P, Bakalova R, Aoki I. Vitamins C and K3: a powerful redox system for sensitizing leukemia lymphocytes to Everolimus and Barasertib. Anticancer Res. 2018;38(3):1407–14.
+- [ ] 125. Clini​calTr​ial.​gov Identifier: NCT00441207. Study of High-Dose Intravenous (IV) Vitamin C Treatment in Patients With Solid Tumors.
+- [ ] 126. Nielsen TK, Højgaard M, Andersen JT, Poulsen HE, Lykkesfeldt J, Mikines KJ. Elimination of ascorbic acid after high-dose infusion in prostate Cancer patients: a pharmacokinetic evaluation. Basic Clin Pharmacol Toxicol. 2015;116(4):343–8.
+- [ ] 127. Clini​calTr​ials.​govIdentifier:NCT01080352.VitaminCasanAnti-cancerDrug.
+- [ ] 128. Clini​calTr​ials.​gov Identifier: NCT01050621. Trial of Chemotherapy Plus Intravenous Vitamin C in Patients With Advanced Cancer for Whom Chemotherapy Alone is Only Marginally Effective.
+- [ ] 129. Allen BG, Bodeker KL, Smith MC, Monga V, Sandhu S, Hohl R, et al. First- in-human phase I clinical trial of pharmacologic Ascorbate combined with radiation and Temozolomide for newly diagnosed Glioblastoma. Clin Cancer Res. 2019;25(22):6590–7.
+- [ ] 130. Clini​calTr​ials.​gov Identifier: NCT01752491. A Phase I Trial of High-Dose Ascorbate in Glioblastoma Multiforme.
+- [ ] 131. Clini​calTr​ials.​gov Identifier: NCT04516681. IV Ascorbic Acid in Peritoneal Metastatic Colorectal Cancer.
+- [ ] 132. Clini​calTr​ials.​gov Identifier: NCT04033107. High Dose Vitamin C Combined With Metformin in the Treatment of Malignant Tumors.
+- [ ] 133. Clini​calTr​ial.​gov Identifier: NCT02420314. Pharmacological Ascorbate for Lung Cancer.
+- [ ] 134. Clini​calTr​ials.​gov Identifier: NCT02905591. A Phase 2 Study Adding Ascorbate to Chemotherapy and Radiation Therapy for NSCLC (XACT-LUNG).
+- [ ] 135. Clini​calTr​ials.​gov Identifier: NCT03602235. High Dose Ascorbic Acid for Plasma Cell Disorders.
+- [ ] 136. Clini​calTr​ials.​gov Identifier: NCT03418038. Ascorbic Acid and Combination Chemotherapy in Treating Patients With Relapsed or Refractory Lymphoma.
+- [ ] 137. Clini​calTr​ials.​gov Identifier: NCT02905578. A Phase 2 Trial of High-dose Ascorbate for Pancreatic Cancer (PACMAN 2.1).
+- [ ] 138. Clini​calTr​ials.​gov Identifier: NCT04150042. A Study of Melphalan, BCNU, Vitamin B12b, Vitamin C, and Stem Cell Infusion in People With Advanced Pancreatic Cancer and BRCA Mutations.
+- [ ] 139. Clini​calTr​ials.​gov Identifier: NCT03410030. Trial of Ascorbic Acid (AA) + Nanoparticle Paclitaxel Protein Bound + Cisplatin + Gemcitabine (AA NABPLAGEM) (AA NABPLAGEM).
+- [ ] 140. Clini​calTr​ials.​gov Identifier: NCT02516670. Docetaxel With or Without Ascorbic Acid in Treating Patients With Metastatic Prostate Cancer.
+- [ ] 141. Clini​calTr​ials.​gov Identifier: NCT03334409. Pazopanib Hydrochloride With or Without Ascorbic Acid in Treating Patients With Kidney Cancer That Is Metastatic or Cannot Be Removed by Surgery.
+- [ ] 142. Clini​calTr​ials.​gov Identifier: NCT04634227. Gemcitabine Plus Ascorbate for Sarcoma in Adults (Pilot).
+- [ ] 143. Clini​calTr​ials.​gov Identifier: NCT03508726. High Dose Ascorbate With Preoperative Radiation in Patients With Locally Advanced Soft Tissue Sarcomas.
+- [ ] 144. Clini​calTr​ials.​gov Identifier: NCT03799094. Vitamin C and Tyrosine Kinase Inhibitor in Lung Cancer Patients With Epidermal Growth Factor Receptor Mutations.
+- [ ] 145. Clini​calTr​ial.​gov Identifier: NCT00228319. Treatment of Newly Diagnosed Ovarian Cancer With Antioxidants.
+- [ ] 146. Clini​calTr​ial.​gov Identifier: NCT01364805. New Treatment Option for Pancreatic Cancer.
+- [ ] 147. Clini​calTr​ial.​gov Identifier: NCT01852890. Gemcitabine, Ascorbate, Radiation Therapy for Pancreatic Cancer, Phase I.
+- [ ] 148. Bruckner H, Hirschfeld A, Gurell D, Lee K. Broad safety impact of high- dose ascorbic acid and induction chemotherapy for high-risk pancreatic cancer. J Clin Oncol. 2017;35(15_suppl):e15711.
+- [ ] 149. Clini​calTr​ial.​gov Identifier: NCT01905150. Ph 2 Trial of Vitamin C & G-FLIP (Low Doses Gemcitabine, 5FU, Leucovorin, Irinotecan, Oxaliplatin) for Pancreatic Cancer.
+- [ ] 150. Clini​calTr​ial.​gov Identifier: NCT01049880. A Research Trial of High Dose Vitamin C and Chemotherapy for Metastatic Pancreatic Cancer.
+- [ ] 151. Wang F, He M-M, Wang Z-X, Li S, Jin Y, Ren C, et al. Phase I study of high- dose ascorbic acid with mFOLFOX6 or FOLFIRI in patients with metastatic colorectal cancer or gastric cancer. BMC Cancer. 2019;19(1):460.
+- [ ] 152. Clini​calTr​ials.​gov Identifier: NCT02969681. Vitamin C Intravenously With Chemotherapy in Advanced Colorectal Cancer (Vitality).
+- [ ] 153. Monti DA, Mitchell E, Bazzan AJ, Littman S, Zabrecky G, Yeo CJ, et al. Phase I Evaluation of Intravenous Ascorbic Acid in Combination with Gemcitabine and Erlotinib in Patients with Metastatic Pancreatic Cancer. Perez-Gracia JL, editor. PLoS One. 2012;7(1):e29794.
+- [ ] 154. Clini​calTr​ial.​gov Identifier: NCT00954525. Intravenous Vitamin C in Combination With Standard Chemotherapy for Pancreatic Cancer.
+- [ ] 155. Kawada H, Sawanobori M, Tsuma-kaneko M, Wasada I, Miyamoto M, Murayama H, et al. Phase I clinical trial of intravenous L-ascorbic acid following salvage chemotherapy for relapsed B-cell non-Hodgkin’s lymphoma - PubMed. Tokai J Exp Clin Med. 2014;20(39):111–5.
+- [ ] 156. Ou J, Zhu X, Lu Y, Zhao C, Zhang H, Wang X, et al. The safety and pharmacokinetics of high dose intravenous ascorbic acid synergy with modulated electrohyperthermia in Chinese patients with stage III-IV non-small cell lung cancer. Eur J Pharm Sci. 2017;109:412–8.
+- [ ] 157. Ou J, Zhu X, Chen P, Du Y, Lu Y, Peng X, et al. A randomized phase II trial of best supportive care with or without hyperthermia and vitamin C for heavily pretreated, advanced, refractory non-small-cell lung cancer. J Adv Res. 2020;24:175–82.
+- [ ] 158. Clini​calTr​ial.​gov Identifier: NCT02655913. Safety and Efficacy of Vitamin C Infusion in Combination With Local mEHT to Treat Non Small Cell Lung Cancer (VCONSCLC).
+- [ ] 159. Lorenzato A, Magrì A, Matafora V, Audrito V, Arcella P, Lazzari L, et al. Vitamin C restricts the emergence of acquired resistance to EGFR-targeted therapies in colorectal Cancer. Cancers (Basel). 2020;12(3):685.
+- [ ] 160. El Banna N, Hatem E, Heneman-Masurel A, Léger T, Baïlle D, Vernis L, et al. Redox modifications of cysteine-containing proteins, cell cycle arrest and translation inhibition: involvement in vitamin C-induced breast cancer cell death. Redox Biol. 2019;26:101290.
+- [ ] 161. Bober P, Tomková Z, Alexovič M, Ropovik I, Sabo J. The unfolded protein response controls endoplasmic reticulum stress-induced apoptosis of MCF-7 cells via a high dose of vitamin C treatment. Mol Biol Rep. 2019;46(1):1275–84.
+- [ ] 162. Grant MM. Identification of SUMOylated proteins in neuroblastoma cells after treatment with hydrogen peroxide or ascorbate. BMB Rep. 2010;43(11):720–5.
+- [ ] 163. Nagappan A, Park H, Park K, Kim JA, Hong G, Kang S, et al. Proteomic analysis of differentially expressed proteins in vitamin C-treated AGS cells. BMC Biochem. 2013;14(1):24.
+- [ ] 164. Park S, Lee J, Yeom C-H. A proteomic approach to the identification of early molecular targets changed byL-ascorbic acid in NB4 human leukemia cells. J Cell Biochem. 2006;99(6):1628–41.
+- [ ] 165. Park S, Ahn ES, Lee S, Jung M, Park JH, Yi SY, et al. Proteomic analysis reveals upregulation of RKIP in S-180 implanted BALB/C mouse after treatment with ascorbic acid. J Cell Biochem. 2009;106(6):1136–45.
+- [ ] 166. Lee J, Lee G, Park JH, Lee S, Yeom C-H, Na B, et al. Proteomic analysis of tumor tissue in CT-26 implanted BALB/C mouse after treatment with ascorbic acid. Cell Mol Biol Lett. 2012;17(1):62–76.
+- [ ] 167. Bober P, Alexovic M, Talian I, Tomkova Z, Viscorova Z, Benckova M, et al. Proteomic analysis of the vitamin C effect on the doxorubicin cytotoxicity in the MCF-7 breast cancer cell line. J Cancer Res Clin Oncol. 2017;143(1):35–42.
+- [ ] 168. Gustafson CB, Yang C, Dickson KM, Shao H, Van Booven D, Harbour JW, et al. Epigenetic reprogramming of melanoma cells by vitamin C treatment. Clin Epigenetics. 2015;7(1):51.
+- [ ] 169. Sant DW, Mustafi S, Gustafson CB, Chen J, Slingerland JM, Wang G. Vitamin C promotes apoptosis in breast cancer cells by increasing TRAIL expression. Sci Rep. 2018;8(1):5306.
+- [ ] 170. Ge G, Peng D, Xu Z, Guan B, Xin Z, He Q, et al. Restoration of 5-hydroxymethylcytosine by ascorbate blocks kidney tumour growth. EMBO Rep. 2018;19(8):e45401.
+- [ ] 171. Peng D, Ge G, Gong Y, Zhan Y, He S, Guan B, et al. Vitamin C increases 5-hydroxymethylcytosine level and inhibits the growth of bladder cancer. Clin Epigenetics. 2018;10(1):94.
+- [ ] 172. Zhang X, Liu T, Li Z, Feng Y, Corpe C, Liu S, et al. Hepatomas are exquisitely sensitive to pharmacologic ascorbate (P-AscH-). Theranostics. 2019;9(26):8109–26.
+- [ ] 173. Pei Z, Zhang X, Ji C, Liu S-M, Wang J. Transcriptomic and functional pathways analysis of ascorbate-induced cytotoxicity and resistance of Burkitt lymphoma. Oncotarget. 2016;7(39):63950–9.
+- [ ] 174. Cimmino L, Neel BG, Aifantis I. Vitamin C in stem cell reprogramming and Cancer. Trends Cell Biol. 2018;28(9):698–708.
+- [ ] 175. Kim K, Pie J, Park J, Park Y, Kim H, Kim M. Retinoic acid and ascorbic acid act synergistically in inhibiting human breast cancer cell proliferation. J Nutr Biochem. 2006;17(7):454–62.
+- [ ] 176. Ghanem A, Melzer AM, Zaal E, Neises L, Baltissen D, Matar O, et al. Ascorbate kills breast cancer cells by rewiring metabolism via redox imbalance and energy crisis. Free Radic Biol Med. 2021;163:196–209.
+- [ ] 177. Uetaki M, Tabata S, Nakasuka F, Soga T, Tomita M. Metabolomic alterations in human cancer cells by vitamin C-induced oxidative stress. Sci Rep. 2015;5(1):13896.
+- [ ] 178. Lin C, Dong J, Wei Z, Cheng K-K, Li J, You S, et al. 1 H NMR-based metabolic profiles delineate the anticancer effect of vitamin C and Oxaliplatin on hepatocellular carcinoma cells. J Proteome Res. 2020;19(2):781–93.
+- [ ] 179. Sarna S, Bhola RK. Chemo-immunotherapeutical studies on Dalton’s lymphoma in mice using cisplatin and ascorbic acid: synergistic antitumor effect in vivo and in vitro. Arch Immunol Ther Exp. 1993;41(5–6):327–33.
+- [ ] 180. Kurbacher CM, Wagner U, Kolster B, Andreotti PE, Krebs D, Bruckner HW. Ascorbic acid (vitamin C) improves the antineoplastic activity of doxorubicin, cisplatin, and paclitaxel in human breast carcinoma cells in vitro. Cancer Lett. 1996;103(2):183–9.
+- [ ] 181. Kalita S, Verma AK, Prasad SB. Chlorambucil and ascorbic acid-mediated anticancer activity and hematological toxicity in Dalton’s ascites lymphoma-bearing mice. Indian J Exp Biol. 2014;52(2):112–24.
+- [ ] 182. Frömberg A, Gutsch D, Schulze D, Vollbracht C, Weiss G, Czubayko F, et al. Ascorbate exerts anti-proliferative effects through cell cycle inhibition and sensitizes tumor cells towards cytostatic drugs. Cancer Chemother Pharmacol. 2011;67(5):1157–66.
+- [ ] 183. Espey MG, Chen P, Chalmers B, Drisko J, Sun AY, Levine M, et al. Pharmacologic ascorbate synergizes with gemcitabine in preclinical models of pancreatic cancer. Free Radic Biol Med. 2011;50(11):1610–9.
+- [ ] 184. Martinotti S, Ranzato E, Burlando B. In vitro screening of synergistic ascorbate-drug combinations for the treatment of malignant mesothelioma. Toxicol Vitr. 2011;25(8):1568–74.
+- [ ] 185. Castro ML, McConnell MJ, Herst PM. Radiosensitisation by pharmacological ascorbate in glioblastoma multiforme cells, human glial cells, and HUVECs depends on their antioxidant and DNA repair capabilities and is not cancer specific. Free Radic Biol Med. 2014;74:200–9.
+- [ ] 186. Giommarelli C, Corti A, Supino R, Favini E, Paolicchi A, Pompella A, et al. γ-Glutamyltransferase-dependent resistance to arsenic trioxide in melanoma cells and cellular sensitization by ascorbic acid. Free Radic Biol Med. 2009;46(11):1516–26.
+- [ ] 187. Du J, Cieslak JA, Welsh JL, Sibenaller ZA, Allen BG, Wagner BA, et al. Pharmacological Ascorbate Radiosensitizes pancreatic Cancer. Cancer Res. 2015;75(16):3314–26.
+- [ ] 188. Cieslak JA, Sibenaller ZA, Walsh SA, Ponto LLB, Du J, Sunderland JJ, et al. Fluorine-18-labeled thymidine positron emission tomography (FLT-PET) as an index of cell proliferation after pharmacological Ascorbate-based therapy. Radiat Res. 2016;185(1):31–8.
+- [ ] 189. Alexander MS, O’Leary BR, Wilkes JG, Gibson AR, Wagner BA, Du J, et al. Enhanced pharmacological Ascorbate oxidation Radiosensitizes pancreatic Cancer. Radiat Res. 2018;191(1):43.
+- [ ] 190. Hosokawa Y, Saga R, Monzen S, Terashima S, Tsuruga E. Ascorbic acid does not reduce the anticancer effect of radiotherapy. Biomed Rep. 2017;6(1):103–7.
+- [ ] 191. Grasso C, Fabre M-S, Collis SV, Castro ML, Field CS, Schleich N, et al. Pharmacological doses of daily Ascorbate protect tumors from radiation damage after a single dose of radiation in an intracranial mouse Glioma model. Front Oncol. 2014;15:4.
+- [ ] 192. Carr AC, Cook J. Intravenous vitamin C for Cancer therapy – identifying the current gaps in our knowledge. Front Physiol. 2018;23:9.
+- [ ] 193. Demiray M. Combinatorial therapy of high dose vitamin C and PARP inhibitors in DNA repair deficiency: a series of 8 patients. Integr Cancer Ther. 2020;19:1–10.
+- [ ] 194. Vuyyuri SB, Rinkinen J, Worden E, Shim H, Lee S, Davis KR. Ascorbic Acid and a Cytostatic Inhibitor of Glycolysis Synergistically Induce Apoptosis in Non-Small Cell Lung Cancer Cells. Chellappan SP, editor. PLoS One. 2013;8(6):e67081.
+- [ ] 195. Yiang G-T, Chou P-L, Hung Y-T, Chen J-N, Chang W-J, Yu Y-L, et al. Vitamin C enhances anticancer activity in methotrexate-treated Hep3B hepatocellular carcinoma cells. Oncol Rep. 2014;32(3):1057–63.
+- [ ] 196. Gilloteaux J, Jamison JM, Arnold D, Taper HS, Summers JL. Ultrastructural aspects of Autoschizis: a new Cancer cell death induced by the synergistic action of Ascorbate/Menadione on human bladder carcinoma cells. Ultrastruct Pathol. 2001;25(3):183–92.
+- [ ] 197. Gilloteaux J, Jamison JM, Neal D, Summers JL. Synergistic antitumor cytotoxic actions of Ascorbate and Menadione on human prostate (DU145) Cancer cells in vitro: nucleus and other injuries preceding cell death by Autoschizis. Ultrastruct Pathol. 2014;38(2):116–40.
+- [ ] 198. Noto V, Taper HS, Yi-Hua J, Janssens J, Bonte J, De Loecker W. Effects of sodium ascorbate (vitamin C) and 2-methyl-1,4-naphthoquinone (vitamin K3) treatment on human tumor cell growth in vitro. I. Synergism of combined vitamin C and K3 action. Cancer. 1989;63(5):901–6.
+- [ ] 199. Venugopal M. Synergistic antitumour activity of vitamins C and K3against human prostate carcinoma cell lines. Cell Biol Int. 1996;20(12):787–97.
+- [ ] 200. Kassouf W, Highshaw R, Nelkin GM, Dinney CP, Kamat AM. Vitamins C and K3 sensitize human Urothelial tumors to gemcitabine. J Urol. 2006;176(4):1642–7.
+- [ ] 201. Taper HS, Keyeux A, Roberfroid M. Potentiation of radiotherapy by nontoxic pretreatment with combined vitamins C and K3 in mice bearing solid transplantable tumor. Anticancer Res. 1996;16(1):499–503.
+- [ ] 202. Verrax J, Cadrobbi J, Delvaux M, Jamison JM, Gilloteaux J, Summers JL, et al. The association of vitamins C and K3 kills cancer cells mainly by autoschizis, a novel form of cell death. Basis for their potential use as coadjuvants in anticancer therapy. Eur J Med Chem. 2003;38(5):451–7.
+- [ ] 203. Du J, Cullen JJ, Buettner GR. Ascorbic acid: chemistry, biology and the treatment of cancer. Biochim Biophys Acta Rev Cancer. 2012;1826(2):443–57.
+- [ ] 204. Michels AJ, Frei B. Myths, artifacts, and fatal flaws: identifying limitations and opportunities in vitamin C research. Nutrients. 2013;5(12):5161–92.
+- [ ] 205. Heaney ML, Gardner JR, Karasavvas N, Golde DW, Scheinberg DA, Smith EA, et al. Vitamin C antagonizes the cytotoxic effects of antineoplastic drugs. Cancer Res. 2008;68(19):8031–8.
+- [ ] 206. Buettner GR, Jurkiewicz BA. Catalytic metals, ascorbate and free radicals: combinations to avoid. Radiat Res. 1996;145(5):532–41.
+- [ ] 207. Clément M-V, Ramalingam J, Long LH, Halliwell B. The in vitro cytotoxicity of Ascorbate depends on the culture medium used to perform the assay and involves hydrogen peroxide. Antioxid Redox Signal. 2001;3(1):157–63.
+- [ ] 208. Mojić M, Pristov JB, Maksimović-Ivanić D, Jones DR, Stanić M, Mijatović S, et al. Extracellular iron diminishes anticancer effects of vitamin C: an in vitro study. Sci Rep. 2015;4(1):5955.
+- [ ] 209. Doskey CM, van‘t Erve TJ, Wagner BA, Buettner GR. Moles of a Substance per Cell Is a Highly Informative Dosing Metric in Cell Culture. PLoS One. 2015;10(7):e0132572.
+- [ ] 210. Yu R, Schellhorn HE. Recent applications of engineered animal antioxidant deficiency models in human nutrition and chronic disease. J Nutr. 2013;143(1):1–11.
+- [ ] 211. Verrax J, Calderon PB. Pharmacologic concentrations of ascorbate are achieved by parenteral administration and exhibit antitumoral effects. Free Radic Biol Med. 2009;47(1):32–40.
+- [ ] 212. Iwama M, Amano A, Shimokado K, Maruyama N, Ishigami A. Ascorbic acid levels in various tissues, plasma and urine of mice during aging. J Nutr Sci Vitaminol (Tokyo). 2012;58(3):169–74.
+- [ ] 213. Schleicher RL, Carroll MD, Ford ES, Lacher DA. Serum vitamin C and the prevalence of vitamin C deficiency in the United States: 2003–2004 National Health and nutrition examination survey (NHANES). Am J Clin Nutr. 2009;90(5):1252–63.
+- [ ] 214. White R, Nonis M, Pearson JF, Burgess E, Morrin HR, Pullar JM, et al. Low vitamin C status in patients with Cancer is associated with patient and tumor characteristics. Nutrients. 2020;12(8):2338.
+- [ ] 215. Fain O, Mathieu E, Thomas M. Lesson of the week: scurvy in patients with cancer. BMJ. 1998;316(7145):1661–2.
+- [ ] 216. Campbell EJ, Vissers MC, Dachs G. Ascorbate availability affects tumor implantation-take rate and increases tumor rejection in Gulo−/− mice. Hypoxia. 2016;4:41–52.
+- [ ] 217. Vissers MCM, Das AB. Potential mechanisms of action for vitamin C in cancer: Reviewing the evidence. Front Physiol. 2018;9(JUL):809.
+- [ ] 218. Hapke RY, Haake SM. Hypoxia-induced epithelial to mesenchymal transition in cancer. Cancer Lett. Elsevier Ireland Ltd. 2020;487:10–20.
+- [ ] 219. Pfeifhofer-Obermair C, Tymoszuk P, Petzer V, Weiss G, Nairz M. Iron in the Tumor Microenvironment—Connecting the Dots. Front Oncol. 2018;8(NOV):549.
+- [ ] 220. Cao LL, Liu H, Yue Z, Liu L, Pei L, Gu J, et al. Iron chelation inhibits cancer cell growth and modulates global histone methylation status in colorectal cancer. BioMetals. 2018;31(5):797–805.
+- [ ] 221. Jung M, Mertens C, Tomat E, Brüne B. Iron as a central player and promising target in Cancer progression. Int J Mol Sci. 2019;20(2):273.
+- [ ] 222. De Luca A, Barile A, Arciello M, Rossi L. Copper homeostasis as target of both consolidated and innovative strategies of anti-tumor therapy. J Trace Elem Med Biol. Elsevier GmbH. 2019;55:204–13.
+- [ ] 223. Chen M-F, Yang C-M, Su C-M, Hu M-L. Vitamin C protects against Cisplatin-induced nephrotoxicity and damage without reducing its effectiveness in C57BL/6 mice Xenografted with Lewis lung carcinoma. Nutr Cancer. 2014;66(7):1085–91.
+- [ ] 224. Du J, Wagner BA, Buettner GR, Cullen JJ. Role of labile iron in the toxicity of pharmacological ascorbate. Free Radic Biol Med. 2015;84:289–95.
+- [ ] 225. Schieber M, Chandel NS. ROS function in redox signaling and oxidative stress. Curr Biol. 2014;24(10):R453–62.
+- [ ] 226. Liberti MV, Locasale JW. The Warburg effect: how does it benefit Cancer cells? Trends Biochem Sci. 2016;41(3):211–8.
+- [ ] 227. Sullivan LB, Chandel NS. Mitochondrial reactive oxygen species and cancer. Cancer Metab. 2014;2(1):17.
+- [ ] 228. Cockfield JA, Schafer ZT. Antioxidant defenses: A context-specific vulnerability of cancer cells. Cancers (Basel). 2019;11(8):1208.
+- [ ] 229. Oberley TD, Oberley LW. Antioxidant enzyme levels in cancer. Histol Histopathol. 1997;12(2):525–35.
+- [ ] 230. Doskey CM, Buranasudja V, Wagner BA, Wilkes JG, Du J, Cullen JJ, et al. Tumor cells have decreased ability to metabolize H2O2: implications for pharmacological ascorbate in cancer therapy. Redox Biol. 2016;10:274–84.
+- [ ] 231. Klingelhoeffer C, Kämmerer U, Koospal M, Mühling B, Schneider M, Kapp M, et al. Natural resistance to ascorbic acid induced oxidative stress is mainly mediated by catalase activity in human cancer cells and catalase-silencing sensitizes to oxidative stress. BMC Complement Altern Med. 2012;12(1):1–10.
+- [ ] 232. Pawlowska E, Szczepanska J, Blasiak J. Pro- and antioxidant effects of vitamin C in Cancer in correspondence to its dietary and pharmacological concentrations. Oxidative Med Cell Longev. 2019;2019:1–18.
+- [ ] 233. Liu D, Xu Y. P53, oxidative stress, and aging. Antioxid Redox Signal. 2011;15(6):1669–78.
+- [ ] 234. Freund E, Liedtke K-R, Miebach L, Wende K, Heidecke A, Kaushik NK, et al. Identification of two kinase inhibitors with synergistic toxicity with low-dose hydrogen peroxide in colorectal Cancer cells in vitro. Cancers (Basel). 2020;12(1):122.
+- [ ] 235. El Hassouni B, Granchi C, Vallés-Martí A, Supadmanaba IGP, Bononi G, Tuccinardi T, et al. The dichotomous role of the glycolytic metabolism pathway in cancer metastasis: interplay with the complex tumor microenvironment and novel therapeutic strategies. Semin Cancer Biol. 2020;60:238–48.
+- [ ] 236. Graczyk-Jarzynka A, Goral A, Muchowicz A, Zagozdzon R, Winiarska M, Bajor M, et al. Inhibition of thioredoxin-dependent H2O2 removal sensitizes malignant B-cells to pharmacological ascorbate. Redox Biol. 2019;21:101062.
+- [ ] 237. Cammack R, Wrigglesworth JM, Baum H, Ponka P, Schulman HM. RCW. Iron-dependent enzymes in mammalian systems. In: In Iron Transport and Storage. Boca Raton: CRC Press; 1990. p. 17–39.
+- [ ] 238. McCormick WJ. Cancer: the preconditioning factor in pathogenesis; a new etiologic approach. Arch Pediatr. 1954;71(10):313–22. • fast, convenient online submission • thorough peer review by experienced researchers in your field • rapid publication on acceptance • support for research data, including large and complex data types • gold Open Access which fosters wider collaboration and increased citations maximum visibility for your research: over 100M website views per year • At BMC, research is always in progress. Learn more biomedcentral.com/submissions Ready to submit your research Ready to submit your research ? Choose BMC and benefit from: ? Choose BMC and benefit from:
+- [ ] 239. McCormick WJ. Cancer: a collagen disease, secondary to a nutritional deficiency. Arch Pediatr. 1959;76(4):166–71.
+- [ ] 240. Cameron E, Rotman D. Ascorbic acid, cell proliferation, and cancer. Lancet. 1972;299(7749):542.
+- [ ] 241. Boyera N, Galey I, Bernard BA. Effect of vitamin C and its derivatives on collagen synthesis and cross-linking by normal human fibroblasts. Int J Cosmet Sci. 1998;20(3):151–8.
+- [ ] 242. Cameron E, Pauling L, Leibovitz B. Ascorbic acid and Cancer: a review. Cancer Res. 1979;39(3):663–81.
+- [ ] 243. Cameron E, Campbell A, Jack T. The orthomolecular treatment of cancer. Chem Biol Interact. 1975;11(5):387–93.
+- [ ] 244. Jackson JA, Riordan HD, Hunninghake RE, Riordan N. High dose intravenous vitamin C and long time survival of a patient with cancer of head of the pancreas. J Orthomol Med. 1995;10(2):87–8.
+- [ ] 245. Zhao L, Quan Y, Wang J, Wang F, Zheng Y, Zhou A. Vitamin C inhibit the proliferation, migration and epithelial-mesenchymal-transition of lens epithelial cells by destabilizing HIF-1α. Int J Clin Exp Med. 2015;8(9):15155–63.
+- [ ] 246. Wilkes JG, O’Leary BR, Du J, Klinger AR, Sibenaller ZA, Doskey CM, et al. Pharmacologic ascorbate (P-AscH−) suppresses hypoxia-inducible factor-1α (HIF-1α) in pancreatic adenocarcinoma. Clin Exp Metastasis. 2018;35(1–2):37–51.
+- [ ] 247. Lee P, Chandel NS, Simon MC. Cellular adaptation to hypoxia through hypoxia inducible factors and beyond. Nat Rev Mol Cell Biol. Nature Research. 2020;21:268–83.
+- [ ] 248. Fischer AP, Miles SL. Ascorbic acid, but not dehydroascorbic acid increases intracellular vitamin C content to decrease hypoxia inducible factor −1 alpha activity and reduce malignant potential in human melanoma. Biomed Pharmacother. 2017;86:502–13.
+- [ ] 249. Jóźwiak P, Ciesielski P, Zaczek A, Lipińska A, Pomorski L, Wieczorek M, et al. Expression of hypoxia inducible factor 1α and 2α and its association with vitamin C level in thyroid lesions. J Biomed Sci. 2017;24(1):1–10.
+- [ ] 250. Wohlrab C, MCM V, Phillips E, Morrin H, Robinson BA, Dachs GU. The association between ascorbate and the hypoxia-inducible factors in human renal cell carcinoma requires a functional von Hippel-Lindau protein. Front Oncol. 2018;8(NOV):574.
+- [ ] 251. Wohlrab C, Kuiper C, Vissers MC, Phillips E, Robinson BA, Dachs GU. Ascorbate modulates the hypoxic pathway by increasing intracellular activity of the HIF hydroxylases in renal cell carcinoma cells. Hypoxia. 2019;7:17–31.
+- [ ] 252. Kuiper C, Dachs GU, Currie MJ, Vissers MCM. Intracellular ascorbate enhances hypoxia-inducible factor (HIF)-hydroxylase activity and preferentially suppresses the HIF-1 transcriptional response. Free Radic Biol Med. 2014;69:308–17.
+- [ ] 253. Kuiper C, Dachs G, Munn D, Currie M, Robinson B, Pearson JF, et al. Increased tumor Ascorbate is associated with extended disease-free survival and decreased hypoxia-inducible Factor-1 activation in human colorectal Cancer. Front Oncol. 2014;0:10.
+- [ ] 254. Kuiper C, Molenaar IGM, Dachs GU, Currie MJ, Sykes PH, Vissers MCM. Low Ascorbate levels are associated with increased hypoxia-inducible Factor-1 activity and an aggressive tumor phenotype in endometrial Cancer. Cancer Res. 2010;70(14):5749–58.
+- [ ] 255. Tian W, Wang Y, Xu Y, Guo X, Wang B, Sun L, et al. The hypoxia-inducible factor renders cancer cells more sensitive to vitamin C-induced toxicity. J Biol Chem. 2014;289(6):3339–51.
+- [ ] 256. Klutstein M, Nejman D, Greenfield R, Cedar H. DNA methylation in cancer and aging. Cancer Res. American Association for Cancer Research Inc. 2016;76:3446–50.
+- [ ] 257. Greenberg MVC, Bourc’his D. The diverse roles of DNA methylation in mammalian development and disease. Nat Rev Mol Cell Biol. Nature Publishing Group. 2019;20:590–607.
+- [ ] 258. van Gorkom G, Klein Wolterink R, Van Elssen C, Wieten L, Germeraad W, Bos G. Influence of vitamin C on lymphocytes: an overview. Antioxidants. 2018;7(3):41.
+- [ ] 259. Yue X, Rao A. TET family dioxygenases and the TET activator vitamin C in immune responses and cancer. Blood. 2020;136(12):1394–401.
+- [ ] 260. Bryant KL, Mancias JD, Kimmelman AC, Der CJ. KRAS: feeding pancreatic cancer proliferation. Trends Biochem Sci. 2014;39(2):91–100.
+- [ ] 261. Kaminska B, Czapski B, Guzik R, Król S, Gielniewski B. Consequences of IDH1/2 mutations in Gliomas and an assessment of inhibitors targeting mutated IDH proteins. Molecules. 2019;24(5):968.
+- [ ] 262. Montalban-Bravo G, DiNardo CD. The role ofID Hmutations in acute myeloid leukemia. Future Oncol. 2018;14(10):979–93.
+- [ ] 263. Abdel-Wahab O, Mullally A, Hedvat C, Garcia-Manero G, Patel J, Wadleigh M, et al. Genetic characterization of TET1, TET2, and TET3 alterations in myeloid malignancies. Blood. 2009;114(1):144–7.
+- [ ] 264. Cossey LN, Rahim F, Larsen CP. Oxalate nephropathy and intravenous vitamin C. Am J Kidney Dis. 2013;61(6):1032–5.
+- [ ] 265. Quinn J, Gerber B, Fouche R, Kenyon K, Blom Z, Muthukanagaraj P. Effect of high-dose vitamin C infusion in a Glucose-6-phosphate dehydrogenase-deficient patient. Case Rep Med. 2017;2017:1–4.
+
+Generated 2026-08-25T05:36:45.280603Z.

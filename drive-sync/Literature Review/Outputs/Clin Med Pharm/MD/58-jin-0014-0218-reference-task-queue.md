@@ -1,0 +1,32 @@
+# 58 - jin-0014-0218 reference task queue
+
+Source: Karakike et al. J Innate Immun. 2022;14:218-228. DOI: 10.1159/000519090.
+
+References listed in the primary article: 26. Numbering and citation content are preserved from the supplied article; no external bibliographic correction was performed.
+
+- [ ] **Reference 1.** Qin C, Zhou L, Hu Z, Zhang S, Yang S, Tao Y, et al. Dysregulation of immune response in patients with coronavirus 2019 (COVID-19) in Wuhan, China. Clin Infect Dis. 2020 Jul;71(15):762-8.
+- [ ] **Reference 2.** McElvaney OJ, McEvoy NL, McElvaney OF, Carroll TP, Murphy MP, Dunlea DM, et al. Characterization of the inflammatory response to severe COVID-19 illness. Am J Respir Crit Care Med. 2020 Sep;202(6):812-21.
+- [ ] **Reference 3.** Ruscitti P, Berardicurti O, Di Benedetto P, Cipriani P, Iagnocco A, Yehuda Shoenfeld Y, et al. Another piece in the puzzle of the hyperferritinemic syndrome. An immunomodulatory perspective to alleviate the storm. Front Immunol. 2020 May;11:1130.
+- [ ] **Reference 4.** Blot M, Bour JB, Quenot JP, Bourredjem A, Nguyen M, Guy J, et al. The dysregulated innate immune response in severe COVID-19 pneumonia that could drive poorer outcome. J Transl Med. 2020 Dec;18(1):457.
+- [ ] **Reference 5.** Colafrancesco S, Alessandri C, Conti F, Priori R. COVID-19 gone bad: a new character in the spectrum of the hyperferritinemic syndrome? Autoimmun Rev. 2020 Jul;19(7):102573.
+- [ ] **Reference 6.** Kappert K, Jahić A, Tauber R. Assessment of serum ferritin as a biomarker in COVID-19: bystander or participant? Insights by comparison with other infectious and non-infectious diseases. Biomarkers. 2020 Dec;25(8):616-25.
+- [ ] **Reference 7.** Giamarellos-Bourboulis EJ, Netea MG, Rovina N, Akinosoglou K, Antoniadou A, Antonakos N, et al. Complex immune dysregulation in COVID-19 patients with severe respiratory failure. Cell Host Microbe. 2020 Jun;27(6):992-1000.
+- [ ] **Reference 8.** Kyriazopoulou E, Leventogiannis K, Norrby-Teglund A, Dimopoulos G, Pantazi A, Orfanos SE, et al. Macrophage activation-like syndrome: an immunological entity associated with rapid progression to death in sepsis. BMC Med. 2017 Sep;15(1):172.
+- [ ] **Reference 9.** Karakike E, Giamarellos-Bourboulis EJ. Macrophage activation-like syndrome: a distinct entity leading to early death in sepsis. Front Immunol. 2019 Jan;10:55.
+- [ ] **Reference 10.** Shakoory B, Carcillo JA, Chatham WW, Amdur RL, Zhao H, Dinarello CA, et al. Interleukin-1 receptor blockade is associated with reduced mortality in sepsis patients with features of macrophage activation syndrome: reanalysis of a prior phase III trial. Crit Care Med. 2016 Feb;44(2):275-81.
+- [ ] **Reference 11.** WHO Working Group on the clinical characterisation and management of COVID-19 infection. A minimal common outcome measure set for COVID-19 clinical research. Lancet Infect Dis. 2020 Aug;20(8):e192-7.
+- [ ] **Reference 12.** Vu CA, DeRonde KJ, Vega AD, Maxam M, Holt G, Natori Y, et al. Effects of Tocilizumab in COVID-19 patients: a cohort study. BMC Infect Dis. 2020 Dec;20(1):964.
+- [ ] **Reference 13.** Rovina N, Akinosoglou K, Eugen-Olsen J, Hayek S, Reiser J, Giamarellos-Bourboulis EJ. Soluble urokinase plasminogen activator receptor (suPAR) as an early predictor of severe respiratory failure in patients with COVID-19 pneumonia. Crit Care. 2020 Apr;24(1):187.
+- [ ] **Reference 14.** Azam TU, Shadid HR, Blakely P, O’Hayer P, Berlin H, Pan M, et al. Soluble Urokinase Receptor (SuPAR) in COVID-19-Related AKI. J Am Soc Nephrol. 2020 Nov;31(11):2725-35.
+- [ ] **Reference 15.** Cauchois R, Koubi M, Delarbre D, Manet C, Carvelli J, Blasco VB, et al. Early IL-1 receptor blockade in severe inflammatory respiratory failure complicating COVID-19. Proc Natl Acad Sci USA. 2020 Aug;117(32):18951-3.
+- [ ] **Reference 16.** Cavalli G, De Luca G, Campochiaro C, Della-Torre E, Ripa M, Canetti D, et al. Interleukin-1 blockade with high-dose anakinra in patients with COVID-19, acute respiratory distress syndrome, and hyperinflammation: a retrospective cohort study. Lancet Rheumatol. 2020 Jun;2(6):e325-31.
+- [ ] **Reference 17.** Bozzi G, Mangioni D, Minoia F, Aliberti S, Grasselli G, Barbetta L, et al. Anakinra combined with methylprednisolone in patients with severe COVID-19 pneumonia and hyperinflammation: an observational cohort study. J Allergy Clin Immunol. 2021 Feb;147(2):561-e4.
+- [ ] **Reference 18.** Huet T, Beaussier H, Voisin O, Jouveshomme S, Dauriat G, Lazareth I, et al. Anakinra for severe forms of COVID-19: a cohort study. Lancet Rheumatol. 2020 Jul;2(7):e393-400.
+- [ ] **Reference 19.** Navarro-Millán I, Sattui SE, Lakhanpal A, Zisa D, Siegel CH, Crow MK. Use of anakinra to prevent mechanical ventilation in severe COVID-19: a case series. Arthritis Rheumatol. 2020 Dec;72(12):1990-7.
+- [ ] **Reference 20.** Dimopoulos G, de Mast Q, Markou N, Theodorakopoulou M, Komnos A, Mouktaroudi M, et al. Favorable anakinra responses in severe Covid-19 patients with secondary hemophagocytic lymphohistiocytosis. Cell Host Microbe. 2020 Jul;28(1):117-e1.
+- [ ] **Reference 21.** Hermine O, Mariette X, Tharaux PL, Resche-Rigon M, Porcher R, Ravaud P, et al. Effect of tocilizumab vs usual care in adults hospitalized with COVID-19 and moderate or severe pneumonia: a randomized clinical trial. JAMA Intern Med. 2021 Jan;181(1):32-40.
+- [ ] **Reference 22.** Stone JH, Frigault MJ, Serling-Boyd NJ, Fernandes AD, Harvey L, Foulkes AS, et al. Efficacy of tocilizumab in patients hospitalized with Covid-19. N Engl J Med. 2020 Dec;383(24):2333-44.
+- [ ] **Reference 23.** Salama C, Han J, Yau L, Reiss WG, Kramer B, Neidhart JD, et al. Tocilizumab in patients hospitalized with COVID-19 pneumonia. N Engl J Med. 2021 Jan;384(1):20-30.
+- [ ] **Reference 24.** RECOVERY Collaborative Group. Tocilizumab in patients admitted to hospital with COVID-19 (RECOVERY): a randomised, controlled, open-label, platform trial. Lancet. 2021 May 1;397(10285):1637-45.
+- [ ] **Reference 25.** Gordon AC, Mouncey PR, Al-Beidh F, Rowan KM, Nichol AD, et al.; REMAP-CAP Investigators. Interleukin-6 receptor antagonists in critically ill patients with Covid-19. N Engl J Med. 2021 Apr 22;384(16):1491-1502.
+- [ ] **Reference 26.** Karakike E, Dalekos GN, Koutsodimitropoulos I, Saridaki M, Pourzitaki C, Papathanakos G, et al. ESCAPE: an open-label trial of personalized immunotherapy in critically ill COVID-19 patients. medRxiv. 2021.

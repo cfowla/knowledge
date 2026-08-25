@@ -1,0 +1,74 @@
+{
+  "source_metadata": {
+    "requested_label": "94 - Kim 2021 - JAMA oi210055",
+    "exact_title": "Triple vs Dual Inhaler Therapy and Asthma Outcomes in Moderate to Severe Asthma: A Systematic Review and Meta-analysis",
+    "authors": [
+      "Lisa H. Y. Kim",
+      "Carol Saleh",
+      "Anna Whalen-Browne",
+      "Paul M. O’Byrne",
+      "Derek K. Chu"
+    ],
+    "journal": "JAMA",
+    "publication_date": "2021-05-19",
+    "citation": "JAMA. 2021;325(24):2466-2479",
+    "doi": "10.1001/jama.2021.7872",
+    "source_type": "systematic review and meta-analysis of randomized clinical trials",
+    "publication_id": "6ef97db3-19d7-5b33-ab37-8702be0b2a26",
+    "primary_file": "jama_kim_2021_oi_210055_1624316942.63807.pdf",
+    "primary_sha256": "26adf56d5267e0caa429ed891df9bbbe8bf113580cb200fc36ce93160adb3f13",
+    "supplement_file": "joi210055supp1_prod_1624316942.64306.pdf",
+    "supplement_sha256": "ba47e7a8d732e86b1d29235b3e01f24ce8d055899d880b48bbf4f17571e34dae"
+  },
+  "atom_count": 50,
+  "atom_counts_by_type": {
+    "adverse_event": 9,
+    "author_conclusion": 1,
+    "comparator_description": 1,
+    "conflict_of_interest": 1,
+    "eligibility_criterion": 2,
+    "funding_disclosure": 1,
+    "intervention_description": 1,
+    "limitation": 4,
+    "method": 8,
+    "outcome_definition": 4,
+    "population_description": 3,
+    "qualitative_result": 3,
+    "quantitative_result": 9,
+    "study_objective": 1,
+    "subgroup_result": 2
+  },
+  "structural_validation": {
+    "validator": "literature.py / Pydantic",
+    "valid": true,
+    "errors": []
+  },
+  "serialization_validation": {
+    "validator": "literature_atom.schema.json / jsonschema",
+    "performed": true,
+    "valid": true,
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "validator": "literature_atoms.py",
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "duplicate_review": {
+    "near_duplicate_atoms_found": 0,
+    "notes": "Repeated pooled estimates were retained only when they represented distinct effect measures or clinically distinct outcomes."
+  },
+  "consistency_findings": [
+    "The primary article text reports 28.6% with triple therapy vs 24.7% with dual therapy for time to first severe exacerbation while the Kaplan-Meier curve and HR 0.84 favor triple therapy; the atom records the HR without reproducing the internally discordant percentages.",
+    "Supplement eTable 1 uses modeled baseline-risk scenarios to express absolute effects; those atoms are labeled as subgroup/absolute-effect estimates and are not presented as raw trial event rates."
+  ],
+  "schema_gaps": [
+    "The LiteratureAtom schema is primarily oriented to primary studies and has no dedicated systematic_review_result atom kind; pooled meta-analytic findings are represented as quantitative_result with systematic-review tags."
+  ],
+  "extraction_limitations": [
+    "This is a systematic review/meta-analysis rather than a single primary trial; pooled results reflect the review authors’ synthesis of underlying trials.",
+    "The supplement was used for methods, GRADE absolute-effect context, subgroup/sensitivity interpretation, and visual reconciliation; bibliography entries were not atomized.",
+    "No external sources were used to update the 2021 evidence or verify current asthma guidelines."
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "source_metadata": {
+    "source_id": "41392_2021_Article_828",
+    "title": "Targeting PI3K/Akt signal transduction for cancer therapy",
+    "authors": [
+      "Yan He",
+      "Miao Miao Sun",
+      "Guo Geng Zhang",
+      "Jing Yang",
+      "Kui Sheng Chen",
+      "Wen Wen Xu",
+      "Bin Li"
+    ],
+    "journal": "Signal Transduction and Targeted Therapy",
+    "year": 2021,
+    "volume": "6",
+    "article_number": "425",
+    "doi": "10.1038/s41392-021-00828-5",
+    "source_type": "narrative_review",
+    "page_count": 17,
+    "substantive_page_range": "1-12",
+    "reference_page_range": "13-17",
+    "reference_count": 274,
+    "drive_source_file_id": "1T_E32SC5YcqFXmBObO-7l25rcdKjIrHd",
+    "input_document_sha256": "e46ecc2411b5a35d19792582d50b1f1ab52e48ec6f51bb6173d2b279ccb7ca42",
+    "publication_id": "53452375-93ef-505d-8b84-fe0da0c7a630"
+  },
+  "governing_atom_sources": {
+    "structural_model": "literature.py",
+    "sufficiency_validator": "literature_atoms.py",
+    "serialization_contract": "literature_atom.schema.json",
+    "workflow_intent": "README(2).md",
+    "example_role": "illustrative only"
+  },
+  "batch_manifest": [
+    {
+      "batch_id": "overview",
+      "pages": "1-2",
+      "semantic_scope": "Review scope, PI3K classes, Akt overview",
+      "extraction_run_id": "41392-2021-article-828-overview-v1"
+    },
+    {
+      "batch_id": "upstream",
+      "pages": "3-4",
+      "semantic_scope": "RTKs, TLRs, BCRs, GPCRs, PTEN",
+      "extraction_run_id": "41392-2021-article-828-upstream-v1"
+    },
+    {
+      "batch_id": "downstream",
+      "pages": "4-6",
+      "semantic_scope": "mTOR, GSK3, FOXO, TSC2, p53/MDM2, pathway crosstalk",
+      "extraction_run_id": "41392-2021-article-828-downstream-v1"
+    },
+    {
+      "batch_id": "phenotypes",
+      "pages": "6-9",
+      "semantic_scope": "Cancer phenotypes, resistance, metabolism, angiogenesis, metastasis, immunity, tumor microenvironment",
+      "extraction_run_id": "41392-2021-article-828-phenotypes-v1"
+    },
+    {
+      "batch_id": "therapy",
+      "pages": "9-12",
+      "semantic_scope": "PI3K/Akt/mTOR inhibitors, combination strategies, conclusions, disclosures",
+      "extraction_run_id": "41392-2021-article-828-therapy-v1"
+    }
+  ],
+  "atom_count": 65,
+  "atom_counts_by_kind": {
+    "author_conclusion": 4,
+    "conflict_of_interest": 1,
+    "funding_disclosure": 1,
+    "limitation": 1,
+    "other": 53,
+    "quantitative_result": 4,
+    "study_objective": 1
+  },
+  "atom_counts_by_batch": {
+    "41392-2021-article-828-downstream-v1": 11,
+    "41392-2021-article-828-overview-v1": 12,
+    "41392-2021-article-828-phenotypes-v1": 13,
+    "41392-2021-article-828-therapy-v1": 19,
+    "41392-2021-article-828-upstream-v1": 10
+  },
+  "structural_validation": {
+    "pydantic_valid": true,
+    "pydantic_errors": [],
+    "json_schema_valid": true,
+    "json_schema_errors": []
+  },
+  "sufficiency_validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "whole_source_qa": {
+    "shared_publication_id": true,
+    "unique_atom_ids": true,
+    "duplicate_canonical_statements": 0,
+    "references_atomized": false,
+    "main_visuals_reconciled_for_sea": [
+      "Table 1",
+      "Figure 1",
+      "Figure 2",
+      "Figure 3",
+      "Table 2",
+      "Table 3",
+      "Table 4"
+    ]
+  },
+  "schema_gaps": [
+    "The LiteratureAtom model is oriented to primary literature and has no dedicated narrative-review synthesis atom kind.",
+    "Most review-level mechanistic assertions therefore use atom_kind=other with secondary_source and review_synthesis tags.",
+    "Trial-level results summarized by the review are tagged secondary_reported_result and retain provenance to this review, not to the underlying primary studies."
+  ],
+  "extraction_limitations": [
+    "The review does not report a reproducible literature-search, study-selection, or risk-of-bias method.",
+    "The bibliography was not atomized because citations are provenance infrastructure, not evidence assertions.",
+    "The atom set captures the review's main independently reviewable mechanistic, translational, treatment, safety, and conclusion claims. It is not a substitute for primary-study extraction.",
+    "All atoms remain review_status=needs_review because this is a secondary source being represented in a primary-literature-oriented schema."
+  ]
+}

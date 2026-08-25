@@ -1,0 +1,69 @@
+# Reference task queue - Vitamin K prophylaxis in newborns
+
+Source: Jullien S. BMC Pediatrics. 2021;21(Suppl 1):350. DOI: 10.1186/s12887-021-02701-4.
+
+Use each checkbox as a separate retrieval/review task. Do not promote results summarized in the Jullien review to primary-study evidence. Read the cited primary source itself before creating primary-study atoms.
+
+- [ ] 1. Clarke P, Mitchell SJ, Shearer MJ. Total and differential phylloquinone (vitamin K1) intakes of preterm infants from all sources during the neonatal period. Nutrients. 2015;7(10):8308-20.
+  - Type: Primary study
+  - Locator: https://doi.org/10.3390/nu7105393
+- [ ] 2. Sankar M, Chandrasekaran A, Kumar P, Thukral A, Agarwal R, Paul V. Vitamin K prophylaxis for prevention of vitamin K deficiency bleeding: a systematic review. J Perinatol. 2016;36(S1):S29-35.
+  - Type: Systematic review
+  - Locator: https://doi.org/10.1038/jp.2016.30
+- [ ] 3. World Health Organization. WHO recommendations on newborn health. Guidelines approved by the WHO guidelines review committee. Geneva; 2017.
+  - Type: Guideline
+  - Locator: Source prints a WHO IRIS URL
+- [ ] 4. World Health Organization. Pregnancy, Childbirth, Postpartum and Newborn Care: A guide for essential practice. 2015.
+  - Type: Practice guide
+  - Locator: No locator printed in the article
+- [ ] 5. World Health Organization. Recommendations for management of common childhood conditions: evidence for technical update of pocket book recommendations. 2012.
+  - Type: Evidence/guideline document
+  - Locator: Source prints a WHO IRIS URL
+- [ ] 6. Pallás AC. Uso profiláctico de la vitamina K para la enfermedad hemorrágica del recién nacido. Recomendaciones PrevInfad/PAPPS; 2010. p. 2-6.
+  - Type: Guideline/recommendation
+  - Locator: http://previnfad.aepap.org/monografia/vitamina-k
+- [ ] 7. National Institute for Health and Care Excellence (NICE). Postnatal care up to 8 weeks after birth (CG37). 2015.
+  - Type: Guideline
+  - Locator: No locator printed in the article
+- [ ] 8. CDC. Vitamin K deficiency bleeding. 2018.
+  - Type: Public health guidance
+  - Locator: https://www.cdc.gov/ncbddd/vitamink/index.html
+- [ ] 9. American Academy of Pediatrics Committee on Fetus and Newborn. Controversies concerning vitamin K and the newborn. Pediatrics. 2003;112:191.
+  - Type: Policy statement
+  - Locator: No DOI/URL printed in the article
+- [ ] 10. American Academy of Pediatrics. AAP publications reaffirmed or retired. Pediatrics. 2020;145(6):2020-2.
+  - Type: Policy status notice
+  - Locator: No DOI/URL printed in the article
+- [ ] 11. Ardell S, Offringa M, Ovelman C, Soll R. Prophylactic vitamin K for the prevention of vitamin K deficiency bleeding in preterm neonates. Cochrane Database Syst Rev. 2018;2:CD008342.
+  - Type: Systematic review
+  - Locator: No DOI/URL printed in the article
+- [ ] 12. Puckett R, Offringa M. Prophylactic vitamin K for vitamin K deficiency bleeding in neonates. Cochrane Database Syst Rev. 2010;4:CD002776.
+  - Type: Systematic review
+  - Locator: No DOI/URL printed in the article
+- [ ] 13. Martín-López J, Carlos-Gil A, Rodríguez-López R, Villegas-Portero R, Luque-Romero L, Flores-Moreno S. La vitamina K como profilaxis para la enfermedad hemorrágica del recién nacido. Farm Hosp. 2011;35(3):148-55.
+  - Type: Systematic review
+  - Locator: https://doi.org/10.1016/j.farma.2010.09.001
+- [ ] 14. Löwensteyn YN, Jansen NJG, van Heerde M, Klein RH, Kneyber MCJ, Kuiper JW, et al. Increasing the dose of oral vitamin K prophylaxis and its effect on bleeding risk. Eur J Pediatr. 2019;178(7):1033-42.
+  - Type: Cohort study
+  - Locator: https://doi.org/10.1007/s00431-019-03391-y
+- [ ] 15. Witt M, Kvist N, Jørgensen H, Hulscher JB, Verkade HJ. Prophylactic dosing of vitamin K to prevent bleeding. Pediatrics. 2016;137(5):e20154222.
+  - Type: Cohort/surveillance study
+  - Locator: https://doi.org/10.1542/peds.2015-4222
+- [ ] 16. Mihatsch WA, Braegger C, Bronsky J, Campoy C, Domellöf M, Fewtrell M, et al. Prevention of vitamin K deficiency bleeding in newborn infants: a position paper by the ESPGHAN committee on nutrition. J Pediatr Gastroenterol Nutr. 2016;63(1):123-9.
+  - Type: Position paper / review
+  - Locator: https://doi.org/10.1097/MPG.0000000000001232
+- [ ] 17. Canadian Agency for Drugs and Technologies in Health. Neonatal vitamin K administration for the prevention of hemorrhagic disease: A review of the clinical effectiveness, comparative effectiveness, and guidelines. 2015.
+  - Type: Health technology review
+  - Locator: No DOI/URL printed in the article
+- [ ] 18. Busfield A, Samuel R, McNinch A, Tripp J. Vitamin K deficiency bleeding after NICE guidance and withdrawal of Konakion neonatal: British Paediatric Surveillance Unit study, 2006-2008. Arch Dis Child. 2013;98(1):41-7.
+  - Type: Surveillance study
+  - Locator: https://doi.org/10.1136/archdischild-2011-301029
+- [ ] 19. Johnston C, Campbell-Yeo M, Disher T, Benoit B, Fernandes A, Streiner D, et al. Skin-to-skin care for procedural pain in neonates. Cochrane Database Syst Rev. 2017;2:CD008435.
+  - Type: Systematic review / procedural pain
+  - Locator: No DOI/URL printed in the article
+- [ ] 20. Shah P, Herboso C, Aliwalas L, Shah V. Breastfeeding or breast milk for procedural pain in neonates. Cochrane Database Syst Rev. 2012;12:CD004950.
+  - Type: Systematic review / procedural pain
+  - Locator: No DOI/URL printed in the article
+- [ ] 21. Rights UNH. Convention on the Rights of the Child. 1990.
+  - Type: Rights framework
+  - Locator: Source prints an OHCHR URL

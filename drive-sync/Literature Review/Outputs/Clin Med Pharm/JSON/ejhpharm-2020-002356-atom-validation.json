@@ -1,0 +1,95 @@
+{
+  "source": {
+    "file": "ejhpharm-2020-002356.pdf",
+    "title": "Drug-related problems in hospitalised Parkinson’s disease patients in China",
+    "authors": [
+      "Hui Liu",
+      "Yixuan Zhong",
+      "Zhaohao Zeng",
+      "Wei Bi",
+      "Huiting Zhong",
+      "Lianfang Xue",
+      "Suishan Qiu"
+    ],
+    "journal": "European Journal of Hospital Pharmacy",
+    "issue_citation": "2022;29:308-312",
+    "published_online_first": "2020-10-30",
+    "doi": "10.1136/ejhpharm-2020-002356",
+    "design": "Single-centre retrospective study",
+    "pages": 5,
+    "input_sha256": "05506395ac9e023c172534a9b9566e911215442214e1ef8225da58741bd645f3",
+    "publication_id": "a6ff73ea-0c30-5b9e-8331-8847d0392534"
+  },
+  "extraction": {
+    "batching": "Not required: 5-page primary article with one figure and four tables was mapped and reviewed as one semantic unit.",
+    "extraction_run_id": "ejhpharm-2020-002356-full-v1",
+    "atom_count": 62,
+    "atom_counts_by_kind": {
+      "adverse_event": 1,
+      "author_conclusion": 3,
+      "conflict_of_interest": 1,
+      "data_availability": 1,
+      "eligibility_criterion": 2,
+      "funding_disclosure": 1,
+      "limitation": 4,
+      "method": 9,
+      "population_description": 1,
+      "qualitative_result": 1,
+      "quantitative_result": 37,
+      "study_objective": 1
+    },
+    "structural_validation": "PASS",
+    "json_schema_validation": "PASS",
+    "sufficiency_validation": "PASS"
+  },
+  "structural_errors": [],
+  "schema_errors": [],
+  "sufficiency_errors": [],
+  "sufficiency_warnings": [],
+  "duplicate_review": {
+    "status": "PASS",
+    "finding": "No duplicate atoms detected by deterministic atom_id/canonical statement review."
+  },
+  "consistency_findings": [
+    {
+      "topic": "NCC MERP severity distribution",
+      "finding": "Three incompatible distributions are reported: abstract 88.7% B-D / 11.3% E-H; Results/Table 3 85.4% (234/274) / 14.6% (40/274); discussion 82.5% / 17.5%.",
+      "handling": "Retained as separate source-reported atoms; not reconciled. Table 3 is arithmetically consistent with its explicit counts, but this does not justify silently correcting the other sections."
+    },
+    {
+      "topic": "Drug selection C1 severity denominator",
+      "finding": "Narrative reports 89.9% (218/224) B-D and 15.0% (6/40) E-H. 218/224 is 97.3%, while 6/40 uses all E-H events rather than C1 as denominator.",
+      "handling": "Flagged as a source inconsistency; no corrected atom created."
+    },
+    {
+      "topic": "Table 1 subgroup totals",
+      "finding": "The reported total mean length of stay (6.1 days) is lower than both DRP subgroups (11.0 and 10.2 days); the reported total PD duration (10.8 years) is higher than both subgroup means (8.0 and 5.5 years).",
+      "handling": "Values are preserved in SEA as reported and flagged; no inferred correction."
+    },
+    {
+      "topic": "Discussion cause-domain label",
+      "finding": "Discussion says “Drug selection, C1” and “Treatment duration, C3” accounted for over 90%, but Table 3 defines C3 as Dose selection and C4 as Treatment duration.",
+      "handling": "Flagged as terminology inconsistency; Table 3 labels retained for extracted cause atoms."
+    },
+    {
+      "topic": "Adherence conclusion",
+      "finding": "Conclusion states PD patients were more likely to be non-adherent, especially to levodopa, while Methods state medication compliance could not be comprehensively identified and patient-related causes were excluded.",
+      "handling": "Conclusion preserved as an author-conclusion atom with needs_review status; not treated as an observed result."
+    },
+    {
+      "topic": "Table 4 percentage denominator",
+      "finding": "The DRP percentages (e.g. levodopa 30 [69.8%]) are not explained as rates among medication users; 30/209 is not 69.8%.",
+      "handling": "Atoms structure the DRP count only and retain the source-reported percentage in text without interpreting its denominator."
+    }
+  ],
+  "extraction_limitations": [
+    "Figure 1 provides a ranked bar chart without printed exact percentages for each category; only the ranking was atomised.",
+    "The current schema requires an exposure context for quantitative_result atoms. Broad study-level DRP prevalence/cause results therefore use a source-supported generic exposure descriptor (“Hospital pharmacotherapy during the index Parkinson’s disease admission”).",
+    "No correction was made for internally inconsistent source percentages, table values, labels, or denominators.",
+    "Bibliographic references were not atomised; they were routed to the separate reference task queue."
+  ],
+  "schema_gaps": [
+    "The schema has no dedicated descriptive-prevalence result kind that does not require an exposure, so descriptive hospital DRP results require a broad exposure descriptor.",
+    "The schema cannot directly represent a multi-category frequency distribution in one quantitative result except through arm observations or multiple atoms."
+  ]
+}
