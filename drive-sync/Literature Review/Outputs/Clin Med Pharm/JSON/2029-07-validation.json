@@ -1,38 +1,66 @@
 {
   "source": {
     "title": "Severe Necrotizing Fasciitis in a Human Immunodeficiency Virus-Positive Patient Caused by Methicillin-Resistant Staphylococcus aureus",
+    "authors": [
+      "Randall J. Olsen",
+      "Kevin M. Burns",
+      "Liang Chen",
+      "Barry N. Kreiswirth",
+      "James M. Musser"
+    ],
+    "citation": "J Clin Microbiol. 2008;46(3):1144-1147.",
     "doi": "10.1128/JCM.02029-07",
     "pmid": "18199782",
-    "publication_id": "05233286-8e1f-5173-a456-c7f9f76aa392",
-    "input_file": "2029-07.pdf",
-    "sha256": "b709fdd0a474420328ef80b9eee618b27be7de14e626b28791a83f6b41e6d3a8"
+    "source_type": "clinical case report with molecular isolate characterization and narrative literature review",
+    "source_file": "2029-07.pdf",
+    "source_drive_file_id": "1Mn6b3spK0TOoIs5kZrZUqVHGxbPDAoSh",
+    "source_sha256": "b709fdd0a474420328ef80b9eee618b27be7de14e626b28791a83f6b41e6d3a8",
+    "pdf_pages": 4,
+    "publication_id": "fb2b4b30-4b51-5480-a012-82a1d8410949"
   },
-  "atom_count": 36,
-  "counts_by_kind": {
-    "author_conclusion": 3,
-    "funding_disclosure": 1,
-    "intervention_description": 4,
-    "limitation": 1,
-    "method": 3,
-    "other": 11,
-    "population_description": 2,
-    "qualitative_result": 9,
-    "quantitative_result": 1,
-    "study_objective": 1
+  "validation_summary": {
+    "pydantic_structural_validation": "PASS",
+    "json_schema_validation": "PASS",
+    "sufficiency_validation": "PASS",
+    "structural_error_count": 0,
+    "schema_error_count": 0,
+    "sufficiency_error_count": 0,
+    "sufficiency_warning_count": 0,
+    "shared_publication_id": true,
+    "unique_atom_ids": true
   },
-  "structural_validation": "pass",
   "structural_errors": [],
-  "sufficiency_validation": "pass",
-  "sufficiency_errors": [],
-  "sufficiency_warnings": [],
-  "extraction_limitations": [
-    "Single-patient case report; no comparator arm or inferential statistical design.",
-    "The current LiteratureAtom schema is exposure/outcome oriented and has no dedicated case-observation or antimicrobial-susceptibility atom kind; isolate MICs are therefore represented as atom_kind=other rather than forced into quantitative_result.",
-    "The literature-review counts in the article are secondary summaries; underlying cited studies were not re-atomized as if they were primary data from this report.",
-    "No unsupported study details were added; missing denominators, uncertainty estimates, or causal attribution remain missing."
+  "schema_errors": [],
+  "sufficiency_issues": [],
+  "source_integrity_notes": [
+    "This is an uncontrolled single case report; no treatment-effect or causal virulence inference was promoted to reported fact.",
+    "The authors' 19-case comparison is a narrative English-language literature review with incomplete testing fields, not a systematic review.",
+    "PVL/ACME causality and the therapeutic significance of clindamycin resistance/vancomycin MIC are preserved as uncertain.",
+    "All model-extracted atoms remain needs_review because no independent human reviewer step is represented."
   ],
-  "schema_gaps": [
-    "No dedicated case_report_observation atom kind.",
-    "No dedicated antimicrobial_susceptibility/isolate_result atom kind."
+  "governing_source_execution": {
+    "literature.py": "executed from supplied /mnt/data/literature(1).py",
+    "literature_atoms.py": "executed from supplied /mnt/data/literature_atoms(1).py",
+    "literature_atom.schema.json": "executed from supplied /mnt/data/literature_atom.schema.json",
+    "README(2).md": "read and applied",
+    "example_atom.json": "illustrative only"
+  },
+  "generated_at": "2026-08-25T09:02:42.574125+00:00",
+  "validation_order": [
+    {
+      "step": 1,
+      "validator": "literature(1).py / LiteratureAtom.model_validate",
+      "result": "PASS"
+    },
+    {
+      "step": 2,
+      "validator": "literature_atom.schema.json / Draft 2020-12 JSON Schema",
+      "result": "PASS"
+    },
+    {
+      "step": 3,
+      "validator": "literature_atoms(1).py / validate_literature_atom_sufficiency",
+      "result": "PASS"
+    }
   ]
 }

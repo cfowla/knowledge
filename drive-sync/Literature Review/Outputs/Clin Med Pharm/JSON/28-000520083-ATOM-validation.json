@@ -1,0 +1,116 @@
+{
+  "source": {
+    "source_id": "28 - 000520083",
+    "file_name": "000520083.pdf",
+    "exact_title": "Silent Hypoxia in COVID-19: A Case Series",
+    "authors": [
+      "Thomas Fuehner",
+      "Isabelle Renger",
+      "Tobias Welte",
+      "Tobias Freundt",
+      "Jens Gottlieb"
+    ],
+    "journal": "Respiration",
+    "year": 2022,
+    "volume": "101",
+    "issue": "4",
+    "pages": "376-380",
+    "published_online": "2021-11-26",
+    "doi": "10.1159/000520083",
+    "source_type": "retrospective single-center comparative case series / observational cohort",
+    "drive_file_id": "1sPqPHrZb-hgokWUNU65SnRzeHi8WTBmh",
+    "drive_folder_id": "1M7v90mYJg__zRixAWcQzTkkv-dLn0MDk",
+    "sha256": "69aaa13354db6efee0a320a04041a56cf93032481bf492af8877c3dda1b81b4e",
+    "publication_id": "f84b1fed-f009-5078-82a5-bddc01f1c2ca"
+  },
+  "generated_at": "2026-08-25T09:30:34.863019Z",
+  "atom_count": 34,
+  "counts_by_kind": {
+    "author_conclusion": 1,
+    "conflict_of_interest": 1,
+    "data_availability": 1,
+    "eligibility_criterion": 1,
+    "funding_disclosure": 1,
+    "limitation": 3,
+    "method": 5,
+    "outcome_definition": 1,
+    "population_description": 1,
+    "qualitative_result": 1,
+    "quantitative_result": 17,
+    "study_objective": 1
+  },
+  "validator_order": [
+    "literature.py structural validation",
+    "literature_atom.schema.json JSON Schema validation",
+    "literature_atoms.py atom-kind sufficiency validation"
+  ],
+  "structural_validation": {
+    "valid": true,
+    "error_count": 0,
+    "errors": []
+  },
+  "schema_serialization_validation": {
+    "valid": true,
+    "error_count": 0,
+    "errors": []
+  },
+  "sufficiency_validation": {
+    "valid": true,
+    "error_count": 0,
+    "warning_count": 0,
+    "issues": []
+  },
+  "identity_integrity": {
+    "publication_ids": [
+      "f84b1fed-f009-5078-82a5-bddc01f1c2ca"
+    ],
+    "single_publication_identity": true,
+    "atom_ids_unique": true,
+    "exact_duplicate_canonical_statements": [],
+    "input_document_hash_preserved": true
+  },
+  "semantic_spot_checks": [
+    {
+      "claim": "primary result",
+      "source_claim": "Borg CR10 medians 1 vs 5 with p<0.001",
+      "probe": "median 1, IQR: 0–2 vs. median 5, IQR: 3–6",
+      "supported": true,
+      "method": "pdftotext extraction plus rendered-page visual review"
+    },
+    {
+      "claim": "numerical multivariable claim",
+      "source_claim": "Narrative multivariable OR 0.221, 95% CI 0.054-0.907, p=0.036",
+      "probe": "0.221 (95% confidence interval 0.054, 0.907, p 0.036)",
+      "supported": true,
+      "method": "pdftotext extraction plus rendered-page visual review"
+    },
+    {
+      "claim": "limitation",
+      "source_claim": "Borg CR10 is not established for acute hypoxemia at rest",
+      "probe": "The scale is not estab-",
+      "supported": true,
+      "method": "pdftotext extraction plus rendered-page visual review"
+    },
+    {
+      "claim": "figure-derived claim",
+      "source_claim": "Figure 1 is the Borg CR10 group-comparison figure; visual review shows all three comparisons p<0.001",
+      "probe": "Fig. 1. Dyspnea rated by using the Borg CR10 scale in emergency",
+      "supported": true,
+      "method": "pdftotext extraction plus rendered-page visual review"
+    }
+  ],
+  "source_integrity_findings": [
+    "The Results narrative labels all-but-one (98%) with Borg CR10 <5 as non-COVID-19, while Table 2 shows 41/42 (98%) of the COVID-19 group in the no-dyspnea category; both statements are preserved rather than silently reconciled.",
+    "The Results narrative defines “silent hypoxemia” as Borg CR10 ≥5 and reports OR 0.221 (95% CI 0.054-0.907; p=0.036), whereas Table 2 labels Borg ≥5 as dyspnea and reports COVID-19 OR 0.007 (95% CI 0.000-0.199; p=0.004).",
+    "The Discussion says COVID-19 patients had a higher dyspnea sensation, conflicting with the abstract, Results, Figure 1, and conclusion indicating lower dyspnea in COVID-19."
+  ],
+  "schema_gaps": [
+    "The schema has no native representation for medians with interquartile ranges; medians are stored as estimates and the IQR is preserved in canonical_statement/original_result_text rather than encoded as a confidence interval.",
+    "The schema has no explicit field for source-internal contradictions; conflicting reported statements are preserved as separate atoms and reconciled in the validation/processing reports."
+  ],
+  "extraction_limitations": [
+    "The article is a five-page retrospective single-center study with no supplements in the packet.",
+    "Table 2 analyzes 78 rather than 82 patients, but the source does not explain the four-patient difference or missing-data handling.",
+    "Source-internal endpoint/group-label inconsistencies prevent safe normalization of the multivariable “silent hypoxemia” estimate into a single reconciled result."
+  ]
+}

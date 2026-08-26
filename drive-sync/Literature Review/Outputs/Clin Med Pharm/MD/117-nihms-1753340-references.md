@@ -2,250 +2,986 @@
 
 Source: Acta Biomater. 2022;138:73-91. DOI 10.1016/j.actbio.2021.10.045.
 
-Extracted from the article bibliography. 245 numbered references were present. No external bibliography correction or enrichment was applied.
+Bibliography reconciliation: 245 of 245 numbered references captured; missing numbers: 0; duplicate numbers: 0.
+Queue metadata (role, priority, downstream action) is triage inference from citation location/title and is not article-reported evidence. Open checkboxes represent downstream cited-publication work and do not indicate that this publication packet is incomplete.
 
-- [ ] [1] C.f.D. Control, Prevention, National diabetes statistics report, 2020, Atlanta, GA: Centers for Disease Control and Prevention, US Department of Health and Human Services (2020).
-- [ ] [2] Care D, Economic Costs of Diabetes in the US in 2017, Diabetes care 41 (2018) 917. [PubMed: 29567642]
-- [ ] [3] Bommer C, Heesemann E, Sagalova V, Manne-Goehler J, Atun R, Bärnighausen T, Vollmer S, The global economic burden of diabetes in adults aged 20–79 years: a cost-of-illness study, The lancet Diabetes & endocrinology 5(6) (2017) 423–430. [PubMed: 28456416]
-- [ ] [4] Choi JU, Lee SW, Pangeni R, Byun Y, Yoon I-S, Park JW, Preparation and in vivo evaluation of cationic elastic liposomes comprising highly skin-permeable growth factors combined with hyaluronic acid for enhanced diabetic wound-healing therapy, Acta biomaterialia 57 (2017) 197– 215. [PubMed: 28476587]
-- [ ] [5] Frykberg RG, Banks J, Challenges in the treatment of chronic wounds, Advances in wound care 4(9) (2015) 560–582. [PubMed: 26339534]
-- [ ] [6] Phillips CJ, Humphreys I, Fletcher J, Harding K, Chamberlain G, Macey S, Estimating the costs associated with the management of patients with chronic wounds using linked routine data, International wound journal 13(6) (2016) 1193–1197. [PubMed: 25818405]
-- [ ] [7] Dahiru IL, Amaefule KE, Okpe IO, Ibrahim A, Muazu SB, An overview of diabetic foot disease, Nigerian Journal of Basic and Clinical Sciences 13(1) (2016) 1.
-- [ ] [8] Ibrahim AM, Diabetic Foot Ulcer: Synopsis of the Epidemiology and Pathophysiology, International Journal of Diabetes and Endocrinology 3(2) (2018) 23.
-- [ ] [9] Zhang P, Lu J, Jing Y, Tang S, Zhu D, Bi Y, Global epidemiology of diabetic foot ulceration: a systematic review and meta-analysis, Annals of medicine 49(2) (2017) 106–116. [PubMed: 27585063]
-- [ ] [10] Armstrong DG, Boulton AJ, Bus SA, Diabetic foot ulcers and their recurrence, New England Journal of Medicine 376(24) (2017) 2367–2375.
-- [ ] [11] Atlas D, International diabetes federation, IDF Diabetes Atlas, 7th edn. Brussels, Belgium: International Diabetes Federation (2015).
-- [ ] [12] Jung K, Covington S, Sen CK, Januszyk M, Kirsner RS, Gurtner GC, Shah NH, Rapid identification of slow healing wounds, Wound Repair and Regeneration 24(1) (2016) 181–188. [PubMed: 26606167]
-- [ ] [13] Armstrong DG, Swerdlow MA, Armstrong AA, Conte MS, Padula WV, Bus SA, Five year mortality and direct costs of care for people with diabetic foot complications are comparable to cancer, Journal of Foot and Ankle Research 13(1) (2020) 16. [PubMed: 32209136]
-- [ ] [14] Singer AJ, Clark RA, Cutaneous wound healing, New England journal of medicine 341(10) (1999) 738–746.
-- [ ] [15] Chammas N, Hill R, Edmonds M, Increased mortality in diabetic foot ulcer patients: the significance of ulcer type, Journal of Diabetes Research 2016 (2016).
-- [ ] [16] Costa RHR, Cardoso NA, Procópio RJ, Navarro TP, Dardik A, de Loiola Cisneros L, Diabetic foot ulcer carries high amputation and mortality rates, particularly in the presence of advanced age, peripheral artery disease and anemia, Diabetes & Metabolic Syndrome: Clinical Research & Reviews 11 (2017) S583–S587.
-- [ ] [17] Fortington LV, Geertzen JH, van Netten JJ, Postema K, Rommers GM, Dijkstra PU, Short and long term mortality rates after a lower limb amputation, European Journal of Vascular and Endovascular Surgery 46(1) (2013) 124–131. [PubMed: 23628328]
-- [ ] [18] Moulik PK, Mtonga R, Gill GV, Amputation and mortality in new-onset diabetic foot ulcers stratified by etiology, Diabetes care 26(2) (2003) 491–494. [PubMed: 12547887]
-- [ ] [19] Jeffcoate WJ, Vileikyte L, Boyko EJ, Armstrong DG, Boulton AJ, Current challenges and opportunities in the prevention and management of diabetic foot ulcers, Diabetes care 41(4) (2018) 645–652. [PubMed: 29559450]
-- [ ] [20] Armstrong DG, Wrobel J, Robbins JM, Guest editorial: are diabetes-related wounds and amputations worse than cancer, Int Wound J 4(4) (2007) 286–287. [PubMed: 18154621]
-- [ ] [21] Tecilazich F, Dinh TL, Veves A, Emerging drugs for the treatment of diabetic ulcers, Expert Opin Emerg Drugs 18(2) (2013) 207–217. [PubMed: 23687931]
-- [ ] [22] Steed DL, Donohoe D, Webster MW, Lindsley L, Effect of extensive debridement and treatment on the healing of diabetic foot ulcers. Diabetic Ulcer Study Group, Journal of the American College of Surgeons 183(1) (1996) 61–64. [PubMed: 8673309]
-- [ ] [23] Holmes C, Jarocki C, Torrence G, Priesand S, Wound debridement for diabetic foot ulcers: a clinical practice review, Diabetic Foot Journal 22(2) (2019).
-- [ ] [24] Omar MT, Alghadir A, Al-Wahhabi KK, Al-Askar AB, Efficacy of shock wave therapy on chronic diabetic foot ulcer: a single-blinded randomized controlled clinical trial, Diabetes research and clinical practice 106(3) (2014) 548–554. [PubMed: 25451894]
-- [ ] [25] Huang C, Leavitt T, Bayer LR, Orgill DP, Effect of negative pressure wound therapy on wound healing, Current Problems in Surgery 51(7) (2014) 301–331. [PubMed: 24935079]
-- [ ] [26] Nieto-Gil MP, Ortega-Avila AB, Pardo-Rios M, Gijon-Nogueron G, Effectiveness and Duration of Plantar Pressure Off-loading by Two Designs of Felt Padding: A Preliminary Study, Journal of the American Podiatric Medical Association 109(6) (2019) 431–436. [PubMed: 31755770]
-- [ ] [27] Dhasmana A, Singh S, Kadian S, Singh L, Skin tissue engineering: Principles and advances, J Dermatol Skin 1: 101 Abstract Keywords: Skin (2018).
-- [ ] [28] Papanas N, Eleftheriadou I, Tentolouris N, Maltezos E, Advances in the topical treatment of diabetic foot ulcers, Current diabetes reviews 8(3) (2012) 209–218. [PubMed: 22429013]
-- [ ] [29] White R, Cutting K, Modern exudate management: a review of wound treatments, World Wide Wounds 1 (2006).
-- [ ] [30] Rodrigues M, Kosaric N, Bonham CA, Gurtner GC, Wound healing: a cellular perspective, Physiological reviews 99(1) (2019) 665–706. [PubMed: 30475656]
-- [ ] [31] Kim P, Dybowski K, Steinberg J, A closer look at bioengineered alternative tissues, Podiatry Today 19(7) (2006) 38–55.
-- [ ] [32] Harding K, Sumner M, Cardinal M, A prospective, multicentre, randomised controlled study of human fibroblast-derived dermal substitute (Dermagraft) in patients with venous leg ulcers, International Wound Journal 10(2) (2013) 132–137. [PubMed: 23506344]
-- [ ] [33] Kirsner RS, Sabolinski ML, Parsons NB, Skornicki M, Marston WA, Comparative effectiveness of a bioengineered living cellular construct vs. a dehydrated human amniotic membrane allograft for the treatment of diabetic foot ulcers in a real world setting, Wound Repair and Regeneration 23(5) (2015) 737–744. [PubMed: 26100572]
-- [ ] [34] Stocum DL, Biomimetic tissues and organs.
-- [ ] [35] Marston WA, Dermagraft®, a bioengineered human dermal equivalent for the treatment of chronic nonhealing diabetic foot ulcer, Expert Review of Medical Devices 1(1) (2004) 21–31. [PubMed: 16293007]
-- [ ] [36] Dai C, Shih S, Khachemoune A, Skin substitutes for acute and chronic wound healing: an updated review, Journal of Dermatological Treatment 31(6) (2020) 639–648.
-- [ ] [37] Clinical Impact Upon Wound Healing and Inflammation in Moist, Wet, and Dry Environments, Advances in Wound Care 2(7) (2013) 348–356. [PubMed: 24587972]
-- [ ] [38] Korting H, Schöllmann C, White R, Management of minor acute cutaneous wounds: importance of wound healing in a moist environment, Journal of the European Academy of Dermatology and Venereology 25(2) (2011) 130–137. [PubMed: 20626534]
-- [ ] [39] Okan D, Woo K, Ayello EA, Sibbald G, The Role of Moisture Balance in Wound Healing, Advances in Skin & Wound Care 20(1) (2007).
-- [ ] [40] Dhivya S, Padma VV, Santhini E, Wound dressings–a review, BioMedicine 5(4) (2015).
-- [ ] [41] Pop MA, Almquist BD, Biomaterials: A potential pathway to healing chronic wounds?, Experimental dermatology 26(9) (2017) 760–763. [PubMed: 28094868]
-- [ ] [42] Bianchera A, Catanzano O, Boateng J, Elviri L, The place of biomaterials in wound healing, Therapeutic Dressings and Wound Healing Applications (2020) 337–366.
-- [ ] [43] Mulholland EJ, Electrospun biomaterials in the treatment and prevention of scars in skin wound healing, Frontiers in Bioengineering and Biotechnology 8 (2020).
-- [ ] [44] Zhang X, Shu W, Yu Q, Qu W, Wang Y, Li R, Functional biomaterials for treatment of chronic wound, Frontiers in Bioengineering and Biotechnology 8 (2020). [PubMed: 32047745]
-- [ ] [45] Matoori S, Veves A, Mooney DJ, Advanced bandages for diabetic wound healing, Science Translational Medicine 13(585) (2021).
-- [ ] [46] Han G, Ceilley R, Chronic wound healing: a review of current management and treatments, Advances in therapy 34(3) (2017) 599–610. [PubMed: 28108895]
-- [ ] [47] Eming SA, Martin P, Tomic-Canic M, Wound repair and regeneration: Mechanisms, signaling, and translation, Science Translational Medicine 6(265) (2014) 265sr6–265sr6. [PubMed: 25473038]
-- [ ] [48] Rittié L, Cellular mechanisms of skin repair in humans and other mammals, J Cell Commun Signal 10(2) (2016) 103–120. [PubMed: 27170326]
-- [ ] [49] Braiman-Wiksman L, Solomonik I, Spira R, Tennenbaum T, Novel insights into wound healing sequence of events, Toxicologic pathology 35(6) (2007) 767–779. [PubMed: 17943650]
-- [ ] [50] Engelmayer J, Blezinger P, Varadhachary A, Talactoferrin Stimulates Wound Healing With Modulation of Inflammation, Journal of Surgical Research 149(2) (2008) 278–286.
-- [ ] [51] Phillipson M, Kubes P, The Healing Power of Neutrophils, Trends in Immunology 40(7) (2019) 635–647. [PubMed: 31160208]
-- [ ] [52] Su Y, Richmond A, Chemokine regulation of neutrophil infiltration of skin wounds, Advances in wound care 4(11) (2015) 631–640. [PubMed: 26543677]
-- [ ] [53] Willenborg S, Do N-N, Ding X, Van Loo G., Pasparakis M, Eming SA, Recruitment, activation and function of monocytes/macrophage in skin wound healing, Journal of Dermatological Science 84(1) (2016) e92.
-- [ ] [54] Yang J, Zhang L, Yu C, Yang X-F, Wang H, Monocyte and macrophage differentiation: circulation inflammatory monocyte as biomarker for inflammatory diseases, Biomarker Research 2(1) (2014) 1. [PubMed: 24398220]
-- [ ] [55] Chiu S, Bharat A, Role of monocytes and macrophages in regulating immune response following lung transplantation, Current Opinion in Organ Transplantation 21(3) (2016) 239–245. [PubMed: 26977996]
-- [ ] [56] Kotwal GJ, Chien S, Macrophage differentiation in normal and accelerated wound healing, Macrophages (2017) 353–364.
-- [ ] [57] Smigiel KS, Parks WC, Macrophages, wound healing, and fibrosis: recent insights, Current rheumatology reports 20(4) (2018) 1–8.
-- [ ] [58] Cañedo-Dorantes L, Cañedo-Ayala M, Skin acute wound healing: A comprehensive review, International journal of inflammation 2019 (2019).
-- [ ] [59] Teller P, White TK, The physiology of wound healing: injury through maturation, Perioperative Nursing Clinics 6(2) (2011) 159–170.
-- [ ] [60] Johnson KE, Wilgus TA, Vascular endothelial growth factor and angiogenesis in the regulation of cutaneous wound repair, Advances in wound care 3(10) (2014) 647–661. [PubMed: 25302139]
-- [ ] [61] Gonzalez A.C.d.O., Costa TF, Andrade Z.d.A., Medrado ARAP, Wound healing-A literature review, Anais brasileiros de dermatologia 91(5) (2016) 614–620. [PubMed: 27828635]
-- [ ] [62] Singh S, Young A, McNaught C-E, The physiology of wound healing, Surgery (Oxford) 35(9) (2017) 473–477.
-- [ ] [63] Darby IA, Laverdet B, Bonté F, Desmoulière A, Fibroblasts and myofibroblasts in wound healing, Clinical, cosmetic and investigational dermatology 7 (2014) 301.
-- [ ] [64] Desjardins-Park HE, Foster DS, Longaker MT, Fibroblasts and wound healing: an update, Future Medicine, 2018.
-- [ ] [65] Bainbridge P, Wound healing and the role of fibroblasts, Journal of wound care 22(8) (2013).
-- [ ] [66] Ellis S, Lin EJ, Tartar D, Immunology of wound healing, Current dermatology reports 7(4) (2018) 350–358. [PubMed: 30524911]
-- [ ] [67] Alhajj M, Bansal P, Goyal A, Physiology, Granulation Tissue, StatPearls [Internet] (2020).
-- [ ] [68] Al-Bayaty F, Abdulla MA, A comparison of wound healing rate following treatment with aftamed and chlorine dioxide gels in streptozotocin-induced diabetic rats, Evidence-Based Complementary and Alternative Medicine 2012 (2012).
-- [ ] [69] Gould LJ, Topical collagen-based biomaterials for chronic wounds: rationale and clinical application, Advances in wound care 5(1) (2016) 19–31. [PubMed: 26858912]
-- [ ] [70] Krzyszczyk P, Schloss R, Palmer A, Berthiaume F, The role of macrophages in acute and chronic wound healing and interventions to promote pro-wound healing phenotypes, Frontiers in physiology 9 (2018) 419. [PubMed: 29765329]
-- [ ] [71] Bratton DL, Henson PM, Neutrophil clearance: when the party is over, clean-up begins, Trends in Immunology 32(8) (2011) 350–357. [PubMed: 21782511]
-- [ ] [72] Demidova-Rice TN, Hamblin MR, Herman IM, Acute and impaired wound healing: pathophysiology and current methods for drug delivery, part 1: normal and chronic wounds: biology, causes, and approaches to care, Advances in skin & wound care 25(7) (2012) 304. [PubMed: 22713781]
-- [ ] [73] Zhao R, Liang H, Clarke E, Jackson C, Xue M, Inflammation in chronic wounds, International journal of molecular sciences 17(12) (2016) 2085.
-- [ ] [74] Soehnlein O, Steffens S, Hidalgo A, Weber C, Neutrophils as protagonists and targets in chronic inflammation, Nature Reviews Immunology 17(4) (2017) 248–261.
-- [ ] [75] Wood S, Jayaraman V, Huelsmann EJ, Bonish B, Burgad D, Sivaramakrishnan G, Qin S, DiPietro LA, Zloza A, Zhang C, Shafikhani SH, Pro-inflammatory chemokine CCL2 (MCP-1) promotes healing in diabetic wounds by restoring the macrophage response, PloS one 9(3) (2014) e91574– e91574. [PubMed: 24618995]
-- [ ] [76] Satish L, Chemokines as Therapeutic Targets to Improve Healing Efficiency of Chronic Wounds, Advances in wound care 4(11) (2015) 651–659. [PubMed: 26543679]
-- [ ] [77] Vaalamo M, Mattila L, Johansson N, Kariniemi A-L, Karjalainen-Lindsberg M-L, Kähäri V- M, Saarialho-Kere U, Distinct populations of stromal cells express collagenase-3 (MMP-13) and collagenase-1 (MMP-1) in chronic ulcers but not in normally healing wounds, Journal of Investigative Dermatology 109(1) (1997).
-- [ ] [78] Lazaro J, Izzo V, Meaume S, Davies A, Lobmann R, Uccioli L, Elevated levels of matrix metalloproteinases and chronic wound healing: an updated review of clinical evidence, Journal of wound care 25(5) (2016) 277–287. [PubMed: 27169343]
-- [ ] [79] Streit M, Beleznay Z, Braathen LR, Topical application of the tumour necrosis factor-α antibody infliximab improves healing of chronic wounds, International Wound Journal 3(3) (2006) 171– 179. [PubMed: 16984574]
-- [ ] [80] Ito A, Sato T, Iga T, Mori Y, Tumor necrosis factor bifunctionally regulates matrix metalloproteinases and tissue inhibitor of metalloproteinases (TIMP) production by human fibroblasts, FEBS letters 269(1) (1990) 93–95. [PubMed: 2167246]
-- [ ] [81] Ashcroft GS, Jeong MJ, Ashworth JJ, Hardman M, Jin W, Moutsopoulos N, Wild T, McCartney‐ Francis N, Sim D, McGrady G, Tumor necrosis factor‐alpha (TNF‐α) is a therapeutic target for impaired cutaneous wound healing, Wound Repair and Regeneration 20(1) (2012) 38–49. [PubMed: 22151742]
-- [ ] [82] Leal EC, Carvalho E, Tellechea A, Kafanas A, Tecilazich F, Kearney C, Kuchibhotla S, Auster ME, Kokkotou E, Mooney DJ, Substance P promotes wound healing in diabetes by modulating inflammation and macrophage phenotype, The American journal of pathology 185(6) (2015) 1638–1648. [PubMed: 25871534]
-- [ ] [83] Kunt T, Forst T, Schmidt S, Pfützner A, Schneider S, Harzer O, Löbig M, Engelbach M, Goitom K, Pohlmann T, Serum levels of substance P are decreased in patients with type 1 diabetes, Experimental and clinical endocrinology & diabetes 108(03) (2000) 164–167. [PubMed: 10926310]
-- [ ] [84] Gibran NS, Jang Y-C, Isik FF, Greenhalgh DG, Muffley LA, Underwood RA, Usui ML, Larsen J, Smith DG, Bunnett N, Diminished neuropeptide levels contribute to the impaired cutaneous healing response associated with diabetes mellitus, Journal of Surgical Research 108(1) (2002) 122–128.
-- [ ] [85] Pradhan L, Cai X, Wu S, Andersen ND, Martin M, Malek J, Guthrie P, Veves A, LoGerfo FW, Gene Expression of Pro-Inflammatory Cytokines and Neuropeptides in Diabetic Wound Healing, Journal of Surgical Research 167(2) (2011) 336–342.
-- [ ] [86] Shakya S, Wang Y, Mack JA, Maytin EV, Hyperglycemia-induced changes in hyaluronan contribute to impaired skin wound healing in diabetes: review and perspective, International journal of cell biology 2015 (2015).
-- [ ] [87] Testa R, Bonfigli AR, Prattichizzo F, La Sala L, De Nigris V., Ceriello A, The “metabolic memory” theory and the early treatment of hyperglycemia in prevention of diabetic complications, Nutrients 9(5) (2017) 437.
-- [ ] [88] Dunnill C, Patton T, Brennan J, Barrett J, Dryden M, Cooke J, Leaper D, Georgopoulos NT, Reactive oxygen species (ROS) and wound healing: the functional role of ROS and emerging ROS‐modulating technologies for augmentation of the healing process, International wound journal 14(1) (2017) 89–96. [PubMed: 26688157]
-- [ ] [89] Bolajoko EB, Akinosun OM, Khine AA, Hyperglycemia-induced oxidative stress in the development of diabetic foot ulcers, Diabetes, Elsevier2020, pp. 35–48.
-- [ ] [90] Pradhan Nabzdyk L., Kuchibhotla S, Guthrie P, Chun M, Auster ME, Nabzdyk C, Deso S, Andersen N, Gnardellis C, LoGerfo FW, Veves A, Expression of neuropeptides and cytokines in a rabbit model of diabetic neuroischemic wound healing, Journal of Vascular Surgery 58(3) (2013) 766–775.e12. [PubMed: 23755976]
-- [ ] [91] Ullah S, Chen X, Fabrication, applications and challenges of natural biomaterials in tissue engineering, Applied Materials Today 20 (2020) 100656.
-- [ ] [92] Mir M, Ali MN, Barakullah A, Gulzar A, Arshad M, Fatima S, Asad M, Synthetic polymeric biomaterials for wound healing: a review, Progress in Biomaterials 7(1) (2018) 1–21. [PubMed: 29446015]
-- [ ] [93] Ueno H, Mori T, Fujinaga T, Topical formulations and wound healing applications of chitosan, Advanced drug delivery reviews 52(2) (2001) 105–115. [PubMed: 11718934]
-- [ ] [94] Rabea EI, Badawy MET, Stevens CV, Smagghe G, Steurbaut W, Chitosan as Antimicrobial Agent: Applications and Mode of Action, Biomacromolecules 4(6) (2003) 1457–1465. [PubMed: 14606868]
-- [ ] [95] Goy RC, Britto D.d., Assis OB, A review of the antimicrobial activity of chitosan, Polímeros 19(3) (2009) 241–247.
-- [ ] [96] Escárcega-Galaz AA, De La Cruz-Mercado JL, López-Cervantes J, Sánchez-Machado DI, Brito- Zurita OR, Ornelas-Aguirre JM, Chitosan treatment for skin ulcers associated with diabetes, Saudi journal of biological sciences 25(1) (2018) 130–135. [PubMed: 29379369]
-- [ ] [97] Jeon O, Alt DS, Ahmed SM, Alsberg E, The effect of oxidation on the degradation of photocrosslinkable alginate hydrogels, Biomaterials 33(13) (2012) 3503–3514. [PubMed: 22336294]
-- [ ] [98] Tønnesen HH, Karlsen J, Alginate in drug delivery systems, Drug development and industrial pharmacy 28(6) (2002) 621–630. [PubMed: 12149954]
-- [ ] [99] Rezvanian M, Ng S-F, Alavi T, Ahmad W, In-vivo evaluation of Alginate-Pectin hydrogel film loaded with Simvastatin for diabetic wound healing in Streptozotocin-induced diabetic rats, International Journal of Biological Macromolecules 171 (2021) 308–319. [PubMed: 33421467]
-- [ ] [100] Shah SA, Sohail M, Khan SA, Kousar M, Improved drug delivery and accelerated diabetic wound healing by chondroitin sulfate grafted alginate-based thermoreversible hydrogels, Materials Science and Engineering: C 126 (2021) 112169. [PubMed: 34082970]
-- [ ] [101] Hussain Z, Thu HE, Katas H, Bukhari SNA, Hyaluronic acid-based biomaterials: a versatile and smart approach to tissue regeneration and treating traumatic, surgical, and chronic wounds, Polymer Reviews 57(4) (2017) 594–630.
-- [ ] [102] Litwiniuk M, Krejner A, Speyrer M, Gauto A, Grzela T, Hyaluronic acid in inflammation and tissue regeneration, Wounds 28(3) (2016) 78–88. [PubMed: 26978861]
-- [ ] [103] Al Bayaty F., Abdulla M, Abu Hassan M., Masud M, Wound healing potential by hyaluronate gel in streptozotocin-induced diabetic rats, Scientific Research and Essays 5(18) (2010) 2756– 2760.
-- [ ] [104] Wang Y, Han G, Guo B, Huang J, Hyaluronan oligosaccharides promote diabetic wound healing by increasing angiogenesis, Pharmacological Reports 68(6) (2016) 1126–1132. [PubMed: 27588388]
-- [ ] [105] Gainza G, Villullas S, Pedraz JL, Hernandez RM, Igartua M, Advances in drug delivery systems (DDSs) to release growth factors for wound healing and skin regeneration, Nanomedicine: Nanotechnology, Biology and Medicine 11(6) (2015) 1551–1573.
-- [ ] [106] Choi SM, Ryu HA, Lee K-M, Kim HJ, Park IK, Cho WJ, Shin H-C, Choi WJ, Lee JW, Development of Stabilized Growth Factor-Loaded Hyaluronate– Collagen Dressing (HCD) matrix for impaired wound healing, Biomaterials Research 20(1) (2016) 9. [PubMed: 27042331]
-- [ ] [107] Chattopadhyay S, Raines RT, Collagen-based biomaterials for wound healing, Biopolymers 101(8) (2014) 821–833. [PubMed: 24633807]
-- [ ] [108] Larson BJ, Longaker MT, Lorenz HP, Scarless fetal wound healing: a basic science review, Plastic and reconstructive surgery 126(4) (2010) 1172. [PubMed: 20885241]
-- [ ] [109] Nuutila K, Peura M, Suomela S, Hukkanen M, Siltanen A, Harjula A, Vuola J, Kankuri E, Recombinant human collagen III gel for transplantation of autologous skin cells in porcine full‐thickness wounds, Journal of tissue engineering and regenerative medicine 9(12) (2015) 1386–1393. [PubMed: 23362205]
-- [ ] [110] Wang X, Ghasri P, Amir M, Hwang B, Hou Y, Khilili M, Lin A, Keene D, Uitto J, Woodley DT, Topical application of recombinant type VII collagen incorporates into the dermal–epidermal junction and promotes wound closure, Molecular Therapy 21(7) (2013) 1335–1344. [PubMed: 23670575]
-- [ ] [111] Kant V, Gopal A, Kumar D, Gopalkrishnan A, Pathak NN, Kurade NP, Tandan SK, Kumar D, Topical pluronic F-127 gel application enhances cutaneous wound healing in rats, Acta Histochemica 116(1) (2014) 5–13. [PubMed: 23706531]
-- [ ] [112] Ladd J, Zhang Z, Chen S, Hower JC, Jiang S, Zwitterionic polymers exhibiting high resistance to nonspecific protein adsorption from human serum and plasma, Biomacromolecules 9(5) (2008) 1357–1361. [PubMed: 18376858]
-- [ ] [113] Golabchi A, Wu B, Cao B, Bettinger CJ, Cui XT, Zwitterionic polymer/polydopamine coating reduce acute inflammatory tissue responses to neural implants, Biomaterials 225 (2019) 119519. [PubMed: 31600673]
-- [ ] [114] Zhang L, Cao Z, Bai T, Carr L, Ella-Menye J-R, Irvin C, Ratner BD, Jiang S, Zwitterionic hydrogels implanted in mice resist the foreign-body reaction, Nature biotechnology 31(6) (2013) 553–556.
-- [ ] [115] Wu J, Xiao Z, Chen A, He H, He C, Shuai X, Li X, Chen S, Zhang Y, Ren B, Sulfated zwitterionic poly (sulfobetaine methacrylate) hydrogels promote complete skin regeneration, Acta biomaterialia 71 (2018) 293–305. [PubMed: 29535009]
-- [ ] [116] Xiao Z, Zheng X, An Y, Wang K, Zhang J, He H, Wu J, Zwitterionic hydrogel for sustained release of growth factors to enhance wound healing, Biomaterials Science 9(3) (2021) 882–891. [PubMed: 33241793]
-- [ ] [117] He H, Xiao Z, Zhou Y, Chen A, Xuan X, Li Y, Guo X, Zheng J, Xiao J, Wu J, Zwitterionic poly (sulfobetaine methacrylate) hydrogels with optimal mechanical properties for improving wound healing in vivo, Journal of Materials Chemistry B 7(10) (2019) 1697–1707. [PubMed: 32254911]
-- [ ] [118] Fang RC, Galiano RD, A review of becaplermin gel in the treatment of diabetic neuropathic foot ulcers, Biologics 2(1) (2008) 1–12. [PubMed: 19707423]
-- [ ] [119] Piascik P, Use of Regranex gel for diabetic foot ulcers, Journal of the American Pharmacists Association 38(5) (1998) 628.
-- [ ] [120] Heldin C-H, Westermark B, Mechanism of action and in vivo role of platelet-derived growth factor, Physiological reviews (1999).
-- [ ] [121] Wieman TJ, Smiell JM, Su Y, Efficacy and safely of a topical gel formulation of recombinant human platelet-derived growth factor-BB (becaplermin) in patients with chronic neuropathic diabetic ulcers: a phase III randomized placebo-controlled double-blind study, Diabetes care 21(5) (1998) 822–827. [PubMed: 9589248]
-- [ ] [122] Ladin D, Committee PSEFD, Becaplermin gel (PDGF-BB) as topical wound therapy, Plastic and reconstructive surgery 105(3) (2000) 1230–1231. [PubMed: 10724287]
-- [ ] [123] Papanas N, Maltezos E, Becaplermin gel in the treatment of diabetic neuropathic foot ulcers, Clinical interventions in aging 3(2) (2008) 233. [PubMed: 18686746]
-- [ ] [124] Papanas D, Maltezos E, Benefit-Risk Assessment of Becaplermin in the Treatment of Diabetic Foot Ulcers, Drug Safety 33(6) (2010) 455–461. [PubMed: 20486728]
-- [ ] [125] Waycaster CR, Gilligan AM, Motley TA, Cost-effectiveness of becaplermin gel on diabetic foot ulcer healing: changes in wound surface area, Journal of the American Podiatric Medical Association 106(4) (2016) 273–282. [PubMed: 27049838]
-- [ ] [126] Jarvis CI, Becaplermin (Regranex) for diabetic foot ulcers, American Family Physician 78(2) (2008) 255.
-- [ ] [127] Barrientos S, Stojadinovic O, Golinko MS, Brem H, Tomic‐Canic M, Growth factors and cytokines in wound healing, Wound repair and regeneration 16(5) (2008) 585–601. [PubMed: 19128254]
-- [ ] [128] Li Y, Yao J, Han C, Yang J, Chaudhry MT, Wang S, Liu H, Yin Y, Quercetin, inflammation and immunity, Nutrients 8(3) (2016) 167. [PubMed: 26999194]
-- [ ] [129] Kaufman TE, Hyperbaric Oxygen Therapy Treatment for Chronic Wounds, Lynchburg Journal of Medical Science 2(3) (2020) 41.
-- [ ] [130] Suvarnapathaki S, Wu X, Lantigua D, Nguyen MA, Camci-Unal G, Breathing life into engineered tissues using oxygen-releasing biomaterials, NPG Asia Materials 11(1) (2019) 1–18.
-- [ ] [131] Centis V, Vermette P, Enhancing oxygen solubility using hemoglobin-and perfluorocarbon- based carriers, Frontiers in bioscience (Landmark edition) 14 (2009) 665–688. [PubMed: 19273094]
-- [ ] [132] Pate KM, Goswami DG, Lake M, Lake S, Kant R, Ammar D, Tewari-Singh N, A Supersaturated Oxygen Emulsion for the Topical Treatment of Ocular Trauma, Military Medicine 185(3–4) (2020) e466–e472. [PubMed: 31865377]
-- [ ] [133] Öhnstedt E, Lofton Tomenius H., Vågesjö E, Phillipson M, The discovery and development of topical medicines for wound healing, Expert Opinion on Drug Discovery 14(5) (2019) 485–497. [PubMed: 30870037]
-- [ ] [134] Beer H-D, Longaker MT, Werner S, Reduced expression of PDGF and PDGF receptors during impaired wound healing, Journal of Investigative Dermatology 109(2) (1997) 132–138.
-- [ ] [135] Blakytny R, Jude E, The molecular biology of chronic wounds and delayed healing in diabetes, Diabetic Medicine 23(6) (2006) 594–608. [PubMed: 16759300]
-- [ ] [136] Tsang MW, Wong WKR, Hung CS, Lai K-M, Tang W, Cheung EY, Kam G, Leung L, Chan CW, Chu CM, Human epidermal growth factor enhances healing of diabetic foot ulcers, Diabetes care 26(6) (2003) 1856–1861. [PubMed: 12766123]
-- [ ] [137] Brown GL, Curtsinger L, Jurkiewicz MJ, Nahai F, Schultz G, Stimulation of healing of chronic wounds by epidermal growth factor, Plastic and reconstructive surgery 88(2) (1991) 189–94; discussion 195–6. [PubMed: 1852809]
-- [ ] [138] Hong JP, Jung HD, Kim YW, Recombinant human epidermal growth factor (EGF) to enhance healing for diabetic foot ulcers, Annals of plastic surgery 56(4) (2006) 394–398. [PubMed: 16557070]
-- [ ] [139] Park KH, Han SH, Hong JP, Han S-K, Lee D-H, Kim BS, Ahn JH, Lee JW, Topical epidermal growth factor spray for the treatment of chronic diabetic foot ulcers: A phase III multicenter, double-blind, randomized, placebo-controlled trial, Diabetes Research and Clinical Practice 142 (2018) 335–344. [PubMed: 29902542]
-- [ ] [140] Brown RL, Breeden MP, Greenhalgh DG, PDGF and TGF-alpha act synergistically to improve wound healing in the genetically diabetic mouse, J Surg Res 56(6) (1994) 562–70. [PubMed: 8015312]
-- [ ] [141] Allen RJ Jr., Soares MA, Haberman ID, Szpalski C, Schachar J, Lin CD, Nguyen PD, Saadeh PB, Warren SM, Combination therapy accelerates diabetic wound closure, PLoS One 9(3) (2014) e92667. [PubMed: 24651576]
-- [ ] [142] Krishnaswamy VR, Mintz D, Sagi I, Matrix metalloproteinases: The sculptors of chronic cutaneous wounds, Biochimica et Biophysica Acta (BBA)-Molecular Cell Research 1864(11) (2017) 2220–2227. [PubMed: 28797647]
-- [ ] [143] Lopez-Silva TL, Leach DG, Li IC, Wang X, Hartgerink JD, Self-Assembling Multidomain Peptides: Design and Characterization of Neutral Peptide-Based Materials with pH and Ionic Strength Independent Self-Assembly, ACS Biomaterials Science & Engineering 5(2) (2019) 977– 985. [PubMed: 31404449]
-- [ ] [144] Lopez-Silva TL, Cristobal CD, Edwin Lai CS, Leyva-Aranda V, Lee HK, Hartgerink JD, Self-assembling multidomain peptide hydrogels accelerate peripheral nerve regeneration after crush injury, Biomaterials 265 (2021) 120401. [PubMed: 33002786]
-- [ ] [145] Carrejo NC, Moore AN, Lopez Silva T.L., Leach DG, Li IC, Walker DR, Hartgerink JD, Multidomain Peptide Hydrogel Accelerates Healing of Full-Thickness Wounds in Diabetic Mice, ACS Biomaterials Science & Engineering 4(4) (2018) 1386–1396. [PubMed: 29687080]
-- [ ] [146] Xiao Y, Reis LA, Feric N, Knee EJ, Gu J, Cao S, Laschinger C, Londono C, Antolovich J, McGuigan AP, Radisic M, Diabetic wound regeneration using peptide-modified hydrogels to target re-epithelialization, Proceedings of the National Academy of Sciences 113(40) (2016) E5792–E5801.
-- [ ] [147] Maggio G, Armenio A, Ruccia F, Giglietto D, Pascone M, Ribatti D, A new protocol for the treatment of the chronic venous ulcers of the lower limb, Clinical and experimental medicine 12(1) (2012) 55–60. [PubMed: 21559987]
-- [ ] [148] Cassino R, Ricci E, Effectiveness of topical application of amino acids to chronic wounds: a prospective observational study, Journal of wound care 19(1) (2010) 29–34. [PubMed: 20081571]
-- [ ] [149] Abbruzzese L, Rizzo L, Fanelli G, Tedeschi A, Scatena A, Goretti C, Macchiarini S, Piaggesi A, Effectiveness and safety of a novel gel dressing in the management of neuropathic leg ulcers in diabetic patients: a prospective double-blind randomized trial, The international journal of lower extremity wounds 8(3) (2009) 134–140. [PubMed: 19703948]
-- [ ] [150] Yoon DS, Lee Y, Ryu HA, Jang Y, Lee K-M, Choi Y, Choi WJ, Lee M, Park KM, Park KD, Lee JW, Cell recruiting chemokine-loaded sprayable gelatin hydrogel dressings for diabetic wound healing, Acta biomaterialia 38 (2016) 59–68. [PubMed: 27109762]
-- [ ] [151] Ghatnekar GS, O’Quinn MP, Jourdan LJ, Gurjarpadhye AA, Draughn RL, Gourdie RG, Connexin43 carboxyl-terminal peptides reduce scar progenitor and promote regenerative healing following skin wounding, (2009).
-- [ ] [152] Ghatnekar G, Formulations and methods of use for alpha connexin C-terminal (ACT) peptides, Google Patents, 2015.
-- [ ] [153] Grek CL, Prasad G, Viswanathan V, Armstrong DG, Gourdie RG, Ghatnekar GS, Topical administration of a connexin43‐based peptide augments healing of chronic neuropathic diabetic foot ulcers: a multicenter, randomized trial, Wound Repair and Regeneration 23(2) (2015) 203– 212. [PubMed: 25703647]
-- [ ] [154] Ghatnekar GS, Grek CL, Armstrong DG, Desai SC, Gourdie RG, The effect of a connexin43- based Peptide on the healing of chronic venous leg ulcers: a multicenter, randomized trial, Journal of Investigative Dermatology 135(1) (2015) 289–298.
-- [ ] [155] Kant V, Kumar D, Kumar D, Prasad R, Gopal A, Pathak NN, Kumar P, Tandan SK, Topical application of substance P promotes wound healing in streptozotocin-induced diabetic rats, Cytokine 73(1) (2015) 144–155. [PubMed: 25748837]
-- [ ] [156] Legrand D, Overview of lactoferrin as a natural immune modulator, The Journal of pediatrics 173 (2016) S10–S15. [PubMed: 27234406]
-- [ ] [157] Jee J-P, Pangeni R, Jha SK, Byun Y, Park JW, Preparation and in vivo evaluation of a topical hydrogel system incorporating highly skin-permeable growth factors, quercetin, and oxygen carriers for enhanced diabetic wound-healing therapy, International journal of nanomedicine 14 (2019) 5449. [PubMed: 31409998]
-- [ ] [158] Furman BL, Streptozotocin‐induced diabetic models in mice and rats, Current protocols in pharmacology 70(1) (2015) 5.47. 1–5.47. 20.
-- [ ] [159] Morris AH, Lee H, Xing H, Stamer DK, Tan M, Kyriakides TR, Tunable hydrogels derived from genetically engineered extracellular matrix accelerate diabetic wound healing, ACS applied materials & interfaces 10(49) (2018) 41892–41901. [PubMed: 30424595]
-- [ ] [160] Schäfer M, Werner S, Oxidative stress in normal and impaired wound repair, Pharmacological Research 58(2) (2008) 165–171. [PubMed: 18617006]
-- [ ] [161] Fan Y, Wu W, Lei Y, Gaucher C, Pei S, Zhang J, Xia X, Edaravone-loaded alginate-based nanocomposite hydrogel accelerated chronic wound healing in diabetic mice, Marine drugs 17(5) (2019) 285.
-- [ ] [162] Hao S, Chen L, Yang C, Lao G, Ren M, Yan L, Activation of Skin Renin-Angiotensin System in Streptozotocin-Induced Diabetic Rat, DIABETES, AMER DIABETES ASSOC 1701 N BEAUREGARD ST, ALEXANDRIA, VA 22311–1717 USA, 2010, pp. A324–A324.
-- [ ] [163] Abadir P, Hosseini S, Faghih M, Ansari A, Lay F, Smith B, Beselman A, Vuong D, Berger A, Tian J, Rini D, Keenahan K, Budman J, Inagami T, Fedarko N, Marti G, Harmon J, Walston J, Topical Reformulation of Valsartan for Treatment of Chronic Diabetic Wounds, Journal of Investigative Dermatology 138(2) (2018) 434–443.
-- [ ] [164] McLaughlin PJ, Immonen JA, Zagon IS, Topical naltrexone accelerates full-thickness wound closure in type 1 diabetic rats by stimulating angiogenesis, Experimental Biology and Medicine 238(7) (2013) 733–743. [PubMed: 23788174]
-- [ ] [165] Immonen JA, Zagon IS, Lewis GS, McLaughlin PJ, Topical treatment with the opioid antagonist naltrexone accelerates the remodeling phase of full-thickness wound healing in type 1 diabetic rats, Experimental Biology and Medicine 238(10) (2013) 1127–1135. [PubMed: 23986225]
-- [ ] [166] Titunick MB, Cain J, Zagon I, McLaughlin P, Comparison of Topical PDGF and Naltrexone on Full-Thickness Diabetic Wound Healing, The FASEB Journal 31(1_supplement) (2017) 981.7– 981.7.
-- [ ] [167] Mercer F, Kozhaya L, Unutmaz D, Expression and function of TNF and IL-1 receptors on human regulatory T cells, PloS one 5(1) (2010) e8639. [PubMed: 20066156]
-- [ ] [168] Stechmiller J, Cowan L, Schultz G, The role of doxycycline as a matrix metalloproteinase inhibitor for the treatment of chronic wounds, Biological research for nursing 11(4) (2010) 336– 344. [PubMed: 20031955]
-- [ ] [169] Chin GA, Thigpin TG, Perrin KJ, Moldawer LL, Schultz GS, Treatment of chronic ulcers in diabetic patients with a topical metalloproteinase inhibitor, doxycycline, Wounds 15(10) (2003) 315–323.
-- [ ] [170] Ikeda Y, Tajima S, Yoshida S, Yamano N, Kihira Y, Ishizawa K, Aihara K.-i., Tomita S, Tsuchiya K, Tamaki T, Deferoxamine promotes angiogenesis via the activation of vascular endothelial cell function, Atherosclerosis 215(2) (2011) 339–347. [PubMed: 21315355]
-- [ ] [171] Chen H, Cheng R, Zhao X, Zhang Y, Tam A, Yan Y, Shen H, Zhang YS, Qi J, Feng Y, Liu L, Pan G, Cui W, Deng L, An injectable self-healing coordinative hydrogel with antibacterial and angiogenic properties for diabetic skin wound repair, NPG Asia Materials 11(1) (2019) 3.
-- [ ] [172] Valizadeh A, Shirzad M, Pourmand MR, Farahmandfar M, Sereshti H, Amani A, Levofloxacin nanoemulsion gel has a powerful healing effect on infected wound in streptozotocin-induced diabetic rats, Drug Delivery and Translational Research 11(1) (2021) 292–304. [PubMed: 32529392]
-- [ ] [173] McLaughlin PJ, Cain JD, Titunick MB, Sassani JW, Zagon IS, Topical naltrexone is a safe and effective alternative to standard treatment of diabetic wounds, Advances in Wound Care 6(9) (2017) 279–288. [PubMed: 28894635]
-- [ ] [174] Tian J, Wong KK, Ho CM, Lok CN, Yu WY, Che CM, Chiu JF, Tam PK, Topical delivery of silver nanoparticles promotes wound healing, ChemMedChem 2(1) (2007) 129–136. [PubMed: 17075952]
-- [ ] [175] Markowska K, Grudniak AM, Wolska KI, Silver nanoparticles as an alternative strategy against bacterial biofilms, Acta Biochimica Polonica 60(4) (2013).
-- [ ] [176] Tian J, Wong KK, Ho CM, Lok CN, Yu WY, Che CM, Chiu JF, Tam PK, Topical delivery of silver nanoparticles promotes wound healing, ChemMedChem: Chemistry Enabling Drug Discovery 2(1) (2007) 129–136.
-- [ ] [177] Sim W, Barnard RT, Blaskovich MAT, Ziora ZM, Antimicrobial Silver in Medicinal and Consumer Applications: A Patent Review of the Past Decade (2007⁻2017), Antibiotics (Basel) 7(4) (2018) 93.
-- [ ] [178] Kaler A, Mittal AK, Katariya M, Harde H, Agrawal AK, Jain S, Banerjee UC, An investigation of in vivo wound healing activity of biologically synthesized silver nanoparticles, Journal of Nanoparticle Research 16(9) (2014) 2605.
-- [ ] [179] Sharma R, Kumar R, Mittal S, Kaur A, Study of effect of topical nano silver gel on wound healing, Journal of Advanced Medical and Dental Sciences Research 4(5) (2016) 59.
-- [ ] [180] Oryan A, Alemzadeh E, Tashkhourian J, Ana SFN, Topical delivery of chitosan-capped silver nanoparticles speeds up healing in burn wounds: A preclinical study, Carbohydrate polymers 200 (2018) 82–92. [PubMed: 30177212]
-- [ ] [181] Masood N, Ahmed R, Tariq M, Ahmed Z, Masoud MS, Ali I, Asghar R, Andleeb A, Hasan A, Silver nanoparticle impregnated chitosan-PEG hydrogel enhances wound healing in diabetes induced rabbits, International Journal of Pharmaceutics 559 (2019) 23–36. [PubMed: 30668991]
-- [ ] [182] Kaur P, Sharma AK, Nag D, Das A, Datta S, Ganguli A, Goel V, Rajput S, Chakrabarti G, Basu B, Novel nano-insulin formulation modulates cytokine secretion and remodeling to accelerate diabetic wound healing, Nanomedicine: Nanotechnology, Biology and Medicine 15(1) (2019) 47–57.
-- [ ] [183] Abdelkader DH, Tambuwala MM, Mitchell CA, Osman MA, El-Gizawy SA, Faheem AM, El- Tanani M, McCarron PA, Enhanced cutaneous wound healing in rats following topical delivery of insulin-loaded nanoparticles embedded in poly(vinyl alcohol)-borate hydrogels, Drug Delivery and Translational Research 8(5) (2018) 1053–1065. [PubMed: 29971752]
-- [ ] [184] Olawi N, Krüger M, Grimm D, Infanger M, Wehland M, Nebivolol in the treatment of arterial hypertension, Basic & Clinical Pharmacology & Toxicology 125(3) (2019) 189–201. [PubMed: 31066991]
-- [ ] [185] Pandit AP, Patel SA, Bhanushali VP, Kulkarni VS, Kakad VD, Nebivolol-loaded microsponge gel for healing of diabetic wound, AAPS PharmSciTech 18(3) (2017) 846–854. [PubMed: 27357423]
-- [ ] [186] Van Craeyveld E, Gordts S, Jacobs F, De Geest B, Gene therapy to improve high-density lipoprotein metabolism and function, Current pharmaceutical design 16(13) (2010) 1531–1544. [PubMed: 20196736]
-- [ ] [187] Gordts SC, Muthuramu I, Amin R, Jacobs F, De Geest B, The impact of lipoproteins on wound healing: topical HDL therapy corrects delayed wound healing in apolipoprotein E deficient mice, Pharmaceuticals 7(4) (2014) 419–432. [PubMed: 24705596]
-- [ ] [188] Noel GJ, A review of levofloxacin for the treatment of bacterial infections, Clinical Medicine. Therapeutics 1 (2009) CMT. S28.
-- [ ] [189] Oberdorfer K, Swoboda S, Hamann A, Baertsch U, Kusterer K, Born B, Hoppe-Tichy T, Geiss H, Von Baum H., Tissue and serum levofloxacin concentrations in diabetic foot infection patients, Journal of Antimicrobial Chemotherapy 54(4) (2004) 836–839.
-- [ ] [190] Sener G, Hilton SA, Osmond MJ, Zgheib C, Newsom JP, Dewberry L, Singh S, Sakthivel TS, Seal S, Liechty KW, Injectable, self-healable zwitterionic cryogels with sustained microRNA- cerium oxide nanoparticle release promote accelerated wound healing, Acta biomaterialia 101 (2020) 262–272. [PubMed: 31726250]
-- [ ] [191] Xu J, Wu W, Zhang L, Dorset-Martin W, Morris MW, Mitchell ME, Liechty KW, The role of microRNA-146a in the pathogenesis of the diabetic wound-healing impairment: correction with mesenchymal stem cell treatment, Diabetes 61(11) (2012) 2906–2912. [PubMed: 22851573]
-- [ ] [192] Zgheib C, Hilton SA, Dewberry LC, Hodges MM, Ghatak S, Xu J, Singh S, Roy S, Sen CK, Seal S, Use of cerium oxide nanoparticles conjugated with microRNA-146a to correct the diabetic wound healing impairment, Journal of the American College of Surgeons 228(1) (2019) 107–115. [PubMed: 30359833]
-- [ ] [193] Das S, Dowding JM, Klump KE, McGinnis JF, Self W, Seal S, Cerium oxide nanoparticles: applications and prospects in nanomedicine, Nanomedicine 8(9) (2013) 1483–1508. [PubMed: 23987111]
-- [ ] [194] Xie W, Tadepalli S, Park SH, Kazemi-Moridani A, Jiang Q, Singamaneni S, Lee J-H, Extreme Mechanical Behavior of Nacre-Mimetic Graphene-Oxide and Silk Nanocomposites, Nano Letters 18(2) (2018) 987–993. [PubMed: 29314859]
-- [ ] [195] Niemiec SM, Louiselle AE, Hilton SA, Dewberry LC, Zhang L, Azeltine M, Xu J, Singh S, Sakthivel TS, Seal S, Liechty KW, Zgheib C, Nanosilk Increases the Strength of Diabetic Skin and Delivers CNP-miR146a to Improve Wound Healing, Frontiers in Immunology 11 (2020). [PubMed: 32082309]
-- [ ] [196] Alpaslan E, Geilich BM, Yazici H, Webster TJ, pH-controlled cerium oxide nanoparticle inhibition of both gram-positive and gram-negative bacteria growth, Scientific reports 7(1) (2017) 1–12. [PubMed: 28127051]
-- [ ] [197] Farias IAP, Dos Santos C.C.L., Sampaio FC, Antimicrobial Activity of Cerium Oxide Nanoparticles on Opportunistic Microorganisms: A Systematic Review, Biomed Res Int 2018 (2018) 1923606. [PubMed: 29607315]
-- [ ] [198] Thangavel P, Kannan R, Ramachandran B, Moorthy G, Suguna L, Muthuvijayan V, Development of reduced graphene oxide (rGO)-isabgol nanocomposite dressings for enhanced vascularization and accelerated wound healing in normal and diabetic rats, Journal of Colloid and Interface Science 517 (2018) 251–264. [PubMed: 29428812]
-- [ ] [199] Blanco-Fernandez B, Castaño O, Mateos-Timoneda MÁ, Engel E, Pérez-Amodio S, Nanotechnology approaches in chronic wound healing, Advances in wound care 10(5) (2021) 234–256. [PubMed: 32320364]
-- [ ] [200] Abbasi-Malati Z, Roushandeh AM, Kuwahara Y, Roudkenar MH, Mesenchymal Stem Cells on Horizon: A New Arsenal of Therapeutic Agents, Stem Cell Reviews and Reports 14(4) (2018) 484–499. [PubMed: 29687338]
-- [ ] [201] Kuo Y-R, Wang C-T, Cheng J-T, Kao G-S, Chiang Y-C, Wang C-J, Adipose-derived stem cells accelerate diabetic wound healing through the induction of autocrine and paracrine effects, Cell transplantation 25(1) (2016) 71–81. [PubMed: 25853951]
-- [ ] [202] Kaisang L, Siyu W, Lijun F, Daoyan P, Xian CJ, Jie S, Adipose-derived stem cells seeded in Pluronic F-127 hydrogel promotes diabetic wound healing, Journal of Surgical Research 217 (2017) 63–74.
-- [ ] [203] Xu Q, S. A, Gao Y, Guo L, Creagh-Flynn J, Zhou D, Greiser U, Dong Y, Wang F, Tai H, Liu W, Wang W, Wang W, A hybrid injectable hydrogel from hyperbranched PEG macromer as a stem cell delivery and retention platform for diabetic wound healing, Acta biomaterialia 75 (2018) 63–74. [PubMed: 29803782]
-- [ ] [204] Xu Q, Guo L, Sigen A, Gao Y, Zhou D, Greiser U, Creagh-Flynn J, Zhang H, Dong Y, Cutlar L, Injectable hyperbranched poly (β-amino ester) hydrogels with on-demand degradation profiles to match wound healing processes, Chemical science 9(8) (2018) 2179–2187. [PubMed: 29719691]
-- [ ] [205] Chen S, Shi J, Zhang M, Chen Y, Wang X, Zhang L, Tian Z, Yan Y, Li Q, Zhong W, Xing M, Zhang L, Zhang L, Mesenchymal stem cell-laden anti-inflammatory hydrogel enhances diabetic wound healing, Scientific Reports 5(1) (2015) 18104. [PubMed: 26643550]
-- [ ] [206] Lee PY, Cobain E, Huard J, Huang L, Thermosensitive Hydrogel PEG–PLGA–PEG Enhances Engraftment of Muscle-derived Stem Cells and Promotes Healing in Diabetic Wound, Molecular Therapy 15(6) (2007) 1189–1194. [PubMed: 17406344]
-- [ ] [207] Bjørge I, Kim S, Mano J, Kalionis B, Chrzanowski W, Extracellular vesicles, exosomes and shedding vesicles in regenerative medicine–a new paradigm for tissue repair, Biomaterials science 6(1) (2018) 60–78.
-- [ ] [208] Yang J, Chen Z, Pan D, Li H, Shen J, Umbilical Cord-Derived Mesenchymal Stem Cell-Derived Exosomes Combined Pluronic F127 Hydrogel Promote Chronic Diabetic Wound Healing and Complete Skin Regeneration, International journal of nanomedicine 15 (2020) 5911. [PubMed: 32848396]
-- [ ] [209] Shi Q, Qian Z, Liu D, Sun J, Wang X, Liu H, Xu J, Guo X, GMSC-derived exosomes combined with a chitosan/silk hydrogel sponge accelerates wound healing in a diabetic rat skin defect model, Frontiers in physiology 8 (2017) 904. [PubMed: 29163228]
-- [ ] [210] Wang C, Wang M, Xu T, Zhang X, Lin C, Gao W, Xu H, Lei B, Mao C, Engineering bioactive self-healing antibacterial exosomes hydrogel for promoting chronic diabetic wound healing and complete skin regeneration, Theranostics 9(1) (2019) 65. [PubMed: 30662554]
-- [ ] [211] Wang C, Liang C, Wang R, Yao X, Guo P, Yuan W, Liu Y, Song Y, Li Z, Xie X, The fabrication of a highly efficient self-healing hydrogel from natural biopolymers loaded with exosomes for the synergistic promotion of severe wound healing, Biomaterials Science 8(1) (2020) 313–324.
-- [ ] [212] Lee Y-H, Chang J-J, Chien C-T, Yang M-C, Chien H-F, Antioxidant sol-gel improves cutaneous wound healing in streptozotocin-induced diabetic rats, Experimental diabetes research 2012 (2012).
-- [ ] [213] Mohanty C, Sahoo SK, Curcumin and its topical formulations for wound healing applications, Drug Discovery Today 22(10) (2017) 1582–1592. [PubMed: 28711364]
-- [ ] [214] Sharma M, Sahu K, Singh SP, Jain B, Wound healing activity of curcumin conjugated to hyaluronic acid: In vitro and in vivo evaluation, Artificial cells, nanomedicine, and biotechnology 46(5) (2018) 1009–1017.
-- [ ] [215] Kamar SS, Abdel-Kader DH, Rashed LA, Beneficial effect of Curcumin Nanoparticles- Hydrogel on excisional skin wound healing in type-I diabetic rat: Histological and immunohistochemical studies, Annals of Anatomy - Anatomischer Anzeiger 222 (2019) 94–102. [PubMed: 30521949]
-- [ ] [216] Liu J, Chen Z, Wang J, Li R, Li T, Chang M, Yan F, Wang Y, Encapsulation of Curcumin Nanoparticles with MMP9-Responsive and Thermos-Sensitive Hydrogel Improves Diabetic Wound Healing, ACS Applied Materials & Interfaces 10(19) (2018) 16315–16326. [PubMed: 29687718]
-- [ ] [217] He L, Peng X, Zhu J, Chen X, Liu H, Tang C, Dong Z, Liu F, Peng Y, Mangiferin attenuate sepsis-induced acute kidney injury via antioxidant and anti-inflammatory effects, American journal of nephrology 40(5) (2014) 441–450. [PubMed: 25427663]
-- [ ] [218] Hou J, Zheng D, Fung G, Deng H, Chen L, Liang J, Jiang Y, Hu Y, Mangiferin suppressed advanced glycation end products (AGEs) through NF-κB deactivation and displayed anti- inflammatory effects in streptozotocin and high fat diet-diabetic cardiomyopathy rats, Canadian journal of physiology and pharmacology 94(3) (2016) 332–340. [PubMed: 26751764]
-- [ ] [219] Saha S, Sadhukhan P, Sil PC, Mangiferin: A xanthonoid with multipotent anti‐inflammatory potential, Biofactors 42(5) (2016) 459–474. [PubMed: 27219011]
-- [ ] [220] Mei S, Ma H, Chen X, Anticancer and anti-inflammatory properties of mangiferin: A review of its molecular mechanisms, Food and Chemical Toxicology (2021) 111997. [PubMed: 33465461]
-- [ ] [221] Lwin OM, Giribabu N, Kilari EK, Salleh N, Topical administration of mangiferin promotes healing of the wound of streptozotocin-nicotinamide-induced type-2 diabetic male rats, Journal of Dermatological Treatment (2020) 1–10.
-- [ ] [222] Bairagi U, Mittal P, Singh J, Mishra B, Preparation, characterization, and in vivo evaluation of nano formulations of ferulic acid in diabetic wound healing, Drug development and industrial pharmacy 44(11) (2018) 1783–1796. [PubMed: 29973105]
-- [ ] [223] Salehi B, Venditti A, Sharifi-Rad M, Kręgiel D, Sharifi-Rad J, Durazzo A, Lucarini M, Santini A, Souto EB, Novellino E, The therapeutic potential of apigenin, International journal of molecular sciences 20(6) (2019) 1305.
-- [ ] [224] Shukla R, Kashaw SK, Jain AP, Lodhi S, Fabrication of Apigenin loaded gellan gum–chitosan hydrogels (GGCH-HGs) for effective diabetic wound healing, International Journal of Biological Macromolecules 91 (2016) 1110–1119. [PubMed: 27344952]
-- [ ] [225] Ljubuncic P, Dakwar S, Portnaya I, Cogan U, Azaizeh H, Bomzon A, Aqueous extracts of Teucrium polium possess remarkable antioxidant activity in vitro, Evidence-Based Complementary and Alternative Medicine 3(3) (2006) 329–338. [PubMed: 16951717]
-- [ ] [226] Sharififar F, Dehghn-Nudeh G, Mirtajaldini M, Major flavonoids with antioxidant activity from Teucrium polium L, Food chemistry 112(4) (2009) 885–888.
-- [ ] [227] Gharaboghaz M.N.z., Farahpour MR, Saghaie S, Topical co-administration of Teucrium polium hydroethanolic extract and Aloe vera gel triggered wound healing by accelerating cell proliferation in diabetic mouse model, Biomedicine & Pharmacotherapy 127 (2020) 110189. [PubMed: 32388242]
-- [ ] [228] Devaraj RD, Reddy CK, Xu B, Health-promoting effects of konjac glucomannan and its practical applications: A critical review, International Journal of Biological Macromolecules 126 (2019) 273–281. [PubMed: 30586587]
-- [ ] [229] Li X, Jayachandran M, Xu B, Antidiabetic effect of konjac glucomannan via insulin signaling pathway regulation in high-fat diet and streptozotocin-induced diabetic rats, Food Research International 149 (2021) 110664. [PubMed: 34600666]
-- [ ] [230] Chen H, Nie Q, Hu J, Huang X, Zhang K, Pan S, Nie S, Hypoglycemic and Hypolipidemic Effects of Glucomannan Extracted from Konjac on Type 2 Diabetic Rats, Journal of Agricultural and Food Chemistry 67(18) (2019) 5278–5288. [PubMed: 30964673]
-- [ ] [231] Gan J, Liu C, Li H, Wang S, Wang Z, Kang Z, Huang Z, Zhang J, Wang C, Lv D, Dong L, Accelerated wound healing in diabetes by reprogramming the macrophages with particle-induced clustering of the mannose receptors, Biomaterials 219 (2019) 119340. [PubMed: 31357007]
-- [ ] [232] Veerasubramanian PK, Thangavel P, Kannan R, Chakraborty S, Ramachandran B, Suguna L, Muthuvijayan V, An investigation of konjac glucomannan-keratin hydrogel scaffold loaded with Avena sativa extracts for diabetic wound healing, Colloids and Surfaces B: Biointerfaces 165 (2018) 92–102. [PubMed: 29471220]
-- [ ] [233] Sierra M, García JJ, Fernández N, Diez MJ, Calle AP, Farmafibra G, Therapeutic effects of psyllium in type 2 diabetic patients, European Journal of Clinical Nutrition 56(9) (2002) 830– 842. [PubMed: 12209371]
-- [ ] [234] Ponrasu T, Veerasubramanian PK, Kannan R, Gopika S, Suguna L, Muthuvijayan V, Morin incorporated polysaccharide–protein (psyllium–keratin) hydrogel scaffolds accelerate diabetic wound healing in Wistar rats, RSC advances 8(5) (2018) 2305–2314.
-- [ ] [235] Shen Y, Zeglinski MR, Turner CT, Raithatha SA, Wu Z, Russo V, Oram C, Hiroyasu S, Nabai L, Zhao H, Bozin T, Westendorf K, Kopko I, Huang R, Arns S, Tan J, Zeng H, Boey A, Liggins R, Jaquith J, Cameron DR, Papp A, Granville DJ, Topical small molecule granzyme B inhibitor improves remodeling in a murine model of impaired burn wound healing, Experimental & Molecular Medicine 50(5) (2018) 1–11.
-- [ ] [236] Burdick JA, Murphy WL, Moving from static to dynamic complexity in hydrogel design, Nature Communications 3(1) (2012) 1269.
-- [ ] [237] Sikdar PP, Uddin MM, Dip TM, Islam S, Hoque MS, Dhar AK, Wu S, Recent Advances in Smart Hydrogels Synthesis, Materials Advances (2021).
-- [ ] [238] Engler AJ, Sen S, Sweeney HL, Discher DE, Matrix elasticity directs stem cell lineage specification, Cell 126(4) (2006) 677–689. [PubMed: 16923388]
-- [ ] [239] Hendi A, Umair Hassan M., Elsherif M, Alqattan B, Park S, Yetisen AK, Butt H, Healthcare Applications of pH-Sensitive Hydrogel-Based Devices: A Review, International journal of nanomedicine 15 (2020) 3887–3901. [PubMed: 32581536]
-- [ ] [240] Serban MA, Translational biomaterials—the journey from the bench to the market—think ‘product’, Current Opinion in Biotechnology 40 (2016) 31–34. [PubMed: 26926461]
-- [ ] [241] Williams DF, Challenges with the development of biomaterials for sustainable tissue engineering, Frontiers in bioengineering and biotechnology 7 (2019) 127. [PubMed: 31214584]
-- [ ] [242] Mogoşanu GD, Grumezescu AM, Natural and synthetic polymers for wounds and burns dressing, International Journal of Pharmaceutics 463(2) (2014) 127–136. [PubMed: 24368109]
-- [ ] [243] Wang Z, Wang Z, Lu WW, Zhen W, Yang D, Peng S, Novel biomaterial strategies for controlled growth factor delivery for biomedical applications, NPG Asia Materials 9(10) (2017) e435–e435.
-- [ ] [244] Fenton OS, Olafson KN, Pillai PS, Mitchell MJ, Langer R, Advances in biomaterials for drug delivery, Advanced Materials 30(29) (2018) 1705328.
-- [ ] [245] EAGLSTEIN WH, The FDA drug approval process, Comprehensive Dermatologic Drug Therapy E-Book (2019) 49.
+- [ ] **[1]** C.f.D. Control, Prevention, National diabetes statistics report, 2020, Atlanta, GA: Centers for Disease Control and Prevention, US Department of Health and Human Services (2020).
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[2]** Care D, Economic Costs of Diabetes in the US in 2017, Diabetes care 41 (2018) 917. [PubMed: 29567642]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[3]** Bommer C, Heesemann E, Sagalova V, Manne-Goehler J, Atun R, Bärnighausen T, Vollmer S, The global economic burden of diabetes in adults aged 20–79 years: a cost-of-illness study, The lancet Diabetes & endocrinology 5(6) (2017) 423–430. [PubMed: 28456416]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[4]** Choi JU, Lee SW, Pangeni R, Byun Y, Yoon I-S, Park JW, Preparation and in vivo evaluation of cationic elastic liposomes comprising highly skin-permeable growth factors combined with hyaluronic acid for enhanced diabetic wound-healing therapy, Acta biomaterialia 57 (2017) 197– 215. [PubMed: 28476587]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[5]** Frykberg RG, Banks J, Challenges in the treatment of chronic wounds, Advances in wound care 4(9) (2015) 560–582. [PubMed: 26339534]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[6]** Phillips CJ, Humphreys I, Fletcher J, Harding K, Chamberlain G, Macey S, Estimating the costs associated with the management of patients with chronic wounds using linked routine data, International wound journal 13(6) (2016) 1193–1197. [PubMed: 25818405]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[7]** Dahiru IL, Amaefule KE, Okpe IO, Ibrahim A, Muazu SB, An overview of diabetic foot disease, Nigerian Journal of Basic and Clinical Sciences 13(1) (2016) 1.
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[8]** Ibrahim AM, Diabetic Foot Ulcer: Synopsis of the Epidemiology and Pathophysiology, International Journal of Diabetes and Endocrinology 3(2) (2018) 23.
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[9]** Zhang P, Lu J, Jing Y, Tang S, Zhu D, Bi Y, Global epidemiology of diabetic foot ulceration: a systematic review and meta-analysis, Annals of medicine 49(2) (2017) 106–116. [PubMed: 27585063]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[10]** Armstrong DG, Boulton AJ, Bus SA, Diabetic foot ulcers and their recurrence, New England Journal of Medicine 376(24) (2017) 2367–2375.
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[11]** Atlas D, International diabetes federation, IDF Diabetes Atlas, 7th edn. Brussels, Belgium: International Diabetes Federation (2015).
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[12]** Jung K, Covington S, Sen CK, Januszyk M, Kirsner RS, Gurtner GC, Shah NH, Rapid identification of slow healing wounds, Wound Repair and Regeneration 24(1) (2016) 181–188. [PubMed: 26606167]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[13]** Armstrong DG, Swerdlow MA, Armstrong AA, Conte MS, Padula WV, Bus SA, Five year mortality and direct costs of care for people with diabetic foot complications are comparable to cancer, Journal of Foot and Ankle Research 13(1) (2020) 16. [PubMed: 32209136]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[14]** Singer AJ, Clark RA, Cutaneous wound healing, New England journal of medicine 341(10) (1999) 738–746.
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[15]** Chammas N, Hill R, Edmonds M, Increased mortality in diabetic foot ulcer patients: the significance of ulcer type, Journal of Diabetes Research 2016 (2016).
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[16]** Costa RHR, Cardoso NA, Procópio RJ, Navarro TP, Dardik A, de Loiola Cisneros L, Diabetic foot ulcer carries high amputation and mortality rates, particularly in the presence of advanced age, peripheral artery disease and anemia, Diabetes & Metabolic Syndrome: Clinical Research & Reviews 11 (2017) S583–S587.
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[17]** Fortington LV, Geertzen JH, van Netten JJ, Postema K, Rommers GM, Dijkstra PU, Short and long term mortality rates after a lower limb amputation, European Journal of Vascular and Endovascular Surgery 46(1) (2013) 124–131. [PubMed: 23628328]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[18]** Moulik PK, Mtonga R, Gill GV, Amputation and mortality in new-onset diabetic foot ulcers stratified by etiology, Diabetes care 26(2) (2003) 491–494. [PubMed: 12547887]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[19]** Jeffcoate WJ, Vileikyte L, Boyko EJ, Armstrong DG, Boulton AJ, Current challenges and opportunities in the prevention and management of diabetic foot ulcers, Diabetes care 41(4) (2018) 645–652. [PubMed: 29559450]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[20]** Armstrong DG, Wrobel J, Robbins JM, Guest editorial: are diabetes-related wounds and amputations worse than cancer, Int Wound J 4(4) (2007) 286–287. [PubMed: 18154621]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[21]** Tecilazich F, Dinh TL, Veves A, Emerging drugs for the treatment of diabetic ulcers, Expert Opin Emerg Drugs 18(2) (2013) 207–217. [PubMed: 23687931]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[22]** Steed DL, Donohoe D, Webster MW, Lindsley L, Effect of extensive debridement and treatment on the healing of diabetic foot ulcers. Diabetic Ulcer Study Group, Journal of the American College of Surgeons 183(1) (1996) 61–64. [PubMed: 8673309]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[23]** Holmes C, Jarocki C, Torrence G, Priesand S, Wound debridement for diabetic foot ulcers: a clinical practice review, Diabetic Foot Journal 22(2) (2019).
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[24]** Omar MT, Alghadir A, Al-Wahhabi KK, Al-Askar AB, Efficacy of shock wave therapy on chronic diabetic foot ulcer: a single-blinded randomized controlled clinical trial, Diabetes research and clinical practice 106(3) (2014) 548–554. [PubMed: 25451894]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[25]** Huang C, Leavitt T, Bayer LR, Orgill DP, Effect of negative pressure wound therapy on wound healing, Current Problems in Surgery 51(7) (2014) 301–331. [PubMed: 24935079]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[26]** Nieto-Gil MP, Ortega-Avila AB, Pardo-Rios M, Gijon-Nogueron G, Effectiveness and Duration of Plantar Pressure Off-loading by Two Designs of Felt Padding: A Preliminary Study, Journal of the American Podiatric Medical Association 109(6) (2019) 431–436. [PubMed: 31755770]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[27]** Dhasmana A, Singh S, Kadian S, Singh L, Skin tissue engineering: Principles and advances, J Dermatol Skin 1: 101 Abstract Keywords: Skin (2018).
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[28]** Papanas N, Eleftheriadou I, Tentolouris N, Maltezos E, Advances in the topical treatment of diabetic foot ulcers, Current diabetes reviews 8(3) (2012) 209–218. [PubMed: 22429013]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[29]** White R, Cutting K, Modern exudate management: a review of wound treatments, World Wide Wounds 1 (2006).
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[30]** Rodrigues M, Kosaric N, Bonham CA, Gurtner GC, Wound healing: a cellular perspective, Physiological reviews 99(1) (2019) 665–706. [PubMed: 30475656]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[31]** Kim P, Dybowski K, Steinberg J, A closer look at bioengineered alternative tissues, Podiatry Today 19(7) (2006) 38–55.
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[32]** Harding K, Sumner M, Cardinal M, A prospective, multicentre, randomised controlled study of human fibroblast-derived dermal substitute (Dermagraft) in patients with venous leg ulcers, International Wound Journal 10(2) (2013) 132–137. [PubMed: 23506344]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[33]** Kirsner RS, Sabolinski ML, Parsons NB, Skornicki M, Marston WA, Comparative effectiveness of a bioengineered living cellular construct vs. a dehydrated human amniotic membrane allograft for the treatment of diabetic foot ulcers in a real world setting, Wound Repair and Regeneration 23(5) (2015) 737–744. [PubMed: 26100572]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[34]** Stocum DL, Biomimetic tissues and organs.
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[35]** Marston WA, Dermagraft®, a bioengineered human dermal equivalent for the treatment of chronic nonhealing diabetic foot ulcer, Expert Review of Medical Devices 1(1) (2004) 21–31. [PubMed: 16293007]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[36]** Dai C, Shih S, Khachemoune A, Skin substitutes for acute and chronic wound healing: an updated review, Journal of Dermatological Treatment 31(6) (2020) 639–648.
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[37]** Clinical Impact Upon Wound Healing and Inflammation in Moist, Wet, and Dry Environments, Advances in Wound Care 2(7) (2013) 348–356. [PubMed: 24587972]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[38]** Korting H, Schöllmann C, White R, Management of minor acute cutaneous wounds: importance of wound healing in a moist environment, Journal of the European Academy of Dermatology and Venereology 25(2) (2011) 130–137. [PubMed: 20626534]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[39]** Okan D, Woo K, Ayello EA, Sibbald G, The Role of Moisture Balance in Wound Healing, Advances in Skin & Wound Care 20(1) (2007).
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[40]** Dhivya S, Padma VV, Santhini E, Wound dressings–a review, BioMedicine 5(4) (2015).
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[41]** Pop MA, Almquist BD, Biomaterials: A potential pathway to healing chronic wounds?, Experimental dermatology 26(9) (2017) 760–763. [PubMed: 28094868]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[42]** Bianchera A, Catanzano O, Boateng J, Elviri L, The place of biomaterials in wound healing, Therapeutic Dressings and Wound Healing Applications (2020) 337–366.
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[43]** Mulholland EJ, Electrospun biomaterials in the treatment and prevention of scars in skin wound healing, Frontiers in Bioengineering and Biotechnology 8 (2020).
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[44]** Zhang X, Shu W, Yu Q, Qu W, Wang Y, Li R, Functional biomaterials for treatment of chronic wound, Frontiers in Bioengineering and Biotechnology 8 (2020). [PubMed: 32047745]
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[45]** Matoori S, Veves A, Mooney DJ, Advanced bandages for diabetic wound healing, Science Translational Medicine 13(585) (2021).
+  - Role: background / epidemiology / standard care
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[46]** Han G, Ceilley R, Chronic wound healing: a review of current management and treatments, Advances in therapy 34(3) (2017) 599–610. [PubMed: 28108895]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[47]** Eming SA, Martin P, Tomic-Canic M, Wound repair and regeneration: Mechanisms, signaling, and translation, Science Translational Medicine 6(265) (2014) 265sr6–265sr6. [PubMed: 25473038]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[48]** Rittié L, Cellular mechanisms of skin repair in humans and other mammals, J Cell Commun Signal 10(2) (2016) 103–120. [PubMed: 27170326]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[49]** Braiman-Wiksman L, Solomonik I, Spira R, Tennenbaum T, Novel insights into wound healing sequence of events, Toxicologic pathology 35(6) (2007) 767–779. [PubMed: 17943650]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[50]** Engelmayer J, Blezinger P, Varadhachary A, Talactoferrin Stimulates Wound Healing With Modulation of Inflammation, Journal of Surgical Research 149(2) (2008) 278–286.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[51]** Phillipson M, Kubes P, The Healing Power of Neutrophils, Trends in Immunology 40(7) (2019) 635–647. [PubMed: 31160208]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[52]** Su Y, Richmond A, Chemokine regulation of neutrophil infiltration of skin wounds, Advances in wound care 4(11) (2015) 631–640. [PubMed: 26543677]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[53]** Willenborg S, Do N-N, Ding X, Van Loo G., Pasparakis M, Eming SA, Recruitment, activation and function of monocytes/macrophage in skin wound healing, Journal of Dermatological Science 84(1) (2016) e92.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[54]** Yang J, Zhang L, Yu C, Yang X-F, Wang H, Monocyte and macrophage differentiation: circulation inflammatory monocyte as biomarker for inflammatory diseases, Biomarker Research 2(1) (2014) 1. [PubMed: 24398220]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[55]** Chiu S, Bharat A, Role of monocytes and macrophages in regulating immune response following lung transplantation, Current Opinion in Organ Transplantation 21(3) (2016) 239–245. [PubMed: 26977996]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[56]** Kotwal GJ, Chien S, Macrophage differentiation in normal and accelerated wound healing, Macrophages (2017) 353–364.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[57]** Smigiel KS, Parks WC, Macrophages, wound healing, and fibrosis: recent insights, Current rheumatology reports 20(4) (2018) 1–8.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[58]** Cañedo-Dorantes L, Cañedo-Ayala M, Skin acute wound healing: A comprehensive review, International journal of inflammation 2019 (2019).
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[59]** Teller P, White TK, The physiology of wound healing: injury through maturation, Perioperative Nursing Clinics 6(2) (2011) 159–170.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[60]** Johnson KE, Wilgus TA, Vascular endothelial growth factor and angiogenesis in the regulation of cutaneous wound repair, Advances in wound care 3(10) (2014) 647–661. [PubMed: 25302139]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[61]** Gonzalez A.C.d.O., Costa TF, Andrade Z.d.A., Medrado ARAP, Wound healing-A literature review, Anais brasileiros de dermatologia 91(5) (2016) 614–620. [PubMed: 27828635]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[62]** Singh S, Young A, McNaught C-E, The physiology of wound healing, Surgery (Oxford) 35(9) (2017) 473–477.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[63]** Darby IA, Laverdet B, Bonté F, Desmoulière A, Fibroblasts and myofibroblasts in wound healing, Clinical, cosmetic and investigational dermatology 7 (2014) 301.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[64]** Desjardins-Park HE, Foster DS, Longaker MT, Fibroblasts and wound healing: an update, Future Medicine, 2018.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[65]** Bainbridge P, Wound healing and the role of fibroblasts, Journal of wound care 22(8) (2013).
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[66]** Ellis S, Lin EJ, Tartar D, Immunology of wound healing, Current dermatology reports 7(4) (2018) 350–358. [PubMed: 30524911]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[67]** Alhajj M, Bansal P, Goyal A, Physiology, Granulation Tissue, StatPearls [Internet] (2020).
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[68]** Al-Bayaty F, Abdulla MA, A comparison of wound healing rate following treatment with aftamed and chlorine dioxide gels in streptozotocin-induced diabetic rats, Evidence-Based Complementary and Alternative Medicine 2012 (2012).
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[69]** Gould LJ, Topical collagen-based biomaterials for chronic wounds: rationale and clinical application, Advances in wound care 5(1) (2016) 19–31. [PubMed: 26858912]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[70]** Krzyszczyk P, Schloss R, Palmer A, Berthiaume F, The role of macrophages in acute and chronic wound healing and interventions to promote pro-wound healing phenotypes, Frontiers in physiology 9 (2018) 419. [PubMed: 29765329]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[71]** Bratton DL, Henson PM, Neutrophil clearance: when the party is over, clean-up begins, Trends in Immunology 32(8) (2011) 350–357. [PubMed: 21782511]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[72]** Demidova-Rice TN, Hamblin MR, Herman IM, Acute and impaired wound healing: pathophysiology and current methods for drug delivery, part 1: normal and chronic wounds: biology, causes, and approaches to care, Advances in skin & wound care 25(7) (2012) 304. [PubMed: 22713781]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[73]** Zhao R, Liang H, Clarke E, Jackson C, Xue M, Inflammation in chronic wounds, International journal of molecular sciences 17(12) (2016) 2085.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[74]** Soehnlein O, Steffens S, Hidalgo A, Weber C, Neutrophils as protagonists and targets in chronic inflammation, Nature Reviews Immunology 17(4) (2017) 248–261.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[75]** Wood S, Jayaraman V, Huelsmann EJ, Bonish B, Burgad D, Sivaramakrishnan G, Qin S, DiPietro LA, Zloza A, Zhang C, Shafikhani SH, Pro-inflammatory chemokine CCL2 (MCP-1) promotes healing in diabetic wounds by restoring the macrophage response, PloS one 9(3) (2014) e91574– e91574. [PubMed: 24618995]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[76]** Satish L, Chemokines as Therapeutic Targets to Improve Healing Efficiency of Chronic Wounds, Advances in wound care 4(11) (2015) 651–659. [PubMed: 26543679]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[77]** Vaalamo M, Mattila L, Johansson N, Kariniemi A-L, Karjalainen-Lindsberg M-L, Kähäri V- M, Saarialho-Kere U, Distinct populations of stromal cells express collagenase-3 (MMP-13) and collagenase-1 (MMP-1) in chronic ulcers but not in normally healing wounds, Journal of Investigative Dermatology 109(1) (1997).
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[78]** Lazaro J, Izzo V, Meaume S, Davies A, Lobmann R, Uccioli L, Elevated levels of matrix metalloproteinases and chronic wound healing: an updated review of clinical evidence, Journal of wound care 25(5) (2016) 277–287. [PubMed: 27169343]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[79]** Streit M, Beleznay Z, Braathen LR, Topical application of the tumour necrosis factor-α antibody infliximab improves healing of chronic wounds, International Wound Journal 3(3) (2006) 171– 179. [PubMed: 16984574]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[80]** Ito A, Sato T, Iga T, Mori Y, Tumor necrosis factor bifunctionally regulates matrix metalloproteinases and tissue inhibitor of metalloproteinases (TIMP) production by human fibroblasts, FEBS letters 269(1) (1990) 93–95. [PubMed: 2167246]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[81]** Ashcroft GS, Jeong MJ, Ashworth JJ, Hardman M, Jin W, Moutsopoulos N, Wild T, McCartney‐ Francis N, Sim D, McGrady G, Tumor necrosis factor‐alpha (TNF‐α) is a therapeutic target for impaired cutaneous wound healing, Wound Repair and Regeneration 20(1) (2012) 38–49. [PubMed: 22151742]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[82]** Leal EC, Carvalho E, Tellechea A, Kafanas A, Tecilazich F, Kearney C, Kuchibhotla S, Auster ME, Kokkotou E, Mooney DJ, Substance P promotes wound healing in diabetes by modulating inflammation and macrophage phenotype, The American journal of pathology 185(6) (2015) 1638–1648. [PubMed: 25871534]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[83]** Kunt T, Forst T, Schmidt S, Pfützner A, Schneider S, Harzer O, Löbig M, Engelbach M, Goitom K, Pohlmann T, Serum levels of substance P are decreased in patients with type 1 diabetes, Experimental and clinical endocrinology & diabetes 108(03) (2000) 164–167. [PubMed: 10926310]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[84]** Gibran NS, Jang Y-C, Isik FF, Greenhalgh DG, Muffley LA, Underwood RA, Usui ML, Larsen J, Smith DG, Bunnett N, Diminished neuropeptide levels contribute to the impaired cutaneous healing response associated with diabetes mellitus, Journal of Surgical Research 108(1) (2002) 122–128.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[85]** Pradhan L, Cai X, Wu S, Andersen ND, Martin M, Malek J, Guthrie P, Veves A, LoGerfo FW, Gene Expression of Pro-Inflammatory Cytokines and Neuropeptides in Diabetic Wound Healing, Journal of Surgical Research 167(2) (2011) 336–342.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[86]** Shakya S, Wang Y, Mack JA, Maytin EV, Hyperglycemia-induced changes in hyaluronan contribute to impaired skin wound healing in diabetes: review and perspective, International journal of cell biology 2015 (2015).
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[87]** Testa R, Bonfigli AR, Prattichizzo F, La Sala L, De Nigris V., Ceriello A, The “metabolic memory” theory and the early treatment of hyperglycemia in prevention of diabetic complications, Nutrients 9(5) (2017) 437.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[88]** Dunnill C, Patton T, Brennan J, Barrett J, Dryden M, Cooke J, Leaper D, Georgopoulos NT, Reactive oxygen species (ROS) and wound healing: the functional role of ROS and emerging ROS‐modulating technologies for augmentation of the healing process, International wound journal 14(1) (2017) 89–96. [PubMed: 26688157]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[89]** Bolajoko EB, Akinosun OM, Khine AA, Hyperglycemia-induced oxidative stress in the development of diabetic foot ulcers, Diabetes, Elsevier2020, pp. 35–48.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[90]** Pradhan Nabzdyk L., Kuchibhotla S, Guthrie P, Chun M, Auster ME, Nabzdyk C, Deso S, Andersen N, Gnardellis C, LoGerfo FW, Veves A, Expression of neuropeptides and cytokines in a rabbit model of diabetic neuroischemic wound healing, Journal of Vascular Surgery 58(3) (2013) 766–775.e12. [PubMed: 23755976]
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[91]** Ullah S, Chen X, Fabrication, applications and challenges of natural biomaterials in tissue engineering, Applied Materials Today 20 (2020) 100656.
+  - Role: wound-healing mechanism / pathophysiology
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[92]** Mir M, Ali MN, Barakullah A, Gulzar A, Arshad M, Fatima S, Asad M, Synthetic polymeric biomaterials for wound healing: a review, Progress in Biomaterials 7(1) (2018) 1–21. [PubMed: 29446015]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[93]** Ueno H, Mori T, Fujinaga T, Topical formulations and wound healing applications of chitosan, Advanced drug delivery reviews 52(2) (2001) 105–115. [PubMed: 11718934]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[94]** Rabea EI, Badawy MET, Stevens CV, Smagghe G, Steurbaut W, Chitosan as Antimicrobial Agent: Applications and Mode of Action, Biomacromolecules 4(6) (2003) 1457–1465. [PubMed: 14606868]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[95]** Goy RC, Britto D.d., Assis OB, A review of the antimicrobial activity of chitosan, Polímeros 19(3) (2009) 241–247.
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[96]** Escárcega-Galaz AA, De La Cruz-Mercado JL, López-Cervantes J, Sánchez-Machado DI, Brito- Zurita OR, Ornelas-Aguirre JM, Chitosan treatment for skin ulcers associated with diabetes, Saudi journal of biological sciences 25(1) (2018) 130–135. [PubMed: 29379369]
+  - Role: biomaterial platform / material properties
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[97]** Jeon O, Alt DS, Ahmed SM, Alsberg E, The effect of oxidation on the degradation of photocrosslinkable alginate hydrogels, Biomaterials 33(13) (2012) 3503–3514. [PubMed: 22336294]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[98]** Tønnesen HH, Karlsen J, Alginate in drug delivery systems, Drug development and industrial pharmacy 28(6) (2002) 621–630. [PubMed: 12149954]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[99]** Rezvanian M, Ng S-F, Alavi T, Ahmad W, In-vivo evaluation of Alginate-Pectin hydrogel film loaded with Simvastatin for diabetic wound healing in Streptozotocin-induced diabetic rats, International Journal of Biological Macromolecules 171 (2021) 308–319. [PubMed: 33421467]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[100]** Shah SA, Sohail M, Khan SA, Kousar M, Improved drug delivery and accelerated diabetic wound healing by chondroitin sulfate grafted alginate-based thermoreversible hydrogels, Materials Science and Engineering: C 126 (2021) 112169. [PubMed: 34082970]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[101]** Hussain Z, Thu HE, Katas H, Bukhari SNA, Hyaluronic acid-based biomaterials: a versatile and smart approach to tissue regeneration and treating traumatic, surgical, and chronic wounds, Polymer Reviews 57(4) (2017) 594–630.
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[102]** Litwiniuk M, Krejner A, Speyrer M, Gauto A, Grzela T, Hyaluronic acid in inflammation and tissue regeneration, Wounds 28(3) (2016) 78–88. [PubMed: 26978861]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[103]** Al Bayaty F., Abdulla M, Abu Hassan M., Masud M, Wound healing potential by hyaluronate gel in streptozotocin-induced diabetic rats, Scientific Research and Essays 5(18) (2010) 2756– 2760.
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[104]** Wang Y, Han G, Guo B, Huang J, Hyaluronan oligosaccharides promote diabetic wound healing by increasing angiogenesis, Pharmacological Reports 68(6) (2016) 1126–1132. [PubMed: 27588388]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[105]** Gainza G, Villullas S, Pedraz JL, Hernandez RM, Igartua M, Advances in drug delivery systems (DDSs) to release growth factors for wound healing and skin regeneration, Nanomedicine: Nanotechnology, Biology and Medicine 11(6) (2015) 1551–1573.
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[106]** Choi SM, Ryu HA, Lee K-M, Kim HJ, Park IK, Cho WJ, Shin H-C, Choi WJ, Lee JW, Development of Stabilized Growth Factor-Loaded Hyaluronate– Collagen Dressing (HCD) matrix for impaired wound healing, Biomaterials Research 20(1) (2016) 9. [PubMed: 27042331]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[107]** Chattopadhyay S, Raines RT, Collagen-based biomaterials for wound healing, Biopolymers 101(8) (2014) 821–833. [PubMed: 24633807]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[108]** Larson BJ, Longaker MT, Lorenz HP, Scarless fetal wound healing: a basic science review, Plastic and reconstructive surgery 126(4) (2010) 1172. [PubMed: 20885241]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[109]** Nuutila K, Peura M, Suomela S, Hukkanen M, Siltanen A, Harjula A, Vuola J, Kankuri E, Recombinant human collagen III gel for transplantation of autologous skin cells in porcine full‐thickness wounds, Journal of tissue engineering and regenerative medicine 9(12) (2015) 1386–1393. [PubMed: 23362205]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[110]** Wang X, Ghasri P, Amir M, Hwang B, Hou Y, Khilili M, Lin A, Keene D, Uitto J, Woodley DT, Topical application of recombinant type VII collagen incorporates into the dermal–epidermal junction and promotes wound closure, Molecular Therapy 21(7) (2013) 1335–1344. [PubMed: 23670575]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[111]** Kant V, Gopal A, Kumar D, Gopalkrishnan A, Pathak NN, Kurade NP, Tandan SK, Kumar D, Topical pluronic F-127 gel application enhances cutaneous wound healing in rats, Acta Histochemica 116(1) (2014) 5–13. [PubMed: 23706531]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[112]** Ladd J, Zhang Z, Chen S, Hower JC, Jiang S, Zwitterionic polymers exhibiting high resistance to nonspecific protein adsorption from human serum and plasma, Biomacromolecules 9(5) (2008) 1357–1361. [PubMed: 18376858]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[113]** Golabchi A, Wu B, Cao B, Bettinger CJ, Cui XT, Zwitterionic polymer/polydopamine coating reduce acute inflammatory tissue responses to neural implants, Biomaterials 225 (2019) 119519. [PubMed: 31600673]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[114]** Zhang L, Cao Z, Bai T, Carr L, Ella-Menye J-R, Irvin C, Ratner BD, Jiang S, Zwitterionic hydrogels implanted in mice resist the foreign-body reaction, Nature biotechnology 31(6) (2013) 553–556.
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[115]** Wu J, Xiao Z, Chen A, He H, He C, Shuai X, Li X, Chen S, Zhang Y, Ren B, Sulfated zwitterionic poly (sulfobetaine methacrylate) hydrogels promote complete skin regeneration, Acta biomaterialia 71 (2018) 293–305. [PubMed: 29535009]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[116]** Xiao Z, Zheng X, An Y, Wang K, Zhang J, He H, Wu J, Zwitterionic hydrogel for sustained release of growth factors to enhance wound healing, Biomaterials Science 9(3) (2021) 882–891. [PubMed: 33241793]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[117]** He H, Xiao Z, Zhou Y, Chen A, Xuan X, Li Y, Guo X, Zheng J, Xiao J, Wu J, Zwitterionic poly (sulfobetaine methacrylate) hydrogels with optimal mechanical properties for improving wound healing in vivo, Journal of Materials Chemistry B 7(10) (2019) 1697–1707. [PubMed: 32254911]
+  - Role: biomaterial platform / material properties
+  - Priority: low
+  - Downstream action: Background/context only; retrieve if needed to verify epidemiology, mechanism, standard-care, or material-property claims.
+- [ ] **[118]** Fang RC, Galiano RD, A review of becaplermin gel in the treatment of diabetic neuropathic foot ulcers, Biologics 2(1) (2008) 1–12. [PubMed: 19707423]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source and verify the historical claim; before any practice use, separately verify current regulatory/guideline status.
+- [ ] **[119]** Piascik P, Use of Regranex gel for diabetic foot ulcers, Journal of the American Pharmacists Association 38(5) (1998) 628.
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source and verify the historical claim; before any practice use, separately verify current regulatory/guideline status.
+- [ ] **[120]** Heldin C-H, Westermark B, Mechanism of action and in vivo role of platelet-derived growth factor, Physiological reviews (1999).
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[121]** Wieman TJ, Smiell JM, Su Y, Efficacy and safely of a topical gel formulation of recombinant human platelet-derived growth factor-BB (becaplermin) in patients with chronic neuropathic diabetic ulcers: a phase III randomized placebo-controlled double-blind study, Diabetes care 21(5) (1998) 822–827. [PubMed: 9589248]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[122]** Ladin D, Committee PSEFD, Becaplermin gel (PDGF-BB) as topical wound therapy, Plastic and reconstructive surgery 105(3) (2000) 1230–1231. [PubMed: 10724287]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[123]** Papanas N, Maltezos E, Becaplermin gel in the treatment of diabetic neuropathic foot ulcers, Clinical interventions in aging 3(2) (2008) 233. [PubMed: 18686746]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[124]** Papanas D, Maltezos E, Benefit-Risk Assessment of Becaplermin in the Treatment of Diabetic Foot Ulcers, Drug Safety 33(6) (2010) 455–461. [PubMed: 20486728]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source and verify the historical claim; before any practice use, separately verify current regulatory/guideline status.
+- [ ] **[125]** Waycaster CR, Gilligan AM, Motley TA, Cost-effectiveness of becaplermin gel on diabetic foot ulcer healing: changes in wound surface area, Journal of the American Podiatric Medical Association 106(4) (2016) 273–282. [PubMed: 27049838]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source and verify the historical claim; before any practice use, separately verify current regulatory/guideline status.
+- [ ] **[126]** Jarvis CI, Becaplermin (Regranex) for diabetic foot ulcers, American Family Physician 78(2) (2008) 255.
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source and verify the historical claim; before any practice use, separately verify current regulatory/guideline status.
+- [ ] **[127]** Barrientos S, Stojadinovic O, Golinko MS, Brem H, Tomic‐Canic M, Growth factors and cytokines in wound healing, Wound repair and regeneration 16(5) (2008) 585–601. [PubMed: 19128254]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[128]** Li Y, Yao J, Han C, Yang J, Chaudhry MT, Wang S, Liu H, Yin Y, Quercetin, inflammation and immunity, Nutrients 8(3) (2016) 167. [PubMed: 26999194]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[129]** Kaufman TE, Hyperbaric Oxygen Therapy Treatment for Chronic Wounds, Lynchburg Journal of Medical Science 2(3) (2020) 41.
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[130]** Suvarnapathaki S, Wu X, Lantigua D, Nguyen MA, Camci-Unal G, Breathing life into engineered tissues using oxygen-releasing biomaterials, NPG Asia Materials 11(1) (2019) 1–18.
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[131]** Centis V, Vermette P, Enhancing oxygen solubility using hemoglobin-and perfluorocarbon- based carriers, Frontiers in bioscience (Landmark edition) 14 (2009) 665–688. [PubMed: 19273094]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[132]** Pate KM, Goswami DG, Lake M, Lake S, Kant R, Ammar D, Tewari-Singh N, A Supersaturated Oxygen Emulsion for the Topical Treatment of Ocular Trauma, Military Medicine 185(3–4) (2020) e466–e472. [PubMed: 31865377]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[133]** Öhnstedt E, Lofton Tomenius H., Vågesjö E, Phillipson M, The discovery and development of topical medicines for wound healing, Expert Opinion on Drug Discovery 14(5) (2019) 485–497. [PubMed: 30870037]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[134]** Beer H-D, Longaker MT, Werner S, Reduced expression of PDGF and PDGF receptors during impaired wound healing, Journal of Investigative Dermatology 109(2) (1997) 132–138.
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[135]** Blakytny R, Jude E, The molecular biology of chronic wounds and delayed healing in diabetes, Diabetic Medicine 23(6) (2006) 594–608. [PubMed: 16759300]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[136]** Tsang MW, Wong WKR, Hung CS, Lai K-M, Tang W, Cheung EY, Kam G, Leung L, Chan CW, Chu CM, Human epidermal growth factor enhances healing of diabetic foot ulcers, Diabetes care 26(6) (2003) 1856–1861. [PubMed: 12766123]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[137]** Brown GL, Curtsinger L, Jurkiewicz MJ, Nahai F, Schultz G, Stimulation of healing of chronic wounds by epidermal growth factor, Plastic and reconstructive surgery 88(2) (1991) 189–94; discussion 195–6. [PubMed: 1852809]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[138]** Hong JP, Jung HD, Kim YW, Recombinant human epidermal growth factor (EGF) to enhance healing for diabetic foot ulcers, Annals of plastic surgery 56(4) (2006) 394–398. [PubMed: 16557070]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[139]** Park KH, Han SH, Hong JP, Han S-K, Lee D-H, Kim BS, Ahn JH, Lee JW, Topical epidermal growth factor spray for the treatment of chronic diabetic foot ulcers: A phase III multicenter, double-blind, randomized, placebo-controlled trial, Diabetes Research and Clinical Practice 142 (2018) 335–344. [PubMed: 29902542]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[140]** Brown RL, Breeden MP, Greenhalgh DG, PDGF and TGF-alpha act synergistically to improve wound healing in the genetically diabetic mouse, J Surg Res 56(6) (1994) 562–70. [PubMed: 8015312]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[141]** Allen RJ Jr., Soares MA, Haberman ID, Szpalski C, Schachar J, Lin CD, Nguyen PD, Saadeh PB, Warren SM, Combination therapy accelerates diabetic wound closure, PLoS One 9(3) (2014) e92667. [PubMed: 24651576]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[142]** Krishnaswamy VR, Mintz D, Sagi I, Matrix metalloproteinases: The sculptors of chronic cutaneous wounds, Biochimica et Biophysica Acta (BBA)-Molecular Cell Research 1864(11) (2017) 2220–2227. [PubMed: 28797647]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[143]** Lopez-Silva TL, Leach DG, Li IC, Wang X, Hartgerink JD, Self-Assembling Multidomain Peptides: Design and Characterization of Neutral Peptide-Based Materials with pH and Ionic Strength Independent Self-Assembly, ACS Biomaterials Science & Engineering 5(2) (2019) 977– 985. [PubMed: 31404449]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[144]** Lopez-Silva TL, Cristobal CD, Edwin Lai CS, Leyva-Aranda V, Lee HK, Hartgerink JD, Self-assembling multidomain peptide hydrogels accelerate peripheral nerve regeneration after crush injury, Biomaterials 265 (2021) 120401. [PubMed: 33002786]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[145]** Carrejo NC, Moore AN, Lopez Silva T.L., Leach DG, Li IC, Walker DR, Hartgerink JD, Multidomain Peptide Hydrogel Accelerates Healing of Full-Thickness Wounds in Diabetic Mice, ACS Biomaterials Science & Engineering 4(4) (2018) 1386–1396. [PubMed: 29687080]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[146]** Xiao Y, Reis LA, Feric N, Knee EJ, Gu J, Cao S, Laschinger C, Londono C, Antolovich J, McGuigan AP, Radisic M, Diabetic wound regeneration using peptide-modified hydrogels to target re-epithelialization, Proceedings of the National Academy of Sciences 113(40) (2016) E5792–E5801.
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[147]** Maggio G, Armenio A, Ruccia F, Giglietto D, Pascone M, Ribatti D, A new protocol for the treatment of the chronic venous ulcers of the lower limb, Clinical and experimental medicine 12(1) (2012) 55–60. [PubMed: 21559987]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[148]** Cassino R, Ricci E, Effectiveness of topical application of amino acids to chronic wounds: a prospective observational study, Journal of wound care 19(1) (2010) 29–34. [PubMed: 20081571]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[149]** Abbruzzese L, Rizzo L, Fanelli G, Tedeschi A, Scatena A, Goretti C, Macchiarini S, Piaggesi A, Effectiveness and safety of a novel gel dressing in the management of neuropathic leg ulcers in diabetic patients: a prospective double-blind randomized trial, The international journal of lower extremity wounds 8(3) (2009) 134–140. [PubMed: 19703948]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[150]** Yoon DS, Lee Y, Ryu HA, Jang Y, Lee K-M, Choi Y, Choi WJ, Lee M, Park KM, Park KD, Lee JW, Cell recruiting chemokine-loaded sprayable gelatin hydrogel dressings for diabetic wound healing, Acta biomaterialia 38 (2016) 59–68. [PubMed: 27109762]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[151]** Ghatnekar GS, O’Quinn MP, Jourdan LJ, Gurjarpadhye AA, Draughn RL, Gourdie RG, Connexin43 carboxyl-terminal peptides reduce scar progenitor and promote regenerative healing following skin wounding, (2009).
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[152]** Ghatnekar G, Formulations and methods of use for alpha connexin C-terminal (ACT) peptides, Google Patents, 2015.
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[153]** Grek CL, Prasad G, Viswanathan V, Armstrong DG, Gourdie RG, Ghatnekar GS, Topical administration of a connexin43‐based peptide augments healing of chronic neuropathic diabetic foot ulcers: a multicenter, randomized trial, Wound Repair and Regeneration 23(2) (2015) 203– 212. [PubMed: 25703647]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[154]** Ghatnekar GS, Grek CL, Armstrong DG, Desai SC, Gourdie RG, The effect of a connexin43- based Peptide on the healing of chronic venous leg ulcers: a multicenter, randomized trial, Journal of Investigative Dermatology 135(1) (2015) 289–298.
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[155]** Kant V, Kumar D, Kumar D, Prasad R, Gopal A, Pathak NN, Kumar P, Tandan SK, Topical application of substance P promotes wound healing in streptozotocin-induced diabetic rats, Cytokine 73(1) (2015) 144–155. [PubMed: 25748837]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[156]** Legrand D, Overview of lactoferrin as a natural immune modulator, The Journal of pediatrics 173 (2016) S10–S15. [PubMed: 27234406]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[157]** Jee J-P, Pangeni R, Jha SK, Byun Y, Park JW, Preparation and in vivo evaluation of a topical hydrogel system incorporating highly skin-permeable growth factors, quercetin, and oxygen carriers for enhanced diabetic wound-healing therapy, International journal of nanomedicine 14 (2019) 5449. [PubMed: 31409998]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[158]** Furman BL, Streptozotocin‐induced diabetic models in mice and rats, Current protocols in pharmacology 70(1) (2015) 5.47. 1–5.47. 20.
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[159]** Morris AH, Lee H, Xing H, Stamer DK, Tan M, Kyriakides TR, Tunable hydrogels derived from genetically engineered extracellular matrix accelerate diabetic wound healing, ACS applied materials & interfaces 10(49) (2018) 41892–41901. [PubMed: 30424595]
+  - Role: protein, peptide, growth-factor, or clinical gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[160]** Schäfer M, Werner S, Oxidative stress in normal and impaired wound repair, Pharmacological Research 58(2) (2008) 165–171. [PubMed: 18617006]
+  - Role: drug-gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[161]** Fan Y, Wu W, Lei Y, Gaucher C, Pei S, Zhang J, Xia X, Edaravone-loaded alginate-based nanocomposite hydrogel accelerated chronic wound healing in diabetic mice, Marine drugs 17(5) (2019) 285.
+  - Role: drug-gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[162]** Hao S, Chen L, Yang C, Lao G, Ren M, Yan L, Activation of Skin Renin-Angiotensin System in Streptozotocin-Induced Diabetic Rat, DIABETES, AMER DIABETES ASSOC 1701 N BEAUREGARD ST, ALEXANDRIA, VA 22311–1717 USA, 2010, pp. A324–A324.
+  - Role: drug-gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[163]** Abadir P, Hosseini S, Faghih M, Ansari A, Lay F, Smith B, Beselman A, Vuong D, Berger A, Tian J, Rini D, Keenahan K, Budman J, Inagami T, Fedarko N, Marti G, Harmon J, Walston J, Topical Reformulation of Valsartan for Treatment of Chronic Diabetic Wounds, Journal of Investigative Dermatology 138(2) (2018) 434–443.
+  - Role: drug-gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[164]** McLaughlin PJ, Immonen JA, Zagon IS, Topical naltrexone accelerates full-thickness wound closure in type 1 diabetic rats by stimulating angiogenesis, Experimental Biology and Medicine 238(7) (2013) 733–743. [PubMed: 23788174]
+  - Role: drug-gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[165]** Immonen JA, Zagon IS, Lewis GS, McLaughlin PJ, Topical treatment with the opioid antagonist naltrexone accelerates the remodeling phase of full-thickness wound healing in type 1 diabetic rats, Experimental Biology and Medicine 238(10) (2013) 1127–1135. [PubMed: 23986225]
+  - Role: drug-gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[166]** Titunick MB, Cain J, Zagon I, McLaughlin P, Comparison of Topical PDGF and Naltrexone on Full-Thickness Diabetic Wound Healing, The FASEB Journal 31(1_supplement) (2017) 981.7– 981.7.
+  - Role: drug-gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[167]** Mercer F, Kozhaya L, Unutmaz D, Expression and function of TNF and IL-1 receptors on human regulatory T cells, PloS one 5(1) (2010) e8639. [PubMed: 20066156]
+  - Role: drug-gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[168]** Stechmiller J, Cowan L, Schultz G, The role of doxycycline as a matrix metalloproteinase inhibitor for the treatment of chronic wounds, Biological research for nursing 11(4) (2010) 336– 344. [PubMed: 20031955]
+  - Role: drug-gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[169]** Chin GA, Thigpin TG, Perrin KJ, Moldawer LL, Schultz GS, Treatment of chronic ulcers in diabetic patients with a topical metalloproteinase inhibitor, doxycycline, Wounds 15(10) (2003) 315–323.
+  - Role: drug-gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[170]** Ikeda Y, Tajima S, Yoshida S, Yamano N, Kihira Y, Ishizawa K, Aihara K.-i., Tomita S, Tsuchiya K, Tamaki T, Deferoxamine promotes angiogenesis via the activation of vascular endothelial cell function, Atherosclerosis 215(2) (2011) 339–347. [PubMed: 21315355]
+  - Role: drug-gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[171]** Chen H, Cheng R, Zhao X, Zhang Y, Tam A, Yan Y, Shen H, Zhang YS, Qi J, Feng Y, Liu L, Pan G, Cui W, Deng L, An injectable self-healing coordinative hydrogel with antibacterial and angiogenic properties for diabetic skin wound repair, NPG Asia Materials 11(1) (2019) 3.
+  - Role: drug-gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[172]** Valizadeh A, Shirzad M, Pourmand MR, Farahmandfar M, Sereshti H, Amani A, Levofloxacin nanoemulsion gel has a powerful healing effect on infected wound in streptozotocin-induced diabetic rats, Drug Delivery and Translational Research 11(1) (2021) 292–304. [PubMed: 32529392]
+  - Role: drug-gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[173]** McLaughlin PJ, Cain JD, Titunick MB, Sassani JW, Zagon IS, Topical naltrexone is a safe and effective alternative to standard treatment of diabetic wounds, Advances in Wound Care 6(9) (2017) 279–288. [PubMed: 28894635]
+  - Role: drug-gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[174]** Tian J, Wong KK, Ho CM, Lok CN, Yu WY, Che CM, Chiu JF, Tam PK, Topical delivery of silver nanoparticles promotes wound healing, ChemMedChem 2(1) (2007) 129–136. [PubMed: 17075952]
+  - Role: drug-gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[175]** Markowska K, Grudniak AM, Wolska KI, Silver nanoparticles as an alternative strategy against bacterial biofilms, Acta Biochimica Polonica 60(4) (2013).
+  - Role: drug-gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[176]** Tian J, Wong KK, Ho CM, Lok CN, Yu WY, Che CM, Chiu JF, Tam PK, Topical delivery of silver nanoparticles promotes wound healing, ChemMedChem: Chemistry Enabling Drug Discovery 2(1) (2007) 129–136.
+  - Role: drug-gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[177]** Sim W, Barnard RT, Blaskovich MAT, Ziora ZM, Antimicrobial Silver in Medicinal and Consumer Applications: A Patent Review of the Past Decade (2007⁻2017), Antibiotics (Basel) 7(4) (2018) 93.
+  - Role: drug-gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[178]** Kaler A, Mittal AK, Katariya M, Harde H, Agrawal AK, Jain S, Banerjee UC, An investigation of in vivo wound healing activity of biologically synthesized silver nanoparticles, Journal of Nanoparticle Research 16(9) (2014) 2605.
+  - Role: drug-gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[179]** Sharma R, Kumar R, Mittal S, Kaur A, Study of effect of topical nano silver gel on wound healing, Journal of Advanced Medical and Dental Sciences Research 4(5) (2016) 59.
+  - Role: drug-gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[180]** Oryan A, Alemzadeh E, Tashkhourian J, Ana SFN, Topical delivery of chitosan-capped silver nanoparticles speeds up healing in burn wounds: A preclinical study, Carbohydrate polymers 200 (2018) 82–92. [PubMed: 30177212]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[181]** Masood N, Ahmed R, Tariq M, Ahmed Z, Masoud MS, Ali I, Asghar R, Andleeb A, Hasan A, Silver nanoparticle impregnated chitosan-PEG hydrogel enhances wound healing in diabetes induced rabbits, International Journal of Pharmaceutics 559 (2019) 23–36. [PubMed: 30668991]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[182]** Kaur P, Sharma AK, Nag D, Das A, Datta S, Ganguli A, Goel V, Rajput S, Chakrabarti G, Basu B, Novel nano-insulin formulation modulates cytokine secretion and remodeling to accelerate diabetic wound healing, Nanomedicine: Nanotechnology, Biology and Medicine 15(1) (2019) 47–57.
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[183]** Abdelkader DH, Tambuwala MM, Mitchell CA, Osman MA, El-Gizawy SA, Faheem AM, El- Tanani M, McCarron PA, Enhanced cutaneous wound healing in rats following topical delivery of insulin-loaded nanoparticles embedded in poly(vinyl alcohol)-borate hydrogels, Drug Delivery and Translational Research 8(5) (2018) 1053–1065. [PubMed: 29971752]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[184]** Olawi N, Krüger M, Grimm D, Infanger M, Wehland M, Nebivolol in the treatment of arterial hypertension, Basic & Clinical Pharmacology & Toxicology 125(3) (2019) 189–201. [PubMed: 31066991]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[185]** Pandit AP, Patel SA, Bhanushali VP, Kulkarni VS, Kakad VD, Nebivolol-loaded microsponge gel for healing of diabetic wound, AAPS PharmSciTech 18(3) (2017) 846–854. [PubMed: 27357423]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[186]** Van Craeyveld E, Gordts S, Jacobs F, De Geest B, Gene therapy to improve high-density lipoprotein metabolism and function, Current pharmaceutical design 16(13) (2010) 1531–1544. [PubMed: 20196736]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[187]** Gordts SC, Muthuramu I, Amin R, Jacobs F, De Geest B, The impact of lipoproteins on wound healing: topical HDL therapy corrects delayed wound healing in apolipoprotein E deficient mice, Pharmaceuticals 7(4) (2014) 419–432. [PubMed: 24705596]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[188]** Noel GJ, A review of levofloxacin for the treatment of bacterial infections, Clinical Medicine. Therapeutics 1 (2009) CMT. S28.
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[189]** Oberdorfer K, Swoboda S, Hamann A, Baertsch U, Kusterer K, Born B, Hoppe-Tichy T, Geiss H, Von Baum H., Tissue and serum levofloxacin concentrations in diabetic foot infection patients, Journal of Antimicrobial Chemotherapy 54(4) (2004) 836–839.
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[190]** Sener G, Hilton SA, Osmond MJ, Zgheib C, Newsom JP, Dewberry L, Singh S, Sakthivel TS, Seal S, Liechty KW, Injectable, self-healable zwitterionic cryogels with sustained microRNA- cerium oxide nanoparticle release promote accelerated wound healing, Acta biomaterialia 101 (2020) 262–272. [PubMed: 31726250]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[191]** Xu J, Wu W, Zhang L, Dorset-Martin W, Morris MW, Mitchell ME, Liechty KW, The role of microRNA-146a in the pathogenesis of the diabetic wound-healing impairment: correction with mesenchymal stem cell treatment, Diabetes 61(11) (2012) 2906–2912. [PubMed: 22851573]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[192]** Zgheib C, Hilton SA, Dewberry LC, Hodges MM, Ghatak S, Xu J, Singh S, Roy S, Sen CK, Seal S, Use of cerium oxide nanoparticles conjugated with microRNA-146a to correct the diabetic wound healing impairment, Journal of the American College of Surgeons 228(1) (2019) 107–115. [PubMed: 30359833]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[193]** Das S, Dowding JM, Klump KE, McGinnis JF, Self W, Seal S, Cerium oxide nanoparticles: applications and prospects in nanomedicine, Nanomedicine 8(9) (2013) 1483–1508. [PubMed: 23987111]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[194]** Xie W, Tadepalli S, Park SH, Kazemi-Moridani A, Jiang Q, Singamaneni S, Lee J-H, Extreme Mechanical Behavior of Nacre-Mimetic Graphene-Oxide and Silk Nanocomposites, Nano Letters 18(2) (2018) 987–993. [PubMed: 29314859]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[195]** Niemiec SM, Louiselle AE, Hilton SA, Dewberry LC, Zhang L, Azeltine M, Xu J, Singh S, Sakthivel TS, Seal S, Liechty KW, Zgheib C, Nanosilk Increases the Strength of Diabetic Skin and Delivers CNP-miR146a to Improve Wound Healing, Frontiers in Immunology 11 (2020). [PubMed: 32082309]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[196]** Alpaslan E, Geilich BM, Yazici H, Webster TJ, pH-controlled cerium oxide nanoparticle inhibition of both gram-positive and gram-negative bacteria growth, Scientific reports 7(1) (2017) 1–12. [PubMed: 28127051]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[197]** Farias IAP, Dos Santos C.C.L., Sampaio FC, Antimicrobial Activity of Cerium Oxide Nanoparticles on Opportunistic Microorganisms: A Systematic Review, Biomed Res Int 2018 (2018) 1923606. [PubMed: 29607315]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[198]** Thangavel P, Kannan R, Ramachandran B, Moorthy G, Suguna L, Muthuvijayan V, Development of reduced graphene oxide (rGO)-isabgol nanocomposite dressings for enhanced vascularization and accelerated wound healing in normal and diabetic rats, Journal of Colloid and Interface Science 517 (2018) 251–264. [PubMed: 29428812]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[199]** Blanco-Fernandez B, Castaño O, Mateos-Timoneda MÁ, Engel E, Pérez-Amodio S, Nanotechnology approaches in chronic wound healing, Advances in wound care 10(5) (2021) 234–256. [PubMed: 32320364]
+  - Role: nanoparticle or microparticle gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[200]** Abbasi-Malati Z, Roushandeh AM, Kuwahara Y, Roudkenar MH, Mesenchymal Stem Cells on Horizon: A New Arsenal of Therapeutic Agents, Stem Cell Reviews and Reports 14(4) (2018) 484–499. [PubMed: 29687338]
+  - Role: cell, stem-cell, or exosome gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[201]** Kuo Y-R, Wang C-T, Cheng J-T, Kao G-S, Chiang Y-C, Wang C-J, Adipose-derived stem cells accelerate diabetic wound healing through the induction of autocrine and paracrine effects, Cell transplantation 25(1) (2016) 71–81. [PubMed: 25853951]
+  - Role: cell, stem-cell, or exosome gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[202]** Kaisang L, Siyu W, Lijun F, Daoyan P, Xian CJ, Jie S, Adipose-derived stem cells seeded in Pluronic F-127 hydrogel promotes diabetic wound healing, Journal of Surgical Research 217 (2017) 63–74.
+  - Role: cell, stem-cell, or exosome gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[203]** Xu Q, S. A, Gao Y, Guo L, Creagh-Flynn J, Zhou D, Greiser U, Dong Y, Wang F, Tai H, Liu W, Wang W, Wang W, A hybrid injectable hydrogel from hyperbranched PEG macromer as a stem cell delivery and retention platform for diabetic wound healing, Acta biomaterialia 75 (2018) 63–74. [PubMed: 29803782]
+  - Role: cell, stem-cell, or exosome gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[204]** Xu Q, Guo L, Sigen A, Gao Y, Zhou D, Greiser U, Creagh-Flynn J, Zhang H, Dong Y, Cutlar L, Injectable hyperbranched poly (β-amino ester) hydrogels with on-demand degradation profiles to match wound healing processes, Chemical science 9(8) (2018) 2179–2187. [PubMed: 29719691]
+  - Role: cell, stem-cell, or exosome gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[205]** Chen S, Shi J, Zhang M, Chen Y, Wang X, Zhang L, Tian Z, Yan Y, Li Q, Zhong W, Xing M, Zhang L, Zhang L, Mesenchymal stem cell-laden anti-inflammatory hydrogel enhances diabetic wound healing, Scientific Reports 5(1) (2015) 18104. [PubMed: 26643550]
+  - Role: cell, stem-cell, or exosome gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[206]** Lee PY, Cobain E, Huard J, Huang L, Thermosensitive Hydrogel PEG–PLGA–PEG Enhances Engraftment of Muscle-derived Stem Cells and Promotes Healing in Diabetic Wound, Molecular Therapy 15(6) (2007) 1189–1194. [PubMed: 17406344]
+  - Role: cell, stem-cell, or exosome gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[207]** Bjørge I, Kim S, Mano J, Kalionis B, Chrzanowski W, Extracellular vesicles, exosomes and shedding vesicles in regenerative medicine–a new paradigm for tissue repair, Biomaterials science 6(1) (2018) 60–78.
+  - Role: cell, stem-cell, or exosome gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[208]** Yang J, Chen Z, Pan D, Li H, Shen J, Umbilical Cord-Derived Mesenchymal Stem Cell-Derived Exosomes Combined Pluronic F127 Hydrogel Promote Chronic Diabetic Wound Healing and Complete Skin Regeneration, International journal of nanomedicine 15 (2020) 5911. [PubMed: 32848396]
+  - Role: cell, stem-cell, or exosome gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[209]** Shi Q, Qian Z, Liu D, Sun J, Wang X, Liu H, Xu J, Guo X, GMSC-derived exosomes combined with a chitosan/silk hydrogel sponge accelerates wound healing in a diabetic rat skin defect model, Frontiers in physiology 8 (2017) 904. [PubMed: 29163228]
+  - Role: cell, stem-cell, or exosome gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[210]** Wang C, Wang M, Xu T, Zhang X, Lin C, Gao W, Xu H, Lei B, Mao C, Engineering bioactive self-healing antibacterial exosomes hydrogel for promoting chronic diabetic wound healing and complete skin regeneration, Theranostics 9(1) (2019) 65. [PubMed: 30662554]
+  - Role: cell, stem-cell, or exosome gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[211]** Wang C, Liang C, Wang R, Yao X, Guo P, Yuan W, Liu Y, Song Y, Li Z, Xie X, The fabrication of a highly efficient self-healing hydrogel from natural biopolymers loaded with exosomes for the synergistic promotion of severe wound healing, Biomaterials Science 8(1) (2020) 313–324.
+  - Role: cell, stem-cell, or exosome gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[212]** Lee Y-H, Chang J-J, Chien C-T, Yang M-C, Chien H-F, Antioxidant sol-gel improves cutaneous wound healing in streptozotocin-induced diabetic rats, Experimental diabetes research 2012 (2012).
+  - Role: herbal or antioxidant gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[213]** Mohanty C, Sahoo SK, Curcumin and its topical formulations for wound healing applications, Drug Discovery Today 22(10) (2017) 1582–1592. [PubMed: 28711364]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[214]** Sharma M, Sahu K, Singh SP, Jain B, Wound healing activity of curcumin conjugated to hyaluronic acid: In vitro and in vivo evaluation, Artificial cells, nanomedicine, and biotechnology 46(5) (2018) 1009–1017.
+  - Role: herbal or antioxidant gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[215]** Kamar SS, Abdel-Kader DH, Rashed LA, Beneficial effect of Curcumin Nanoparticles- Hydrogel on excisional skin wound healing in type-I diabetic rat: Histological and immunohistochemical studies, Annals of Anatomy - Anatomischer Anzeiger 222 (2019) 94–102. [PubMed: 30521949]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[216]** Liu J, Chen Z, Wang J, Li R, Li T, Chang M, Yan F, Wang Y, Encapsulation of Curcumin Nanoparticles with MMP9-Responsive and Thermos-Sensitive Hydrogel Improves Diabetic Wound Healing, ACS Applied Materials & Interfaces 10(19) (2018) 16315–16326. [PubMed: 29687718]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[217]** He L, Peng X, Zhu J, Chen X, Liu H, Tang C, Dong Z, Liu F, Peng Y, Mangiferin attenuate sepsis-induced acute kidney injury via antioxidant and anti-inflammatory effects, American journal of nephrology 40(5) (2014) 441–450. [PubMed: 25427663]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[218]** Hou J, Zheng D, Fung G, Deng H, Chen L, Liang J, Jiang Y, Hu Y, Mangiferin suppressed advanced glycation end products (AGEs) through NF-κB deactivation and displayed anti- inflammatory effects in streptozotocin and high fat diet-diabetic cardiomyopathy rats, Canadian journal of physiology and pharmacology 94(3) (2016) 332–340. [PubMed: 26751764]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[219]** Saha S, Sadhukhan P, Sil PC, Mangiferin: A xanthonoid with multipotent anti‐inflammatory potential, Biofactors 42(5) (2016) 459–474. [PubMed: 27219011]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[220]** Mei S, Ma H, Chen X, Anticancer and anti-inflammatory properties of mangiferin: A review of its molecular mechanisms, Food and Chemical Toxicology (2021) 111997. [PubMed: 33465461]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[221]** Lwin OM, Giribabu N, Kilari EK, Salleh N, Topical administration of mangiferin promotes healing of the wound of streptozotocin-nicotinamide-induced type-2 diabetic male rats, Journal of Dermatological Treatment (2020) 1–10.
+  - Role: herbal or antioxidant gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[222]** Bairagi U, Mittal P, Singh J, Mishra B, Preparation, characterization, and in vivo evaluation of nano formulations of ferulic acid in diabetic wound healing, Drug development and industrial pharmacy 44(11) (2018) 1783–1796. [PubMed: 29973105]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[223]** Salehi B, Venditti A, Sharifi-Rad M, Kręgiel D, Sharifi-Rad J, Durazzo A, Lucarini M, Santini A, Souto EB, Novellino E, The therapeutic potential of apigenin, International journal of molecular sciences 20(6) (2019) 1305.
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[224]** Shukla R, Kashaw SK, Jain AP, Lodhi S, Fabrication of Apigenin loaded gellan gum–chitosan hydrogels (GGCH-HGs) for effective diabetic wound healing, International Journal of Biological Macromolecules 91 (2016) 1110–1119. [PubMed: 27344952]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[225]** Ljubuncic P, Dakwar S, Portnaya I, Cogan U, Azaizeh H, Bomzon A, Aqueous extracts of Teucrium polium possess remarkable antioxidant activity in vitro, Evidence-Based Complementary and Alternative Medicine 3(3) (2006) 329–338. [PubMed: 16951717]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[226]** Sharififar F, Dehghn-Nudeh G, Mirtajaldini M, Major flavonoids with antioxidant activity from Teucrium polium L, Food chemistry 112(4) (2009) 885–888.
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[227]** Gharaboghaz M.N.z., Farahpour MR, Saghaie S, Topical co-administration of Teucrium polium hydroethanolic extract and Aloe vera gel triggered wound healing by accelerating cell proliferation in diabetic mouse model, Biomedicine & Pharmacotherapy 127 (2020) 110189. [PubMed: 32388242]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[228]** Devaraj RD, Reddy CK, Xu B, Health-promoting effects of konjac glucomannan and its practical applications: A critical review, International Journal of Biological Macromolecules 126 (2019) 273–281. [PubMed: 30586587]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[229]** Li X, Jayachandran M, Xu B, Antidiabetic effect of konjac glucomannan via insulin signaling pathway regulation in high-fat diet and streptozotocin-induced diabetic rats, Food Research International 149 (2021) 110664. [PubMed: 34600666]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[230]** Chen H, Nie Q, Hu J, Huang X, Zhang K, Pan S, Nie S, Hypoglycemic and Hypolipidemic Effects of Glucomannan Extracted from Konjac on Type 2 Diabetic Rats, Journal of Agricultural and Food Chemistry 67(18) (2019) 5278–5288. [PubMed: 30964673]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[231]** Gan J, Liu C, Li H, Wang S, Wang Z, Kang Z, Huang Z, Zhang J, Wang C, Lv D, Dong L, Accelerated wound healing in diabetes by reprogramming the macrophages with particle-induced clustering of the mannose receptors, Biomaterials 219 (2019) 119340. [PubMed: 31357007]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[232]** Veerasubramanian PK, Thangavel P, Kannan R, Chakraborty S, Ramachandran B, Suguna L, Muthuvijayan V, An investigation of konjac glucomannan-keratin hydrogel scaffold loaded with Avena sativa extracts for diabetic wound healing, Colloids and Surfaces B: Biointerfaces 165 (2018) 92–102. [PubMed: 29471220]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[233]** Sierra M, García JJ, Fernández N, Diez MJ, Calle AP, Farmafibra G, Therapeutic effects of psyllium in type 2 diabetic patients, European Journal of Clinical Nutrition 56(9) (2002) 830– 842. [PubMed: 12209371]
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[234]** Ponrasu T, Veerasubramanian PK, Kannan R, Gopika S, Suguna L, Muthuvijayan V, Morin incorporated polysaccharide–protein (psyllium–keratin) hydrogel scaffolds accelerate diabetic wound healing in Wistar rats, RSC advances 8(5) (2018) 2305–2314.
+  - Role: herbal or antioxidant gel evidence
+  - Priority: medium
+  - Downstream action: Retrieve if this therapeutic/material branch is expanded; verify study design, model, treatment, endpoint, and quantitative result before reuse.
+- [ ] **[235]** Shen Y, Zeglinski MR, Turner CT, Raithatha SA, Wu Z, Russo V, Oram C, Hiroyasu S, Nabai L, Zhao H, Bozin T, Westendorf K, Kopko I, Huang R, Arns S, Tan J, Zeng H, Boey A, Liggins R, Jaquith J, Cameron DR, Papp A, Granville DJ, Topical small molecule granzyme B inhibitor improves remodeling in a murine model of impaired burn wound healing, Experimental & Molecular Medicine 50(5) (2018) 1–11.
+  - Role: translation, smart-hydrogel, manufacturing, or regulatory context
+  - Priority: medium
+  - Downstream action: Retrieve if translation, manufacturing, smart-hydrogel, or regulatory assumptions become decision-relevant.
+- [ ] **[236]** Burdick JA, Murphy WL, Moving from static to dynamic complexity in hydrogel design, Nature Communications 3(1) (2012) 1269.
+  - Role: translation, smart-hydrogel, manufacturing, or regulatory context
+  - Priority: medium
+  - Downstream action: Retrieve if translation, manufacturing, smart-hydrogel, or regulatory assumptions become decision-relevant.
+- [ ] **[237]** Sikdar PP, Uddin MM, Dip TM, Islam S, Hoque MS, Dhar AK, Wu S, Recent Advances in Smart Hydrogels Synthesis, Materials Advances (2021).
+  - Role: translation, smart-hydrogel, manufacturing, or regulatory context
+  - Priority: medium
+  - Downstream action: Retrieve if translation, manufacturing, smart-hydrogel, or regulatory assumptions become decision-relevant.
+- [ ] **[238]** Engler AJ, Sen S, Sweeney HL, Discher DE, Matrix elasticity directs stem cell lineage specification, Cell 126(4) (2006) 677–689. [PubMed: 16923388]
+  - Role: translation, smart-hydrogel, manufacturing, or regulatory context
+  - Priority: medium
+  - Downstream action: Retrieve if translation, manufacturing, smart-hydrogel, or regulatory assumptions become decision-relevant.
+- [ ] **[239]** Hendi A, Umair Hassan M., Elsherif M, Alqattan B, Park S, Yetisen AK, Butt H, Healthcare Applications of pH-Sensitive Hydrogel-Based Devices: A Review, International journal of nanomedicine 15 (2020) 3887–3901. [PubMed: 32581536]
+  - Role: translation, smart-hydrogel, manufacturing, or regulatory context
+  - Priority: medium
+  - Downstream action: Retrieve if translation, manufacturing, smart-hydrogel, or regulatory assumptions become decision-relevant.
+- [ ] **[240]** Serban MA, Translational biomaterials—the journey from the bench to the market—think ‘product’, Current Opinion in Biotechnology 40 (2016) 31–34. [PubMed: 26926461]
+  - Role: translation, smart-hydrogel, manufacturing, or regulatory context
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[241]** Williams DF, Challenges with the development of biomaterials for sustainable tissue engineering, Frontiers in bioengineering and biotechnology 7 (2019) 127. [PubMed: 31214584]
+  - Role: translation, smart-hydrogel, manufacturing, or regulatory context
+  - Priority: high
+  - Downstream action: Retrieve the cited source; determine whether it is primary or secondary. If primary, run source-level ATOM/SEA before promoting its findings as primary evidence.
+- [ ] **[242]** Mogoşanu GD, Grumezescu AM, Natural and synthetic polymers for wounds and burns dressing, International Journal of Pharmaceutics 463(2) (2014) 127–136. [PubMed: 24368109]
+  - Role: translation, smart-hydrogel, manufacturing, or regulatory context
+  - Priority: medium
+  - Downstream action: Retrieve if translation, manufacturing, smart-hydrogel, or regulatory assumptions become decision-relevant.
+- [ ] **[243]** Wang Z, Wang Z, Lu WW, Zhen W, Yang D, Peng S, Novel biomaterial strategies for controlled growth factor delivery for biomedical applications, NPG Asia Materials 9(10) (2017) e435–e435.
+  - Role: translation, smart-hydrogel, manufacturing, or regulatory context
+  - Priority: medium
+  - Downstream action: Retrieve if translation, manufacturing, smart-hydrogel, or regulatory assumptions become decision-relevant.
+- [ ] **[244]** Fenton OS, Olafson KN, Pillai PS, Mitchell MJ, Langer R, Advances in biomaterials for drug delivery, Advanced Materials 30(29) (2018) 1705328.
+  - Role: translation, smart-hydrogel, manufacturing, or regulatory context
+  - Priority: medium
+  - Downstream action: Retrieve if translation, manufacturing, smart-hydrogel, or regulatory assumptions become decision-relevant.
+- [ ] **[245]** EAGLSTEIN WH, The FDA drug approval process, Comprehensive Dermatologic Drug Therapy E-Book (2019) 49.
+  - Role: translation, smart-hydrogel, manufacturing, or regulatory context
+  - Priority: high
+  - Downstream action: Retrieve the cited source and verify the historical claim; before any practice use, separately verify current regulatory/guideline status.

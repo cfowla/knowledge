@@ -1,35 +1,59 @@
 {
-  "activated_macros": [
-    "@ATOM",
-    "@SEA"
-  ],
   "source": {
-    "title": "PLATEAU IRIS SYNDROME - CASE SERIES",
+    "slug": "30-RomJOphthalmol-59-188",
+    "title": "PLATEAU IRIS SYNDROME – CASE SERIES",
     "authors": [
       "Crenguța Ioana Feraru",
       "Anca Delia Pantalon",
       "Dorin Chiselita",
       "Daniel Branisteanu"
     ],
+    "citation": "Romanian Journal of Ophthalmology. 2015;59(3):188-193.",
     "journal": "Romanian Journal of Ophthalmology",
-    "citation": "2015;59(3):188-193",
+    "year": 2015,
+    "volume": "59",
+    "issue": "3",
+    "pages": "188-193",
     "accepted_date": "2015-07-24",
-    "source_type": "case report / two-case series",
+    "doi": null,
+    "pmid": "26978890",
+    "pmcid": "PMC5712967",
+    "source_type": "two-patient case series / case reports",
     "source_file": "RomJOphthalmol-59-188.pdf",
-    "source_drive_url": "https://drive.google.com/file/d/1bMsiy7wMfoDLL6GqTBTiv9iaHSD61wuJ/view?usp=drivesdk",
-    "pdf_pages": 6,
-    "printed_pages": "188-193",
+    "source_drive_file_id": "1bMsiy7wMfoDLL6GqTBTiv9iaHSD61wuJ",
     "source_sha256": "7d1d7a86d2dba173848a2c8cf9063dca5fb2f9958aa1caa946b35cc9a40ff04a",
-    "publication_id": "87f34a87-dd8f-5fa7-a88d-4d105250f47f"
+    "pdf_pages": 6,
+    "journal_pages": "188-193",
+    "publication_id": "2d0bd984-c8cf-525f-8147-f6a26a58841a",
+    "metadata_provenance": {
+      "title_authors_journal_year_pages": "supplied primary PDF",
+      "pmid_pmcid": "PubMed/PMC external identity verification; title, authors, journal, volume, issue, and pages match the supplied PDF",
+      "doi": "No DOI listed in the supplied PDF or PubMed record inspected during repair."
+    }
+  },
+  "authoritative_validation_order": [
+    "literature.py Pydantic structural validation",
+    "literature_atom.schema.json JSON Schema validation",
+    "literature_atoms.py atom-kind sufficiency validation"
+  ],
+  "governing_source_hashes": {
+    "literature.py": "9a29afa26406f23077a1e372f1ffc72e58c3a575d5e886f6fb690c9a6ed3be07",
+    "literature_atoms.py": "188a7b6a16bbe1be695e34895594aa204853590746a69dbb8446aa552258fdca",
+    "literature_atom.schema.json": "c291c89510ef5b0e451a23ce5f88702d4d55230249b50dfcf1e8324f7110dd0e",
+    "README(2).md": "8eda60c329f250c72beeed70cf8c029764330b2fb76868e401cecf17af9de877",
+    "example_atom.json": "e465720a905a37ff61f19de1fff5df6b2fffb477790b456f1ce3c73dad5d689c",
+    "SEA protocol v4": "a8c43bb46413d9864d6e4ee1d075eb435525f95d87d4d0232b78b89e6b363d7a"
   },
   "atom_count": 26,
   "atom_counts_by_kind": {
-    "author_conclusion": 5,
+    "author_conclusion": 2,
     "funding_disclosure": 1,
     "intervention_description": 3,
-    "other": 11,
+    "limitation": 1,
+    "other": 1,
     "population_description": 2,
-    "qualitative_result": 3,
+    "qualitative_result": 11,
+    "quantitative_result": 4,
     "study_objective": 1
   },
   "pydantic_structural_validation": "passed",
@@ -39,29 +63,82 @@
   "json_schema_errors": [],
   "sufficiency_errors": [],
   "sufficiency_warnings": [],
-  "duplicate_review": {
-    "unique_atom_ids": true,
-    "duplicate_statement_anchor_pairs": []
-  },
-  "schema_gaps": [
-    "The current LiteratureAtom schema has no dedicated case-observation kind for isolated numeric clinical measurements that lack a modeled intervention or comparator. These case measurements are retained as atom_kind=other rather than forced into quantitative_result."
+  "unique_atom_ids": true,
+  "shared_publication_id": true,
+  "duplicate_canonical_statements": 0,
+  "provenance_source_hash_match": true,
+  "source_anchor_presence": true,
+  "source_internal_consistency_findings": [
+    {
+      "severity": "warning",
+      "topic": "plateau iris syndrome terminology / Case 1 sequence",
+      "source_definition": "The article defines plateau iris syndrome as recurrent/persistent gonioscopically confirmed angle closure after a patent iridotomy.",
+      "case_1_sequence": "Case 1 is labeled plateau iris syndrome before the report states that peripheral laser iridotomy and ALPI were then performed; no earlier iridotomy is documented in the case narrative.",
+      "status": "unresolved source-level terminology/sequence inconsistency",
+      "handling": "Preserved without rewriting the case history; artifacts distinguish the source definition from the reported Case 1 sequence."
+    },
+    {
+      "severity": "warning",
+      "topic": "Case 2 prior fundus C/D eye label",
+      "source_text": "The prior-visit narrative prints “C/D ratio OD=0.5, OD=0.6.”",
+      "status": "apparent duplicated OD eye label in the supplied source",
+      "handling": "Not silently corrected; the prior-visit C/D pair was not normalized into a structured atom."
+    }
   ],
+  "semantic_spot_checks": [
+    {
+      "claim": "Primary result/conclusion",
+      "status": "pass",
+      "source": "Cases 1-2 and Discussion, pp. 189-192",
+      "check": "Atoms preserve the plateau-iris diagnostic pattern, both treatment sequences, follow-up angle status, and the authors’ surveillance/ALPI statements without upgrading the case series into comparative efficacy evidence."
+    },
+    {
+      "claim": "Numerical claim",
+      "status": "pass",
+      "source": "Case 1, pp. 189-190",
+      "check": "Atoms preserve Case 1 IOP 70/36 mmHg at presentation, 21/15 mmHg after laser procedures, and 15/15 mmHg at last control."
+    },
+    {
+      "claim": "Uncertainty/limitation",
+      "status": "pass",
+      "source": "Article design plus Case 2 retinal differential",
+      "check": "Atoms label autosomal recessive bestrophinopathy as presumed/unconfirmed and explicitly mark the two-case/no-comparator evidence boundary as extractor inference rather than reported data."
+    },
+    {
+      "claim": "Figure-derived claim",
+      "status": "pass",
+      "source": "Figures 11-12, p. 191",
+      "check": "Visual inspection confirms the closed-angle and double-hump gonioscopy images used in Case 2; the linked atom preserves the reported 270-degree closure and 360-degree opening with indentation."
+    }
+  ],
+  "merge_integrity": {
+    "batches": 1,
+    "cross_batch_duplicates_not_applicable": true,
+    "source_version": "sha256:7d1d7a86d2dba173848a2c8cf9063dca5fb2f9958aa1caa946b35cc9a40ff04a"
+  },
+  "blocking_error_count": 0,
+  "warnings": [
+    {
+      "severity": "warning",
+      "topic": "plateau iris syndrome terminology / Case 1 sequence",
+      "source_definition": "The article defines plateau iris syndrome as recurrent/persistent gonioscopically confirmed angle closure after a patent iridotomy.",
+      "case_1_sequence": "Case 1 is labeled plateau iris syndrome before the report states that peripheral laser iridotomy and ALPI were then performed; no earlier iridotomy is documented in the case narrative.",
+      "status": "unresolved source-level terminology/sequence inconsistency",
+      "handling": "Preserved without rewriting the case history; artifacts distinguish the source definition from the reported Case 1 sequence."
+    },
+    {
+      "severity": "warning",
+      "topic": "Case 2 prior fundus C/D eye label",
+      "source_text": "The prior-visit narrative prints “C/D ratio OD=0.5, OD=0.6.”",
+      "status": "apparent duplicated OD eye label in the supplied source",
+      "handling": "Not silently corrected; the prior-visit C/D pair was not normalized into a structured atom."
+    }
+  ],
+  "validation_status": "PASS",
   "extraction_limitations": [
-    "This is a two-patient case report without a comparator group, prespecified outcomes, or inferential statistics.",
-    "Clinical management statements in the Discussion partly summarize cited literature and should not be treated as effect estimates generated by these two cases.",
-    "All model-extracted atoms remain needs_review because no independent human reviewer step is represented.",
-    "No external current-practice verification was performed because @VERIFY was not activated."
-  ],
-  "governing_source_execution": {
-    "literature.py": "executed from supplied /mnt/data/literature(1).py",
-    "literature_atoms.py": "executed from supplied /mnt/data/literature_atoms(1).py",
-    "literature_atom.schema.json": "executed from supplied /mnt/data/literature_atom.schema.json",
-    "README(2).md": "read and applied",
-    "example_atom.json": "read as illustrative only",
-    "summary-evaluation-appraisal-protocol-v4-compact.md": "read and applied as governing SEA file",
-    "large-source-ATOM-SEA.md": "applied as supporting workflow guidance",
-    "unslop.skill.md": "retrieved from File Library and applied to prose artifacts"
-  },
-  "protocol_version_note": "The governing filename is summary-evaluation-appraisal-protocol-v4-compact.md, while its internal heading identifies Integrated Compact v3. The file was treated as authoritative because project precedence names this exact file.",
-  "generated_at": "2026-08-24T10:36:27Z"
+    "The article is a two-patient case series with no formal Methods section, comparator, sampling frame, or inferential analysis.",
+    "Several management statements in the Introduction/Discussion summarize cited literature and are tagged as secondary-reported management context rather than treated as efficacy findings generated by these cases.",
+    "The supplied PDF contains no formal limitations section; the limitation atom is explicitly extractor inference.",
+    "The bibliography is provenance/reference-processing infrastructure and was not atomized."
+  ]
 }

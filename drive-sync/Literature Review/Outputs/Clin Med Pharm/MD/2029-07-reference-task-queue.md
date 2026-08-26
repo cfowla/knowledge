@@ -3,6 +3,12 @@
 Primary article: *Severe Necrotizing Fasciitis in a Human Immunodeficiency Virus-Positive Patient Caused by Methicillin-Resistant Staphylococcus aureus*
 DOI: 10.1128/JCM.02029-07
 
+## Packet repair verification
+
+- Reference extraction/reconciliation: **COMPLETE — 37/37 source references represented, numbered 1–37 with no numbering gaps.**
+- Queue checkboxes remain intentionally open because they represent downstream reading/acquisition tasks; they are not evidence that this packet’s reference extraction is incomplete.
+- The source bibliography was visually inspected on pages 1146–1147 and reconciled against this queue.
+
 ## Queue
 
 - [ ] **Ref 1.** Aronoff DM, Bloch KC. 2003. Assessing the relationship between the use of nonsteroidal antiinflammatory drugs and necrotizing fasciitis caused by group A streptococcus. Medicine (Baltimore) 82:225–235.

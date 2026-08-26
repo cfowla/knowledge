@@ -1,76 +1,107 @@
 {
-  "source_metadata": {
+  "source": {
+    "slug": "40-wharton-2021-semaglutide-gi-tolerability",
     "title": "Gastrointestinal tolerability of once-weekly semaglutide 2.4 mg in adults with overweight or obesity, and the relationship between gastrointestinal adverse events and weight loss",
-    "authors": [
-      "Sean Wharton",
-      "Salvatore Calanna",
-      "Melanie Davies",
-      "Dror Dicker",
-      "Bryan Goldman",
-      "Ildiko Lingvay",
-      "Ofri Mosenzon",
-      "Domenica M. Rubino",
-      "Mette Thomsen",
-      "Thomas A. Wadden",
-      "Sue D. Pedersen"
-    ],
-    "journal": "Diabetes, Obesity and Metabolism",
+    "citation": "Diabetes Obes Metab. 2022;24(1):94-105",
     "doi": "10.1111/dom.14551",
-    "first_published": "2021-09-13",
-    "print_citation": "2022;24(1):94-105",
-    "publication_id": "fa91a8b3-3bbe-5f55-b8cd-184c1d0bf4e0",
-    "source_files": [
-      {
-        "name": "primary article PDF",
-        "sha256": "a97adb9d84aaccfc5f106264e5332029ac622ef09b13c3746db801439ce030f6"
-      },
-      {
-        "name": "File S1 supplement DOCX",
-        "sha256": "723afc59f168b26ece87422c77e936ade573fca8c896427a391da59f4dd2cdbe"
-      }
-    ]
+    "source_type": "post-hoc pooled analysis of STEP 1-3 randomized phase III trials plus separate STEP 4 randomized-withdrawal analysis",
+    "primary_source_file": "Diabetes Obesity Metabolism - 2021 - Wharton - Gastrointestinal tolerability of once‐weekly semaglutide 2 4 mg in adults.pdf",
+    "primary_drive_file_id": "1er5T7rdxIc3xYXJvZxUnjt6_pDMnQGz_",
+    "primary_sha256": "a97adb9d84aaccfc5f106264e5332029ac622ef09b13c3746db801439ce030f6",
+    "primary_pdf_pages": 12,
+    "supplement_file": "dom14551-sup-0001-supinfo.docx",
+    "supplement_drive_file_id": "1WUqzEcQsldELOM3wnpbqphoj8gcfEKR-",
+    "supplement_sha256": "723afc59f168b26ece87422c77e936ade573fca8c896427a391da59f4dd2cdbe",
+    "combined_source_hash": "12a749330215b64648ae99617ad1d80e38a78820dfb8339f303935865a8ce015",
+    "publication_id": "fa91a8b3-3bbe-5f55-b8cd-184c1d0bf4e0"
   },
-  "atom_count": 47,
-  "counts_by_kind": {
-    "adverse_event": 15,
-    "author_conclusion": 1,
-    "conflict_of_interest": 1,
-    "data_availability": 1,
-    "eligibility_criterion": 2,
-    "funding_disclosure": 1,
-    "intervention_description": 1,
-    "limitation": 5,
-    "method": 7,
-    "population_description": 2,
-    "quantitative_result": 7,
-    "study_objective": 1,
-    "subgroup_result": 3
+  "validation_summary": {
+    "pydantic_structural_validation": "PASS",
+    "json_schema_validation": "PASS",
+    "sufficiency_validation": "PASS",
+    "structural_error_count": 0,
+    "schema_error_count": 0,
+    "sufficiency_error_count": 0,
+    "sufficiency_warning_count": 0,
+    "shared_publication_id": true,
+    "unique_atom_ids": true,
+    "duplicate_statement_anchor_pairs": 0,
+    "atom_count": 54
   },
-  "structural_validation": {
-    "valid": true,
-    "errors": []
-  },
-  "sufficiency_validation": {
-    "valid": true,
-    "errors": [],
-    "warnings": []
-  },
+  "structural_errors": [],
+  "schema_errors": [],
+  "sufficiency_issues": [],
   "duplicate_review": {
-    "status": "completed",
-    "finding": "No duplicate atom IDs or same-anchor/canonical-statement duplicates detected."
+    "duplicate_atom_ids": [],
+    "exact_duplicate_statement_anchor_pairs": []
   },
-  "consistency_review": {
-    "status": "completed",
-    "finding": "STEP 1-3 pooled adverse-event denominators (2116/1261) differ by one participant per arm from randomized counts (2117/1262); atoms preserve the analysis-specific denominators where available."
-  },
-  "extraction_limitations": [
-    "The publication is a post-hoc pooled analysis of STEP 1-3 plus a separate STEP 4 withdrawal analysis; it is not a newly randomized trial specifically designed around the post-hoc mediation question.",
-    "The mediation analysis depends on no-unmeasured-confounding assumptions for post-randomization GI adverse events.",
-    "STEP 4 randomized-period tolerability applies to participants who tolerated semaglutide 2.4 mg through the 20-week run-in and therefore is not an unselected initiation population.",
-    "The descriptive week-68 weight analysis excludes participants who discontinued treatment before week 68."
+  "source_integrity_notes": [
+    "The article reports post-hoc pooled STEP 1-3 analyses and a separate STEP 4 withdrawal analysis; the two designs are not merged into one randomized comparison.",
+    "The STEP 4 post-randomization population is enriched for participants who tolerated semaglutide 2.4 mg during run-in; this selection boundary is preserved.",
+    "Weight-loss subgroup analyses are descriptive and use observed on-treatment week-68 data; they are not represented as randomized subgroup effects.",
+    "Mediation estimates are represented as post-hoc model-derived estimates and are not promoted to causal certainty beyond the source wording.",
+    "All model-extracted atoms remain needs_review because no independent human reviewer step is represented."
   ],
-  "schema_gaps": [
-    "The current LiteratureAtom schema has no dedicated mediation-effect context or post-randomization mediator object; mediation effects are represented as quantitative_result atoms with descriptive tags.",
-    "The schema has no dedicated sponsor-role or author-employment structure; funding and conflicts are represented as their supported atom kinds with canonical statements."
-  ]
+  "semantic_spot_checks": [
+    {
+      "claim": "Primary safety result",
+      "source": "Primary PDF abstract/results and File S1 Table S2",
+      "expected": "Any GI AE 72.9% semaglutide vs 47.1% placebo; most events non-serious/mild-to-moderate.",
+      "status": "PASS"
+    },
+    {
+      "claim": "Numerical tolerability claim",
+      "source": "File S1 Table S2",
+      "expected": "Nausea 43.9% vs 16.1%; diarrhoea 29.7% vs 15.9%; vomiting 24.5% vs 6.3%; constipation 24.2% vs 11.1%.",
+      "status": "PASS"
+    },
+    {
+      "claim": "Weight-loss mediation",
+      "source": "Primary PDF Figure 4",
+      "expected": "Any-GI mediated effects were less than 1 percentage point in STEP 1-3 relative to total treatment effects of 7.57-14.39 percentage points.",
+      "status": "PASS"
+    },
+    {
+      "claim": "Limitation",
+      "source": "Primary PDF Discussion p.103",
+      "expected": "Post-hoc/exploratory analyses, mediator timing, on-treatment selection, mediation confounding assumptions, STEP 4 reporting bias, and trial-setting limits represented.",
+      "status": "PASS"
+    },
+    {
+      "claim": "Figure/table-derived adherence",
+      "source": "Primary PDF Table 1",
+      "expected": "On-treatment at week 68 was 83.1% with GI AEs, 86.7% without GI AEs, and 74.0% in the dose-reduction/interruption subgroup.",
+      "status": "PASS"
+    }
+  ],
+  "governing_source_execution": {
+    "literature.py": "executed directly from supplied /mnt/data/literature(1).py",
+    "literature_atom.schema.json": "executed directly from supplied /mnt/data/literature_atom.schema.json",
+    "literature_atoms.py": "executed directly from supplied /mnt/data/literature_atoms(1).py",
+    "README(2).md": "read and applied as workflow intent",
+    "example_atom.json": "illustrative only",
+    "summary-evaluation-appraisal-protocol-v4-compact.md": "read and applied as governing SEA file",
+    "large-source-ATOM-SEA.md": "applied as supporting coverage guidance"
+  },
+  "protocol_version_note": "The governing filename is summary-evaluation-appraisal-protocol-v4-compact.md while its internal heading says Integrated Compact v3. Project precedence designates the v4-named file as authoritative.",
+  "sea_html_qa": {
+    "html_bytes": 25629,
+    "parseable": true,
+    "parsed_title": "SEA — Wharton et al. semaglutide GI tolerability",
+    "toc_missing_targets": [],
+    "forbidden_or_placeholder_patterns_present": [],
+    "doi_present": true,
+    "source_title_present": true,
+    "methods_design_present": true,
+    "primary_result_present": true,
+    "weight_mediation_present": true,
+    "limitations_present": true,
+    "main_figures_reconciled": true,
+    "main_table_reconciled": true,
+    "supp_tables_reconciled": true,
+    "supp_figures_reconciled": true,
+    "provenance_present": true,
+    "overall_status": "PASS"
+  },
+  "generated_at": "2026-08-25T10:15:00Z"
 }
