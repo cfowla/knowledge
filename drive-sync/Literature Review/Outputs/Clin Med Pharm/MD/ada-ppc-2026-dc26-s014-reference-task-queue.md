@@ -6,10 +6,12 @@ Bibliography entries extracted and reconciled: **251/251**
 
 Priorities are workflow triage labels, not evidence grades: **P0** = direct/central evidence, trials, guidelines, systematic reviews/meta-analyses, or major registries behind load-bearing recommendations or claims; **P1** = recent/high-value supporting evidence (generally 2022 or later when not already P0); **P2** = contextual or historical supporting evidence. Bibliography entries are provenance infrastructure and are not LiteratureAtoms.
 
-Counts: P0 **107** · P1 **47** · P2 **97**
+Counts: P0 **107** · P1 **42** · P2 **102**
+
+Extraction note: Bibliography text was reconstructed in PDF column-reading order and page headers, page labels, and library download stamps were excluded before numbering/reconciliation.
 
 ## 1. [P1]
-American Academy of Pediatrics. Recommended Child and Adolescent Immunization Schedule for Ages 18 Years or Younger. 2025. Accessed 21 August 2025. Available from https://aap2.silverchair-cdn .com/aap2/content_public/cms/resources/15585/018yrs-child-combined-schedule.pdf?Expires= 2147483647&Signature=GDx7iGeLG8m9wTAJu JPB0P7WFujPrQqPr9aQC4T1PzpYHKdkukTOTSPo 3PSdsyNNum1CFFzShl7muP1SFGggziJnYf7zA GKZZx4Ky4Q0BAhbsOXLby4c
+American Academy of Pediatrics. Recommended Child and Adolescent Immunization Schedule for Ages 18 Years or Younger. 2025. Accessed 21 August 2025. Available from https://aap2.silverchair-cdn .com/aap2/content_public/cms/resources/15585/0- 18yrs-child-combined-schedule.pdf?Expires= 2147483647&Signature=GDx7iGeLG8m9wTAJu JPB0P7WFujPrQqPr9aQC4T1PzpYHKdkukTOTSPo 3PSdsyNNum1CFFzShl7muP1SFGggziJnYf7zA GKZZx4Ky4Q0BAhbsOXLby4c
 
 Queue rationale: Recent/high-value supporting evidence retained for follow-up but not classified as a central P0 source by the queue heuristic.
 
@@ -113,18 +115,18 @@ Driscoll KA, Volkening LK, Haro H, et al. Are children with type 1 diabetes safe
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
-## 22. [P0]
-Kubota-Mishra E, Huang X, Minard CG, et al.; RADIANT Study Group. High prevalence of A-β+ ketosis-prone diabetes in children with type 2 Downloaded from diabetesjournals.​org/​care/​article-pdf/​49/​Supplement_1/​S297/​848841/​dc26s014.​pdf by Duke University Medical Center Library user on 21 August 2026 Care and close supervision of diabetes management are increasingly shifted from parents and other adults to the young people with type 1 or type 2 diabetes throughout childhood and adolescence. The shift from pediatric to adult health care professionals, however, often occurs abruptly as the older teen enters the next developmental stage, referred to as emerging adulthood (237), which is a critical period for young people who have diabetes. During this period of major life transitions, adolescents and young adults may begin to move out of their parents’ or caregivers’ homes and become increasingly responsible for their diabetes care. Their new responsibilities include self-management of their diabetes, scheduling and attending medical appointments, ensuring timely prescription refills, and financing health care once they are no longer covered by their parents’ health insurance plans (ongoing coverage until age 26 years is currently available under provisions of the U.S. Affordable Care Act). In addition to lapses in health care, this is also a period associated with deterioration in glycemic stability; increased occurrence of acute complications; psychosocial, emotional, and behavioral challenges; and the emergence of chronic complications (238,239). The transfer period from pediatric to adult care is prone to fragmentation in health care delivery, which may adversely impact health care quality, cost, and outcomes (240). Worsening diabetes health outcomes during the transition to adult care and early adulthood have been documented (241,242). Comprehensive and coordinated planning that begins in early adolescence is necessary to facilitate a seamless transition from pediatric to adult health care (238). Research on effective interventions to promote successful transition to adult care is limited, although there are promising developments that may improve attendance at follow-up appointments and lower hospitalizations (243,244). Use of transition coordinators, technology to support communication with young adults, and other interventions may be useful in addressing the identified needs and preferences of young adults for transition (245) and in supporting successful establishment in adult care settings (246–249). Given the behavioral, psychosocial, and developmental factors that relate to this transition, diabetes care teams addressing Diabetes Care Volume 49, Supplement 1, January 2026 diabetesjournals.org/care scanned CGM (isCGM) systems in type 1 diabetes: position statement of the European Association for the Study of Diabetes (EASD) and of the International Society for Pediatric and Adolescent Diabetes (ISPAD) endorsed by JDRF and supported by the American Diabetes Association (ADA). Diabetologia 2020;63:2501–2520
+## 22. [P1]
+Kubota-Mishra E, Huang X, Minard CG, et al.; RADIANT Study Group. High prevalence of A-β+ ketosis-prone diabetes in children with type 2 diabetes and diabetic ketoacidosis at diagnosis: evidence from the Rare and Atypical Diabetes Network (RADIANT). Pediatr Diabetes 2024;2024: 5907924
 
-Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
+Queue rationale: Recent/high-value supporting evidence retained for follow-up but not classified as a central P0 source by the queue heuristic.
 
 ## 23. [P0]
-Muñoz-Pardeza J, López-Gil JF, Huerta-Uribe N, Hormazábal-Aguayo I, Izquierdo M, GarcíaHermoso A. Nonpharmacological interventions on glycated haemoglobin in youth with type 1 diabetes: a Bayesian network meta-analysis. Cardiovasc Diabetol 2024;23:230
+Muñoz-Pardeza J, López-Gil JF, Huerta-Uribe N, Hormazábal-Aguayo I, Izquierdo M, García- Hermoso A. Nonpharmacological interventions on glycated haemoglobin in youth with type 1 diabetes: a Bayesian network meta-analysis. Cardiovasc Diabetol 2024;23:230
 
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
 ## 24. [P0]
-U.S. Department of Agriculture and U.S. Department of Health and Human Services. Dietary Guidelines for Americans, 2020–2025. Accessed 30 August 2025. Available from https:// www.dietaryguidelines.gov/sites/default/files/ 2021-03/Dietary_Guidelines_for_Americans2020-2025.pdf
+U.S. Department of Agriculture and U.S. Department of Health and Human Services. Dietary Guidelines for Americans, 2020–2025. Accessed 30 August 2025. Available from https:// www.dietaryguidelines.gov/sites/default/files/ 2021-03/Dietary_Guidelines_for_Americans- 2020-2025.pdf
 
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
@@ -174,7 +176,7 @@ Slaght JL, Wicklow BA, Dart AB, et al. Physical activity and cardiometabolic hea
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
 ## 34. [P0]
-U.S. Department of Health and Human Services. Physical Activity Guidelines for Americans, 2nd ed. Accessed 23 August 2025. Available from https://odphp.health.gov/sites/default/files/201909/Physical_Activity_Guidelines_2nd_edition.pdf
+U.S. Department of Health and Human Services. Physical Activity Guidelines for Americans, 2nd ed. Accessed 23 August 2025. Available from https://odphp.health.gov/sites/default/files/2019- 09/Physical_Activity_Guidelines_2nd_edition.pdf
 
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
@@ -183,10 +185,10 @@ Colberg SR, Sigal RJ, Yardley JE, et al. Physical activity/exercise and diabetes
 
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
-## 36. [P2]
-Moser O, Riddell MC, Eckstein ML, et al. Glucose management for exercise using continuous glucose monitoring (CGM) and intermittently Children and Adolescents S316 Children and Adolescents
+## 36. [P0]
+Moser O, Riddell MC, Eckstein ML, et al. Glucose management for exercise using continuous glucose monitoring (CGM) and intermittently scanned CGM (isCGM) systems in type 1 diabetes: position statement of the European Association for the Study of Diabetes (EASD) and of the International Society for Pediatric and Adolescent Diabetes (ISPAD) endorsed by JDRF and supported by the American Diabetes Association (ADA). Diabetologia 2020;63:2501–2520
 
-Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
+Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
 ## 37. [P0]
 Adolfsson P, Taplin CE, Zaharieva DP, et al. ISPAD Clinical Practice Consensus Guidelines 2022: exercise in children and adolescents with diabetes. Pediatr Diabetes 2022;23:1341–1372
@@ -289,7 +291,7 @@ Pursey KM, Hart M, Jenkins L, McEvoy M, Smart CE. Screening and identification o
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
 ## 57. [P2]
-Wisting L, Frøisland DH, Skrivarhaug T, DahlJørgensen K, Rø O. Disturbed eating behavior and omission of insulin in adolescents receiving intensified insulin treatment: a nationwide population-based study. Diabetes Care 2013;36: 3382–3387
+Wisting L, Frøisland DH, Skrivarhaug T, Dahl- Jørgensen K, Rø O. Disturbed eating behavior and omission of insulin in adolescents receiving intensified insulin treatment: a nationwide population-based study. Diabetes Care 2013;36: 3382–3387
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
@@ -328,10 +330,10 @@ Kichler JC, Harris MA, Weissberg-Benchell J. Contemporary roles of the pediatric
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
-## 65. [P1]
-Hilliard ME, Powell PW, Anderson BJ. Evidencebased behavioral interventions to promote diabetes management in children, adolescents, and families. Am Psychol 2016;71:590–601 S315 Downloaded from diabetesjournals.​org/​care/​article-pdf/​49/​Supplement_1/​S297/​848841/​dc26s014.​pdf by Duke University Medical Center Library user on 21 August 2026 diabetes and diabetic ketoacidosis at diagnosis: evidence from the Rare and Atypical Diabetes Network (RADIANT). Pediatr Diabetes 2024;2024: 5907924
+## 65. [P2]
+Hilliard ME, Powell PW, Anderson BJ. Evidencebased behavioral interventions to promote diabetes management in children, adolescents, and families. Am Psychol 2016;71:590–601
 
-Queue rationale: Recent/high-value supporting evidence retained for follow-up but not classified as a central P0 source by the queue heuristic.
+Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
 ## 66. [P2]
 Van Vleet M, Helgeson VS. Friend and peer relationships among youth with type 1 diabetes. In Behavioral diabetes: social ecological perspectives for pediatric and adult populations. Cham, Switzerland, Springer Nature Switzerland AG, 2020. pp. 121–138
@@ -403,13 +405,13 @@ Nathan DM, Genuth S, Lachin J, et al.; Diabetes Control and Complications Trial 
 
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
-## 80. [P1]
-Gerhardsson P, Schwandt A, Witsch M, et al. The SWEET Project 10-year benchmarking in 19 countries worldwide is associated with improved HbA1c and increased use of diabetes technology in youth with type 1 diabetes. Diabetes Technol Ther 2021;23:491–499 Diabetes Care Volume 49, Supplement 1, January 2026 diabetesjournals.org/care on intermittent sports performance. Nutrients 2015;7:5733–5763
+## 80. [P2]
+Gerhardsson P, Schwandt A, Witsch M, et al. The SWEET Project 10-year benchmarking in 19 countries worldwide is associated with improved HbA1c and increased use of diabetes technology in youth with type 1 diabetes. Diabetes Technol Ther 2021;23:491–499
 
-Queue rationale: Recent/high-value supporting evidence retained for follow-up but not classified as a central P0 source by the queue heuristic.
+Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
 ## 81. [P1]
-Zimmermann AT, Lanzinger S, Kummernes SJ, et al. Treatment regimens and glycaemic outcomes in more than 100 000 children with type 1 diabetes (2013-22): a longitudinal analysis of data from paediatric diabetes registries. Lancet Diabetes Endocrinol 2025;13:47–56
+Zimmermann AT, Lanzinger S, Kummernes SJ, et al. Treatment regimens and glycaemic outcomes in more than 100000 children with type 1 diabetes (2013-22): a longitudinal analysis of data from paediatric diabetes registries. Lancet Diabetes Endocrinol 2025;13:47–56
 
 Queue rationale: Recent/high-value supporting evidence retained for follow-up but not classified as a central P0 source by the queue heuristic.
 
@@ -523,10 +525,10 @@ Petersson J, Åkesson K, Sundberg F, Särnblad S. Translating glycated hemoglobi
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
-## 104. [P1]
-Riddlesworth TD, Beck RW, Gal RL, et al. Optimal sampling duration for continuous glucose Downloaded from diabetesjournals.​org/​care/​article-pdf/​49/​Supplement_1/​S297/​848841/​dc26s014.​pdf by Duke University Medical Center Library user on 21 August 2026
+## 104. [P2]
+Riddlesworth TD, Beck RW, Gal RL, et al. Optimal sampling duration for continuous glucose monitoring to determine long-term glycemic control. Diabetes Technol Ther 2018;20:314–316
 
-Queue rationale: Recent/high-value supporting evidence retained for follow-up but not classified as a central P0 source by the queue heuristic.
+Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
 ## 105. [P1]
 Gera S, Rearson A, Gallop RJ, Marks BE. Minimum continuous glucose monitor data required to assess glycemic control in youth with type 1 diabetes. Diabetes Technol Ther 2025:10.1089/ dia.2025.0173
@@ -589,12 +591,12 @@ Da Prato G, Pasquini S, Rinaldi E, et al. Accuracy of CGM systems during continu
 Queue rationale: Recent/high-value supporting evidence retained for follow-up but not classified as a central P0 source by the queue heuristic.
 
 ## 117. [P2]
-Aj�cevi�c M, Candido R, Assaloni R, Accardo A, Francescato MP. Personalized approach for the management of exercise-related glycemic imbalances in type 1 diabetes: comparison with reference method. J Diabetes Sci Technol 2021; 15:1153–1160
+Ajcevic M, Candido R, Assaloni R, Accardo A, Francescato MP. Personalized approach for the management of exercise-related glycemic imbalances in type 1 diabetes: comparison with reference method. J Diabetes Sci Technol 2021; 15:1153–1160
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
 ## 118. [P2]
-Baker LB, Rollo I, Stein KW, Jeukendrup AE. Acute effects of carbohydrate supplementation Children and Adolescents S318 Children and Adolescents
+Baker LB, Rollo I, Stein KW, Jeukendrup AE. Acute effects of carbohydrate supplementation on intermittent sports performance. Nutrients 2015;7:5733–5763
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
@@ -744,14 +746,14 @@ Kelly AS, Auerbach P, Barrientos-Perez M, et al.; NN8022-4180 Trial Investigator
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
 ## 148. [P0]
-Hannon TS, Chao LC, Barrientos-Pérez M, et al. Efficacy and safety of tirzepatide in children and adolescents with type 2 diabetes (SURPASSPEDS): a randomised, double-blind, placebocontrolled, phase 3 trial. Lancet 2025;406: 1484–1496
+Hannon TS, Chao LC, Barrientos-Pérez M, et al. Efficacy and safety of tirzepatide in children and adolescents with type 2 diabetes (SURPASS- PEDS): a randomised, double-blind, placebocontrolled, phase 3 trial. Lancet 2025;406: 1484–1496
 
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
-## 149. [P1]
-Laffel LM, Danne T, Klingensmith GJ, et al.; DINAMO Study Group. Efficacy and safety of the SGLT2 inhibitor empagliflozin versus placebo and the DPP-4 inhibitor linagliptin versus placebo in S317 Downloaded from diabetesjournals.​org/​care/​article-pdf/​49/​Supplement_1/​S297/​848841/​dc26s014.​pdf by Duke University Medical Center Library user on 21 August 2026 monitoring to determine long-term glycemic control. Diabetes Technol Ther 2018;20:314–316
+## 149. [P0]
+Laffel LM, Danne T, Klingensmith GJ, et al.; DINAMO Study Group. Efficacy and safety of the SGLT2 inhibitor empagliflozin versus placebo and the DPP-4 inhibitor linagliptin versus placebo in young people with type 2 diabetes (DINAMO): a multicentre, randomised, double-blind, parallel group, phase 3 trial. Lancet Diabetes Endocrinol 2023;11:169–181
 
-Queue rationale: Recent/high-value supporting evidence retained for follow-up but not classified as a central P0 source by the queue heuristic.
+Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
 ## 150. [P0]
 Tamborlane WV, Laffel LM, Shehadeh N, et al. Efficacy and safety of dapagliflozin in children and young adults with type 2 diabetes: a prospective, multicentre, randomised, parallel group, phase 3 study. Lancet Diabetes Endocrinol 2022;10:341–350
@@ -789,7 +791,7 @@ Beamish AJ, Ryan Harper E, Järvholm K, Janson A, Olbers T. Long-term outcomes f
 Queue rationale: Recent/high-value supporting evidence retained for follow-up but not classified as a central P0 source by the queue heuristic.
 
 ## 157. [P2]
-Inge TH, Zeller M, Harmon C, et al. TeenLongitudinal Assessment of Bariatric Surgery: methodological features of the first prospective multicenter study of adolescent bariatric surgery. J Pediatr Surg 2007;42:1969–1971
+Inge TH, Zeller M, Harmon C, et al. Teen- Longitudinal Assessment of Bariatric Surgery: methodological features of the first prospective multicenter study of adolescent bariatric surgery. J Pediatr Surg 2007;42:1969–1971
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
@@ -818,10 +820,10 @@ Göthberg G, Gronowitz E, Flodmark C-E, et al. Laparoscopic Roux-en-Y gastric by
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
-## 163. [P1]
-Inge TH, Prigeon RL, Elder DA, et al. Insulin sensitivity and β-cell function improve after gastric bypass in severely obese adolescents. J Pediatr 2015;167:1042–1048.e1 e1041 Diabetes Care Volume 49, Supplement 1, January 2026 diabetesjournals.org/care adults with type 1 diabetes. Diabetes Care 2017;40:30–37
+## 163. [P2]
+Inge TH, Prigeon RL, Elder DA, et al. Insulin sensitivity and β-cell function improve after gastric bypass in severely obese adolescents. J Pediatr 2015;167:1042–1048.e1 e1041
 
-Queue rationale: Recent/high-value supporting evidence retained for follow-up but not classified as a central P0 source by the queue heuristic.
+Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
 ## 164. [P1]
 Ryder JR, Jenkins TM, Xie C, et al. Ten-year outcomes after bariatric surgery in adolescents. N Engl J Med 2024;391:1656–1658
@@ -909,12 +911,12 @@ Cerutti F, Bruno G, Chiarelli F, Lorini R, Meschi F, Sacchetti C; Diabetes Study
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
 ## 181. [P2]
-Taczanowska A, Schwandt A, Amed S, et al. Celiac disease in children with type 1 diabetes varies around the world: an international, crosssectional study of 57 375 patients from the SWEET registry. J Diabetes 2021;13:448–457
+Taczanowska A, Schwandt A, Amed S, et al. Celiac disease in children with type 1 diabetes varies around the world: an international, crosssectional study of 57375 patients from the SWEET registry. J Diabetes 2021;13:448–457
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
 ## 182. [P0]
-Simmons JH, Foster NC, Riddlesworth TD, et al.; T1D Exchange Clinic Network. Sex- and age-dependent effects of celiac disease on growth and weight gain in children with type 1 diabetes: analysis of the Type 1 Diabetes Exchange Clinic Registry. Pediatr Diabetes 2018;19:741–748
+Simmons JH, Foster NC, Riddlesworth TD, et al.; T1D Exchange Clinic Network. Sexand age-dependent effects of celiac disease on growth and weight gain in children with type 1 diabetes: analysis of the Type 1 Diabetes Exchange Clinic Registry. Pediatr Diabetes 2018;19:741–748
 
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
@@ -968,10 +970,10 @@ Rodriguez BL, Fujimoto WY, Mayer-Davis EJ, et al. Prevalence of cardiovascular d
 
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
-## 193. [P0]
-Margeirsdottir HD, Larsen JR, Brunborg C, Overby NC, Dahl-Jørgensen K; Norwegian Study Group for Childhood Diabetes. High prevalence of cardiovascular risk factors in children and Downloaded from diabetesjournals.​org/​care/​article-pdf/​49/​Supplement_1/​S297/​848841/​dc26s014.​pdf by Duke University Medical Center Library user on 21 August 2026 young people with type 2 diabetes (DINAMO): a multicentre, randomised, double-blind, parallel group, phase 3 trial. Lancet Diabetes Endocrinol 2023;11:169–181
+## 193. [P2]
+Margeirsdottir HD, Larsen JR, Brunborg C, Overby NC, Dahl-Jørgensen K; Norwegian Study Group for Childhood Diabetes. High prevalence of cardiovascular risk factors in children and adolescents with type 1 diabetes: a populationbased study. Diabetologia 2008;51:554–561
 
-Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
+Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
 ## 194. [P2]
 Schwab KO, Doerfer J, Hecker W, et al.; DPV Initiative of the German Working Group for Pediatric Diabetology. Spectrum and prevalence of atherogenic risk factors in 27,358 children, adolescents, and young adults with type 1 diabetes: cross-sectional data from the German diabetes documentation and quality management system (DPV). Diabetes Care 2006;29: 218–225
@@ -1004,7 +1006,7 @@ Kershnar AK, Daniels SR, Imperatore G, et al. Lipid abnormalities are prevalent 
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
 ## 200. [P2]
-Blaha MJ, Blumenthal RS, Brinton EA, Jacobson TA; National Lipid Association Taskforce on Non-HDL Cholesterol. The importance of nonHDL cholesterol reporting in lipid management. J Clin Lipidol 2008;2:267–273
+Blaha MJ, Blumenthal RS, Brinton EA, Jacobson TA; National Lipid Association Taskforce on Non-HDL Cholesterol. The importance of non- HDL cholesterol reporting in lipid management. J Clin Lipidol 2008;2:267–273
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
@@ -1034,7 +1036,7 @@ Maahs DM, Dabelea D, D’Agostino RB, Jr, et al.; SEARCH for Diabetes in Youth S
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
 ## 206. [P2]
-Katz ML, Kollman CR, Dougher CE, Mubasher M, Laffel LMB. Influence of HbA1c and BMI on lipid trajectories in youths and young Children and Adolescents S320 Children and Adolescents Juvenile Diabetes Research Foundation International, the National Diabetes Education Program, and the Pediatric Endocrine Society (formerly Lawson Wilkins Pediatric Endocrine Society). Diabetes Care 2011; 34:2477–2485
+Katz ML, Kollman CR, Dougher CE, Mubasher M, Laffel LMB. Influence of HbA1c and BMI on lipid trajectories in youths and young adults with type 1 diabetes. Diabetes Care 2017;40:30–37
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
@@ -1168,10 +1170,10 @@ Hanna KM, Stupiansky NW, Weaver MT, Slaven JE, Stump TE. Alcohol use trajectorie
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
-## 233. [P1]
-Kinney GL, Akturk HK, Taylor DD, Foster NC, Shah VN. Cannabis use is associated with increased risk for diabetic ketoacidosis in adults with type 1 S319 Downloaded from diabetesjournals.​org/​care/​article-pdf/​49/​Supplement_1/​S297/​848841/​dc26s014.​pdf by Duke University Medical Center Library user on 21 August 2026 adolescents with type 1 diabetes: a populationbased study. Diabetologia 2008;51:554–561
+## 233. [P0]
+Kinney GL, Akturk HK, Taylor DD, Foster NC, Shah VN. Cannabis use is associated with increased risk for diabetic ketoacidosis in adults with type 1 diabetes: findings from the T1D Exchange Clinic Registry. Diabetes Care 2020;43:247–249
 
-Queue rationale: Recent/high-value supporting evidence retained for follow-up but not classified as a central P0 source by the queue heuristic.
+Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
 ## 234. [P2]
 Akturk HK, Taylor DD, Camsari UM, Rewers A, Kinney GL, Shah VN. Association between cannabis use and risk for diabetic ketoacidosis in adults with type 1 diabetes. JAMA Intern Med 2019;179:115–118
@@ -1194,7 +1196,7 @@ Arnett JJ. Emerging adulthood. A theory of development from the late teens throu
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
 ## 238. [P0]
-Peters A, Laffel L; American Diabetes Association Transitions Working Group. Diabetes care for emerging adults: recommendations for transition from pediatric to adult diabetes care systems: a position statement of the American Diabetes Association, with representation by the American College of Osteopathic Family Physicians, the American Academy of Pediatrics, the American Association of Clinical Endocrinologists, the American Osteopathic Association, the Centers for Disease Control and Prevention, Children with Diabetes, The Endocrine Society, the International Society for Pediatric and Adolescent Diabetes, Diabetes Care Volume 49, Supplement 1, January 2026
+Peters A, Laffel L; American Diabetes Association Transitions Working Group. Diabetes care for emerging adults: recommendations for transition from pediatric to adult diabetes care systems: a position statement of the American Diabetes Association, with representation by the American College of Osteopathic Family Physicians, the American Academy of Pediatrics, the American Association of Clinical Endocrinologists, the American Osteopathic Association, the Centers for Disease Control and Prevention, Children with Diabetes, The Endocrine Society, the International Society for Pediatric and Adolescent Diabetes, Juvenile Diabetes Research Foundation International, the National Diabetes Education Program, and the Pediatric Endocrine Society (formerly Lawson Wilkins Pediatric Endocrine Society). Diabetes Care 2011; 34:2477–2485
 
 Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
 
@@ -1258,7 +1260,7 @@ Monaghan M, Baumann K. Type 1 diabetes: addressing the transition from pediatric
 
 Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
 
-## 251. [P0]
-Carreon SA, Duran B, Tang TS, et al. Here for you: a review of social support research in young adults with diabetes. Diabetes Spectr 2021;34:363–370 Downloaded from diabetesjournals.​org/​care/​article-pdf/​49/​Supplement_1/​S297/​848841/​dc26s014.​pdf by Duke University Medical Center Library user on 21 August 2026 diabetes: findings from the T1D Exchange Clinic Registry. Diabetes Care 2020;43:247–249
+## 251. [P2]
+Carreon SA, Duran B, Tang TS, et al. Here for you: a review of social support research in young adults with diabetes. Diabetes Spectr 2021;34:363–370
 
-Queue rationale: Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.
+Queue rationale: Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.
