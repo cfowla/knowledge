@@ -19,7 +19,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat .packet-payloads/mccausland-154/part*.b64 > /tmp/mccausland_bundle.b64
+          cat .packet-payloads/mccausland-154-repair/chunk*.b64 .packet-payloads/mccausland-154/part04.b64 .packet-payloads/mccausland-154/part05.b64 > /tmp/mccausland_bundle.b64
           python - <<'PY'
           import base64, hashlib, json, tarfile
           from pathlib import Path
@@ -88,7 +88,7 @@ jobs:
           cp /tmp/mccausland_packet/154-Mc-Causland-Claggett-2023-reference-task-queue.md "$ROOT/MD/"
           cp /tmp/mccausland_packet/154-Mc-Causland-Claggett-2023-processing-report.md "$ROOT/MD/"
 
-          git rm -r .packet-payloads/mccausland-154
+          git rm -r .packet-payloads/mccausland-154 .packet-payloads/mccausland-154-repair
           git rm .github/workflows/publish-mccausland-154.yml
           git add "$ROOT/JSON/154-Mc-Causland-Claggett-2023-atoms.json" \
                   "$ROOT/JSON/154-Mc-Causland-Claggett-2023-validation.json" \
