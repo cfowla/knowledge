@@ -1261,7 +1261,7 @@
       "assertion_origin": "normalized_from_source",
       "source_anchor": {
         "section": "results",
-        "page": "3",
+        "page": "2-3",
         "paragraph": null,
         "sentence": null,
         "table": null,
@@ -2651,7 +2651,43 @@
     "sufficiency_errors": [],
     "sufficiency_warnings": [],
     "cross_atom_exact_normalized_duplicates": [],
-    "status": "PASS"
+    "status": "PASS",
+    "source_anchor_verification": {
+      "checked_atoms": 37,
+      "supported_atoms": 37,
+      "repairs": [
+        {
+          "atom_id": "630d6c79-2998-5e3d-aa80-048308e7318e",
+          "field": "source_anchor.page",
+          "old_value": "3",
+          "new_value": "2-3",
+          "reason": "The anchored case statement begins on PDF page 2 and continues on page 3; the verbatim excerpt begins on page 2."
+        }
+      ]
+    },
+    "source_reconciliation_warnings": [
+      {
+        "code": "source_internal_numeric_inconsistency",
+        "severity": "warning",
+        "reported_location": "Abstract / atom quantitative result",
+        "reported_value": "median 4.5 months (range 2-5 months)",
+        "table_location": "Table 1",
+        "table_values_months": [
+          3,
+          5,
+          4,
+          3,
+          2,
+          5,
+          5,
+          5,
+          5
+        ],
+        "calculated_table_median_months": 5.0,
+        "handling": "Preserve the 4.5-month value as directly reported; do not silently replace it. Flag the inconsistency in SEA and lifecycle documentation."
+      }
+    ],
+    "validation_timestamp_utc": "2026-08-26T09:43:45Z"
   },
   "extraction_limitations": [
     "The source is a retrospective single-center case series/chart review and cannot establish causality.",

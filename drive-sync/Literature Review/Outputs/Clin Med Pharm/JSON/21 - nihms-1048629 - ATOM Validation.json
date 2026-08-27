@@ -1,0 +1,123 @@
+{
+  "packet": "21 - nihms-1048629",
+  "source": {
+    "file_name": "nihms-1048629.pdf",
+    "sha256": "353de89de63571fe8e02b481ccd95d139ebaf41bb8e04edef9978e32be812c6a",
+    "title": "Case Series Minocycline Associated Thyroiditis",
+    "doi": "10.1159/000502843"
+  },
+  "governing_sources": {
+    "literature.py": "9a29afa26406f23077a1e372f1ffc72e58c3a575d5e886f6fb690c9a6ed3be07",
+    "literature_atoms.py": "188a7b6a16bbe1be695e34895594aa204853590746a69dbb8446aa552258fdca",
+    "literature_atom.schema.json": "c291c89510ef5b0e451a23ce5f88702d4d55230249b50dfcf1e8324f7110dd0e",
+    "README(2).md": "8eda60c329f250c72beeed70cf8c029764330b2fb76868e401cecf17af9de877",
+    "summary-evaluation-appraisal-protocol-v4-compact.md": "a8c43bb46413d9864d6e4ee1d075eb435525f95d87d4d0232b78b89e6b363d7a"
+  },
+  "validation_timestamp_utc": "2026-08-26T09:43:45Z",
+  "atom_artifact": {
+    "file_name": "21 - nihms-1048629 - ATOM.json",
+    "atom_count": 37,
+    "structural_validation": {
+      "status": "PASS",
+      "errors": []
+    },
+    "json_schema_validation": {
+      "status": "PASS",
+      "errors": []
+    },
+    "sufficiency_validation": {
+      "status": "PASS",
+      "errors": [],
+      "warnings": []
+    },
+    "cross_atom_checks": {
+      "unique_atom_ids": true,
+      "single_publication_id": true,
+      "exact_normalized_duplicates": []
+    },
+    "source_anchor_verification": {
+      "status": "PASS_AFTER_MINIMAL_REPAIR",
+      "checked_atoms": 37,
+      "repairs": [
+        {
+          "atom_id": "630d6c79-2998-5e3d-aa80-048308e7318e",
+          "field": "source_anchor.page",
+          "old_value": "3",
+          "new_value": "2-3",
+          "reason": "The anchored case statement begins on PDF page 2 and continues on page 3; the verbatim excerpt begins on page 2."
+        }
+      ],
+      "unresolved_errors": []
+    },
+    "repair_policy": "No canonical statement, assertion origin, quantitative estimate, or atom kind was changed."
+  },
+  "source_reconciliation": {
+    "status": "PASS_WITH_SOURCE_WARNING",
+    "warnings": [
+      {
+        "code": "source_internal_numeric_inconsistency",
+        "severity": "warning",
+        "reported_location": "Abstract / atom quantitative result",
+        "reported_value": "median 4.5 months (range 2-5 months)",
+        "table_location": "Table 1",
+        "table_values_months": [
+          3,
+          5,
+          4,
+          3,
+          2,
+          5,
+          5,
+          5,
+          5
+        ],
+        "calculated_table_median_months": 5.0,
+        "handling": "Preserve the 4.5-month value as directly reported; do not silently replace it. Flag the inconsistency in SEA and lifecycle documentation."
+      }
+    ]
+  },
+  "sea_reconciliation": {
+    "status": "PASS_AFTER_RECONCILIATION",
+    "file_name": "21 - nihms-1048629 - SEA.html",
+    "coverage": {
+      "substantive_sections": "represented",
+      "figures": "0/0",
+      "tables": "2/2",
+      "workflows": "0/0"
+    },
+    "changes": [
+      "Added explicit warning for the abstract/Table 1 median-time inconsistency.",
+      "Added Table 1 reconciliation note and appraisal-level numerical uncertainty note.",
+      "Updated provenance/QA block to record ATOM validation and reconciliation."
+    ],
+    "ratings_changed": false
+  },
+  "lifecycle": {
+    "status": "PASS - ATOM/SEA VERIFIED",
+    "promotion_basis": "Primary source identity/hash verified; all 37 atoms pass current Pydantic structural validation, JSON Schema validation, and atom-kind sufficiency validation; source anchors verified after one minimal page-range repair; SEA reconciled to source structure/tables and updated to expose the source internal numeric inconsistency.",
+    "blocking_issues": [],
+    "non_blocking_warnings": [
+      {
+        "code": "source_internal_numeric_inconsistency",
+        "severity": "warning",
+        "reported_location": "Abstract / atom quantitative result",
+        "reported_value": "median 4.5 months (range 2-5 months)",
+        "table_location": "Table 1",
+        "table_values_months": [
+          3,
+          5,
+          4,
+          3,
+          2,
+          5,
+          5,
+          5,
+          5
+        ],
+        "calculated_table_median_months": 5.0,
+        "handling": "Preserve the 4.5-month value as directly reported; do not silently replace it. Flag the inconsistency in SEA and lifecycle documentation."
+      }
+    ],
+    "reference_processing": "Not used as a blocking gate under the 2026-08-26 human-review override; existing reference task queue remains separate follow-up work."
+  }
+}
