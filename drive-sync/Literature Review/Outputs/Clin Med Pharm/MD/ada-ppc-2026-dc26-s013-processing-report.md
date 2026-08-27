@@ -114,21 +114,27 @@ Protocol/version note: the project names `summary-evaluation-appraisal-protocol-
 ## Publication gate before lifecycle
 
 - Exact source identity: `PASS`.
-- ATOM structural, schema, and sufficiency validation: `PASS`.
-- Recommendation coverage: `PASS`.
-- Figure, table, and workflow reconciliation: `PASS`.
-- Reference extraction: `PASS`.
+- Complete exact-section eight-file output family in `cfowla/knowledge`: `PASS`.
+- Repository content readback for ATOM, validation, coverage, crosswalk, SEA-QA, SEA, reference queue, and processing report: `PASS`.
+- ATOM structural, JSON Schema, and sufficiency validation: `PASS`.
+- Recommendation coverage: `PASS` (25/25).
+- Figure, table, and workflow reconciliation: `PASS` (3/3 figures, 3/3 tables, 2/2 workflows).
+- Reference extraction and exact-section queue: `PASS` (194/194; continuous 1-194).
 - Crosswalk consistency: `PASS`.
 - SEA-QA: `PASS`.
-- Processing-report consistency: `PASS` for the pre-promotion state.
-- Lifecycle eligibility: `READY FOR REPOSITORY WRITE/READBACK VERIFICATION`.
+- Processing-report consistency: `PASS`.
+- Lifecycle eligibility before move: `PASS`.
 
 ## Lifecycle
 
-- Source Active parent verified: `1j50uC_mGfCpLj6jvR9en2sUilsnTGKLV` (`1 - American Diabetes Association 2026`).
-- Destination folder verified: `1YSKH6Oqj52tYPN402sa9mxs_RFzGhNlG` (`47 - American Diabetes Association 2026`).
-- Destination parent verified: `1aZFVGPyvpaeYQwXYag26y9msPjwj0-lT` (`1 - Clinical Medicine & Pharmacy`).
-- Processed parent verified: `1--1k5DCRqVcyFOHEIQynRQJEHIJM8ReQ` (`5 - 90 - Processed`).
-- Current action: source has not yet been promoted. Promotion is blocked until the complete exact Section 13 artifact family is written to GitHub and read back successfully.
+- Source Active parent immediately before move: `1j50uC_mGfCpLj6jvR9en2sUilsnTGKLV` (`1 - American Diabetes Association 2026`): `VERIFIED`.
+- Destination folder: `1YSKH6Oqj52tYPN402sa9mxs_RFzGhNlG` (`47 - American Diabetes Association 2026`): `VERIFIED`.
+- Destination parent: `1aZFVGPyvpaeYQwXYag26y9msPjwj0-lT` (`1 - Clinical Medicine & Pharmacy`): `VERIFIED`.
+- Processed parent: `1--1k5DCRqVcyFOHEIQynRQJEHIJM8ReQ` (`5 - 90 - Processed`): `VERIFIED`.
+- Drive move operation: `PASS`.
+- Source parent after move: `1YSKH6Oqj52tYPN402sa9mxs_RFzGhNlG`: `VERIFIED`.
+- Destination presence of `dc26s013.pdf`: `PASS`.
+- Absence of `dc26s013.pdf` from the Active ADA folder on fresh direct-child inventory: `PASS`.
+- Final lifecycle status: `MOVED AND VERIFIED`.
 
 Generated: 2026-08-27T05:31:02.134916Z
