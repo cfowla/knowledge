@@ -12,8 +12,8 @@ jobs:
   repair:
     runs-on: ubuntu-latest
     env:
-      DRIVE_SOURCE: 'gdrive-readonly:GitHub Sync'
-      SOURCE_RELATIVE_PATH: 'Literature Review/10 - Active Literature/1 - American Diabetes Association 2026/dc26s014.pdf'
+      DRIVE_REMOTE: 'gdrive-readonly:'
+      SOURCE_FILE_ID: '1-rETa9X2cRcKb84a-I1CBQqPpR10caar'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -42,7 +42,7 @@ jobs:
         run: |
           set -euo pipefail
           git pull --rebase origin main
-          rclone copyto "$DRIVE_SOURCE/$SOURCE_RELATIVE_PATH" /tmp/dc26s014.pdf
+          rclone backend copyid "$DRIVE_REMOTE" "$SOURCE_FILE_ID" /tmp/dc26s014.pdf
           echo '0aacb5775e36de0b11817af940a9b4a6d392efc4c61ba6187db6d9e0c2e9b756  /tmp/dc26s014.pdf' | sha256sum -c -
           python - <<'PY'
           import fitz
@@ -106,7 +106,7 @@ jobs:
                   p = 'P2'
               priority[n] = p
           counts = Counter(priority.values())
-          assert dict(counts) == {'P1': 42, 'P0': 107, 'P2': 102} or (counts['P0'], counts['P1'], counts['P2']) == (107, 42, 102)
+          assert (counts['P0'], counts['P1'], counts['P2']) == (107, 42, 102)
 
           title = '14. Children and Adolescents: Standards of Care in Diabetes—2026'
           lines = [
