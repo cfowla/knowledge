@@ -1,0 +1,44 @@
+# 31 - Bryson-Cahn Helm 2026 — Reference Task Queue
+
+- Parent publication: PMID 42613019; DOI 10.1093/cid/ciag493
+- Queue semantics: downstream cited-publication work. Unchecked items do not indicate incomplete parent-packet reference extraction.
+
+- [ ] 1. Consortium OPATHY, Arastehfar A, Boekhout T, et al. Recent trends in molecular diagnostics of yeast infections: from PCR to NGS. FEMS Microbiol Rev 2019; 43:517–547.
+- [ ] 2. Satoh K, Makimura K, Hasumi Y, Nishiyama Y, Uchida K,Yamaguchi H. Candida aurissp. nov., a novel ascomycetous yeast isolated from the external ear canal of an inpatient in a Japanese hospital. Microbiol Immunol 2009; 53:41–44.
+- [ ] 3. Lockhart SR, Etienne KA,Vallabhaneni S, et al. SimultaneousEmergence of Multidrug-Resistant Candida auris on 3 Continents Confirmed by Whole-Genome Sequencing and Epidemiological Analyses. Clin Infect Dis Off Publ Infect Dis Soc Am 2017; 64:134–140.
+- [ ] 4. CDC. About C. auris.2024. Available at: https://www.cdc.gov/candida-auris/about/index.html. Accessed 19 September 2024.
+- [ ] 5. Soriano A, Honore PM, Puerta-Alcalde P, et al. Invasive candidiasis: current clinical challenges and unmet needs in adult populations. J Antimicrob Chemother 2023; 78:1569–1585.
+- [ ] 6. De Gaetano S, Midiri A, Mancuso G, Avola MG, Biondo C. Candida auris Outbreaks: Current Status and Future Perspectives. Microorganisms 2024; 12.
+- [ ] 7. Chakrabarti A, Singh S. Multidrug-resistant Candida auris: an epidemiological review.Expert Rev Anti Infect Ther 2020; 18:551–562.
+- [ ] 8. Eyre DW, Sheppard AE,Madder H, et al. A Candida auris Outbreak and Its Control in an Intensive Care Setting. N Engl J Med 2018; 379:1322–1331.
+- [ ] 9. Escandón P, ChowNA, Caceres DH,et al. Molecular Epidemiology of Candida auris in Colombia Reveals a Highly Related,Countrywide Colonization With Regional Patterns in Amphotericin B Resistance. Clin Infect Dis 2019; 68:15–21.
+- [ ] 10. Zhang Y, Han J, Ma Y, et al. Two outbreaksand sporadic occurrences of Candida auris from one hospital in China: an epidemiological, genomic retrospective study. Infection 2025; 53:349–358.
+- [ ] 11. Park S, Kim H, Hwang K, et al. Screening of Candida auris upon admission to an intensive care unit in the United Arab Emirates. J Infect Public Health 2025; 18:102659.
+- [ ] 12. Cheng A, Brody K, Ehni J, et al. Analysis of an expanded admission screening protocol for Candida auris at a New York City hospital. Am J Infect Control 2025; 53:70–74.
+- [ ] 13. Mulet-Bayona JV, Cancino-Muñoz I, Salvador-García C, et al. Genotypic and phenotypic characterisation of a nosocomial outbreak of Candida auris in Spain during 5 years. Mycoses 2024; 67:e13776.
+- [ ] 14. Melinte V, Tudor AD, Bujoi AG,et al. Candida aurisOutbreak in a Multidisciplinary Hospital in Romania during the Post-Pandemic Era: Potential Solutions and Challenges in Surveillance and Epidemiological Control. Antibiotics 2024; 13:325.
+- [ ] 15. Lee EH, Choi MH, Lee KH, et al. Intrahospital transmission and infection control of Candida auris originating from a severely infected COVID-19 patient transferred abroad. J Hosp Infect 2024; 143:140–149.
+- [ ] 16. Schelenz S, Hagen F, Rhodes JL, et al. First hospital outbreak of the globally emerging Candida auris in a European hospital. Antimicrob Resist Infect Control 2016; 5:35.
+- [ ] 17. Leach L, Zhu Y, Chaturvedi S. Development and Validation of a Real-Time PCR Assay for Rapid Detection of Candida auris from Surveillance Samples. J Clin Microbiol 2018; 56.
+- [ ] 18. Cerqueira FM, Bertsch J, DeMaet MA, et al. Enhancing Candida auris Surveillance in High-Risk Settings by Implementing a High-Throughput Molecular Assay on the Hologic Fusion Open Access Platform. J Fungi Basel Switz 2024; 10.
+- [ ] 19. Mitchell BI, Kling K, Bolon MK, et al. Identifying Candida auris transmission in a hospital outbreak investigation using whole-genome sequencing and SNP phylogenetic analysis. J Clin Microbiol 2024; 62:e0068024.
+- [ ] 20. Rosa R, Jimenez A, Andrews D, et al. Impact of In-house Candida auris Polymerase Chain Reaction Screening on Admission on the Incidence Rates of Surveillance and Blood Cultures With C. auris and Associated Cost Savings. Open Forum Infect Dis 2023; 10:ofad567.
+- [ ] 21. Nascimento T, Inácio J, Guerreiro D, et al. Enhancing ICU Candida spp. surveillance: a cost- effective approach focused on Candida auris detection. Front Cell Infect Microbiol 2024; 14:1463456.
+- [ ] 22. Franco LC, Ahmed M, Kendra CG, et al. Validation of a qualitative real-time PCR assay for the detection of Candida aurisin hospital inpatient screening. J Clin Microbiol 2024; 62:e0015824.
+- [ ] 23. Jolivet S, Fournier S, Bigot J, et al. Value of qPCR in the screening strategy for Candida auris. Med Mycol 2025; 63:myaf041.
+- [ ] 24. Commissioner O of the. FDA Roundup: July 16, 2024. FDA, 2024. Available at: https://www.fda.gov/news-events/press-announcements/fda-roundup-july-16-2024. Accessed 24 August 2025.
+- [ ] 25. Jimenez A, Rosa R, Jean N, et al. Development and implementation of an electronic admission- screening tool for Candidozyma auris (formerly Candida auris) at a large healthcare system in Miami, FL, USA. J Hosp Infect 2026; 167:16–22.
+- [ ] 26. Pedersen L, Barajas-Ochoa A, Cooper K, et al. Candida auris screening of high-risk patients: a descriptive comparison of 2 strategies. Antimicrob Steward Healthc Epidemiol ASHE 2025; 5:e17.
+- [ ] 27. Health Advisory: Candida auris Reported in Two Washington Counties | Washington State Department of Health. 2024. Available at: https://doh.wa.gov/public-health-provider- resources/washington-health-alert-network/health-advisory-candida-auris-reported-two- washington-counties. Accessed 1 April 2026.
+- [ ] 28. UW Fact Book July 2025. Available at: https://www.uwmedicine.org/sites/stevie/files/2025- 07/Fact%20Book%20July2025_USNWR%20edits_hi-res.pdf. Accessed 24 August 2025.
+- [ ] 29. Mitchell BI, Kling K, Bolon MK, et al. Identifying Candida auris transmission in a hospital outbreak investigation using whole-genome sequencing and SNP phylogenetic analysis. J Clin Microbiol 2024; 62:e0068024.
+- [ ] 30. Murphy SG, Ross T, Fitzgerald A, et al. Detecting healthcare-associated transmission and antifungal resistance in Candida auris via whole genome sequencing. J Clin Microbiol 2026; :e0134825.
+- [ ] 31. Chow NA, Gade L, Tsay SV, et al. Multiple introductions and subsequent transmission of multidrug-resistant Candida aurisin the USA: a molecular epidemiological survey. Lancet Infect Dis 2018; 18:1377–1384.
+- [ ] 32. Sathyapalan DT, Antony R, Nampoothiri V, et al. Evaluating the measures taken to contain a Candida auris outbreak in a tertiary care hospital in South India: an outbreak investigational study. BMC Infect Dis 2021; 21:425.
+- [ ] 33. Alfouzan W, Ahmad S, Dhar R, et al. Molecular Epidemiology of Candida Auris Outbreak in a Major Secondary-Care Hospital in Kuwait. J Fungi Basel Switz 2020; 6.
+- [ ] 34. Taori SK, Khonyongwa K, Hayden I, et al. Candida auris outbreak: Mortality, interventions and cost of sustaining control. J Infect 2019; 79:601–611.
+- [ ] 35. Smith AGC, Valentine A, D’Angeli M, et al. Enhanced detection of Candidozyma auris colonization with universal screening on admission. Clin Infect Dis Off Publ Infect Dis Soc Am 2026; :ciag351.
+- [ ] 36. Arenas S, Patel S, Seely SO, et al. Operational impact of decreased turnaround times for Candida auris screening tests in a tertiary academic medical center. Antimicrob Steward Healthc Epidemiol ASHE 2023; 3:e176.
+- [ ] 37. Taori SK, Rhodes J, Khonyongwa K, et al. First experience of implementing Candida auris real- time PCR for surveillance in the UK: detection of multiple introductions with two international clades and improved patient outcomes. J Hosp Infect 2022; 127:111–120.
+- [ ] 38. CDC. Screening Recommendations for Healthcare Facilities. 2024. Available at: https://www.cdc.gov/candida-auris/hcp/screening-hcp/index.html. Accessed 24 August 2025.
+- [ ] 39. Unni Kumaran S, Rajagopal L, Gunasekaran M. Sensitivity assessment of optimal control strategies and cost-effectiveness analysis of a novel Candida Auris environmental transmission model in intensive care facilities. J Theor Biol 2024; 595:111931.
