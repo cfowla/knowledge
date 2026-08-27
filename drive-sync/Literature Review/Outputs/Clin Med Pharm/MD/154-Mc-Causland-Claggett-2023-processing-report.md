@@ -2,7 +2,7 @@
 
 ## Packet identity
 
-- Active packet: `154 - Mc Causland Claggett 2023`
+- Packet: `154 - Mc Causland Claggett 2023`
 - Drive folder ID: `1888CHHo6P7s8i6sopr6k3_Ed4hGzulRE`
 - Primary source: `jamacardiology_mc_causland_2022_oi_220070_1672335570.90403.pdf`
 - DOI: `10.1001/jamacardio.2022.4210`
@@ -36,15 +36,17 @@ The article cites a separate `Supplement 3` Data Sharing Statement that is not p
 - Supplement 1: final protocol v4.0, final sponsor SAP v5.0, academic SAP v1.3, and analysis-relevant methods reconciled; superseded/non-load-bearing administrative content was not atomized.
 - Supplement 2: **5/5 eTables** and **3/3 eFigures** reconciled.
 - SEA-QA: **PASS**.
-- Crosswalk integrity: local referential check pending below.
+- Crosswalk referential integrity: **PASS**; every referenced atom ID resolves to the shared publication ID.
 
 ## Bibliography
 
 - Primary-article bibliography entries: **34/34 extracted and reconciled**.
 - Reference 16 and reference 18 are duplicate source citations to the same DELIVER primary trial publication; both source positions are preserved.
-- Unchecked cited references remain downstream work and do **not** block parent publication lifecycle.
+- Unchecked cited references remain downstream work and do **not** block parent publication lifecycle under the current Clinical packet failure-gate rule.
 
 ## Output family
+
+The exact identity-matched family is present under `drive-sync/Literature Review/Outputs/Clin Med Pharm/`:
 
 - `JSON/154-Mc-Causland-Claggett-2023-atoms.json`
 - `JSON/154-Mc-Causland-Claggett-2023-validation.json`
@@ -55,6 +57,8 @@ The article cites a separate `Supplement 3` Data Sharing Statement that is not p
 - `MD/154-Mc-Causland-Claggett-2023-reference-task-queue.md`
 - `MD/154-Mc-Causland-Claggett-2023-processing-report.md`
 
+Canonical publication commit: `8772943a17b01f25d833a9c256eb80ba72576fa7` (`Publish Mc Causland Claggett 2023 packet artifacts`). The publication workflow verified the bundle before write, then the canonical validation, coverage, crosswalk, and SEA-QA artifacts were read back from the repository.
+
 ## Publication-gate verification
 
 - Source integrity and identity: **PASS**.
@@ -63,11 +67,17 @@ The article cites a separate `Supplement 3` Data Sharing Statement that is not p
 - Coverage/reconciliation: **PASS**.
 - Crosswalk referential integrity: **PASS**.
 - Bibliography extraction/reconciliation: **PASS (34/34)**.
-- Output completeness/provenance: **PENDING REPOSITORY WRITE/READBACK**.
+- Output completeness/provenance: **PASS** — exact eight-file identity-matched output family verified in `cfowla/knowledge`; source hashes, DOI, publication ID, and artifact relationships are consistent.
+- Unresolved packet-level requirements: **NONE**.
 
 ## Lifecycle state
 
 - Classification before repair: `NO COMPLETION EVIDENCE`.
-- Evidence audit classification: `FAIL, repair required` - first unsatisfied requirement was the absent ATOM gate.
+- Evidence audit classification: `FAIL, repair required` — first unsatisfied requirement was the absent ATOM gate.
 - Smallest repair: because no identity-matched upstream artifact family existed, the missing ATOM -> validation -> SEA -> coverage/reconciliation -> crosswalk -> SEA-QA -> reference queue -> processing report family was created from the exact source packet.
-- Promotion gate: **PENDING repository readback and Drive move**.
+- Promotion gate: **PASS**.
+- Source packet moved intact from Active Clinical parent `1wA_mmV9fJvfM7ILPwPuc-Uac1SJ1hpk0` to the current Processed Clinical parent `1aZFVGPyvpaeYQwXYag26y9msPjwj0-lT`.
+- Exact packet absent as a direct child of Active after move: **PASS**.
+- Exact packet present as a direct child of Processed Clinical Medicine & Pharmacy after move: **PASS**.
+- Downstream cited-publication follow-up remains separately trackable and nonblocking.
+- Final lifecycle state: **PROCESSED**.
