@@ -1,0 +1,40 @@
+name: ADA S012 one-shot publish
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/ada-s012-one-shot.yml
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Decode and publish exact ADA S012 output family
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .tmp/ada-s012-payload.part* | base64 -d > /tmp/ada-s012.tar.xz
+          mkdir -p "drive-sync/Literature Review/Outputs/Clin Med Pharm"
+          tar -xJf /tmp/ada-s012.tar.xz -C "drive-sync/Literature Review/Outputs/Clin Med Pharm"
+          test -f "drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/ada-ppc-2026-dc26-s012-atoms.json"
+          test -f "drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/ada-ppc-2026-dc26-s012-validation.json"
+          test -f "drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/ada-ppc-2026-dc26-s012-crosswalk.json"
+          test -f "drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/ada-ppc-2026-dc26-s012-sea-qa.json"
+          test -f "drive-sync/Literature Review/Outputs/Clin Med Pharm/HTML/ada-ppc-2026-dc26-s012-sea.html"
+          test -f "drive-sync/Literature Review/Outputs/Clin Med Pharm/MD/ada-ppc-2026-dc26-s012-reference-task-queue.md"
+          test -f "drive-sync/Literature Review/Outputs/Clin Med Pharm/MD/ada-ppc-2026-dc26-s012-processing-report.md"
+          rm -f .tmp/ada-s012-payload.part*
+          rmdir .tmp 2>/dev/null || true
+          rm -f .github/workflows/ada-s012-one-shot.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "literature: publish ADA 2026 section 12 artifacts"
+          git push
