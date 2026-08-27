@@ -54,15 +54,14 @@ jobs:
         run: |
           rclone lsf "$DRIVE_SOURCE" --max-depth 1
 
-      - name: Export and synchronize Drive folder
+      - name: Export and copy Drive folder without destination cleanup
         shell: bash
         run: |
           mkdir -p "$REPO_DESTINATION"
 
-          # WARNING: sync makes REPO_DESTINATION mirror DRIVE_SOURCE.
-          # Files removed from Drive are removed from this destination,
-          # but remain recoverable through Git history.
-          rclone sync "$DRIVE_SOURCE" "$REPO_DESTINATION" \
+          # copy preserves files that exist only in REPO_DESTINATION.
+          # A Drive file can still replace a destination file at the same relative path.
+          rclone copy "$DRIVE_SOURCE" "$REPO_DESTINATION" \
             --drive-export-formats "docx,xlsx,pptx,svg,pdf" \
             --max-size 95M \
             --exclude "**/.git/**" \
