@@ -73,7 +73,24 @@ Markdown folder:
 - `ada-ppc-2026-dc26-s012-reference-task-queue.md`
 - `ada-ppc-2026-dc26-s012-processing-report.md`
 
+## Publication verification
+
+- Exact output family: **8/8 present and independently read back from `cfowla/knowledge`**.
+- Repository blobs for ATOMs, validation, coverage, crosswalk, SEA-QA, SEA HTML, and reference queue matched the locally validated artifacts byte-for-byte.
+- Validation readback confirmed 105 atoms with 0 Pydantic errors, 0 JSON Schema errors, 0 sufficiency errors, 0 sufficiency warnings, and 0 duplicate statement-anchor pairs.
+- Coverage readback confirmed recommendations 12.1–12.32 (32/32), Table 12.1 (1/1), figures 0/0, and bibliography 169/169.
+- SEA-QA readback status: **PASS**.
+- Reference queue readback confirmed entries 1–169 and priority counts P0 129, P1 22, P2 18.
+- The failed staged-payload publication was repaired; the successful one-shot publication commit was `051f7701232cc8c234d8bb5a3592c016dbb1bd34`.
+- The missing coverage artifact was restored from the validated local artifact and independently read back with the expected repository blob.
+- Temporary `.tmp/ada-s012-payload.part*` files and `.github/workflows/ada-s012-one-shot.yml` are absent from current `main` after cleanup.
+
 ## Lifecycle state
 
-- Pre-promotion state: **NOT YET PROMOTED**.
-- Promotion is gated on successful GitHub write + independent readback of the complete exact output family, source-identity check, passing ATOM validation, complete coverage/reconciliation, passing SEA-QA, and bibliography verification.
+- Promotion gate: **PASS**.
+- `dc26s012.pdf` was moved from `10 - Active Literature / 1 - American Diabetes Association 2026` to `90 - Processed / Clinical Medicine & Pharmacy / 47 - American Diabetes Association 2026`.
+- Source Drive file ID remained `1LaVs5MQ5VFrLP1Ja6K_BgdNLvvWx6Qre`.
+- Post-move metadata verified the only parent as Processed ADA folder ID `1YSKH6Oqj52tYPN402sa9mxs_RFzGhNlG`.
+- A fresh direct-child read of the Active ADA folder verified `dc26s012.pdf` is absent.
+- A fresh direct-child read of the Processed ADA folder verified `dc26s012.pdf` is present.
+- Lifecycle result: **PROCESSED / VERIFIED**.
