@@ -140,6 +140,17 @@ class DriveSyncGuardTests(unittest.TestCase):
         self.assertEqual(self.run_guard(), 0)
         self.assertFalse(self.report.exists())
 
+    def test_mode_only_non_sync_commit_does_not_take_content_ownership(self) -> None:
+        path = self.destination / "mode-only.txt"
+        path.write_text("old\n")
+        self.commit("drive-owned", SYNC_AUTHOR, SYNC_EMAIL)
+        path.chmod(0o755)
+        self.commit("mode only", HUMAN_AUTHOR, HUMAN_EMAIL)
+        (self.stage / "mode-only.txt").write_text("new\n")
+
+        self.assertEqual(self.run_guard(), 0)
+        self.assertEqual(path.read_text(), "new\n")
+
 
 class WorkflowConfigurationTests(unittest.TestCase):
     def test_workflow_stages_before_guarded_apply(self) -> None:

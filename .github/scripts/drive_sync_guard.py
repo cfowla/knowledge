@@ -43,15 +43,35 @@ def is_excluded(relative_path: Path) -> bool:
     return relative_path.suffix.lower() in EXCLUDED_SUFFIXES or ".git" in relative_path.parts
 
 
-def last_modifying_commit(repo_root: Path, repository_path: Path) -> CommitOwner | None:
+def git_blob_sha(repo_root: Path, revision: str, repository_path: Path) -> str | None:
+    result = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(repo_root),
+            "rev-parse",
+            "--verify",
+            f"{revision}:{repository_path.as_posix()}",
+        ],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        return None
+    return result.stdout.strip() or None
+
+
+def last_substantive_modifying_commit(
+    repo_root: Path, repository_path: Path
+) -> CommitOwner | None:
     result = subprocess.run(
         [
             "git",
             "-C",
             str(repo_root),
             "log",
-            "-1",
-            "--format=%H%x00%an%x00%ae",
+            "--format=%H%x1f%an%x1f%ae",
             "--",
             repository_path.as_posix(),
         ],
@@ -59,11 +79,17 @@ def last_modifying_commit(repo_root: Path, repository_path: Path) -> CommitOwner
         capture_output=True,
         text=True,
     )
-    output = result.stdout.rstrip("\n")
-    if not output:
-        return None
-    sha, author_name, author_email = output.split("\0", 2)
-    return CommitOwner(sha=sha, author_name=author_name, author_email=author_email)
+    for line in result.stdout.splitlines():
+        if not line:
+            continue
+        sha, author_name, author_email = line.split("\x1f", 2)
+        current_blob = git_blob_sha(repo_root, sha, repository_path)
+        parent_blob = git_blob_sha(repo_root, f"{sha}^", repository_path)
+        if current_blob != parent_blob:
+            return CommitOwner(
+                sha=sha, author_name=author_name, author_email=author_email
+            )
+    return None
 
 
 def atomic_copy(source: Path, destination: Path) -> None:
@@ -165,7 +191,7 @@ def run_import(
             continue
 
         repository_path = destination_relative / relative
-        owner = last_modifying_commit(repo_root, repository_path)
+        owner = last_substantive_modifying_commit(repo_root, repository_path)
         if owner is None or owner.author_name != sync_author:
             conflicts.append(
                 Conflict(
