@@ -404,3 +404,42 @@ Classification is therefore **not actually affected**: the deleted names were su
 - **repair still required:** none.
 - **unresolved version conflict:** none.
 - Valid current analytical artifacts were preserved; none were regenerated or overwritten during this verification pass.
+
+## Prompt 07 final live verification and state closure
+
+Final verification date: 2026-08-27.
+
+Live Drive source: `GitHub Sync`, Drive folder ID `1ePxDVnrtXdQS2zB9cTcnk41eZbhAkktA`. This matches workflow source `gdrive-readonly:GitHub Sync`.
+
+### Final ownership rule
+
+The workflow no longer treats `drive-sync` as a destructive mirror. Drive is exported with `rclone copy` into runner staging outside the repository. The guard evaluates every staged file that differs from the destination before any staged write is applied.
+
+- A Drive-only path may be added to `drive-sync`.
+- A same-path update may be applied automatically when the latest substantive content-changing commit for that path is authored by `google-drive-sync[bot]`.
+- A destination-only GitHub path is preserved because the workflow performs no destination cleanup.
+- If staged Drive content differs from a path whose latest substantive content-changing commit is non-sync, unknown, or otherwise not Drive-owned, the guard stops the entire import before applying any staged writes and records a conflict report for manual reconciliation.
+- Non-substantive mode-only Git history does not incorrectly take content ownership from the sync bot.
+
+The workflow wiring for staged guarded import was introduced in `2fb36ce703cf1e145e844dd2680177c545b5da3b` (`harden Drive import ownership guard`). The final ownership implementation was refined in `b924b8d124b3ff8beda274fb51ea076617e79b11` (`refine Drive ownership to substantive changes`). **Final Drive-sync repair SHA: `b924b8d124b3ff8beda274fb51ea076617e79b11`.**
+
+### Final verification results
+
+| Verification | Result |
+| --- | --- |
+| No destructive mirror semantics against `drive-sync` | PASS — no direct `rclone sync` or direct unguarded Drive-to-destination copy remains. |
+| Destination-only GitHub files preserved | PASS — no cleanup is performed, and the guard test suite explicitly covers destination-only preservation. |
+| Same-path non-sync modifications protected | PASS — a substantive non-sync owner causes an atomic conflict stop before otherwise-safe staged writes are applied. |
+| Legitimate new and Drive-owned updates still import | PASS — guard tests cover new-file adds and Drive-owned same-path updates. |
+| Known seven-file ADA incident reconciled | PASS — six Section 11 artifacts are newer validated replacements; the Section 12 coverage artifact was restored byte-identically. Current unresolved ADA artifact loss: 0. |
+| All other deletion/overwrite findings reconciled | PASS — 19 removals total: 3 legitimate Drive-owned supersessions and 16 improper GitHub-only deletions. Of the 16 improper deletions, 10 are restored unchanged and 6 are superseded by verified newer valid versions. The 89-event modified-path overwrite audit found 0 probable rollbacks. |
+| Manual workflow verification | NOT RUN — the connected GitHub Actions tooling exposes workflow reads/reruns but not creation of a new `workflow_dispatch` run. The only available historical manual run predates the repair and was not used as a false substitute for a current-main verification. |
+| Resulting sync commit inspection | NOT APPLICABLE — no new manual workflow run or sync commit was created during final verification. The repair commits and live workflow/guard were inspected directly. |
+| Successful-import write scope | PASS by design — staged writes target only `drive-sync`, and the success commit stages only `$REPO_DESTINATION`. Conflict runs may additionally commit their intended diagnostic under `health-reports/drive-sync-conflicts/`; no successful sync path writes outside the destination. |
+| Unresolved conflicts/losses | 0 current artifact conflicts; 0 unresolved sync-caused losses in the audited window. Future same-path ownership conflicts are designed to stop and require manual reconciliation. |
+
+### Final closure
+
+The confirmed incident remains `8cce889c3597a69006d0337269bcad419f931ca6` on 2026-08-27. The completed deletion/overwrite audit window is 2026-08-24 through 2026-08-27 and covers all four Drive-sync commits in scope plus the intervening non-sync ancestry required to classify ownership and rollback risk.
+
+Repository history and the live workflow now agree on the repaired ownership boundary. The prior deletion-by-absence failure mode is removed, same-path non-sync content is guarded before write, the affected artifacts are reconciled, and no current unresolved conflict remains. **Drive-sync reconciliation status: CLOSED.**
