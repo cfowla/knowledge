@@ -315,3 +315,92 @@ The seven known ADA paths from `8cce889c` were re-read from current `main`. No A
 - Known ADA incident files overwritten by this repair: **0**.
 - Probable same-path rollback cases requiring repair: **0**.
 - Remaining unresolved blockers in the audited window: **0**.
+
+## Prompt 05 publication output-family gate re-verification
+
+This pass re-verified the publication families touched by a deletion, supersession, restoration, or reconciliation concern. It did not regenerate ATOM, SEA, validation, coverage, crosswalk, reference, or processing-report artifacts. Current gate evidence was read directly; file presence alone was not treated as a pass.
+
+| Publication | Incident contact | Current classification |
+| --- | --- | --- |
+| ADA Section 11 — `dc26s011.pdf`, DOI `10.2337/dc26-S011` | Six Section 11 artifacts were deleted by `8cce889c` and later restored or replaced by newer validated versions. | **PASS after reconciliation** |
+| ADA Section 12 — `dc26s012.pdf`, DOI `10.2337/dc26-S012` | Section 12 coverage was deleted by `8cce889c` and restored byte-identically. | **PASS after reconciliation** |
+| Häring-Merker 2013 — DOI `10.2337/dc12-2673` | Drive sync removed the obsolete `haring-merker-2013-references.md` name while adding the canonical reference task queue and reconciliation record. | **not actually affected** |
+| IJO-66-717 — DOI `10.4103/ijo.IJO_1108_17` | Drive sync removed obsolete lowercase/pluralized SEA and reference-queue names while retaining the canonical packet. | **not actually affected** |
+
+No publication in this affected set remains `repair still required` or `unresolved version conflict`.
+
+### ADA Section 11 — PASS after reconciliation
+
+Exact publication identity: *11. Chronic Kidney Disease and Risk Management: Standards of Care in Diabetes—2026*; source `dc26s011.pdf`; Drive file ID `1EPrRFZURpJCSViy6knv9bRnTCxLZlPLW`; DOI `10.2337/dc26-S011`; source SHA-256 `e7074ab840ff25a020f64edbf0baf39d68783a701c557fe410289459a76b1568`.
+
+Current family inventory is the eight-artifact family recorded and independently read back by the current processing report: ATOM JSON, validation JSON, coverage JSON, crosswalk JSON, SEA-QA JSON, SEA HTML, reference task queue Markdown, and processing report Markdown.
+
+Gate evidence:
+
+- ATOM validation: **PASS**. Current validation blob `fc1ea4078ffe34a037aaed882ecdacd23e07ed2c` records 110 atoms, Pydantic PASS, JSON Schema PASS, sufficiency PASS with no warnings, source-provenance PASS, and whole-source ATOM gate PASS.
+- SEA / SEA-QA: **PASS**. Current SEA-QA blob `d6c28144f8fb759c180c228d9d91f2c8de1550ce` records `status: PASS`, `gate_pass: true`, no failed checks, and provenance present.
+- Coverage/reconciliation: **PASS**. Current coverage reconciles 19/19 recommendations, 2/2 figures, 3/3 tables, 1/1 workflow, and 159/159 bibliography entries.
+- Crosswalk: **PASS**. All 19 recommendations are mapped, referenced atom IDs resolve, and there are no unresolved crosswalk items.
+- Reference extraction/reconciliation: **PASS for the parent publication gate**. The queue preserves all 159 bibliography entries. The processing report explicitly notes that cited primary studies were not independently read in this pass; those downstream cited-publication tasks do not invalidate the completed extraction/reconciliation of the Section 11 source itself.
+- Provenance/output completeness: **PASS**. The analytical artifacts identify the exact source, DOI, Drive ID, and source hash. The processing report records the exact family as 8/8 and lifecycle state `PROCESSED — COMPLETE`.
+
+The deleted pre-sync Section 11 blobs were not restored over the current family. Five deleted artifacts now have newer validated replacements and the processing report was finalized after the incident. Those current versions are the authoritative evidence. No analytical regeneration was performed by this audit.
+
+### ADA Section 12 — PASS after reconciliation
+
+Exact publication identity: *12. Retinopathy, Neuropathy, and Foot Care: Standards of Care in Diabetes—2026*; source `dc26s012.pdf`; Drive file ID `1LaVs5MQ5VFrLP1Ja6K_BgdNLvvWx6Qre`; DOI `10.2337/dc26-S012`; source SHA-256 `8f9779e8dfacc691bd78d15d65f5d70fa9fb92e1db204cad5f0174497b475bad`.
+
+Current family inventory is the eight-artifact family recorded and independently read back by the current processing report: ATOM JSON, validation JSON, coverage JSON, crosswalk JSON, SEA-QA JSON, SEA HTML, reference task queue Markdown, and processing report Markdown.
+
+Gate evidence:
+
+- ATOM validation: **PASS**. Current validation records 105 atoms with zero Pydantic, JSON Schema, or sufficiency errors and a single shared publication identity tied to the exact source hash.
+- SEA / SEA-QA: **PASS**. Current SEA-QA blob `ff09ead1b72a57fc13abe99c315552abe4813029` records `status: PASS`, parse success, provenance present, 32 numbered recommendations covered, Table 12.1 reconciled 1/1, and bibliography count 169.
+- Coverage/reconciliation: **PASS**. The restored coverage blob `9e137b52566c49e91b5cb8e9898c07083c4e11f6` is byte-identical to the pre-delete blob and reconciles recommendations 12.1–12.32 (32/32), Table 12.1 (1/1), figures 0/0, and bibliography 169/169.
+- Crosswalk: **PASS** according to the current processing report and exact 8/8 family readback.
+- Reference extraction/reconciliation: **PASS for the parent publication gate**. The current queue contains all 169 bibliography entries, numbered 1–169, with P0/P1/P2 counts 129/22/18. Bibliography entries were intentionally not atomized.
+- Provenance/output completeness: **PASS**. Source file, Drive ID, DOI, source SHA-256, and publication ID are present in current validation/reporting evidence. The processing report records exact-family readback 8/8, promotion gate PASS, and lifecycle `PROCESSED / VERIFIED`.
+
+Git history restoration was sufficient for the only Section 12 artifact deleted by the incident. The validated coverage blob was restored exactly; no analytical regeneration was needed or performed by this audit.
+
+### Häring-Merker 2013 — not actually affected
+
+Exact publication identity: *Empagliflozin as Add-on to Metformin Plus Sulfonylurea in Patients With Type 2 Diabetes: A 24-week, randomized, double-blind, placebo-controlled trial*; *Diabetes Care* 2013;36:3396–3404; DOI `10.2337/dc12-2673`; primary source `3396.pdf` plus `dc122673supplementarydata.pdf`.
+
+The deleted path was a Drive-owned legacy reference filename, `haring-merker-2013-references.md`. The same sync established the canonical `haring-merker-2013-reference-task-queue.md` and reconciliation record; no GitHub-authored analytical artifact was lost.
+
+Current gate evidence remains valid:
+
+- ATOM validation: **PASS**. Current validation blob `720418458f7ddd6ef4fb41f6e1392b9b4433d8e5` records 98 atoms, zero structural/schema/sufficiency errors or warnings, unique publication identity, and exact main/supplement hashes.
+- SEA / SEA-QA: **PASS**. Current SEA-QA blob `1d166d65ec1bd7c1dfd7db14339a74b2347ebf6e` records parse success and 12/12 expected visual objects reconciled.
+- Coverage/reconciliation: **PASS**. Main figures 2/2, main tables 2/2, supplementary figures 3/3, and supplementary tables 5/5 are reconciled; the source's meal-test subset inconsistency is preserved rather than silently normalized.
+- Crosswalk: not applicable as a separate guideline-recommendation gate for this randomized trial packet.
+- Reference extraction/reconciliation: the canonical queue preserves all 32 numbered references in source order. They are downstream cited-publication tasks; their unchecked state is not evidence that this already processed parent publication lost its bibliography extraction.
+- Provenance/output completeness: current validation pins the main, supplement, and combined packet hashes; the processing report states the scientific outputs remain valid and the reconciliation did not alter scientific assertions or validation results.
+
+Classification is therefore **not actually affected**, not “repaired”: the incident contact was a canonical naming supersession within Drive-owned content.
+
+### IJO-66-717 — not actually affected
+
+Exact publication identity: Sadasivan KS, Pawar N, Ravindran M, Rengappa R. *Optic nerve aplasia: A case series.* *Indian Journal of Ophthalmology*. 2018;66:717–719. DOI `10.4103/ijo.IJO_1108_17`; PMID `29676329`; PMCID `PMC5939177`; source `IJO-66-717.pdf`; source SHA-256 `9e60aca45c1cd603ef489811a8f32a8ca251465fc30c89dc787e7abada8058c9`.
+
+The sync removed only obsolete naming variants: lowercase `IJO-66-717-sea.html` and pluralized `IJO-66-717-references-task-queue.md`. The canonical uppercase SEA and singular reference task queue remained the authoritative family; superseded competing copies were retained rather than silently discarded.
+
+Current gate evidence remains valid:
+
+- Current canonical family includes `IJO-66-717-atoms.json`, `IJO-66-717-validation.json`, `IJO-66-717-coverage.json`, `IJO-66-717-SEA.html`, `IJO-66-717-reference-task-queue.md`, and the processing report.
+- ATOM validation: **PASS**. Current validation blob `d07b260f410425ed84b87ca833871e9c7bb2c36e` records 22 atoms, zero structural/schema/sufficiency errors or warnings, one publication UUID, and the exact current source hash.
+- SEA / SEA-QA: **PASS** in the current processing report. The self-contained canonical SEA is source-identity matched, pins the exact PDF hash, reconciles 3/3 main-text figures, correctly records 0 tables and 0 workflows, and contains no placeholder/internal citation syntax.
+- Coverage/reconciliation: **PASS** for the descriptive case-series source, including the three load-bearing figures. No separate guideline crosswalk is applicable.
+- Reference extraction/reconciliation: **PASS**. The canonical queue reconciles all 10 source bibliography entries with no gaps or duplicates. The current processing report explicitly states that unchecked downstream cited-publication tasks are separate future work and do not represent missing bibliography extraction for this primary packet.
+- Provenance/output completeness: **PASS**. Canonical ATOM/SEA artifacts are tied to the exact PDF hash and the processing report records lifecycle `PASS - ATOM/SEA VERIFIED` with no remaining task for the publication packet.
+
+Classification is therefore **not actually affected**: the deleted names were superseded Drive-owned variants, not loss of the canonical publication packet.
+
+### Prompt 05 conclusion
+
+- **PASS after reconciliation:** ADA Section 11; ADA Section 12.
+- **not actually affected:** Häring-Merker 2013; IJO-66-717.
+- **repair still required:** none.
+- **unresolved version conflict:** none.
+- Valid current analytical artifacts were preserved; none were regenerated or overwritten during this verification pass.
