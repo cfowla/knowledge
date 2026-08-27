@@ -1,0 +1,57 @@
+name: Assemble dc26s014 temporary artifacts
+
+on:
+  push:
+    paths:
+      - '.github/workflows/assemble-dc26s014.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Assemble and verify exact dc26s014 artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git pull --rebase origin main
+          d='.tmp/ada-s014'
+          test -d "$d"
+          for f in \
+            "$d/ada-ppc-2026-dc26-s014-atoms.json.part01" \
+            "$d/ada-ppc-2026-dc26-s014-atoms.json.part02" \
+            "$d/ada-ppc-2026-dc26-s014-atoms.json.part03" \
+            "$d/ada-ppc-2026-dc26-s014-sea.html.part01" \
+            "$d/ada-ppc-2026-dc26-s014-sea.html.part02" \
+            "$d/ada-ppc-2026-dc26-s014-reference-task-queue.md.part01" \
+            "$d/ada-ppc-2026-dc26-s014-reference-task-queue.md.part02a" \
+            "$d/ada-ppc-2026-dc26-s014-reference-task-queue.md.part02b" \
+            "$d/ada-ppc-2026-dc26-s014-reference-task-queue.md.part03"; do
+            test -f "$f"
+          done
+          mkdir -p \
+            'drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON' \
+            'drive-sync/Literature Review/Outputs/Clin Med Pharm/HTML' \
+            'drive-sync/Literature Review/Outputs/Clin Med Pharm/MD'
+          cat "$d"/ada-ppc-2026-dc26-s014-atoms.json.part* | base64 -d | gzip -d > 'drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/ada-ppc-2026-dc26-s014-atoms.json'
+          cat "$d"/ada-ppc-2026-dc26-s014-sea.html.part* | base64 -d | gzip -d > 'drive-sync/Literature Review/Outputs/Clin Med Pharm/HTML/ada-ppc-2026-dc26-s014-sea.html'
+          cat "$d"/ada-ppc-2026-dc26-s014-reference-task-queue.md.part* | base64 -d | gzip -d > 'drive-sync/Literature Review/Outputs/Clin Med Pharm/MD/ada-ppc-2026-dc26-s014-reference-task-queue.md'
+          echo 'c99276f657f6b30387a13ef899ff5494d45b9ac3aff3fd995d9c64289a19be91  drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/ada-ppc-2026-dc26-s014-atoms.json' | sha256sum -c -
+          echo '64d271110b2a920f3c412a77c0d9682e1551f0dc8a1d5fe07f1bee53c2bee51d  drive-sync/Literature Review/Outputs/Clin Med Pharm/HTML/ada-ppc-2026-dc26-s014-sea.html' | sha256sum -c -
+          echo 'ca7f5ed6c2580650144c944b1a2cc1203917d854627cde8df1202d79d97eaa72  drive-sync/Literature Review/Outputs/Clin Med Pharm/MD/ada-ppc-2026-dc26-s014-reference-task-queue.md' | sha256sum -c -
+          rm -rf "$d"
+          rm -f '.github/workflows/assemble-dc26s014.yml'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Publish verified ADA 2026 Section 14 large artifacts'
+          for i in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            git pull --rebase origin main
+          done
+          exit 1
