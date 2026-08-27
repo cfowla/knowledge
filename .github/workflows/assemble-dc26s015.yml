@@ -10,20 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Assemble exact artifacts when all parts exist
+      - name: Assemble exact artifacts when upload is complete
         shell: bash
         run: |
           set -euo pipefail
-          for f in tmp/dc26s015/atoms.part01 tmp/dc26s015/atoms.part02 tmp/dc26s015/atoms.part03 tmp/dc26s015/atoms.part04 tmp/dc26s015/atoms.part05 tmp/dc26s015/refs.part01 tmp/dc26s015/refs.part02 tmp/dc26s015/refs.part03; do
-            if [[ ! -f "$f" ]]; then exit 0; fi
-          done
-          cat tmp/dc26s015/atoms.part0{1,2,3,4,5} > 'drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/ada-ppc-2026-dc26-s015-atoms.json'
-          cat tmp/dc26s015/refs.part0{1,2,3} > 'drive-sync/Literature Review/Outputs/Clin Med Pharm/MD/ada-ppc-2026-dc26-s015-reference-task-queue.md'
+          [[ -f tmp/dc26s015/READY ]] || exit 0
+          compgen -G 'tmp/dc26s015/atoms.part*' >/dev/null || exit 1
+          compgen -G 'tmp/dc26s015/refs.part*' >/dev/null || exit 1
+          compgen -G 'tmp/dc26s015/sea.part*' >/dev/null || exit 1
+          cat $(find tmp/dc26s015 -maxdepth 1 -name 'atoms.part*' | sort) > 'drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/ada-ppc-2026-dc26-s015-atoms.json'
+          cat $(find tmp/dc26s015 -maxdepth 1 -name 'refs.part*' | sort) > 'drive-sync/Literature Review/Outputs/Clin Med Pharm/MD/ada-ppc-2026-dc26-s015-reference-task-queue.md'
+          cat $(find tmp/dc26s015 -maxdepth 1 -name 'sea.part*' | sort) > 'drive-sync/Literature Review/Outputs/Clin Med Pharm/HTML/ada-ppc-2026-dc26-s015-sea.html'
           rm -rf tmp/dc26s015
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          if ! git diff --cached --quiet; then
-            git commit -m 'Process ADA 2026 section dc26s015: atoms and references'
-            git push
-          fi
+          git commit -m 'Process ADA 2026 section dc26s015: atoms references SEA'
+          git push
