@@ -106,3 +106,165 @@ The containment change does not prevent a Drive file from replacing a repository
 1. Decide whether `pmc-acquire-web` is still intended to exist. If yes, restore or rehome the nine-file tree from `2be007fe944a2715b82b2d73e9b3ddfac2dcff3a` in a separate task. If no, record an explicit retirement so the absence is no longer an unresolved loss.
 2. Do not restore any of the seven ADA files deleted by `8cce889c3597a69006d0337269bcad419f931ca6`; their current versions are either byte-identical restorations or newer valid replacements.
 3. Keep the non-deleting `rclone copy` containment in place. Consider a separate guard for same-path overwrite detection if repository-authored files will continue to coexist under `drive-sync`.
+
+## Silent overwrite and reversion audit
+
+### Scope and method
+
+This second pass uses the same 2026-08-24 through 2026-08-27 window and examines only paths with Git status `modified`. Removed paths remain governed by the deletion inventory above. For each sync commit, the immediately preceding tree and intervening non-sync ancestry were compared against the sync's modified-path set. Analytical artifacts were then checked against available validation, QA, processing-report, provenance, source-identity, and source-reconciliation evidence. No ATOM, SEA, validation, coverage, crosswalk, queue, or processing report was regenerated.
+
+Across the four sync commits there were 89 modified-file events: 19 on 2026-08-24, 3 on 2026-08-25, 62 on 2026-08-26, and 5 on 2026-08-27. No modified path had an intervening non-sync same-path edit immediately before the sync. No probable rollback or overwrite of GitHub-authored work was found, and no modified-path case remains uncertain for manual review.
+
+This does not negate the deletion losses above. The `pmc-acquire-web` loss and the seven ADA losses were path-removal events, not silent same-path reversions.
+
+| Sync commit | Modified paths | Intervening non-sync same-path changes | Result |
+| --- | ---: | ---: | --- |
+| `50e68fac10b71acedef64e4c8b2430dae805961d` | 19 | 0 | Drive-side lifecycle/reconciliation updates; no GitHub-authored same-path version was displaced. |
+| `55ec019884604dabe0efe8be15992c34257e6f35` | 3 | 0 | Three recurring Drive-owned historical DOCX updates. The intervening `pmc-acquire-web` commit only added new paths. |
+| `db9d93e1c8a24a3036d881c1e6dd1524385c2c61` | 62 | 0 | Broad Clinical packet reconciliation from the prior sync state; analytical changes are newer Drive content, not a rollback of an intervening repository edit. |
+| `8cce889c3597a69006d0337269bcad419f931ca6` | 5 | 0 | Three Drive-owned historical DOCX updates plus two validated `nihms-1048629` reconciliation repairs. |
+
+### 2026-08-24: `50e68fac10b71acedef64e4c8b2430dae805961d`
+
+The parent is the prior Drive-sync commit `cd5976a1797261698c41e921ca2e900c2003c9c6`; no non-sync commit intervened. Therefore none of the 19 modified paths can represent a sync rollback of work committed between the two syncs.
+
+Classification:
+
+- **Normal Drive-owned update:** the three recurring historical/superseded acquisition-runtime DOCX files and `Clin Med Pharm/MD/dom12307-references.md`. No non-sync same-path edit was present in the relevant history.
+- **Legitimate newer Drive content:** the Sinha/Gul and Sun/Zhou analytical families, plus the `dom12239`, `haring-merker-2013`, `lim-choi-2023`, and `shyangdan-uthman-2016` processing reports. The same sync added companion QA, validation, queue, or reconciliation evidence. Sinha/Gul validation was expanded substantially and explicitly records source reconciliation; Sun/Zhou validation changed to `status: PASS` with a newer generation timestamp. No quality evidence supports treating the prior blobs as superior.
+- **Formatting/export-only change:** none classified solely on this basis.
+- **Probable rollback or overwrite:** none.
+- **Uncertain/manual review:** none.
+
+Complete modified-path inventory, with paths shortened below `drive-sync/`:
+
+- `Acquisition Runtime/scholar-acquire-chatgpt/90 - HISTORICAL DEVELOPMENT AND EVIDENCE/HISTORICAL - v0.4-development/v0.4.3 repair plan - HISTORICAL WORK LOG/Prompt 3 - HISTORICAL CORROBORATING REPORTS (non-authoritative)/CORROBORATING PROSE ONLY - V0.4.3 Prompt 3 Route Proof Report.docx`
+- `Acquisition Runtime/scholar-acquire-chatgpt/90 - HISTORICAL DEVELOPMENT AND EVIDENCE/HISTORICAL - v0.4-development/v0.4.3 repair plan - HISTORICAL WORK LOG/SUPERSEDED - Prompt 4 clean ten-PMID regression and ATOM-SEA handoff/SUPERSEDED - V0.4.3 Prompt 4 Preflight Hard-Stop Report.docx`
+- `Acquisition Runtime/scholar-acquire-chatgpt/90 - HISTORICAL DEVELOPMENT AND EVIDENCE/SUPERSEDED - V0.4.3 Prompt 3 Final Authority Reconciliation (pre direct Unpaywall proof).docx`
+- `Literature Review/Outputs/Clin Med Pharm/JSON/sinha-gul-2024-cureus-69711-atoms.json`
+- `Literature Review/Outputs/Clin Med Pharm/JSON/sinha-gul-2024-cureus-69711-coverage.json`
+- `Literature Review/Outputs/Clin Med Pharm/JSON/sinha-gul-2024-cureus-69711-sea-qa.json`
+- `Literature Review/Outputs/Clin Med Pharm/JSON/sinha-gul-2024-cureus-69711-validation.json`
+- `Literature Review/Outputs/Clin Med Pharm/JSON/sun-zhou-2014-e004619-atoms.json`
+- `Literature Review/Outputs/Clin Med Pharm/JSON/sun-zhou-2014-e004619-coverage.json`
+- `Literature Review/Outputs/Clin Med Pharm/JSON/sun-zhou-2014-e004619-crosswalk.json`
+- `Literature Review/Outputs/Clin Med Pharm/JSON/sun-zhou-2014-e004619-sea-qa.json`
+- `Literature Review/Outputs/Clin Med Pharm/JSON/sun-zhou-2014-e004619-validation.json`
+- `Literature Review/Outputs/Clin Med Pharm/MD/dom12239-processing-report.md`
+- `Literature Review/Outputs/Clin Med Pharm/MD/dom12307-references.md`
+- `Literature Review/Outputs/Clin Med Pharm/MD/haring-merker-2013-processing-report.md`
+- `Literature Review/Outputs/Clin Med Pharm/MD/lim-choi-2023-s12933-023-01911-7-processing-report.md`
+- `Literature Review/Outputs/Clin Med Pharm/MD/shyangdan-uthman-2016-processing-report.md`
+- `Literature Review/Outputs/Clin Med Pharm/MD/sinha-gul-2024-cureus-69711-processing-report.md`
+- `Literature Review/Outputs/Clin Med Pharm/MD/sun-zhou-2014-e004619-processing-report.md`
+
+### 2026-08-25: `55ec019884604dabe0efe8be15992c34257e6f35`
+
+The immediate parent `2be007fe944a2715b82b2d73e9b3ddfac2dcff3a` is a non-sync commit, but its complete diff only adds the nine-file `pmc-acquire-web` tree. It does not modify any pre-existing path. Those nine added paths were deleted by the sync and are already recorded above; they are not same-path overwrite cases.
+
+The sync's only three modified paths are the recurring historical/superseded acquisition-runtime DOCX files listed in the 2026-08-24 inventory. All three are classified as **normal Drive-owned updates**. There is no evidence of an intervening GitHub-authored version, substantive loss, or rollback on those paths.
+
+### 2026-08-26: `db9d93e1c8a24a3036d881c1e6dd1524385c2c61`
+
+The immediate parent is the 2026-08-25 Drive-sync commit itself. No non-sync commit intervened. The commit contains a broad Clinical packet reconciliation: 3 recurring historical DOCX modifications and 59 Clinical artifact modifications.
+
+Classification:
+
+- **Normal Drive-owned update:** the three recurring historical/superseded acquisition-runtime DOCX files.
+- **Legitimate newer Drive content:** all 59 modified Clinical artifacts. This classification is based on the direct-sync ancestry and the accompanying packet evidence, not on recency alone. The same commit adds missing coverage, validation, SEA-validation/QA, processing-report, and reference-reconciliation artifacts across the affected packets. Representative source-integrity patches include `33-S0735109721058460_SEA.html`, which corrects mislabeled supplemental Table 2/3/6/7 rows against the supplied supplement; `06-0725-atom-validation.json`, which adds explicit render QA; and the IJO family, where the canonical uppercase SEA is expanded while obsolete naming is moved to superseded status. These are reconciliation/repair signals, not evidence of a Drive rollback.
+- **Formatting/export-only change:** formatting normalization occurs inside several SEA diffs, but those same files also contain provenance, source-integrity, or QA changes, so no file is classified solely as formatting/export-only.
+- **Probable rollback or overwrite:** none.
+- **Uncertain/manual review:** none.
+
+Complete modified Clinical path inventory, grouped under `drive-sync/Literature Review/Outputs/Clin Med Pharm/`:
+
+**HTML (8)**
+
+- `HTML/18-041-sea.html`
+- `HTML/30-RomJOphthalmol-59-188-sea.html`
+- `HTML/33-S0735109721058460_SEA.html`
+- `HTML/37-S1556086421032172-SEA.html`
+- `HTML/45-S1470204520304447-SEA.html`
+- `HTML/IJO-66-717-SEA.html`
+- `HTML/S1201971213001100_sea.html`
+- `HTML/bcr-2020-239394-sea.html`
+
+**JSON (44)**
+
+- `JSON/04-0893-atoms.json`
+- `JSON/06-0725-atom-validation.json`
+- `JSON/06-0725-atoms.json`
+- `JSON/11-S1567134821004251-atoms.json`
+- `JSON/117-nihms-1753340-atoms.json`
+- `JSON/117-nihms-1753340-validation.json`
+- `JSON/18-041-atoms.json`
+- `JSON/18-041-coverage.json`
+- `JSON/2029-07-atoms.json`
+- `JSON/2029-07-sea-qa.json`
+- `JSON/2029-07-validation.json`
+- `JSON/2457-06-atoms.json`
+- `JSON/25-main1-atoms.json`
+- `JSON/26-recurrent-guillain-barre-syndrome-case-series-atoms.json`
+- `JSON/26-recurrent-guillain-barre-syndrome-case-series-coverage.json`
+- `JSON/30-RomJOphthalmol-59-188-atoms.json`
+- `JSON/30-RomJOphthalmol-59-188-coverage.json`
+- `JSON/30-RomJOphthalmol-59-188-validation.json`
+- `JSON/37-S1556086421032172-atoms.json`
+- `JSON/40-wharton-2021-semaglutide-gi-tolerability-atoms.json`
+- `JSON/40-wharton-2021-semaglutide-gi-tolerability-validation.json`
+- `JSON/44-S1936879820320124-EXTRACT-PE-atoms.json`
+- `JSON/45-S1470204520304447-atoms.json`
+- `JSON/794-neonatal-mrsa-conjunctivitis-atoms.json`
+- `JSON/794-neonatal-mrsa-conjunctivitis-coverage.json`
+- `JSON/794-neonatal-mrsa-conjunctivitis-validation.json`
+- `JSON/IJO-66-717-atoms.json`
+- `JSON/IJO-66-717-validation.json`
+- `JSON/S1876034114000793-atoms.json`
+- `JSON/S1876034114000793-coverage.json`
+- `JSON/bcr-2020-239394-atoms.json`
+- `JSON/bcr-2020-239394-coverage.json`
+- `JSON/bcr-2020-239394-sea-qa.json`
+- `JSON/biomolecules-11-01624-atoms.json`
+- `JSON/biomolecules-11-01624-validation.json`
+- `JSON/dkx358-atoms.json`
+- `JSON/jco-39-3441-atoms.json`
+- `JSON/jco-39-3441-validation.json`
+- `JSON/nihms-1829921-atoms.json`
+- `JSON/nihms-1829921-validation.json`
+- `JSON/nihms-2063155-atoms.json`
+- `JSON/usaa232-atoms.json`
+- `JSON/usaa232-coverage.json`
+- `JSON/usaa232-validation.json`
+
+**MD (7)**
+
+- `MD/117-nihms-1753340-references.md`
+- `MD/18-041-reference-task-queue.md`
+- `MD/2029-07-reference-task-queue.md`
+- `MD/30-RomJOphthalmol-59-188-reference-task-queue.md`
+- `MD/IJO-66-717-reference-task-queue.md`
+- `MD/bcr-2020-239394-reference-task-queue.md`
+- `MD/jco-39-3441-reference-task-queue.md`
+
+### 2026-08-27: `8cce889c3597a69006d0337269bcad419f931ca6`
+
+Thirteen non-sync commits occurred after the 2026-08-26 sync and before the 2026-08-27 sync parent `a5c77b461746f3e747e344c64066ff34a1b374e9`. A complete compare of that interval shows workflow/trigger changes and seven newly added ADA artifacts, but none of the five paths later marked `modified` by the sync. The seven ADA overlaps were deletions and remain documented in the deletion inventory.
+
+The five modified paths are:
+
+- the same three recurring historical/superseded acquisition-runtime DOCX files — **normal Drive-owned update**;
+- `Literature Review/Outputs/Clin Med Pharm/HTML/21 - nihms-1048629 - SEA.html` — **legitimate newer Drive content**;
+- `Literature Review/Outputs/Clin Med Pharm/JSON/21 - nihms-1048629 - ATOM.json` — **legitimate newer Drive content**.
+
+The `nihms-1048629` changes are not merely newer timestamps. The companion `21 - nihms-1048629 - ATOM Validation.json` at the sync commit reports structural validation PASS, JSON Schema PASS, sufficiency PASS, source-anchor verification `PASS_AFTER_MINIMAL_REPAIR`, SEA reconciliation `PASS_AFTER_RECONCILIATION`, and lifecycle `PASS - ATOM/SEA VERIFIED`. The ATOM change narrows one source anchor from page `3` to `2-3` without changing the canonical statement, assertion origin, quantitative estimate, or atom kind. The SEA records the source's own 4.5-month versus Table 1 median inconsistency rather than silently normalizing it. This is a source-integrity repair, not a rollback.
+
+### Overwrite-audit conclusion
+
+No same-path sync overwrite/reversion loss was identified in the established audit window. Specifically:
+
+- no sync-modified path had a non-sync same-path edit immediately before the sync;
+- no analytical artifact reviewed showed validation, QA, provenance, or source-identity evidence that the post-sync version was a rollback to an inferior Drive version;
+- no modified path is classified as probable rollback/overwrite;
+- no modified path remains uncertain for manual review.
+
+The reconciliation record therefore contains both loss modes: confirmed deletion losses are preserved in the deletion inventory, while the same-path overwrite audit is negative for this window. The non-deleting `rclone copy` containment fixes deletion-by-absence but still does not technically prevent a future same-path collision; a separate collision detector or ownership boundary remains advisable if GitHub-authored work continues under `drive-sync`.
