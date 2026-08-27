@@ -1,0 +1,38 @@
+name: Repair dc26s014 reference queue
+
+on:
+  push:
+    paths:
+      - '.github/workflows/repair-dc26s014-reference-queue.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reconstruct, verify, and replace exact reference queue
+        shell: bash
+        run: |
+          set -euo pipefail
+          git pull --rebase origin main
+          d='.tmp/ada-s014-refrepair'
+          for f in "$d/part01" "$d/part02" "$d/part03"; do test -f "$f"; done
+          cat "$d"/part* | base64 -d | gzip -d > /tmp/ada-s014-reference-task-queue.md
+          echo 'be8b8b51de4b02bf3942792d5c20b194321dd7e47d61c626860ca6d22284c576  /tmp/ada-s014-reference-task-queue.md' | sha256sum -c -
+          cp /tmp/ada-s014-reference-task-queue.md 'drive-sync/Literature Review/Outputs/Clin Med Pharm/MD/ada-ppc-2026-dc26-s014-reference-task-queue.md'
+          rm -rf "$d"
+          rm -f '.github/workflows/repair-dc26s014-reference-queue.yml'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Repair ADA 2026 Section 14 reference extraction order'
+          for i in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            git pull --rebase origin main
+          done
+          exit 1
