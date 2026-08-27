@@ -1,0 +1,487 @@
+# Reference task queue: 11. Chronic Kidney Disease and Risk Management: Standards of Care in Diabetes—2026
+
+Source: `10.2337/dc26-S011`  
+Input: `dc26s011.pdf`  
+Drive file ID: `1EPrRFZURpJCSViy6knv9bRnTCxLZlPLW`  
+Bibliography entries extracted and reconciled: **159/159**  
+
+Priority labels are workflow triage, not ADA evidence grades or independent appraisal. **P0** marks references directly tied by title/topic to load-bearing CKD treatment or kidney-outcome evidence; **P1** marks recent supporting evidence; **P2** marks contextual or historical evidence. Bibliography entries are provenance infrastructure and are not LiteratureAtoms.
+
+Counts: P0 **68** · P1 **20** · P2 **71**
+
+## 1. [P0]
+de Boer IH, Khunti K, Sadusky T, et al. Diabetes management in chronic kidney disease: a consensus report by the American Diabetes Association (ADA) and Kidney Disease: Improving Global Outcomes (KDIGO). Diabetes Care 2022;45: 3075–3090
+
+## 2. [P2]
+Afkarian M, Zelnick LR, Hall YN, et al. Clinical manifestations of kidney disease among US adults with diabetes, 1988-2014. JAMA 2016;316: 602–610
+
+## 3. [P1]
+Tuttle KR, Jones CR, Daratha KB, et al. Incidence of chronic kidney disease among adults with diabetes, 2015-2020. N Engl J Med 2022; 387:1430–1431
+
+## 4. [P2]
+DCCT/EDIC Research Group. Kidney disease and related findings in the diabetes control and complications trial/epidemiology of diabetes inter- ventions and complications study. Diabetes Care 2014;37:24–30
+
+## 5. [P2]
+Johansen KL, Chertow GM, Foley RN, et al. US Renal Data System 2020 Annual Data Report: epidemiology of kidney disease in the United States. Am J Kidney Dis 2021;77:A7–A8
+
+## 6. [P2]
+Fox CS, Matsushita K, Woodward M, et al.; Chronic Kidney Disease Prognosis Consortium. Associations of kidney disease measures with mortality and end-stage renal disease in individuals with and without diabetes: a meta-analysis. Lancet 2012;380:1662–1673
+
+## 7. [P2]
+Li H, Lu W, Wang A, Jiang H, Lyu J. Changing epidemiology of chronic kidney disease as a result of type 2 diabetes mellitus from 1990 to 2017: estimates from Global Burden of Disease 2017. J Diabetes Investig 2021;12:346–356
+
+## 8. [P2]
+Yarnoff BO, Hoerger TJ, Simpson SK, et al.; Centers for Disease Control and Prevention CKD Initiative. The cost-effectiveness of using chronic kidney disease risk scores to screen for early- stage chronic kidney disease. BMC Nephrol 2017; 18:85
+
+## 9. [P2]
+Coresh J, Heerspink HJL, Sang Y, et al.; Chronic Kidney Disease Prognosis Consortium and Chronic Kidney Disease Epidemiology Collaboration. Change in albuminuria and subsequent risk of end-stage kidney disease: an individual participant-level con- sortium meta-analysis of observational studies. Lancet Diabetes Endocrinol 2019;7:115–127
+
+## 10. [P2]
+Levey AS, Gansevoort RT, Coresh J, et al. Change in albuminuria and GFR as end points for clinical trials in early stages of CKD: a scientific workshop sponsored by the National Kidney Foundation in collaboration with the US Food and Drug Administration and European Medicines Agency. Am J Kidney Dis 2020;75:84–104
+
+## 11. [P2]
+Afkarian M, Sachs MC, Kestenbaum B, et al. Kidney disease and increased mortality risk in type 2 diabetes. J Am Soc Nephrol 2013;24:302–308
+
+## 12. [P2]
+Groop P-H, Thomas MC, Moran JL, et al.; FinnDiane Study Group. The presence and severity of chronic kidney disease predicts all-cause mortality in type 1 diabetes. Diabetes 2009;58:1651–1658
+
+## 13. [P1]
+Rasaratnam N, Salim A, Blackberry I, et al. Urine albumin-creatinine ratio variability in people with type 2 diabetes: clinical and research implications. Am J Kidney Dis 2024;84:8–17
+
+## 14. [P2]
+Naresh CN, Hayen A, Weening A, Craig JC, Chadban SJ. Day-to-day variability in spot urine albumin-creatinine ratio. Am J Kidney Dis 2013; 62:1095–1101
+
+## 15. [P2]
+Tankeu AT, Kaze FF, Noubiap JJ, Chelo D, Dehayem MY, Sobngwi E. Exercise-induced albuminuria and circadian blood pressure abnor- malities in type 2 diabetes. World J Nephrol 2017; 6:209–216
+
+## 16. [P2]
+Inker LA, Eneanya ND, Coresh J, et al.; Chronic Kidney Disease Epidemiology Collaboration. New creatinine- and cystatin C-based equations to estimate GFR without race. N Engl J Med 2021; 385:1737–1749
+
+## 17. [P1]
+Miller WG, Kaufman HW, Levey AS, et al. National Kidney Foundation Laboratory Engagement Working Group recommendations for implementing the CKD-EPI 2021 Race-Free Equations for Estimated Glomerular Filtration Rate: practical guidance for clinical laboratories. Clin Chem 2022;68:511–520
+
+## 18. [P2]
+Kramer HJ, Nguyen QD, Curhan G, Hsu C-Y. Renal insufficiency in the absence of albuminuria and retinopathy among adults with type 2 diabetes mellitus. JAMA 2003;289:3273–3277
+
+## 19. [P2]
+Fan L, Levey AS, Gudnason V, et al. Comparing GFR estimating equations using cystatin C and creatinine in elderly individuals. J Am Soc Nephrol 2015;26:1982–1989
+
+## 20. [P2]
+de Boer IH, Rue TC, Hall YN, Heagerty PJ, Weiss NS, Himmelfarb J. Temporal trends in the prevalence of diabetic kidney disease in the United States. JAMA 2011;305:2532–2539
+
+## 21. [P2]
+Vistisen D, Andersen GS, Hulman A, Persson F, Rossing P, Jørgensen ME. Progressive decline in estimated glomerular filtration rate in patients with diabetes after moderate loss in kidney function- even without albuminuria. Diabetes Care 2019;42: 1886–1894
+
+## 22. [P2]
+Levey AS, Coresh J, Balk E, et al.; National Kidney Foundation. National Kidney Foundation practice guidelines for chronic kidney disease: evaluation, classification, and stratification. Ann Intern Med 2003;139:137–147
+
+## 23. [P0]
+Matzke GR, Aronoff GR, Atkinson AJ, Jr, et al. Drug dosing consideration in patients with acute and chronic kidney disease-a clinical update from Kidney Disease: Improving Global Outcomes (KDIGO). Kidney Int 2011;80:1122–1137
+
+## 24. [P2]
+Coresh J, Turin TC, Matsushita K, et al. Decline in estimated glomerular filtration rate and subsequent risk of end-stage renal disease and mortality. JAMA 2014;311:2518–2531
+
+## 25. [P2]
+Vassalotti JA, Centor R, Turner BJ, Greer RC, Choi M, Sequist TD; National Kidney Foundation Kidney Disease Outcomes Quality Initiative. Practical approach to detection and management of chronic kidney disease for the primary care clinician. Am J Med 2016;129:153–162.e7
+
+## 26. [P0]
+Ostermann M, Bellomo R, Burdmann EA, et al.; Conference Participants. Controversies in acute kidney injury: conclusions from a Kidney Disease: Improving Global Outcomes (KDIGO) conference. Kidney Int 2020;98:294–309
+
+## 27. [P2]
+James MT, Grams ME, Woodward M, et al.; CKD Prognosis Consortium. A meta-analysis of the association of estimated GFR, albuminuria, diabetes mellitus, and hypertension with acute kidney injury. Am J Kidney Dis 2015;66:602–612
+
+## 28. [P2]
+Harding JL, Li Y, Burrows NR, Bullard KM, Pavkov ME. US trends in hospitalizations for dialysis-requiring acute kidney injury in people with versus without diabetes. Am J Kidney Dis 2020;75:897–907
+
+## 29. [P0]
+Perkovic V, Jardine MJ, Neal B, et al.; CREDENCE Trial Investigators. Canagliflozin and renal outcomes in type 2 diabetes and nephropathy. N Engl J Med 2019;380:2295–2306
+
+## 30. [P0]
+Nadkarni GN, Ferrandino R, Chang A, et al. Acute kidney injury in patients on SGLT2 inhibitors: a propensity-matched analysis. Diabetes Care 2017; 40:1479–1485
+
+## 31. [P0]
+Wanner C, Inzucchi SE, Lachin JM, et al.; EMPA-REG OUTCOME Investigators. Empagliflozin and progression of kidney disease in type 2 diabetes. N Engl J Med 2016;375:323–334
+
+## 32. [P0]
+Neuen BL, Ohkuma T, Neal B, et al. Cardio- vascular and renal outcomes with canagliflozin according to baseline kidney function. Circulation 2018;138:1537–1550
+
+## 33. [P0]
+Bakris GL, Agarwal R, Anker SD, et al.; FIDELIO-DKD Investigators. Effect of finerenone on chronic kidney disease outcomes in type 2 diabetes. N Engl J Med 2020;383:2219–2229
+
+## 34. [P2]
+Thakar CV, Christianson A, Himmelfarb J, Leonard AC. Acute kidney injury episodes and chronic kidney disease risk in diabetes mellitus. Clin J Am Soc Nephrol 2011;6:2567–2572
+
+## 35. [P0]
+Bakris GL, Weir MR. Angiotensin-converting enzyme inhibitor-associated elevations in serum creatinine: is this a cause for concern? Arch Intern Med 2000;160:685–693
+
+## 36. [P2]
+Collard D, Brouwer TF, Peters RJG, Vogt L, van den Born B-JH. Creatinine rise during blood pressure therapy and the risk of adverse clinical outcomes in patients with type 2 diabetes mellitus. Hypertension 2018;72:1337–1344
+
+## 37. [P2]
+Malhotra R, Craven T, Ambrosius WT, et al.; SPRINT Research Group. Effects of intensive blood pressure lowering on kidney tubule injury in CKD: a longitudinal subgroup analysis in SPRINT. Am J Kidney Dis 2019;73:21–30
+
+## 38. [P2]
+Hughes-Austin JM, Rifkin DE, Beben T, et al. The relation of serum potassium concentration with cardiovascular events and mortality in community- living individuals. Clin J Am Soc Nephrol 2017;12: 245–252
+
+## 39. [P0]
+Bandak G, Sang Y, Gasparini A, et al. Hyperkalemia after initiating renin-angiotensin system blockade: the Stockholm Creatinine Measurements (SCREAM) project. J Am Heart Assoc 2017;6:e005428
+
+## 40. [P2]
+Nilsson E, Gasparini A, €Arnlöv J, et al. Incidence and determinants of hyperkalemia and hypokalemia in a large healthcare system. Int J Cardiol 2017;245:277–284
+
+## 41. [P0]
+Zelniker TA, Raz I, Mosenzon O, et al. Effect of dapagliflozin on cardiovascular outcomes according to baseline kidney function and albuminuria status in patients with type 2 diabetes: a prespecified secondary analysis of a randomized clinical trial. JAMA Cardiol 2021;6:801–810
+
+## 42. [P0]
+Agarwal R, Tu W, Farjat AE, et al.; FIDELIO- DKD and FIGARO-DKD Investigators. Impact of finerenone-induced albuminuria reduction on chronic kidney disease outcomes in type 2 diabetes: a mediation analysis. Ann Intern Med 2023;176:1606–1616
+
+## 43. [P0]
+Li J, Neal B, Perkovic V, et al. Mediators of the effects of canagliflozin on kidney protection in patients with type 2 diabetes. Kidney Int 2020;98:769–777
+
+## 44. [P0]
+Epstein M, Reaven NL, Funk SE, McGaughey KJ, Oestreicher N, Knispel J. Evaluation of the treatment gap between clinical guidelines and the utilization of renin-angiotensin-aldosterone system inhibitors. Am J Manag Care 2015;21:S212–S220
+
+## 45. [P2]
+de Boer IH, Gao X, Cleary PA, et al.; Diabetes Control and Complications Trial/Epidemiology of Diabetes Interventions and Complications (DCCT/ EDIC) Research Group. Albuminuria changes and cardiovascular and renal outcomes in type 1 diabetes: the DCCT/EDIC Study. Clin J Am Soc Nephrol 2016;11:1969–1977
+
+## 46. [P2]
+Sumida K, Molnar MZ, Potukuchi PK, et al. Changes in albuminuria and subsequent risk of incident kidney disease. Clin J Am Soc Nephrol 2017;12:1941–1949
+
+## 47. [P0]
+Wexler DJ, de Boer IH, Ghosh A, et al.; GRADE Research Group. Comparative effects of glucose- lowering medications on kidney outcomes in type 2 diabetes: the GRADE randomized clinical trial. JAMA Intern Med 2023;183:705–714
+
+## 48. [P2]
+Klahr S, Levey AS, Beck GJ, et al. The effects of dietary protein restriction and blood-pressure control on the progression of chronic renal disease. Modification of Diet in Renal Disease Study Group. N Engl J Med 1994;330:877–884
+
+## 49. [P2]
+Ikizler TA, Burrowes JD, Byham-Gray LD, et al. KDOQI clinical practice guideline for nutrition in CKD: 2020 update. Am J Kidney Dis 2020;76: S1–S107
+
+## 50. [P1]
+Rhee CM, Wang AY-M, Biruete A, et al. Nutritional and dietary management of chronic kidney disease under conservative and preservative kidney care without dialysis. J Ren Nutr 2023;33: S56–S66
+
+## 51. [P2]
+Mills KT, Chen J, Yang W, et al.; Chronic Renal Insufficiency Cohort (CRIC) Study Investigators. Sodium excretion and the risk of cardiovascular disease in patients with chronic kidney disease. JAMA 2016;315:2200–2210
+
+## 52. [P2]
+Whelton PK, Carey RM, Aronow WS, et al. 2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ ASPC/NMA/PCNA guideline for the prevention, detection, evaluation, and management of high blood pressure in adults: executive summary: a report of the American College of Cardiology/ American Heart Association Task Force on Clinical Practice Guidelines. Hypertension 2018;71:1269– 1324
+
+## 53. [P2]
+Murray DP, Young L, Waller J, et al. Is dietary protein intake predictive of 1-year mortality in dialysis patients? Am J Med Sci 2018;356:234–243
+
+## 54. [P2]
+DCCT/EDIC Research Group. Effect of intensive diabetes treatment on albuminuria in type 1 diabetes: long-term follow-up of the Diabetes Control and Complications Trial and Epidemiology of Diabetes Interventions and Complications study. Lancet Diabetes Endocrinol 2014;2:793–800
+
+## 55. [P2]
+de Boer IH, Sun W, Cleary PA, et al.; DCCT/ EDIC Research Group. Intensive diabetes therapy and glomerular filtration rate in type 1 diabetes. N Engl J Med 2011;365:2366–2376
+
+## 56. [P2]
+UK Prospective Diabetes Study (UKPDS) Group. Intensive blood-glucose control with sulphonylureas or insulin compared with conventional treatment and risk of complications in patients with type 2 diabetes (UKPDS 33). Lancet 1998;352:837–853
+
+## 57. [P2]
+Agrawal L, Azad N, Bahn GD, et al.; VADT Study Group. Long-term follow-up of intensive glycaemic control on renal outcomes in the Veterans Affairs Diabetes Trial (VADT). Diabetologia 2018;61:295–299
+
+## 58. [P2]
+Papademetriou V, Lovato L, Doumas M, et al.; ACCORD Study Group. Chronic kidney disease and intensive glycemic control increase cardiovascular risk in patients with type 2 diabetes. Kidney Int 2015;87:649–659
+
+## 59. [P2]
+Zoungas S, Chalmers J, Neal B, et al.; ADVANCE-ON Collaborative Group. Follow-up of blood-pressure lowering and glucose control in type 2 diabetes. N Engl J Med 2014;371:1392–1406
+
+## 60. [P0]
+Perkovic V, Heerspink HL, Chalmers J, et al.; ADVANCE Collaborative Group. Intensive glucose control improves kidney outcomes in patients with type 2 diabetes. Kidney Int 2013;83:517–523
+
+## 61. [P2]
+Wong MG, Perkovic V, Chalmers J, et al.; ADVANCE-ON Collaborative Group. Long-term benefits of intensive glucose control for preventing end-stage kidney disease: ADVANCE-ON. Diabetes Care 2016;39:694–700
+
+## 62. [P0]
+Mottl AK, Alicic R, Argyropoulos C, et al. KDOQI US commentary on the KDIGO 2020 clinical practice guideline for diabetes management in CKD. Am J Kidney Dis 2022;79:457–479
+
+## 63. [P0]
+Tuttle KR, Bakris GL, Bilous RW, et al. Diabetic kidney disease: a report from an ADA consensus conference. Diabetes Care 2014;37: 2864–2883
+
+## 64. [P0]
+Kidney Disease: Improving Global Outcomes Diabetes Work Group. KDIGO 2022 clinical practice guideline for diabetes management in chronic kidney disease. Kidney Int 2022;102:S1–S127
+
+## 65. [P2]
+Copur S, Siriopol D, Afsar B, et al. Serum glycated albumin predicts all-cause mortality in dialysis patients with diabetes mellitus: meta- analysis and systematic review of a predictive biomarker. Acta Diabetol 2021;58:81–91
+
+## 66. [P1]
+Sacks DB, Arnold M, Bakris GL, et al. Guidelines and recommendations for laboratory analysis in the diagnosis and management of diabetes mellitus. Diabetes Care 2023;46:e151–e199
+
+## 67. [P0]
+Leehey DJ, Zhang JH, Emanuele NV, et al.; VA NEPHRON-D Study Group. BP and renal outcomes in diabetic kidney disease: the Veterans Affairs Nephropathy in Diabetes Trial. Clin J Am Soc Nephrol 2015;10:2159–2169
+
+## 68. [P2]
+Emdin CA, Rahimi K, Neal B, Callender T, Perkovic V, Patel A. Blood pressure lowering in type 2 diabetes: a systematic review and meta- analysis. JAMA 2015;313:603–615
+
+## 69. [P2]
+Cushman WC, Evans GW, Byington RP, et al.; ACCORD Study Group. Effects of intensive blood- pressure control in type 2 diabetes mellitus. N Engl J Med 2010;362:1575–1585
+
+## 70. [P2]
+UK Prospective Diabetes Study Group. Tight blood pressure control and risk of macrovascular and microvascular complications in type 2 diabetes: UKPDS 38. BMJ 1998;317:703–713
+
+## 71. [P0]
+de Boer IH, Bangalore S, Benetos A, et al. Diabetes and hypertension: a position statement by the American Diabetes Association. Diabetes Care 2017;40:1273–1284
+
+## 72. [P0]
+Brenner BM, Cooper ME, de Zeeuw D, et al.; RENAAL Study Investigators. Effects of losartan on renal and cardiovascular outcomes in patients with type 2 diabetes and nephropathy. N Engl J Med 2001;345:861–869
+
+## 73. [P0]
+Lewis EJ, Hunsicker LG, Bain RP, Rohde RD. The effect of angiotensin-converting-enzyme inhibition on diabetic nephropathy. The Collaborative Study Group. N Engl J Med 1993;329:1456–1462
+
+## 74. [P0]
+Lewis EJ, Hunsicker LG, Clarke WR, et al.; Collaborative Study Group. Renoprotective effect of the angiotensin-receptor antagonist irbesartan in patients with nephropathy due to type 2 diabetes. N Engl J Med 2001;345:851–860
+
+## 75. [P2]
+Heart Outcomes Prevention Evaluation Study Investigators. Effects of ramipril on cardiovascular and microvascular outcomes in people with diabetes mellitus: results of the HOPE study and MICRO-HOPE substudy. Lancet 2000;355: 253–259
+
+## 76. [P0]
+Barnett AH, Bain SC, Bouter P, et al.; Diabetics Exposed to Telmisartan and Enalapril Study Group. Angiotensin-receptor blockade versus converting- enzyme inhibition in type 2 diabetes and nephro- pathy. N Engl J Med 2004;351:1952–1961
+
+## 77. [P0]
+Wu H-Y, Peng C-L, Chen P-C, et al. Comparative effectiveness of angiotensin-converting enzyme inhibitors versus angiotensin II receptor blockers for major renal outcomes in patients with diabetes: a 15-year cohort study. PLoS One 2017;12:e0177654
+
+## 78. [P0]
+Parving HH, Lehnert H, Bröchner-Mortensen J, Gomis R, Andersen S, Arner P; Irbesartan in Patients with Type 2 Diabetes and Microalbuminuria Study Group. The effect of irbesartan on the development of diabetic nephropathy in patients with type 2 diabetes. N Engl J Med 2001;345:870–878
+
+## 79. [P2]
+Mauer M, Zinman B, Gardiner R, et al. Renal and retinal effects of enalapril and losartan in type 1 diabetes. N Engl J Med 2009;361:40–51
+
+## 80. [P0]
+Weil EJ, Fufaa G, Jones LI, et al. Erratum. Effect of losartan on prevention and progression of early diabetic nephropathy in American Indians with type 2 diabetes. Diabetes 2013;62:3224– 3231. Diabetes 2018;67:532
+
+## 81. [P0]
+Qiao Y, Shin J-I, Chen TK, et al. Association between renin-angiotensin system blockade discontinuation and all-cause mortality among persons with low estimated glomerular filtration rate. JAMA Intern Med 2020;180:718–726
+
+## 82. [P1]
+Bi Y, Li M, Liu Y, et al.; BPROAD Research Group. Intensive blood-pressure control in patients with type 2 diabetes. N Engl J Med 2025;392: 1155–1167
+
+## 83. [P1]
+Jones DW, Ferdinand KC, Taler SJ, et al. 2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ ASPC/NMA/PCNA/SGIM guideline for the prevention, detection, evaluation and management of high blood pressure in adults: a report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines. Hypertension 2025;82:e212–e316
+
+## 84. [P2]
+Wang Q, Wang Y, Wang J, Zhang L, Zhao M-H; C-STRIDE (Chinese Cohort Study of Chronic Kidney Disease). Short-term systolic blood pressure variability and kidney disease progression in patients with chronic kidney disease: results from C-STRIDE. J Am Heart Assoc 2020;9:e015359
+
+## 85. [P1]
+Yang L, Li J, Wei W, et al. Blood pressure variability and the progression of chronic kidney disease: a systematic review and meta-analysis. J Gen Intern Med 2023;38:1272–1281
+
+## 86. [P2]
+Kovesdy CP, Bleyer AJ, Molnar MZ, et al. Blood pressure and mortality in U.S. veterans with chronic kidney disease: a cohort study. Ann Intern Med 2013;159:233–242
+
+## 87. [P0]
+Ohkuma T, Jun M, Rodgers A, et al.; ADVANCE Collaborative Group. Acute increases in serum creatinine after starting angiotensin- converting enzyme inhibitor-based therapy and effects of its continuation on major clinical out- comes in type 2 diabetes mellitus. Hypertension 2019;73:84–91
+
+## 88. [P0]
+Wing S, Ray JG, Yau K, et al. SGLT2 inhibitors and risk for hyperkalemia among individuals receiving RAAS inhibitors. JAMA Intern Med 2025;185:827–836
+
+## 89. [P0]
+Fletcher RA, Jongs N, Chertow GM, et al. Effect of SGLT2 inhibitors on discontinuation of renin-angiotensin system blockade: a joint analysis of the CREDENCE and DAPA-CKD trials. J Am Soc Nephrol 2023;34:1965–1975
+
+## 90. [P0]
+Ku E, Tighiouart H, McCulloch CE, et al. Association between acute declines in eGFR during renin-angiotensin system inhibition and risk of adverse outcomes. J Am Soc Nephrol 2024;35:1402–1411
+
+## 91. [P0]
+Hattori K, Sakaguchi Y, Oka T, et al. Estimated effect of restarting renin-angiotensin system in- hibitors after discontinuation on kidney outcomes and mortality. J Am Soc Nephrol 2024;35:1391–1401
+
+## 92. [P0]
+Shulman R, Cohen JB. Navigating renin- angiotensin system inhibitors in patients with declines in eGFR. J Am Soc Nephrol 2024;35: 1309–1311
+
+## 93. [P0]
+Ichikawa D, Kawarazaki W, Saka S, et al. Efficacy of renin-angiotensin system inhibitors, calcium channel blockers, and diuretics in hyper- tensive patients with diabetes: subgroup analysis based on albuminuria in a systematic review and meta-analysis. Hypertens Res 2025;48:1880–1890
+
+## 94. [P2]
+Haller H, Ito S, Izzo JL, Jr, et al.; ROADMAP Trial Investigators. Olmesartan for the delay or prevention of microalbuminuria in type 2 diabetes. N Engl J Med 2011;364:907–917
+
+## 95. [P2]
+Yusuf S, Teo KK, Pogue J, et al.; ONTARGET Investigators. Telmisartan, ramipril, or both in patients at high risk for vascular events. N Engl J Med 2008;358:1547–1559
+
+## 96. [P0]
+Fried LF, Emanuele N, Zhang JH, et al.; VA NEPHRON-D Investigators. Combined angiotensin inhibition for the treatment of diabetic nephro- pathy. N Engl J Med 2013;369:1892–1903
+
+## 97. [P2]
+Cherney DZI, Perkins BA, Soleymanlou N, et al. Renal hemodynamic effect of sodium-glucose cotransporter 2 inhibition in patients with type 1 diabetes mellitus. Circulation 2014;129:587–597
+
+## 98. [P0]
+Heerspink HJL, Desai M, Jardine M, Balis D, Meininger G, Perkovic V. Canagliflozin slows pro- gression of renal function decline independently of glycemic effects. J Am Soc Nephrol 2017;28: 368–375
+
+## 99. [P2]
+Neal B, Perkovic V, Mahaffey KW, et al.; CANVAS Program Collaborative Group. Canagli- flozin and cardiovascular and renal events in type 2 diabetes. N Engl J Med 2017;377:644–657
+
+## 100. [P0]
+Girardi ACC, Polidoro JZ, Castro PC, Pio- Abreu A, Noronha IL, Drager LF. Mechanisms of heart failure and chronic kidney disease protection by SGLT2 inhibitors in nondiabetic conditions. Am J Physiol Cell Physiol 2024;327:C525–C544
+
+## 101. [P2]
+Rangaswami J, Bhalla V, de Boer IH, et al.; American Heart Association Council on the Kidney in Cardiovascular Disease; Council on Arteriosclerosis, Thrombosis and Vascular Biology; Council on Cardiovascular and Stroke Nursing; Council on Clinical Cardiology; and Council on Lifestyle and Cardiometabolic Health. Cardiorenal protection with the newer antidiabetic agents in patients with diabetes and chronic kidney disease: a scientific statement from the American Heart Association. Circulation 2020;142:e265–e286
+
+## 102. [P0]
+Woods TC, Satou R, Miyata K, et al. Canagliflozin prevents intrarenal angiotensinogen augmentation and mitigates kidney injury and hypertension in mouse model of type 2 diabetes mellitus. Am J Nephrol 2019;49:331–342
+
+## 103. [P0]
+Heerspink HJL, Perco P, Mulder S, et al. Canagliflozin reduces inflammation and fibrosis biomarkers: a potential mechanism of action for beneficial effects of SGLT2 inhibitors in diabetic kidney disease. Diabetologia 2019;62:1154–1166
+
+## 104. [P2]
+Marso SP, Daniels GH, Brown-Frandsen K, et al.; LEADER Trial Investigators. Liraglutide and cardiovascular outcomes in type 2 diabetes. N Engl J Med 2016;375:311–322
+
+## 105. [P2]
+Cooper ME, Perkovic V, McGill JB, et al. Kidney disease end points in a pooled analysis of individual patient-level data from a large clinical trials program of the dipeptidyl peptidase 4 inhibitor linagliptin in type 2 diabetes. Am J Kidney Dis 2015;66:441–449
+
+## 106. [P2]
+Mann JFE, Ørsted DD, Brown-Frandsen K, et al.; LEADER Steering Committee and Investigators. Liraglutide and renal outcomes in type 2 diabetes. N Engl J Med 2017;377:839–848
+
+## 107. [P0]
+Marso SP, Bain SC, Consoli A, et al.; SUSTAIN-6 Investigators. Semaglutide and cardio- vascular outcomes in patients with type 2 dia- betes. N Engl J Med 2016;375:1834–1844
+
+## 108. [P0]
+Shaman AM, Bain SC, Bakris GL, et al. Effect of the glucagon-like peptide-1 receptor agonists semaglutide and liraglutide on kidney outcomes in patients with type 2 diabetes: pooled analysis of SUSTAIN 6 and LEADER. Circulation 2022;145: 575–585
+
+## 109. [P0]
+Perkovic V, Tuttle KR, Rossing P, et al.; FLOW Trial Committees and Investigators. Effects of semaglutide on chronic kidney disease in patients with type 2 diabetes. N Engl J Med 2024; 391:109–121
+
+## 110. [P1]
+J C, Me C, Mt C. Renoprotective mechanisms of glucagon-like peptide-1 receptor agonists. Dia- betes Metab 2025;51:101641
+
+## 111. [P1]
+Drucker DJ. Prevention of cardiorenal com- plications in people with type 2 diabetes and obesity. Cell Metab 2024;36:338–353
+
+## 112. [P2]
+Karter AJ, Warton EM, Lipska KJ, et al. Development and validation of a tool to identify patients with type 2 diabetes at high risk of hypoglycemia-related emergency department or hospital use. JAMA Intern Med 2017;177:1461–1470
+
+## 113. [P2]
+Moen MF, Zhan M, Hsu VD, et al. Frequency of hypoglycemia and its significance in chronic kidney disease. Clin J Am Soc Nephrol 2009;4:1121–1127
+
+## 114. [P1]
+U.S. Food and Drug Administration. FDA drug safety communication: FDA revises warnings regarding use of the diabetes medicine metformin in certain patients with reduced kidney function, 2017. Accessed 24 August 2025. Available from https://www.fda.gov/drugs/drug-safety-and- availability/fda-drug-safety-communication-fda- revises-warnings-regarding-use-diabetes-medicine- metformin-certain
+
+## 115. [P2]
+Lalau J-D, Kajbaf F, Bennis Y, Hurtel-Lemaire A-S, Belpaire F, De Broe ME. Metformin treatment in patients with type 2 diabetes and chronic kidney disease stages 3A, 3B, or 4. Diabetes Care 2018;41: 547–553
+
+## 116. [P2]
+Chu PY, Hackstadt AJ, Chipman J, et al. Hospitalization for lactic acidosis among patients with reduced kidney function treated with metformin or sulfonylureas. Diabetes Care 2020;43:1462–1470
+
+## 117. [P0]
+McGuire DK, Shih WJ, Cosentino F, et al. Association of SGLT2 inhibitors with cardiovascular and kidney outcomes in patients with type 2 diabetes: a meta-analysis. JAMA Cardiol 2021;6: 148–158
+
+## 118. [P1]
+Zelniker TA, Wiviott SD, Raz I, et al. Comparison of the effects of glucagon-like peptide receptor agonists and sodium-glucose cotransporter 2 inhibitors for prevention of major adverse cardiovascular and renal outcomes in type 2 diabetes mellitus. Circulation 2019;139:2022–2031
+
+## 119. [P0]
+Mann JFE, Hansen T, Idorn T, et al. Effects of once-weekly subcutaneous semaglutide on kidney function and safety in patients with type 2 diabetes: a post-hoc analysis of the SUSTAIN 1-7 randomised controlled trials. Lancet Diabetes Endocrinol 2020;8:880–893
+
+## 120. [P2]
+Mann JFE, Muskiet MHA. Incretin-based drugs and the kidney in type 2 diabetes: choosing between DPP-4 inhibitors and GLP-1 receptor agonists. Kidney Int 2021;99:314–318
+
+## 121. [P0]
+Neuen BL, Fletcher RA, Heath L, et al. Cardiovascular, kidney, and safety outcomes with GLP-1 receptor agonists alone and in com- bination with SGLT2 inhibitors in type 2 diabetes: a systematic review and meta-analysis. Circulation 2024;150:1781–1790
+
+## 122. [P1]
+Kelly M, Lewis J, Rao H, Carter J, Portillo I, Beuttler R. Effects of GLP-1 receptor agonists on cardiovascular outcomes in patients with type 2 diabetes and chronic kidney disease: a systematic review and meta-analysis. Pharmacotherapy 2022; 42:921–928
+
+## 123. [P0]
+Zinman B, Wanner C, Lachin JM, et al.; EMPA- REG OUTCOME Investigators. Empagliflozin, cardio- vascular outcomes, and mortality in type 2 diabetes. N Engl J Med 2015;373:2117–2128
+
+## 124. [P0]
+Jardine MJ, Mahaffey KW, Neal B, et al.; CREDENCE study investigators. The Canagliflozin and Renal Endpoints in Diabetes with Established Nephropathy Clinical Evaluation (CREDENCE) study rationale, design, and baseline characteristics. Am J Nephrol 2017;46:462–472
+
+## 125. [P0]
+Bakris GL. Major advancements in slowing diabetic kidney disease progression: focus on SGLT2 inhibitors. Am J Kidney Dis 2019;74:573–575
+
+## 126. [P0]
+Mahaffey KW, Jardine MJ, Bompoint S, et al. Canagliflozin and cardiovascular and renal outcomes in type 2 diabetes mellitus and chronic kidney disease in primary and secondary cardio- vascular prevention groups. Circulation 2019; 140:739–750
+
+## 127. [P0]
+Heerspink HJL, Stefánsson BV, Correa-Rotter R, et al.; DAPA-CKD Trial Committees and Investi- gators. Dapagliflozin in patients with chronic kidney disease. N Engl J Med 2020;383:1436–1446
+
+## 128. [P0]
+Herrington WG, Staplin N, Wanner C, et al.; Empa-Kidney Collaborative Group. Empagliflozin in patients with chronic kidney disease. N Engl J Med 2023;388:117–127
+
+## 129. [P2]
+National Kidney Foundation. KDOQI clinical practice guideline for diabetes and CKD: 2012 update. Am J Kidney Dis 2012;60:850–886
+
+## 130. [P0]
+Wiviott SD, Raz I, Bonaca MP, et al.; DECLARE–TIMI 58 Investigators. Dapagliflozin and cardiovascular outcomes in type 2 diabetes. N Engl J Med 2019;380:347–357
+
+## 131. [P0]
+Dekkers CCJ, Wheeler DC, Sjöström CD, Stefansson BV, Cain V, Heerspink HJL. Effects of the sodium-glucose co-transporter 2 inhibitor dapagliflozin in patients with type 2 diabetes and stages 3b-4 chronic kidney disease. Nephrol Dial Transplant 2018;33:1280
+
+## 132. [P0]
+Bonnesen K, Heide-Jørgensen U, Christensen DH, et al. Effectiveness of empagliflozin vs dapagliflozin for kidney outcomes in type 2 diabetes. JAMA Intern Med 2025;185:314–323
+
+## 133. [P0]
+Chertow GM, Vart P, Jongs N, et al.; DAPA- CKD Trial Committees and Investigators. Effects of dapagliflozin in stage 4 chronic kidney disease. J Am Soc Nephrol 2021;32:2352–2361
+
+## 134. [P2]
+Anker SD, Butler J, Filippatos G, et al.; EMPEROR-Preserved Trial Investigators. Empag- liflozin in heart failure with a preserved ejection fraction. N Engl J Med 2021;385:1451–1461
+
+## 135. [P0]
+Packer M, Anker SD, Butler J, et al.; EMPEROR-Reduced Trial Investigators. Cardiovascular and renal outcomes with empagliflozin in heart failure. N Engl J Med 2020;383:1413–1424
+
+## 136. [P0]
+Mosenzon O, Wiviott SD, Heerspink HJL, et al. The effect of dapagliflozin on albuminuria in DECLARE-TIMI 58. Diabetes Care 2021;44: 1805–1815
+
+## 137. [P1]
+AstraZeneca. Bydureon prescribing infor- mation. Accessed 18 September 2025. Available from https://www.accessdata.fda.gov/drugsatfda_ docs/label/2018/022200s026lbl.pdf
+
+## 138. [P1]
+Sanofi. Lixisenatide prescribing information. Accessed 18 September 2025. Available from https://products.sanofi.us/soliqua100-33/soliqua- 100-33.pdf
+
+## 139. [P2]
+Scheen AJ. Pharmacokinetics and clinical use of incretin-based therapies in patients with chronic kidney disease and type 2 diabetes. Clin Pharmacokinet 2015;54:1–21
+
+## 140. [P2]
+Bomback AS, Kshirsagar AV, Amamoo MA, Klemmer PJ. Change in proteinuria after adding aldosterone blockers to ACE inhibitors or an- giotensin receptor blockers in CKD: a systematic review. Am J Kidney Dis 2008;51:199–211
+
+## 141. [P2]
+Sarafidis P, Papadopoulos CE, Kamperidis V, Giannakoulas G, Doumas M. Cardiovascular pro- tection with sodium-glucose cotransporter-2 inhibitors and mineralocorticoid receptor antagonists in chronic kidney disease: a milestone achieved. Hypertension 2021;77:1442–1455
+
+## 142. [P0]
+Huart J, Jouret F. Non-steroidal mineral- ocorticoid receptor antagonists: a paradigm shift in the management of diabetic nephropathy. Kidney Blood Press Res 2025;50:267–275
+
+## 143. [P0]
+Filippatos G, Anker SD, Agarwal R, et al.; FIDELIO-DKD Investigators. Finerenone and cardio- vascular outcomes in patients with chronic kidney disease and type 2 diabetes. Circulation 2021; 143:540–552
+
+## 144. [P0]
+Pitt B, Filippatos G, Agarwal R, et al.; FIGARO-DKD Investigators. Cardiovascular events with finerenone in kidney disease and type 2 diabetes. N Engl J Med 2021;385:2252–2263
+
+## 145. [P0]
+Agarwal R, Filippatos G, Pitt B, et al.; FIDELIO- DKD and FIGARO-DKD investigators. Cardiovascular and kidney outcomes with finerenone in patients with type 2 diabetes and chronic kidney disease: the FIDELITY pooled analysis. Eur Heart J 2022; 43:474–484
+
+## 146. [P1]
+Simms-Williams N, Treves N, Yin H, et al. Effect of combination treatment with glucagon-like peptide-1 receptor agonists and sodium-glucose cotransporter-2 inhibitors on incidence of cardio- vascular and serious renal events: population based cohort study. BMJ 2024;385:e078242
+
+## 147. [P0]
+Mann JFE, Rossing P, Bakris G, et al. Effects of semaglutide with and without concomitant SGLT2 inhibitor use in participants with type 2 diabetes and chronic kidney disease in the FLOW trial. Nat Med 2024;30:2849–2856
+
+## 148. [P0]
+Agarwal R, Green JB, Heerspink HJL, et al.; CONFIDENCE Investigators. Finerenone with em- pagliflozin in chronic kidney disease and type 2 diabetes. N Engl J Med 2025;393:533–543
+
+## 149. [P1]
+Kugathasan L, Aronson Y, Sridhar VS, et al. Advancing kidney protection in type 1 diabetes: insights from emerging therapies in type 2 diabetes and chronic kidney disease. Expert Rev Clin Immunol 2025;21:1113–1134
+
+## 150. [P0]
+Heerspink HJL, Birkenfeld AL, Cherney DZI, et al. Rationale and design of a randomised phase III registration trial investigating finerenone in participants with type 1 diabetes and chronic kidney disease: the FINE-ONE trial. Diabetes Res Clin Pract 2023;204:110908
+
+## 151. [P1]
+Garovic VD, Dechend R, Easterling T, et al.; American Heart Association Council on Hypertension; Council on the Kidney in Cardio- vascular Disease, Kidney in Heart Disease Science Committee; Council on Arteriosclerosis, Thrombosis and Vascular Biology; Council on Lifestyle and Cardio- metabolic Health; Council on Peripheral Vascular Disease; and Stroke Council. Hypertension in pre- gnancy: diagnosis, blood pressure goals, and pharma- cotherapy: a scientific statement from the American Heart Association. Hypertension 2022;79:e21–e41
+
+## 152. [P2]
+Irgens HU, Reisaeter L, Irgens LM, Lie RT. Long term mortality of mothers and fathers after pre-eclampsia: population based cohort study. BMJ 2001;323:1213–1217
+
+## 153. [P0]
+Bakker WM, Heerspink HJL, Berger SP, et al.; Renal Lifecycle Trial Investigators. Rationale and design of the Renal Lifecycle trial assessing the effect of dapagliflozin on cardiorenal outcomes in severe chronic kidney disease. Nephrol Dial Transplant 2025;40:1746–1755
+
+## 154. [P2]
+Idorn T, Knop FK, Jørgensen MB, et al. Safety and efficacy of liraglutide in patients with type 2 diabetes and end-stage renal disease: an investigator-initiated, placebo-controlled, double- blind, parallel-group, randomized trial. Diabetes Care 2016;39:206–213
+
+## 155. [P2]
+Hiramatsu T, Ozeki A, Asai K, Saka M, Hobo A, Furuta S. Liraglutide improves glycemic and blood pressure control and ameliorates progression of left ventricular hypertrophy in patients with type 2 diabetes mellitus on peritoneal dialysis. Ther Apher Dial 2015;19:598–605
+
+## 156. [P0]
+Vanek L, Kurnikowski A, Krenn S, Mussnig S, Hecking M. Semaglutide in patients with kidney failure and obesity undergoing dialysis and wishing to be transplanted: a prospective, observational, open-label study. Diabetes Obes Metab 2024;26: 5931–5941
+
+## 157. [P1]
+Orandi BJ, Chen Y, Li Y, et al. GLP-1 receptor agonist outcomes, safety, and body mass index change in a national cohort of patients on dialysis. Clin J Am Soc Nephrol 2025;20:1100–1110
+
+## 158. [P1]
+Lai H-W, See CY, Chen J-Y, Wu V-C. Mortality and cardiovascular events in diabetes mellitus patients at dialysis initiation treated with glucagon- like peptide-1 receptor agonists. Cardiovasc Diabetol 2024;23:277
+
+## 159. [P2]
+Smart NA, Dieberg G, Ladhani M, Titus T. Early referral to specialist nephrology services for preventing the progression to end-stage kidney disease. Cochrane Database Syst Rev 2014:CD007333
