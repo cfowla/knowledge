@@ -13,7 +13,7 @@ Publication ID: `0ef0a5b1-0219-52f4-b5cc-0d63ef57b942`
 - Exact repository searches for `dc26s015` and `dc26-s015` found no preexisting exact-section artifact family before processing.
 - No output from `dc26s007` or another ADA section was used as completion evidence.
 - Current ORACLE `literature.py`, `literature_atoms.py`, `literature_atom.schema.json`, and `summary-evaluation-appraisal-protocol-v4-compact.md` were read and matched the supplied project copies at the Git blob level.
-- `large-source-ATOM-SEA.md`, `README(2).md`, and the example atom were used only in their declared supporting/illustrative roles.
+- `large-source-ATOM-SEA.md`, `README(2).md`, and the example atom were used only in their declared supporting or illustrative roles.
 
 ## Reference extraction
 
@@ -32,7 +32,7 @@ Publication ID: `0ef0a5b1-0219-52f4-b5cc-0d63ef57b942`
 - Secondary-reported-result atoms: **39**.
 - Review status remains `needs_review`; no independent human review is represented.
 
-Guideline boundary: numbered ADA recommendations are represented as guideline/panel statements using `author_conclusion` plus `guideline_recommendation` tags. Quantitative findings cited by the chapter are retained as secondary reports and are not represented as independently validated primary-study evidence.
+Guideline boundary: numbered ADA recommendations are represented as guideline or panel statements using `author_conclusion` plus `guideline_recommendation` tags. Quantitative findings cited by the chapter are retained as secondary reports and are not represented as independently validated primary-study evidence.
 
 ## Validation
 
@@ -63,7 +63,7 @@ Key reconciliation decisions preserved:
 - Preconception A1C `<6.5%` is distinct from the pregnancy A1C goal `<6%` when safely achievable.
 - Table 15.2 lower target bounds are not conflated with recommendation 15.8 upper glucose goals.
 - Aspirin `100–150 mg/day` is the recommendation; `162 mg/day` is retained as an acceptable option, with diabetes-specific efficacy uncertainty preserved.
-- Recommendation 15.25b retains both the usual lipid-lowering stop/avoid rule and the selected very-high-risk exception.
+- Recommendation 15.25b retains both the usual lipid-lowering stop or avoid rule and the selected very-high-risk exception.
 
 ## Crosswalk
 
@@ -75,16 +75,16 @@ Key reconciliation decisions preserved:
 
 ## Required repository artifact family
 
-Pre-promotion publication/readback status at 2026-08-27T06:41:16Z:
+Final exact-section readback verification: **PASS** for all eight required artifacts.
 
-- `JSON/ada-ppc-2026-dc26-s015-atoms.json` — published; readback required before promotion.
-- `JSON/ada-ppc-2026-dc26-s015-validation.json` — published; readback PASS.
-- `JSON/ada-ppc-2026-dc26-s015-coverage.json` — published; readback PASS.
-- `JSON/ada-ppc-2026-dc26-s015-crosswalk.json` — published; readback required before promotion.
-- `JSON/ada-ppc-2026-dc26-s015-sea-qa.json` — published; readback required before promotion.
-- `HTML/ada-ppc-2026-dc26-s015-sea.html` — published; readback required before promotion.
-- `MD/ada-ppc-2026-dc26-s015-reference-task-queue.md` — published; readback required before promotion.
-- `MD/ada-ppc-2026-dc26-s015-processing-report.md` — this report; lifecycle status below.
+- `JSON/ada-ppc-2026-dc26-s015-atoms.json` — **PASS**; exact source provenance and 114-atom extraction confirmed.
+- `JSON/ada-ppc-2026-dc26-s015-validation.json` — **PASS**; structural, schema, and sufficiency gates confirmed.
+- `JSON/ada-ppc-2026-dc26-s015-coverage.json` — **PASS**; pages, recommendations, tables, bibliography, and reconciliation confirmed.
+- `JSON/ada-ppc-2026-dc26-s015-crosswalk.json` — **PASS**; 114/114 atoms mapped with no unresolved atom IDs.
+- `JSON/ada-ppc-2026-dc26-s015-sea-qa.json` — **PASS**; `qa_status=PASS` and semantic QA checks confirmed.
+- `HTML/ada-ppc-2026-dc26-s015-sea.html` — **PASS**; exact title, metadata, synthesis, all 33 recommendation blocks, section condensation, table coverage, appraisal, takeaways, and provenance confirmed.
+- `MD/ada-ppc-2026-dc26-s015-reference-task-queue.md` — **PASS**; exact source and complete 205-entry queue confirmed.
+- `MD/ada-ppc-2026-dc26-s015-processing-report.md` — **PASS**; this lifecycle-complete report.
 
 ## Extraction limitations / schema gaps
 
@@ -95,10 +95,22 @@ Pre-promotion publication/readback status at 2026-08-27T06:41:16Z:
 
 ## Drive lifecycle
 
-**PRE-PROMOTION STATE:** The source remains in the Active ADA folder while the complete exact-section repository family is being opened and verified. No move has yet been performed at this report revision.
+- Pre-move source parent: `1j50uC_mGfCpLj6jvR9en2sUilsnTGKLV` — `1 - American Diabetes Association 2026` under Active Literature.
+- Destination parent: `1YSKH6Oqj52tYPN402sa9mxs_RFzGhNlG` — `47 - American Diabetes Association 2026` under `90 - Processed / Clinical Medicine & Pharmacy`.
+- The complete exact-section repository gate was verified before promotion.
+- `dc26s015.pdf` was moved using the existing Drive file ID `12rhKQ-o9gYbqcu3peTLlTO9zqfkFXS86`.
+- Post-move metadata shows the destination ADA folder as the file's parent.
+- Destination-folder listing confirms `dc26s015.pdf` is present.
+- Active-folder listing confirms `dc26s015.pdf` is absent.
+- No other ADA source was processed or moved as part of this unit.
 
-Intended destination after the complete publication gate passes: `90 - Processed / Clinical Medicine & Pharmacy / 47 - American Diabetes Association 2026`.
+## Repository staging cleanup
+
+- Temporary `tmp/dc26s015` staging content was removed by the successful assembly workflow after publishing the large exact-section artifacts.
+- Temporary `.github/workflows/assemble-dc26s015.yml` was deleted after publication and is absent from the repository.
 
 ## Gate status
 
-**PRE-PROMOTION GATE: PASS, subject only to repository readback of the newly published crosswalk, SEA-QA, SEA, reference queue, and this report.** No source move is permitted until those readbacks confirm the exact section and expected content.
+**FINAL LIFECYCLE GATE: PASS — COMPLETE.**
+
+The exact `dc26s015.pdf` publication-processing unit has completed reference extraction, ATOM, validation, SEA, coverage/reconciliation, crosswalk, SEA-QA, processing-report verification, and Drive lifecycle promotion. Stop boundary: no additional ADA section was processed.
