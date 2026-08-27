@@ -2,6 +2,9 @@ name: Sync Google Drive to repository
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - ".github/sync-google-drive.trigger"
   schedule:
     - cron: "37 3 * * *"
       timezone: "America/New_York"
