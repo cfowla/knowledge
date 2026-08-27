@@ -76,9 +76,18 @@ Markdown folder:
 ## Publication verification
 
 - Local generation/validation: **PASS**.
-- GitHub publication/readback: **PENDING**.
+- GitHub exact output family: **8/8 present and read back**.
+- ATOM validation artifact: **PASS** — 90 atoms; zero Pydantic, JSON Schema, or sufficiency errors; zero sufficiency warnings.
+- Coverage/reconciliation artifact: **PASS** — 21/21 recommendation identifiers, Figure 16.1 (1/1), Tables 16.1–16.2 (2/2), one treatment workflow (1/1), and 198/198 bibliography entries reconciled with no unresolved cross-references.
+- Crosswalk: **PASS** — all recommendation and visual mappings resolve to this publication’s atom IDs.
+- SEA-QA: **PASS**.
+- SEA HTML readback identifies `dc26s016.pdf`, Drive ID `1InXfDAGTrWqzZULB6kgxL7XGZp2BFsF6`, DOI `10.2337/dc26-S016`, and the expected section-16 coverage.
+- Reference queue readback identifies section 16 and preserves **198/198** references.
 
 ## Lifecycle state
 
-- Promotion gate: **PENDING GitHub readback**.
-- Source remains in Active until the whole exact output family is independently verified.
+- Promotion gate: **PASS**.
+- Source `dc26s016.pdf` was moved to `90 - Processed / Clinical Medicine & Pharmacy / 47 - American Diabetes Association 2026`.
+- Verified current Drive parent ID: `1YSKH6Oqj52tYPN402sa9mxs_RFzGhNlG` (`47 - American Diabetes Association 2026`).
+- Verified the source is no longer a direct child of Active ADA folder `1j50uC_mGfCpLj6jvR9en2sUilsnTGKLV` (`1 - American Diabetes Association 2026`).
+- Final lifecycle result: **PROCESSED / PASS**.
