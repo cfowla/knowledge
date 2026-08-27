@@ -16,7 +16,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat .tmp/dc26s016-payload/part* | tr -d '\r\n' > /tmp/s016.b64
+          cat .tmp/dc26s016-payload/part00-00 .tmp/dc26s016-payload/part00-01 .tmp/dc26s016-payload/part00-02 .tmp/dc26s016-payload/part00-03 .tmp/dc26s016-payload/part00-04 .tmp/dc26s016-payload/part00-05 .tmp/dc26s016-payload/part00-06 .tmp/dc26s016-payload/part00-07 .tmp/dc26s016-payload/part01 .tmp/dc26s016-payload/part02 .tmp/dc26s016-payload/part03 .tmp/dc26s016-payload/part04 .tmp/dc26s016-payload/part05 > /tmp/s016.b64
           base64 -d /tmp/s016.b64 > /tmp/s016.tar.xz
           echo '8df18648d3d299d3db2e47ac721cf24164674ee13356bb78aa3cd4c741e80cd6  /tmp/s016.tar.xz' | sha256sum -c -
           mkdir -p /tmp/s016
