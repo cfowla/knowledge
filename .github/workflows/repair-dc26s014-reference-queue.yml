@@ -11,21 +11,127 @@ permissions:
 jobs:
   repair:
     runs-on: ubuntu-latest
+    env:
+      DRIVE_SOURCE: 'gdrive-readonly:GitHub Sync'
+      SOURCE_RELATIVE_PATH: 'Literature Review/10 - Active Literature/1 - American Diabetes Association 2026/dc26s014.pdf'
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Install extraction dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl https://rclone.org/install.sh | sudo bash
+          python -m pip install --quiet pymupdf
+
+      - name: Restore read-only Drive configuration
+        shell: bash
+        env:
+          RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
+        run: |
+          set -euo pipefail
+          test -n "$RCLONE_CONFIG_B64"
+          mkdir -p "$HOME/.config/rclone"
+          printf '%s' "$RCLONE_CONFIG_B64" | base64 --decode > "$HOME/.config/rclone/rclone.conf"
+          chmod 600 "$HOME/.config/rclone/rclone.conf"
+
       - name: Reconstruct, verify, and replace exact reference queue
         shell: bash
         run: |
           set -euo pipefail
           git pull --rebase origin main
-          d='.tmp/ada-s014-refrepair'
-          for f in "$d/part01" "$d/part02" "$d/part03"; do test -f "$f"; done
-          cat "$d"/part* | base64 -d | gzip -d > /tmp/ada-s014-reference-task-queue.md
-          echo 'be8b8b51de4b02bf3942792d5c20b194321dd7e47d61c626860ca6d22284c576  /tmp/ada-s014-reference-task-queue.md' | sha256sum -c -
-          cp /tmp/ada-s014-reference-task-queue.md 'drive-sync/Literature Review/Outputs/Clin Med Pharm/MD/ada-ppc-2026-dc26-s014-reference-task-queue.md'
-          rm -rf "$d"
+          rclone copyto "$DRIVE_SOURCE/$SOURCE_RELATIVE_PATH" /tmp/dc26s014.pdf
+          echo '0aacb5775e36de0b11817af940a9b4a6d392efc4c61ba6187db6d9e0c2e9b756  /tmp/dc26s014.pdf' | sha256sum -c -
+          python - <<'PY'
+          import fitz
+          import re
+          from collections import Counter
+          from pathlib import Path
+
+          pdf = fitz.open('/tmp/dc26s014.pdf')
+          parts = []
+          for pi in range(17, 24):
+              p = pdf[pi]
+              blocks = []
+              for b in p.get_text('blocks'):
+                  x0, y0, x1, y1, text, *_ = b
+                  if y0 < 60 or x0 > 550:
+                      continue
+                  if pi == 17:
+                      if (x0 < 390 and 'References' in text) or x0 >= 390:
+                          blocks.append((x0, y0, text))
+                  else:
+                      blocks.append((x0, y0, text))
+              blocks.sort(key=lambda z: (round(z[0] / 20), z[1]))
+              for _, _, text in blocks:
+                  if pi == 17 and 'References' in text:
+                      text = text.split('References', 1)[1]
+                  parts.append(text)
+
+          raw = '\n'.join(parts).replace('\u00ad', '')
+          raw = re.sub(r'\bS3\d{2}\s+Children and Adolescents\b', ' ', raw)
+          raw = re.sub(r'\bChildren and Adolescents\s+S3\d{2}\b', ' ', raw)
+          raw = re.sub(r'Diabetes Care Volume 49, Supplement 1, January 2026', ' ', raw)
+          raw = re.sub(r'diabetesjournals\.org/care', ' ', raw)
+          pat = re.compile(r'(?m)^\s*(\d{1,3})\.\s+(.*?)(?=^\s*\d{1,3}\.\s+|\Z)', re.S)
+          refs = {}
+          for m in pat.finditer(raw):
+              n = int(m.group(1))
+              s = ' '.join(m.group(2).split())
+              s = re.sub(r'(?<=[a-z])- (?=[a-z])', '', s)
+              refs[n] = s
+
+          assert list(sorted(refs)) == list(range(1, 252)), f'Bad bibliography numbering: {len(refs)} entries'
+          assert all('Downloaded from' not in s for s in refs.values())
+          assert all('Duke University Medical Center Library user' not in s for s in refs.values())
+
+          central_terms = (
+              'randomized', 'randomised', 'trial', 'meta-analysis', 'systematic review',
+              'position statement', 'guideline', 'consensus', 'scientific statement',
+              'standards of care', 'today study', 'dcct', 'search for diabetes',
+              'adolescent type 1 diabetes cardio-renal intervention', 't1d exchange'
+          )
+          priority = {}
+          for n, citation in refs.items():
+              low = citation.lower()
+              years = [int(y) for y in re.findall(r'\b(19\d{2}|20\d{2})\b', citation)]
+              year = max(years) if years else None
+              if any(term in low for term in central_terms):
+                  p = 'P0'
+              elif year and year >= 2022:
+                  p = 'P1'
+              else:
+                  p = 'P2'
+              priority[n] = p
+          counts = Counter(priority.values())
+          assert dict(counts) == {'P1': 42, 'P0': 107, 'P2': 102} or (counts['P0'], counts['P1'], counts['P2']) == (107, 42, 102)
+
+          title = '14. Children and Adolescents: Standards of Care in Diabetes—2026'
+          lines = [
+              f'# Reference task queue: {title}', '',
+              'Source: `10.2337/dc26-S014`  ',
+              'Input: `dc26s014.pdf`  ',
+              'Bibliography entries extracted and reconciled: **251/251**  ', '',
+              'Priorities are workflow triage labels, not evidence grades: **P0** = direct/central evidence, trials, guidelines, systematic reviews/meta-analyses, or major registries behind load-bearing recommendations or claims; **P1** = recent/high-value supporting evidence (generally 2022 or later when not already P0); **P2** = contextual or historical supporting evidence. Bibliography entries are provenance infrastructure and are not LiteratureAtoms.', '',
+              f'Counts: P0 **{counts["P0"]}** · P1 **{counts["P1"]}** · P2 **{counts["P2"]}**', '',
+              'Extraction note: Bibliography text was reconstructed in PDF column-reading order and page headers, page labels, and library download stamps were excluded before numbering/reconciliation.', ''
+          ]
+          rationale = {
+              'P0': 'Direct or central evidence, guideline, trial, systematic review/meta-analysis, or major registry supporting a load-bearing recommendation or claim in this chapter.',
+              'P1': 'Recent/high-value supporting evidence retained for follow-up but not classified as a central P0 source by the queue heuristic.',
+              'P2': 'Contextual, historical, mechanistic, or supporting evidence retained for provenance and follow-up as needed.'
+          }
+          for n in range(1, 252):
+              p = priority[n]
+              lines += [f'## {n}. [{p}]', refs[n], '', f'Queue rationale: {rationale[p]}', '']
+          output = '\n'.join(lines).rstrip() + '\n'
+          Path('/tmp/ada-ppc-2026-dc26-s014-reference-task-queue.md').write_text(output, encoding='utf-8')
+          PY
+          echo 'be8b8b51de4b02bf3942792d5c20b194321dd7e47d61c626860ca6d22284c576  /tmp/ada-ppc-2026-dc26-s014-reference-task-queue.md' | sha256sum -c -
+          cp /tmp/ada-ppc-2026-dc26-s014-reference-task-queue.md 'drive-sync/Literature Review/Outputs/Clin Med Pharm/MD/ada-ppc-2026-dc26-s014-reference-task-queue.md'
+          rm -rf '.tmp/ada-s014-refrepair' '.tmp/ada-s014-refrepair2'
           rm -f '.github/workflows/repair-dc26s014-reference-queue.yml'
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
