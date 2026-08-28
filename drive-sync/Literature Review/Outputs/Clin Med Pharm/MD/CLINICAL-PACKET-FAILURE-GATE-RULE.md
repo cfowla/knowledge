@@ -49,6 +49,28 @@ When reviewing a clinical packet:
 5. If an older report says FAIL only because references remain unresolved, treat that failure classification as superseded. Preserve passing artifacts and re-evaluate lifecycle promotion; do not regenerate ATOM/SEA and do not process every cited paper merely to make the parent pass.
 6. If several packets show the same implementation-derived false failure, treat it as a shared implementation issue rather than ten independent packet repairs.
 
+## Bounded discovery and forward-production rule
+
+Artifact discovery is a prewalk step. It must end.
+
+After confirming the exact packet and source identity:
+
+1. Search the packet, the expected output locations, and reasonable identity or basename variants in one bounded pass.
+2. If a required artifact exists, inspect it and preserve it when it already passes.
+3. If a required artifact family is absent after that bounded pass, record it as `CONFIRMED ABSENT`. Do not search for the same artifact family again unless new identity evidence, a new plausible location, or a conflicting artifact appears.
+4. Treat confirmed absence as evidence that a required production or output-completeness requirement is unsatisfied. A missing ATOM is an output-completeness problem until an ATOM exists to validate. A missing SEA is an output-completeness problem and requires SEA production.
+5. Move immediately to the earliest missing required artifact in the current authoritative dependency sequence. Generate it, run its required validation or QA, then continue downstream. Preserve every upstream artifact that already passes.
+6. Do not jump to a processing report or lifecycle decision while an earlier required artifact is absent.
+7. Discovery without production is incomplete work unless a real blocker prevents safe generation. Valid blockers include unusable or missing primary source material, unresolved publication identity, unavailable governing protocol or validator when the protocol requires it, or another explicitly named packet-level blocker.
+
+Examples:
+
+- Source usable, ATOM absent: generate the ATOM, then run ATOM validation. Do not perform another ATOM existence search.
+- ATOM present and passing, SEA absent: preserve the ATOM and generate SEA, then run SEA-QA.
+- ATOM, validation, and SEA all absent: start with the earliest required upstream artifact under the current protocol and work forward. Do not spend another pass proving that the outputs are absent.
+
+`NO COMPLETION EVIDENCE` is therefore a temporary audit classification. Once a bounded packet-level search proves that required outputs are absent, the execution state must change to `GENERATION REQUIRED` or to a specific blocker. It must not remain in repeated evidence-establishment mode.
+
 ## Known superseded pattern
 
 The 2026-08-27 Clinical Medicine & Pharmacy audit identified ten packets as reference-processing-only failures. That classification is no longer a defined repair queue. Those packets require **lifecycle re-evaluation under this rule**, with valid existing artifacts preserved.
