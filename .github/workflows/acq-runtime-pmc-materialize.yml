@@ -1,0 +1,62 @@
+name: Acquisition Runtime PMC materializer
+
+on:
+  push:
+    branches:
+      - acq-runtime-pmc-transport-20260821
+    paths:
+      - .github/workflows/acq-runtime-pmc-materialize.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/acq-runtime-pmc-materialize.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch official PMC JATS and metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p acquisition_transport
+          META_URL='https://pmc-oa-opendata.s3.amazonaws.com/metadata/PMC3995050.1.json'
+          XML_URL='https://pmc-oa-opendata.s3.amazonaws.com/PMC3995050.1/PMC3995050.1.xml'
+          OA_URL='https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?id=PMC3995050'
+          curl -fL --retry 0 "$META_URL" -o /tmp/article.json
+          curl -fL --retry 0 "$XML_URL" -o /tmp/article.xml
+          curl -fL --retry 0 "$OA_URL" -o acquisition_transport/PMC3995050.oa.xml
+          grep -q '<article' /tmp/article.xml
+          cp /tmp/article.json acquisition_transport/PMC3995050.1.json
+          sha256sum /tmp/article.xml > acquisition_transport/PMC3995050.1.xml.sha256
+          printf '%s\n' "$XML_URL" > acquisition_transport/PMC3995050.1.source_url.txt
+      - name: Upload materialized transport artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pmc3995050-jats
+          path: |
+            /tmp/article.xml
+            /tmp/article.json
+            acquisition_transport/PMC3995050.1.xml.sha256
+            acquisition_transport/PMC3995050.1.source_url.txt
+            acquisition_transport/PMC3995050.oa.xml
+          if-no-files-found: error
+      - name: Commit compact transport receipt on push only
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'acquisition-runtime-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- acquisition_transport/PMC3995050.1.json acquisition_transport/PMC3995050.1.xml.sha256 acquisition_transport/PMC3995050.1.source_url.txt acquisition_transport/PMC3995050.oa.xml
+          if git diff --cached --quiet; then
+            echo 'No compact transport receipt changes.'
+            exit 0
+          fi
+          git commit -m 'Refresh PMC3995050 compact transport receipt'
+          git push origin HEAD:acq-runtime-pmc-transport-20260821
