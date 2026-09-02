@@ -1,0 +1,61 @@
+name: Sync packet 43 outputs once
+
+on:
+  push:
+    paths:
+      - ".github/workflows/sync-packet43-once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-packet-43:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install current rclone
+        shell: bash
+        run: |
+          curl https://rclone.org/install.sh | sudo bash
+
+      - name: Restore encrypted rclone configuration
+        shell: bash
+        env:
+          RCLONE_CONFIG_B64: ${{ secrets.RCLONE_CONFIG_B64 }}
+        run: |
+          mkdir -p "$HOME/.config/rclone"
+          printf '%s' "$RCLONE_CONFIG_B64" | base64 --decode > "$HOME/.config/rclone/rclone.conf"
+          chmod 600 "$HOME/.config/rclone/rclone.conf"
+
+      - name: Copy exact packet 43 outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON" "drive-sync/Literature Review/Outputs/Clin Med Pharm/HTML"
+          rclone copyto "gdrive-readonly:GitHub Sync/Literature Review/Outputs/Clin Med Pharm/JSON/43-S001650852035441X-atoms.json" "drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/43-S001650852035441X-atoms.json"
+          rclone copyto "gdrive-readonly:GitHub Sync/Literature Review/Outputs/Clin Med Pharm/JSON/43-S001650852035441X-atom-validation.json" "drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/43-S001650852035441X-atom-validation.json"
+          rclone copyto "gdrive-readonly:GitHub Sync/Literature Review/Outputs/Clin Med Pharm/JSON/43-S001650852035441X-sea-qa.json" "drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/43-S001650852035441X-sea-qa.json"
+          rclone copyto "gdrive-readonly:GitHub Sync/Literature Review/Outputs/Clin Med Pharm/HTML/43-S001650852035441X-sea.html" "drive-sync/Literature Review/Outputs/Clin Med Pharm/HTML/43-S001650852035441X-sea.html"
+
+      - name: Commit exact packet 43 outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "google-drive-sync[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- \
+            "drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/43-S001650852035441X-atoms.json" \
+            "drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/43-S001650852035441X-atom-validation.json" \
+            "drive-sync/Literature Review/Outputs/Clin Med Pharm/JSON/43-S001650852035441X-sea-qa.json" \
+            "drive-sync/Literature Review/Outputs/Clin Med Pharm/HTML/43-S001650852035441X-sea.html"
+          if git diff --cached --quiet; then
+            echo "Exact packet 43 outputs already match Drive."
+            exit 0
+          fi
+          git commit -m "process clinical packet 43 outputs"
+          git pull --rebase origin main
+          git push origin HEAD:main
